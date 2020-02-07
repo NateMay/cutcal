@@ -20,7 +20,7 @@
             "main": "apps/cutcal/src/main.ts",
             "polyfills": "apps/cutcal/src/polyfills.ts",
             "tsConfig": "apps/cutcal/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": ["apps/cutcal/src/favicon.ico", "apps/cutcal/src/assets"],
             "styles": ["apps/cutcal/src/styles.scss"],
             "scripts": []
@@ -38,7 +38,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -220,7 +219,7 @@
             "main": "apps/common-ui/src/main.ts",
             "polyfills": "apps/common-ui/src/polyfills.ts",
             "tsConfig": "apps/common-ui/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "apps/common-ui/src/favicon.ico",
               "apps/common-ui/src/assets"
@@ -241,7 +240,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -343,7 +341,7 @@
             "main": "apps/food-review/src/main.ts",
             "polyfills": "apps/food-review/src/polyfills.ts",
             "tsConfig": "apps/food-review/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "apps/food-review/src/favicon.ico",
               "apps/food-review/src/assets"
@@ -364,7 +362,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
