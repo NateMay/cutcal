@@ -46,7 +46,7 @@
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
-    "@angular/cli": "8.3.14",
+    "@angular/cli": "8.3.25",
     "@nrwl/workspace": "8.12.0",
     "@types/node": "~8.9.4",
     "dotenv": "6.2.0",
@@ -58,7 +58,7 @@
     "@nrwl/nest": "8.12.0",
     "@angular/compiler-cli": "^8.2.0",
     "@angular/language-service": "^8.2.0",
-    "@angular-devkit/build-angular": "^0.803.23",
+    "@angular-devkit/build-angular": "^0.803.25",
     "codelyzer": "~5.0.1",
     "jest-preset-angular": "7.0.0",
     "@nrwl/jest": "8.12.0",
