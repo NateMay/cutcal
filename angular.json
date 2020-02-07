@@ -21,8 +21,13 @@
             "polyfills": "apps/cutcal/src/polyfills.ts",
             "tsConfig": "apps/cutcal/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/cutcal/src/favicon.ico", "apps/cutcal/src/assets"],
-            "styles": ["apps/cutcal/src/styles.scss"],
+            "assets": [
+              "apps/cutcal/src/favicon.ico",
+              "apps/cutcal/src/assets"
+            ],
+            "styles": [
+              "apps/cutcal/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -81,7 +86,10 @@
               "apps/cutcal/tsconfig.app.json",
               "apps/cutcal/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/cutcal/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/cutcal/**"
+            ]
           }
         },
         "test": {
@@ -91,6 +99,10 @@
             "tsConfig": "apps/cutcal/tsconfig.spec.json",
             "setupFile": "apps/cutcal/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     },
@@ -115,8 +127,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/cutcal-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/cutcal-e2e/**"]
+            "tsConfig": [
+              "apps/cutcal-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/cutcal-e2e/**"
+            ]
           }
         }
       }
@@ -134,7 +151,9 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -163,7 +182,10 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/api/**"
+            ]
           }
         },
         "test": {
@@ -188,7 +210,10 @@
               "libs/api-interfaces/tsconfig.lib.json",
               "libs/api-interfaces/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/api-interfaces/**"
+            ]
           }
         },
         "test": {
@@ -209,7 +234,7 @@
       },
       "root": "apps/common-ui",
       "sourceRoot": "apps/common-ui/src",
-      "prefix": "cutcal",
+      "prefix": "cc",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -224,7 +249,9 @@
               "apps/common-ui/src/favicon.ico",
               "apps/common-ui/src/assets"
             ],
-            "styles": ["apps/common-ui/src/styles.scss"],
+            "styles": [
+              "apps/common-ui/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -282,7 +309,10 @@
               "apps/common-ui/tsconfig.app.json",
               "apps/common-ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/common-ui/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/common-ui/**"
+            ]
           }
         },
         "test": {
@@ -316,8 +346,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/common-ui-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/common-ui-e2e/**"]
+            "tsConfig": [
+              "apps/common-ui-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/common-ui-e2e/**"
+            ]
           }
         }
       }
@@ -346,7 +381,9 @@
               "apps/food-review/src/favicon.ico",
               "apps/food-review/src/assets"
             ],
-            "styles": ["apps/food-review/src/styles.scss"],
+            "styles": [
+              "apps/food-review/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -404,7 +441,10 @@
               "apps/food-review/tsconfig.app.json",
               "apps/food-review/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/food-review/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/food-review/**"
+            ]
           }
         },
         "test": {
@@ -438,15 +478,21 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/food-review-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/food-review-e2e/**"]
+            "tsConfig": [
+              "apps/food-review-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/food-review-e2e/**"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "84a9fc4f-5464-44fb-9351-e62b2b964599"
   },
   "schematics": {
     "@nrwl/angular:application": {

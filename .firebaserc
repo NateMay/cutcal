@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cutcal": {
+      "hosting": {
+        "cutcal": [
+          "cutcal"
+        ]
+      }
+    }
+  }
+}

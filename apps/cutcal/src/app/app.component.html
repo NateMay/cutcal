@@ -1,8 +1,19 @@
-<div style="text-align:center">
-  <h1>Welcome to cutcal!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
-</div>
-<div>Message: {{ hello$ | async | json }}</div>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+    <router-outlet name="side"></router-outlet>
+    <div>Message: {{ hello$ | async | json }}</div>
+  </mat-drawer>
+
+  
+  <mat-toolbar>
+    <button type="button" mat-mini-fab (click)="drawer.toggle()">
+      <mat-icon><</mat-icon>
+    </button>
+    CutCal
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+
+  
+
+</mat-drawer-container>
+
