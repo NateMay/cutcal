@@ -23,6 +23,20 @@
     },
     "api-interfaces": {
       "tags": []
+    },
+    "common-ui": {
+      "tags": []
+    },
+    "common-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["common-ui"]
+    },
+    "food-review": {
+      "tags": []
+    },
+    "food-review-e2e": {
+      "tags": [],
+      "implicitDependencies": ["food-review"]
     }
   }
 }

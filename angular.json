@@ -200,6 +200,252 @@
           }
         }
       }
+    },
+    "common-ui": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/common-ui",
+      "sourceRoot": "apps/common-ui/src",
+      "prefix": "cutcal",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/common-ui",
+            "index": "apps/common-ui/src/index.html",
+            "main": "apps/common-ui/src/main.ts",
+            "polyfills": "apps/common-ui/src/polyfills.ts",
+            "tsConfig": "apps/common-ui/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/common-ui/src/favicon.ico",
+              "apps/common-ui/src/assets"
+            ],
+            "styles": ["apps/common-ui/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/common-ui/src/environments/environment.ts",
+                  "with": "apps/common-ui/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "common-ui:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "common-ui:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "common-ui:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/common-ui/tsconfig.app.json",
+              "apps/common-ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/common-ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/common-ui/jest.config.js",
+            "tsConfig": "apps/common-ui/tsconfig.spec.json",
+            "setupFile": "apps/common-ui/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "common-ui-e2e": {
+      "root": "apps/common-ui-e2e",
+      "sourceRoot": "apps/common-ui-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/common-ui-e2e/cypress.json",
+            "tsConfig": "apps/common-ui-e2e/tsconfig.e2e.json",
+            "devServerTarget": "common-ui:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "common-ui:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/common-ui-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/common-ui-e2e/**"]
+          }
+        }
+      }
+    },
+    "food-review": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/food-review",
+      "sourceRoot": "apps/food-review/src",
+      "prefix": "cutcal",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/food-review",
+            "index": "apps/food-review/src/index.html",
+            "main": "apps/food-review/src/main.ts",
+            "polyfills": "apps/food-review/src/polyfills.ts",
+            "tsConfig": "apps/food-review/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/food-review/src/favicon.ico",
+              "apps/food-review/src/assets"
+            ],
+            "styles": ["apps/food-review/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/food-review/src/environments/environment.ts",
+                  "with": "apps/food-review/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "food-review:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "food-review:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "food-review:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/food-review/tsconfig.app.json",
+              "apps/food-review/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/food-review/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/food-review/jest.config.js",
+            "tsConfig": "apps/food-review/tsconfig.spec.json",
+            "setupFile": "apps/food-review/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "food-review-e2e": {
+      "root": "apps/food-review-e2e",
+      "sourceRoot": "apps/food-review-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/food-review-e2e/cypress.json",
+            "tsConfig": "apps/food-review-e2e/tsconfig.e2e.json",
+            "devServerTarget": "food-review:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "food-review:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/food-review-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/food-review-e2e/**"]
+          }
+        }
+      }
     }
   },
   "cli": {
