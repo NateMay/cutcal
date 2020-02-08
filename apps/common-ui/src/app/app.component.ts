@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'cutcal-root',
+  selector: 'cc-common-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

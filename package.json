@@ -94,7 +94,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "git add . && npm run format && pretty-quick --staged && npm run affected:all",
+      "pre-commit": "npm run format && git add . && pretty-quick --staged && npm run affected:all",
       "pre-push": "npm run format && pretty-quick --staged && ng lint && ng test"
     }
   }
