@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cutcal/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@cutcal/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@cutcal/nutrition": ["libs/nutrition/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

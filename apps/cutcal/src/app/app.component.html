@@ -1,17 +1,22 @@
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
-    <router-outlet name="side"></router-outlet>
+<mat-drawer-container class="app-container" autosize>
+
+  <mat-drawer #drawer class="app-sidenav mat-elevation-z2" mode="side" opened>
+    <cc-sidebar-search>
+      <router-outlet name="side"></router-outlet>
+    </cc-sidebar-search>
     <div>Message: {{ hello$ | async | json }}</div>
   </mat-drawer>
 
   
-  <mat-toolbar>
-    <button type="button" mat-mini-fab (click)="drawer.toggle()">
-      <mat-icon><</mat-icon>
-    </button>
-    CutCal
-  </mat-toolbar>
-  <router-outlet></router-outlet>
+  <span role="main">
+    <mat-toolbar>
+      <button matRipple class="toggle-sidebar mat-elevation-z2" (click)="drawer.toggle()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <cc-header></cc-header>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </span>
 
   
 

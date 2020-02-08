@@ -5,12 +5,20 @@
   display: block;
 }
 
-.example-container {
+.app-container {
   width: 100vw;
   height: 100vh;
 }
 
 
-.example-sidenav {
+.app-sidenav {
   padding: 20px;
+}
+.toggle-sidebar{
+  margin-left: -22px;
+  height: 50px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border: 1px solid #aaa;
+  outline: none;
 }

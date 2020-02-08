@@ -37,6 +37,9 @@
     "food-review-e2e": {
       "tags": [],
       "implicitDependencies": ["food-review"]
+    },
+    "nutrition": {
+      "tags": ["shared"]
     }
   }
 }
