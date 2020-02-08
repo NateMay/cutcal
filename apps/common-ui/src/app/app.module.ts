@@ -15,7 +15,7 @@ import { AppComponent } from './app.component'
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

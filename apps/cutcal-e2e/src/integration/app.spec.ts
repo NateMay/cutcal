@@ -9,6 +9,5 @@ describe('cutcal', () => {
 
     // Function helper example, see `../support/app.po.ts` file
     getBrand().contains('CutCal');
-
   });
 });
