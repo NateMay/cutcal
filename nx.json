@@ -40,6 +40,15 @@
     },
     "nutrition": {
       "tags": ["shared"]
+    },
+    "drag-n-drop": {
+      "tags": ["shared"]
+    },
+    "cc-ng-core": {
+      "tags": ["shared"]
+    },
+    "ng-testing": {
+      "tags": ["shared"]
     }
   }
 }

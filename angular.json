@@ -472,6 +472,99 @@
           }
         }
       }
+    },
+    "drag-n-drop": {
+      "projectType": "library",
+      "root": "libs/drag-n-drop",
+      "sourceRoot": "libs/drag-n-drop/src",
+      "prefix": "cutcal",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/drag-n-drop/tsconfig.lib.json",
+              "libs/drag-n-drop/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/drag-n-drop/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/drag-n-drop/jest.config.js",
+            "tsConfig": "libs/drag-n-drop/tsconfig.spec.json",
+            "setupFile": "libs/drag-n-drop/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cc-ng-core": {
+      "projectType": "library",
+      "root": "libs/cc-ng-core",
+      "sourceRoot": "libs/cc-ng-core/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cc-ng-core/tsconfig.lib.json",
+              "libs/cc-ng-core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cc-ng-core/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cc-ng-core/jest.config.js",
+            "tsConfig": "libs/cc-ng-core/tsconfig.spec.json",
+            "setupFile": "libs/cc-ng-core/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "ng-testing": {
+      "projectType": "library",
+      "root": "libs/ng-testing",
+      "sourceRoot": "libs/ng-testing/src",
+      "prefix": "cutcal",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ng-testing/tsconfig.lib.json",
+              "libs/ng-testing/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ng-testing/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ng-testing/jest.config.js",
+            "tsConfig": "libs/ng-testing/tsconfig.spec.json",
+            "setupFile": "libs/ng-testing/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

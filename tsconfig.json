@@ -17,7 +17,10 @@
     "baseUrl": ".",
     "paths": {
       "@cutcal/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@cutcal/nutrition": ["libs/nutrition/src/index.ts"]
+      "@cutcal/nutrition": ["libs/nutrition/src/index.ts"],
+      "@cutcal/drag-n-drop": ["libs/drag-n-drop/src/index.ts"],
+      "@cutcal/cc-ng-core": ["libs/cc-ng-core/src/index.ts"],
+      "@cutcal/ng-testing": ["libs/ng-testing/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
