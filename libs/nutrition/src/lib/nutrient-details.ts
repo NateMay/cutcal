@@ -1,6 +1,6 @@
 // import { KVP } from '../models/key-value-pair';
 
-export type FdcUnit = 'kcal' | 'kj' | 'g' | 'mg' | 'iu' | 'µg' | 'sp_gr';
+export type FdcUnit = 'kcal' | 'kj' | 'g' | 'mg' | 'iu' | 'µg' | 'sp_gr'
 /**
  * Static Nutrient Metadata
  * @property {number} id FoodData Central nutrient ID
@@ -11,1611 +11,1610 @@ export type FdcUnit = 'kcal' | 'kj' | 'g' | 'mg' | 'iu' | 'µg' | 'sp_gr';
  */
 
 export interface NutrientMetaData {
-  id: number;
-  nbr: number;
-  nutrient: string;
-  unit: FdcUnit;
-  shortName: string;
-  propName?: string;
+  id: number
+  nbr: number
+  nutrient: string
+  unit: FdcUnit
+  shortName: string
+  propName?: string
 }
 
-
 export const USDA_NUTRIENT_DETAILS: { [key: string]: NutrientMetaData } = {
-  'water': {
+  water: {
     id: 1051,
     nbr: 255,
     nutrient: 'Water',
     shortName: 'Water',
-    unit: 'g'
+    unit: 'g',
   },
-  'calories': {
+  calories: {
     id: 1008,
     nbr: 208,
     nutrient: 'Calories',
     shortName: 'Calories',
-    unit: 'kcal'
+    unit: 'kcal',
   },
-  'kj': {
+  kj: {
     id: 1062,
     nbr: 268,
     nutrient: 'Kilojoules',
     shortName: 'Kilojoules',
-    unit: 'kj'
+    unit: 'kj',
   },
-  'protein': {
+  protein: {
     id: 1003,
     nbr: 203,
     nutrient: 'Protein, total',
     shortName: 'Protein',
-    unit: 'g'
+    unit: 'g',
   },
-  'fat': {
+  fat: {
     id: 1004,
     nbr: 204,
     nutrient: 'Total lipid (fat)',
     shortName: 'Fat',
-    unit: 'g'
+    unit: 'g',
   },
-  'ash': {
+  ash: {
     id: 1007,
     nbr: 207,
     nutrient: 'Ash',
     shortName: 'Ash',
-    unit: 'g'
+    unit: 'g',
   },
-  'carbohydrates': {
+  carbohydrates: {
     id: 1005,
     nbr: 205,
     nutrient: 'Carbohydrate',
     shortName: 'Carbohydrate',
-    unit: 'g'
+    unit: 'g',
   },
-  'dietary_fiber': {
+  dietary_fiber: {
     id: 1079,
     nbr: 291,
     nutrient: 'Fiber, total dietary',
     shortName: 'Dietary Fiber',
-    unit: 'g'
+    unit: 'g',
   },
-  'soluble_fiber': {
+  soluble_fiber: {
     id: 1082,
     nbr: 295,
     nutrient: 'Fiber, soluble',
     shortName: 'Soluble Fiber',
-    unit: 'g'
+    unit: 'g',
   },
-  'insoluble_fiber': {
+  insoluble_fiber: {
     id: 1084,
     nbr: 297,
     nutrient: 'Fiber, insoluble',
     shortName: 'Insoluble Fiber',
-    unit: 'g'
+    unit: 'g',
   },
-  'sugar': {
+  sugar: {
     id: 2000,
     nbr: 269,
     nutrient: 'Sugars, total including NLEA',
     shortName: 'Sugar',
-    unit: 'g'
+    unit: 'g',
   },
-  'addedSugar': {
+  addedSugar: {
     id: 1235,
     nbr: 539,
     nutrient: 'Sugars added',
     shortName: 'Sugar added',
-    unit: 'g'
+    unit: 'g',
   },
-  'sucrose': {
+  sucrose: {
     id: 1010,
     nbr: 210,
     nutrient: 'Sucrose',
     shortName: 'Sucrose',
-    unit: 'g'
+    unit: 'g',
   },
-  'glucose': {
+  glucose: {
     id: 1011,
     nbr: 211,
     nutrient: 'Glucose (dextrose)',
     shortName: 'Glucose (dextrose)',
-    unit: 'g'
+    unit: 'g',
   },
-  'fructose': {
+  fructose: {
     id: 1012,
     nbr: 212,
     nutrient: 'Fructose',
     shortName: 'Fructose',
-    unit: 'g'
+    unit: 'g',
   },
-  'lactose': {
+  lactose: {
     id: 1013,
     nbr: 213,
     nutrient: 'Lactose',
     shortName: 'Lactose',
-    unit: 'g'
+    unit: 'g',
   },
-  'maltose': {
+  maltose: {
     id: 1014,
     nbr: 214,
     nutrient: 'Maltose',
     shortName: 'Maltose',
-    unit: 'g'
+    unit: 'g',
   },
-  'galactose': {
+  galactose: {
     id: 1075,
     nbr: 287,
     nutrient: 'Galactose',
     shortName: 'Galactose',
-    unit: 'g'
+    unit: 'g',
   },
-  'sugar_alcohol': {
+  sugar_alcohol: {
     id: 1086,
     nbr: 299,
     nutrient: 'Total sugar alcohols',
     shortName: 'Sugar Alcohol',
-    unit: 'g'
+    unit: 'g',
   },
-  'starch': {
+  starch: {
     id: 1009,
     nbr: 209,
     nutrient: 'Starch',
     shortName: 'Starch',
-    unit: 'g'
+    unit: 'g',
   },
-  'calcium': {
+  calcium: {
     id: 1087,
     nbr: 301,
     nutrient: 'Calcium, Ca',
     shortName: 'Calcium',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'iron': {
+  iron: {
     id: 1089,
     nbr: 303,
     nutrient: 'Iron, Fe',
     shortName: 'Iron',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'magnesium': {
+  magnesium: {
     id: 1090,
     nbr: 304,
     nutrient: 'Magnesium, Mg',
     shortName: 'Magnesium',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'phosphorus': {
+  phosphorus: {
     id: 1091,
     nbr: 305,
     nutrient: 'Phosphorus',
     shortName: 'Phosphorus',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'potassium': {
+  potassium: {
     id: 1092,
     nbr: 306,
     nutrient: 'Potassium, K',
     shortName: 'Potassium',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'sodium': {
+  sodium: {
     id: 1093,
     nbr: 307,
     nutrient: 'Sodium, Na',
     shortName: 'Sodium',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'zinc': {
+  zinc: {
     id: 1095,
     nbr: 309,
     nutrient: 'Zinc, Zn',
     shortName: 'Zinc',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'copper': {
+  copper: {
     id: 1098,
     nbr: 312,
     nutrient: 'Copper, Cu',
     shortName: 'Copper',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'fluoride': {
+  fluoride: {
     id: 1099,
     nbr: 313,
     nutrient: 'Fluoride, F',
     shortName: 'Fluoride',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'iodine': {
+  iodine: {
     id: 1100,
     nbr: 314,
     nutrient: 'Iodine, I',
     shortName: 'Iodine',
-    unit: 'iu'
+    unit: 'iu',
   },
-  'manganese': {
+  manganese: {
     id: 1101,
     nbr: 315,
     nutrient: 'Manganese, Mn',
     shortName: 'Manganese',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'selenium': {
+  selenium: {
     id: 1103,
     nbr: 317,
     nutrient: 'Selenium, Se',
     shortName: 'Selenium',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'vit_C': {
+  vit_C: {
     id: 1162,
     nbr: 401,
     nutrient: 'Vitamin C, total ascorbic acid',
     shortName: 'Vitamin C',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'thiamin': {
+  thiamin: {
     id: 1165,
     nbr: 404,
     nutrient: 'Thiamin',
     shortName: 'Thiamin',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'riboflavin': {
+  riboflavin: {
     id: 1166,
     nbr: 405,
     nutrient: 'Riboflavin',
     shortName: 'Riboflavin',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'niacin': {
+  niacin: {
     id: 1167,
     nbr: 406,
     nutrient: 'Niacin',
     shortName: 'Niacin',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'pantothenic_acid': {
+  pantothenic_acid: {
     id: 1170,
     nbr: 410,
     nutrient: 'Pantothenic acid',
     shortName: 'Pantothenic Acid',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'vit_B6': {
+  vit_B6: {
     id: 1175,
     nbr: 415,
     nutrient: 'Vitamin B-6',
     shortName: 'Vitamin B-6',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'biotin': {
+  biotin: {
     id: 1176,
     nbr: 416,
     nutrient: 'Biotin, Vitamin B-7',
     shortName: 'Biotin',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'folate': {
+  folate: {
     id: 1177,
     nbr: 417,
     nutrient: 'Folate, total',
     shortName: 'Folate',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'folic_acid': {
+  folic_acid: {
     id: 1186,
     nbr: 431,
     nutrient: 'Folic acid',
     shortName: 'Folic acid',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'food_folate': {
+  food_folate: {
     id: 1187,
     nbr: 432,
     nutrient: 'Folate, food',
     shortName: 'Food Folate',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'dietary_folate_equiv': {
+  dietary_folate_equiv: {
     id: 1190,
     nbr: 435,
     nutrient: 'Folate DFE',
     shortName: 'Folate Equivalent',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'choline': {
+  choline: {
     id: 1180,
     nbr: 421,
     nutrient: 'Choline, total',
     shortName: 'Choline',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'betaine': {
+  betaine: {
     id: 1198,
     nbr: 454,
     nutrient: 'Betaine',
     shortName: 'Betaine',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'vit_B12': {
+  vit_B12: {
     id: 1178,
     nbr: 418,
     nutrient: 'Vitamin B-12',
     shortName: 'Vitamin B-12',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'added_B12': {
+  added_B12: {
     id: 1246,
     nbr: 578,
     nutrient: 'Vitamin B-12, added',
     shortName: 'Vitamin B-12, added',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'retinol_activity_equiv': {
+  retinol_activity_equiv: {
     id: 1106,
     nbr: 320,
     nutrient: 'Vitamin A, RAE',
     shortName: 'Vitamin A, Equivalent',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'retinol': {
+  retinol: {
     id: 1105,
     nbr: 319,
     nutrient: 'Retinol',
     shortName: 'Retinol',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'beta_carotene': {
+  beta_carotene: {
     id: 1107,
     nbr: 321,
     nutrient: 'Carotene beta',
     shortName: 'Carotene beta',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'alpha_carotene': {
+  alpha_carotene: {
     id: 1108,
     nbr: 322,
     nutrient: 'Carotene alpha',
     shortName: 'Carotene alpha',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'beta_cryptoxanthin': {
+  beta_cryptoxanthin: {
     id: 1120,
     nbr: 334,
     nutrient: 'Cryptoxanthin, beta',
     shortName: 'Cryptoxanthin Beta',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'vit_A': {
+  vit_A: {
     id: 1104,
     nbr: 318,
     nutrient: 'Vitamin A, IU',
     shortName: 'Vitamin A',
-    unit: 'iu'
+    unit: 'iu',
   },
-  'lycopene': {
+  lycopene: {
     id: 1122,
     nbr: 337,
     nutrient: 'Lycopene',
     shortName: 'Lycopene',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'lutein_zeaxanthin': {
+  lutein_zeaxanthin: {
     id: 1123,
     nbr: 338,
     nutrient: 'Lutein + zeaxanthin',
     shortName: 'Lutein + Zeaxanthin',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'vit_E': {
+  vit_E: {
     id: 1109,
     nbr: 323,
     nutrient: 'Vitamin E (alpha-tocopherol)',
     shortName: 'Vitamin E',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'vit_E_added': {
+  vit_E_added: {
     id: 1242,
     nbr: 573,
     nutrient: 'Vitamin E, added',
     shortName: 'Vitamin E, added',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'beta_tocopherol': {
+  beta_tocopherol: {
     id: 1125,
     nbr: 341,
     nutrient: 'Tocopherol beta',
     shortName: 'Tocopherol Beta',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'gamma_tocopherol': {
+  gamma_tocopherol: {
     id: 1126,
     nbr: 342,
     nutrient: 'Tocopherol gamma',
     shortName: 'Tocopherol Gamma',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'delta_tocopherol': {
+  delta_tocopherol: {
     id: 1127,
     nbr: 343,
     nutrient: 'Tocopherol delta',
     shortName: 'Tocopherol Delta',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'alpha_tocotrienol': {
+  alpha_tocotrienol: {
     id: 1128,
     nbr: 344,
     nutrient: 'Tocotrienol alpha',
     shortName: 'Tocotrienol Alpha',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'beta_tocotrienol': {
+  beta_tocotrienol: {
     id: 1129,
     nbr: 345,
     nutrient: 'Tocotrienol beta',
     shortName: 'Tocotrienol Beta',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'gamma_tocotrienol': {
+  gamma_tocotrienol: {
     id: 1130,
     nbr: 346,
     nutrient: 'Tocotrienol gamma',
     shortName: 'Tocotrienol Gamma',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'delta_tocotrienol': {
+  delta_tocotrienol: {
     id: 1131,
     nbr: 347,
     nutrient: 'Tocotrienol delta',
     shortName: 'Tocotrienol Delta',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'd2and3': {
+  d2and3: {
     id: 1114,
     nbr: 328,
     nutrient: 'Vitamin D (D2 + D3)',
     shortName: 'Vitamin D2 + D3',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'd2': {
+  d2: {
     id: 1111,
     nbr: 325,
     nutrient: 'Vitamin D2 (ergocalciferol)',
     shortName: 'Vitamin D2',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'd3': {
+  d3: {
     id: 1112,
     nbr: 326,
     nutrient: 'Vitamin D3 (cholecalciferol)',
     shortName: 'Vitamin D3',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'vit_D': {
+  vit_D: {
     id: 1110,
     nbr: 324,
     nutrient: 'Vitamin D',
     shortName: 'Vitamin D',
-    unit: 'iu'
+    unit: 'iu',
   },
-  'vit_K': {
+  vit_K: {
     id: 1185,
     nbr: 430,
     nutrient: 'Vitamin K (phylloquinone)',
     shortName: 'Vitamin K',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'dihydrophylloquinone': {
+  dihydrophylloquinone: {
     id: 1184,
     nbr: 429,
     nutrient: 'Dihydrophylloquinone',
     shortName: 'Dihydrophylloquinone',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'menaquinone_4': {
+  menaquinone_4: {
     id: 1183,
     nbr: 428,
     nutrient: 'Menaquinone-4',
     shortName: 'Menaquinone-4',
-    unit: 'µg'
+    unit: 'µg',
   },
 
   /**
    * @reference {@link https://en.wikipedia.org/wiki/List_of_saturated_fatty_acids}
    */
-  'saturatedFat': {
+  saturatedFat: {
     id: 1258,
     nbr: 606,
     nutrient: 'Fatty acids, total saturated',
     shortName: 'Saturated Fat',
-    unit: 'g'
+    unit: 'g',
   },
-  '_4$0': {
+  _4$0: {
     id: 1259,
     nbr: 607,
     nutrient: 'Saturated Fatty Acid - 4:00',
     shortName: 'Butyric Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_6$0': {
+  _6$0: {
     id: 1260,
     nbr: 608,
     nutrient: 'Saturated Fatty Acid - 6:00',
     shortName: 'Caproic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_8$0': {
+  _8$0: {
     id: 1261,
     nbr: 609,
     nutrient: 'Saturated Fatty Acid - 8:00',
     shortName: 'Caprylic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_10$0': {
+  _10$0: {
     id: 1262,
     nbr: 610,
     nutrient: 'Saturated Fatty Acid - 10:00',
     shortName: 'Capric Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_12$0': {
+  _12$0: {
     id: 1263,
     nbr: 611,
     nutrient: 'Saturated Fatty Acid - 12:00',
     shortName: 'Lauric Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_13$0': {
+  _13$0: {
     id: 1332,
     nbr: 696,
     nutrient: 'Saturated Fatty Acid - 13:00',
     shortName: 'Tridecanoic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_14$0': {
+  _14$0: {
     id: 1264,
     nbr: 612,
     nutrient: 'Saturated Fatty Acid - 14:00',
     shortName: 'Myristic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_15$0': {
+  _15$0: {
     id: 1299,
     nbr: 652,
     nutrient: 'Saturated Fatty Acid - 15:00',
     shortName: 'Pentadecanoic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_16$0': {
+  _16$0: {
     id: 1265,
     nbr: 613,
     nutrient: 'Saturated Fatty Acid - 16:00',
     shortName: 'Palmitic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_17$0': {
+  _17$0: {
     id: 1300,
     nbr: 653,
     nutrient: 'Saturated Fatty Acid - 17:00',
     shortName: 'Margaric Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$0': {
+  _18$0: {
     id: 1266,
     nbr: 614,
     nutrient: 'Saturated Fatty Acid - 18:00',
     shortName: 'Stearic Acid',
-    unit: 'g'
+    unit: 'g',
   },
   // 19:0	nonadecanoic acid
-  '_20$0': {
+  _20$0: {
     id: 1267,
     nbr: 615,
     nutrient: 'Saturated Fatty Acid - 20:00',
     shortName: 'Arachidic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$0': {
+  _22$0: {
     id: 1273,
     nbr: 624,
     nutrient: 'Saturated Fatty Acid - 22:0',
     shortName: 'Behenic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_24$0': {
+  _24$0: {
     id: 1301,
     nbr: 654,
     nutrient: 'Saturated Fatty Acid - 24:0',
     shortName: 'Lignoceric Acid',
-    unit: 'g'
+    unit: 'g',
   },
 
   /**
    * @reference {@link https://en.wikipedia.org/wiki/Monounsaturated_fat}
    */
-  'monoUnsaturated': {
+  monoUnsaturated: {
     id: 1292,
     nbr: 645,
     nutrient: 'Fatty acids, total monounsaturated',
     shortName: 'Fatty acids, total monounsaturated',
-    unit: 'g'
+    unit: 'g',
   },
-  '_14$1': {
+  _14$1: {
     id: 1274,
     nbr: 625,
     nutrient: 'Monounsaturated Fatty Acid - 14:01',
     shortName: 'Myristoleic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_15$1': {
+  _15$1: {
     id: 1333,
     nbr: 697,
     nutrient: 'Monounsaturated Fatty Acid - 15:1',
     shortName: 'Pentadecenoic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_16$1_undif': {
+  _16$1_undif: {
     id: 1275,
     nbr: 626,
     nutrient: 'Monounsaturated Fatty Acid - 16:01 undifferentiated',
     shortName: 'Palmitoleic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_16$1c': {
+  _16$1c: {
     id: 1314,
     nbr: 673,
     nutrient: 'Monounsaturated Fatty Acid - 16:1 c',
     shortName: '16:1 c',
-    unit: 'g'
+    unit: 'g',
   },
-  '_16$1t': {
+  _16$1t: {
     id: 1303,
     nbr: 662,
     nutrient: 'Monounsaturated Fatty Acid - 16:1 t',
     shortName: '16:1 t',
-    unit: 'g'
+    unit: 'g',
   },
-  '_17$1': {
+  _17$1: {
     id: 1323,
     nbr: 687,
     nutrient: 'Monounsaturated Fatty Acid - 17:1',
     shortName: 'Heptadecenoic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$1_undif': {
+  _18$1_undif: {
     id: 1268,
     nbr: 617,
     nutrient: 'Monounsaturated Fatty Acid - 18:01 undifferentiated',
     shortName: 'Oleic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$1c': {
+  _18$1c: {
     id: 1315,
     nbr: 674,
     nutrient: 'Monounsaturated Fatty Acid - 18:1 c',
     shortName: '18:1 c',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$1t': {
+  _18$1t: {
     id: 1304,
     nbr: 663,
     nutrient: 'Monounsaturated Fatty Acid - 18:1 t',
     shortName: '18:1 t',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$1_11': {
+  _18$1_11: {
     id: 1412,
     nbr: 859,
     nutrient: 'Monounsaturated Fatty Acid - 18:1-11 t (18:1t n-7)',
     shortName: '18:1-11 t',
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$1': {
+  _20$1: {
     id: 1277,
     nbr: 628,
     nutrient: 'Monounsaturated Fatty Acid - 20:01',
     shortName: 'Gadoleic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$1_undif': {
+  _22$1_undif: {
     id: 1279,
     nbr: 630,
     nutrient: 'Monounsaturated Fatty Acid - 22:1 undifferentiated',
     shortName: 'Erucic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$1c': {
+  _22$1c: {
     id: 1317,
     nbr: 676,
     nutrient: 'Monounsaturated Fatty Acid - 22:1 c',
     shortName: '22:1 c',
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$1t': {
+  _22$1t: {
     id: 1305,
     nbr: 664,
     nutrient: 'Monounsaturated Fatty Acid - 22:1 t',
     shortName: '22:1 t',
-    unit: 'g'
+    unit: 'g',
   },
-  '_24$1c': {
+  _24$1c: {
     id: 1312,
     nbr: 671,
     nutrient: 'Monounsaturated Fatty Acid - 24:1 c',
     shortName: 'Nervonic acid',
-    unit: 'g'
+    unit: 'g',
   },
 
   /**
    * @reference {@link https://en.wikipedia.org/wiki/List_of_saturated_fatty_acids}
    */
-  'polyUnsaturated': {
+  polyUnsaturated: {
     id: 1293,
     nbr: 646,
     nutrient: 'Fatty acids, total Polyunsaturated',
     shortName: 'Polyunsaturated Fat',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$2_undif': {
+  _18$2_undif: {
     id: 1269,
     nbr: 618,
     nutrient: 'Polyunsaturated Fatty acids - 18:02 undifferentiated',
     shortName: '18:2 undif',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$2n6': {
+  _18$2n6: {
     id: 1316,
     nbr: 675,
     nutrient: 'Polyunsaturated Fatty acids - 18:2 n-6 c,c',
     shortName: 'Linoleic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$2_CLAs': {
+  _18$2_CLAs: {
     id: 1311,
     nbr: 670,
     nutrient: 'Polyunsaturated Fatty acids - 18:2 CLAs',
     shortName: '18:2 CLAs',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$2t': {
+  _18$2t: {
     id: 1310,
     nbr: 669,
     nutrient: 'Polyunsaturated Fatty acids - 18:2 t,t',
     shortName: '18:2 t,t',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$2i': {
+  _18$2i: {
     id: 1307,
     nbr: 666,
     nutrient: 'Polyunsaturated Fatty acids - 18:2 i',
     shortName: '18:2 i',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$2t_nfd': {
+  _18$2t_nfd: {
     id: 1306,
     nbr: 665,
     nutrient: 'Polyunsaturated Fatty acids - 18:2 t not further defined',
     shortName: '18:2 t',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$3_undif': {
+  _18$3_undif: {
     id: 1270,
     nbr: 619,
     nutrient: 'Polyunsaturated Fatty acids - 18:3 undifferentiated',
     shortName: 'Linolenic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$3n3': {
+  _18$3n3: {
     id: 1404,
     nbr: 851,
     nutrient: 'Polyunsaturated Fatty acids - 18:3 n-3 c,c,c (ALA)',
     shortName: 'Alpha-Linolenic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$3n6': {
+  _18$3n6: {
     id: 1321,
     nbr: 685,
     nutrient: 'Polyunsaturated Fatty acids - 18:3 n-6 c,c,c',
     shortName: 'Gamma-linolenic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$3i': {
+  _18$3i: {
     id: 1409,
     nbr: 856,
     nutrient: 'Polyunsaturated Fatty acids - 18:3i',
     shortName: 'Calendic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$4': {
+  _18$4: {
     id: 1276,
     nbr: 627,
     nutrient: 'Polyunsaturated Fatty acids - 18:04',
     shortName: 'Parinaric acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$2n6': {
+  _20$2n6: {
     id: 1313,
     nbr: 672,
     nutrient: 'Polyunsaturated Fatty acids - 20:2 n-6 c,c',
     shortName: 'Eicosadienoic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$3_undif': {
+  _20$3_undif: {
     id: 1325,
     nbr: 689,
     nutrient: 'Polyunsaturated Fatty acids - 20:03 undifferentiated',
     shortName: 'Eicosatrienoic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$3n3': {
+  _20$3n3: {
     id: 1405,
     nbr: 852,
     nutrient: 'Polyunsaturated Fatty acids - 20:3 n-3',
     shortName: 'Eicosatrienoic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$3n6': {
+  _20$3n6: {
     id: 1406,
     nbr: 853,
     nutrient: 'Polyunsaturated Fatty acids - 20:3 n-6',
     shortName: 'Dihomo-gamma-linolenic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$4_undif': {
+  _20$4_undif: {
     id: 1271,
     nbr: 620,
     nutrient: 'Polyunsaturated Fatty acids - 20:4 undifferentiated',
     shortName: 'Arachidonic Acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$4n6': {
+  _20$4n6: {
     id: 1408,
     nbr: 855,
     nutrient: 'Polyunsaturated Fatty acids - 20:4 n-6',
     shortName: '20:4 n-6',
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$5n3': {
+  _20$5n3: {
     id: 1278,
     nbr: 629,
     nutrient: 'Polyunsaturated Fatty acids - 20:5 n-3 (EPA)',
     shortName: 'Timnodonic Acid', // Eicosapentaenoic
-    unit: 'g'
+    unit: 'g',
   },
-  '_21$5': {
+  _21$5: {
     id: 1410,
     nbr: 857,
     nutrient: 'Polyunsaturated Fatty acids - 21:05',
     shortName: 'Heneicosapentaenoic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$4': {
+  _22$4: {
     id: 1411,
     nbr: 858,
     nutrient: 'Polyunsaturated Fatty acids - 22:04',
     shortName: 'Adrenic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$5n3': {
+  _22$5n3: {
     id: 1280,
     nbr: 631,
     nutrient: 'Polyunsaturated Fatty acids - 22:5 n-3 (DPA)',
     shortName: 'Docosapentaenoic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$6n3': {
+  _22$6n3: {
     id: 1272,
     nbr: 621,
     nutrient: 'Polyunsaturated Fatty acids - 22:6 n-3 (DHA)',
     shortName: 'Docosahexaenoic acid',
-    unit: 'g'
+    unit: 'g',
   },
 
-  'transUnsaturated': {
+  transUnsaturated: {
     id: 1257,
     nbr: 605,
     nutrient: 'Fatty acids, total trans',
     shortName: 'Trans Fat',
-    unit: 'g'
+    unit: 'g',
   },
-  'monoenoic': {
+  monoenoic: {
     id: 1329,
     nbr: 693,
     nutrient: 'Fatty acids, total trans-monoenoic',
     shortName: 'Trans-Monoenoic',
-    unit: 'g'
+    unit: 'g',
   },
-  'polyenoic': {
+  polyenoic: {
     id: 1331,
     nbr: 695,
     nutrient: 'Fatty acids, total trans-polyenoic',
     shortName: 'Trans-Polyenoic',
-    unit: 'g'
+    unit: 'g',
   },
-  'cholesterol': {
+  cholesterol: {
     id: 1253,
     nbr: 601,
     nutrient: 'Cholesterol',
     shortName: 'Cholesterol',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'phytosterols': {
+  phytosterols: {
     id: 1283,
     nbr: 636,
     nutrient: 'Phytosterols',
     shortName: 'Phytosterols',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'stigmasterol': {
+  stigmasterol: {
     id: 1285,
     nbr: 638,
     nutrient: 'Stigmasterol',
     shortName: 'Stigmasterol',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'campesterol': {
+  campesterol: {
     id: 1286,
     nbr: 639,
     nutrient: 'Campesterol',
     shortName: 'Campesterol',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'beta_sitosterol': {
+  beta_sitosterol: {
     id: 1288,
     nbr: 641,
     nutrient: 'Beta-sitosterol',
     shortName: 'β-sitosterol',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'tryptophan': {
+  tryptophan: {
     id: 1210,
     nbr: 501,
     nutrient: 'Tryptophan',
     shortName: 'Tryptophan',
-    unit: 'g'
+    unit: 'g',
   },
-  'threonine': {
+  threonine: {
     id: 1211,
     nbr: 502,
     nutrient: 'Threonine',
     shortName: 'Threonine',
-    unit: 'g'
+    unit: 'g',
   },
-  'isoleucine': {
+  isoleucine: {
     id: 1212,
     nbr: 503,
     nutrient: 'Isoleucine',
     shortName: 'Isoleucine',
-    unit: 'g'
+    unit: 'g',
   },
-  'leucine': {
+  leucine: {
     id: 1213,
     nbr: 504,
     nutrient: 'Leucine',
     shortName: 'Leucine',
-    unit: 'g'
+    unit: 'g',
   },
-  'lysine': {
+  lysine: {
     id: 1214,
     nbr: 505,
     nutrient: 'Lysine',
     shortName: 'Lysine',
-    unit: 'g'
+    unit: 'g',
   },
-  'methionine': {
+  methionine: {
     id: 1215,
     nbr: 506,
     nutrient: 'Methionine',
     shortName: 'Methionine',
-    unit: 'g'
+    unit: 'g',
   },
-  'cystine': {
+  cystine: {
     id: 1216,
     nbr: 507,
     nutrient: 'Cystine',
     shortName: 'Cystine',
-    unit: 'g'
+    unit: 'g',
   },
-  'phenylalanine': {
+  phenylalanine: {
     id: 1217,
     nbr: 508,
     nutrient: 'Phenylalanine',
     shortName: 'Phenylalanine',
-    unit: 'g'
+    unit: 'g',
   },
-  'tyrosine': {
+  tyrosine: {
     id: 1218,
     nbr: 509,
     nutrient: 'Tyrosine',
     shortName: 'Tyrosine',
-    unit: 'g'
+    unit: 'g',
   },
-  'valine': {
+  valine: {
     id: 1219,
     nbr: 510,
     nutrient: 'Valine',
     shortName: 'Valine',
-    unit: 'g'
+    unit: 'g',
   },
-  'arginine': {
+  arginine: {
     id: 1220,
     nbr: 511,
     nutrient: 'Arginine',
     shortName: 'Arginine',
-    unit: 'g'
+    unit: 'g',
   },
-  'histidine': {
+  histidine: {
     id: 1221,
     nbr: 512,
     nutrient: 'Histidine',
     shortName: 'Histidine',
-    unit: 'g'
+    unit: 'g',
   },
-  'alanine': {
+  alanine: {
     id: 1222,
     nbr: 513,
     nutrient: 'Alanine',
     shortName: 'Alanine',
-    unit: 'g'
+    unit: 'g',
   },
-  'aspartic_acid': {
+  aspartic_acid: {
     id: 1223,
     nbr: 514,
     nutrient: 'Aspartic acid',
     shortName: 'Aspartic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  'glutamic_acid': {
+  glutamic_acid: {
     id: 1224,
     nbr: 515,
     nutrient: 'Glutamic acid',
     shortName: 'Glutamic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  'glycine': {
+  glycine: {
     id: 1225,
     nbr: 516,
     nutrient: 'Glycine',
     shortName: 'Glycine',
-    unit: 'g'
+    unit: 'g',
   },
-  'proline': {
+  proline: {
     id: 1226,
     nbr: 517,
     nutrient: 'Proline',
     shortName: 'Proline',
-    unit: 'g'
+    unit: 'g',
   },
-  'serine': {
+  serine: {
     id: 1227,
     nbr: 518,
     nutrient: 'Serine',
     shortName: 'Serine',
-    unit: 'g'
+    unit: 'g',
   },
-  'hydroxyproline': {
+  hydroxyproline: {
     id: 1228,
     nbr: 521,
     nutrient: 'Hydroxyproline',
     shortName: 'Hydroxyproline',
-    unit: 'g'
+    unit: 'g',
   },
-  'alcohol': {
+  alcohol: {
     id: 1018,
     nbr: 221,
     nutrient: 'Alcohol, ethyl',
     shortName: 'Alcohol',
-    unit: 'g'
+    unit: 'g',
   },
-  'caffeine': {
+  caffeine: {
     id: 1057,
     nbr: 262,
     nutrient: 'Caffeine',
     shortName: 'Caffeine',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'theobromine': {
+  theobromine: {
     id: 1058,
     nbr: 263,
     nutrient: 'Theobromine',
     shortName: 'Theobromine',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'nitrogen': {
+  nitrogen: {
     id: 1002,
     nbr: 202,
     nutrient: 'Nitrogen',
     shortName: 'Nitrogen',
-    unit: 'g'
+    unit: 'g',
   },
-  'acetic_acid': {
+  acetic_acid: {
     id: 1026,
     nbr: 230,
     nutrient: 'Acetic acid',
     shortName: 'Acetic acid',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'lactic_acid': {
+  lactic_acid: {
     id: 1038,
     nbr: 242,
     nutrient: 'Lactic acid',
     shortName: 'Lactic acid',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'sulfur': {
+  sulfur: {
     id: 1094,
     nbr: 308,
     nutrient: 'Sulfur, S',
     shortName: 'Sulfur',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'sorbitol': {
+  sorbitol: {
     id: 1056,
     nbr: 261,
     nutrient: 'Sorbitol',
     shortName: 'Sorbitol',
-    unit: 'g'
+    unit: 'g',
   },
-  'sugars_nlea': {
+  sugars_nlea: {
     id: 1063,
     nbr: 269.3,
     nutrient: 'Sugars, Total NLEA',
     shortName: 'Sugars, Total NLEA',
-    unit: 'g'
+    unit: 'g',
   },
-  'xylitol': {
+  xylitol: {
     id: 1078,
     nbr: 290,
     nutrient: 'Xylitol',
     shortName: 'Xylitol',
-    unit: 'g'
+    unit: 'g',
   },
-  'ribose': {
+  ribose: {
     id: 1081,
     nbr: 294,
     nutrient: 'Ribose',
     shortName: 'Ribose',
-    unit: 'g'
+    unit: 'g',
   },
-  'carb_sum': {
+  carb_sum: {
     id: 1050,
     nbr: 205.2,
     nutrient: 'Carbohydrate, by summation',
     shortName: 'Carbohydrate, by summation',
-    unit: 'g'
+    unit: 'g',
   },
-  'carb_other': {
+  carb_other: {
     id: 1072,
     nbr: 284,
     nutrient: 'Carbohydrate, other',
     shortName: 'Carbohydrate, other',
-    unit: 'g'
+    unit: 'g',
   },
-  'inositol': {
+  inositol: {
     id: 1181,
     nbr: 422,
     nutrient: 'Inositol',
     shortName: 'Inositol',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'inulin': {
+  inulin: {
     id: 1403,
     nbr: 806,
     nutrient: 'Inulin',
     shortName: 'Inulin',
-    unit: 'g'
+    unit: 'g',
   },
-  'epigallocatechin': {
+  epigallocatechin: {
     id: 1368,
     nbr: 753,
     nutrient: 'Epigallocatechin-3-gallate',
     shortName: 'Epigallocatechin 3 Gallate',
-    unit: 'g'
+    unit: 'g',
   },
-  'fat_nlea': {
+  fat_nlea: {
     id: 1085,
     nbr: 298,
     nutrient: 'Total fat (NLEA)',
     shortName: 'Total fat (NLEA)',
-    unit: 'g'
+    unit: 'g',
   },
-  'chlorine': {
+  chlorine: {
     id: 1088,
     nbr: 302,
     nutrient: 'Chlorine, Cl',
     shortName: 'Chlorine',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'chromium': {
+  chromium: {
     id: 1096,
     nbr: 310,
     nutrient: 'Chromium, Cr',
     shortName: 'Chromium',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'cobalt': {
+  cobalt: {
     id: 1097,
     nbr: 311,
     nutrient: 'Cobalt, Co',
     shortName: 'Cobalt',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'molybdenum': {
+  molybdenum: {
     id: 1102,
     nbr: 316,
     nutrient: 'Molybdenum, Mo',
     shortName: 'Molybdenum',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'calcifediol': {
+  calcifediol: {
     id: 1113,
     nbr: 327,
     nutrient: '25-hydroxycholecalciferol',
     shortName: 'calcifediol',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'phytoene': {
+  phytoene: {
     id: 1116,
     nbr: 330,
     nutrient: 'Phytoene',
     shortName: 'Phytoene',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'phytofluene': {
+  phytofluene: {
     id: 1117,
     nbr: 331,
     nutrient: 'Phytofluene',
     shortName: 'Phytofluene',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'zeaxanthin': {
+  zeaxanthin: {
     id: 1119,
     nbr: 338.2,
     nutrient: 'Zeaxanthin',
     shortName: 'Zeaxanthin',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'lutein': {
+  lutein: {
     id: 1121,
     nbr: 338.1,
     nutrient: 'Lutein',
     shortName: 'Lutein',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'cis_lutein_zeaxanthin': {
+  cis_lutein_zeaxanthin: {
     id: 1161,
     nbr: 338.3,
     nutrient: 'cis-Lutein/Zeaxanthin',
     shortName: 'cis-Lutein/Zeaxanthin',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'cis_beta_carotene': {
+  cis_beta_carotene: {
     id: 1159,
     nbr: 321.1,
     nutrient: 'cis-beta-Carotene',
     shortName: 'cis-beta-Carotene',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'trans_beta_carotene': {
+  trans_beta_carotene: {
     id: 2028,
     nutrient: 'trans-beta-Carotene',
     shortName: 'trans-beta-Carotene',
     unit: 'µg',
-    nbr: 321.2
+    nbr: 321.2,
   },
-  'trans_lycopene': {
+  trans_lycopene: {
     id: 2029,
     nutrient: 'trans-Lycopene',
     shortName: 'trans-Lycopene',
     unit: 'µg',
-    nbr: 337.2
+    nbr: 337.2,
   },
-  'cryptoxanthin': {
+  cryptoxanthin: {
     id: 2032,
     nutrient: 'Cryptoxanthin, alpha',
     shortName: 'Cryptoxanthin, alpha',
     unit: 'µg',
-    nbr: 335
+    nbr: 335,
   },
-  'vit_E_label': {
+  vit_E_label: {
     id: 1124,
     nbr: 340,
     nutrient: 'Vitamin E (label entry primarily)',
     shortName: 'Vitamin E, label entry',
-    unit: 'iu'
+    unit: 'iu',
   },
-  'boron': {
+  boron: {
     id: 1137,
     nbr: 354,
     nutrient: 'Boron',
     shortName: 'Boron',
-    unit: 'µg'
+    unit: 'µg',
   },
-  'cis_lycopene': {
+  cis_lycopene: {
     id: 1160,
     nbr: 337.1,
     nutrient: 'cis-Lycopene',
     shortName: 'cis-Lycopene',
-    unit: 'µg'
+    unit: 'µg',
   },
-  '_5_methyl_tetrahydrofolate': {
+  _5_methyl_tetrahydrofolate: {
     id: 1188,
     nbr: 433,
     nutrient: '5-methyl tetrahydrofolate',
     shortName: '5-methyl tetrahydrofolate',
-    unit: 'µg'
+    unit: 'µg',
   },
-  '_10_Formyl_folic_acid': {
+  _10_Formyl_folic_acid: {
     id: 1191,
     nbr: 436,
     nutrient: '10-Formyl folic acid (10HCOFA)',
     shortName: '10-Formyl folic acid (10HCOFA)',
-    unit: 'µg'
+    unit: 'µg',
   },
-  '_5_Formyltetrahydrofolic_acid': {
+  _5_Formyltetrahydrofolic_acid: {
     id: 1192,
     nbr: 437,
     nutrient: '5-Formyltetrahydrofolic acid',
     shortName: '5-Formyltetrahydrofolic acid',
-    unit: 'µg'
+    unit: 'µg',
   },
 
-  'choline_free': {
+  choline_free: {
     id: 1194,
     nbr: 450,
     nutrient: 'Choline, free',
     shortName: 'Choline, free',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'choline_phosphocholine': {
+  choline_phosphocholine: {
     id: 1195,
     nbr: 451,
     nutrient: 'Choline, from phosphocholine',
     shortName: 'Choline, from phosphocholine',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'choline_phosphotidyl': {
+  choline_phosphotidyl: {
     id: 1196,
     nbr: 452,
     nutrient: 'Choline, from phosphotidyl choline',
     shortName: 'Choline, from phosphotidyl choline',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'choline_glycerophosphocholine': {
+  choline_glycerophosphocholine: {
     id: 1197,
     nbr: 453,
     nutrient: 'Choline, from glycerophosphocholine',
     shortName: 'Choline, from glycerophosphocholine',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'choline_sphingomyelin': {
+  choline_sphingomyelin: {
     id: 1199,
     nbr: 455,
     nutrient: 'Choline, from sphingomyelin',
     shortName: 'Choline, from sphingomyelin',
-    unit: 'mg'
+    unit: 'mg',
   },
-  'cysteine': {
+  cysteine: {
     id: 1232,
     nbr: 526,
     nutrient: 'Cysteine',
     shortName: 'Cysteine',
-    unit: 'g'
+    unit: 'g',
   },
-  'glutamine': {
+  glutamine: {
     id: 1232,
     nbr: 528,
     nutrient: 'Glutamine',
     shortName: 'Glutamine',
-    unit: 'g'
+    unit: 'g',
   },
-  'taurine': {
+  taurine: {
     id: 1234,
     nbr: 529,
     nutrient: 'Taurine',
     shortName: 'Taurine',
-    unit: 'g'
+    unit: 'g',
   },
-  'dienoic': {
+  dienoic: {
     id: 1330,
     nbr: 694,
     nutrient: 'Fatty acids, total trans-dienoic',
     shortName: 'Trans-Dienoic',
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$02': {
+  _22$02: {
     id: 1334,
     nbr: 698,
     nutrient: '20:02',
     shortName: 'Docosadienoic acid',
-    unit: 'g'
+    unit: 'g',
   },
-  '_11$0': {
+  _11$0: {
     id: 1335,
     nbr: 699,
     nutrient: '11:00',
     shortName: '11:00',
-    unit: 'g'
+    unit: 'g',
   },
-  '_14$1t': {
+  _14$1t: {
     id: 1281,
     nbr: 821,
     nutrient: '14:1 t',
     shortName: '14:1 t',
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$3n9': {
+  _20$3n9: {
     id: 1414,
     nbr: 861,
     nutrient: '20:3 n-9',
     shortName: '20:3 n-9',
-    unit: 'g'
+    unit: 'g',
   },
-  '_5$0': {
+  _5$0: {
     id: 2003,
     nutrient: '5:00',
     shortName: '5:00',
     nbr: 632,
-    unit: 'g'
+    unit: 'g',
   },
-  '_7$0': {
+  _7$0: {
     id: 2004,
     nutrient: '7:00',
     shortName: '7:00',
     nbr: 633,
-    unit: 'g'
+    unit: 'g',
   },
-  '_9$0': {
+  _9$0: {
     id: 2005,
     nutrient: '9:00',
     shortName: '9:00',
     nbr: 634,
-    unit: 'g'
+    unit: 'g',
   },
-  '_21$0': {
+  _21$0: {
     id: 2006,
     nutrient: '21:00',
     shortName: '21:00',
     nbr: 681,
-    unit: 'g'
+    unit: 'g',
   },
-  '_23$0': {
+  _23$0: {
     id: 2007,
     nutrient: '23:00',
     shortName: '23:00',
     nbr: 682,
-    unit: 'g'
+    unit: 'g',
   },
-  '_12$1': {
+  _12$1: {
     id: 2008,
     nutrient: '12:01',
     shortName: '12:01',
     nbr: 635,
-    unit: 'g'
+    unit: 'g',
   },
-  '_14$1c': {
+  _14$1c: {
     id: 2009,
     nutrient: '14:1 c',
     shortName: '14:1 c',
     nbr: 822,
-    unit: 'g'
+    unit: 'g',
   },
-  '_17$1c': {
+  _17$1c: {
     id: 2010,
     nutrient: '17:1 c',
     shortName: '17:1 c',
     nbr: 825,
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$1c': {
+  _20$1c: {
     id: 2012,
     nutrient: '20:1 c',
     shortName: '20:1 c',
     nbr: 829,
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$1t': {
+  _20$1t: {
     id: 2013,
     nutrient: '20:1 t',
     shortName: '20:1 t',
     nbr: 830,
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$1n9': {
+  _22$1n9: {
     id: 2014,
     nutrient: '22:1 n-9',
     shortName: '22:1 n-9',
     nbr: 676.1,
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$1n11': {
+  _22$1n11: {
     id: 2015,
     nutrient: '22:1 n-11',
     shortName: 'cis-cetoleic acid',
     nbr: 676.2,
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$2c': {
+  _18$2c: {
     id: 2016,
     nutrient: '18:2 c',
     shortName: '18:2 c',
     nbr: 831,
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$3c': {
+  _18$3c: {
     id: 2018,
     nutrient: '18:3 c',
     shortName: '18:3 c',
     nbr: 833,
-    unit: 'g'
+    unit: 'g',
   },
-  '_18$3t': {
+  _18$3t: {
     id: 2019,
     nutrient: '18:3 t',
     shortName: '18:3 t',
     nbr: 834,
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$3c': {
+  _20$3c: {
     id: 2020,
     nutrient: '20:3 c',
     shortName: '20:3 c',
     nbr: 835,
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$3': {
+  _22$3: {
     id: 2021,
     nutrient: '22:03',
     shortName: '22:03',
     nbr: 683,
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$4c': {
+  _20$4c: {
     id: 2022,
     nutrient: '20:4 c',
     shortName: '20:4 c',
     nbr: 836,
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$5c': {
+  _20$5c: {
     id: 2023,
     nutrient: '20:5 c',
     shortName: '20:5 c',
     nbr: 837,
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$5c': {
+  _22$5c: {
     id: 2024,
     nutrient: '22:5 c',
     shortName: '22:5 c',
     nbr: 838,
-    unit: 'g'
+    unit: 'g',
   },
-  '_22$6c': {
+  _22$6c: {
     id: 2025,
     nutrient: '22:6 c',
     shortName: '22:6 c',
     nbr: 839,
-    unit: 'g'
+    unit: 'g',
   },
-  '_20$2c': {
+  _20$2c: {
     id: 2026,
     nutrient: '20:2 c',
     shortName: '20:2 c',
     nbr: 840,
-    unit: 'g'
+    unit: 'g',
   },
-  'gravity': {
+  gravity: {
     id: 1024,
     nbr: 227,
     nutrient: 'Specific Gravity',
     shortName: 'Specific Gravity',
-    unit: 'sp_gr'
+    unit: 'sp_gr',
   },
-  'vit_E_ate': {
+  vit_E_ate: {
     id: 1158,
     nbr: 394,
     nutrient: 'Vitamin E (alpha-tocopherol equivalents)',
     shortName: 'Vitamin E ATE',
-    unit: 'mg'
-  }
+    unit: 'mg',
+  },
 }

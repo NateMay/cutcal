@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { Message } from '@cutcal/api-interfaces';
+import { Injectable } from '@nestjs/common'
+import { Message } from '@cutcal/api-interfaces'
 
 @Injectable()
 export class AppService {
   getData(): Message {
-    return { message: 'Welcome to api!' };
+    return { message: 'Welcome to api!' }
   }
 }

@@ -1,14 +1,16 @@
 <mat-form-field appearance="outline">
-  <mat-label>Search</mat-label>
-  <input matInput role="search" placeholder="Apple, Burger, Chipotle" autocomplete="off">
-  <mat-icon matSuffix>search</mat-icon>
+    <mat-label>Search</mat-label>
+    <input
+        matInput
+        role="search"
+        placeholder="Apple, Burger, Chipotle"
+        autocomplete="off"
+    />
+    <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 
 <- Back
 
-<div 
-  class="food" 
-  *ngFor="let item of items" 
->{{item}}</div>
+<div class="food" *ngFor="let item of items">{{ item }}</div>
 
 <ng-content></ng-content>

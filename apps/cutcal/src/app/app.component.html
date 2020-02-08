@@ -1,24 +1,22 @@
 <mat-drawer-container class="app-container" autosize>
+    <mat-drawer #drawer class="app-sidenav mat-elevation-z2" mode="side" opened>
+        <cc-sidebar-search>
+            <router-outlet name="side"></router-outlet>
+        </cc-sidebar-search>
+        <div>Message: {{ hello$ | async | json }}</div>
+    </mat-drawer>
 
-  <mat-drawer #drawer class="app-sidenav mat-elevation-z2" mode="side" opened>
-    <cc-sidebar-search>
-      <router-outlet name="side"></router-outlet>
-    </cc-sidebar-search>
-    <div>Message: {{ hello$ | async | json }}</div>
-  </mat-drawer>
-
-  
-  <span role="main">
-    <mat-toolbar>
-      <button matRipple class="toggle-sidebar mat-elevation-z2" (click)="drawer.toggle()">
-        <mat-icon>chevron_left</mat-icon>
-      </button>
-      <cc-header></cc-header>
-    </mat-toolbar>
-    <router-outlet></router-outlet>
-  </span>
-
-  
-
+    <span role="main">
+        <mat-toolbar>
+            <button
+                matRipple
+                class="toggle-sidebar mat-elevation-z2"
+                (click)="drawer.toggle()"
+            >
+                <mat-icon>chevron_left</mat-icon>
+            </button>
+            <cc-header></cc-header>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </span>
 </mat-drawer-container>
-

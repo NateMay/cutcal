@@ -1,10 +1,8 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { ProfileSideComponent } from './profile-side/profile-side.component';
-import { ProfileComponent } from './profile.component';
-
-
+import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core'
+import { RouterModule } from '@angular/router'
+import { ProfileSideComponent } from './profile-side/profile-side.component'
+import { ProfileComponent } from './profile.component'
 
 @NgModule({
   declarations: [ProfileComponent, ProfileSideComponent],
@@ -13,14 +11,14 @@ import { ProfileComponent } from './profile.component';
     RouterModule.forChild([
       {
         path: '',
-        component: ProfileComponent
+        component: ProfileComponent,
       },
       {
         path: '',
         outlet: 'side',
-        component: ProfileSideComponent
-      }
-    ])
-  ]
+        component: ProfileSideComponent,
+      },
+    ]),
+  ],
 })
-export class ProfileModule { }
+export class ProfileModule {}

@@ -1,11 +1,9 @@
-import { Nutrition } from './nutrition';
+import { Nutrition } from './nutrition'
 
 /**
  * Full Nutrition object with all zeros
  */
-export const ZERO_NUTRITION = <Nutrition<number>>Object.freeze(BASE_NUTRITION());
-
-
+export const ZERO_NUTRITION = <Nutrition<number>>Object.freeze(BASE_NUTRITION())
 
 /**
  * Returns a new, comprehensive nutrition object with zero values
@@ -13,11 +11,9 @@ export const ZERO_NUTRITION = <Nutrition<number>>Object.freeze(BASE_NUTRITION())
 
 export function BASE_NUTRITION<T>(value: any = 0): Nutrition<T> {
   return {
-
     // ENERGY
     calories: value,
     kj: value,
-
 
     // CARBS
     carbohydrates: value,
@@ -36,7 +32,6 @@ export function BASE_NUTRITION<T>(value: any = 0): Nutrition<T> {
     galactose: value,
     addedSugar: value,
     sugar_alcohol: value,
-
 
     // FATS
     fat: value,
@@ -108,7 +103,6 @@ export function BASE_NUTRITION<T>(value: any = 0): Nutrition<T> {
     // omega3: value,
     // omega6: value,
 
-
     // PROTEIN
     protein: value,
     tryptophan: value,
@@ -130,7 +124,6 @@ export function BASE_NUTRITION<T>(value: any = 0): Nutrition<T> {
     proline: value,
     serine: value,
     hydroxyproline: value,
-
 
     // VITAMINS
 
@@ -185,7 +178,6 @@ export function BASE_NUTRITION<T>(value: any = 0): Nutrition<T> {
     choline: value,
     betaine: value,
 
-
     // MINRALS
     calcium: value,
     iron: value,
@@ -202,7 +194,6 @@ export function BASE_NUTRITION<T>(value: any = 0): Nutrition<T> {
     // molybdenum: value,
     // chloride: value,
 
-
     // STEROLS
     cholesterol: value,
     phytosterols: value,
@@ -210,14 +201,12 @@ export function BASE_NUTRITION<T>(value: any = 0): Nutrition<T> {
     campesterol: value,
     beta_sitosterol: value,
 
-
     // OTHER
     alcohol: value,
     water: value,
     ash: value,
     caffeine: value,
     theobromine: value,
-
 
     // new
     nitrogen: value,
@@ -289,8 +278,8 @@ export function BASE_NUTRITION<T>(value: any = 0): Nutrition<T> {
     _22$5c: value,
     _22$6c: value,
     _20$2c: value,
-    vit_E_ate: value
+    vit_E_ate: value,
 
     // gravity: value,
   }
-};
+}

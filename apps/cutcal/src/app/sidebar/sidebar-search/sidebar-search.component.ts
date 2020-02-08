@@ -1,21 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'cc-sidebar-search',
   templateUrl: './sidebar-search.component.html',
-  styleUrls: ['./sidebar-search.component.scss']
+  styleUrls: ['./sidebar-search.component.scss'],
 })
 export class SidebarSearchComponent implements OnInit {
+  items = ['first', 'second', 'third']
 
-  items = [
-    'first',
-    'second',
-    'third'
-  ]
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

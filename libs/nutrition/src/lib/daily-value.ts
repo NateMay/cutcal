@@ -1,15 +1,15 @@
-import { FdcUnit } from './nutrient-details';
-import { Nutrition } from './nutrition';
+import { FdcUnit } from './nutrient-details'
+import { Nutrition } from './nutrition'
 
 /**
  * Metadata for Nutrtion<NutritionRange>
  */
 export interface DailyValue {
-  id: number;
-  name: string;
-  description: string;
+  id: number
+  name: string
+  description: string
   // nutrition: Nutrition<NutritionRange>;
-  nutrition: Nutrition<NutritionRange>;
+  nutrition: Nutrition<NutritionRange>
 }
 
 /**
@@ -18,12 +18,12 @@ export interface DailyValue {
  */
 
 export interface NutritionRange {
-  EAR?: number; // EAR - Estimated Average Requirement
-  RDA?: number; // RDA - Recomended Daily Allowance
-  UL?: number; // UL - Upper Limit recommended for preventing disease
-  AI?: number; // AI - Adequate Intake (when EAR isn't available)
+  EAR?: number // EAR - Estimated Average Requirement
+  RDA?: number // RDA - Recomended Daily Allowance
+  UL?: number // UL - Upper Limit recommended for preventing disease
+  AI?: number // AI - Adequate Intake (when EAR isn't available)
   // EER? - Estimated Energy Requirement
-  unit?: FdcUnit;
+  unit?: FdcUnit
 }
 
 export function createNutritionRange(
@@ -33,12 +33,12 @@ export function createNutritionRange(
   RDA?: number,
   high?: number
 ): NutritionRange {
-  const range = AI - EAR;
+  const range = AI - EAR
   return {
     unit,
     EAR,
     RDA: RDA || EAR + 0.2 * range,
     AI,
     UL: high ? high : EAR + 0.8 * range,
-  };
+  }
 }

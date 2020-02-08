@@ -1,16 +1,16 @@
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatRippleModule } from '@angular/material/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { HeaderModule } from './header/header.module';
-import { SidebarModule } from './sidebar/sidebar.module';
+import { HttpClientModule } from '@angular/common/http'
+import { NgModule } from '@angular/core'
+import { MatButtonModule } from '@angular/material/button'
+import { MatRippleModule } from '@angular/material/core'
+import { MatIconModule } from '@angular/material/icon'
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { RouterModule } from '@angular/router'
+import { AppComponent } from './app.component'
+import { HeaderModule } from './header/header.module'
+import { SidebarModule } from './sidebar/sidebar.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,14 +29,16 @@ import { SidebarModule } from './sidebar/sidebar.module';
       {
         path: '',
         redirectTo: 'profile',
-        pathMatch: 'full'
-      }, {
+        pathMatch: 'full',
+      },
+      {
         path: 'profile',
-        loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
-      }
-    ])
+        loadChildren: () =>
+          import('./profile/profile.module').then(m => m.ProfileModule),
+      },
+    ]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

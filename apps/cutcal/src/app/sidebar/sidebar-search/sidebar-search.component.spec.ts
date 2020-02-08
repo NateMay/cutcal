@@ -5,7 +5,6 @@ import { MatInputModule } from '@angular/material/input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarSearchComponent } from './sidebar-search.component';
 
-
 describe('SidebarSearchComponent', () => {
   let component: SidebarSearchComponent;
   let fixture: ComponentFixture<SidebarSearchComponent>;
@@ -17,10 +16,9 @@ describe('SidebarSearchComponent', () => {
         MatFormFieldModule,
         MatInputModule,
         MatIconModule,
-        NoopAnimationsModule
-      ]
-    })
-    .compileComponents();
+        NoopAnimationsModule,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

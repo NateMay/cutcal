@@ -20,10 +20,10 @@ Our bodies can tolerate all kinds of matter, but always up to a limit. This is t
 
 Thus there are some important figures that we should note for any macro or micro nutrient.
 
-+ **Estimated Average Requirement (EAR)** 50% of people are good here
-+ **Recomended Daily Allowance (RDA)** 97% of people are good here
-+ **Adequate Intake (AI)** ~100% of people are good here
-+ **Upper Limit (UL)** recommended for preventing disease
+- **Estimated Average Requirement (EAR)** 50% of people are good here
+- **Recomended Daily Allowance (RDA)** 97% of people are good here
+- **Adequate Intake (AI)** ~100% of people are good here
+- **Upper Limit (UL)** recommended for preventing disease
 
 <!-- + Estimated Energy Requirement (EER) -->
 

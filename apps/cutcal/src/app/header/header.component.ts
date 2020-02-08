@@ -1,23 +1,25 @@
-
-import { CdkOverlayOrigin, ConnectedPosition, Overlay, OverlayConfig } from '@angular/cdk/overlay';
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import {
+  CdkOverlayOrigin,
+  ConnectedPosition,
+  Overlay,
+  OverlayConfig,
+} from '@angular/cdk/overlay'
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
 
 @Component({
   selector: 'cc-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
-  @ViewChild(CdkOverlayOrigin) _overlayOrigin: CdkOverlayOrigin;
+  @ViewChild(CdkOverlayOrigin) _overlayOrigin: CdkOverlayOrigin
 
   constructor(
     public overlay: Overlay,
     public viewContainerRef: ViewContainerRef
-  ) { }
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   openSpaghettiPanel() {
     const position1: ConnectedPosition = {
@@ -30,16 +32,16 @@ export class HeaderComponent implements OnInit {
       // offsetY?: number,
       panelClass: 'cc-header-search-panel',
     }
-    const strategy = this.overlay.position()
+    const strategy = this.overlay
+      .position()
       .flexibleConnectedTo(this._overlayOrigin.elementRef)
       .withViewportMargin(20)
-    .withPositions([position1])
+      .withPositions([position1])
 
-            const config = new OverlayConfig({positionStrategy: strategy});
-            const overlayRef = this.overlay.create(config);
+    const config = new OverlayConfig({ positionStrategy: strategy })
+    const overlayRef = this.overlay.create(config)
 
     // TODO: use for the menu
     // overlayRef.attach(new ComponentPortal(HeaderSearchComponent, this.viewContainerRef));
   }
-
 }

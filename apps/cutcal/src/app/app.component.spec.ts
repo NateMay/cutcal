@@ -8,36 +8,30 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
-
-
 @Component({
   selector: 'cc-sidebar-search,sidebar-search',
-  template: ''
+  template: '',
 })
 class MockSideSearch {}
 
 @Component({
   selector: 'cc-header,header',
-  template: ''
+  template: '',
 })
 class MockHeader {}
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        MockSideSearch,
-        MockHeader
-      ],
+      declarations: [AppComponent, MockSideSearch, MockHeader],
       imports: [
         HttpClientModule,
         MatSidenavModule,
         MatToolbarModule,
         MatIconModule,
         NoopAnimationsModule,
-        RouterTestingModule
-      ]
+        RouterTestingModule,
+      ],
     }).compileComponents();
   }));
 
