@@ -19,7 +19,7 @@
     "affected:lint": "nx affected:lint",
     "affected:all": "nx affected:lint && nx affected:test && nx affected:e2e",
     "affected:dep-graph": "nx affected:dep-graph",
-    "open:coverage": "open ./coverage/apps/common-ui/index.html",
+    "open:coverage": "for file in $(find . -wholename '*./coverage/**/index.html' -not -wholename **app/*); do open $file; done;",
     "get:coverage": "ng test --codeCoverage",
     "affected": "nx affected",
     "format": "nx format:write",
