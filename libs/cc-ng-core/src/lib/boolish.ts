@@ -7,7 +7,8 @@ export function Boolish(target: any, property: string): any {
   let val: boolean
   return {
     set: (value: any): void => {
-      if (typeof value == 'boolean') val = value
+      if (value === null) val = false
+      else if (typeof value == 'boolean') val = value
       else if (typeof value == 'string' && value !== '')
         val = value == 'false' ? false : true
       else if (typeof value == 'number') val = !!value

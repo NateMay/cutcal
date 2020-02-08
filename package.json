@@ -19,6 +19,8 @@
     "affected:lint": "nx affected:lint",
     "affected:all": "nx affected:lint && nx affected:test && nx affected:e2e",
     "affected:dep-graph": "nx affected:dep-graph",
+    "open:coverage": "open ./coverage/apps/common-ui/index.html",
+    "get:coverage": "ng test --codeCoverage",
     "affected": "nx affected",
     "format": "nx format:write",
     "format:write": "nx format:write",

@@ -9,7 +9,7 @@ import { Boolish } from './boolish';
   `,
 })
 class TestBoolishComponent {
-  notABoolean = 'false';
+  notABoolean;
 }
 @Component({
   selector: 'cc-test',
@@ -40,27 +40,54 @@ describe('Boolish Decorator', () => {
   });
 
   it('should fix bad booleans', () => {
-    fixture.detectChanges();
-    expect(child.aBoolean).toBe(false);
-  });
-
-  it('should fix bad booleans', () => {
     component.notABoolean = 'true';
     child.aBoolean = false;
     fixture.detectChanges();
     expect(child.aBoolean).toBe(true);
   });
 
-  it('should fix bad booleans', () => {
-    component.notABoolean = undefined;
+  it('should fix bad booleans | "false"', () => {
+    component.notABoolean = 'false';
+    child.aBoolean = true;
+    fixture.detectChanges();
+    expect(child.aBoolean).toBe(false);
+  });
+
+  it('should not affect when undefined, starting with true', () => {
     child.aBoolean = true;
     fixture.detectChanges();
     expect(child.aBoolean).toBe(true);
   });
 
-  it('should fix bad booleans', () => {
-    component.notABoolean = undefined;
+  it('should not affect when undefined, start false', () => {
     child.aBoolean = false;
+    fixture.detectChanges();
+    expect(child.aBoolean).toBe(false);
+  });
+
+  it('should fix bad booleans | null', () => {
+    component.notABoolean = null;
+    child.aBoolean = true;
+    fixture.detectChanges();
+    expect(child.aBoolean).toBe(false);
+  });
+
+  it('should fix bad booleans | 3', () => {
+    component.notABoolean = 3;
+    child.aBoolean = false;
+    fixture.detectChanges();
+    expect(child.aBoolean).toBe(true);
+  });
+
+  it('should fix bad booleans | 0', () => {
+    component.notABoolean = 0;
+    child.aBoolean = true;
+    fixture.detectChanges();
+    expect(child.aBoolean).toBe(false);
+  });
+  it('should fix bad booleans | 0', () => {
+    component.notABoolean = 0;
+    child.aBoolean = true;
     fixture.detectChanges();
     expect(child.aBoolean).toBe(false);
   });
