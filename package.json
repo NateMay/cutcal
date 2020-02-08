@@ -8,7 +8,8 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "nx workspace-lint && ng lint",
+    "lint": "nx workspace-lint && ng lint && npm run lint:styles",
+    "lint:styles": "stylelint \"src/**/*.scss\"",
     "e2e": "ng e2e",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
@@ -72,14 +73,28 @@
     "eslint": "6.1.0",
     "firebase-tools": "^7.12.0",
     "fuzzy": "^0.1.3",
+    "husky": "^4.2.1",
     "inquirer": "^6.2.2",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "jest": "24.1.0",
     "jest-preset-angular": "7.0.0",
-    "prettier": "1.18.2",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.1",
+    "stylelint": "^13.0.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.14.2",
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-defocus": "^2.0.6",
     "typescript": "~3.7.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && ng lint && ng test",
+      "pre-push": "pretty-quick --staged && ng lint && ng test"
+    }
   }
 }
