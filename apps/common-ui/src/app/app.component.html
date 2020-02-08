@@ -1,1 +1,19 @@
-<mat-toolbar>hi</mat-toolbar>
+<mat-drawer-container class="app-container" autosize>
+    <mat-drawer #drawer class="app-sidenav mat-elevation-z2" mode="side" opened>
+        <router-outlet name="side"></router-outlet>
+    </mat-drawer>
+
+    <span role="main">
+        <mat-toolbar>
+            <button
+                matRipple
+                class="toggle-sidebar mat-elevation-z2"
+                (click)="drawer.toggle()"
+            >
+                <mat-icon>chevron_left</mat-icon>
+            </button>
+            <div role="banner" id="brand">Common UI</div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </span>
+</mat-drawer-container>

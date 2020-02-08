@@ -1,4 +1,4 @@
-import { getGreeting } from '../support/app.po';
+import { getBrand } from '../support/app.po';
 
 describe('common-ui', () => {
   beforeEach(() => cy.visit('/'));
@@ -8,6 +8,6 @@ describe('common-ui', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to common-ui!');
+    getBrand().contains('Common UI');
   });
 });

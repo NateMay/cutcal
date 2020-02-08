@@ -15,8 +15,9 @@
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
     "affected:e2e": "nx affected:e2e",
-    "affected:test": "nx affected:test ",
+    "affected:test": "nx affected:test",
     "affected:lint": "nx affected:lint",
+    "affected:all": "nx affected:lint && nx affected:test && nx affected:e2e",
     "affected:dep-graph": "nx affected:dep-graph",
     "affected": "nx affected",
     "format": "nx format:write",
@@ -93,8 +94,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && ng lint && ng test",
-      "pre-push": "pretty-quick --staged && ng lint && ng test"
+      "pre-commit": "git add . && npm run format && pretty-quick --staged && npm run affected:all",
+      "pre-push": "npm run format && pretty-quick --staged && ng lint && ng test"
     }
   }
 }
