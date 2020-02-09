@@ -1,16 +1,66 @@
-<mat-form-field appearance="outline">
-    <mat-label>Search</mat-label>
-    <input
-        matInput
-        role="search"
-        placeholder="Apple, Burger, Chipotle"
-        autocomplete="off"
-    />
-    <mat-icon matSuffix>search</mat-icon>
-</mat-form-field>
+<div fxLayout="row">
+    <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input
+            #inputEl
+            matInput
+            role="search"
+            placeholder="Apple, Burger, Chipotle"
+            autocomplete="off"
+            (keydown.space)="activateSearch()"
+            (keydown.escape)="deactivateSearch()"
+            (focus)="activateSearch()"
+        />
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
 
-<- Back
+    <div
+        class="search-options"
+        fxLayout="row"
+        fxLayoutAlign="space-around center"
+        fxLayoutGap="8px"
+    >
+        <!-- <button mat-mini-fab aria-label="Close Search">
+            <mat-icon>close</mat-icon>
+        </button> -->
 
-<div class="food" *ngFor="let item of items">{{ item }}</div>
+        <!-- <div fxLayout="column">
+            <mat-checkbox>Foods</mat-checkbox>
+            <mat-checkbox>Recipes</mat-checkbox>
+        </div>
 
-<ng-content></ng-content>
+        <div fxLayout="column">
+            <mat-checkbox>Meals</mat-checkbox>
+        </div> -->
+    </div>
+</div>
+
+<mat-accordion *ngIf="searchAcivated">
+    <mat-expansion-panel
+        *ngFor="let food of foods; first as isFirst"
+        [expanded]="isFirst"
+    >
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{ food.name }}</mat-panel-title>
+            <mat-panel-description>{{
+                food.description
+            }}</mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-action-row>
+            <input placeholder="Quantity" value="100" />
+
+            <button mat-button [matMenuTriggerFor]="menu">g</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>oz</button>
+                <button mat-menu-item>slice</button>
+            </mat-menu>
+
+            <mat-icon matSuffix>drag_handle</mat-icon>
+        </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<span [hidden]="searchAcivated">
+    <ng-content></ng-content>
+</span>

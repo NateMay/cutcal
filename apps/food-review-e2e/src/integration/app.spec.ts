@@ -1,4 +1,4 @@
-import { getGreeting } from '../support/app.po';
+import { getAPIElement } from '../support/app.po';
 
 describe('food-review', () => {
   beforeEach(() => cy.visit('/'));
@@ -8,6 +8,6 @@ describe('food-review', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to food-review!');
+    getAPIElement().contains('Message:');
   });
 });

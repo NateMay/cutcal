@@ -38,6 +38,7 @@
     "@angular/compiler": "^9.0.0",
     "@angular/core": "^9.0.0",
     "@angular/fire": "^5.4.2",
+    "@angular/flex-layout": "^9.0.0-beta.29",
     "@angular/forms": "^9.0.0",
     "@angular/material": "^9.0.0",
     "@angular/platform-browser": "^9.0.0",
@@ -48,11 +49,12 @@
     "@nestjs/platform-express": "^6.11.6",
     "@nrwl/angular": "8.12.0",
     "core-js": "^2.5.4",
+    "firebase": ">= 5.5.7 <8",
+    "ngrx": "0.0.1-security",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
-    "firebase": ">= 5.5.7 <8"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/architect": "<0.900 || ^0.900.0-0 || ^9.0.0-0",

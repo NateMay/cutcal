@@ -1,9 +1,14 @@
 <mat-drawer-container class="app-container" autosize>
-    <mat-drawer #drawer class="app-sidenav mat-elevation-z2" mode="side" opened>
+    <mat-drawer
+        #drawer
+        class="app-sidenav mat-elevation-z2"
+        mode="side"
+        opened
+        disableClose="true"
+    >
         <cc-sidebar-search>
             <router-outlet name="side"></router-outlet>
         </cc-sidebar-search>
-        <div>Message: {{ hello$ | async | json }}</div>
     </mat-drawer>
 
     <span role="main">

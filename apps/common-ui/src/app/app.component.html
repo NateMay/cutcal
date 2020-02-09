@@ -1,9 +1,13 @@
 <mat-drawer-container class="app-container" autosize>
+    <!-- Sidebar -->
     <mat-drawer #drawer class="app-sidenav mat-elevation-z2" mode="side" opened>
+        <!-- Sidebar Outlet -->
         <router-outlet name="side"></router-outlet>
     </mat-drawer>
 
+    <!-- Main Area -->
     <span role="main">
+        <!-- Toolbar -->
         <mat-toolbar>
             <button
                 matRipple
@@ -14,6 +18,7 @@
             </button>
             <div role="banner" id="brand">Common UI</div>
         </mat-toolbar>
+        <!-- Feature Outlet -->
         <router-outlet></router-outlet>
     </span>
 </mat-drawer-container>
