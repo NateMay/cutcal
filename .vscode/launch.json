@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "CutCal - Debug Jest",
+      "name": "Debug Jest",
       "type": "node",
       "request": "launch",
       "runtimeArgs": [
@@ -10,41 +10,29 @@
         "${workspaceRoot}/node_modules/@nrwl/cli/bin/nx",
         "--runInBand",
         "test",
-        "cutcal"
+        "${input:variableID}"
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "port": 9229
-    },
+    }
+  ],
+  "inputs": [
     {
-      "name": "Common UI - Debug Jest",
-      "type": "node",
-      "request": "launch",
-      "runtimeArgs": [
-        "--inspect-brk",
-        "${workspaceRoot}/node_modules/@nrwl/cli/bin/nx",
-        "--runInBand",
-        "test",
-        "common-ui"
+      "type": "pickString",
+      "id": "variableID",
+      "description": "What project do you need to debug?",
+      "options": [
+        "cutcal",
+        "common-ui",
+        "food-review",
+        "api-interfaces",
+        "cc-ng-core",
+        "drag-n-drop",
+        "ng-testing",
+        "nutrition"
       ],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "port": 9229
-    },
-    {
-      "name": "Food Review - Debug Jest",
-      "type": "node",
-      "request": "launch",
-      "runtimeArgs": [
-        "--inspect-brk",
-        "${workspaceRoot}/node_modules/@nrwl/cli/bin/nx",
-        "--runInBand",
-        "test",
-        "food-review"
-      ],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "port": 9229
+      "default": "cutcal"
     }
   ]
 }
