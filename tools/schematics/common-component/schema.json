@@ -1,20 +1,16 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "guarded-feature",
+  "id": "common-component",
   "type": "object",
   "properties": {
     "name": {
       "type": "string",
-      "description": "Name of the feature",
+      "description": "Library name",
       "$default": {
         "$source": "argv",
         "index": 0
       }
-    },
-    "project": {
-      "type": "string",
-      "description": "Project to add the auth module to"
     }
   },
-  "required": ["name", "project"]
+  "required": ["name"]
 }
