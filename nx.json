@@ -142,6 +142,42 @@
     },
     "common-ui-landing": {
       "tags": ["common-ui", "playground"]
+    },
+    "common-ui-animate-animate": {
+      "tags": ["common-ui", "component"]
+    },
+    "common-ui-breadcrumb-breadcrumb": {
+      "tags": ["common-ui", "component"]
+    },
+    "common-ui-carousel-carousel": {
+      "tags": ["common-ui", "component"]
+    },
+    "common-ui-date-time-binder-date-time-binder": {
+      "tags": ["common-ui", "component"]
+    },
+    "common-ui-datepicker-datepicker": {
+      "tags": ["common-ui", "component"]
+    },
+    "common-ui-drag-n-drop-drag-n-drop": {
+      "tags": ["common-ui", "component"]
+    },
+    "common-ui-dynamic-width-dynamic-width": {
+      "tags": ["common-ui", "component"]
+    },
+    "common-ui-flip-card-flip-card": {
+      "tags": ["common-ui", "component"]
+    },
+    "common-ui-holdable-holdable": {
+      "tags": ["common-ui", "component"]
+    },
+    "common-ui-image-upload-image-upload": {
+      "tags": ["common-ui", "component"]
+    },
+    "common-ui-nutrition-label-nutrition-label": {
+      "tags": ["common-ui", "component"]
+    },
+    "common-ui-timepicker-timepicker": {
+      "tags": ["common-ui", "component"]
     }
   }
 }

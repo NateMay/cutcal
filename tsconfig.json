@@ -83,7 +83,43 @@
       "@cutcal/common-ui/nutrition-label/playground": [
         "libs/common-ui/nutrition-label/playground/src/index.ts"
       ],
-      "@cutcal/common-ui/landing": ["libs/common-ui/landing/src/index.ts"]
+      "@cutcal/common-ui/landing": ["libs/common-ui/landing/src/index.ts"],
+      "@cutcal/common-ui/animate/animate": [
+        "libs/common-ui/animate/animate/src/index.ts"
+      ],
+      "@cutcal/common-ui/breadcrumb/breadcrumb": [
+        "libs/common-ui/breadcrumb/breadcrumb/src/index.ts"
+      ],
+      "@cutcal/common-ui/carousel/carousel": [
+        "libs/common-ui/carousel/carousel/src/index.ts"
+      ],
+      "@cutcal/common-ui/date-time-binder/date-time-binder": [
+        "libs/common-ui/date-time-binder/date-time-binder/src/index.ts"
+      ],
+      "@cutcal/common-ui/datepicker/datepicker": [
+        "libs/common-ui/datepicker/datepicker/src/index.ts"
+      ],
+      "@cutcal/common-ui/drag-n-drop/drag-n-drop": [
+        "libs/common-ui/drag-n-drop/drag-n-drop/src/index.ts"
+      ],
+      "@cutcal/common-ui/dynamic-width/dynamic-width": [
+        "libs/common-ui/dynamic-width/dynamic-width/src/index.ts"
+      ],
+      "@cutcal/common-ui/flip-card/flip-card": [
+        "libs/common-ui/flip-card/flip-card/src/index.ts"
+      ],
+      "@cutcal/common-ui/holdable/holdable": [
+        "libs/common-ui/holdable/holdable/src/index.ts"
+      ],
+      "@cutcal/common-ui/image-upload/image-upload": [
+        "libs/common-ui/image-upload/image-upload/src/index.ts"
+      ],
+      "@cutcal/common-ui/nutrition-label/nutrition-label": [
+        "libs/common-ui/nutrition-label/nutrition-label/src/index.ts"
+      ],
+      "@cutcal/common-ui/timepicker/timepicker": [
+        "libs/common-ui/timepicker/timepicker/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

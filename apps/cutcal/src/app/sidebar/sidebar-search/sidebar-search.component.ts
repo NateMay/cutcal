@@ -29,7 +29,7 @@ export class SidebarSearchComponent implements OnInit {
 
   searchAcivated = true
 
-  @ViewChild('inputEl') inputEl: ElementRef
+  @ViewChild('inputEl') inputEl!: ElementRef
 
   // @HostListener('document:keydown.escape')
   deactivateSearch() {

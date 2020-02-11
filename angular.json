@@ -1565,6 +1565,421 @@
           "styleext": "scss"
         }
       }
+    },
+    "common-ui-animate-animate": {
+      "projectType": "library",
+      "root": "libs/common-ui/animate/animate",
+      "sourceRoot": "libs/common-ui/animate/animate/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/animate/animate/tsconfig.lib.json",
+              "libs/common-ui/animate/animate/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/animate/animate/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/animate/animate/jest.config.js",
+            "tsConfig": "libs/common-ui/animate/animate/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/animate/animate/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "common-ui-breadcrumb-breadcrumb": {
+      "projectType": "library",
+      "root": "libs/common-ui/breadcrumb/breadcrumb",
+      "sourceRoot": "libs/common-ui/breadcrumb/breadcrumb/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/breadcrumb/breadcrumb/tsconfig.lib.json",
+              "libs/common-ui/breadcrumb/breadcrumb/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/breadcrumb/breadcrumb/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/breadcrumb/breadcrumb/jest.config.js",
+            "tsConfig": "libs/common-ui/breadcrumb/breadcrumb/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/breadcrumb/breadcrumb/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "common-ui-carousel-carousel": {
+      "projectType": "library",
+      "root": "libs/common-ui/carousel/carousel",
+      "sourceRoot": "libs/common-ui/carousel/carousel/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/carousel/carousel/tsconfig.lib.json",
+              "libs/common-ui/carousel/carousel/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/carousel/carousel/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/carousel/carousel/jest.config.js",
+            "tsConfig": "libs/common-ui/carousel/carousel/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/carousel/carousel/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "common-ui-date-time-binder-date-time-binder": {
+      "projectType": "library",
+      "root": "libs/common-ui/date-time-binder/date-time-binder",
+      "sourceRoot": "libs/common-ui/date-time-binder/date-time-binder/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/date-time-binder/date-time-binder/tsconfig.lib.json",
+              "libs/common-ui/date-time-binder/date-time-binder/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/date-time-binder/date-time-binder/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/date-time-binder/date-time-binder/jest.config.js",
+            "tsConfig": "libs/common-ui/date-time-binder/date-time-binder/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/date-time-binder/date-time-binder/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "common-ui-datepicker-datepicker": {
+      "projectType": "library",
+      "root": "libs/common-ui/datepicker/datepicker",
+      "sourceRoot": "libs/common-ui/datepicker/datepicker/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/datepicker/datepicker/tsconfig.lib.json",
+              "libs/common-ui/datepicker/datepicker/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/datepicker/datepicker/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/datepicker/datepicker/jest.config.js",
+            "tsConfig": "libs/common-ui/datepicker/datepicker/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/datepicker/datepicker/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "common-ui-drag-n-drop-drag-n-drop": {
+      "projectType": "library",
+      "root": "libs/common-ui/drag-n-drop/drag-n-drop",
+      "sourceRoot": "libs/common-ui/drag-n-drop/drag-n-drop/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/drag-n-drop/drag-n-drop/tsconfig.lib.json",
+              "libs/common-ui/drag-n-drop/drag-n-drop/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/drag-n-drop/drag-n-drop/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/drag-n-drop/drag-n-drop/jest.config.js",
+            "tsConfig": "libs/common-ui/drag-n-drop/drag-n-drop/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/drag-n-drop/drag-n-drop/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "common-ui-dynamic-width-dynamic-width": {
+      "projectType": "library",
+      "root": "libs/common-ui/dynamic-width/dynamic-width",
+      "sourceRoot": "libs/common-ui/dynamic-width/dynamic-width/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/dynamic-width/dynamic-width/tsconfig.lib.json",
+              "libs/common-ui/dynamic-width/dynamic-width/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/dynamic-width/dynamic-width/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/dynamic-width/dynamic-width/jest.config.js",
+            "tsConfig": "libs/common-ui/dynamic-width/dynamic-width/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/dynamic-width/dynamic-width/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "common-ui-flip-card-flip-card": {
+      "projectType": "library",
+      "root": "libs/common-ui/flip-card/flip-card",
+      "sourceRoot": "libs/common-ui/flip-card/flip-card/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/flip-card/flip-card/tsconfig.lib.json",
+              "libs/common-ui/flip-card/flip-card/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/flip-card/flip-card/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/flip-card/flip-card/jest.config.js",
+            "tsConfig": "libs/common-ui/flip-card/flip-card/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/flip-card/flip-card/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "common-ui-holdable-holdable": {
+      "projectType": "library",
+      "root": "libs/common-ui/holdable/holdable",
+      "sourceRoot": "libs/common-ui/holdable/holdable/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/holdable/holdable/tsconfig.lib.json",
+              "libs/common-ui/holdable/holdable/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/holdable/holdable/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/holdable/holdable/jest.config.js",
+            "tsConfig": "libs/common-ui/holdable/holdable/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/holdable/holdable/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "common-ui-image-upload-image-upload": {
+      "projectType": "library",
+      "root": "libs/common-ui/image-upload/image-upload",
+      "sourceRoot": "libs/common-ui/image-upload/image-upload/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/image-upload/image-upload/tsconfig.lib.json",
+              "libs/common-ui/image-upload/image-upload/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/image-upload/image-upload/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/image-upload/image-upload/jest.config.js",
+            "tsConfig": "libs/common-ui/image-upload/image-upload/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/image-upload/image-upload/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "common-ui-nutrition-label-nutrition-label": {
+      "projectType": "library",
+      "root": "libs/common-ui/nutrition-label/nutrition-label",
+      "sourceRoot": "libs/common-ui/nutrition-label/nutrition-label/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/nutrition-label/nutrition-label/tsconfig.lib.json",
+              "libs/common-ui/nutrition-label/nutrition-label/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/nutrition-label/nutrition-label/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/nutrition-label/nutrition-label/jest.config.js",
+            "tsConfig": "libs/common-ui/nutrition-label/nutrition-label/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/nutrition-label/nutrition-label/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "common-ui-timepicker-timepicker": {
+      "projectType": "library",
+      "root": "libs/common-ui/timepicker/timepicker",
+      "sourceRoot": "libs/common-ui/timepicker/timepicker/src",
+      "prefix": "cc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/common-ui/timepicker/timepicker/tsconfig.lib.json",
+            "project": "libs/common-ui/timepicker/timepicker/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/timepicker/timepicker/tsconfig.lib.json",
+              "libs/common-ui/timepicker/timepicker/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-ui/timepicker/timepicker/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/timepicker/timepicker/jest.config.js",
+            "tsConfig": "libs/common-ui/timepicker/timepicker/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/timepicker/timepicker/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

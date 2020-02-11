@@ -1,10 +1,5 @@
-import {
-  CdkOverlayOrigin,
-  ConnectedPosition,
-  Overlay,
-  OverlayConfig,
-} from '@angular/cdk/overlay'
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
+import { Overlay } from '@angular/cdk/overlay'
+import { Component, OnInit, ViewContainerRef } from '@angular/core'
 
 @Component({
   selector: 'cc-header',
@@ -12,7 +7,7 @@ import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @ViewChild(CdkOverlayOrigin) _overlayOrigin: CdkOverlayOrigin
+  // @ViewChild(CdkOverlayOrigin) _overlayOrigin: CdkOverlayOrigin
 
   constructor(
     public overlay: Overlay,
@@ -21,27 +16,27 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {}
 
-  openSpaghettiPanel() {
-    const position1: ConnectedPosition = {
-      originX: 'start',
-      originY: 'bottom',
-      overlayX: 'start',
-      overlayY: 'top',
-      // weight?: number,
-      // offsetX?: number,
-      // offsetY?: number,
-      panelClass: 'cc-header-search-panel',
-    }
-    const strategy = this.overlay
-      .position()
-      .flexibleConnectedTo(this._overlayOrigin.elementRef)
-      .withViewportMargin(20)
-      .withPositions([position1])
+  // openSpaghettiPanel() {
+  //   const position1: ConnectedPosition = {
+  //     originX: 'start',
+  //     originY: 'bottom',
+  //     overlayX: 'start',
+  //     overlayY: 'top',
+  //     // weight?: number,
+  //     // offsetX?: number,
+  //     // offsetY?: number,
+  //     panelClass: 'cc-header-search-panel',
+  //   }
+  //   const strategy = this.overlay
+  //     .position()
+  //     .flexibleConnectedTo(this._overlayOrigin.elementRef)
+  //     .withViewportMargin(20)
+  //     .withPositions([position1])
 
-    const config = new OverlayConfig({ positionStrategy: strategy })
-    const overlayRef = this.overlay.create(config)
+  //   const config = new OverlayConfig({ positionStrategy: strategy })
+  //   const overlayRef = this.overlay.create(config)
 
-    // TODO: use for the menu
-    // overlayRef.attach(new ComponentPortal(HeaderSearchComponent, this.viewContainerRef));
-  }
+  //   // TODO: use for the menu
+  //   // overlayRef.attach(new ComponentPortal(HeaderSearchComponent, this.viewContainerRef));
+  // }
 }
