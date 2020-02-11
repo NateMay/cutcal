@@ -20,7 +20,30 @@
       "@cutcal/nutrition": ["libs/nutrition/src/index.ts"],
       "@cutcal/drag-n-drop": ["libs/drag-n-drop/src/index.ts"],
       "@cutcal/cc-ng-core": ["libs/cc-ng-core/src/index.ts"],
-      "@cutcal/ng-testing": ["libs/ng-testing/src/index.ts"]
+      "@cutcal/ng-testing": ["libs/ng-testing/src/index.ts"],
+      "@cutcal/cutcal/food-recipe": ["libs/cutcal/food-recipe/src/index.ts"],
+      "@cutcal/cutcal/analyze": ["libs/cutcal/analyze/src/index.ts"],
+      "@cutcal/cutcal/calendar": ["libs/cutcal/calendar/src/index.ts"],
+      "@cutcal/cutcal/fallback": ["libs/cutcal/fallback/src/index.ts"],
+      "@cutcal/cutcal/footer": ["libs/cutcal/footer/src/index.ts"],
+      "@cutcal/cutcal/header": ["libs/cutcal/header/src/index.ts"],
+      "@cutcal/cutcal/profile": ["libs/cutcal/profile/src/index.ts"],
+      "@cutcal/cutcal/sidebar": ["libs/cutcal/sidebar/src/index.ts"],
+      "@cutcal/cutcal/recipe-builder": [
+        "libs/cutcal/recipe-builder/src/index.ts"
+      ],
+      "@cutcal/cutcal/meal-ingredient": [
+        "libs/cutcal/meal-ingredient/src/index.ts"
+      ],
+      "@cutcal/cutcal/nutrient": ["libs/cutcal/nutrient/src/index.ts"],
+      "@cutcal/cutcal/legal": ["libs/cutcal/legal/src/index.ts"],
+      "@cutcal/cutcal/business": ["libs/cutcal/business/src/index.ts"],
+      "@cutcal/cutcal/auth": ["libs/cutcal/auth/src/index.ts"],
+      "@cutcal/cutcal/grocery-pantry": [
+        "libs/cutcal/grocery-pantry/src/index.ts"
+      ],
+      "@cutcal/cutcal/support": ["libs/cutcal/support/src/index.ts"],
+      "@cutcal/cutcal/landing": ["libs/cutcal/landing/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

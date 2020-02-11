@@ -565,6 +565,533 @@
           "styleext": "scss"
         }
       }
+    },
+    "cutcal-food-recipe": {
+      "projectType": "library",
+      "root": "libs/cutcal/food-recipe",
+      "sourceRoot": "libs/cutcal/food-recipe/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/food-recipe/tsconfig.lib.json",
+              "libs/cutcal/food-recipe/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/food-recipe/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/food-recipe/jest.config.js",
+            "tsConfig": "libs/cutcal/food-recipe/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/food-recipe/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-analyze": {
+      "projectType": "library",
+      "root": "libs/cutcal/analyze",
+      "sourceRoot": "libs/cutcal/analyze/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/analyze/tsconfig.lib.json",
+              "libs/cutcal/analyze/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/analyze/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/analyze/jest.config.js",
+            "tsConfig": "libs/cutcal/analyze/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/analyze/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-calendar": {
+      "projectType": "library",
+      "root": "libs/cutcal/calendar",
+      "sourceRoot": "libs/cutcal/calendar/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/calendar/tsconfig.lib.json",
+              "libs/cutcal/calendar/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/calendar/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/calendar/jest.config.js",
+            "tsConfig": "libs/cutcal/calendar/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/calendar/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-fallback": {
+      "projectType": "library",
+      "root": "libs/cutcal/fallback",
+      "sourceRoot": "libs/cutcal/fallback/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/fallback/tsconfig.lib.json",
+              "libs/cutcal/fallback/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/fallback/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/fallback/jest.config.js",
+            "tsConfig": "libs/cutcal/fallback/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/fallback/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-footer": {
+      "projectType": "library",
+      "root": "libs/cutcal/footer",
+      "sourceRoot": "libs/cutcal/footer/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/footer/tsconfig.lib.json",
+              "libs/cutcal/footer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/footer/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/footer/jest.config.js",
+            "tsConfig": "libs/cutcal/footer/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/footer/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-header": {
+      "projectType": "library",
+      "root": "libs/cutcal/header",
+      "sourceRoot": "libs/cutcal/header/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/header/tsconfig.lib.json",
+              "libs/cutcal/header/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/header/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/header/jest.config.js",
+            "tsConfig": "libs/cutcal/header/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/header/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-profile": {
+      "projectType": "library",
+      "root": "libs/cutcal/profile",
+      "sourceRoot": "libs/cutcal/profile/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/profile/tsconfig.lib.json",
+              "libs/cutcal/profile/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/profile/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/profile/jest.config.js",
+            "tsConfig": "libs/cutcal/profile/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/profile/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-sidebar": {
+      "projectType": "library",
+      "root": "libs/cutcal/sidebar",
+      "sourceRoot": "libs/cutcal/sidebar/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/sidebar/tsconfig.lib.json",
+              "libs/cutcal/sidebar/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/sidebar/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/sidebar/jest.config.js",
+            "tsConfig": "libs/cutcal/sidebar/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/sidebar/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-recipe-builder": {
+      "projectType": "library",
+      "root": "libs/cutcal/recipe-builder",
+      "sourceRoot": "libs/cutcal/recipe-builder/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/recipe-builder/tsconfig.lib.json",
+              "libs/cutcal/recipe-builder/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/recipe-builder/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/recipe-builder/jest.config.js",
+            "tsConfig": "libs/cutcal/recipe-builder/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/recipe-builder/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-meal-ingredient": {
+      "projectType": "library",
+      "root": "libs/cutcal/meal-ingredient",
+      "sourceRoot": "libs/cutcal/meal-ingredient/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/meal-ingredient/tsconfig.lib.json",
+              "libs/cutcal/meal-ingredient/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/meal-ingredient/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/meal-ingredient/jest.config.js",
+            "tsConfig": "libs/cutcal/meal-ingredient/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/meal-ingredient/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-nutrient": {
+      "projectType": "library",
+      "root": "libs/cutcal/nutrient",
+      "sourceRoot": "libs/cutcal/nutrient/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/nutrient/tsconfig.lib.json",
+              "libs/cutcal/nutrient/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/nutrient/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/nutrient/jest.config.js",
+            "tsConfig": "libs/cutcal/nutrient/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/nutrient/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-legal": {
+      "projectType": "library",
+      "root": "libs/cutcal/legal",
+      "sourceRoot": "libs/cutcal/legal/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/legal/tsconfig.lib.json",
+              "libs/cutcal/legal/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/legal/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/legal/jest.config.js",
+            "tsConfig": "libs/cutcal/legal/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/legal/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-business": {
+      "projectType": "library",
+      "root": "libs/cutcal/business",
+      "sourceRoot": "libs/cutcal/business/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/business/tsconfig.lib.json",
+              "libs/cutcal/business/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/business/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/business/jest.config.js",
+            "tsConfig": "libs/cutcal/business/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/business/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-auth": {
+      "projectType": "library",
+      "root": "libs/cutcal/auth",
+      "sourceRoot": "libs/cutcal/auth/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/auth/tsconfig.lib.json",
+              "libs/cutcal/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/auth/jest.config.js",
+            "tsConfig": "libs/cutcal/auth/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-grocery-pantry": {
+      "projectType": "library",
+      "root": "libs/cutcal/grocery-pantry",
+      "sourceRoot": "libs/cutcal/grocery-pantry/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/grocery-pantry/tsconfig.lib.json",
+              "libs/cutcal/grocery-pantry/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/grocery-pantry/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/grocery-pantry/jest.config.js",
+            "tsConfig": "libs/cutcal/grocery-pantry/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/grocery-pantry/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-support": {
+      "projectType": "library",
+      "root": "libs/cutcal/support",
+      "sourceRoot": "libs/cutcal/support/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/support/tsconfig.lib.json",
+              "libs/cutcal/support/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/support/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/support/jest.config.js",
+            "tsConfig": "libs/cutcal/support/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/support/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cutcal-landing": {
+      "projectType": "library",
+      "root": "libs/cutcal/landing",
+      "sourceRoot": "libs/cutcal/landing/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cutcal/landing/tsconfig.lib.json",
+              "libs/cutcal/landing/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cutcal/landing/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cutcal/landing/jest.config.js",
+            "tsConfig": "libs/cutcal/landing/tsconfig.spec.json",
+            "setupFile": "libs/cutcal/landing/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -49,6 +49,57 @@
     },
     "ng-testing": {
       "tags": ["shared"]
+    },
+    "cutcal-food-recipe": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-analyze": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-calendar": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-fallback": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-footer": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-header": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-profile": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-sidebar": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-recipe-builder": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-meal-ingredient": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-nutrient": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-legal": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-business": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-auth": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-grocery-pantry": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-support": {
+      "tags": ["cutcal", "feature"]
+    },
+    "cutcal-landing": {
+      "tags": ["cutcal", "feature"]
     }
   }
 }
