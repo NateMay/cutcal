@@ -100,6 +100,48 @@
     },
     "cutcal-landing": {
       "tags": ["cutcal", "feature"]
+    },
+    "common-ui-breadcrumb-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-animate-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-am-pm-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-carousel-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-datepicker-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-timepicker-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-drag-n-drop-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-date-time-binder-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-dynamic-width-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-flip-card-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-holdable-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-image-upload-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-nutrition-label-playground": {
+      "tags": ["common-ui", "playground"]
+    },
+    "common-ui-landing": {
+      "tags": ["common-ui", "playground"]
     }
   }
 }

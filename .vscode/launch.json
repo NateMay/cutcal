@@ -30,7 +30,24 @@
         "cc-ng-core",
         "drag-n-drop",
         "ng-testing",
-        "nutrition"
+        "nutrition",
+        "cutcal-analyze",
+        "cutcal-auth",
+        "cutcal-business",
+        "cutcal-calendar",
+        "cutcal-fallback",
+        "cutcal-food-recipe",
+        "cutcal-footer",
+        "cutcal-grocery-pantry",
+        "cutcal-header",
+        "cutcal-landing",
+        "cutcal-legal",
+        "cutcal-meal-ingredient",
+        "cutcal-nutrient",
+        "cutcal-profile",
+        "cutcal-recipe-builder",
+        "cutcal-sidebar",
+        "cutcal-support"
       ],
       "default": "cutcal"
     }
