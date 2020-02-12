@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+label {
+  cursor: pointer;
+}
+
+label:focus {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+input[type='file'] {
+  display: none;
+}

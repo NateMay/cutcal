@@ -1,0 +1,23 @@
+@import 'mixins';
+@import 'palette';
+
+:host {
+  display: block;
+  color: $thunder-cloud;
+}
+
+.parent-panel {
+  &:not(:first-child) {
+    border-top: $spacer;
+  }
+
+  &:last-child {
+    border-bottom: $spacer;
+  }
+}
+
+.parent-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: $thunder-cloud;
+}

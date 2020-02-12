@@ -120,7 +120,8 @@
       "@cutcal/common-ui/timepicker": [
         "libs/common-ui/timepicker/timepicker/src/index.ts"
       ],
-      "@cutcal/common-ui/am-pm": ["libs/common-ui/am-pm/am-pm/src/index.ts"]
+      "@cutcal/common": ["libs/common/src/index.ts"],
+      "@cutcal/common/playgrounds": ["libs/common/playgrounds/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

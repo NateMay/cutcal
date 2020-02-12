@@ -1,5 +1,0 @@
-export * from './lib/dnd.payload'
-export * from './lib/dnd.service'
-export * from './lib/drag-n-drop.module'
-export * from './lib/dragItem'
-export * from './lib/dropTarget'

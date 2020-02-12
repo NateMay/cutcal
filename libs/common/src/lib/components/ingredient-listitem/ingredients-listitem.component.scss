@@ -1,0 +1,61 @@
+@import 'mixins';
+@import 'palette';
+$imageSize: 50px;
+
+:host {
+  width: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  cursor: pointer;
+  flex-flow: column;
+  box-sizing: border-box;
+  display: flex;
+  max-height: 100%;
+}
+
+.editor {
+  border-bottom: $spacer;
+}
+
+button {
+  background-color: #fff;
+  width: 100%;
+  border: none;
+  color: $theme-A-3;
+  padding: 8px;
+  outline: none;
+
+  &:active,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .text-wrapper {
+    width: calc(100% - 38px);
+  }
+
+  .portion,
+  .text {
+    text-align: left;
+    font-family: 'Gotham Rounded A', 'Gotham Rounded B', "proxima-nova-soft", sans-serif;
+    width: 100%;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .portion {
+    font-size: 12px;
+    color: $theme-A-3;
+  }
+
+  .mat-icon {
+    font-size: 16px;
+    fill: $theme-A-3;
+  }
+}
+
+sub {
+  font-size: 10px;
+  color: #999;
+}

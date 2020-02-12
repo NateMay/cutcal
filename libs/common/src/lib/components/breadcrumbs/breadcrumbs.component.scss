@@ -1,0 +1,48 @@
+@import 'palette';
+
+:host {
+  display: flex;
+}
+
+.breadcrumb {
+  &:last-child {
+    font-weight: 500;
+  }
+
+  &.dark {
+    // Add a "dark mode" styling for bredcrumbs
+    color: rgba(0, 0, 0, 0.5);
+
+    &:first-child {
+      margin-left: 16px;
+    }
+
+    &:not(:first-child)::before {
+      color: rgba(0, 0, 0, 0.2);
+      content: '\E5CC';
+      vertical-align: top;
+      display: inline-block;
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 25px;
+      margin: 0 10px 0 8px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    &:last-child {
+      color: $theme-A-3;
+    }
+
+    line-height: 42px;
+
+    i {
+      line-height: 42px;
+    }
+  }
+
+  &.no-route {
+    cursor: default;
+    text-decoration: none;
+  }
+}

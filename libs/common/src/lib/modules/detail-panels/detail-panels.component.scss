@@ -1,0 +1,67 @@
+@import 'palette';
+
+:host {
+  min-width: 0 !important;
+}
+
+.mat-expansion-panel,
+:host ::ng-deep .mat-expansion-panel {
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+:host ::ng-deep .mat-expansion-panel-header:not([aria-disabled='true']) {
+  background: $theme-B-2 !important;
+
+  &:focus,
+  &:hover,
+  &:active {
+    background: $theme-B-3 !important;
+  }
+}
+
+:host ::ng-deep .mat-expansion-panel-header-title,
+:host ::ng-deep .mat-expansion-panel .mat-expansion-indicator::after {
+  color: #fff !important;
+}
+
+:host ::ng-deep .mat-expansion-panel-header-title {
+  width: 0;
+  display: flex;
+
+  sub {
+    width: 18px;
+    margin: 2px;
+    color: #ddd;
+  }
+}
+
+.wind-rose-wrapper,
+.calories-chart-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 300px;
+}
+
+:host ::ng-deep .cc-nutrition-label {
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  padding: 12px;
+  margin: 0 auto;
+  border: 1px solid $theme-A-3;
+}
+
+:host ::ng-deep .instructions ol {
+  padding: 0 24px;
+
+  li {
+    line-height: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+:host ::ng-deep .nutrition-panel .mat-expansion-panel-body {
+  padding: 0;
+}

@@ -1,0 +1,71 @@
+@import 'palette';
+
+.mat-header-row {
+  height: 24px;
+}
+
+.mat-row {
+  height: 24px;
+}
+
+th {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+td,
+th {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  line-height: 1.5;
+
+  &:first-child {
+    padding-left: 12px;
+  }
+
+  &:last-child {
+    padding-right: 12px;
+  }
+
+  span.unit {
+    font-size: 10px;
+    color: $theme-A-3;
+  }
+}
+
+td {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.quant,
+.daily-value {
+  text-align: right;
+  padding-left: 20px;
+}
+
+.clickable {
+  color: $theme-B-3;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    color: $theme-B-4;
+  }
+}
+
+.child {
+  td {
+    line-height: 1.2;
+    font-size: 11px;
+
+    &:first-child {
+      padding-left: 18px;
+    }
+  }
+}

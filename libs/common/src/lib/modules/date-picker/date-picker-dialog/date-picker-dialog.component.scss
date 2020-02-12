@@ -1,0 +1,21 @@
+@import 'palette';
+
+:host {
+  width: 250px;
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  padding-top: 10px;
+  flex-direction: column;
+  box-sizing: border-box;
+  display: flex;
+}
+
+button {
+  color: $theme-A-3;
+  width: 100%;
+  border-radius: 0;
+  height: 50px;
+  border-top: 1px solid #ccc;
+  margin-top: 4px;
+}

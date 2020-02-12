@@ -1,0 +1,17 @@
+
+export enum AuthRole {
+  ADMIN = 'ADMIN',
+  USER = 'USER'
+}
+
+
+// export enum Permissions {
+//   VIEW_CALENDAR = 'VIEW_CALENDAR',
+//   EDIT_CALENDAR = 'EDIT_CALENDAR',
+//   VIEW_BIODATA = 'VIEW_BIODATA',
+//   EDIT_BIODATA = 'EDIT_BIODATA',
+//   VIEW_GROCERIES = 'VIEW_GROCERIES',
+//   EDIT_GROCERIES = 'EDIT_GROCERIES',
+//   VIEW_PANTRY = 'VIEW_PANTRY',
+//   EDIT_PANTRY = 'EDIT_PANTRY',
+// }

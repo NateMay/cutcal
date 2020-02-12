@@ -1,0 +1,18 @@
+@import '../../styles/config';
+@import '../../styles/dial-common';
+
+.timepicker-dial__control {
+  border: none;
+  background-color: transparent;
+  font-size: $dial-control-size;
+  width: calc(#{$dial-control-size} + 4px);
+  padding: 0;
+  border-radius: 3px;
+  text-align: center;
+
+  &:focus {
+    color: $theme-A-3;
+    background-color: #fff;
+    outline: $theme-A-3;
+  }
+}

@@ -1,0 +1,55 @@
+@import 'mixins';
+@import 'palette';
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.mat-accordion {
+  border-top: $spacer;
+  display: block;
+}
+
+:host .mat-expansion-panel {
+  margin: 0;
+
+  &:not(:first-child) {
+    border-top: $spacer;
+  }
+
+  &:last-child {
+    border-bottom: $spacer;
+  }
+
+  ::ng-deep .mat-expansion-panel-body {
+    padding: 0 0 16px 24px;
+  }
+
+  ::ng-deep .mat-expansion-indicator::after {
+    color: $theme-A-3;
+  }
+}
+
+.mat-icon,
+b {
+  color: $theme-A-3;
+}
+
+.mat-icon {
+  @include square(18px);
+
+  margin-right: 6px;
+}
+
+.item {
+  line-height: 24px;
+
+  @include grabHand;
+}
+
+a[routerLink] {
+  float: right;
+  color: $theme-A-3;
+  font-weight: 10px;
+}

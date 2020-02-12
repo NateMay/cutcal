@@ -1,0 +1,27 @@
+@import 'trash';
+@import 'palette';
+@import 'mixins';
+
+:host {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+
+  @include transition(left 0.5s ease-out);
+  @include box-shadow(
+    0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12)
+  );
+}
+
+.text {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 6px;
+  color: $thunder-cloud;
+}

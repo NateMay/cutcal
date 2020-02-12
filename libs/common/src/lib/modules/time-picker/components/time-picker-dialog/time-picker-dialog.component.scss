@@ -1,0 +1,87 @@
+@import '../../styles/config';
+@import '../../styles/theme';
+
+:host {
+  display: block;
+  width: 250px;
+  pointer-events: auto;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+header {
+  padding: 8px 16px;
+  background-color: $dial-background-color;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 6px;
+
+  @supports (background-color: var(--dial-background-color)) {
+    background-color: var(--dial-background-color);
+  }
+}
+
+.timepicker__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $body-background-color;
+
+  @supports (background-color: var(--body-background-color)) {
+    background-color: var(--body-background-color);
+  }
+}
+
+.timepicker__actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+  background-color: $body-background-color;
+
+  @supports (background-color: var(--body-background-color)) {
+    background-color: var(--body-background-color);
+  }
+}
+
+@media (max-device-width: 1023px) and (orientation: landscape) {
+  .timepicker {
+    display: flex;
+    width: 515px;
+
+    &__header {
+      display: flex;
+      align-items: center;
+    }
+
+    &__main-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &__actions {
+      padding: 5px;
+      margin-top: -1px;
+    }
+  }
+}
+
+.actions {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin-top: 4px;
+
+  button {
+    height: 50px;
+    color: $theme-A-3;
+    width: 50%;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: bold;
+
+    &:not(:first-child) {
+      border-left: 1px solid #ccc;
+    }
+  }
+}

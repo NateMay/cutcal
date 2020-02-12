@@ -41,12 +41,7 @@
     "nutrition": {
       "tags": ["shared"]
     },
-    "drag-n-drop": {
-      "tags": ["shared"]
-    },
-    "cc-ng-core": {
-      "tags": ["shared"]
-    },
+
     "ng-testing": {
       "tags": ["shared"]
     },
@@ -101,86 +96,11 @@
     "cutcal-landing": {
       "tags": ["cutcal", "feature"]
     },
-    "common-ui-breadcrumb-playground": {
-      "tags": ["common-ui", "playground"]
+    "common": {
+      "tags": ["common"]
     },
-    "common-ui-animate-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-am-pm-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-carousel-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-datepicker-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-timepicker-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-drag-n-drop-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-date-time-binder-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-dynamic-width-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-flip-card-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-holdable-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-image-upload-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-nutrition-label-playground": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-landing": {
-      "tags": ["common-ui", "playground"]
-    },
-    "common-ui-animate-animate": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-breadcrumb-breadcrumb": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-carousel-carousel": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-date-time-binder-date-time-binder": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-datepicker-datepicker": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-drag-n-drop-drag-n-drop": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-dynamic-width-dynamic-width": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-flip-card-flip-card": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-holdable-holdable": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-image-upload-image-upload": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-nutrition-label-nutrition-label": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-timepicker-timepicker": {
-      "tags": ["common-ui", "component"]
-    },
-    "common-ui-am-pm-am-pm": {
-      "tags": ["common-ui", "component"]
+    "playgrounds": {
+      "tags": ["common"]
     }
   }
 }
