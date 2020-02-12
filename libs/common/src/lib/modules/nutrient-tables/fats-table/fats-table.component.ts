@@ -41,7 +41,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
       </tr>
 
       <ng-container *ngIf="saturated_open">
-        <tr class="child" *ngFor="let fat of satFats | coll">
+        <tr class="child" *ngFor="let fat of satFats | keyvalue">
           <td>{{ fat.shortName }}</td>
           <td class="quant">{{ nutrition[fat.propName] | number: numInfo }}</td>
           <td>
@@ -75,7 +75,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
       </tr>
 
       <ng-container *ngIf="monoSaturated_open">
-        <tr class="child" *ngFor="let fat of monos | coll">
+        <tr class="child" *ngFor="let fat of monos | keyvalue">
           <td>{{ fat.shortName }}</td>
           <td class="quant">{{ nutrition[fat.propName] | number: numInfo }}</td>
           <td>
@@ -109,7 +109,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
       </tr>
 
       <ng-container *ngIf="polySaturated_open">
-        <tr class="child" *ngFor="let fat of polys | coll">
+        <tr class="child" *ngFor="let fat of polys | keyvalue">
           <td>{{ fat.shortName }}</td>
           <td class="quant">{{ nutrition[fat.propName] | number: numInfo }}</td>
           <td>
@@ -159,7 +159,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
       </tr>
 
       <ng-container *ngIf="transSaturated_open">
-        <tr class="child" *ngFor="let fat of transFats | coll">
+        <tr class="child" *ngFor="let fat of transFats | keyvalue">
           <td>{{ fat.shortName }}</td>
           <td class="quant">{{ nutrition[fat.propName] | number: numInfo }}</td>
           <td>

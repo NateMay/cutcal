@@ -1,25 +1,24 @@
 import { TestBed } from '@angular/core/testing';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { AuthService } from '../../../auth/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { FirestoreService } from '../fireStore/fireStore.service';
 import { FoodService } from './food.service';
 
 // DEPENDS ON (recipe) then TEST (food-service)
 
 describe('Food Service', () => {
-
   let foodSvc: FoodService;
 
   const storageSub = {
     upload: () => {},
-    ref: () => {}
-  }
+    ref: () => {},
+  };
 
   const dbDouble = {
-    add: () => { },
-    colWithIds: () => { },
-    docWithId: () => { },
-    delete: () => { }
+    add: () => {},
+    colWithIds: () => {},
+    docWithId: () => {},
+    delete: () => {},
   };
 
   beforeEach(() => {
@@ -28,16 +27,16 @@ describe('Food Service', () => {
         FoodService,
         { provide: FirestoreService, useValue: dbDouble },
         { provide: AuthService, useValue: { uid: 'userId' } },
-        { provide: AngularFireStorage, useValue: storageSub }
-      ]
-    })
+        { provide: AngularFireStorage, useValue: storageSub },
+      ],
+    });
 
-    foodSvc = TestBed.get(FoodService)
-  })
+    foodSvc = TestBed.get(FoodService);
+  });
 
   it('injects the food service', () => {
-    expect(foodSvc).toBeTruthy()
-  })
+    expect(foodSvc).toBeTruthy();
+  });
 
   // it('createMeal', () => {
 
@@ -82,4 +81,4 @@ describe('Food Service', () => {
   // it('getFoods', () => {
 
   // })
-})
+});

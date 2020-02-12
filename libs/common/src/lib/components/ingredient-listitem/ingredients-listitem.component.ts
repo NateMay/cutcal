@@ -1,11 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  isDevMode,
-  Output,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, isDevMode, Output } from '@angular/core'
 import { MatSliderChange } from '@angular/material/slider'
 import { Router } from '@angular/router'
 import { getQuantityStep } from '../../functions/increment/increment'
@@ -24,7 +17,7 @@ export interface DeleteIngredientPayload {
 }
 
 @Component({
-  selector: 'li[cc-ingredient-listitem]',
+  selector: 'li[cc-ingredient-listitem],cc-ingredient-listitem',
   host: { class: 'cc-ingredients-listitem' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./ingredients-listitem.component.scss'],
@@ -74,7 +67,7 @@ export interface DeleteIngredientPayload {
           <mat-label>Unit</mat-label>
           <mat-select [(value)]="unit">
             <mat-option
-              *ngFor="let amt of food.portions | coll"
+              *ngFor="let amt of food.portions | keyvalue"
               [value]="amt.unit"
             >
               {{ amt.unit }}

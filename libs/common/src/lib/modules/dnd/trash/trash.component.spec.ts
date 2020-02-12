@@ -3,7 +3,6 @@ import { MealService } from '../../../services/meal/meal.service';
 import { DndModule } from '../dnd.module';
 import { TrashComponent } from './trash.component';
 
-
 // TEST (trash)
 
 describe('TrashComponent', () => {
@@ -12,17 +11,14 @@ describe('TrashComponent', () => {
 
   const mealSvcStub = {
     deleteMeal: () => {},
-    deleteUsage: () => {}
-  }
+    deleteUsage: () => {},
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [DndModule],
-      providers: [
-        { provide: MealService, useValue: mealSvcStub }
-      ]
-    })
-    .compileComponents();
+      providers: [{ provide: MealService, useValue: mealSvcStub }],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

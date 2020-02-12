@@ -1,22 +1,20 @@
-import { Injectable } from '@angular/core';
-import { Params } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Injectable } from '@angular/core'
+import { Params } from '@angular/router'
+import { Subject } from 'rxjs'
 
 @Injectable()
 export class MockActivedRoute {
+  data: any
 
-  data: any;
+  private _params = new Subject()
 
-  private _params = new Subject();
-
-  snapshot: Params;
+  snapshot: Params
 
   get params() {
-    return this._params.asObservable();
+    return this._params.asObservable()
   }
   set params(params: Params) {
-    this._params.next(params);
-    this.snapshot = {params};
+    this._params.next(params)
+    this.snapshot = { params }
   }
-
 }

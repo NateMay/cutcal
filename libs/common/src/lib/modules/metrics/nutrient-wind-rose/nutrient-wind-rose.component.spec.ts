@@ -3,7 +3,6 @@ import { MockHighChartsModule } from '@cutcal/ng-testing';
 import { PipesModule } from '../../../pipes/pipes.module';
 import { NutrientWindRoseComponent } from './nutrient-wind-rose.component';
 
-
 describe('NutrientWindRoseComponent', () => {
   let component: NutrientWindRoseComponent;
   let fixture: ComponentFixture<NutrientWindRoseComponent>;
@@ -11,12 +10,8 @@ describe('NutrientWindRoseComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [NutrientWindRoseComponent],
-      imports: [
-        MockHighChartsModule,
-        PipesModule
-      ]
-    })
-    .compileComponents();
+      imports: [MockHighChartsModule, PipesModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

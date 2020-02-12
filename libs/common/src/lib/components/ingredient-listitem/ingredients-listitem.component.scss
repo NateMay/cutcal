@@ -4,7 +4,7 @@ $imageSize: 50px;
 
 :host {
   width: 100%;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
   cursor: pointer;
   flex-flow: column;
   box-sizing: border-box;
@@ -36,7 +36,8 @@ button {
   .portion,
   .text {
     text-align: left;
-    font-family: 'Gotham Rounded A', 'Gotham Rounded B', "proxima-nova-soft", sans-serif;
+    font-family: 'Gotham Rounded A', 'Gotham Rounded B', 'proxima-nova-soft',
+      sans-serif;
     width: 100%;
   }
 

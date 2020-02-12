@@ -8,4 +8,3 @@ export * from './lib/getDirectives'
 export * from './lib/getEl'
 export * from './lib/ng-testing.module'
 export * from './lib/nodeModules'
-

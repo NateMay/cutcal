@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core'
 
 /**
  * [attr]="methodName(value)"
@@ -7,16 +7,15 @@ import { Pipe, PipeTransform } from '@angular/core';
  * @refernce https://medium.com/@ineedsomemeat/angular-optimization-memoized-pipe-functions-in-templates-75f62e16df5a
  */
 
-
 @Pipe({
-  name: 'memoize'
+  name: 'memoize',
 })
 export class MemoizePipe implements PipeTransform {
-
-  public transform(value: any, handler: (value: any) => any, context?: any): any {
-
-    return Boolean(context) ? handler.call(context, value) : handler(value);
-
+  public transform(
+    value: any,
+    handler: (value: any) => any,
+    context?: any
+  ): any {
+    return Boolean(context) ? handler.call(context, value) : handler(value)
   }
-
 }

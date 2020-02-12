@@ -4,14 +4,13 @@ import { of } from 'rxjs';
 import { FirestoreService } from '../../services/fireStore/fireStore.service';
 import { DocPipe } from './doc.pipe';
 
-
-
-
 @Component({
-  template: `{{ (docRef | doc | async).prop }}`
+  template: `
+    {{ (docRef | doc | async).prop }}
+  `,
 })
 class TestDocPipeComp {
-  docRef = {}
+  docRef = {};
 }
 
 describe('Doc (firebase) Pipe', () => {
@@ -19,32 +18,23 @@ describe('Doc (firebase) Pipe', () => {
   let fixture: ComponentFixture<TestDocPipeComp>;
 
   beforeEach(() => {
-
     const dbStub = {
-      doc$: () => of({ prop: 'Hello World' })
-    }
+      doc$: () => of({ prop: 'Hello World' }),
+    };
     TestBed.configureTestingModule({
-      declarations: [
-        DocPipe,
-        TestDocPipeComp
-      ],
-      providers: [
-        { provide: FirestoreService, useValue: dbStub }
-      ]
+      declarations: [DocPipe, TestDocPipeComp],
+      providers: [{ provide: FirestoreService, useValue: dbStub }],
     });
     fixture = TestBed.createComponent(TestDocPipeComp);
     component = fixture.componentInstance;
   });
 
-
   it('can load instance', () => {
     expect(component).toBeTruthy();
   });
 
-
   it('unwraps a document in the template', () => {
     fixture.detectChanges();
-    expect(fixture.debugElement.nativeElement.textContent).toBe('Hello World')
+    expect(fixture.debugElement.nativeElement.textContent).toBe('Hello World');
   });
-
-})
+});

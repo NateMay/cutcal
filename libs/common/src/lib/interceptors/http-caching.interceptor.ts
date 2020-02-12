@@ -1,8 +1,15 @@
-import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { startWith, tap } from 'rxjs/operators';
-import { RequestCache } from '../services/request-cache.service';
+import {
+  HttpEvent,
+  HttpHandler,
+  HttpHeaders,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse,
+} from '@angular/common/http'
+import { Injectable } from '@angular/core'
+import { Observable, of } from 'rxjs'
+import { startWith, tap } from 'rxjs/operators'
+import { RequestCache } from '../services/request-cache.service'
 
 /**
  * If request is cachable (e.g., package search) and
@@ -22,30 +29,35 @@ export class CachingInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     // continue if not cachable.
-    if (!isCachable(req)) { return next.handle(req); }
+    if (!isCachable(req)) {
+      return next.handle(req)
+    }
 
-    const cachedResponse = this.cache.get(req);
+    const cachedResponse = this.cache.get(req)
 
     // cache-then-refresh
     if (req.headers.get('x-refresh')) {
-      const results$ = sendRequest(req, next, this.cache);
-      return cachedResponse ?
-        results$.pipe( startWith(cachedResponse) ) :
-        results$;
+      const results$ = sendRequest(req, next, this.cache)
+      return cachedResponse
+        ? results$.pipe(startWith(cachedResponse))
+        : results$
     }
 
     // cache-or-fetch
-    return cachedResponse ?
-      of(cachedResponse) : sendRequest(req, next, this.cache);
+    return cachedResponse
+      ? of(cachedResponse)
+      : sendRequest(req, next, this.cache)
   }
 }
 
 /** Is this request cachable? */
 function isCachable(req: HttpRequest<any>) {
   // Only GET requests are cachable
-  return req.method === 'GET' &&
+  return (
+    req.method === 'GET' &&
     // Only npm package search is cachable in this app
-    -1 < req.url.indexOf('https://npmsearch.com/query');
+    -1 < req.url.indexOf('https://npmsearch.com/query')
+  )
 }
 
 /**
@@ -55,17 +67,17 @@ function isCachable(req: HttpRequest<any>) {
 function sendRequest(
   req: HttpRequest<any>,
   next: HttpHandler,
-  cache: RequestCache): Observable<HttpEvent<any>> {
-
+  cache: RequestCache
+): Observable<HttpEvent<any>> {
   // No headers allowed in npm search request
-  const noHeaderReq = req.clone({ headers: new HttpHeaders() });
+  const noHeaderReq = req.clone({ headers: new HttpHeaders() })
 
   return next.handle(noHeaderReq).pipe(
     tap(event => {
       // There may be other events besides the response.
       if (event instanceof HttpResponse) {
-        cache.put(req, event); // Update the cache.
+        cache.put(req, event) // Update the cache.
       }
     })
-  );
+  )
 }

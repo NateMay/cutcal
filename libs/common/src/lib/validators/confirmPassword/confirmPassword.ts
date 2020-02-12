@@ -13,7 +13,7 @@ import {
 
 @Directive({
   selector:
-    '[confirmPassword][formControlName],[confirmPassword][formControl],[confirmPassword][ngModel]',
+    '[ccConfirmPassword][formControlName],[ccConfirmPassword][formControl],[ccConfirmPassword][ngModel]',
   providers: [
     {
       provide: NG_VALIDATORS,

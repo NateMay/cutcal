@@ -1,27 +1,25 @@
-
 export interface BioData {
-  height?: Heights,
-  weight?: Weights,
-  dob?: string;
+  height?: Heights
+  weight?: Weights
+  dob?: string
 }
-
 
 export interface Heights {
-  current: Height;
-  history?: Height[];
+  current: Height
+  history?: Height[]
 }
 export interface Height {
-  measure: number;
-  units: 'in' | 'cm';
-  date: string;
+  measure: number
+  units: 'in' | 'cm'
+  date: string
 }
 
 export interface Weights {
-  current: Weight;
-  history?: Weight[];
+  current: Weight
+  history?: Weight[]
 }
 export interface Weight {
-  measure: number;
-  units: 'lb' | 'kg';
-  date: string;
+  measure: number
+  units: 'lb' | 'kg'
+  date: string
 }

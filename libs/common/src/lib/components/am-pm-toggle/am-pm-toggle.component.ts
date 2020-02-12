@@ -1,7 +1,13 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Boolish } from '../../decorators/boolish/boolish';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core'
+import { Boolish } from '../../decorators/boolish/boolish'
 
-let nextUniqueId = 0;
+let nextUniqueId = 0
 
 @Component({
   selector: 'cc-am-pm-toggle',
@@ -9,11 +15,13 @@ let nextUniqueId = 0;
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./am-pm-toggle.component.scss'],
   template: `
-    <input type="checkbox"
+    <input
+      type="checkbox"
       [attr.checked]="isPM"
       (change)="update()"
       [attr.id]="idStr"
-      [attr.disabled]="(disabled ? true: null)">
+      [attr.disabled]="disabled ? true : null"
+    />
 
     <label [attr.for]="idStr">
       <span class="handle">
@@ -28,31 +36,32 @@ let nextUniqueId = 0;
       <span class="star star-5"></span>
       <span class="star star-6"></span>
     </label>
-  `
-
+  `,
 })
 export class AmPmToggleComponent {
-
   @Input()
-  get idStr(): string { return this._id; }
-  set idStr(value: string) { this._id = value || this._uid; }
-  private _id: string;
-  private _uid = `am-pm-toggle-${nextUniqueId++}`;
+  get idStr(): string {
+    return this._id
+  }
+  set idStr(value: string) {
+    this._id = value || this._uid
+  }
+  private _id: string
+  private _uid = `am-pm-toggle-${nextUniqueId++}`
 
-  @Input() isPM: boolean;
-  @Output() isPMChange = new EventEmitter<boolean>();
-
+  @Input() isPM: boolean
+  @Output() isPMChange = new EventEmitter<boolean>()
 
   @Boolish
-  @Input() disabled: boolean;
+  @Input()
+  disabled: boolean
 
   constructor() {
-    this.idStr = this.idStr;
+    this.idStr = this.idStr
   }
 
   update() {
-    this.isPM = !this.isPM;
-    this.isPMChange.emit(this.isPM);
+    this.isPM = !this.isPM
+    this.isPMChange.emit(this.isPM)
   }
-
 }

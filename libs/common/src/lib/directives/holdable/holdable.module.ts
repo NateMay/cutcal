@@ -1,22 +1,15 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
-import { HoldableDirective } from './holdable.dir';
+import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core'
+import { MatButtonModule } from '@angular/material/button'
+import { MatIconModule } from '@angular/material/icon'
+import { RouterModule } from '@angular/router'
+import { HoldableDirective } from './holdable.dir'
 
-const DECLARATIONS = [
-  HoldableDirective
-];
+const DECLARATIONS = [HoldableDirective]
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatIconModule,
-    MatButtonModule
-  ],
+  imports: [CommonModule, RouterModule, MatIconModule, MatButtonModule],
   declarations: [...DECLARATIONS],
-  exports: [...DECLARATIONS ]
+  exports: [...DECLARATIONS],
 })
-export class HoldableModule { }
+export class HoldableModule {}

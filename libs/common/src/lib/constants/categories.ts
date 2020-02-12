@@ -5,12 +5,12 @@
 export const SEARCH_CATEGORIES = {
   'Meal Type': {
     'Breakfast and Brunch': {
-      'Pancakes': {},
+      Pancakes: {},
       'Breakfast Casseroles': {},
       'Breakfast Eggs': {},
       'Breakfast Quiche': {},
       'French Toast': {},
-      'Waffles': {},
+      Waffles: {},
       'Breakfast Bread': {},
       'Crepes and Blintzes': {},
       'Breakfast Cereals': {},
@@ -20,31 +20,31 @@ export const SEARCH_CATEGORIES = {
       'Breakfast Meat and Seafood': {},
       'Breakfast Potatoes': {},
       'Healthy Breakfast and Brunch': {},
-      'Southern Breakfast and Brunch': {}
+      'Southern Breakfast and Brunch': {},
     },
-    'Desserts': {
+    Desserts: {
       'Cake Recipes': {},
-      'Candy': {},
+      Candy: {},
       'Caramel Desserts': {},
-      'Cheesecake': {},
+      Cheesecake: {},
       'Chocolate Desserts': {},
-      'Cookies': {},
+      Cookies: {},
       'Crisps and Crumbles': {},
-      'Cobbler': {},
-      'Cupcakes': {},
+      Cobbler: {},
+      Cupcakes: {},
       'Custards and Puddings': {},
       'Dessert Filling Recipes': {},
       'Pie Recipes': {},
       'Frosting and Icing Recipes': {},
       'Frozen Desserts': {},
       'Fruit Desserts': {},
-      'Mousse': {},
+      Mousse: {},
       'Nut Desserts': {},
       'Specialty Desserts': {},
       'Dessert Sauces': {},
-      'Healthy Desserts': {}
+      'Healthy Desserts': {},
     },
-    'Dinners': {
+    Dinners: {
       'Main Dishes': {},
       'Baked and Roasted Chicken': {},
       'Beef Steaks': {},
@@ -52,28 +52,28 @@ export const SEARCH_CATEGORIES = {
       'Sheet Pan Dinners': {},
       'Healthy Main Dishes': {},
       'Main Dish Salads': {},
-      'Meatloaf': {},
+      Meatloaf: {},
       'Pasta Main Dishes': {},
       'Pork Chops': {},
       'Quick and Easy Dinners for One': {},
       'Side Dishes': {},
       'Spaghetti Dinner': {},
       'Vegetarian Main Dishes': {},
-      'Slow Cooker Main Dishes': {}
+      'Slow Cooker Main Dishes': {},
     },
-    'Lunch': {
+    Lunch: {
       'Healthy Lunches': {},
       'Bowl Recipes': {},
-      'Sandwiches': {},
+      Sandwiches: {},
       'Sandwich Wraps and Roll-Ups': {},
-      'Soup': {},
+      Soup: {},
       'Salad Recipes': {},
       'School Lunch Ideas and Recipes': {},
-      'Healthy School Lunch': {}
-    }
+      'Healthy School Lunch': {},
+    },
   },
-  'Ingredient': {
-    'Beef': {
+  Ingredient: {
+    Beef: {
       'Beef Meatloaf': {},
       'Ground Beef': {},
       'Beef Stew': {},
@@ -94,9 +94,9 @@ export const SEARCH_CATEGORIES = {
       'Beef Sandwiches': {},
       'Beef Soup': {},
       'Beef Stir-Fry': {},
-      'Hamburgers': {},
+      Hamburgers: {},
       'Beef Appetizers': {},
-      'Beef Sausage': {}
+      'Beef Sausage': {},
     },
     'Beans and Legumes': {
       'Lima Bean Recipes': {},
@@ -110,7 +110,7 @@ export const SEARCH_CATEGORIES = {
       'Great Northern Bean Recipes': {},
       'White Bean Recipes': {},
       'Soybean and Edamame Recipes': {},
-      'Fava Bean Recipes': {}
+      'Fava Bean Recipes': {},
     },
     'Chicken Recipes': {
       'Healthy Chicken Main Dishes': {},
@@ -135,17 +135,17 @@ export const SEARCH_CATEGORIES = {
       'Chicken Soup': {},
       'Chicken Stew': {},
       'Gourmet Chicken Main Dishes': {},
-      'Chicken Stir-Fry': {}
+      'Chicken Stir-Fry': {},
     },
-    'Chocolate': {
+    Chocolate: {
       'Chocolate Desserts': {},
       'Chocolate Muffins': {},
       'Chocolate Popcorn': {},
       'Chocolate Sauce and Hot Fudge': {},
       'Chocolate Shakes and Floats': {},
-      'Cocoa Powder': {}
+      'Cocoa Powder': {},
     },
-    'Fruit': {
+    Fruit: {
       'Apple Recipes': {},
       'Apricot Recipes': {},
       'Avocado Recipes': {},
@@ -170,7 +170,7 @@ export const SEARCH_CATEGORIES = {
       'Plum Recipes': {},
       'Pomegranate Recipes': {},
       'Raisin Recipes': {},
-      'Tamarind Recipes': {}
+      'Tamarind Recipes': {},
     },
     'Game Meats': {
       'Venison Recipes': {},
@@ -180,22 +180,22 @@ export const SEARCH_CATEGORIES = {
       'Buffalo and Bison Recipes': {},
       'Rabbit Recipes': {},
       'Cornish Hens': {},
-      'Veal Recipes': {}
+      'Veal Recipes': {},
     },
-    'Grains': {
-      'Barley': {},
+    Grains: {
+      Barley: {},
       'Brown Rice': {},
-      'Buckwheat': {},
-      'Bulgur': {},
-      'Cornmeal': {},
-      'Millet': {},
-      'Oats': {},
-      'Quinoa': {},
-      'Spelt': {},
+      Buckwheat: {},
+      Bulgur: {},
+      Cornmeal: {},
+      Millet: {},
+      Oats: {},
+      Quinoa: {},
+      Spelt: {},
       'Wild Rice': {},
-      'Whole Grain Pancakes': {}
+      'Whole Grain Pancakes': {},
     },
-    'Mushrooms': {
+    Mushrooms: {
       'Chanterelle Mushrooms': {},
       'Crimini Mushrooms': {},
       'Enoki Mushrooms': {},
@@ -205,17 +205,17 @@ export const SEARCH_CATEGORIES = {
       'Portobello Mushrooms': {},
       'Shiitake Mushrooms': {},
       'Vegetarian Mushroom Main Dishes': {},
-      'Mushroom Quiche': {}
+      'Mushroom Quiche': {},
     },
-    'Pasta': {
+    Pasta: {
       'Pasta by Shape': {},
       'Pasta Main Dishes': {},
       'Homemade Pasta': {},
-      'Noodles': {},
+      Noodles: {},
       'Pasta Appetizers': {},
       'Pasta Desserts': {},
       'Pasta Salad': {},
-      'Pasta Sauces': {}
+      'Pasta Sauces': {},
     },
     'Pork Recipes': {
       'Pork Chops': {},
@@ -236,9 +236,9 @@ export const SEARCH_CATEGORIES = {
       'Pork Sandwiches': {},
       'Pork Soup': {},
       'Pork Stew': {},
-      'Pork Stir-Fry': {}
+      'Pork Stir-Fry': {},
     },
-    'Potatoes': {
+    Potatoes: {
       'Breakfast Potatoes': {},
       'Mashed Potatoes': {},
       'Roasted Potatoes': {},
@@ -247,9 +247,9 @@ export const SEARCH_CATEGORIES = {
       'New Potato Recipes': {},
       'Red Potato Recipes': {},
       'White Potato Recipes': {},
-      'BBQ & Grilled Potatoes': {}
+      'BBQ & Grilled Potatoes': {},
     },
-    'Poultry': {
+    Poultry: {
       'Beef Recipes': {},
       'Chicken Recipes': {},
       'Game Meats': {},
@@ -258,9 +258,9 @@ export const SEARCH_CATEGORIES = {
       'Lamb Recipes': {},
       'Pork Recipes': {},
       'Sausage Recipes': {},
-      'Turkey Recipes': {}
+      'Turkey Recipes': {},
     },
-    'Rice': {
+    Rice: {
       'Spanish Rice': {},
       'Mexican Rice': {},
       'Rice Pilaf': {},
@@ -268,17 +268,17 @@ export const SEARCH_CATEGORIES = {
       'Wild Rice': {},
       'Fried Rice': {},
       'Rice Casserole': {},
-      'Risotto': {},
-      'Beans and Rice': {}
+      Risotto: {},
+      'Beans and Rice': {},
     },
-    'Salmon': {
-      'Salmon Patties': { },
+    Salmon: {
+      'Salmon Patties': {},
       'Main Dish Salmon': {},
       'Salmon Salad': {},
       'Smoked Salmon': {},
-      'BBQ & Grilled Salmon': {}
+      'BBQ & Grilled Salmon': {},
     },
-    'Seafood': {
+    Seafood: {
       'Gourmet Seafood Main Dishes': {},
       'BBQ & Grilled Seafood': {},
       'Healthy Seafood Main Dishes': {},
@@ -287,9 +287,9 @@ export const SEARCH_CATEGORIES = {
       'Seafood Pasta Salad': {},
       'Seafood Stew': {},
       'Fish Recipes': {},
-      'Shellfish Recipes': {}
+      'Shellfish Recipes': {},
     },
-    'Shrimp': {
+    Shrimp: {
       'BBQ & Grilled Shrimp': {},
       'Main Dish Shrimp': {},
       'Shrimp and Grits': {},
@@ -299,15 +299,15 @@ export const SEARCH_CATEGORIES = {
       'Shrimp Pasta Salad': {},
       'Shrimp Salad': {},
       'Shrimp Soup': {},
-      'Shrimp Stir-Fry': {}
+      'Shrimp Stir-Fry': {},
     },
     'Tofu and Tempeh': {
       'Tofu Recipes': {},
       'Tempeh Recipes': {},
       'TVP Recipes': {},
-      'Seitan Recipes': {}
+      'Seitan Recipes': {},
     },
-    'Turkey': {
+    Turkey: {
       'Ground Turkey': {},
       'Turkey Breasts': {},
       'Turkey Brine': {},
@@ -322,7 +322,7 @@ export const SEARCH_CATEGORIES = {
       'Turkey Pot Pie': {},
       'Turkey Salad': {},
       'Turkey Soup': {},
-      'BBQ & Grilled Turkey': {}
+      'BBQ & Grilled Turkey': {},
     },
     'Vegetable Recipes': {
       'Asparagus Side Dishes': {},
@@ -343,23 +343,23 @@ export const SEARCH_CATEGORIES = {
       'Summer Squash Side Dishes': {},
       'Sweet Potato Side Dishes': {},
       'Tomato Side Dishes': {},
-      'Zucchini Side Dishes': {}
-    }
+      'Zucchini Side Dishes': {},
+    },
   },
   'Diet and Health': {
-    'Diabetic': {},
+    Diabetic: {},
     'Low Carb Recipes': {},
     'Dairy Free Recipes': {},
     'Gluten Free': {},
-    'Healthy': {},
+    Healthy: {},
     'Heart-Healthy Recipes': {},
     'High Fiber Recipes': {},
     'Low Calorie': {},
     'Low Cholesterol Recipes': {},
     'Low Fat': {},
-    'Weight-Loss Recipes': {}
+    'Weight-Loss Recipes': {},
   },
-  'Seasonal': {
+  Seasonal: {
     '4th of July': {
       '4th of July Appetizers': {},
       '4th of July Desserts': {},
@@ -367,7 +367,7 @@ export const SEARCH_CATEGORIES = {
       '4th of July BBQ & Grilling': {},
       '4th of July Salads': {},
       '4th of July Side Dishes': {},
-      '4th of July Patriotic Recipes': {}
+      '4th of July Patriotic Recipes': {},
     },
     'Baby Shower': {
       'Christmas Cookies': {},
@@ -384,22 +384,20 @@ export const SEARCH_CATEGORIES = {
       'Christmas Salads': {},
       'Christmas Drink Recipes': {},
       'Food Gifts': {},
-      'Eggnog': {},
-      'Mulled Wine': {}
+      Eggnog: {},
+      'Mulled Wine': {},
     },
-    'Birthday': {
-    },
-    'Christmas': {
-    },
+    Birthday: {},
+    Christmas: {},
     'Christmas Cookies': {
       'Sugar Cookies': {},
-      'Biscotti': {},
+      Biscotti: {},
       'Butter Cookies': {},
       'Chocolate Chip Cookies': {},
       'Cookie Icing and Frosting': {},
       'Cut-Out Cookies': {},
       'Gingerbread Cookies': {},
-      'Gingersnaps': {},
+      Gingersnaps: {},
       'International Cookies': {},
       'Lebkuchen Cookies': {},
       'No-Bake Cookies': {},
@@ -410,16 +408,16 @@ export const SEARCH_CATEGORIES = {
       'Shortbread Cookies': {},
       'Springerle Cookies': {},
       'Spritz Cookies': {},
-      'Thumbprint Cookies': {}
+      'Thumbprint Cookies': {},
     },
     'Cinco de Mayo': {
-      'Guacamole': {},
-      'Margaritas': {},
+      Guacamole: {},
+      Margaritas: {},
       'Mexican Recipes': {},
       'Mexican Desserts': {},
       'Mexican Drinks': {},
-      'Nachos': {},
-      'Salsa': {}
+      Nachos: {},
+      Salsa: {},
     },
     'Easter Recipes': {
       'Easter Appetizers': {},
@@ -435,15 +433,15 @@ export const SEARCH_CATEGORIES = {
       'Easter Side Dishes': {},
       'Potatoes Au Gratin': {},
       'Scalloped Potatoes': {},
-      'Easter Leftovers': {}
+      'Easter Leftovers': {},
     },
-    'Football': {
+    Football: {
       'Big Game Appetizers and Snacks': {},
       'Big Game Drinks': {},
       'Big Game Main Dishes': {},
-      'Big Game Treats': {}
+      'Big Game Treats': {},
     },
-    'Halloween': {
+    Halloween: {
       'Halloween Appetizers and Snacks': {},
       'Halloween Cookies': {},
       'Halloween Cupcakes': {},
@@ -454,20 +452,20 @@ export const SEARCH_CATEGORIES = {
       'Caramel Apples': {},
       'Leftover Candy Recipes': {},
       'Pumpkin Recipes': {},
-      'Pumpkin Seeds': {}
+      'Pumpkin Seeds': {},
     },
-    'Hanukkah': {
+    Hanukkah: {
       'Hanukkah Appetizers': {},
       'Hanukkah Latkes': {},
       'Hanukkah Brisket': {},
       'Hanukkah Cookies': {},
       'Hanukkah Doughnuts': {},
-      'Hanukkah Kugel': {}
+      'Hanukkah Kugel': {},
     },
     'Mother\'s Day': {
       'Mother\'s Day Breakfast and Brunch': {},
       'Mother\'s Day Dinner': {},
-      'Mother\'s Day Desserts': {}
+      'Mother\'s Day Desserts': {},
     },
     'New Year': {
       'New Year\'s Appetizers': {},
@@ -479,19 +477,19 @@ export const SEARCH_CATEGORIES = {
       'New Year\'s Good Luck Foods': {},
       'New Year\'s Side Dishes': {},
       'Greens Recipes': {},
-      'New Year, New You': {}
+      'New Year, New You': {},
     },
-    'Passover': {
+    Passover: {
       'Seder Appetizers': {},
       'Seder Main Dishes': {},
       'Seder Side Dishes': {},
       'Seder Desserts': {},
       'Everyday Passover Meals': {},
-      'Seder Recipes': {}
+      'Seder Recipes': {},
     },
-    'Ramadan': {
+    Ramadan: {
       'Ramadan Main Dishes': {},
-      'Ramadan Desserts': {}
+      'Ramadan Desserts': {},
     },
     'St. Patrick\'s Day': {
       'St. Patrick\'s Day Appetizers': {},
@@ -503,9 +501,9 @@ export const SEARCH_CATEGORIES = {
       'Irish Stew': {},
       'Irish Soda Bread': {},
       'Irish Recipes': {},
-      'Guinness® Recipes': {}
+      'Guinness® Recipes': {},
     },
-    'Thanksgiving': {
+    Thanksgiving: {
       'Thanksgiving Appetizers': {},
       'Thanksgiving Bread': {},
       'Thanksgiving Desserts': {},
@@ -528,7 +526,7 @@ export const SEARCH_CATEGORIES = {
       'Paleo Thanksgiving': {},
       'Gluten-Free Thanksgiving': {},
       'Thanksgiving Leftovers': {},
-      'Cranberry Recipes': {}
+      'Cranberry Recipes': {},
     },
     'Valentines Day': {
       'Valentine\'s Day Appetizers': {},
@@ -541,7 +539,7 @@ export const SEARCH_CATEGORIES = {
       'Valentine\'s Day Drinks': {},
       'Valentine\'s Day Main Dishes': {},
       'Valentine\'s Day Salads': {},
-      'Valentine\'s Day School Treats': {}
+      'Valentine\'s Day School Treats': {},
     },
     'More Holidays and Events': {
       'Big Game Recipes': {},
@@ -571,18 +569,18 @@ export const SEARCH_CATEGORIES = {
       'Hanukkah Recipes': {},
       'Christmas Recipes': {},
       'New Year\'s Recipes': {},
-      'Kwanzaa Recipes': {}
-    }
+      'Kwanzaa Recipes': {},
+    },
   },
   'Dish Type': {
     'Appetizers & Snacks': {
-      'Antipasto': {},
+      Antipasto: {},
       'Bacon Appetizers': {},
-      'Bruschetta': {},
+      Bruschetta: {},
       'Canapes and Crostini': {},
       'Cheese Appetizers': {},
       'Crab Cakes': {},
-      'Crackers': {},
+      Crackers: {},
       'Deviled Eggs': {},
       'Dips and Spreads': {},
       'Jalapeno Poppers': {},
@@ -595,7 +593,7 @@ export const SEARCH_CATEGORIES = {
       'Olive Appetizers': {},
       'Party Mix': {},
       'Pickled Eggs': {},
-      'Popcorn': {},
+      Popcorn: {},
       'Seafood Appetizers': {},
       'Shrimp Appetizers': {},
       'Slow Cooker Appetizers': {},
@@ -609,12 +607,12 @@ export const SEARCH_CATEGORIES = {
       'Fruit Appetizers': {},
       'Garlic Bread': {},
       'Meat and Poultry Appetizers': {},
-      'Nuts and Seeds Appetizers': {}
+      'Nuts and Seeds Appetizers': {},
     },
     'Bread Recipes': {
-      'Bagels': {},
+      Bagels: {},
       'Banana Bread': {},
-      'Challah': {},
+      Challah: {},
       'Cranberry Bread': {},
       'Egg Bread': {},
       'Flat Bread': {},
@@ -622,7 +620,7 @@ export const SEARCH_CATEGORIES = {
       'No-Knead Bread Recipes': {},
       'Pizza Dough and Crusts': {},
       'Potato Bread': {},
-      'Pretzels': {},
+      Pretzels: {},
       'Pumpkin Bread': {},
       'Quick Bread': {},
       'Roll and Bun Recipes': {},
@@ -632,10 +630,10 @@ export const SEARCH_CATEGORIES = {
       'Yeast Bread': {},
       'Zucchini Bread': {},
       'Bread Machine': {},
-      'Pastries': {},
-      'Biscuit': {},
-      'Cornbread': {},
-      'Healthy Bread': {}
+      Pastries: {},
+      Biscuit: {},
+      Cornbread: {},
+      'Healthy Bread': {},
     },
     'Cake Recipes': {
       'Angel Food Cake': {},
@@ -646,12 +644,12 @@ export const SEARCH_CATEGORIES = {
       'Bundt Cake': {},
       'Cake Pop Recipes': {},
       'Carrot Cake': {},
-      'Cheesecake': {},
+      Cheesecake: {},
       'Chocolate Cake': {},
       'Coconut Cake': {},
       'Coffee Cake': {},
-      'Cupcakes': {},
-      'Fruitcake': {},
+      Cupcakes: {},
+      Fruitcake: {},
       'Holiday Cakes': {},
       'Lemon Cake': {},
       'Mug Cake': {},
@@ -663,34 +661,34 @@ export const SEARCH_CATEGORIES = {
       'Pumpkin Rolls': {},
       'Red Velvet Cake': {},
       'Sheet Cake': {},
-      'Shortcake': {},
+      Shortcake: {},
       'Spice Cake': {},
       'Sponge Cake': {},
       'Strawberry Cake': {},
-      'Tortes': {},
+      Tortes: {},
       'Upside-Down Cake': {},
       'Wedding Cakes': {},
       'White Cake': {},
       'Yellow Cake': {},
       'Zucchini Cake': {},
       'Cake Mix Cakes': {},
-      'Frosting and Icing Recipes': {}
+      'Frosting and Icing Recipes': {},
     },
     'Candy and Fudge': {
       'Candy Brittle': {},
       'Caramel Recipes': {},
       'Chocolate Bark': {},
       'Chocolate Candy': {},
-      'Divinity': {},
-      'Fudge': {},
+      Divinity: {},
+      Fudge: {},
       'Fruit Candy': {},
       'Mint Candy': {},
       'Nut Candy': {},
       'Popcorn Candy': {},
-      'Toffee': {},
-      'Truffles': {},
+      Toffee: {},
+      Truffles: {},
       'Christmas Fudge': {},
-      'Homemade Marshmallows': {}
+      'Homemade Marshmallows': {},
     },
     'Casserole Recipes': {
       'Beef Casserole': {},
@@ -708,17 +706,17 @@ export const SEARCH_CATEGORIES = {
       'Vegetarian Main Dish Casseroles': {},
       'Breakfast Casseroles': {},
       'Healthy Casseroles': {},
-      'Side Dish Casseroles': {}
+      'Side Dish Casseroles': {},
     },
     'Christmas Cookies': {
       'Sugar Cookies': {},
-      'Biscotti': {},
+      Biscotti: {},
       'Butter Cookies': {},
       'Chocolate Chip Cookies': {},
       'Cookie Icing and Frosting': {},
       'Cut-Out Cookies': {},
       'Gingerbread Cookies': {},
-      'Gingersnaps': {},
+      Gingersnaps: {},
       'International Cookies': {},
       'Lebkuchen Cookies': {},
       'No-Bake Cookies': {},
@@ -729,7 +727,7 @@ export const SEARCH_CATEGORIES = {
       'Shortbread Cookies': {},
       'Springerle Cookies': {},
       'Spritz Cookies': {},
-      'Thumbprint Cookies': {}
+      'Thumbprint Cookies': {},
     },
     'Cocktail Recipes': {
       'Beer Cocktails': {},
@@ -737,23 +735,23 @@ export const SEARCH_CATEGORIES = {
       'Bloody Marys': {},
       'Bourbon Drinks': {},
       'Champagne Drinks': {},
-      'Cosmopolitans': {},
-      'Daiquiris': {},
-      'Hurricanes': {},
+      Cosmopolitans: {},
+      Daiquiris: {},
+      Hurricanes: {},
       'Gin Drinks': {},
-      'Margaritas': {},
-      'Martinis': {},
-      'Mojitos': {},
+      Margaritas: {},
+      Martinis: {},
+      Mojitos: {},
       'Rum Drinks': {},
       'Tequila Drinks': {},
       'Vodka Drinks': {},
       'Whiskey Drinks': {},
-      'Drink Flavoring & Simple Syrups': {}
+      'Drink Flavoring & Simple Syrups': {},
     },
     'Cookie Recipes': {
       'Bar Cookies': {},
-      'Biscotti': {},
-      'Brownies': {},
+      Biscotti: {},
+      Brownies: {},
       'Butter Cookies': {},
       'Chocolate Chip Cookies': {},
       'Chocolate Cookies': {},
@@ -765,9 +763,9 @@ export const SEARCH_CATEGORIES = {
       'Gingerbread Cookies': {},
       'Sandwich Cookies': {},
       'Thumbprint Cookies': {},
-      'Gingersnaps': {},
+      Gingersnaps: {},
       'International Cookies': {},
-      'Macaroons': {},
+      Macaroons: {},
       'Meringue Cookies': {},
       'Molasses Cookies': {},
       'No-Bake Cookies': {},
@@ -777,54 +775,54 @@ export const SEARCH_CATEGORIES = {
       'Pumpkin Cookies': {},
       'Refrigerator Cookies': {},
       'Shortbread Cookies': {},
-      'Snickerdoodles': {},
+      Snickerdoodles: {},
       'Spice Cookies': {},
       'Sugar Cookies': {},
       'Whoopie Pies': {},
       'Zucchini Cookies': {},
       'Cake Mix Cookies': {},
-      'Cookie Icing and Frosting': {}
+      'Cookie Icing and Frosting': {},
     },
     'Mac and Cheese Recipes': {
       'Baked Macaroni and Cheese': {},
-      'Stovetop Macaroni and Cheese': {}
+      'Stovetop Macaroni and Cheese': {},
     },
     'Main Dishes': {
       'Beef Main Dishes': {},
       'Beef Stroganoff': {},
-      'Burgers': {},
-      'Casseroles': {},
+      Burgers: {},
+      Casseroles: {},
       'Chicken Main Dishes': {},
-      'Goulash': {},
-      'Lasagna': {},
+      Goulash: {},
+      Lasagna: {},
       'Macaroni and Cheese': {},
       'Main Dish Salads': {},
       'Main Dish Soups and Stews': {},
-      'Meatballs': {},
-      'Meatloaf': {},
-      'Pizza': {},
+      Meatballs: {},
+      Meatloaf: {},
+      Pizza: {},
       'Pasta Main Dishes': {},
       'Pork Chops': {},
       'Pork Main Dishes': {},
-      'Quiche': {},
+      Quiche: {},
       'Rice Main Dishes': {},
-      'Sandwiches': {},
+      Sandwiches: {},
       'Stir-Fries': {},
       'Stuffed Bell Peppers': {},
       'Stuffed Main Dishes': {},
       'Seafood Main Dishes': {},
-      'Tacos': {},
+      Tacos: {},
       'Turkey Main Dishes': {},
       'Vegetable Main Dishes': {},
       'Bowl Recipes': {},
-      'Calzones': {},
+      Calzones: {},
       'Curry Main Dishes': {},
-      'Dumplings': {},
+      Dumplings: {},
       'Deep Fried Main Dishes': {},
       'Savory Pies': {},
       'Steaks and Chops': {},
-      'Ribs': {},
-      'Roasts': {},
+      Ribs: {},
+      Roasts: {},
       'Gourmet Main Dishes': {},
       'Healthy Main Dishes': {},
       'Quick and Easy Dinners': {},
@@ -844,27 +842,27 @@ export const SEARCH_CATEGORIES = {
       'Fall Main Dishes': {},
       'Summer Main Dishes': {},
       'Spring Main Dishes': {},
-      'Winter Main Dishes': {}
+      'Winter Main Dishes': {},
     },
     'Pasta Salad Recipes': {
       'Pasta by Shape': {},
       'Pasta Main Dishes': {},
       'Homemade Pasta': {},
-      'Noodles': {},
+      Noodles: {},
       'Pasta Appetizers': {},
       'Pasta Desserts': {},
       'Pasta Salad': {},
-      'Pasta Sauces': {}
+      'Pasta Sauces': {},
     },
     'Pasta Recipes': {
       'Pasta by Shape': {},
       'Pasta Main Dishes': {},
       'Homemade Pasta': {},
-      'Noodles': {},
+      Noodles: {},
       'Pasta Appetizers': {},
       'Pasta Desserts': {},
       'Pasta Salad': {},
-      'Pasta Sauces': {}
+      'Pasta Sauces': {},
     },
     'Pie Recipes': {
       'Apple Pie': {},
@@ -887,20 +885,20 @@ export const SEARCH_CATEGORIES = {
       'Slab Pie': {},
       'Sweet Potato Pie': {},
       'Thanksgiving Pies': {},
-      'Vintage Pies': {}
+      'Vintage Pies': {},
     },
-    'Pizza': {
+    Pizza: {
       'Beef Pizza': {},
       'Breakfast Pizza': {},
-      'Calzones': {},
+      Calzones: {},
       'Chicken Pizza': {},
       'Pepperoni Pizza': {},
       'Pizza Dough and Crusts': {},
       'Pizza Sauce': {},
       'Veggie Pizza': {},
-      'Kids\' Pizza Recipes': {}
+      'Kids\' Pizza Recipes': {},
     },
-    'Sandwiches': {
+    Sandwiches: {
       'Bacon Sandwiches': {},
       'Beef Sandwiches': {},
       'Cheese Sandwiches': {},
@@ -911,28 +909,28 @@ export const SEARCH_CATEGORIES = {
       'Tuna Sandwiches': {},
       'Turkey Sandwiches': {},
       'Heroes, Hoagies and Subs': {},
-      'Gyros': {},
-      'Panini': {},
+      Gyros: {},
+      Panini: {},
       'Sandwich Wraps and Roll-Ups': {},
       'Sloppy Joes': {},
-      'Hot Dogs and Corn Dogs': {}
+      'Hot Dogs and Corn Dogs': {},
     },
     'Sauces and Condiments': {
       'BBQ Sauce': {},
       'Salad Dressings': {},
-      'Sauces': {},
-      'Marinades': {},
+      Sauces: {},
+      Marinades: {},
       'Canning and Preserving': {},
       'Compound Butters': {},
-      'Croutons': {},
+      Croutons: {},
       'Pesto Sauce': {},
-      'Rubs': {},
-      'Applesauce': {},
-      'Chutney': {},
-      'Gravy': {},
-      'Relishes': {},
-      'Syrups': {},
-      'Tzatziki Sauce': {}
+      Rubs: {},
+      Applesauce: {},
+      Chutney: {},
+      Gravy: {},
+      Relishes: {},
+      Syrups: {},
+      'Tzatziki Sauce': {},
     },
     'Smoothie Recipes': {
       'Banana Smoothies': {},
@@ -942,19 +940,19 @@ export const SEARCH_CATEGORIES = {
       'Orange Smoothies': {},
       'Strawberry Smoothies': {},
       'Veggie Smoothies': {},
-      'Smoothie Bowl Recipes': {}
+      'Smoothie Bowl Recipes': {},
     },
     'Soups, Stew, and Chili Recipes': {
-      'Soup': {},
+      Soup: {},
       'Chicken Noodle Soup': {},
-      'Stew': {},
-      'Chili': {},
+      Stew: {},
+      Chili: {},
       'Broth and Stocks': {},
-      'Bisque': {},
-      'Chowder': {},
+      Bisque: {},
+      Chowder: {},
       'Healthy Soups and Stews': {},
-      'Main Dish Soups and Stews': {}
-    }
+      'Main Dish Soups and Stews': {},
+    },
   },
   'Cooking Style': {
     'BBQ & Grilling': {
@@ -974,17 +972,16 @@ export const SEARCH_CATEGORIES = {
       'BBQ Sauces, Marinades and Rubs': {},
       'Quick and Easy BBQ &amp; Grilling': {},
       'Smoked Foods': {},
-      'Vegetarian BBQ &amp; Grilling': {}
+      'Vegetarian BBQ &amp; Grilling': {},
     },
-    'Budget Cooking': {
-    },
+    'Budget Cooking': {},
     'Clean-Eating': {
-      'Smoothies': {},
+      Smoothies: {},
       'Smoothie Bowl Recipes': {},
-      'Quinoa': {},
+      Quinoa: {},
       'Kale Recipes': {},
       'Healthy Breakfast and Brunch': {},
-      'Vegan Recipes': {}
+      'Vegan Recipes': {},
     },
     'Cooking for Kids': {
       'Kids\' Chicken Recipes': {},
@@ -997,7 +994,7 @@ export const SEARCH_CATEGORIES = {
       'Kids\' Fish Recipes': {},
       'Kids\' Drink Recipes': {},
       'Healthy Kid Recipes': {},
-      'Kids\' Breakfast': {}
+      'Kids\' Breakfast': {},
     },
     'Cooking for Two': {
       'Cooking Beef for Two': {},
@@ -1005,25 +1002,25 @@ export const SEARCH_CATEGORIES = {
       'Cooking Seafood for Two': {},
       'Cooking Chicken for Two': {},
       'Cooking Breakfast for Two': {},
-      'Cooking Lunch for Two': {}
+      'Cooking Lunch for Two': {},
     },
-    'Gourmet': {
+    Gourmet: {
       'Gourmet Main Dishes': {},
       'Gourmet Side Dishes': {},
       'Gourmet Desserts': {},
       'Gourmet Appetizers': {},
       'Gourmet Salads': {},
-      'Gourmet Bread': {}
+      'Gourmet Bread': {},
     },
-    'Paleo': {
+    Paleo: {
       'Paleo Breakfast and Brunch': {},
       'Paleo Main Dishes': {},
       'Paleo Side Dishes': {},
       'Paleo Desserts': {},
-      'Paleo Salads': {}
+      'Paleo Salads': {},
     },
     'Pressure Cooker': {
-      'Instant Pot® Recipes': {}
+      'Instant Pot® Recipes': {},
     },
     'Quick & Easy': {
       'Quick and Easy Appetizers': {},
@@ -1033,7 +1030,7 @@ export const SEARCH_CATEGORIES = {
       'Quick and Easy Desserts': {},
       '15-Minute Meals': {},
       '30-Minute Meals': {},
-      '45-Minute Meals': {}
+      '45-Minute Meals': {},
     },
     'Slow Cooker': {
       'Slow Cooker Main Dishes': {},
@@ -1049,9 +1046,9 @@ export const SEARCH_CATEGORIES = {
       'Slow Cooker Desserts': {},
       'Slow Cooker Sauces and Condiments': {},
       'Slow Cooker Side Dishes': {},
-      'Healthy Slow Cooker Recipes': {}
+      'Healthy Slow Cooker Recipes': {},
     },
-    'Vegan': {
+    Vegan: {
       'Vegan Breakfast and Brunch': {},
       'Vegan Bread': {},
       'Vegan Soups and Stews': {},
@@ -1060,9 +1057,9 @@ export const SEARCH_CATEGORIES = {
       'Vegan Side Dishes': {},
       'Vegan Holiday Recipes': {},
       'Vegan Thanksgiving': {},
-      'Vegetarian Recipes': {}
+      'Vegetarian Recipes': {},
     },
-    'Vegetarian': {
+    Vegetarian: {
       'Vegetarian Soups and Stews': {},
       'Vegetarian Chili': {},
       'Vegetarian Lasagna': {},
@@ -1081,11 +1078,11 @@ export const SEARCH_CATEGORIES = {
       'Healthy Vegetarian Main Dishes': {},
       'Quick and Easy Vegetarian Recipes': {},
       'Vegetarian Pasta Salad': {},
-      'Vegetarian Pasta Sauce': {}
-    }
+      'Vegetarian Pasta Sauce': {},
+    },
   },
   'World Cuisine': {
-    'Chinese': {
+    Chinese: {
       'Chinese Appetizers': {},
       'Chinese Main Dishes': {},
       'Chinese Beef Main Dishes': {},
@@ -1093,17 +1090,17 @@ export const SEARCH_CATEGORIES = {
       'Chinese Pork Main Dishes': {},
       'Chinese Seafood Main Dishes': {},
       'Chinese Soups and Stews': {},
-      'Stir-Fries': {}
+      'Stir-Fries': {},
     },
-    'Indian': {
+    Indian: {
       'Indian Appetizers': {},
       'Indian Bread': {},
       'Indian Side Dishes': {},
       'Indian Desserts': {},
       'Indian Drinks': {},
-      'Indian Main Dishes': {}
+      'Indian Main Dishes': {},
     },
-    'Italian': {
+    Italian: {
       'Italian Appetizers': {},
       'Italian Bread': {},
       'Italian Desserts': {},
@@ -1113,12 +1110,12 @@ export const SEARCH_CATEGORIES = {
       'Italian Side Dishes': {},
       'Italian Soups and Stews': {},
       'Authentic Italian Recipes': {},
-      'Lasagna': {},
-      'Spaghetti': {},
-      'Pizza': {},
-      'Calzones': {}
+      Lasagna: {},
+      Spaghetti: {},
+      Pizza: {},
+      Calzones: {},
     },
-    'Mexican': {
+    Mexican: {
       'Authentic Mexican Recipes': {},
       'Mexican Appetizers': {},
       'Mexican Main Dishes': {},
@@ -1127,17 +1124,17 @@ export const SEARCH_CATEGORIES = {
       'Mexican Side Dishes': {},
       'Mexican Salads': {},
       'Mexican Bread': {},
-      'Burritos': {},
+      Burritos: {},
       'Chile Rellenos': {},
-      'Enchiladas': {},
-      'Fajitas': {},
+      Enchiladas: {},
+      Fajitas: {},
       'Mexican Tacos': {},
       'Mexican Fish Tacos': {},
       'Mexican Rice': {},
       'Mexican Soups and Stews': {},
-      'Quesadillas': {}
+      Quesadillas: {},
     },
-    'Southern': {
+    Southern: {
       'Southern Desserts': {},
       'Southern Main Dishes': {},
       'Southern Soups and Stews': {},
@@ -1145,14 +1142,14 @@ export const SEARCH_CATEGORIES = {
       'Southern Side Dishes': {},
       'Southern Drinks': {},
       'Southern Breakfast and Brunch': {},
-      'Southern Appetizers': {}
+      'Southern Appetizers': {},
     },
-    'Thai': {
+    Thai: {
       'Thai Appetizers': {},
       'Thai Main Dishes': {},
       'Pad Thai': {},
       'Thai Soups and Stews': {},
-      'Thai Desserts': {}
+      'Thai Desserts': {},
     },
     'All World Cuisine': {
       'Mexican Recipes': {},
@@ -1171,11 +1168,7 @@ export const SEARCH_CATEGORIES = {
       'Japanese Recipes': {},
       'Korean Recipes': {},
       'Mediterranean Diet': {},
-      'U.S. Recipes': {}
-    }
-  }
+      'U.S. Recipes': {},
+    },
+  },
 }
-
-
-
-

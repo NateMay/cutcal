@@ -1,4 +1,3 @@
-
 export const titleServiceStub = {
-  setTitle: () => { }
+  setTitle: () => {},
 }

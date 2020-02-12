@@ -1,21 +1,23 @@
 import { convertChangeAction } from './convertChangeAction';
 
-
 it('convertSnaps() - shared/functions', () => {
-  const snaps = [{
-    payload: {
-      doc: {
-        id: '12345',
-        data: () => {
-          return { obj: 'obj'}
-        }
-      }
-    }
-  }]
+  const snaps = [
+    {
+      payload: {
+        doc: {
+          id: '12345',
+          data: () => {
+            return { obj: 'obj' };
+          },
+        },
+      },
+    },
+  ];
 
-  expect(convertChangeAction(<any>snaps)).toEqual([{
-    _id: '12345',
-    obj: 'obj'
-  }])
-
-})
+  expect(convertChangeAction(<any>snaps)).toEqual([
+    {
+      _id: '12345',
+      obj: 'obj',
+    },
+  ]);
+});

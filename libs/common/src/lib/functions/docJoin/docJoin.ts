@@ -1,8 +1,7 @@
-
-import { AngularFirestore } from '@angular/fire/firestore';
-import { combineLatest, defer, Observable } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
-import { KVP } from '../../models/key-value-pair';
+import { AngularFirestore } from '@angular/fire/firestore'
+import { combineLatest, defer, Observable } from 'rxjs'
+import { map, switchMap, tap } from 'rxjs/operators'
+import { KVP } from '../../models/key-value-pair'
 
 /**
  * rxjs operator that joins a document from another collection onto any property
@@ -24,29 +23,28 @@ export function docJoin<T>(
   afs: AngularFirestore,
   paths: KVP<string>
 ): (source: Observable<Partial<T>>) => Observable<T> {
+  return source =>
+    defer(() => {
+      let parentDoc
 
-  return source => defer(() => {
+      const keys = Object.keys(paths)
 
-    let parentDoc;
+      return source.pipe(
+        // Save the parent data state
+        tap(doc => (parentDoc = doc)),
 
-    const keys = Object.keys(paths);
+        // make a call to get the reference document
+        switchMap(_ =>
+          combineLatest(
+            keys.map(k => afs.doc(`${paths[k]}/${parentDoc[k]}`).valueChanges())
+          )
+        ),
 
-    return source.pipe(
-
-      // Save the parent data state
-      tap(doc => parentDoc = doc),
-
-      // make a call to get the reference document
-      switchMap(_ => combineLatest(
-        keys.map(k => afs.doc(`${paths[k]}/${parentDoc[k]}`)
-          .valueChanges()))),
-
-      // join the response onto the parent document
-      map(arr => ({
-        ...parentDoc,
-        ...keys.reduce((acc, cur, idx) => ({ ...acc, [cur]: arr[idx] }), {})
-      }))
-
-    )})
-
-};
+        // join the response onto the parent document
+        map(arr => ({
+          ...parentDoc,
+          ...keys.reduce((acc, cur, idx) => ({ ...acc, [cur]: arr[idx] }), {}),
+        }))
+      )
+    })
+}

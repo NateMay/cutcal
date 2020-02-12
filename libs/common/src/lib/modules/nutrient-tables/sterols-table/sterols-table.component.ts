@@ -24,7 +24,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
     </thead>
 
     <tbody>
-      <tr *ngFor="let sterol of sterols | coll">
+      <tr *ngFor="let sterol of sterols | keyvalue">
         <td>{{ sterol?.shortName }}</td>
         <td class="quant">{{ nutrition[sterol.propName] | number }}</td>
         <td>

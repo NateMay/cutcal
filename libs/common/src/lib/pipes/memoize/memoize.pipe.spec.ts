@@ -2,19 +2,20 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MemoizePipe } from './memoize.pipe';
 
-
 @Component({
-  template: `<div [innerHTML]="contextobj | memoize : method"></div>`
+  template: `
+    <div [innerHTML]="contextobj | memoize: method"></div>
+  `,
 })
 class TestMemoizeComp {
-  contextobj = {  value: 'hi 1' }
+  contextobj = { value: 'hi 1' };
 
   method(obj: any) {
     return obj.value;
   }
 
   renewContext() {
-    this.contextobj = { value: 'hi 2' }
+    this.contextobj = { value: 'hi 2' };
   }
 }
 
@@ -24,20 +25,15 @@ describe('Memoize Pipe', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        MemoizePipe,
-        TestMemoizeComp
-      ]
+      declarations: [MemoizePipe, TestMemoizeComp],
     });
     fixture = TestBed.createComponent(TestMemoizeComp);
     component = fixture.componentInstance;
   });
 
-
   it('can load instance', () => {
     expect(component).toBeTruthy();
   });
-
 
   it('should only call the handler if a new object is received', () => {
     const spy1 = spyOn(component, 'method').and.callThrough();
@@ -50,5 +46,4 @@ describe('Memoize Pipe', () => {
     fixture.detectChanges();
     expect(spy1).toHaveBeenCalledTimes(2);
   });
-
-})
+});

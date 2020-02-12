@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core'
-import { CollectionPipeModule } from './collection/collection-pipe.module'
 import { DocPipeModule } from './doc/doc-pipe.module'
 import { MemoizePipeModule } from './memoize/memoize-pipe.module'
 import { PluralPipeModule } from './plural/plural-pipe.module'
@@ -11,7 +10,6 @@ const PIPE_MODULES = [
   PluralPipeModule,
   MemoizePipeModule,
   DocPipeModule,
-  CollectionPipeModule,
   StyleSanitizerModule,
   UnitPipeModule,
 ]

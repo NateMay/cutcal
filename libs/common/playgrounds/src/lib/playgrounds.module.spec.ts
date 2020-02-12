@@ -1,14 +1,14 @@
 import { async, TestBed } from '@angular/core/testing';
-import { CommonPlaygroundsModule } from './common-playgrounds.module';
+import { PlaygroundsModule } from './playgrounds.module';
 
 describe('CommonPlaygroundsModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [CommonPlaygroundsModule],
+      imports: [PlaygroundsModule],
     }).compileComponents();
   }));
 
   it('should create', () => {
-    expect(CommonPlaygroundsModule).toBeDefined();
+    expect(PlaygroundsModule).toBeDefined();
   });
 });

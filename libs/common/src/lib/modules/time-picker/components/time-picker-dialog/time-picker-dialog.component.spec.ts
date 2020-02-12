@@ -11,22 +11,21 @@ describe('TimepickerComponent', () => {
 
   const DEFAULT_HOUR: ClockFaceTime = {
     time: 12,
-    angle: 360
+    angle: 360,
   };
   const DEFAULT_MINUTE: ClockFaceTime = {
     time: 0,
-    angle: 360
+    angle: 360,
   };
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [TimepickerDialogComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
     }).createComponent(TimepickerDialogComponent);
 
     component = fixture.componentInstance;
   });
-
 
   it('should change time unit from HOUR to MINUTE', () => {
     expect(component.activeTimeUnit).toBe(TimeUnit.HOUR);
@@ -95,7 +94,6 @@ describe('TimepickerComponent', () => {
     });
 
     it('should change minute on onMinuteChange', () => {
-
       component.onMinuteChange(minute);
       expect(component.selectedMinute).toEqual(minute);
     });

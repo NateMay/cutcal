@@ -1,9 +1,9 @@
-import { KVP } from '../models/key-value-pair';
+import { KVP } from '../models/key-value-pair'
 
 export interface MonthMetaData {
-  index: number;
-  short: string;
-  long: string;
+  index: number
+  short: string
+  long: string
 }
 
 /**
@@ -22,5 +22,5 @@ export const MONTHS: KVP<MonthMetaData> = {
   8: { index: 8, short: 'Sept', long: 'September' },
   9: { index: 9, short: 'Oct', long: 'October' },
   10: { index: 10, short: 'Nov', long: 'November' },
-  11: { index: 11, short: 'Dec', long: 'December' }
+  11: { index: 11, short: 'Dec', long: 'December' },
 }

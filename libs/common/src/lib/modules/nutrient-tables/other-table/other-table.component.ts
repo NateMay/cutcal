@@ -21,7 +21,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
     </thead>
 
     <tbody>
-      <tr *ngFor="let other of others | coll">
+      <tr *ngFor="let other of others | keyvalue">
         <td>{{ other?.shortName }}</td>
         <td class="quant">{{ nutrition[other.propName] | number: numInfo }}</td>
         <td>

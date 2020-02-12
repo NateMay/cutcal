@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { DailyValue } from '../../models/daily-value';
-import { DEAFULT_DAILY_VALUE } from './daily-value';
+import { Injectable } from '@angular/core'
+import { BehaviorSubject } from 'rxjs'
+import { DailyValue } from '../../models/daily-value'
+import { DEAFULT_DAILY_VALUE } from './daily-value'
 
 // FEATURE (daily-value)
 
@@ -13,18 +13,16 @@ import { DEAFULT_DAILY_VALUE } from './daily-value';
  */
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DailyValueSvc {
-
-  private dailyValue = new BehaviorSubject<DailyValue>(DEAFULT_DAILY_VALUE);
+  private dailyValue = new BehaviorSubject<DailyValue>(DEAFULT_DAILY_VALUE)
 
   get dailyValue$() {
-    return this.dailyValue.asObservable();
+    return this.dailyValue.asObservable()
   }
 
   get snapshot(): DailyValue {
-    return this.dailyValue.getValue();
+    return this.dailyValue.getValue()
   }
-
 }

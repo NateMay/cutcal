@@ -4,23 +4,17 @@ import { RecipeSvc } from './recipe.service';
 // DEPENDS ON (recipe) then TEST (recipe-service)
 
 describe('Recipe Service', () => {
-
   let recipeSvc: RecipeSvc;
-
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        RecipeSvc
-      ]
-    })
+      providers: [RecipeSvc],
+    });
 
-    recipeSvc = TestBed.get(RecipeSvc)
-  })
+    recipeSvc = TestBed.get(RecipeSvc);
+  });
 
   it('injects the foodgroup service', () => {
-    expect(recipeSvc).toBeTruthy()
-  })
-
-
-})
+    expect(recipeSvc).toBeTruthy();
+  });
+});

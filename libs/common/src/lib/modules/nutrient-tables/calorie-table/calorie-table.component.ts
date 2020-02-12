@@ -1,16 +1,13 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import * as _ from 'lodash'
-import {
-  CaloriesFrom,
-  caloriesFromAll,
-} from '../../../functions/caloriesFrom/caloriesFrom'
+import { CaloriesFrom, caloriesFromAll } from '../../../functions/caloriesFrom/caloriesFrom'
 import { NutritionRange } from '../../../models/daily-value'
 import { Nutrition } from '../../../models/nutrition'
 import { ZERO_NUTRITION } from '../../../usda_nutrition/base-nutrition'
 import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.service'
 
 @Component({
-  selector: 'table[cc-calories]',
+  selector: 'table[cc-calories],cc-calories',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['../nutrient-table.scss', './calorie-table.component.scss'],
   host: { class: 'cc-calorie' },

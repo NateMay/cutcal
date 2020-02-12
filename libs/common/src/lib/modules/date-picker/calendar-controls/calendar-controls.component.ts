@@ -1,7 +1,13 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { RefocusService } from '../../../services/refocus/refocus.service';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core'
+import { RefocusService } from '../../../services/refocus/refocus.service'
 
-let nextUniqueId: number = 0;
+let nextUniqueId: number = 0
 
 @Component({
   selector: 'cc-calendar-controls',
@@ -9,16 +15,16 @@ let nextUniqueId: number = 0;
   host: { class: 'cc-calendar-controls' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <button mat-button
+    <button
+      mat-button
       [attr.id]="monthBtnID"
       *ngIf="!monthBtnDisabled"
-      (click)="monthClick()">
+      (click)="monthClick()"
+    >
       {{ monthBtnDate | date: format }}
     </button>
 
-    <div
-      class="non-btn-month-label"
-      *ngIf="monthBtnDisabled">
+    <div class="non-btn-month-label" *ngIf="monthBtnDisabled">
       {{ monthBtnDate | date: format }}
     </div>
 
@@ -28,7 +34,8 @@ let nextUniqueId: number = 0;
       class="chevron"
       [attr.aria-label]="prevBtnLabel"
       [attr.id]="prevBtnID"
-      (click)="prevClick()">
+      (click)="prevClick()"
+    >
       <mat-icon>chevron_left</mat-icon>
     </button>
 
@@ -36,57 +43,62 @@ let nextUniqueId: number = 0;
       class="chevron"
       [attr.aria-label]="nextBtnLabel"
       [attr.id]="nextBtnID"
-      (click)="nextClick()">
+      (click)="nextClick()"
+    >
       <mat-icon>chevron_right</mat-icon>
     </button>
-  `
+  `,
 })
 export class CalendarControlsComponent {
+  @Input() monthBtnID: string
+  @Input() prevBtnID: string
+  @Input() nextBtnID: string
 
-  @Input() monthBtnID: string;
-  @Input() prevBtnID: string;
-  @Input() nextBtnID: string;
+  @Input() monthBtnDisabled: boolean = false
 
-  @Input() monthBtnDisabled: boolean = false;
-
-  @Input() monthBtnDate: Date = new Date();
-  @Input() format: string = 'MMMM yyyy';
+  @Input() monthBtnDate: Date = new Date()
+  @Input() format: string = 'MMMM yyyy'
 
   set view(view: 'days' | 'months' | 'years') {
     switch (view) {
-      case 'days': this.format = 'MMMM yyyy'; break;
-      case 'months': this.format = 'MMMM'; break;
-      case 'years': this.format = 'yyyy'; break;
+      case 'days':
+        this.format = 'MMMM yyyy'
+        break
+      case 'months':
+        this.format = 'MMMM'
+        break
+      case 'years':
+        this.format = 'yyyy'
+        break
     }
   }
 
-  @Input() prevBtnLabel: string = 'Previous Month';
-  @Input() nextBtnLabel: string = 'Next Month';
+  @Input() prevBtnLabel: string = 'Previous Month'
+  @Input() nextBtnLabel: string = 'Next Month'
 
-  @Output() prevBtn = new EventEmitter<void>();
-  @Output() nextBtn = new EventEmitter<void>();
-  @Output() monthBtn = new EventEmitter<void>();
+  @Output() prevBtn = new EventEmitter<void>()
+  @Output() nextBtn = new EventEmitter<void>()
+  @Output() monthBtn = new EventEmitter<void>()
 
   constructor(private focuser: RefocusService) {
-    const _uuid = nextUniqueId++;
-    this.prevBtnID = `prev-month-${_uuid}`;
-    this.nextBtnID = `next-month-${_uuid}`;
-    this.monthBtnID = `controls-month-btn-${_uuid}`;
+    const _uuid = nextUniqueId++
+    this.prevBtnID = `prev-month-${_uuid}`
+    this.nextBtnID = `next-month-${_uuid}`
+    this.monthBtnID = `controls-month-btn-${_uuid}`
   }
 
   prevClick(): void {
-    this.prevBtn.emit();
-    this.focuser.reCastFocusId(this.prevBtnID);
+    this.prevBtn.emit()
+    this.focuser.reCastFocusId(this.prevBtnID)
   }
 
   nextClick(): void {
-    this.nextBtn.emit();
-    this.focuser.reCastFocusId(this.nextBtnID);
+    this.nextBtn.emit()
+    this.focuser.reCastFocusId(this.nextBtnID)
   }
 
   monthClick(): void {
-    this.monthBtn.emit();
-    this.focuser.reCastFocusId(this.monthBtnID);
+    this.monthBtn.emit()
+    this.focuser.reCastFocusId(this.monthBtnID)
   }
-
 }

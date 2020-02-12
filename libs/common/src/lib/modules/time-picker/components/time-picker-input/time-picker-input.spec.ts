@@ -6,7 +6,6 @@ import { TimePickerModule } from '../../../time-picker/time-picker.module';
 import { TimepickerDialogComponent } from '../time-picker-dialog/time-picker-dialog.component';
 import { TimePickerInputComponent } from './time-picker-input.component';
 
-
 @Component({
   template: `
     <cc-time-picker-input
@@ -14,21 +13,18 @@ import { TimePickerInputComponent } from './time-picker-input.component';
       [placeholder]="placeholder"
       [(time)]="time"
       (timeChange)="timeChange($event)"
-    ></cc-time-picker-input>`
+    ></cc-time-picker-input>
+  `,
 })
 class TestTimePickerComponent {
-
   time = '03:15 pm';
-  label: string = 'Select a time'
+  label: string = 'Select a time';
   placeholder: string = 'Date';
 
-  timeChange(event: any) { }
+  timeChange(event: any) {}
 }
 
-
-
 describe('Time Picker Module', () => {
-
   let fixture: ComponentFixture<TestTimePickerComponent>;
   let parent: TestTimePickerComponent;
   let component: TimePickerInputComponent;
@@ -36,36 +32,30 @@ describe('Time Picker Module', () => {
 
   const assertOpen = () => {
     expect(getByDir(fixture, TimepickerDialogComponent)).toBeTruthy();
-  }
+  };
 
   const assertClosed = () => {
     fixture.detectChanges();
-    const dialog = getByDir(fixture, TimepickerDialogComponent)
-    expect(!!dialog && component.pickerOverlayRef.hasAttached()).toBe(false)
-  }
+    const dialog = getByDir(fixture, TimepickerDialogComponent);
+    expect(!!dialog && component.pickerOverlayRef.hasAttached()).toBe(false);
+  };
 
   const focusOpen = () => {
     fixture.detectChanges();
     input.dispatchEvent(new FocusEvent('focus'));
-  }
+  };
 
   beforeEach(() => {
-
     TestBed.configureTestingModule({
-      declarations: [
-        TestTimePickerComponent
-      ],
-      imports: [
-        TimePickerModule,
-        NoopAnimationsModule
-      ]
-    })
+      declarations: [TestTimePickerComponent],
+      imports: [TimePickerModule, NoopAnimationsModule],
+    });
 
-    fixture = TestBed.createComponent(TestTimePickerComponent)
+    fixture = TestBed.createComponent(TestTimePickerComponent);
     parent = fixture.componentInstance;
     component = getByDir(fixture, TimePickerInputComponent).componentInstance;
     input = getEl<HTMLInputElement>(fixture, 'input');
-  })
+  });
 
   it('can load instance', () => {
     expect(parent).toBeTruthy();
@@ -74,29 +64,32 @@ describe('Time Picker Module', () => {
   it('binds to the label', () => {
     parent.label = 'Another Label';
     fixture.detectChanges();
-    expect(getEl<HTMLElement>(fixture, 'mat-label').textContent).toBe('Another Label')
-  })
+    expect(getEl<HTMLElement>(fixture, 'mat-label').textContent).toBe(
+      'Another Label'
+    );
+  });
 
   it('should bind to the placeholder', () => {
     parent.placeholder = 'XX placeholder XX';
     parent.time = null;
     fixture.detectChanges();
-    expect(getDe(fixture, 'input').attributes['placeholder']).toBe('XX placeholder XX')
-  })
+    expect(getDe(fixture, 'input').attributes['placeholder']).toBe(
+      'XX placeholder XX'
+    );
+  });
 
   it('binds to text input changes to the date', () => {
     parent.time = '11:07 am';
     fixture.detectChanges();
 
     input.value = '04:47 pm';
-    input.dispatchEvent(new KeyboardEvent('keydown', { 'key': 'Tab' }));
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' }));
     fixture.detectChanges();
 
-    expect(parent.time).toEqual('04:47 pm')
-  })
+    expect(parent.time).toEqual('04:47 pm');
+  });
 
   it('picker opens on focus and closes on tabOut', () => {
-
     fixture.detectChanges();
 
     assertClosed();
@@ -104,26 +97,24 @@ describe('Time Picker Module', () => {
     input.dispatchEvent(new FocusEvent('focus'));
     assertOpen();
 
-    input.dispatchEvent(new KeyboardEvent('keydown', { 'key': 'Tab' }));
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' }));
     assertClosed();
-
-  })
+  });
 
   it('picker closes on click away', () => {
-
     focusOpen();
     assertOpen();
 
-    document.dispatchEvent(new MouseEvent('mousedown'))
+    document.dispatchEvent(new MouseEvent('mousedown'));
     assertClosed();
-  })
+  });
 
   it('picker closes on escape', () => {
     focusOpen();
 
-    document.dispatchEvent(new KeyboardEvent('keydown', { 'key': 'Escape' }));
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
     assertClosed();
-  })
+  });
 
   // it('binds by selecting a time from the time picker dialog & closes the picker', () => {
   //   focusOpen();
@@ -138,7 +129,6 @@ describe('Time Picker Module', () => {
   // })
 
   it('binds & updates from the parent properly', () => {
-
     parent.time = '11:07 am';
     fixture.detectChanges();
     expect(input.value).toBe(parent.time);
@@ -146,5 +136,5 @@ describe('Time Picker Module', () => {
     parent.time = '08:24 pm';
     fixture.detectChanges();
     expect(input.value).toBe('08:24 pm');
-  })
-})
+  });
+});

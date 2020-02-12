@@ -6,22 +6,20 @@ import { first } from 'rxjs/operators';
 import { CalendarFaceComponent } from './calendar-face.component';
 
 describe('CalendarFaceComponent', () => {
-
   let component: CalendarFaceComponent;
   let fixture: ComponentFixture<CalendarFaceComponent>;
   let dayButton: HTMLButtonElement;
 
   function dispatchKeyEvent(el: any, key: string): void {
-    el.dispatchEvent(new KeyboardEvent('keydown', { 'key': key }));
+    el.dispatchEvent(new KeyboardEvent('keydown', { key }));
   }
 
   beforeEach(() => {
-
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       imports: [NoopAnimationsModule],
       declarations: [CalendarFaceComponent],
-      providers: []
+      providers: [],
     });
 
     fixture = TestBed.createComponent(CalendarFaceComponent);
@@ -31,7 +29,6 @@ describe('CalendarFaceComponent', () => {
   });
 
   describe('initialization', () => {
-
     it('should set the managingFocus to false be default', () => {
       expect(component['managingFocus']).toBe(false);
     });
@@ -40,17 +37,17 @@ describe('CalendarFaceComponent', () => {
       // if this changes, then other tests may have to initialize selected date to be correct
       expect(component['_selectedDate'].isSameDay(new Date())).toBe(true);
     });
-  })
+  });
 
   describe('selectedDate management', () => {
-
     it('should set the _selectedDate when a new date is passed to it', () => {
       component.selectedDate = new Date(1901, 0, 1);
       expect(component['_selectedDate']).toEqual(new Date(1901, 0, 1));
     });
 
     it('should emit set the "selectedDateChange" when a new date is passed to it', () => {
-      component.selectedDateChange.pipe(first())
+      component.selectedDateChange
+        .pipe(first())
         .subscribe(date => expect(date).toEqual(new Date(1901, 0, 1)));
 
       component.selectedDate = new Date(1901, 0, 1);
@@ -67,23 +64,21 @@ describe('CalendarFaceComponent', () => {
       fixture.detectChanges();
 
       spyOn(component, 'createCalendar');
-      component.selectedDateChange.pipe(first())
+      component.selectedDateChange
+        .pipe(first())
         .subscribe(date => expect(true).toBe(false)); // should never execute
 
       component.selectedDate = new Date();
       expect(component.createCalendar).not.toHaveBeenCalled();
     });
 
-
     it('should set selectedDate to the argument date when dayClicked(Date) is called', () => {
       component.dayClicked(new Date(2001, 2, 2));
       expect(component.selectedDate).toEqual(new Date(2001, 2, 2));
     });
-
-  })
+  });
 
   describe('slideState', () => {
-
     it('should set the slideState when a the "foucsDate" is set to a new month', () => {
       component.focusDate = new Date(2018, 0, 1);
 
@@ -106,7 +101,6 @@ describe('CalendarFaceComponent', () => {
       expect(component.slideState).toBe('center');
     });
 
-
     it('should set "slideSate" to the opposite (left or right) whenonAnimationEvent() is called with "left" or "center"', () => {
       component.onAnimationEvent(mockAnimationEvent('center', 'left'));
       expect(component.slideState).toBe('right');
@@ -114,18 +108,17 @@ describe('CalendarFaceComponent', () => {
       component.onAnimationEvent(mockAnimationEvent('center', 'right'));
       expect(component.slideState).toBe('left');
     });
-
-  })
+  });
 
   describe('focusDate management', () => {
-
     it('should set the _focusDate when a new date is passed to it', () => {
       component.focusDate = new Date(1901, 0, 1);
       expect(component['_focusDate']).toEqual(new Date(1901, 0, 1));
     });
 
     it('should emit set the "focusDateChange" when a new date is passed to it', () => {
-      component.focusDateChange.pipe(first())
+      component.focusDateChange
+        .pipe(first())
         .subscribe(date => expect(date).toEqual(new Date(1901, 0, 1)));
 
       component.focusDate = new Date(1901, 0, 1);
@@ -142,8 +135,9 @@ describe('CalendarFaceComponent', () => {
       fixture.detectChanges();
 
       spyOn(component, 'createCalendar');
-      component.focusDateChange.pipe(first())
-        .subscribe(date => expect(true).toBe(false))// should never execute
+      component.focusDateChange
+        .pipe(first())
+        .subscribe(date => expect(true).toBe(false)); // should never execute
 
       component.focusDate = new Date();
       expect(component.createCalendar).not.toHaveBeenCalled();
@@ -211,7 +205,6 @@ describe('CalendarFaceComponent', () => {
 
       dispatchKeyEvent(dayButton, 'a');
       expect(component.focusDate).toEqual(startFocus);
-
     });
 
     it('should increment the focusDate by 1 month when changeMonth() is passed the argument 1', () => {
@@ -225,7 +218,7 @@ describe('CalendarFaceComponent', () => {
       component.changeMonth(-1);
       expect(component.focusDate).toEqual(new Date(2001, 1, 15));
     });
-  })
+  });
 
   describe('createCalendar()', () => {
     it('should have createCalendar() calculate a new "this.calendar" when shouldCreate returns false', () => {
@@ -242,11 +235,12 @@ describe('CalendarFaceComponent', () => {
       component.createCalendar();
       expect(component.calendar).not.toEqual(startCal);
     });
-  })
+  });
 
   it('should the dayClick emitter with the argument date when dayClicked(Date) is called', () => {
     component.dayClicked(new Date(2001, 2, 2));
-    component.dayClick.pipe(first())
+    component.dayClick
+      .pipe(first())
       .subscribe(date => expect(date).toEqual(new Date(2001, 2, 1)));
   });
 
@@ -260,18 +254,18 @@ describe('CalendarFaceComponent', () => {
   it('stopManaging() sets value on focus out event', () => {
     component['managingFocus'] = true;
     fixture.detectChanges();
-    fixture.debugElement.nativeElement.dispatchEvent(new FocusEvent('focusout'));
+    fixture.debugElement.nativeElement.dispatchEvent(
+      new FocusEvent('focusout')
+    );
     expect(component['managingFocus']).toBe(false);
   });
-
 
   it('castFocus() focuses the element of the focusDate', () => {
     component['managingFocus'] = true;
     component.castFocus();
     fixture.detectChanges();
-    expect(getEl(fixture, '.cal-face-day[tabindex="0"]')).toBe(<HTMLElement>document.activeElement);
+    expect(getEl(fixture, '.cal-face-day[tabindex="0"]')).toBe(<HTMLElement>(
+      document.activeElement
+    ));
   });
-
 });
-
-

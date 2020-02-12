@@ -1,5 +1,5 @@
-import { HttpRequest, HttpResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpRequest, HttpResponse } from '@angular/common/http'
+import { Injectable } from '@angular/core'
 
 /**
  * @note not currently implemented
@@ -8,70 +8,68 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class MessageService {
-  messages: string[] = [];
+  messages: string[] = []
 
   add(message: string) {
-    this.messages.push(message);
+    this.messages.push(message)
   }
 
   clear() {
-    this.messages = [];
+    this.messages = []
   }
 }
 
 export interface RequestCacheEntry {
-  url: string;
-  response: HttpResponse<any>;
-  lastRead: number;
+  url: string
+  response: HttpResponse<any>
+  lastRead: number
 }
 
 // #docregion request-cache
 export abstract class RequestCache {
-  abstract get(req: HttpRequest<any>): HttpResponse<any> | undefined;
+  abstract get(req: HttpRequest<any>): HttpResponse<any> | undefined
   abstract put(req: HttpRequest<any>, response: HttpResponse<any>): void
 }
 // #enddocregion request-cache
 
-const maxAge = 30000; // maximum cache age (ms)
+const maxAge = 30000 // maximum cache age (ms)
 
 @Injectable()
 export class RequestCacheWithMap implements RequestCache {
+  cache = new Map<string, RequestCacheEntry>()
 
-  cache = new Map<string, RequestCacheEntry>();
-
-  constructor(private messenger: MessageService) { }
+  constructor(private messenger: MessageService) {}
 
   get(req: HttpRequest<any>): HttpResponse<any> | undefined {
-    const url = req.urlWithParams;
-    const cached = this.cache.get(url);
+    const url = req.urlWithParams
+    const cached = this.cache.get(url)
 
     if (!cached) {
-      return undefined;
+      return undefined
     }
 
-    const isExpired = cached.lastRead < (Date.now() - maxAge);
-    const expired = isExpired ? 'expired ' : '';
-    this.messenger.add(
-      `Found ${expired}cached response for "${url}".`);
-    return isExpired ? undefined : cached.response;
+    const isExpired = cached.lastRead < Date.now() - maxAge
+    const expired = isExpired ? 'expired ' : ''
+    this.messenger.add(`Found ${expired}cached response for "${url}".`)
+    return isExpired ? undefined : cached.response
   }
 
   put(req: HttpRequest<any>, response: HttpResponse<any>): void {
-    const url = req.urlWithParams;
-    this.messenger.add(`Caching response from "${url}".`);
+    const url = req.urlWithParams
+    this.messenger.add(`Caching response from "${url}".`)
 
-    const newEntry = { url, response, lastRead: Date.now() };
-    this.cache.set(url, newEntry);
+    const newEntry = { url, response, lastRead: Date.now() }
+    this.cache.set(url, newEntry)
 
     // remove expired cache entries
-    const expired = Date.now() - maxAge;
+    const expired = Date.now() - maxAge
 
     this.cache.forEach(entry => {
       if (entry.lastRead < expired) {
-        this.cache.delete(entry.url);
+        this.cache.delete(entry.url)
       }
-    });
+    })
 
-    this.messenger.add(`Request cache size: ${this.cache.size}.`);
+    this.messenger.add(`Request cache size: ${this.cache.size}.`)
   }
 }

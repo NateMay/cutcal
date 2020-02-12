@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 
 @Injectable()
 export class MockAngularFirestore {
@@ -9,16 +9,13 @@ export class MockAngularFirestore {
     this._docValue = value
   }
 
+  _collectionValue: any
 
-  _collectionValue: any;
-
-
-  _docValue: any;
+  _docValue: any
   collection(...args: any) {
     return this._collectionValue
   }
   doc(...args: any) {
-    return this._docValue;
+    return this._docValue
   }
-
 }

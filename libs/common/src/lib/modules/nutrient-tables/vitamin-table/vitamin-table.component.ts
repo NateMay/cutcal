@@ -37,7 +37,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
         </td>
       </tr>
       <ng-container *ngIf="vitA_Open">
-        <tr class="child" *ngFor="let vit_A of vit_As | coll">
+        <tr class="child" *ngFor="let vit_A of vit_As | keyvalue">
           <td>{{ vit_A?.shortName }}</td>
           <td class="quant">
             {{ nutrition[vit_A.propName] | number: numInfo }}
@@ -70,7 +70,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
         </td>
       </tr>
       <ng-container *ngIf="vitD_Open">
-        <tr class="child" *ngFor="let vit_D of vit_Ds | coll">
+        <tr class="child" *ngFor="let vit_D of vit_Ds | keyvalue">
           <td>{{ vit_D?.shortName }}</td>
           <td class="quant">
             {{ nutrition[vit_D.propName] | number: numInfo }}
@@ -94,7 +94,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
         </td>
       </tr>
       <ng-container *ngIf="vitE_Open">
-        <tr class="child" *ngFor="let vit_E of vit_Es | coll">
+        <tr class="child" *ngFor="let vit_E of vit_Es | keyvalue">
           <td>{{ vit_E?.shortName }}</td>
           <td class="quant">
             {{ nutrition[vit_E.propName] | number: numInfo }}
@@ -161,7 +161,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
         </td>
       </tr>
       <ng-container *ngIf="folate_Open">
-        <tr class="child" *ngFor="let folate of folates | coll">
+        <tr class="child" *ngFor="let folate of folates | keyvalue">
           <td>{{ folate?.shortName }}</td>
           <td class="quant">
             {{ nutrition[folate.propName] | number: numInfo }}

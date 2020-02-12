@@ -1,10 +1,9 @@
 export class BreadCrumb {
-
-  label: string;
-  route?: string[];
+  label: string
+  route?: string[]
 
   constructor(label: string, route?: string[]) {
-    this.label = label;
-    this.route = route;
+    this.label = label
+    this.route = route
   }
 }

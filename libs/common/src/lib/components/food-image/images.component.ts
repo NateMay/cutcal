@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Image } from '../../models/images';
-import { KVP } from '../../models/key-value-pair';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { Image } from '../../models/images'
+import { KVP } from '../../models/key-value-pair'
 
 // TODO (images) if no image, give option to select from a list of google images of the same name
 
@@ -11,23 +11,21 @@ import { KVP } from '../../models/key-value-pair';
   selector: 'cc-images',
   styleUrls: ['./images.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { 'class': 'cc-images'},
+  host: { class: 'cc-images' },
   template: `
-    <img class="primary-image"
+    <img
+      class="primary-image"
       aria-hidden="true"
       [attr.src]="primaryImage?.url || '../../../../assets/svgs/meal.svg'"
-      [attr.alt]="foodAltText">
-    `
+      [attr.alt]="foodAltText"
+    />
+  `,
 })
 export class ImagesComponent {
+  @Input() primaryImage: Image
+  @Input() secondaryImages: KVP<Image>
 
+  @Input() foodAltText: string
 
-  @Input() primaryImage: Image;
-  @Input() secondaryImages: KVP<Image>;
-
-
-  @Input() foodAltText: string;
-
-  constructor() { }
-
+  constructor() {}
 }

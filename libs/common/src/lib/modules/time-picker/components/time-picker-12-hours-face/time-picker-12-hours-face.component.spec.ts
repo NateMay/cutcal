@@ -11,7 +11,7 @@ describe('Timepicker12HoursFaceComponent', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [Timepicker12HoursFaceComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
     }).createComponent(Timepicker12HoursFaceComponent);
 
     component = fixture.componentInstance;
@@ -24,8 +24,8 @@ describe('Timepicker12HoursFaceComponent', () => {
         currentValue: TimePeriod.PM,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null
-      }
+        isFirstChange: () => null,
+      },
     };
     const time = new Date();
     const format = 12;
@@ -38,7 +38,12 @@ describe('Timepicker12HoursFaceComponent', () => {
     component.hoursList = hours;
 
     component.ngOnChanges(changes);
-    expect(spy).toHaveBeenCalledWith(hours, { min: time, max: time, format, period });
+    expect(spy).toHaveBeenCalledWith(hours, {
+      min: time,
+      max: time,
+      format,
+      period,
+    });
   });
 
   it('should not call disabledHours', () => {
@@ -48,8 +53,8 @@ describe('Timepicker12HoursFaceComponent', () => {
         currentValue: null,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null
-      }
+        isFirstChange: () => null,
+      },
     };
 
     component.ngOnChanges(changes);
@@ -66,5 +71,4 @@ describe('Timepicker12HoursFaceComponent', () => {
     component.hourSelected.subscribe(hour => expect(hour).toBe(time));
     component.onTimeSelected(time);
   }));
-
 });

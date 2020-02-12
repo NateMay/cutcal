@@ -1,4 +1,3 @@
-
 /**
  * Creates an array of sequential dates
  * @param {number} len number of sequential days desired
@@ -6,12 +5,8 @@
  * @example
  *  dateArray(3, new Date(2018, 0, 1)) => [ 1 Jan, 2 Jan, 3 Jan ], // but date objects
  */
-export function dateArray(
-  len: number,
-  startDate: Date = new Date()
-): Date[] {
-  return Array
-    .apply(null, { length: len })
+export function dateArray(len: number, startDate: Date = new Date()): Date[] {
+  return Array.apply(null, { length: len })
     .map(Number.call, Number)
     .map(num => startDate.addDays(num))
 }

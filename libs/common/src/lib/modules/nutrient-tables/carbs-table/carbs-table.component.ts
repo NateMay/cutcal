@@ -2,10 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import * as _ from 'lodash'
 import { NUTRIENTS } from '../../../classes/nutrientMetadata/nutrientMetadata'
 import { NutrientMetaData } from '../../../constants/nutrientDetails'
-import {
-  getCarbohydrates,
-  getSugars,
-} from '../../../functions/getNutritionParts'
+import { getCarbohydrates, getSugars } from '../../../functions/getNutritionParts'
 import { NutritionRange } from '../../../models/daily-value'
 import { Nutrition, Sugars } from '../../../models/nutrition'
 import { ZERO_NUTRITION } from '../../../usda_nutrition/base-nutrition'
@@ -13,7 +10,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
 import { Carbohydrates } from './../../../models/nutrition'
 
 @Component({
-  selector: 'table[cc-carbs]',
+  selector: 'table[cc-carbs],cc-carbs',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'cc-carbs' },
   styleUrls: ['../nutrient-table.scss', './carbs-table.component.scss'],
@@ -137,7 +134,7 @@ import { Carbohydrates } from './../../../models/nutrition'
       </tr>
 
       <ng-container *ngIf="sugars_open">
-        <tr class="child" *ngFor="let sugar of sugars | coll">
+        <tr class="child" *ngFor="let sugar of sugars | keyvalue">
           <td>{{ sugar?.shortName }}</td>
           <td class="quant">
             {{ nutrition[sugar.propName] | number: numInfo }}

@@ -1,4 +1,4 @@
-import { KVP } from './key-value-pair';
+import { KVP } from './key-value-pair'
 // nx
 export type FdcDataType =
   | 'Branded'

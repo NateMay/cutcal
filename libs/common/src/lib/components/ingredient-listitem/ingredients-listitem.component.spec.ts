@@ -10,7 +10,12 @@ import { MatSliderModule } from '@angular/material/slider';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { getAllDe, getByDir, getEl, MOCK_HAMMER_LOADER } from '@cutcal/ng-testing';
+import {
+  getAllDe,
+  getByDir,
+  getEl,
+  MOCK_HAMMER_LOADER,
+} from '@cutcal/ng-testing';
 import { createMealWithId } from '../../functions/createMeal';
 import { createUsage } from '../../functions/createUsage';
 import { Ingredient } from '../../models/ingredient';

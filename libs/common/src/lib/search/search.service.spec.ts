@@ -6,7 +6,7 @@ it('Search Service emits and can be subscribed to', () => {
   let emitted = 0;
   service.listenFocusFirst.pipe(first()).subscribe(() => {
     emitted++;
-  })
+  });
   service.focusFirst();
   expect(emitted).toBe(1);
-})
+});

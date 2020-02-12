@@ -47,7 +47,7 @@
         "cutcal-sidebar",
         "cutcal-support",
         "common",
-        "timpicker",
+        "timpicker"
       ],
       "default": "cutcal"
     }

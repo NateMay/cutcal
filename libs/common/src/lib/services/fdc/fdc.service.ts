@@ -3,8 +3,6 @@ import { Injectable } from '@angular/core'
 import * as _ from 'lodash'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { KVP2 } from '../../../../../global/kvp'
-import { AuthService } from '../../../auth/auth.service'
 import { NUTRIENTS } from '../../classes/nutrientMetadata/nutrientMetadata'
 import { createPortion } from '../../functions/createPortion'
 import {
@@ -14,8 +12,10 @@ import {
 } from '../../models/fdc-detail'
 import { FDCFoodSearchResponse } from '../../models/fdc-search'
 import { Image } from '../../models/images'
+import { KVP } from '../../models/key-value-pair'
 import { Nutrition } from '../../models/nutrition'
 import { Portion } from '../../models/portion'
+import { AuthService } from '../auth/auth.service'
 
 export interface Food2 {
   _id?: any
@@ -28,7 +28,7 @@ export interface Food2 {
 
   createdBy?: string
   primaryImage?: Image
-  secondaryImages?: KVP2<Image>
+  secondaryImages?: KVP<Image>
 
   /* recipe form */
   isRecipe?: boolean
@@ -44,7 +44,7 @@ export interface Food2 {
   tags?: string[] // food groups
   nutrition?: Nutrition<number>
   fdcId?: number
-  portions: KVP2<Portion>
+  portions: KVP<Portion>
   scientificName?: string
 
   /* calculated fields */
@@ -57,12 +57,12 @@ export function createFood2(
   fdcName?: string,
   fdcId?: number,
   description?: string,
-  portions?: KVP2<Portion>,
+  portions?: KVP<Portion>,
   defaultPortion?: Portion,
   createdBy?: string,
   tags?: string[],
   primaryImage?: Image,
-  secondaryImages?: KVP2<Image>,
+  secondaryImages?: KVP<Image>,
   isRecipe?: boolean,
   isMeal?: boolean,
   isEntre?: boolean,
@@ -141,7 +141,7 @@ export class FdcService {
     return base
   }
 
-  private portionsFromResponse(response: FdcFoodDetailResponse): KVP2<Portion> {
+  private portionsFromResponse(response: FdcFoodDetailResponse): KVP<Portion> {
     return {
       grams: {
         unit: 'grams',

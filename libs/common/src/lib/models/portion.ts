@@ -1,6 +1,4 @@
-
 export interface Portion {
-  unit: string;
-  quantity: number;
+  unit: string
+  quantity: number
 }
-

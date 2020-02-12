@@ -1,24 +1,19 @@
-import { OverlayModule } from '@angular/cdk/overlay';
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { DatePickerModule } from '../date-picker/date-picker.module';
-import { TimePickerModule } from '../time-picker/time-picker.module';
-import { DatetimeBinderComponent } from './datetime-binder.component';
+import { OverlayModule } from '@angular/cdk/overlay'
+import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core'
+import { FlexLayoutModule } from '@angular/flex-layout'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { MatButtonModule } from '@angular/material/button'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatIconModule } from '@angular/material/icon'
+import { MatInputModule } from '@angular/material/input'
+import { DatePickerModule } from '../date-picker/date-picker.module'
+import { TimePickerModule } from '../time-picker/time-picker.module'
+import { DatetimeBinderComponent } from './datetime-binder.component'
 
-const COMPONENTS = [
-  DatetimeBinderComponent
-];
+const COMPONENTS = [DatetimeBinderComponent]
 
-const MODULES = [
-  DatePickerModule,
-  TimePickerModule
-];
+const MODULES = [DatePickerModule, TimePickerModule]
 
 const MATERIAL = [
   FlexLayoutModule,
@@ -26,22 +21,20 @@ const MATERIAL = [
   MatInputModule,
   OverlayModule,
   MatIconModule,
-  MatButtonModule
-];
+  MatButtonModule,
+]
 
 @NgModule({
-
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     ...MATERIAL,
-    ...MODULES
+    ...MODULES,
   ],
 
   declarations: [...COMPONENTS],
 
-  exports: [...COMPONENTS]
-
+  exports: [...COMPONENTS],
 })
-export class DatetimeBinderModule { }
+export class DatetimeBinderModule {}

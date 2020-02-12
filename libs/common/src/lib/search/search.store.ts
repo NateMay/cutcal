@@ -1,64 +1,55 @@
-import { Action, createAction, createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store';
-import { headerCloseSearch } from '../../header/header.actions';
-
-
-
-
+import {
+  Action,
+  createAction,
+  createFeatureSelector,
+  createReducer,
+  createSelector,
+  on,
+} from '@ngrx/store'
+// import { headerCloseSearch } from '../../header/header.actions';
 
 // ****** ACTIONS ******* //
 
-export const closeSearch = createAction('[Search] Close Search');
+export const closeSearch = createAction('[Search] Close Search')
 
-export const openSearch = createAction('[Search] Open Search');
-
-
-
-
+export const openSearch = createAction('[Search] Open Search')
 
 // ****** STATE ******* //
 
 export interface SearchState {
-  isOpen: boolean;
-};
+  isOpen: boolean
+}
 
 export const SEARCH_INITIAL: SearchState = {
-  isOpen: false
-};
-
-
-
-
+  isOpen: false,
+}
 
 // ****** SELECTORS ******* //
 
-export const searchState = createFeatureSelector<SearchState>('search');
+export const searchState = createFeatureSelector<SearchState>('search')
 
 export const searchOpen = createSelector(
   searchState,
   (search: SearchState) => search.isOpen
-);
-
-
-
+)
 
 // ****** REDUCER ******* //
 
 const reducer = createReducer<SearchState>(
-
   SEARCH_INITIAL,
 
   on(openSearch, state => ({
     ...state,
-    isOpen: true
+    isOpen: true,
   })),
 
-  on(closeSearch, headerCloseSearch, state => ({
+  // headerCloseSearch
+  on(closeSearch, state => ({
     ...state,
-    isOpen: false
+    isOpen: false,
   }))
-);
-
+)
 
 export function searchReducer(state: SearchState | undefined, action: Action) {
-  return reducer(state, action);
+  return reducer(state, action)
 }

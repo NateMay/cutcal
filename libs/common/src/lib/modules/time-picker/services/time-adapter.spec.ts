@@ -1,32 +1,24 @@
 import { TimePeriod } from '../models/time-period.enum';
 import { TimeAdapter } from './time-adapter';
 
-
 describe('TimeAdapter', () => {
-
   describe('convertTimeToDateTime', () => {
-
-
     // it('shout convert string time into DateTime format', () => {
     //     const stringTime = '11:20 pm';
     //     const time = TimeAdapter.convertTimeToDateTime(stringTime);
-
     //     expect(time instanceof DateTime).toBeTruthy();
     //     expect(time.isValid).toBeTruthy();
     //     expect(time.hour).toBe(23, 'wrong hours');
     //     expect(time.minute).toBe(20, 'wrong minutes');
     // });
-
     // it('shout convert string time into DateTime format (24hours format)', () => {
     //     const stringTime = '23:20';
     //     const time = TimeAdapter.convertTimeToDateTime(stringTime, 24);
-
     //     expect(time instanceof DateTime).toBeTruthy();
     //     expect(time.isValid).toBeTruthy();
     //     expect(time.hour).toBe(23, 'wrong hours');
     //     expect(time.minute).toBe(20, 'wrong minutes');
     // });
-
     // it('should be invalid if pass incorrect value', () => {
     //     const time = 'time';
     //     expect(TimeAdapter.convertTimeToDateTime(time).isValid).toBeFalsy();
@@ -34,7 +26,6 @@ describe('TimeAdapter', () => {
   });
 
   describe('parseTime', () => {
-
     it('should return 11:00 AM', () => {
       const expected = '11:00 AM';
 
@@ -70,17 +61,14 @@ describe('TimeAdapter', () => {
   });
 
   describe('isTimeAvailable', () => {
-
     it('should return false if no time provided', () => {
       expect(TimeAdapter.isTimeAvailable('')).toBeFalsy();
       expect(TimeAdapter.isTimeAvailable(null)).toBeFalsy();
       expect(TimeAdapter.isTimeAvailable(undefined)).toBeFalsy();
     });
-
   });
 
   describe('formatHour', () => {
-
     it('should return hour without changes', () => {
       const hour = 23;
       expect(TimeAdapter.formatHour(hour, 24, TimePeriod.AM)).toBe(hour);

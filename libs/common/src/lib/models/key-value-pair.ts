@@ -1,5 +1,3 @@
-
-
 /**
  * Generic to create a Key-Value Pair for any interface
  */

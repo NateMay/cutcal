@@ -4,21 +4,7 @@ import { AngularFireFunctions } from '@angular/fire/functions'
 import { AngularFireStorage } from '@angular/fire/storage'
 import * as _ from 'lodash'
 import { combineLatest, Observable, of } from 'rxjs'
-import {
-  filter,
-  first,
-  map,
-  share,
-  shareReplay,
-  switchMap,
-} from 'rxjs/operators'
-import { DeleteMealPayload } from '../../../../../global/deleteMealPayload'
-import { DeleteUsagePayload } from '../../../../../global/deleteUsagePayload'
-import { AuthService } from '../../../auth/auth.service'
-import {
-  createCalendar,
-  MonthCalendar,
-} from '../../../calendar/month/monthDay.vm'
+import { filter, first, map, share, switchMap } from 'rxjs/operators'
 import {
   addPortion,
   createMeal,
@@ -29,14 +15,14 @@ import {
   updateNutritions,
 } from '../../functions'
 import { defaultMealName } from '../../functions/deafultMealName'
-import { getFullCalendar } from '../../functions/getFullCalendar/getFullCalendar'
 import { purifyObject } from '../../functions/purifyObject/purifyObject'
 import { removeId } from '../../functions/removeID'
 import { Food } from '../../models/food'
 import { KVP } from '../../models/key-value-pair'
-import { Meal } from '../../models/meal'
+import { DeleteMealPayload, Meal } from '../../models/meal'
 import { Tripple } from '../../models/tripple'
-import { Usage } from '../../models/usage'
+import { DeleteUsagePayload, Usage } from '../../models/usage'
+import { AuthService } from '../auth/auth.service'
 import { FirestoreService } from '../fireStore/fireStore.service'
 
 export type MealTripple = [Meal, KVP<Usage>, KVP<Food>]
@@ -429,16 +415,17 @@ export class MealService {
     return !_.map(usages, usage => foods[usage.foodId]).some(food => !food)
   }
 
-  getMonthData(date: Date): Observable<MonthCalendar> {
-    const calendar: Date[] = getFullCalendar(date)
+  // move this into a calendar service
+  // getMonthData(date: Date): Observable<MonthCalendar> {
+  //   const calendar: Date[] = getFullCalendar(date)
 
-    const last: Date | undefined = _.last(calendar)
+  //   const last: Date | undefined = _.last(calendar)
 
-    if (!last) throw new Error('[CutCal] getMonthData() has no last date')
+  //   if (!last) throw new Error('[CutCal] getMonthData() has no last date')
 
-    return this.getMealRange(calendar[0], last.endOfDay()).pipe(
-      map(meals => createCalendar(date, meals)),
-      shareReplay()
-    )
-  }
+  //   return this.getMealRange(calendar[0], last.endOfDay()).pipe(
+  //     map(meals => createCalendar(date, meals)),
+  //     shareReplay()
+  //   )
+  // }
 }

@@ -1,9 +1,7 @@
-
 export function removeId<T extends { _id?: string }>(data: T): T {
+  const newData = { ...data }
 
-  const newData = {...data};
+  delete newData._id
 
-  delete newData._id;
-
-  return newData;
+  return newData
 }

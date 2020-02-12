@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatButtonModule } from '@angular/material/button';
 import { By } from '@angular/platform-browser';
 import { getAllDe } from '../../../../../../ng-testing/src/lib/getAllDe';
-import { CollectionPipe } from '../../../pipes/collection/collection.pipe';
 import { DatePickerMonthsComponent } from './date-picker-months.component';
 
 @Component({
@@ -13,7 +12,7 @@ import { DatePickerMonthsComponent } from './date-picker-months.component';
       [focusDate]="focusDate"
       (monthSelect)="monthSelect($event)"
     ></cc-date-picker-months>
-  `
+  `,
 })
 class TestDatePickerMonthsComponent {
   selectedDate: Date = new Date(2019, 3, 5);
@@ -29,19 +28,18 @@ describe('DatePickerMonthsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        MatButtonModule
-      ],
+      imports: [MatButtonModule],
       declarations: [
         DatePickerMonthsComponent,
         TestDatePickerMonthsComponent,
-        CollectionPipe
-      ]
-    })
+      ],
+    });
 
     fixture = TestBed.createComponent(TestDatePickerMonthsComponent);
     parent = fixture.componentInstance;
-    component = fixture.debugElement.query(By.directive(DatePickerMonthsComponent)).componentInstance
+    component = fixture.debugElement.query(
+      By.directive(DatePickerMonthsComponent)
+    ).componentInstance;
     fixture.detectChanges();
   });
 
@@ -55,7 +53,7 @@ describe('DatePickerMonthsComponent', () => {
   });
 
   it('should emit the index of the month clicked', () => {
-    const spy = spyOn(parent, 'monthSelect')
+    const spy = spyOn(parent, 'monthSelect');
     const buttons = getAllDe(fixture, 'button');
     fixture.detectChanges();
     buttons[4].nativeElement.click();

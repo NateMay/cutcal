@@ -4,21 +4,17 @@ import { FoodGroupSvc } from './food-group.service';
 // DEPENDS ON (food-group) then TEST (food-group)
 
 describe('Foodgroup Service', () => {
-
   let foodGroupSvc: FoodGroupSvc;
-
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        FoodGroupSvc
-      ]
-    })
+      providers: [FoodGroupSvc],
+    });
 
-    foodGroupSvc = TestBed.get(FoodGroupSvc)
-  })
+    foodGroupSvc = TestBed.get(FoodGroupSvc);
+  });
 
   it('injects the foodgroup service', () => {
-    expect(foodGroupSvc).toBeTruthy()
-  })
-})
+    expect(foodGroupSvc).toBeTruthy();
+  });
+});

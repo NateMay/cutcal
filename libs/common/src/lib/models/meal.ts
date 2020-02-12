@@ -30,3 +30,10 @@ export interface Meal {
 export function isMeal(obj: any): boolean {
   return !!obj.timestamp && !!obj.name && !!obj.nutrition
 }
+
+/**
+ * Passed to the cloud function to delete a meal
+ */
+export interface DeleteMealPayload {
+  mealId: string
+}

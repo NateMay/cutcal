@@ -11,7 +11,7 @@ describe('TimepickerMinutesFaceComponent', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [TimepickerMinutesFaceComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
     }).createComponent(TimepickerMinutesFaceComponent);
 
     component = fixture.componentInstance;
@@ -24,8 +24,8 @@ describe('TimepickerMinutesFaceComponent', () => {
         currentValue: TimePeriod.PM,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null
-      }
+        isFirstChange: () => null,
+      },
     };
     const time = new Date();
     const format = 12;
@@ -39,7 +39,12 @@ describe('TimepickerMinutesFaceComponent', () => {
     component.selectedHour = 1;
 
     component.ngOnChanges(changes);
-    expect(spy).toHaveBeenCalledWith(minutes, 1, { min: time, max: time, format, period });
+    expect(spy).toHaveBeenCalledWith(minutes, 1, {
+      min: time,
+      max: time,
+      format,
+      period,
+    });
   });
 
   it('should not call disableMinutes', () => {
@@ -49,8 +54,8 @@ describe('TimepickerMinutesFaceComponent', () => {
         currentValue: null,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null
-      }
+        isFirstChange: () => null,
+      },
     };
 
     component.ngOnChanges(changes);

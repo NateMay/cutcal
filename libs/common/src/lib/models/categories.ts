@@ -1,12 +1,10 @@
-
-
 export class CategoryVM {
-  name: string;
-  img: string;
+  name: string
+  img: string
   // score?: number;
   constructor(name: string, img: string) {
-    this.name = name;
-    this.img = img;
+    this.name = name
+    this.img = img
   }
 }
 
@@ -35,5 +33,5 @@ export const CATEGORIES: CategoryVM[] = [
   new CategoryVM('Fast Foods', 'fast-food1.svg'), // 21
   new CategoryVM('Meals, Entrees, and Side Dishes', 'entre2.svg'), // 22
   new CategoryVM('American Indian/Alaska Native Foods', 'igloo.svg'), // 23
-  new CategoryVM('Restaurant Foods', 'chef.svg') // 24
-];
+  new CategoryVM('Restaurant Foods', 'chef.svg'), // 24
+]

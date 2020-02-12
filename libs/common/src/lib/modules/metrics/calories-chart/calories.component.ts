@@ -2,7 +2,10 @@ import { Component, Input } from '@angular/core'
 import * as Highcharts from 'highcharts'
 import {
   ChartOptions,
+  Options,
   PlotOptions,
+  PointOptionsObject,
+  SeriesOptionsType,
   TitleOptions,
   TooltipOptions,
 } from 'highcharts'
@@ -11,8 +14,13 @@ import { NUTRIENTS } from '../../../classes/nutrientMetadata/nutrientMetadata'
 import { caloriesFromAll } from '../../../functions/caloriesFrom/caloriesFrom'
 import { Nutrition } from '../../../models/nutrition'
 
+interface SeriesPieDataOptions extends PointOptionsObject {
+  type?: string
+  unit?: string
+}
+
 @Component({
-  selector: 'calories-chart',
+  selector: 'cc-calories-chart',
   styleUrls: ['./calories.component.scss'],
   template: `
     <highcharts-chart
@@ -25,7 +33,7 @@ import { Nutrition } from '../../../models/nutrition'
   host: { class: 'calories-chart' },
 })
 export class CaloriesChartComponent {
-  chartOptions: Highcharts.Options
+  chartOptions: Options
 
   Highcharts: typeof Highcharts = Highcharts
 
@@ -40,7 +48,8 @@ export class CaloriesChartComponent {
 
     if (!this.chartOptions.series) throw new Error('')
 
-    this.chartOptions.series[0].data = _.map(
+    // URGENT FIXME - new highcharts api
+    this.chartOptions.series[0]['data'] = _.map(
       caloriesFrom,
       (value: number, key: string) => ({
         name: NUTRIENTS.shortNames[key],
@@ -53,7 +62,7 @@ export class CaloriesChartComponent {
     this.updateChart = true
   }
 
-  get baseOptions(): Highcharts.Options {
+  get baseOptions(): Options {
     return {
       chart: <ChartOptions>{
         backgroundColor: 'transparent',
@@ -72,7 +81,7 @@ export class CaloriesChartComponent {
           showInLegend: true,
         },
       },
-      series: <any[]>[
+      series: <SeriesOptionsType[]>[
         {
           name: 'Calories From',
           colorByPoint: true,

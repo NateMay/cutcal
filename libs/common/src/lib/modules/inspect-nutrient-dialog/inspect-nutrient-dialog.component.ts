@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core'
 import * as Highcharts from 'highcharts'
-import { Options, SeriesOptionsType, SeriesPieDataOptions } from 'highcharts'
+import { Options, PointOptionsObject, SeriesOptionsType } from 'highcharts'
 import Drilldown from 'highcharts/modules/drilldown'
 import * as _ from 'lodash'
 import { first, tap } from 'rxjs/operators'
@@ -10,6 +10,11 @@ import { MealService, MealsTripple } from '../../services/meal/meal.service'
 import { InspectionData, INSPECTION_DATA } from './inspection-data'
 
 Drilldown(Highcharts)
+
+interface SeriesPieDataOptions extends PointOptionsObject {
+  type?: string
+  unit?: string
+}
 
 @Component({
   selector: 'cc-inspect-nutrient-dialog',
@@ -88,10 +93,14 @@ export class InspectNutrientDialogComponent implements OnInit {
     return this.series.name || ''
   }
   get nutrient(): string {
-    return this.series.userOptions.nutrient
+    // URGENT FIXME - new highcharts api
+    return null
+    // return this.series.userOptions.nutrient
   }
   get unit() {
-    return this.series.userOptions.unit
+    // URGENT FIXME - new highcharts api
+    return null
+    // return this.series.userOptions.unit
   }
 
   constructor(
@@ -158,11 +167,12 @@ export class InspectNutrientDialogComponent implements OnInit {
   }
 
   handleIngredient(parentUsage: Usage, parentID: string): void {
-    this.drilldownSeries[parentID].data.push(
-      this.createIngredientPoint(parentUsage)
-    )
-
+    // URGENT FIXME - new highcharts api
+    // this.drilldownSeries[parentID].data.push(
+    //   this.createIngredientPoint(parentUsage)
+    // )
     this.addChildrenToDrilldown(parentUsage._id)
+    throw new Error('need to fix this comment block (new highcharts api)')
   }
 
   addChildrenToDrilldown(parentId: string) {

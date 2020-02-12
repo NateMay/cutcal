@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MockHighChartsModule } from '@cutcal/ng-testing';
 import { of } from 'rxjs';
-import { MockHighChartsModule } from '../../../../testing/nodeModules/highcharts.mock.module';
 import { createMeal } from '../../functions';
 import { createUsage } from '../../functions/createUsage';
 import { createFood } from '../../models';
@@ -76,11 +76,11 @@ describe('Inspect Nutrient Dialog Component', () => {
   });
 
   beforeEach(() => {
-    spyOnProperty(component, 'date', 'get').and.returnValue(new Date());
-    spyOnProperty(component, 'dateString', 'get').and.returnValue('2019-12-12');
-    spyOnProperty(component, 'title', 'get').and.returnValue('a title');
-    spyOnProperty(component, 'nutrient', 'get').and.returnValue('protein');
-    spyOnProperty(component, 'unit', 'get').and.returnValue('g');
+    jest.spyOn(component, 'date', 'get').mockReturnValue(new Date())
+    jest.spyOn(component, 'dateString', 'get').mockReturnValue('2019-12-12')
+    jest.spyOn(component, 'title', 'get').mockReturnValue('a title')
+    jest.spyOn(component, 'nutrient', 'get').mockReturnValue('protein')
+    jest.spyOn(component, 'unit', 'get').mockReturnValue('g')
   });
 
   it('can load instance', () => {

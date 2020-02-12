@@ -1,7 +1,7 @@
-import * as _ from 'lodash'
-import { DailyValue } from '../../../models/daily-value'
-import { Nutrition } from '../../../models/nutrition'
-import { KeysIn } from './../../../../../typings.d'
+import * as _ from 'lodash';
+import { DailyValue } from '../../../models/daily-value';
+import { Nutrition } from '../../../models/nutrition';
+import { KeysIn } from '../../../types/keys-in';
 
 export class NutritionLabel {
   total_calories: number

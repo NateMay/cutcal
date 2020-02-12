@@ -14,7 +14,7 @@ import {
 
 @Directive({
   selector:
-    '[password][formControlName],[password][formControl],[password][ngModel]',
+    '[ccPassword][formControlName],[ccPassword][formControl],[ccPassword][ngModel]',
   providers: [
     {
       provide: NG_VALIDATORS,

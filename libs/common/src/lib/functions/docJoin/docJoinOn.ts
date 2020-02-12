@@ -1,7 +1,6 @@
-
-import { AngularFirestore } from '@angular/fire/firestore';
-import { combineLatest, defer, Observable } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore'
+import { combineLatest, defer, Observable } from 'rxjs'
+import { map, switchMap, tap } from 'rxjs/operators'
 
 /**
  * @property {string} idProperty property name of the parent which holds the reference id
@@ -13,10 +12,8 @@ export class JoinOn {
     public idProperty: string,
     public collection: string,
     public targetProp: string
-  ) { }
+  ) {}
 }
-
-
 
 /**
  * rxjs operator that joins a document from another collection onto the parent document
@@ -34,27 +31,33 @@ export function docJoinOn<T>(
   afs: AngularFirestore,
   joins: JoinOn[]
 ): (source: Observable<Partial<T>>) => Observable<T> {
+  return source =>
+    defer(() => {
+      let parentDoc
 
-  return source => defer(() => {
+      return source.pipe(
+        // Store the parent
+        tap(doc => (parentDoc = doc)),
 
-    let parentDoc;
+        // Make a call to get the reference document
+        switchMap(_ =>
+          combineLatest(
+            joins.map(join =>
+              afs
+                .doc(`${join.collection}/${parentDoc[join.idProperty]}`)
+                .valueChanges()
+            )
+          )
+        ),
 
-    return source.pipe(
-
-      // Store the parent
-      tap(doc => parentDoc = doc),
-
-      // Make a call to get the reference document
-      switchMap(_ => combineLatest(
-        joins.map(join => afs.doc(`${join.collection}/${parentDoc[join.idProperty]}`)
-          .valueChanges()))),
-
-      // Join the response onto the parent document
-      map(arr => ({
-        ...parentDoc,
-        ...joins.reduce((acc, cur, idx) => ({ ...acc, [cur.targetProp]: arr[idx] }), {})
-      }))
-
-    )})
-
-};
+        // Join the response onto the parent document
+        map(arr => ({
+          ...parentDoc,
+          ...joins.reduce(
+            (acc, cur, idx) => ({ ...acc, [cur.targetProp]: arr[idx] }),
+            {}
+          ),
+        }))
+      )
+    })
+}

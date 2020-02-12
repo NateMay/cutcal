@@ -1,2 +1,1 @@
-export * from './lib/playgrounds.module';
-
+export * from './lib/playgrounds.module'

@@ -1,5 +1,22 @@
-import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations'
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, HostListener, Input, NgZone, OnInit, Output } from '@angular/core'
+import {
+  animate,
+  AnimationEvent,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  HostBinding,
+  HostListener,
+  Input,
+  NgZone,
+  OnInit,
+  Output,
+} from '@angular/core'
 import * as _ from 'lodash'
 import { Weekday, WEEKDAYS } from '../../../constants/weekdays'
 import { executeOnStable } from '../../../functions/executeOnStable/executeOnStable'

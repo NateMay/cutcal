@@ -4,16 +4,14 @@ import { ImagesComponent } from './images.component';
 
 // DEPENDS ON (images) then TEST (images)
 
-
 describe('FoodImageComponent', () => {
-
   let component: ImagesComponent;
   let fixture: ComponentFixture<ImagesComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
-      declarations: [ImagesComponent]
+      declarations: [ImagesComponent],
     });
     fixture = TestBed.createComponent(ImagesComponent);
     component = fixture.componentInstance;
@@ -22,5 +20,4 @@ describe('FoodImageComponent', () => {
   it('can load instance', () => {
     expect(component).toBeTruthy();
   });
-
 });

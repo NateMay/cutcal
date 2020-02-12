@@ -24,6 +24,7 @@ export class MockRouterSvc {
 }
 
 @Directive({
+  // tslint:disable-next-line
   selector: 'routerLink',
 })
 export class MockRouterLink {

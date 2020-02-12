@@ -10,8 +10,8 @@ import { KVP } from '../../models/key-value-pair'
 import { Nutrition } from '../../models/nutrition'
 import { Portion } from '../../models/portion'
 import { newNonScaler, USDAFood, USDANutrient } from '../../models/usda'
-import { KeysIn } from './../../../../typings.d'
 import { USDAResponse } from './../../models/usda'
+import { KeysIn } from './../../types/keys-in'
 
 export interface UsdaApiConfig {
   ndbno?: string
@@ -68,7 +68,10 @@ export class USDAService {
   ): Observable<USDAResponse> {
     return this.http
       .get<USDAResponse>(this.createUrl({ ndbno, ...this.config, ...config }))
-      .pipe(first(), shareReplay())
+      .pipe(
+        first(),
+        shareReplay()
+      )
   }
 
   /**

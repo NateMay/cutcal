@@ -33,7 +33,7 @@ More(Highcharts)
         <th class="freq">Lunch</th>
         <th class="freq">Dinner</th>
       </tr>
-      <tr nowrap *ngFor="let nutrient of nutrients | coll">
+      <tr nowrap *ngFor="let nutrient of nutrients | keyvalue">
         <td class="dir">{{ nutrient.label }}</td>
         <td class="data" *ngFor="let value of nutrient.data">{{ value }}</td>
       </tr>

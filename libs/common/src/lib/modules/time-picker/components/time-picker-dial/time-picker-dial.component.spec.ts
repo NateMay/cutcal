@@ -1,20 +1,23 @@
 import { NO_ERRORS_SCHEMA, SimpleChanges } from '@angular/core';
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 import { TimePeriod } from '../../models/time-period.enum';
 import { TimeUnit } from '../../models/time-unit.enum';
 import * as TimepickerTime from '../../utils/timepicker-time.utils';
 import { TimepickerDialComponent } from './time-picker-dial.component';
 
 describe('TimepickerDialComponent', () => {
-
   let fixture: ComponentFixture<TimepickerDialComponent>;
   let component: TimepickerDialComponent;
 
   beforeEach(() => {
-
     fixture = TestBed.configureTestingModule({
       declarations: [TimepickerDialComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
     }).createComponent(TimepickerDialComponent);
 
     component = fixture.componentInstance;
@@ -28,8 +31,8 @@ describe('TimepickerDialComponent', () => {
         currentValue: TimePeriod.AM,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null
-      }
+        isFirstChange: () => null,
+      },
     };
 
     component.ngOnChanges(changes);
@@ -44,8 +47,8 @@ describe('TimepickerDialComponent', () => {
         currentValue: 24,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null
-      }
+        isFirstChange: () => null,
+      },
     };
 
     component.ngOnChanges(changes);
@@ -59,8 +62,8 @@ describe('TimepickerDialComponent', () => {
         currentValue: 24,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null
-      }
+        isFirstChange: () => null,
+      },
     };
 
     component.ngOnChanges(changes);
@@ -75,8 +78,8 @@ describe('TimepickerDialComponent', () => {
         currentValue: null,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null
-      }
+        isFirstChange: () => null,
+      },
     };
 
     component.ngOnChanges(changes);
@@ -87,7 +90,7 @@ describe('TimepickerDialComponent', () => {
   it('should emit changed time unit', fakeAsync(() => {
     let timeUnit = null;
 
-    component.timeUnitChanged.subscribe(unit => timeUnit = unit);
+    component.timeUnitChanged.subscribe(unit => (timeUnit = unit));
     component.changeTimeUnit(TimeUnit.MINUTE);
 
     expect(timeUnit).toBe(TimeUnit.MINUTE);
@@ -96,7 +99,7 @@ describe('TimepickerDialComponent', () => {
   it('should emit changed period', fakeAsync(() => {
     let period = TimePeriod.AM;
 
-    component.periodChanged.subscribe(p => period = p);
+    component.periodChanged.subscribe(p => (period = p));
     component.changePeriod(TimePeriod.PM);
 
     tick();
@@ -106,7 +109,7 @@ describe('TimepickerDialComponent', () => {
   it('should emit changed hour', fakeAsync(() => {
     let hour = { time: 1, angle: 30 };
 
-    component.hourChanged.subscribe(h => hour = h);
+    component.hourChanged.subscribe(h => (hour = h));
     component.changeHour({ time: 2, angle: 60 });
 
     tick();
@@ -116,7 +119,7 @@ describe('TimepickerDialComponent', () => {
   it('should emit changed minute', fakeAsync(() => {
     let minute = { time: 10, angle: 30 };
 
-    component.minuteChanged.subscribe(m => minute = m);
+    component.minuteChanged.subscribe(m => (minute = m));
     component.changeMinute({ time: 20, angle: 60 });
 
     tick();
@@ -138,5 +141,4 @@ describe('TimepickerDialComponent', () => {
 
     expect(component.isHintVisible).toBeFalsy();
   });
-
 });

@@ -22,3 +22,11 @@ export interface Usage extends Portion {
 export function isUsage(item: any): boolean {
   return !!item.foodId && !!item.rootId
 }
+
+/**
+ * Passed to the cloud function to delete a usage
+ */
+export interface DeleteUsagePayload {
+  mealId: string
+  usageId: string
+}

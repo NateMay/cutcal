@@ -1,7 +1,6 @@
-import { Directive, Input, OnInit } from '@angular/core';
-import { FormGroupDirective } from '@angular/forms';
-import { Store } from '@ngrx/store';
-
+import { Directive, Input, OnInit } from '@angular/core'
+// import { FormGroupDirective } from '@angular/forms';
+// import { Store } from '@ngrx/store';
 
 /**
  * Replaces references with the docs for
@@ -10,16 +9,15 @@ import { Store } from '@ngrx/store';
  */
 
 @Directive({
-  selector: '[connectForm],[ccConnectForm]'
+  selector: '[connectForm],[ccConnectForm]',
 })
 export class ConnectFormDirective implements OnInit {
+  @Input('connectForm') path: string
 
-  @Input('connectForm') path: string;
-
-  constructor(
-    private formGroupDirective: FormGroupDirective,
-    private store: Store<any>
-  ) { }
+  // constructor(
+  //   private formGroupDirective: FormGroupDirective,
+  //   private store: Store<any>
+  // ) { }
 
   ngOnInit() {
     // Update the form value based on the state
@@ -27,5 +25,4 @@ export class ConnectFormDirective implements OnInit {
     //   this.formGroupDirective.form.patchValue(formValue);
     // });
   }
-
 }

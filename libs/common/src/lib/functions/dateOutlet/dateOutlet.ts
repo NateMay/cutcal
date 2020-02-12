@@ -1,4 +1,3 @@
-
 /**
  * Creates the auxilliary route part of a url from a date
  * @param {Date} data date to represent in the url
@@ -8,5 +7,5 @@
  */
 
 export function dateOutlet(date: Date): any {
-  return { outlets: { 'dmy': date.toUrlString() } };
+  return { outlets: { dmy: date.toUrlString() } }
 }

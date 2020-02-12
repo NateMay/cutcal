@@ -5,23 +5,11 @@ import { StoreModule } from '@ngrx/store';
 import * as _ from 'lodash';
 import { of } from 'rxjs';
 import { first } from 'rxjs/operators';
-import {
-  bread,
-  jam,
-  peanutButter,
-} from '../../../../../batches/data/food-seed';
-import {
-  lunch1,
-  lunch1_bread,
-  lunch1_id,
-  lunch1_jam,
-  lunch1_pb,
-} from '../../../../../batches/data/meal-seed';
-import { RUNTIME_CHECKS } from '../../../../testing/ngrx-runtime-config';
-import { AuthService } from '../../../auth/auth.service';
-import { authReducer } from '../../../auth/auth.store';
-import { reducers } from '../../../redux/app.state';
+import { bread, jam, peanutButter } from '../../../../../../data/food-seed';
+import { lunch1, lunch1_bread, lunch1_id, lunch1_jam } from '../../../../../../data/meal-seed';
+import { AuthService } from '../auth/auth.service';
 import { FirestoreService } from '../fireStore/fireStore.service';
+import { lunch1_pb } from './../../../../../../data/meal-seed';
 import { MealService } from './meal.service';
 
 // DEPENDS ON (recipe) then TEST (meal-service)
@@ -29,7 +17,7 @@ import { MealService } from './meal.service';
 describe('MealService', () => {
   let mealSvc: MealService;
 
-  const dbSpy = jasmine.createSpyObj<FirestoreService>([
+  const dbSpy = jest.createSpyObj<FirestoreService>([
     'docWithId$',
     'colWithIds$',
     'add',

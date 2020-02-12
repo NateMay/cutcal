@@ -24,7 +24,7 @@ import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.s
     </thead>
 
     <tbody>
-      <tr *ngFor="let amino of aminos | coll">
+      <tr *ngFor="let amino of aminos | keyvalue">
         <td>{{ amino.shortName }}</td>
         <td class="quant">
           {{ nutrition[amino.propName] | number: digitsInfo }}

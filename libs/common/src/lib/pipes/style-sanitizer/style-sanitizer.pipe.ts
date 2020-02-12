@@ -1,5 +1,5 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Pipe, PipeTransform } from '@angular/core'
+import { DomSanitizer } from '@angular/platform-browser'
 
 /**
  * Sanitizes data for the template
@@ -10,14 +10,12 @@ import { DomSanitizer } from '@angular/platform-browser';
  *   <img [style.background-image]="'url(' + photo + ')' | sanitize">
  */
 @Pipe({
-  name: 'sanitize'
+  name: 'sanitize',
 })
 export class StyleSanitizerPipe implements PipeTransform {
-
   constructor(private domSanitizer: DomSanitizer) {}
 
   transform(value: string): any {
-    return !value ? value : this.domSanitizer.bypassSecurityTrustStyle(value);
+    return !value ? value : this.domSanitizer.bypassSecurityTrustStyle(value)
   }
-
 }

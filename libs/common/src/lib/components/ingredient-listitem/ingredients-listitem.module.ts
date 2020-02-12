@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSliderModule } from '@angular/material/slider';
-import { BasicsModule } from '../../basics.module';
-import { DndModule } from '../../modules/dnd/dnd.module';
-import { IngredientsListitemComponent } from './ingredients-listitem.component';
+import { NgModule } from '@angular/core'
+import { MatIconModule } from '@angular/material/icon'
+import { MatSelectModule } from '@angular/material/select'
+import { MatSliderModule } from '@angular/material/slider'
+import { BasicsModule } from '../../basics.module'
+import { DndModule } from '../../modules/dnd/dnd.module'
+import { IngredientsListitemComponent } from './ingredients-listitem.component'
 
 @NgModule({
   imports: [
@@ -12,9 +12,9 @@ import { IngredientsListitemComponent } from './ingredients-listitem.component';
     MatIconModule,
     BasicsModule,
     MatSelectModule,
-    DndModule
+    DndModule,
   ],
   declarations: [IngredientsListitemComponent],
-  exports: [IngredientsListitemComponent]
+  exports: [IngredientsListitemComponent],
 })
 export class IngredientsListItemModule {}

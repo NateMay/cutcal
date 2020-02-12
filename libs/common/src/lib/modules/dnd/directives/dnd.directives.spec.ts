@@ -4,7 +4,13 @@
  */
 
 import { Component, DebugElement } from '@angular/core';
-import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 import { getDe } from '../../../../../../ng-testing/src/lib/getDe';
 import { getDirective } from '../../../../../../ng-testing/src/lib/getDirective';
 import { WINDOW_PROVIDER } from '../../../services/window.service';
