@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { RouterModule } from '@angular/router'
+import { BreadcrumbModule } from '@cutcal/common-ui/breadcrumb'
 import { AppComponent } from './app.component'
 import { HeaderModule } from './header/header.module'
 import { SidebarModule } from './sidebar/sidebar.module'
@@ -16,6 +17,7 @@ import { SidebarModule } from './sidebar/sidebar.module'
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BreadcrumbModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatSidenavModule,

@@ -47,7 +47,19 @@
         "cutcal-profile",
         "cutcal-recipe-builder",
         "cutcal-sidebar",
-        "cutcal-support"
+        "cutcal-support",
+        "animate",
+        "breadcrumb",
+        "carousel",
+        "date-time-binder",
+        "datepicker",
+        "drag-n-drop",
+        "width-dynamic-width",
+        "flip-card",
+        "holdable",
+        "image-upload",
+        "nutrition-label",
+        "timepicker"
       ],
       "default": "cutcal"
     }

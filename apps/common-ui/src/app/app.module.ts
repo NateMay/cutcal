@@ -5,8 +5,8 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { RouterModule } from '@angular/router'
-import { AppComponent } from './app.component'
 import { LandingModule, landingRoutes } from '@cutcal/common-ui/landing'
+import { AppComponent } from './app.component'
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,10 +29,10 @@ import { LandingModule, landingRoutes } from '@cutcal/common-ui/landing'
             ),
         },
         {
-          path: 'playground',
+          path: 'am-pm',
           loadChildren: () =>
             import('@cutcal/common-ui/am-pm/playground').then(
-              module => module.PlaygroundModule
+              module => module.AmPmPlaygroundModule
             ),
         },
         {

@@ -1980,6 +1980,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "common-ui-am-pm-am-pm": {
+      "projectType": "library",
+      "root": "libs/common-ui/am-pm/am-pm",
+      "sourceRoot": "libs/common-ui/am-pm/am-pm/src",
+      "prefix": "cutcal",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-ui/am-pm/am-pm/tsconfig.lib.json",
+              "libs/common-ui/am-pm/am-pm/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/common-ui/am-pm/am-pm/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-ui/am-pm/am-pm/jest.config.js",
+            "tsConfig": "libs/common-ui/am-pm/am-pm/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/am-pm/am-pm/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

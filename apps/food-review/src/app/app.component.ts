@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Component } from '@angular/core'
 import { Message } from '@cutcal/api-interfaces'
 @Component({
-  selector: 'cutcal-root',
+  selector: 'cc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

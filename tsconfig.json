@@ -84,42 +84,43 @@
         "libs/common-ui/nutrition-label/playground/src/index.ts"
       ],
       "@cutcal/common-ui/landing": ["libs/common-ui/landing/src/index.ts"],
-      "@cutcal/common-ui/animate/animate": [
+      "@cutcal/common-ui/animate": [
         "libs/common-ui/animate/animate/src/index.ts"
       ],
-      "@cutcal/common-ui/breadcrumb/breadcrumb": [
+      "@cutcal/common-ui/breadcrumb": [
         "libs/common-ui/breadcrumb/breadcrumb/src/index.ts"
       ],
-      "@cutcal/common-ui/carousel/carousel": [
+      "@cutcal/common-ui/carousel": [
         "libs/common-ui/carousel/carousel/src/index.ts"
       ],
-      "@cutcal/common-ui/date-time-binder/date-time-binder": [
+      "@cutcal/common-ui/date-time-binder": [
         "libs/common-ui/date-time-binder/date-time-binder/src/index.ts"
       ],
-      "@cutcal/common-ui/datepicker/datepicker": [
+      "@cutcal/common-ui/datepicker": [
         "libs/common-ui/datepicker/datepicker/src/index.ts"
       ],
-      "@cutcal/common-ui/drag-n-drop/drag-n-drop": [
+      "@cutcal/common-ui/drag-n-drop": [
         "libs/common-ui/drag-n-drop/drag-n-drop/src/index.ts"
       ],
-      "@cutcal/common-ui/dynamic-width/dynamic-width": [
+      "@cutcal/common-ui/dynamic-width": [
         "libs/common-ui/dynamic-width/dynamic-width/src/index.ts"
       ],
-      "@cutcal/common-ui/flip-card/flip-card": [
+      "@cutcal/common-ui/flip-card": [
         "libs/common-ui/flip-card/flip-card/src/index.ts"
       ],
-      "@cutcal/common-ui/holdable/holdable": [
+      "@cutcal/common-ui/holdable": [
         "libs/common-ui/holdable/holdable/src/index.ts"
       ],
-      "@cutcal/common-ui/image-upload/image-upload": [
+      "@cutcal/common-ui/image-upload": [
         "libs/common-ui/image-upload/image-upload/src/index.ts"
       ],
-      "@cutcal/common-ui/nutrition-label/nutrition-label": [
+      "@cutcal/common-ui/nutrition-label": [
         "libs/common-ui/nutrition-label/nutrition-label/src/index.ts"
       ],
-      "@cutcal/common-ui/timepicker/timepicker": [
+      "@cutcal/common-ui/timepicker": [
         "libs/common-ui/timepicker/timepicker/src/index.ts"
-      ]
+      ],
+      "@cutcal/common-ui/am-pm": ["libs/common-ui/am-pm/am-pm/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

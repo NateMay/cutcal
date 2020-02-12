@@ -178,6 +178,9 @@
     },
     "common-ui-timepicker-timepicker": {
       "tags": ["common-ui", "component"]
+    },
+    "common-ui-am-pm-am-pm": {
+      "tags": ["common-ui", "component"]
     }
   }
 }

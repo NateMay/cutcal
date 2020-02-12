@@ -1,14 +1,14 @@
 import { async, TestBed } from '@angular/core/testing';
-import { AmPmPlaygroundModule } from './playground.module';
+import { AmPmModule } from './am-pm.module';
 
-describe('PlaygroundModule', () => {
+describe('AmPmModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AmPmPlaygroundModule],
+      imports: [AmPmModule],
     }).compileComponents();
   }));
 
   it('should create', () => {
-    expect(AmPmPlaygroundModule).toBeDefined();
+    expect(AmPmModule).toBeDefined();
   });
 });
