@@ -6,11 +6,9 @@ import { NgModule } from '@angular/core'
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
-import { MatExpansionModule } from '@angular/material/expansion'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
-import { MatSidenavModule } from '@angular/material/sidenav'
 import { RouterModule } from '@angular/router'
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor'
 import { DndModule } from './modules/dnd/dnd.module'
@@ -37,9 +35,7 @@ const MAT_MODULES = [
   MatIconModule,
   MatInputModule,
   MatButtonModule,
-  MatSidenavModule,
   MatFormFieldModule,
-  MatExpansionModule,
 ]
 
 /**

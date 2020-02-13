@@ -23,3 +23,4 @@
       3. week
       4. year
    3. create recipe (desktop too)
+7. stylelint per lib "selector-class-pattern"

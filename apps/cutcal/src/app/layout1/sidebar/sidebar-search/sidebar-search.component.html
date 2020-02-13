@@ -38,14 +38,16 @@
 <mat-accordion *ngIf="searchAcivated">
     <mat-expansion-panel
         *ngFor="let food of foods; first as isFirst"
+        (afterCollapse)="food.expanded = false"
+        (afterExpand)="food.expanded = 'true'"
+        [ngStyle]="{'background': food.expanded ? '#eee' : 'transparent'}"
         [expanded]="isFirst"
     >
         <mat-expansion-panel-header>
             <mat-panel-title>{{ food.name }}</mat-panel-title>
-            <mat-panel-description>{{
-                food.description
-            }}</mat-panel-description>
         </mat-expansion-panel-header>
+
+        <p>{{food.description}}</p>
 
         <mat-action-row>
             <input placeholder="Quantity" value="100" />

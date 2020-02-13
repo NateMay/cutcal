@@ -41,7 +41,6 @@
     "nutrition": {
       "tags": ["shared"]
     },
-
     "ng-testing": {
       "tags": ["shared"]
     },
@@ -101,6 +100,9 @@
     },
     "playgrounds": {
       "tags": ["common"]
+    },
+    "core": {
+      "tags": ["shared"]
     }
   }
 }

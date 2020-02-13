@@ -21,13 +21,8 @@
             "polyfills": "apps/cutcal/src/polyfills.ts",
             "tsConfig": "apps/cutcal/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/cutcal/src/favicon.ico",
-              "apps/cutcal/src/assets"
-            ],
-            "styles": [
-              "apps/cutcal/src/styles.scss"
-            ],
+            "assets": ["apps/cutcal/src/favicon.ico", "apps/cutcal/src/assets"],
+            "styles": ["apps/cutcal/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -86,10 +81,7 @@
               "apps/cutcal/tsconfig.app.json",
               "apps/cutcal/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/cutcal/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/cutcal/**"]
           }
         },
         "test": {
@@ -127,13 +119,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/cutcal-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/cutcal-e2e/**"
-            ]
+            "tsConfig": ["apps/cutcal-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/cutcal-e2e/**"]
           }
         }
       }
@@ -151,9 +138,7 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -182,10 +167,7 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/api/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/api/**"]
           }
         },
         "test": {
@@ -210,10 +192,7 @@
               "libs/api-interfaces/tsconfig.lib.json",
               "libs/api-interfaces/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/api-interfaces/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
           }
         },
         "test": {
@@ -249,9 +228,7 @@
               "apps/common-ui/src/favicon.ico",
               "apps/common-ui/src/assets"
             ],
-            "styles": [
-              "apps/common-ui/src/styles.scss"
-            ],
+            "styles": ["apps/common-ui/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -309,10 +286,7 @@
               "apps/common-ui/tsconfig.app.json",
               "apps/common-ui/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/common-ui/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/common-ui/**"]
           }
         },
         "test": {
@@ -346,13 +320,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/common-ui-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/common-ui-e2e/**"
-            ]
+            "tsConfig": ["apps/common-ui-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/common-ui-e2e/**"]
           }
         }
       }
@@ -381,9 +350,7 @@
               "apps/food-review/src/favicon.ico",
               "apps/food-review/src/assets"
             ],
-            "styles": [
-              "apps/food-review/src/styles.scss"
-            ],
+            "styles": ["apps/food-review/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -441,10 +408,7 @@
               "apps/food-review/tsconfig.app.json",
               "apps/food-review/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/food-review/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/food-review/**"]
           }
         },
         "test": {
@@ -478,13 +442,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/food-review-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/food-review-e2e/**"
-            ]
+            "tsConfig": ["apps/food-review-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/food-review-e2e/**"]
           }
         }
       }
@@ -502,10 +461,7 @@
               "libs/nutrition/tsconfig.lib.json",
               "libs/nutrition/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/nutrition/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/nutrition/**"]
           }
         },
         "test": {
@@ -530,10 +486,7 @@
               "libs/ng-testing/tsconfig.lib.json",
               "libs/ng-testing/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ng-testing/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ng-testing/**"]
           }
         },
         "test": {
@@ -564,10 +517,7 @@
               "libs/cutcal/food-recipe/tsconfig.lib.json",
               "libs/cutcal/food-recipe/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/food-recipe/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/food-recipe/**"]
           }
         },
         "test": {
@@ -598,10 +548,7 @@
               "libs/cutcal/analyze/tsconfig.lib.json",
               "libs/cutcal/analyze/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/analyze/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/analyze/**"]
           }
         },
         "test": {
@@ -632,10 +579,7 @@
               "libs/cutcal/calendar/tsconfig.lib.json",
               "libs/cutcal/calendar/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/calendar/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/calendar/**"]
           }
         },
         "test": {
@@ -666,10 +610,7 @@
               "libs/cutcal/fallback/tsconfig.lib.json",
               "libs/cutcal/fallback/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/fallback/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/fallback/**"]
           }
         },
         "test": {
@@ -700,10 +641,7 @@
               "libs/cutcal/footer/tsconfig.lib.json",
               "libs/cutcal/footer/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/footer/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/footer/**"]
           }
         },
         "test": {
@@ -734,10 +672,7 @@
               "libs/cutcal/header/tsconfig.lib.json",
               "libs/cutcal/header/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/header/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/header/**"]
           }
         },
         "test": {
@@ -768,10 +703,7 @@
               "libs/cutcal/profile/tsconfig.lib.json",
               "libs/cutcal/profile/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/profile/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/profile/**"]
           }
         },
         "test": {
@@ -802,10 +734,7 @@
               "libs/cutcal/sidebar/tsconfig.lib.json",
               "libs/cutcal/sidebar/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/sidebar/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/sidebar/**"]
           }
         },
         "test": {
@@ -836,10 +765,7 @@
               "libs/cutcal/recipe-builder/tsconfig.lib.json",
               "libs/cutcal/recipe-builder/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/recipe-builder/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/recipe-builder/**"]
           }
         },
         "test": {
@@ -870,10 +796,7 @@
               "libs/cutcal/meal-ingredient/tsconfig.lib.json",
               "libs/cutcal/meal-ingredient/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/meal-ingredient/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/meal-ingredient/**"]
           }
         },
         "test": {
@@ -904,10 +827,7 @@
               "libs/cutcal/nutrient/tsconfig.lib.json",
               "libs/cutcal/nutrient/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/nutrient/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/nutrient/**"]
           }
         },
         "test": {
@@ -938,10 +858,7 @@
               "libs/cutcal/legal/tsconfig.lib.json",
               "libs/cutcal/legal/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/legal/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/legal/**"]
           }
         },
         "test": {
@@ -972,10 +889,7 @@
               "libs/cutcal/business/tsconfig.lib.json",
               "libs/cutcal/business/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/business/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/business/**"]
           }
         },
         "test": {
@@ -1006,10 +920,7 @@
               "libs/cutcal/auth/tsconfig.lib.json",
               "libs/cutcal/auth/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/auth/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/auth/**"]
           }
         },
         "test": {
@@ -1040,10 +951,7 @@
               "libs/cutcal/grocery-pantry/tsconfig.lib.json",
               "libs/cutcal/grocery-pantry/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/grocery-pantry/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/grocery-pantry/**"]
           }
         },
         "test": {
@@ -1074,10 +982,7 @@
               "libs/cutcal/support/tsconfig.lib.json",
               "libs/cutcal/support/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/support/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/support/**"]
           }
         },
         "test": {
@@ -1108,10 +1013,7 @@
               "libs/cutcal/landing/tsconfig.lib.json",
               "libs/cutcal/landing/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cutcal/landing/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cutcal/landing/**"]
           }
         },
         "test": {
@@ -1142,10 +1044,7 @@
               "libs/common/tsconfig.lib.json",
               "libs/common/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common/**"]
           }
         },
         "test": {
@@ -1176,10 +1075,7 @@
               "libs/common/playgrounds/tsconfig.lib.json",
               "libs/common/playgrounds/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common/playgrounds/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common/playgrounds/**"]
           }
         },
         "test": {
@@ -1188,6 +1084,37 @@
             "jestConfig": "libs/common/playgrounds/jest.config.js",
             "tsConfig": "libs/common/playgrounds/tsconfig.spec.json",
             "setupFile": "libs/common/playgrounds/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "core": {
+      "projectType": "library",
+      "root": "libs/core",
+      "sourceRoot": "libs/core/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/core/tsconfig.lib.json",
+              "libs/core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/core/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/core/jest.config.js",
+            "tsConfig": "libs/core/tsconfig.spec.json",
+            "setupFile": "libs/core/src/test-setup.ts"
           }
         }
       },

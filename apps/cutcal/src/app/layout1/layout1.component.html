@@ -1,0 +1,30 @@
+<mat-drawer-container class="app-container" autosize>
+  <mat-drawer
+      #drawer
+      class="app-sidenav mat-elevation-z2"
+      mode="side"
+      opened
+      disableClose="true"
+  >
+      <cc-sidebar-search>
+          <router-outlet name="side"></router-outlet>
+      </cc-sidebar-search>
+  </mat-drawer>
+
+  <span role="main">
+      <mat-toolbar>
+          <button
+              matRipple
+              class="toggle-sidebar mat-elevation-z2"
+              (click)="drawer.toggle()"
+          >
+              <mat-icon>chevron_left</mat-icon>
+          </button>
+          <cc-header></cc-header>
+      </mat-toolbar>
+      <button [routerLink]="['']">landing</button>
+      <button [routerLink]="['/nutrient']">nutrient</button>
+      <button [routerLink]="['/food-recipe']">food</button>
+      <router-outlet></router-outlet>
+  </span>
+</mat-drawer-container>

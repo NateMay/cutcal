@@ -1,3 +1,3 @@
 import 'jest-preset-angular'
-import 'libs/prototypes'
+import 'libs/core/src/lib/prototypes'
 

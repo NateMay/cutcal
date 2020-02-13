@@ -1,14 +1,18 @@
-import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
+import { LandingComponent } from './landing.component'
 
 @NgModule({
   imports: [
     CommonModule,
-
     RouterModule.forChild([
-      /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
+      {
+        path: '',
+        component: LandingComponent,
+      },
     ]),
   ],
+  declarations: [LandingComponent],
 })
 export class LandingModule {}

@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  OnInit,
-  ViewChild,
-} from '@angular/core'
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core'
 
 @Component({
   selector: 'cc-sidebar-search',
@@ -16,14 +10,32 @@ export class SidebarSearchComponent implements OnInit {
     {
       name: 'bacon',
       description: 'Yummy Pig Strips',
+      expanded: true
     },
     {
       name: 'eggs',
       description: 'Delicious Chicken Babies',
+      expanded: false
     },
     {
       name: 'salad',
       description: 'Salubrious Plant Massacre',
+      expanded: false
+    },
+    {
+      name: 'potatos',
+      description: 'Stachy Spuds',
+      expanded: false
+    },
+    {
+      name: 'Chicken Noodle Soup',
+      description: 'Campbells Originl',
+      expanded: false
+    },
+    {
+      name: 'A much longer food name and more representative of the FDC names',
+      description: 'Campbells Originl',
+      expanded: false
     },
   ]
 
