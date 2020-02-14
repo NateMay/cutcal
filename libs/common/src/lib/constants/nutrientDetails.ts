@@ -1,5 +1,4 @@
-// nx
-import { KVP } from '../models/key-value-pair'
+import { KVP } from '@cutcal/core';
 
 /**
  * Static Nutrient Metadata

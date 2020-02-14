@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { Image } from '../../models/images'
-import { KVP } from '../../models/key-value-pair'
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { KVP } from '@cutcal/core';
+import { Image } from '@cutcal/diet';
 
 // TODO (images) if no image, give option to select from a list of google images of the same name
 

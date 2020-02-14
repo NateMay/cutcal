@@ -1,4 +1,4 @@
-import { KVP } from '../models/key-value-pair'
+import { KVP } from '@cutcal/core';
 
 export interface MonthMetaData {
   index: number

@@ -1,7 +1,7 @@
-import { AngularFirestore } from '@angular/fire/firestore'
-import { combineLatest, defer, Observable } from 'rxjs'
-import { map, switchMap, tap } from 'rxjs/operators'
-import { KVP } from '../../models/key-value-pair'
+import { AngularFirestore } from '@angular/fire/firestore';
+import { KVP } from '@cutcal/core';
+import { combineLatest, defer, Observable } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/operators';
 
 /**
  * rxjs operator that joins a document from another collection onto any property

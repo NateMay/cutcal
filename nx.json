@@ -83,9 +83,6 @@
     "cutcal-business": {
       "tags": ["cutcal", "feature"]
     },
-    "cutcal-auth": {
-      "tags": ["cutcal", "feature"]
-    },
     "cutcal-grocery-pantry": {
       "tags": ["cutcal", "feature"]
     },
@@ -102,6 +99,18 @@
       "tags": ["common"]
     },
     "core": {
+      "tags": ["shared"]
+    },
+    "diet": {
+      "tags": ["data-model"]
+    },
+    "user": {
+      "tags": ["data-model"]
+    },
+    "auth": {
+      "tags": ["shared"]
+    },
+    "charts": {
       "tags": ["shared"]
     }
   }

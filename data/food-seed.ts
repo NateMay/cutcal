@@ -1,7 +1,7 @@
-import * as _ from 'lodash'
 // import { sumUsagesNutritions } from '../../src/app/shared/functions/sumUsagesNutritions/sumUsagesNutritions';
-import { uniqueID } from '../../src/app/shared/functions/uniqueID/uniqueID'
-import { Food, KVP, Usage } from '../../src/app/shared/models'
+import { KVP, uniqueID } from '@cutcal/core'
+import { Food, Usage } from '@cutcal/diet'
+import * as _ from 'lodash'
 
 export const FOODS: KVP<Food> = {}
 

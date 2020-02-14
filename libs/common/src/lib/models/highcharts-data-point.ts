@@ -1,11 +1,11 @@
-import { SeriesPointClickCallbackFunction } from 'highcharts'
-import { KVP } from './key-value-pair'
+import { KVP } from '@cutcal/core';
+
 export interface HighChartsDataPoint {
   name: string
   y: number
   date?: Date
   clickable?: boolean
-  events?: KVP<SeriesPointClickCallbackFunction>
+  events?: KVP<any>
 
   readonly series?: {
     name?: string // Nutrient name returned from the click event

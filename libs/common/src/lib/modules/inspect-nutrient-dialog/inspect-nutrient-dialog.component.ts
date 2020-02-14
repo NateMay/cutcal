@@ -1,14 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core'
+import { KVP } from '@cutcal/core'
 import * as Highcharts from 'highcharts'
 import { Options, PointOptionsObject, SeriesOptionsType } from 'highcharts'
 import Drilldown from 'highcharts/modules/drilldown'
 import * as _ from 'lodash'
 import { first, tap } from 'rxjs/operators'
 import { scaleNutrient } from '../../functions/convertNutrition/convertNutrition'
-import { Food, KVP, Meal, Usage } from '../../models'
+import { Food, Meal, Usage } from '../../models'
 import { MealService, MealsTripple } from '../../services/meal/meal.service'
 import { InspectionData, INSPECTION_DATA } from './inspection-data'
-
 Drilldown(Highcharts)
 
 interface SeriesPieDataOptions extends PointOptionsObject {

@@ -1,6 +1,6 @@
-// import { KVP } from '../models/key-value-pair';
+import { KVP } from '@cutcal/core';
+import { FdcUnit } from './fdc/fdc-unit';
 
-export type FdcUnit = 'kcal' | 'kj' | 'g' | 'mg' | 'iu' | 'µg' | 'sp_gr'
 /**
  * Static Nutrient Metadata
  * @property {number} id FoodData Central nutrient ID
@@ -19,7 +19,7 @@ export interface NutrientMetaData {
   propName?: string
 }
 
-export const USDA_NUTRIENT_DETAILS: { [key: string]: NutrientMetaData } = {
+export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
   water: {
     id: 1051,
     nbr: 255,

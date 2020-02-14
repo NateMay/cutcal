@@ -23,6 +23,9 @@
             "aot": true,
             "assets": ["apps/cutcal/src/favicon.ico", "apps/cutcal/src/assets"],
             "styles": ["apps/cutcal/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/common/styles"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -229,6 +232,9 @@
               "apps/common-ui/src/assets"
             ],
             "styles": ["apps/common-ui/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/common/styles"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -351,6 +357,9 @@
               "apps/food-review/src/assets"
             ],
             "styles": ["apps/food-review/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/common/styles"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -907,37 +916,6 @@
         }
       }
     },
-    "cutcal-auth": {
-      "projectType": "library",
-      "root": "libs/cutcal/auth",
-      "sourceRoot": "libs/cutcal/auth/src",
-      "prefix": "cc",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/cutcal/auth/tsconfig.lib.json",
-              "libs/cutcal/auth/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/auth/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/cutcal/auth/jest.config.js",
-            "tsConfig": "libs/cutcal/auth/tsconfig.spec.json",
-            "setupFile": "libs/cutcal/auth/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "cutcal-grocery-pantry": {
       "projectType": "library",
       "root": "libs/cutcal/grocery-pantry",
@@ -1115,6 +1093,130 @@
             "jestConfig": "libs/core/jest.config.js",
             "tsConfig": "libs/core/tsconfig.spec.json",
             "setupFile": "libs/core/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "diet": {
+      "projectType": "library",
+      "root": "libs/diet",
+      "sourceRoot": "libs/diet/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/diet/tsconfig.lib.json",
+              "libs/diet/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/diet/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/diet/jest.config.js",
+            "tsConfig": "libs/diet/tsconfig.spec.json",
+            "setupFile": "libs/diet/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "user": {
+      "projectType": "library",
+      "root": "libs/user",
+      "sourceRoot": "libs/user/src",
+      "prefix": "cc",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/user/tsconfig.lib.json",
+              "libs/user/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/user/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/user/jest.config.js",
+            "tsConfig": "libs/user/tsconfig.spec.json",
+            "setupFile": "libs/user/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "auth": {
+      "projectType": "library",
+      "root": "libs/auth",
+      "sourceRoot": "libs/auth/src",
+      "prefix": "cutcal",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/auth/tsconfig.lib.json",
+              "libs/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/auth/jest.config.js",
+            "tsConfig": "libs/auth/tsconfig.spec.json",
+            "setupFile": "libs/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "charts": {
+      "projectType": "library",
+      "root": "libs/charts",
+      "sourceRoot": "libs/charts/src",
+      "prefix": "cutcal",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/charts/tsconfig.lib.json",
+              "libs/charts/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/charts/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/charts/jest.config.js",
+            "tsConfig": "libs/charts/tsconfig.spec.json",
+            "setupFile": "libs/charts/src/test-setup.ts"
           }
         }
       },

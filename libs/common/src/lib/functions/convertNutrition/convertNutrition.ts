@@ -1,10 +1,7 @@
-import * as _ from 'lodash'
-import { Food } from '../../models/food'
-import { KVP } from '../../models/key-value-pair'
-import { Nutrition } from '../../models/nutrition'
-import { Portion } from '../../models/portion'
-import { Usage } from '../../models/usage'
-import { multiplyNutrition } from '../multiplyNutrition/multiplyNutrition'
+import { KVP } from '@cutcal/core';
+import { Food, Portion, Usage } from '@cutcal/diet';
+import { multiplyNutrition, Nutrition } from '@cutcal/nutrition';
+import * as _ from 'lodash';
 
 /**
  * @source {@link https://github.com/ben-ng/convert-units}

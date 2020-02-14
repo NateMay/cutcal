@@ -1,5 +1,5 @@
+import { Nutrition } from '@cutcal/nutrition'
 import * as _ from 'lodash'
-import { Nutrition } from '../../models/nutrition'
 
 /**
  * Stores information about the calorie break down from Fats, Protein, and Carbs

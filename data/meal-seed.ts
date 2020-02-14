@@ -1,10 +1,9 @@
+import { sumUsagesNutritions } from '@cutcal/common'
+import { KVP, uniqueID } from '@cutcal/core'
+import { Food, Meal, Usage } from '@cutcal/diet'
 import { firestore } from 'firebase/app'
 import * as _ from 'lodash'
-import { sumUsagesNutritions } from '../../src/app/shared/functions/sumUsagesNutritions/sumUsagesNutritions'
-import { uniqueID } from '../../src/app/shared/functions/uniqueID/uniqueID'
-import { Food, KVP, Meal, Usage } from '../../src/app/shared/models'
 import { bread_id, FOODS, jam_id, peanutButter_id } from './food-seed'
-
 const USER_ID = 'ELYrdCulPrd9z8eHgyNgibmhnlH2'
 
 // Meals

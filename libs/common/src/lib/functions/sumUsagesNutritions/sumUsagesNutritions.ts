@@ -1,10 +1,8 @@
-import * as _ from 'lodash'
-import { Food } from '../../models/food'
-import { KVP } from '../../models/key-value-pair'
-import { Nutrition } from '../../models/nutrition'
-import { Usage } from '../../models/usage'
-import { scaleNutrition } from '../convertNutrition/convertNutrition'
-import { sumNutritions } from '../sumNutritions/sumNutritions'
+import { KVP } from '@cutcal/core';
+import { Food, Usage } from '@cutcal/diet';
+import { Nutrition, sumNutritions } from '@cutcal/nutrition';
+import * as _ from 'lodash';
+import { scaleNutrition } from '../convertNutrition/convertNutrition';
 
 /**
  * Agggregates the nutrition from among the usages passed in
