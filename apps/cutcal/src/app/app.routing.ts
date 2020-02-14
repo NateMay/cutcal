@@ -107,11 +107,6 @@ const ROUTER_OPTIONS: ExtraOptions = {
                 ),
             },
             {
-              path: 'auth',
-              loadChildren: () =>
-                import('@cutcal/cutcal/auth').then(module => module.AuthModule),
-            },
-            {
               path: 'grocery-pantry',
               loadChildren: () =>
                 import('@cutcal/cutcal/grocery-pantry').then(

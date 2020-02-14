@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { BasicsModule } from '@cutcal/common'
+import { CheckableNutrientsModule } from '@cutcal/nutrition'
 import { NutrientComponent } from './nutrient.component'
 
 const routes: Routes = [

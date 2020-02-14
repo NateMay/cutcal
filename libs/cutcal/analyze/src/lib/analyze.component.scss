@@ -1,0 +1,46 @@
+@import 'palette';
+
+:host {
+  width: 100%;
+  display: flex !important;
+  color: $thunder-cloud;
+}
+
+.sidebar,
+.charts-conatiner {
+  box-sizing: border-box;
+}
+
+.sidebar {
+  border-right: 1px solid #ccc;
+  padding-right: 12px;
+  width: 265px;
+}
+
+.charts-conatiner {
+  width: calc(100% - 265px);
+  padding-left: 12px;
+}
+
+.loading-box {
+  width: 100%;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.cc-analysis-chart {
+  margin-top: 24px;
+
+  &:not(:last-child) {
+    margin-bottom: 64px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  &:last-child {
+    margin-bottom: -24px;
+  }
+}

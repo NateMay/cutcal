@@ -7,6 +7,7 @@ import { Nutrition } from '@cutcal/nutrition'
 import * as _ from 'lodash'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
+import { NutrientMetaData } from './../nutrient-details'
 import { NUTRIENTS } from './../nutrient-metadata'
 import {
   FdcFoodDetailResponse,
@@ -93,7 +94,7 @@ export function createFood2(
     fdcId,
     portions,
     uses: 0,
-  }
+  } as Food2
 }
 
 @Injectable({ providedIn: 'root' })
@@ -131,7 +132,7 @@ export class FdcService {
     response: FdcFoodDetailResponse
   ): Nutrition<number> {
     const base = {}
-    const details = _.keyBy(NUTRIENTS.allDetails, 'id')
+    const details: KVP<NutrientMetaData> = _.keyBy(NUTRIENTS.allDetails, 'id')
     response.foodNutrients.forEach((foodNutrient: FdcFoodNutrient) => {
       const meta = details[foodNutrient.nutrient.id]
       if (meta && meta.propName) base[meta.propName] = foodNutrient.value

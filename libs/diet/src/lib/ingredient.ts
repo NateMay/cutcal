@@ -9,3 +9,7 @@ export interface Ingredient {
   usage: Usage
   food: Food
 }
+
+export function createIngredient(usage: Usage, food: Food): Ingredient {
+  return { usage, food }
+}

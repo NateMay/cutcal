@@ -1,7 +1,7 @@
 /**
  * @Reference [Medium] {@link https://medium.com/javascript-in-plain-english/you-must-understand-these-14-javasript-functions-1f4fa1c620e2}
  */
-export function toRawType(value): string {
+export function toRawType(value: any): string {
   const _toString = Object.prototype.toString
 
   const str = _toString.call(value)

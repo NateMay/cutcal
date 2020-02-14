@@ -8,3 +8,11 @@ export interface Image {
   votes?: number
   uploaderId?: string
 }
+
+export function createImage(url: string, uploaderId?: string): Image {
+  return {
+    url,
+    votes: 0,
+    uploaderId,
+  }
+}

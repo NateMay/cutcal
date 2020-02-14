@@ -1,0 +1,20 @@
+@import 'palette';
+
+:host {
+  display: block;
+  color: $thunder-cloud;
+}
+
+.close-chart {
+  position: absolute;
+  right: 0;
+  z-index: 4;
+}
+
+.chart-controls {
+  padding: 20px 12px 16px;
+}
+
+.control-switches {
+  height: 100%;
+}

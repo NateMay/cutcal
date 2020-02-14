@@ -1225,6 +1225,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "fire": {
+      "projectType": "library",
+      "root": "libs/fire",
+      "sourceRoot": "libs/fire/src",
+      "prefix": "cutcal",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/fire/tsconfig.lib.json",
+              "libs/fire/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/fire/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fire/jest.config.js",
+            "tsConfig": "libs/fire/tsconfig.spec.json",
+            "setupFile": "libs/fire/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -1,0 +1,55 @@
+<!-- Side Bar (Left) -->
+<div class="sidebar">
+    <br />
+
+    <cc-analyze-range-picker
+        [endDate]="endDate"
+        [startDate]="startDate"
+    ></cc-analyze-range-picker>
+
+    <br />
+
+    <h4 style="text-align: center;">Nutrients</h4>
+
+    <cc-checkable-nutrients
+        [(nutrCheckables)]="nutrCheckables"
+        (change)="toggleSeries($event)"
+    ></cc-checkable-nutrients>
+
+    <h4 style="text-align: center;">Views</h4>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Views</mat-label>
+        <mat-select [(value)]="view">
+            <mat-option>None</mat-option>
+            <mat-option value="macros">Macro Nutrients</mat-option>
+            <mat-option value="vitamins">Vitamins</mat-option>
+            <mat-option value="minerals">Minerals</mat-option>
+            <mat-option value="myView">My View</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<!-- Main Chartig Area (Right) -->
+<div class="charts-conatiner">
+    <!-- Chart Areas -->
+    <ng-container *ngIf="baseSerieseData; else loading">
+        <ng-container *ngFor="let chart of charts | coll">
+            <ng-container *ngIf="chart.options.series.length">
+                <cc-analysis-chart
+                    [chart]="chart"
+                    [update]="chart.update"
+                    (closeChart)="closeChart(chart)"
+                    (controlsChange)="controlsChange($event)"
+                ></cc-analysis-chart>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+
+    <!-- Loading Indicator -->
+    <ng-template #loading>
+        <div class="loading-box">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+    </ng-template>
+</div>

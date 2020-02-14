@@ -51,10 +51,10 @@ class NutrientMetadataStore {
   }
 
   // @Memoize()
-  nutrientData<T>(
+  nutrientData(
     whichDetail: 'id' | 'nutrient' | 'unit' | 'shortName'
-  ): Nutrition<T> {
-    const nutrObject = BASE_NUTRITION<T>(null)
+  ): Nutrition<any> {
+    const nutrObject = BASE_NUTRITION(null)
 
     // tslint:disable:forin (needs to be fast)
     for (const nutrient in nutrObject) {

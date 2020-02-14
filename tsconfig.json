@@ -126,7 +126,8 @@
       "@cutcal/diet": ["libs/diet/src/index.ts"],
       "@cutcal/user": ["libs/user/src/index.ts"],
       "@cutcal/auth": ["libs/auth/src/index.ts"],
-      "@cutcal/charts": ["libs/charts/src/index.ts"]
+      "@cutcal/charts": ["libs/charts/src/index.ts"],
+      "@cutcal/fire": ["libs/fire/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

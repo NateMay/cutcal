@@ -1,7 +1,6 @@
 export * from './animations'
 export * from './basics.module'
 export * from './components'
-export * from './constants'
 export * from './decorators'
 export * from './directives'
 export * from './functions'

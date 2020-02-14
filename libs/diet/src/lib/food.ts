@@ -1,8 +1,7 @@
 import { KVP } from '@cutcal/core'
+import { Nutrition } from '@cutcal/nutrition'
 import { Image } from './images'
-import { Nutrition } from './nutrition'
 import { Portion } from './portion'
-import { UsdaNonScalars } from './usda'
 
 /**
  * An Object storing information about an abstract notion of a Food, Recipe,
@@ -45,7 +44,6 @@ export interface Food {
   sources?: FoodSource[]
   nutrition: Nutrition<number>
   // TODO (FDC) deprecate
-  usdaNonScalars?: UsdaNonScalars
   // TODO (FDC) update for FDC
   NDBNO?: string
   portions: KVP<Portion>
@@ -73,7 +71,6 @@ export function createFood(
   isRecipe?: boolean,
   isMeal?: boolean,
   instructions?: string[],
-  usdaNonScalars?: UsdaNonScalars,
   primaryImage?: Image,
   secondaryImages?: KVP<Image>,
   foodRefs?: string[]
@@ -94,7 +91,6 @@ export function createFood(
     isMeal,
     instructions,
     foodGroup,
-    usdaNonScalars,
     uses: 0,
     primaryImage,
     secondaryImages,

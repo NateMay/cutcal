@@ -112,6 +112,9 @@
     },
     "charts": {
       "tags": ["shared"]
+    },
+    "fire": {
+      "tags": []
     }
   }
 }

@@ -23,6 +23,26 @@ export function isUsage(item: any): boolean {
   return !!item.foodId && !!item.rootId
 }
 
+export function createUsage(
+  unit: string,
+  quantity: number,
+  foodId: string,
+  parentId: string,
+  rootId: string,
+  userId?: string,
+  _id?: string
+): Usage {
+  return {
+    unit,
+    quantity,
+    foodId,
+    parentId,
+    rootId,
+    userId: userId || '',
+    _id: _id || '',
+  }
+}
+
 /**
  * Passed to the cloud function to delete a usage
  */
