@@ -25,7 +25,7 @@ export interface ProgressBarColors {
   `,
 })
 export class ProgressBarComponent {
-  @Input() progress: string
+  @Input() progress!: string
 
   @Input() colors: ProgressBarColors = {
     background: '#488aff',

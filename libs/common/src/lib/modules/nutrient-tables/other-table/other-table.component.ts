@@ -1,12 +1,8 @@
 import { Component, Input } from '@angular/core'
+import { DailyValueSvc, getOthers, NutrientMetaData, NUTRIENTS, Nutrition, NutritionRange, Others, ZERO_NUTRITION } from '@cutcal/nutrition'
 import * as _ from 'lodash'
-import { NUTRIENTS } from '../../../classes/nutrientMetadata/nutrientMetadata'
-import { NutrientMetaData } from '../../../constants/nutrientDetails'
-import { getOthers } from '../../../functions/getNutritionParts'
-import { NutritionRange } from '../../../models/daily-value'
-import { Nutrition, Others } from '../../../models/nutrition'
-import { ZERO_NUTRITION } from '../../../usda_nutrition/base-nutrition'
-import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.service'
+
+
 
 @Component({
   selector: 'table[cc-other],cc-other',

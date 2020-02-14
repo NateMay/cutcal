@@ -1,13 +1,4 @@
-import {
-  Directive,
-  EventEmitter,
-  HostListener,
-  Inject,
-  Input,
-  NgZone,
-  Output,
-  Renderer2,
-} from '@angular/core'
+import { Directive, EventEmitter, HostListener, Inject, Input, NgZone, Output, Renderer2 } from '@angular/core'
 import { fromEvent } from 'rxjs'
 import { finalize, first, skip, takeUntil, tap } from 'rxjs/operators'
 import { Boolish } from '../../../decorators/boolish/boolish'
@@ -30,7 +21,7 @@ export class DragItem {
   @Input() drag: any
   // @Input() dropID: string;
   @Input() immediate = false // for testing
-  @Input() dragImage: string
+  @Input() dragImage: string | null
 
   @Boolish
   @Input()

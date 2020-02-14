@@ -1,17 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  EventEmitter,
-  HostListener,
-  Input,
-  OnChanges,
-  OnDestroy,
-  Output,
-  SimpleChanges,
-  ViewChild,
-} from '@angular/core'
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild } from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimeUnit } from '../../models/time-unit.enum'
 
@@ -121,11 +108,11 @@ export class TimepickerFaceComponent
   isClockFaceDisabled: boolean
   innerClockFaceSize = 75
 
-  @Input() faceTime: ClockFaceTime[]
-  @Input() selectedTime: ClockFaceTime
-  @Input() unit: TimeUnit
-  @Input() format: number
-  @Input() minutesGap: number
+  @Input() faceTime!: ClockFaceTime[]
+  @Input() selectedTime!: ClockFaceTime
+  @Input() unit!: TimeUnit
+  @Input() format!: number
+  @Input() minutesGap!: number
 
   @Output() timeChange = new EventEmitter<ClockFaceTime>()
   @Output() timeSelected = new EventEmitter<number>()

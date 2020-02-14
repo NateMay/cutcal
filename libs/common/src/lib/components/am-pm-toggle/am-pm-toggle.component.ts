@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 import { Boolish } from '../../decorators/boolish/boolish'
 
 let nextUniqueId = 0
@@ -49,7 +43,7 @@ export class AmPmToggleComponent {
   private _id: string
   private _uid = `am-pm-toggle-${nextUniqueId++}`
 
-  @Input() isPM: boolean
+  @Input() isPM: boolean = true
   @Output() isPMChange = new EventEmitter<boolean>()
 
   @Boolish

@@ -1,28 +1,6 @@
-import {
-  CdkOverlayOrigin,
-  Overlay,
-  OverlayConfig,
-  OverlayRef,
-} from '@angular/cdk/overlay'
+import { CdkOverlayOrigin, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ComponentRef,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  HostBinding,
-  HostListener,
-  Injector,
-  Input,
-  NgZone,
-  OnInit,
-  Output,
-  ViewChild,
-  ViewContainerRef,
-} from '@angular/core'
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, ElementRef, EventEmitter, forwardRef, HostBinding, HostListener, Injector, Input, NgZone, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { Boolish } from '../../../decorators/boolish/boolish'
 import { eventWithin } from '../../../functions/eventWithin/eventWithin'
@@ -100,7 +78,7 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
   private _id: string
   private _uid = `cc-date-picker-input-${nextUniqueId++}`
 
-  @Input() label: string
+  @Input() label: string = 'Selected a Date'
   @Input() name: string = 'date-picker'
   @Input() dateFormat: string = 'mediumDate'
   @Input() placeholder: string = 'Date'

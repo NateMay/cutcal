@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimePeriod } from '../../models/time-period.enum'
 import { disableHours, getHours } from '../../utils/timepicker-time.utils'
@@ -24,12 +16,12 @@ import { disableHours, getHours } from '../../utils/timepicker-time.utils'
   `,
 })
 export class Timepicker12HoursFaceComponent implements OnChanges {
-  @Input() period: TimePeriod
+  @Input() period: TimePeriod = TimePeriod.AM
 
-  @Input() selectedHour: ClockFaceTime
-  @Input() minTime: Date
-  @Input() maxTime: Date
-  @Input() format: number
+  @Input() selectedHour!: ClockFaceTime
+  @Input() minTime!: Date
+  @Input() maxTime!: Date
+  @Input() format!: number
 
   @Output() hourChange = new EventEmitter<ClockFaceTime>()
   @Output() hourSelected = new EventEmitter<number>()

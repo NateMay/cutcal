@@ -1,24 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { DailyValueSvc, Folate, getFolate, getVitaminA, getVitaminD, getVitaminE, NutrientMetaData, NUTRIENTS, Nutrition, NutritionRange, VitaminA, VitaminD, VitaminE, ZERO_NUTRITION } from '@cutcal/nutrition'
 import * as _ from 'lodash'
-import { NUTRIENTS } from '../../../classes/nutrientMetadata/nutrientMetadata'
-import { NutrientMetaData } from '../../../constants/nutrientDetails'
-import {
-  getFolate,
-  getVitaminA,
-  getVitaminD,
-  getVitaminE,
-} from '../../../functions/getNutritionParts'
-import { NutritionRange } from '../../../models/daily-value'
-import {
-  Folate,
-  Nutrition,
-  VitaminA,
-  VitaminD,
-  VitaminE,
-} from '../../../models/nutrition'
-import { ZERO_NUTRITION } from '../../../usda_nutrition/base-nutrition'
-import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.service'
-
 @Component({
   selector: 'table[cc-vitamin],cc-vitamin',
   host: { class: 'cc-vitamin' },

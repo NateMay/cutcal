@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimePeriod } from '../../models/time-period.enum'
 import { TimeUnit } from '../../models/time-unit.enum'
@@ -29,13 +21,13 @@ export class TimepickerMinutesFaceComponent implements OnChanges {
   minutesList: ClockFaceTime[] = []
   timeUnit = TimeUnit
 
-  @Input() selectedMinute: ClockFaceTime
-  @Input() selectedHour: number
-  @Input() period: TimePeriod
-  @Input() minTime: Date
-  @Input() maxTime: Date
-  @Input() format: number
-  @Input() minutesGap: number
+  @Input() selectedMinute!: ClockFaceTime
+  @Input() selectedHour!: number
+  @Input() period!: TimePeriod
+  @Input() minTime!: Date
+  @Input() maxTime!: Date
+  @Input() format!: number
+  @Input() minutesGap!: number
 
   @Output() minuteChange = new EventEmitter<ClockFaceTime>()
 

@@ -1,11 +1,5 @@
 /* tslint:disable:triple-equals */
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimeUnit } from '../../models/time-unit.enum'
 
@@ -28,14 +22,14 @@ import { TimeUnit } from '../../models/time-unit.enum'
 export class TimepickerDialControlComponent {
   previousTime: number | string
 
-  @Input() timeList: ClockFaceTime[]
-  @Input() timeUnit: TimeUnit
+  @Input() timeList!: ClockFaceTime[]
+  @Input() timeUnit!: TimeUnit
   _time: string
   @Input() set time(timeStr: string) {
     this._time = +timeStr < 10 ? `0${+timeStr}` : `${+timeStr}`
   }
-  @Input() isActive: boolean
-  @Input() minutesGap: number
+  @Input() isActive!: boolean
+  @Input() minutesGap!: number
 
   @Output() timeUnitChanged = new EventEmitter<TimeUnit>()
   @Output() timeChanged = new EventEmitter<ClockFaceTime>()

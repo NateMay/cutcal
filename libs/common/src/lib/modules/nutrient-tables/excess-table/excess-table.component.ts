@@ -1,11 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core'
-import { Nutrition } from '../../../models/nutrition'
-import { ZERO_NUTRITION } from '../../../usda_nutrition/base-nutrition'
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'
+import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
 
 @Component({
   selector: 'table[cc-excess], cc-excess',

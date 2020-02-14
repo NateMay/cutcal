@@ -7,10 +7,10 @@ import { Component, EventEmitter, Input, NgModule, Output } from '@angular/core'
   template: '',
 })
 export class MockHighChartsComponent {
-  @Input() update: any
-  @Input() Highcharts: any
-  @Input() options: any
-  @Input() callbackFunction: any
+  @Input() update!: any
+  @Input() Highcharts!: any
+  @Input() options!: any
+  @Input() callbackFunction!: any
   @Output() updateChange = new EventEmitter<any>()
 }
 

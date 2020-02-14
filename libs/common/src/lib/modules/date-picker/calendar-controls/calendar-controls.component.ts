@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 import { RefocusService } from '../../../services/refocus/refocus.service'
 
 let nextUniqueId: number = 0
@@ -50,9 +44,9 @@ let nextUniqueId: number = 0
   `,
 })
 export class CalendarControlsComponent {
-  @Input() monthBtnID: string
-  @Input() prevBtnID: string
-  @Input() nextBtnID: string
+  @Input() monthBtnID: string | null
+  @Input() prevBtnID: string | null
+  @Input() nextBtnID: string | null
 
   @Input() monthBtnDisabled: boolean = false
 

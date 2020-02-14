@@ -294,12 +294,6 @@ export const bread: Food = {
     url:
       'https://firebasestorage.googleapis.com/v0/b/test-app-8dc99.appspot.com/o/foods%2Fbread.png?alt=media&token=142097b0-6d03-4480-b810-b1849e5d5d7a',
   },
-  usdaNonScalars: {
-    commercial_name: '',
-    manufacturer: '',
-    refuse_desc: '',
-    scientific_name: '',
-  },
   uses: 0,
 }
 FOODS[bread_id] = bread

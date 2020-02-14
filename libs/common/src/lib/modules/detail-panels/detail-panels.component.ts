@@ -255,7 +255,7 @@ export class DetailPanelsComponent implements OnInit {
   carbohydrates: Portion
   protein: Portion
 
-  @Input() portion: Portion
+  @Input() portion: Portion | null
 
   @Input() chartDelay: number = 0
 

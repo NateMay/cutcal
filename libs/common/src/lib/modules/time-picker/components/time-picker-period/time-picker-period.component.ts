@@ -1,17 +1,5 @@
-import {
-  animate,
-  sequence,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations'
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core'
+import { animate, sequence, style, transition, trigger } from '@angular/animations'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimePeriod } from '../../models/time-period.enum'
 import { TimeUnit } from '../../models/time-unit.enum'
@@ -53,14 +41,14 @@ export class TimepickerPeriodComponent {
   timePeriod = TimePeriod
   isPeriodAvailable = true
 
-  @Input() selectedPeriod: TimePeriod
-  @Input() format: number
-  @Input() activeTimeUnit: TimeUnit
-  @Input() hours: ClockFaceTime[]
-  @Input() minutes: ClockFaceTime[]
-  @Input() minTime: Date
-  @Input() maxTime: Date
-  @Input() selectedHour: number | string
+  @Input() selectedPeriod!: TimePeriod
+  @Input() format!: number
+  @Input() activeTimeUnit!: TimeUnit
+  @Input() hours!: ClockFaceTime[]
+  @Input() minutes!: ClockFaceTime[]
+  @Input() minTime!: Date
+  @Input() maxTime!: Date
+  @Input() selectedHour!: number | string
 
   @Output() periodChanged = new EventEmitter<TimePeriod>()
 

@@ -1,22 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations'
 import { LiveAnnouncer } from '@angular/cdk/a11y'
-import {
-  AfterContentInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ContentChildren,
-  ElementRef,
-  EventEmitter,
-  Input,
-  KeyValueDiffer,
-  KeyValueDiffers,
-  OnDestroy,
-  Output,
-  QueryList,
-  Renderer2,
-  ViewChildren,
-} from '@angular/core'
+import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChildren, ElementRef, EventEmitter, Input, KeyValueDiffer, KeyValueDiffers, OnDestroy, Output, QueryList, Renderer2, ViewChildren } from '@angular/core'
 import { CarouselSlide } from './carousel-slide'
 
 export interface ActiveSlides {
@@ -191,7 +175,7 @@ export class CarouselComponent implements OnDestroy, AfterContentInit {
   /**
    * @description show/hide NEXT/PREV button
    */
-  @Input() isNavigation = false
+  @Input() isNavigation: boolean = false
 
   /**
    * @description passed to the mat-buttons

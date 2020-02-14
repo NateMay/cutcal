@@ -1,18 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  Inject,
-  Input,
-  OnDestroy,
-  Optional,
-  TemplateRef,
-  ViewChild,
-} from '@angular/core'
+import { Component, ElementRef, Inject, Input, OnDestroy, Optional, TemplateRef, ViewChild } from '@angular/core'
 import { Subject } from 'rxjs'
-import {
-  dateFromTime,
-  forceZero,
-} from '../../../../functions/dateFromTime/dateFromTime'
+import { dateFromTime, forceZero } from '../../../../functions/dateFromTime/dateFromTime'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimePeriod } from '../../models/time-period.enum'
 import { TimeUnit } from '../../models/time-unit.enum'
@@ -110,7 +98,7 @@ export class TimepickerDialogComponent implements OnDestroy {
   timeUnit = TimeUnit
   activeTimeUnit = TimeUnit.HOUR
 
-  @Input() editableHintTmpl: TemplateRef<Node>
+  @Input() editableHintTmpl!: TemplateRef<Node>
 
   @Input() set minutesGap(gap: number) {
     if (gap == null) return

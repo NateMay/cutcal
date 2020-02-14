@@ -25,7 +25,7 @@ export class DatePickerYearsComponent implements OnInit {
 
   years: DatePickerYear[]
 
-  @Input() selectedDate: Date
+  @Input() selectedDate: Date | null
 
   private _focusDate: Date = new Date()
   @Input() set focusDate(focusDate: Date) {

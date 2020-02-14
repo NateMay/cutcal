@@ -1,13 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { CaloriesFrom, caloriesFromAll, DailyValueSvc, Nutrition, NutritionRange, ZERO_NUTRITION } from '@cutcal/nutrition'
 import * as _ from 'lodash'
-import {
-  CaloriesFrom,
-  caloriesFromAll,
-} from '../../../functions/caloriesFrom/caloriesFrom'
-import { NutritionRange } from '../../../models/daily-value'
-import { Nutrition } from '../../../models/nutrition'
-import { ZERO_NUTRITION } from '../../../usda_nutrition/base-nutrition'
-import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.service'
 
 @Component({
   selector: 'table[cc-calories],cc-calories',
