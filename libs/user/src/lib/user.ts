@@ -1,6 +1,6 @@
-import { KVP } from '@cutcal/core';
-import { BioData } from './bio-data';
-import { Usage } from './usage';
+import { KVP } from '@cutcal/core'
+import { BioData } from './bio-data'
+import { Usage } from './usage'
 /**
  * Notions to capture:
  *

@@ -29,10 +29,7 @@ describe('DatePickerMonthsComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [MatButtonModule],
-      declarations: [
-        DatePickerMonthsComponent,
-        TestDatePickerMonthsComponent,
-      ],
+      declarations: [DatePickerMonthsComponent, TestDatePickerMonthsComponent],
     });
 
     fixture = TestBed.createComponent(TestDatePickerMonthsComponent);

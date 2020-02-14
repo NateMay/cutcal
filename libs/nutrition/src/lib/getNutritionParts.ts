@@ -1,4 +1,26 @@
-import { AminoAcids, Carbohydrates, Energy, Fats, Folate, Minerals, MonoUnsaturated, Nutrition, Omega3, Omega6, Others, PolyUnsaturated, Protein, SaturatedFat, Sterols, Sugars, TransUnsaturated, VitaminA, VitaminD, VitaminE, Vitamins } from './nutrition'
+import {
+  AminoAcids,
+  Carbohydrates,
+  Energy,
+  Fats,
+  Folate,
+  Minerals,
+  MonoUnsaturated,
+  Nutrition,
+  Omega3,
+  Omega6,
+  Others,
+  PolyUnsaturated,
+  Protein,
+  SaturatedFat,
+  Sterols,
+  Sugars,
+  TransUnsaturated,
+  VitaminA,
+  VitaminD,
+  VitaminE,
+  Vitamins,
+} from './nutrition'
 // TEST (NutritionParts)
 
 /**

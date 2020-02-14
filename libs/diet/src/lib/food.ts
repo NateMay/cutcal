@@ -1,8 +1,8 @@
-import { KVP } from '@cutcal/core';
-import { Image } from './images';
-import { Nutrition } from './nutrition';
-import { Portion } from './portion';
-import { UsdaNonScalars } from './usda';
+import { KVP } from '@cutcal/core'
+import { Image } from './images'
+import { Nutrition } from './nutrition'
+import { Portion } from './portion'
+import { UsdaNonScalars } from './usda'
 
 /**
  * An Object storing information about an abstract notion of a Food, Recipe,

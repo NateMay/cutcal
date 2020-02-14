@@ -1,4 +1,4 @@
-import { KVP } from '@cutcal/core';
+import { KVP } from '@cutcal/core'
 
 export interface HighChartsDataPoint {
   name: string

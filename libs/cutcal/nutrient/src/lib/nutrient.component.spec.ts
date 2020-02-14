@@ -8,9 +8,8 @@ describe('NutrientComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NutrientComponent ]
-    })
-    .compileComponents();
+      declarations: [NutrientComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

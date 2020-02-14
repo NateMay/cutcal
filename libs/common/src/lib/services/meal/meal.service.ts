@@ -6,7 +6,15 @@ import { KVP } from '@cutcal/core'
 import * as _ from 'lodash'
 import { combineLatest, Observable, of } from 'rxjs'
 import { filter, first, map, share, switchMap } from 'rxjs/operators'
-import { addPortion, createMeal, createUsage, multiplyNutrition, scaleNutrition, timestamp, updateNutritions } from '../../functions'
+import {
+  addPortion,
+  createMeal,
+  createUsage,
+  multiplyNutrition,
+  scaleNutrition,
+  timestamp,
+  updateNutritions,
+} from '../../functions'
 import { defaultMealName } from '../../functions/deafultMealName'
 import { purifyObject } from '../../functions/purifyObject/purifyObject'
 import { removeId } from '../../functions/removeID'

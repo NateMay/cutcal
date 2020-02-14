@@ -3,7 +3,11 @@ import { GestureConfig } from '@angular/material/core'
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { EffectsModule } from '@ngrx/effects'
-import { RouterState, RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store'
+import {
+  RouterState,
+  RouterStateSerializer,
+  StoreRouterConnectingModule,
+} from '@ngrx/router-store'
 import { StoreModule } from '@ngrx/store'
 import { StoreDevtoolsModule, StoreDevtoolsOptions } from '@ngrx/store-devtools'
 import { STRICT_RUNTIME_CHECKS } from '../../../../libs/core/src/lib/constants/runtime-checks'
@@ -15,7 +19,6 @@ import { metaReducers, reducers } from './app.state'
 import { Layout1Module } from './layout1/layout1.module'
 import { actionSanitizer } from './utils/action.sanitizer'
 import { CustomSerializer } from './utils/serializer'
-
 
 const DEV_TOOLS_OPTIONS: StoreDevtoolsOptions = {
   maxAge: 25,
@@ -61,7 +64,7 @@ export class MyHammerConfig extends GestureConfig {
   ],
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig },
-    { provide: RouterStateSerializer, useClass: CustomSerializer }
-  ]
+    { provide: RouterStateSerializer, useClass: CustomSerializer },
+  ],
 })
 export class AppModule {}

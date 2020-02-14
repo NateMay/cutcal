@@ -1,5 +1,5 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { KVP } from '@cutcal/core';
+import { Pipe, PipeTransform } from '@angular/core'
+import { KVP } from '@cutcal/core'
 
 const UNIT_MAP: KVP<string> = {
   g: 'gram',

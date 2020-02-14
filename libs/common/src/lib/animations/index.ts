@@ -1,3 +1,2 @@
-export * from './keyFrames';
-export * from './list-stagger';
-
+export * from './keyFrames'
+export * from './list-stagger'

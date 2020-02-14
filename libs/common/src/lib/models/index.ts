@@ -1,2 +1,1 @@
-export * from './highcharts-data-point';
-
+export * from './highcharts-data-point'

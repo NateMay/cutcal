@@ -1,4 +1,3 @@
-
 /**
  * *****************
  * String prototypes
@@ -10,12 +9,10 @@ String.prototype.urlToDate = urlToDate
 String.prototype.insertText = insertText
 
 interface String {
-  urlToDate: typeof urlToDate;
-  insertText: typeof insertText;
-  extension: typeof extension;
+  urlToDate: typeof urlToDate
+  insertText: typeof insertText
+  extension: typeof extension
 }
-
-
 
 /**
  * Formats the date for use in url parameters
@@ -27,8 +24,6 @@ function urlToDate(this: string): Date {
   const parts = this.split('-')
   return new Date(+parts[2], +parts[1] - 1, +parts[0])
 }
-
-
 
 /**
  * Formats the date for use in url parameters
@@ -50,8 +45,6 @@ function insertText(
   return `${this.slice(0, index)}${insertTxt}${this.slice(index)}`
 }
 
-
-
 /**
  * Extracts the file extension
  * @example
@@ -61,17 +54,11 @@ function extension(this: string): string {
   return this.substring(this.lastIndexOf('.') + 1, this.length) || this
 }
 
-
-
-
-
-
 /**
  * ***************
  * Date prototypes
  * ***************
  */
-
 
 Date.prototype.stripTime = stripTime
 Date.prototype.setTimeNow = setTimeNow
@@ -98,33 +85,30 @@ Date.prototype.toUrlString = toUrlString
 Date.prototype.daysBetween = daysBetween
 
 interface Date {
-  stripTime: typeof stripTime;
-  setTimeNow: typeof setTimeNow;
-  endOfDay: typeof endOfDay;
-  firstDayOfMonth: typeof firstDayOfMonth;
-  lastDayOfMonth: typeof lastDayOfMonth;
-  addDay: typeof addDay;
-  addDays: typeof addDays;
-  addMonth: typeof addMonth;
-  addMonths: typeof addMonths;
-  isLeapYear: typeof isLeapYear;
-  getDaysInMonth: typeof getDaysInMonth;
-  addYear: typeof addYear;
-  addYears: typeof addYears;
-  isToday: typeof isToday;
-  isSameDay: typeof isSameDay;
-  firstDayOfWeek: typeof firstDayOfWeek;
-  isBefore: typeof isBefore;
-  isBetween: typeof isBetween;
-  age: typeof age;
-  assignTime: typeof assignTime;
-  isSameMonth: typeof isSameMonth;
-  toUrlString: typeof toUrlString;
-  daysBetween: typeof daysBetween;
+  stripTime: typeof stripTime
+  setTimeNow: typeof setTimeNow
+  endOfDay: typeof endOfDay
+  firstDayOfMonth: typeof firstDayOfMonth
+  lastDayOfMonth: typeof lastDayOfMonth
+  addDay: typeof addDay
+  addDays: typeof addDays
+  addMonth: typeof addMonth
+  addMonths: typeof addMonths
+  isLeapYear: typeof isLeapYear
+  getDaysInMonth: typeof getDaysInMonth
+  addYear: typeof addYear
+  addYears: typeof addYears
+  isToday: typeof isToday
+  isSameDay: typeof isSameDay
+  firstDayOfWeek: typeof firstDayOfWeek
+  isBefore: typeof isBefore
+  isBetween: typeof isBetween
+  age: typeof age
+  assignTime: typeof assignTime
+  isSameMonth: typeof isSameMonth
+  toUrlString: typeof toUrlString
+  daysBetween: typeof daysBetween
 }
-
-
-
 
 /**
  * Set to first moment of the day
@@ -134,9 +118,6 @@ function stripTime(this: Date): Date {
   this.setHours(0, 0, 0, 0)
   return new Date(this)
 }
-
-
-
 
 /**
  * Set to first moment of the day
@@ -153,7 +134,6 @@ function setTimeNow(this: Date): Date {
   return new Date(this)
 }
 
-
 /**
  * Set to first moment of the day
  * @return {Date}
@@ -162,7 +142,6 @@ function endOfDay(this: Date): Date {
   this.setHours(23, 59, 59, 999)
   return new Date(this)
 }
-
 
 /**
  * Returns the first Date of the month
@@ -174,7 +153,6 @@ function firstDayOfMonth(this: Date): Date {
   return new Date(this.getFullYear(), this.getMonth(), 1)
 }
 
-
 /**
  * Returns the last Date of the month
  * @return {Date}
@@ -185,7 +163,6 @@ function lastDayOfMonth(this: Date): Date {
   return new Date(this.getFullYear(), this.getMonth() + 1, 0)
 }
 
-
 /**
  * Increments a date by 1 day
  * @return {Date}
@@ -195,7 +172,6 @@ function lastDayOfMonth(this: Date): Date {
 function addDay(this: Date): Date {
   return this.addDays(1)
 }
-
 
 /**
  * Returns a new Date() object incrmented by the specified dayCount
@@ -210,7 +186,6 @@ function addDays(this: Date, dayCount: number = 1): Date {
   return newDate
 }
 
-
 /**
  * Increments a date by 1 month
  * @return {Date}
@@ -220,7 +195,6 @@ function addDays(this: Date, dayCount: number = 1): Date {
 function addMonth(this: Date): Date {
   return this.addMonths(1)
 }
-
 
 /**
  * Returns a new Date() object incrmented by the specified monthCount
@@ -239,7 +213,6 @@ function addMonths(this: Date, monthCount: number = 1): Date {
   return newDate
 }
 
-
 /**
  * Whether a year is a leap year
  * @return {boolean}
@@ -254,7 +227,6 @@ function isLeapYear(this: Date): boolean {
 function _isLeapYear(year: number): boolean {
   return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
 }
-
 
 /**
  * Gets the number of days in the month
@@ -283,7 +255,6 @@ function _getDaysInMonth(year: number, month: number): number {
   ][month]
 }
 
-
 /**
  * Increments a date by 1 year
  * @return {Date}
@@ -293,7 +264,6 @@ function _getDaysInMonth(year: number, month: number): number {
 function addYear(this: Date): Date {
   return this.addYears(1)
 }
-
 
 /**
  * Returns a new Date() object incrmented by the specified YearCount
@@ -310,7 +280,6 @@ function addYears(this: Date, yearCount: number = 1): Date {
   return newDate
 }
 
-
 /**
  * true if date is same day as today regardless of the time
  * @return {Boolean}
@@ -323,7 +292,6 @@ function isToday(this: Date): boolean {
     this.getDate() === today.getDate()
   )
 }
-
 
 /**
  * detects if the datesshare the dame day, month and year
@@ -341,7 +309,6 @@ function isSameDay(this: Date, date: Date): boolean {
   )
 }
 
-
 /**
  * Returns the Date of the current or previous sunday
  * @return {Date}
@@ -351,7 +318,6 @@ function isSameDay(this: Date, date: Date): boolean {
 function firstDayOfWeek(this: Date): Date {
   return this.addDays(-this.getDay())
 }
-
 
 /**
  * Whether the date is before the argument
@@ -363,7 +329,6 @@ function firstDayOfWeek(this: Date): Date {
 function isBefore(this: Date, compare: Date): boolean {
   return this.getTime() < compare.getTime()
 }
-
 
 /**
  * Whether the date is between those provided
@@ -384,7 +349,6 @@ function isBetween(this: Date, minDate: Date, maxDate: Date): boolean {
   return gtmin && ltmax
 }
 
-
 /**
  * Returns the age of something born at the moment represented by the underlying Date
  * @return {number}
@@ -396,7 +360,6 @@ function age(this: Date, asOf: Date = new Date()): number {
   if (m < 0 || (m === 0 && asOf.getDate() < birthDate.getDate())) ageCalc--
   return ageCalc
 }
-
 
 /**
  * Returns a new Date matching the underlying date, but passed in time
@@ -412,7 +375,6 @@ function assignTime(this: Date, time: Date): Date {
   return result
 }
 
-
 /**
  * Whether argument Date is in the same month as the underlying Date
  * @return {Boolean}
@@ -427,7 +389,6 @@ function isSameMonth(this: Date, date: Date): boolean {
   )
 }
 
-
 /**
  * Formats the date for use in url parameters
  * @return {String}
@@ -437,7 +398,6 @@ function isSameMonth(this: Date, date: Date): boolean {
 function toUrlString(this: Date): string {
   return `${this.getDate()}-${this.getMonth() + 1}-${this.getFullYear()}`
 }
-
 
 /**
  * Calculates the number of days between 2 dates
@@ -459,10 +419,6 @@ function daysBetween(this: Date, date2: Date) {
   // Convert back to days and return
   return Math.abs(Math.round(difference_ms / one_day))
 }
-
-
-
-
 
 // Object.prototype.filter = filter;
 // interface Object { filter: typeof filter }

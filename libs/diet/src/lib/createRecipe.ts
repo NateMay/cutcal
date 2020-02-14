@@ -1,9 +1,9 @@
-import { KVP } from '@cutcal/core';
-import { Image } from '../models/images';
-import { Ingredient } from '../models/ingredient';
-import { Nutrition } from '../models/nutrition';
-import { Portion } from '../models/portion';
-import { Recipe } from '../models/recipe';
+import { KVP } from '@cutcal/core'
+import { Image } from '../models/images'
+import { Ingredient } from '../models/ingredient'
+import { Nutrition } from '../models/nutrition'
+import { Portion } from '../models/portion'
+import { Recipe } from '../models/recipe'
 
 export function createRecipe(
   name: string,

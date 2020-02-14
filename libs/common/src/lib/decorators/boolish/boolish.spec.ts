@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { getByDir } from '../../../../../ng-testing/src/lib/getByDir';
 import { Boolish } from './boolish';
 
-
 @Component({
   template: `
     <cc-a-test [aBoolean]="notABoolean"></cc-a-test>

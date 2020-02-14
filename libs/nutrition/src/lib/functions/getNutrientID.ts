@@ -1,5 +1,5 @@
-import * as _ from 'lodash';
-import { NUTRIENTS } from './../nutrient-metadata';
+import * as _ from 'lodash'
+import { NUTRIENTS } from './../nutrient-metadata'
 
 /**
  * Gets the USDA id for a nutrient given its name

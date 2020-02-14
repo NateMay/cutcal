@@ -11,15 +11,15 @@ it('Serializer functions', () => {
       firstChild: {
         firstChild: {
           queryParams: <any>{ params: 'a query param' },
-          params: <any>{ params: 'a param' }
-        }
-      }
-    }
+          params: <any>{ params: 'a param' },
+        },
+      },
+    },
   });
 
   expect(result).toEqual({
     url: 'a/url',
     params: { params: 'a param' },
-    queryParams: { params: 'a query param' }
-  })
-})
+    queryParams: { params: 'a query param' },
+  });
+});

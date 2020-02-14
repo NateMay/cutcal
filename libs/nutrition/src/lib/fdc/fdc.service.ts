@@ -8,7 +8,11 @@ import * as _ from 'lodash'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { NUTRIENTS } from './../nutrient-metadata'
-import { FdcFoodDetailResponse, FdcFoodMeasure, FdcFoodNutrient } from './fdc-detail'
+import {
+  FdcFoodDetailResponse,
+  FdcFoodMeasure,
+  FdcFoodNutrient,
+} from './fdc-detail'
 import { FDCFoodSearchResponse } from './fdc-search'
 
 export interface Food2 {

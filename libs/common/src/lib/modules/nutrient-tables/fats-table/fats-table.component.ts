@@ -2,9 +2,22 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import * as _ from 'lodash'
 import { NUTRIENTS } from '../../../classes/nutrientMetadata/nutrientMetadata'
 import { NutrientMetaData } from '../../../constants/nutrientDetails'
-import { getMonoUnsaturated, getOmega3, getOmega6, getPolyUnsaturated, getSaturatedFat, getTransUnsaturated } from '../../../functions/getNutritionParts'
+import {
+  getMonoUnsaturated,
+  getOmega3,
+  getOmega6,
+  getPolyUnsaturated,
+  getSaturatedFat,
+  getTransUnsaturated,
+} from '../../../functions/getNutritionParts'
 import { NutritionRange } from '../../../models/daily-value'
-import { MonoUnsaturated, Nutrition, PolyUnsaturated, SaturatedFat, TransUnsaturated } from '../../../models/nutrition'
+import {
+  MonoUnsaturated,
+  Nutrition,
+  PolyUnsaturated,
+  SaturatedFat,
+  TransUnsaturated,
+} from '../../../models/nutrition'
 import { ZERO_NUTRITION } from '../../../usda_nutrition/base-nutrition'
 import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.service'
 

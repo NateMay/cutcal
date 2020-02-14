@@ -6,7 +6,12 @@ import * as _ from 'lodash';
 import { of } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { bread, jam, peanutButter } from '../../../../../../data/food-seed';
-import { lunch1, lunch1_bread, lunch1_id, lunch1_jam } from '../../../../../../data/meal-seed';
+import {
+  lunch1,
+  lunch1_bread,
+  lunch1_id,
+  lunch1_jam,
+} from '../../../../../../data/meal-seed';
 import { AuthService } from '../auth/auth.service';
 import { FirestoreService } from '../fireStore/fireStore.service';
 import { lunch1_pb } from './../../../../../../data/meal-seed';

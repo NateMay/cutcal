@@ -1,8 +1,8 @@
-import { KVP } from '@cutcal/core';
-import { Food, Usage } from '@cutcal/diet';
-import { Nutrition, sumNutritions } from '@cutcal/nutrition';
-import * as _ from 'lodash';
-import { scaleNutrition } from '../convertNutrition/convertNutrition';
+import { KVP } from '@cutcal/core'
+import { Food, Usage } from '@cutcal/diet'
+import { Nutrition, sumNutritions } from '@cutcal/nutrition'
+import * as _ from 'lodash'
+import { scaleNutrition } from '../convertNutrition/convertNutrition'
 
 /**
  * Agggregates the nutrition from among the usages passed in

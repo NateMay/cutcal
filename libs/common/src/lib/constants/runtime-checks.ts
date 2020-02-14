@@ -1,8 +1,8 @@
-import { RuntimeChecks } from '@ngrx/store';
+import { RuntimeChecks } from '@ngrx/store'
 
 export const RUNTIME_CHECKS: RuntimeChecks = {
-    strictActionSerializability: true,
-    strictStateSerializability: true,
-    strictStateImmutability: true,
-    strictActionImmutability: true,
+  strictActionSerializability: true,
+  strictStateSerializability: true,
+  strictStateImmutability: true,
+  strictActionImmutability: true,
 }

@@ -1,5 +1,5 @@
-import { KVP } from '@cutcal/core';
-import { FdcUnit } from './fdc/fdc-unit';
+import { KVP } from '@cutcal/core'
+import { FdcUnit } from './fdc/fdc-unit'
 
 /**
  * Static Nutrient Metadata

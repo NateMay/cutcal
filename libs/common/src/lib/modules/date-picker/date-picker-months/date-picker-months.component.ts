@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { KVP } from '@cutcal/core';
-import { MonthMetaData, MONTHS } from '../../../constants/months';
+import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { KVP } from '@cutcal/core'
+import { MonthMetaData, MONTHS } from '../../../constants/months'
 
 @Component({
   selector: 'cc-date-picker-months',

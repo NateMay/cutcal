@@ -1,8 +1,8 @@
-import { KVP } from '@cutcal/core';
-import { Nutrition } from '@cutcal/nutrition';
-import { Image } from './images';
-import { Ingredient } from './ingredient';
-import { Portion } from './portion';
+import { KVP } from '@cutcal/core'
+import { Nutrition } from '@cutcal/nutrition'
+import { Image } from './images'
+import { Ingredient } from './ingredient'
+import { Portion } from './portion'
 
 /**
  * Much like a food, but not from the USDA so it rolls up the nutrition from its children

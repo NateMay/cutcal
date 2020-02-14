@@ -1,4 +1,8 @@
-import { BaseRouterStoreState, routerReducer, RouterReducerState } from '@ngrx/router-store'
+import {
+  BaseRouterStoreState,
+  routerReducer,
+  RouterReducerState,
+} from '@ngrx/router-store'
 import { ActionReducerMap, MetaReducer } from '@ngrx/store'
 import { environment } from '../environments/environment'
 

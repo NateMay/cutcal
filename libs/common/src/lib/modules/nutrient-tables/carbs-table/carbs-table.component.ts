@@ -2,7 +2,10 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import * as _ from 'lodash'
 import { NUTRIENTS } from '../../../classes/nutrientMetadata/nutrientMetadata'
 import { NutrientMetaData } from '../../../constants/nutrientDetails'
-import { getCarbohydrates, getSugars } from '../../../functions/getNutritionParts'
+import {
+  getCarbohydrates,
+  getSugars,
+} from '../../../functions/getNutritionParts'
 import { NutritionRange } from '../../../models/daily-value'
 import { Nutrition, Sugars } from '../../../models/nutrition'
 import { ZERO_NUTRITION } from '../../../usda_nutrition/base-nutrition'

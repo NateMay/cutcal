@@ -76,11 +76,11 @@ describe('Inspect Nutrient Dialog Component', () => {
   });
 
   beforeEach(() => {
-    jest.spyOn(component, 'date', 'get').mockReturnValue(new Date())
-    jest.spyOn(component, 'dateString', 'get').mockReturnValue('2019-12-12')
-    jest.spyOn(component, 'title', 'get').mockReturnValue('a title')
-    jest.spyOn(component, 'nutrient', 'get').mockReturnValue('protein')
-    jest.spyOn(component, 'unit', 'get').mockReturnValue('g')
+    jest.spyOn(component, 'date', 'get').mockReturnValue(new Date());
+    jest.spyOn(component, 'dateString', 'get').mockReturnValue('2019-12-12');
+    jest.spyOn(component, 'title', 'get').mockReturnValue('a title');
+    jest.spyOn(component, 'nutrient', 'get').mockReturnValue('protein');
+    jest.spyOn(component, 'unit', 'get').mockReturnValue('g');
   });
 
   it('can load instance', () => {

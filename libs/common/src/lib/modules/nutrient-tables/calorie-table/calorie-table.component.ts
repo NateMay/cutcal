@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import * as _ from 'lodash'
-import { CaloriesFrom, caloriesFromAll } from '../../../functions/caloriesFrom/caloriesFrom'
+import {
+  CaloriesFrom,
+  caloriesFromAll,
+} from '../../../functions/caloriesFrom/caloriesFrom'
 import { NutritionRange } from '../../../models/daily-value'
 import { Nutrition } from '../../../models/nutrition'
 import { ZERO_NUTRITION } from '../../../usda_nutrition/base-nutrition'

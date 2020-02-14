@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, isDevMode, Output } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  isDevMode,
+  Output,
+} from '@angular/core'
 import { MatSliderChange } from '@angular/material/slider'
 import { Router } from '@angular/router'
 import { getQuantityStep } from '../../functions/increment/increment'
