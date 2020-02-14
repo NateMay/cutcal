@@ -8,8 +8,22 @@ import {
   ViewContainerRef,
 } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
+import { AuthService } from '@cutcal/auth'
+import {
+  InspectionData,
+  INSPECTION_DATA,
+  InspectNutrientDialogComponent,
+  setLightGridTheme,
+} from '@cutcal/charts'
+import { analyzeParams, dateArray } from '@cutcal/common'
 import { KVP } from '@cutcal/core'
-import { Nutrition } from '@cutcal/nutrition'
+import { MealService } from '@cutcal/diet'
+import {
+  createNutrCheckableMap,
+  NutrCheckable,
+  Nutrition,
+  nutrtionSelections,
+} from '@cutcal/nutrition'
 import { Store } from '@ngrx/store'
 import * as Highcharts from 'highcharts'
 import { Options, SeriesOptionsType } from 'highcharts'
@@ -22,11 +36,6 @@ import {
 } from './constants/analyze.options'
 import { AnalysisChartVM } from './models/analysis-chart'
 import { ChartControls, updateControls } from './models/chart-controls'
-import {
-  createNutrCheckableMap,
-  NutrCheckable,
-  nutrtionSelections,
-} from './models/checkable-nutrient'
 import { DailyNutrition } from './models/daily-nutrition'
 import { ViewMap } from './models/view-map'
 

@@ -1,5 +1,4 @@
 import { KVP } from '@cutcal/core'
-import { FdcUnit } from './fdc/fdc-unit'
 
 /**
  * Static Nutrient Metadata
@@ -14,7 +13,7 @@ export interface NutrientMetaData {
   id: number
   nbr: number
   nutrient: string
-  unit: FdcUnit
+  unit: 'kcal' | 'kj' | 'g' | 'mg' | 'iu' | 'µg' | 'sp_gr'
   shortName: string
   propName?: string
 }

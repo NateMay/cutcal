@@ -1,5 +1,7 @@
 export * from './base-nutrition'
+export * from './calories-from'
 export * from './checkable-nutrient'
+export * from './checkable-nutrients'
 export * from './daily-value'
 export * from './fdc'
 export * from './functions'

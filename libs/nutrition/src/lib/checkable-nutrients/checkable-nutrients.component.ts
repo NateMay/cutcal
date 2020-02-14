@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { MatCheckboxChange } from '@angular/material/checkbox'
-import { getNutritionParts, Nutrition, NutritionParts } from '@cutcal/nutrition'
 import * as _ from 'lodash'
+import { getNutritionParts, NutritionParts } from './../getNutritionParts'
+import { Nutrition } from './../nutrition'
 import { NutrCheckable } from './checkable-nutrient'
 
 export interface CheckableNutrientsChange {
