@@ -4,7 +4,11 @@ import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppState, reducers } from '@cutcal/common'
 import { EffectsModule } from '@ngrx/effects'
-import { RouterState, RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store'
+import {
+  RouterState,
+  RouterStateSerializer,
+  StoreRouterConnectingModule,
+} from '@ngrx/router-store'
 import { MetaReducer, StoreModule } from '@ngrx/store'
 import { StoreDevtoolsModule, StoreDevtoolsOptions } from '@ngrx/store-devtools'
 import { STRICT_RUNTIME_CHECKS } from '../../../../libs/core/src/lib/constants/runtime-checks'

@@ -1,5 +1,14 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { DailyValueSvc, getSterols, NutrientMetaData, NUTRIENTS, Nutrition, NutritionRange, Sterols, ZERO_NUTRITION } from '@cutcal/nutrition'
+import {
+  DailyValueSvc,
+  getSterols,
+  NutrientMetaData,
+  NUTRIENTS,
+  Nutrition,
+  NutritionRange,
+  Sterols,
+  ZERO_NUTRITION,
+} from '@cutcal/nutrition'
 import * as _ from 'lodash'
 
 @Component({

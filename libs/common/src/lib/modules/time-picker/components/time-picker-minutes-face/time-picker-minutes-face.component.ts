@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimePeriod } from '../../models/time-period.enum'
 import { TimeUnit } from '../../models/time-unit.enum'

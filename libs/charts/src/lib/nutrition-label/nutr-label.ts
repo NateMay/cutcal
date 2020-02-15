@@ -1,7 +1,5 @@
-import { KeysIn } from '@cutcal/core';
-import { DailyValue, Nutrition } from '@cutcal/nutrition';
-import * as _ from 'lodash';
-
+import { KeysIn } from '@cutcal/core'
+import { DailyValue, Nutrition } from '@cutcal/nutrition'
 
 export class NutritionLabel {
   total_calories: number
@@ -26,33 +24,26 @@ export class NutritionLabel {
   perc_iron: number
 
   constructor(nutr: Nutrition<number>, dv: DailyValue) {
-    // a partially applied function for getting daily value percentages
-    const dvPercentPartial: (nutruent: string) => number = _.partial(
-      getPercentDV,
-      nutr,
-      dv
-    )
-
     this.total_calories = nutr.calories || 0
     this.total_fat = nutr.fat || 0
-    this.perc_fat = dvPercentPartial('fat')
+    this.perc_fat = getPercentDV(nutr, dv, 'fat')
     this.total_sat_fat = nutr.saturatedFat || 0
-    this.perc_sat_fat = dvPercentPartial('saturatedFat')
+    this.perc_sat_fat = getPercentDV(nutr, dv, 'saturatedFat')
     this.total_trans_fat = nutr.transUnsaturated || 0
     this.cholesterol = nutr.cholesterol || 0
-    this.perc_cholesterol = dvPercentPartial('cholesterol')
+    this.perc_cholesterol = getPercentDV(nutr, dv, 'cholesterol')
     this.sodium = nutr.sodium || 0
-    this.perc_sodium = dvPercentPartial('sodium')
+    this.perc_sodium = getPercentDV(nutr, dv, 'sodium')
     this.total_carb = nutr.carbohydrates || 0
-    this.perc_carbs = dvPercentPartial('carbohydrates')
+    this.perc_carbs = getPercentDV(nutr, dv, 'carbohydrates')
     this.dietary_fiber = nutr.dietary_fiber || 0
-    this.perc_dietary_fiber = dvPercentPartial('dietary_fiber')
+    this.perc_dietary_fiber = getPercentDV(nutr, dv, 'dietary_fiber')
     this.total_sugar = nutr.sugar || 0
     this.total_protein = nutr.protein || 0
-    this.perc_vit_a = dvPercentPartial('vit_A')
-    this.perc_vit_c = dvPercentPartial('vit_C')
-    this.perc_calcium = dvPercentPartial('calcium')
-    this.perc_iron = dvPercentPartial('iron')
+    this.perc_vit_a = getPercentDV(nutr, dv, 'vit_A')
+    this.perc_vit_c = getPercentDV(nutr, dv, 'vit_C')
+    this.perc_calcium = getPercentDV(nutr, dv, 'calcium')
+    this.perc_iron = getPercentDV(nutr, dv, 'iron')
   }
 }
 

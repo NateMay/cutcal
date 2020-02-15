@@ -1,6 +1,6 @@
-import { Meal } from '@cutcal/diet';
-import { Nutrition, sumNutritions } from '@cutcal/nutrition';
-import * as _ from 'lodash';
+import { Meal } from '@cutcal/diet'
+import { Nutrition, sumNutritions } from '@cutcal/nutrition'
+import * as _ from 'lodash'
 
 export class DailyNutrition {
   date: Date

@@ -1,20 +1,24 @@
-import { Component, ElementRef, Inject, Input, OnDestroy, Optional, TemplateRef, ViewChild } from '@angular/core'
+import {
+  Component,
+  ElementRef,
+  Inject,
+  Input,
+  OnDestroy,
+  Optional,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core'
 import { Subject } from 'rxjs'
-import { dateFromTime, forceZero } from '../../../../functions/dateFromTime/dateFromTime'
+import {
+  dateFromTime,
+  forceZero,
+} from '../../../../functions/dateFromTime/dateFromTime'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimePeriod } from '../../models/time-period.enum'
 import { TimeUnit } from '../../models/time-unit.enum'
+import { DEFAULT_HOUR, DEFAULT_MINUTE } from '../../utils/default-clock-face'
 import { TimePickerData, TIME_PICKER_DATA } from '../../utils/time-picker-data'
 import { TimePickerInputComponent } from '../time-picker-input/time-picker-input.component'
-
-const DEFAULT_HOUR: ClockFaceTime = {
-  time: 12,
-  angle: 360,
-}
-const DEFAULT_MINUTE: ClockFaceTime = {
-  time: 0,
-  angle: 360,
-}
 
 @Component({
   selector: 'cc-timepicker-dialog',

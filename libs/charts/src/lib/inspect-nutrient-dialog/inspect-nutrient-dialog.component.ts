@@ -9,12 +9,12 @@ import * as _ from 'lodash'
 import { first, tap } from 'rxjs/operators'
 import { InspectionData, INSPECTION_DATA } from './inspection-data'
 
-Drilldown(Highcharts)
-
 interface SeriesPieDataOptions extends PointOptionsObject {
   type?: string
-  unit?: string
+  unit: string
 }
+
+Drilldown(Highcharts)
 
 @Component({
   selector: 'cc-inspect-nutrient-dialog',
@@ -94,12 +94,12 @@ export class InspectNutrientDialogComponent implements OnInit {
   }
   get nutrient(): string {
     // URGENT FIXME - new highcharts api
-    return null
+    return 'calroies'
     // return this.series.userOptions.nutrient
   }
-  get unit() {
+  get unit(): string {
     // URGENT FIXME - new highcharts api
-    return null
+    return 'unit'
     // return this.series.userOptions.unit
   }
 
@@ -131,13 +131,14 @@ export class InspectNutrientDialogComponent implements OnInit {
 
     this.options = {
       ...this.baseOptions,
-      series: <Highcharts.SeriesPieOptions[]>[
+      series: [
         {
           name: this.date.toDateString(),
           data: this.getSeriesData(meals),
+          type: 'pie',
         },
       ],
-      drilldown: <Highcharts.DrilldownOptions>{
+      drilldown: {
         series: _.values<KVP<SeriesOptionsType>>(this.drilldownSeries),
       },
     }
@@ -150,7 +151,7 @@ export class InspectNutrientDialogComponent implements OnInit {
    * @reference [Stackblitz] {@link https://stackblitz.com/edit/highcharts-angular-drilldown}
    * @reference [StackOverflow] {@link https://stackoverflow.com/questions/23153403/drilldown-multiple-levels-highchart}
    */
-  getSeriesData(meals: KVP<Meal>): SeriesPieDataOptions[] {
+  getSeriesData(meals: KVP<Meal>): any[] {
     return _.map(meals, meal => {
       this.drilldownSeries[
         meal._id

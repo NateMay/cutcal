@@ -11,7 +11,7 @@ export function sumNutritions(
   return _.mergeWith.apply(
     null,
     [{}].concat(source).concat((value: number, src: number) => {
-      if (_.isNumber(value)) return value + src
+      return _.isNumber(value) ? value + src : null
     })
   )
 }

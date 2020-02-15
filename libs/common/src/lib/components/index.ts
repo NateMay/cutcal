@@ -12,4 +12,3 @@ export * from './food-image/images.component'
 export * from './food-image/images.module'
 export * from './storage/storage.component'
 export * from './storage/storage.module'
-

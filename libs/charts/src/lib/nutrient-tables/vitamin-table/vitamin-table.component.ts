@@ -1,5 +1,20 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { DailyValueSvc, Folate, getFolate, getVitaminA, getVitaminD, getVitaminE, NutrientMetaData, NUTRIENTS, Nutrition, NutritionRange, VitaminA, VitaminD, VitaminE, ZERO_NUTRITION } from '@cutcal/nutrition'
+import {
+  DailyValueSvc,
+  Folate,
+  getFolate,
+  getVitaminA,
+  getVitaminD,
+  getVitaminE,
+  NutrientMetaData,
+  NUTRIENTS,
+  Nutrition,
+  NutritionRange,
+  VitaminA,
+  VitaminD,
+  VitaminE,
+  ZERO_NUTRITION,
+} from '@cutcal/nutrition'
 import * as _ from 'lodash'
 @Component({
   selector: 'table[cc-vitamin],cc-vitamin',

@@ -1,5 +1,5 @@
-import { Nutrition } from '@cutcal/nutrition';
-import { NUTRIENT_KEYS } from '../base-nutrition';
+import { Nutrition } from '@cutcal/nutrition'
+import { NUTRIENT_KEYS } from '../base-nutrition'
 
 export function updateNutritions(
   operation: 'add' | 'subtract',
@@ -10,11 +10,9 @@ export function updateNutritions(
   const dir = operation == 'add' ? 1 : -1
 
   NUTRIENT_KEYS.forEach(nutrient => {
-    if (typeof adjust[nutrient] === 'number')
-    result[nutrient] = Math.max(
-      (start[nutrient] || 0) + adjust[nutrient] * dir,
-      0
-    )
+    const adjusted = adjust[nutrient]
+    if (adjusted && typeof adjusted === 'number')
+      result[nutrient] = Math.max((start[nutrient] || 0) + adjusted * dir, 0)
   })
 
   return result

@@ -1,8 +1,15 @@
 import { Component, Input } from '@angular/core'
-import { DailyValueSvc, getOthers, NutrientMetaData, NUTRIENTS, Nutrition, NutritionRange, Others, ZERO_NUTRITION } from '@cutcal/nutrition'
+import {
+  DailyValueSvc,
+  getOthers,
+  NutrientMetaData,
+  NUTRIENTS,
+  Nutrition,
+  NutritionRange,
+  Others,
+  ZERO_NUTRITION,
+} from '@cutcal/nutrition'
 import * as _ from 'lodash'
-
-
 
 @Component({
   selector: 'table[cc-other],cc-other',

@@ -14,4 +14,3 @@ export * from './nutrition-label/nutr-label'
 export * from './nutrition-label/nutr-label.component'
 export * from './progress-bar/progress-bar.component'
 export * from './progress-bar/progress-bar.module'
-

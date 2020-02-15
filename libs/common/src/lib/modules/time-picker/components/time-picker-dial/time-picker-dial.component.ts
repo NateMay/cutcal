@@ -1,8 +1,22 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, TemplateRef } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  TemplateRef,
+} from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimePeriod } from '../../models/time-period.enum'
 import { TimeUnit } from '../../models/time-unit.enum'
-import { disableHours, disableMinutes, getHours, getMinutes } from '../../utils/timepicker-time.utils'
+import {
+  disableHours,
+  disableMinutes,
+  getHours,
+  getMinutes,
+} from '../../utils/timepicker-time.utils'
 
 @Component({
   selector: 'cc-timepicker-dial',

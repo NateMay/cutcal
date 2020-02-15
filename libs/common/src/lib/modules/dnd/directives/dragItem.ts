@@ -1,4 +1,13 @@
-import { Directive, EventEmitter, HostListener, Inject, Input, NgZone, Output, Renderer2 } from '@angular/core'
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  Inject,
+  Input,
+  NgZone,
+  Output,
+  Renderer2,
+} from '@angular/core'
 import { fromEvent } from 'rxjs'
 import { finalize, first, skip, takeUntil, tap } from 'rxjs/operators'
 import { Boolish } from '../../../decorators/boolish/boolish'
@@ -13,12 +22,10 @@ export const DRAG_SKIP_COUNT = 6
   selector: '[drag],[ccDrag]',
 })
 export class DragItem {
-
   static default: string = '../../../../assets/svgs/meal.svg'
 
   private img = <HTMLImageElement>document.getElementById('drag-obj')
   private app = <HTMLImageElement>document.getElementById('app-root')
-
 
   @Input() drag: any
   // @Input() dropID: string;

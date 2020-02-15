@@ -1,14 +1,30 @@
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import { Component, Injector, OnDestroy, OnInit, ViewContainerRef } from '@angular/core'
+import {
+  Component,
+  Injector,
+  OnDestroy,
+  OnInit,
+  ViewContainerRef,
+} from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { AuthService } from '@cutcal/auth'
-import { HighChartsDataPoint, InspectionData, INSPECTION_DATA, InspectNutrientDialogComponent, setLightGridTheme } from '@cutcal/charts'
-import { analyzeParams, AppState, dateArray } from '@cutcal/common'
+import {
+  HighChartsDataPoint,
+  InspectionData,
+  INSPECTION_DATA,
+  InspectNutrientDialogComponent,
+  setLightGridTheme,
+} from '@cutcal/charts'
+import { analyzeParams, dateArray } from '@cutcal/common'
 import { KVP } from '@cutcal/core'
 import { MealService } from '@cutcal/diet'
-import { createNutrCheckableMap, NutrCheckable, Nutrition, nutrtionSelections } from '@cutcal/nutrition'
-import { Store } from '@ngrx/store'
+import {
+  createNutrCheckableMap,
+  NutrCheckable,
+  Nutrition,
+  nutrtionSelections,
+} from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import { Options, SeriesOptionsType } from 'highcharts'
 import * as _ from 'lodash'
@@ -19,7 +35,6 @@ import { AnalysisChartVM } from './models/analysis-chart'
 import { ChartControls, updateControls } from './models/chart-controls'
 import { DailyNutrition } from './models/daily-nutrition'
 import { ViewMap } from './models/view-map'
-
 
 // Sets Highchart Theme
 setLightGridTheme()
@@ -89,7 +104,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
     private router: Router,
     private mealSvc: MealService,
     // FEATURE (analyze) (ngrx) get and set ViewMaps from the store
-    private store: Store<AppState>,
+    // private store: Store<AppState>,
     private overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
     private injector: Injector,
@@ -336,9 +351,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
 
   // ***************   INSPECTION MODAL   ****************** //
 
-  openModal = (
-    event
-  ) => {
+  openModal = event => {
     /**
      * @reference [Overlay-Stackblitz] {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts}
      */

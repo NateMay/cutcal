@@ -37,6 +37,10 @@ function analyzeStartDate(fromDate: Date, timeframe: Timeframe) {
       return fromDate.firstDayOfMonth().toUrlString()
     case 'year':
       return new Date(fromDate.getFullYear(), 0, 1).toUrlString()
+    default:
+      throw new Error(
+        `[CutCal] analyzeStartDate() is not currently accounting for the 'day' Timeframe`
+      )
   }
 }
 
@@ -51,5 +55,9 @@ function analyzeEndDate(fromDate: Date, timeframe: Timeframe) {
       return fromDate.lastDayOfMonth().toUrlString()
     case 'year':
       return new Date(fromDate.getFullYear(), 11, 31).toUrlString()
+    default:
+      throw new Error(
+        `[CutCal] analyzeEndDate() is not currently accounting for the 'day' Timeframe`
+      )
   }
 }

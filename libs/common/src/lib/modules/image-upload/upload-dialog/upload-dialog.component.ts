@@ -1,7 +1,10 @@
 import { Component, Inject, ViewChild } from '@angular/core'
 import { ImageCropperComponent } from '../image-cropper/image-cropper.component'
 import { ImageCroppedEvent } from '../interfaces/image-cropped-event'
-import { ImageCroperData, IMAGE_CROPPER_DATA } from '../utils/image-cropper.data'
+import {
+  ImageCroperData,
+  IMAGE_CROPPER_DATA,
+} from '../utils/image-cropper.data'
 
 @Component({
   selector: 'cc-upload-dialog',

@@ -1,6 +1,11 @@
 import { Component, Input } from '@angular/core'
 import { Portion } from '@cutcal/diet'
-import { caloriesFrom, DailyValueSvc, Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
+import {
+  caloriesFrom,
+  DailyValueSvc,
+  Nutrition,
+  ZERO_NUTRITION,
+} from '@cutcal/nutrition'
 import { NutritionLabel } from './nutr-label'
 
 @Component({

@@ -1,4 +1,17 @@
-import { ChartOptions, LegendOptions, PlotAreaOptions, PlotBarOptions, PlotColumnOptions, PlotLineOptions, PlotOptions, ResponsiveOptions, ResponsiveRulesOptions, SeriesOptionsType, TitleOptions, TooltipOptions } from 'highcharts'
+import {
+  ChartOptions,
+  LegendOptions,
+  PlotAreaOptions,
+  PlotBarOptions,
+  PlotColumnOptions,
+  PlotLineOptions,
+  PlotOptions,
+  ResponsiveOptions,
+  ResponsiveRulesOptions,
+  SeriesOptionsType,
+  TitleOptions,
+  TooltipOptions,
+} from 'highcharts'
 import * as _ from 'lodash'
 
 /**

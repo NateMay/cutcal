@@ -8,4 +8,3 @@ export * from './getNutritionParts'
 export * from './nutrient-details'
 export * from './nutrient-metadata'
 export * from './nutrition'
-

@@ -1,6 +1,22 @@
 import { animate, state, style, transition, trigger } from '@angular/animations'
 import { LiveAnnouncer } from '@angular/cdk/a11y'
-import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChildren, ElementRef, EventEmitter, Input, KeyValueDiffer, KeyValueDiffers, OnDestroy, Output, QueryList, Renderer2, ViewChildren } from '@angular/core'
+import {
+  AfterContentInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ContentChildren,
+  ElementRef,
+  EventEmitter,
+  Input,
+  KeyValueDiffer,
+  KeyValueDiffers,
+  OnDestroy,
+  Output,
+  QueryList,
+  Renderer2,
+  ViewChildren,
+} from '@angular/core'
 import { CarouselSlide } from './carousel-slide'
 
 export interface ActiveSlides {

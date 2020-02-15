@@ -1,6 +1,17 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Carbohydrates, DailyValueSvc, getCarbohydrates, getSugars, NutrientMetaData, NUTRIENTS, Nutrition, NutritionRange, Sugars, ZERO_NUTRITION } from '@cutcal/nutrition';
-import * as _ from 'lodash';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import {
+  Carbohydrates,
+  DailyValueSvc,
+  getCarbohydrates,
+  getSugars,
+  NutrientMetaData,
+  NUTRIENTS,
+  Nutrition,
+  NutritionRange,
+  Sugars,
+  ZERO_NUTRITION,
+} from '@cutcal/nutrition'
+import * as _ from 'lodash'
 
 @Component({
   selector: 'table[cc-carbs],cc-carbs',

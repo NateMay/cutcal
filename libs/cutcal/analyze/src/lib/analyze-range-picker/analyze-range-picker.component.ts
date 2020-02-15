@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { analyzeParams, CCValidators } from '@cutcal/common';
-import * as _ from 'lodash';
+import { Component, Input } from '@angular/core'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
+import { analyzeParams, CCValidators } from '@cutcal/common'
+import * as _ from 'lodash'
 
 @Component({
   selector: 'cc-analyze-range-picker',

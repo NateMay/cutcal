@@ -1,13 +1,14 @@
 import { Component, Input } from '@angular/core'
 import { caloriesFromAll, NUTRIENTS, Nutrition } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
-import { ChartOptions, Options, PlotOptions, PointOptionsObject, SeriesOptionsType, TitleOptions, TooltipOptions } from 'highcharts'
+import {
+  ChartOptions,
+  Options,
+  PlotOptions,
+  TitleOptions,
+  TooltipOptions,
+} from 'highcharts'
 import * as _ from 'lodash'
-
-interface SeriesPieDataOptions extends PointOptionsObject {
-  type?: string
-  unit?: string
-}
 
 @Component({
   selector: 'cc-calories-chart',
@@ -71,11 +72,11 @@ export class CaloriesChartComponent {
           showInLegend: true,
         },
       },
-      series: <SeriesOptionsType[]>[
+      series: [
         {
           name: 'Calories From',
-          colorByPoint: true,
           data: [],
+          type: 'pie',
         },
       ],
     }

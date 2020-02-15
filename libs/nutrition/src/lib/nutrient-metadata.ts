@@ -1,7 +1,7 @@
-import * as _ from 'lodash';
-import { NUTRIENT_KEYS } from './base-nutrition';
-import { NutrientMetaData, USDA_NUTRIENT_DETAILS } from './nutrient-details';
-import { Nutrition } from './nutrition';
+import * as _ from 'lodash'
+import { NUTRIENT_KEYS } from './base-nutrition'
+import { NutrientMetaData, USDA_NUTRIENT_DETAILS } from './nutrient-details'
+import { Nutrition } from './nutrition'
 
 class NutrientMetadataStore {
   private _nutrients: Nutrition<string>
@@ -54,7 +54,7 @@ class NutrientMetadataStore {
   nutrientData<T extends string | number>(
     whichDetail: 'id' | 'nutrient' | 'unit' | 'shortName'
   ): Nutrition<T> {
-    const result: Nutrition<string | number> = {};
+    const result: Nutrition<string | number> = {}
 
     NUTRIENT_KEYS.forEach(nutrient => {
       if (!USDA_NUTRIENT_DETAILS[nutrient])
@@ -64,7 +64,7 @@ class NutrientMetadataStore {
       else {
         result[nutrient] = USDA_NUTRIENT_DETAILS[nutrient][whichDetail]
       }
-    });
+    })
 
     return result as Nutrition<T>
   }

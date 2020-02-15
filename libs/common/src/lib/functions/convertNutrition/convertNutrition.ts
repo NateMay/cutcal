@@ -14,7 +14,6 @@ declare const require: (moduleId: string) => any
 // tslint:disable-next-line
 const convert = require('convert-units')
 
-
 /**
  * Adjusts the base food nutrition according the portion specified in the usage
  * @param {Usage} usage

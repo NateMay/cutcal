@@ -8,7 +8,11 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { RouterModule, Routes } from '@angular/router'
 import { InspectNutrientModule } from '@cutcal/charts'
-import { BasicsModule, CCAnimationsModule, DatePickerModule } from '@cutcal/common'
+import {
+  BasicsModule,
+  CCAnimationsModule,
+  DatePickerModule,
+} from '@cutcal/common'
 import { CheckableNutrientsModule } from '@cutcal/nutrition'
 import { StoreModule } from '@ngrx/store'
 import { HighchartsChartModule } from 'highcharts-angular'

@@ -9,7 +9,13 @@ import * as _ from 'lodash';
 import { of } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { bread, jam } from '../../../../data/food-seed';
-import { lunch1, lunch1_bread, lunch1_id, lunch1_jam, lunch1_pb } from '../../../../data/meal-seed';
+import {
+  lunch1,
+  lunch1_bread,
+  lunch1_id,
+  lunch1_jam,
+  lunch1_pb,
+} from '../../../../data/meal-seed';
 import { peanutButter } from './../../../../data/food-seed';
 import { MealService } from './meal.service';
 

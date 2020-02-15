@@ -9,8 +9,8 @@ import {
 import { interval, Observable, Subject } from 'rxjs'
 import { filter, takeUntil, tap } from 'rxjs/operators'
 
-const STOP_MSG = ['%c stopped hold', 'color: #ec6969; font-weight: bold;']
-const START_MSG = ['%c started hold', 'color: #5fba7d; font-weight: bold;']
+// const STOP_MSG = ['%c stopped hold', 'color: #ec6969; font-weight: bold;']
+// const START_MSG = ['%c started hold', 'color: #5fba7d; font-weight: bold;']
 
 @Directive({
   selector: '[holdable],[ccHoldable]',

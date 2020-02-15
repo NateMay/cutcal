@@ -1,7 +1,14 @@
 /* tslint:disable:triple-equals */
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimeUnit } from '../../models/time-unit.enum'
+import { DEFAULT_HOUR } from '../../utils/default-clock-face'
 
 @Component({
   selector: 'cc-timepicker-dial-control',
@@ -35,7 +42,9 @@ export class TimepickerDialControlComponent {
   @Output() timeChanged = new EventEmitter<ClockFaceTime>()
 
   private get selectedTime(): ClockFaceTime | undefined {
-    if (!!this._time) return this.timeList.find(t => t.time === +this._time)
+    return !!this._time
+      ? this.timeList.find(t => t.time === +this._time)
+      : DEFAULT_HOUR
   }
 
   // ngOnChanges(changes: SimpleChanges) {

@@ -1,5 +1,22 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { DailyValueSvc, getMonoUnsaturated, getOmega3, getOmega6, getPolyUnsaturated, getSaturatedFat, getTransUnsaturated, MonoUnsaturated, NutrientMetaData, NUTRIENTS, Nutrition, NutritionRange, PolyUnsaturated, SaturatedFat, TransUnsaturated, ZERO_NUTRITION } from '@cutcal/nutrition'
+import {
+  DailyValueSvc,
+  getMonoUnsaturated,
+  getOmega3,
+  getOmega6,
+  getPolyUnsaturated,
+  getSaturatedFat,
+  getTransUnsaturated,
+  MonoUnsaturated,
+  NutrientMetaData,
+  NUTRIENTS,
+  Nutrition,
+  NutritionRange,
+  PolyUnsaturated,
+  SaturatedFat,
+  TransUnsaturated,
+  ZERO_NUTRITION,
+} from '@cutcal/nutrition'
 import * as _ from 'lodash'
 
 @Component({

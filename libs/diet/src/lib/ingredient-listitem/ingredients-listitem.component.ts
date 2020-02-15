@@ -1,13 +1,20 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, isDevMode, Output } from '@angular/core';
-import { MatSliderChange } from '@angular/material/slider';
-import { Router } from '@angular/router';
-import { getQuantityStep } from '@cutcal/common';
-import { Food, isFood } from './../food';
-import { Ingredient } from './../ingredient';
-import { isMeal, Meal } from './../meal';
-import { Portion } from './../portion';
-import { Usage } from './../usage';
-import { IngredientPortionChange } from './ingredientPortionChange';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  isDevMode,
+  Output,
+} from '@angular/core'
+import { MatSliderChange } from '@angular/material/slider'
+import { Router } from '@angular/router'
+import { getQuantityStep } from '@cutcal/common'
+import { Food, isFood } from './../food'
+import { Ingredient } from './../ingredient'
+import { isMeal, Meal } from './../meal'
+import { Portion } from './../portion'
+import { Usage } from './../usage'
+import { IngredientPortionChange } from './ingredientPortionChange'
 
 // FEATURE (ingredient-listitem) make the edit panel a modal
 

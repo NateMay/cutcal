@@ -5,7 +5,6 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
-  HostListener,
   Input,
   NgZone,
   OnDestroy,
@@ -165,19 +164,19 @@ export class AnimateComponent implements OnInit, OnDestroy {
     }
   }
 
-  @HostListener('@animate.start')
-  private animationStart() {
-    this.animating = true
-    this.animated = false
-    this.start.emit()
-  }
+  // @HostListener('@animate.start')
+  // private animationStart() {
+  //   this.animating = true
+  //   this.animated = false
+  //   this.start.emit()
+  // }
 
-  @HostListener('@animate.done')
-  private animationDone() {
-    this.animating = false
-    this.animated = true
-    this.done.emit()
-  }
+  // @HostListener('@animate.done')
+  // private animationDone() {
+  //   this.animating = false
+  //   this.animated = true
+  //   this.done.emit()
+  // }
 
   constructor(
     private elm: ElementRef,
