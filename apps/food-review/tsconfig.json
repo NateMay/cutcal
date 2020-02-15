@@ -1,12 +1,12 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "types": ["node", "jest"]
-    // "strictNullChecks": true,
-    // "forceConsistentCasingInFileNames": true,
-    // "noImplicitReturns": true,
-    // "strict": true,
-    // "noUnusedLocals": true,
+    "types": ["node", "jest"],
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "noUnusedLocals": true
   },
   "include": ["**/*.ts"]
 }

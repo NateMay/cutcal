@@ -264,8 +264,8 @@ describe('CalendarFaceComponent', () => {
     component['managingFocus'] = true;
     component.castFocus();
     fixture.detectChanges();
-    expect(getEl(fixture, '.cal-face-day[tabindex="0"]')).toBe(<HTMLElement>(
-      document.activeElement
-    ));
+    expect(getEl(fixture, '.cal-face-day[tabindex="0"]')).toBe(
+      <HTMLElement>document.activeElement
+    );
   });
 });

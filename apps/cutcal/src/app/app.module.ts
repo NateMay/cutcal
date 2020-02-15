@@ -20,9 +20,9 @@ import { Layout1Module } from './layout1/layout1.module'
 import { actionSanitizer } from './utils/action.sanitizer'
 import { CustomSerializer } from './utils/serializer'
 
-export const metaReducers: Array<
-  MetaReducer<AppState>
-> = !environment.production ? [] : []
+export const metaReducers: Array<MetaReducer<
+  AppState
+>> = !environment.production ? [] : []
 
 const DEV_TOOLS_OPTIONS: StoreDevtoolsOptions = {
   maxAge: 25,
