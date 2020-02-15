@@ -42,7 +42,7 @@ export class GoogleService {
       .replace(/\s\s+/g, ' ')
       .replace(' ', '+')
     return this.http
-      .get(
+      .get<EngineResponse>(
         `${this.endPoint}?key=${this.apiKey}&cx=${this.engine}&q=${modified}`
       )
       .pipe(
