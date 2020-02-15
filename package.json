@@ -11,7 +11,6 @@
     "lint": "nx workspace-lint && ng lint && npm run lint:styles",
     "lint:styles": "stylelint \"src/**/*.scss\"",
     "e2e": "ng e2e",
-    "webhint": "hint http://localhost:4200",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
@@ -117,7 +116,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format && git add ."
+      "pre-commit": "npm run affected:test && npm run format && git add .",
+      "pre-push": "npm run lint && npm run test && npm run e2e"
     }
   }
 }
