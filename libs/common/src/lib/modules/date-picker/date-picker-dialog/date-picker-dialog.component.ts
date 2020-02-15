@@ -55,8 +55,7 @@ export class DatePickerDialogComponent {
   previousFocus: HTMLElement
   monthBtnDisabled: boolean = false
 
-  @ViewChild(CalendarFaceComponent, { static: false })
-  face: CalendarFaceComponent
+  @ViewChild(CalendarFaceComponent) face!: CalendarFaceComponent
 
   constructor(@Inject(DATE_PICKER_DATA) public data: DatePickerDialogData) {
     this.monthBtnDisabled = data.monthBtnDisabled

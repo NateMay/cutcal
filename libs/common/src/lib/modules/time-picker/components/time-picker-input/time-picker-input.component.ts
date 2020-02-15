@@ -60,8 +60,8 @@ export const TIME_PICKER_CONTROL_VALUE_ACCESSOR: any = {
 })
 export class TimePickerInputComponent implements OnInit, AfterViewInit {
   // Overlay Stuff
-  pickerOverlayRef: OverlayRef
-  pickerRef: ComponentRef<TimepickerDialogComponent>
+  pickerOverlayRef!: OverlayRef
+  pickerRef!: ComponentRef<TimepickerDialogComponent>
 
   // simple @Input()s
   @Input() ariaLabel: string = 'time'
@@ -85,7 +85,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
   get time$() {
     return this._time$.asObservable()
   }
-  _time: string
+  _time!: string
   @Input()
   set time(time: string) {
     // FIXME (time-picker) handle the format convertion
@@ -105,11 +105,11 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
   set idStr(value: string) {
     this._id = value || this._uid
   }
-  private _id: string
+  private _id!: string
   private _uid = `cc-time-picker-${nextUniqueId++}`
 
   // range is currently not implemented
-  private _min: Date
+  private _min!: Date
   @Input()
   set min(min: Date) {
     this._min = typeof min === 'string' ? (this._min = dateFromTime(min)) : min
@@ -118,7 +118,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
     return this._min
   }
 
-  private _max: Date
+  private _max!: Date
   @Input()
   set max(max: Date) {
     this._max = typeof max === 'string' ? (this._max = dateFromTime(max)) : max
@@ -134,8 +134,8 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
     this.inputEl.nativeElement.value = val
   }
 
-  @ViewChild('inputEl', { static: true }) inputEl: ElementRef
-  @ViewChild('pickerOrigin', { static: true }) pickerOrigin: CdkOverlayOrigin
+  @ViewChild('inputEl') inputEl!: ElementRef
+  @ViewChild('pickerOrigin') pickerOrigin!: CdkOverlayOrigin
 
   // TODO (time-picker) get rid of this and redesign the api pof the component
   /**

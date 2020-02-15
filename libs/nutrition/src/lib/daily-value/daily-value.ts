@@ -1,5 +1,5 @@
+import { FdcUnit } from '@cutcal/fdc'
 import { Nutrition } from '../nutrition'
-import { FdcUnit } from './../fdc/fdc-unit'
 
 /**
  * Metadata for Nutrtion<NutritionRange>

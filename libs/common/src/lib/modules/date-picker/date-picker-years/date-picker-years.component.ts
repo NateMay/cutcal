@@ -23,9 +23,9 @@ interface DatePickerYear {
 export class DatePickerYearsComponent implements OnInit {
   // TODO (date-picker) manage focus
 
-  years: DatePickerYear[]
+  years!: DatePickerYear[]
 
-  @Input() selectedDate: Date | null
+  @Input() selectedDate!: Date | null
 
   private _focusDate: Date = new Date()
   @Input() set focusDate(focusDate: Date) {
@@ -47,9 +47,9 @@ export class DatePickerYearsComponent implements OnInit {
   }
 
   recalculate(currentYear: number): void {
-    this.years = Array.apply(null, { length: 15 })
+    this.years = Array.apply(null, <any>{ length: 15 })
       .map(Number.call, Number)
-      .map(num => {
+      .map((num: number) => {
         const year = currentYear - 7 + num
         return {
           year,

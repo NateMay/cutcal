@@ -1,5 +1,5 @@
+import { KVP } from '@cutcal/core'
 import * as _ from 'lodash'
-import { KVP } from '../../shared/models/key-value-pair'
 
 export type ChartType = 'line' | 'column' | 'bar'
 

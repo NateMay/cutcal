@@ -26,9 +26,7 @@
       "@cutcal/cutcal/calendar": ["libs/cutcal/calendar/src/index.ts"],
       "@cutcal/cutcal/fallback": ["libs/cutcal/fallback/src/index.ts"],
       "@cutcal/cutcal/footer": ["libs/cutcal/footer/src/index.ts"],
-      "@cutcal/cutcal/header": ["libs/cutcal/header/src/index.ts"],
       "@cutcal/cutcal/profile": ["libs/cutcal/profile/src/index.ts"],
-      "@cutcal/cutcal/sidebar": ["libs/cutcal/sidebar/src/index.ts"],
       "@cutcal/cutcal/recipe-builder": [
         "libs/cutcal/recipe-builder/src/index.ts"
       ],
@@ -44,45 +42,6 @@
       ],
       "@cutcal/cutcal/support": ["libs/cutcal/support/src/index.ts"],
       "@cutcal/cutcal/landing": ["libs/cutcal/landing/src/index.ts"],
-      "@cutcal/common-ui/breadcrumb/playground": [
-        "libs/common-ui/breadcrumb/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/animate/playground": [
-        "libs/common-ui/animate/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/am-pm/playground": [
-        "libs/common-ui/am-pm/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/carousel/playground": [
-        "libs/common-ui/carousel/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/datepicker/playground": [
-        "libs/common-ui/datepicker/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/timepicker/playground": [
-        "libs/common-ui/timepicker/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/drag-n-drop/playground": [
-        "libs/common-ui/drag-n-drop/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/date-time-binder/playground": [
-        "libs/common-ui/date-time-binder/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/dynamic-width/playground": [
-        "libs/common-ui/dynamic-width/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/flip-card/playground": [
-        "libs/common-ui/flip-card/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/holdable/playground": [
-        "libs/common-ui/holdable/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/image-upload/playground": [
-        "libs/common-ui/image-upload/playground/src/index.ts"
-      ],
-      "@cutcal/common-ui/nutrition-label/playground": [
-        "libs/common-ui/nutrition-label/playground/src/index.ts"
-      ],
       "@cutcal/common-ui/landing": ["libs/common-ui/landing/src/index.ts"],
       "@cutcal/common-ui/animate": [
         "libs/common-ui/animate/animate/src/index.ts"

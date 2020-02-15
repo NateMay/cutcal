@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  EventEmitter,
-  forwardRef,
-  Input,
-  OnDestroy,
-  Output,
-} from '@angular/core'
+import { AfterViewInit, Component, EventEmitter, forwardRef, Input, OnDestroy, Output } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { Subject } from 'rxjs'
 import { delay, map, takeUntil, tap } from 'rxjs/operators'
@@ -42,7 +34,7 @@ export class DatetimeBinderComponent
   implements AfterViewInit, OnDestroy, ControlValueAccessor {
   private unsub$: Subject<void> = new Subject()
 
-  _disabled: boolean
+  _disabled: boolean = false
 
   @Boolish
   @Input()
@@ -76,7 +68,7 @@ export class DatetimeBinderComponent
   }
   @Output() datetimeChange = new EventEmitter<Date>()
 
-  _datePicker: DatePickerInputComponent
+  _datePicker!: DatePickerInputComponent
   @Input()
   get datePicker() {
     return this._datePicker
@@ -102,7 +94,7 @@ export class DatetimeBinderComponent
    *   ↓  Time Picker  ↓
    */
 
-  _timePicker: TimePickerInputComponent
+  _timePicker!: TimePickerInputComponent
   @Input()
   get timePicker() {
     return this._timePicker

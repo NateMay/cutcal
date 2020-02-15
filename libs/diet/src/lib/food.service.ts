@@ -1,16 +1,18 @@
-import { Injectable } from '@angular/core'
-import { AngularFirestoreDocument } from '@angular/fire/firestore'
-import { AngularFireStorage } from '@angular/fire/storage'
-import { UploadMetadata } from '@angular/fire/storage/interfaces'
-import { AuthService } from '@cutcal/auth'
-import { KVP } from '@cutcal/core'
-import { FirestoreService } from '@cutcal/fire'
-import * as firebase from 'firebase/app'
-import * as _ from 'lodash'
-import { combineLatest, Observable, of } from 'rxjs'
-import { filter, finalize, flatMap, map } from 'rxjs/operators'
-import { Food } from './food'
-import { Usage } from './usage'
+import { Injectable } from '@angular/core';
+import { AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { UploadMetadata } from '@angular/fire/storage/interfaces';
+import { AuthService } from '@cutcal/auth';
+import { KVP, uniqueID } from '@cutcal/core';
+import { FirestoreService } from '@cutcal/fire';
+import * as firebase from 'firebase/app';
+import * as _ from 'lodash';
+import { combineLatest, Observable, of } from 'rxjs';
+import { filter, finalize, flatMap, map } from 'rxjs/operators';
+import { Food } from './food';
+import { Recipe } from './recipe';
+import { Tripple } from './tripple';
+import { createUsage, Usage } from './usage';
 
 export type FoodTripple = [Food, KVP<Usage>, KVP<Food>]
 

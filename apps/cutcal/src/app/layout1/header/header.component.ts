@@ -7,7 +7,7 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core'
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  // @ViewChild(CdkOverlayOrigin) _overlayOrigin: CdkOverlayOrigin
+  // @ViewChild(CdkOverlayOrigin) _overlayOrigin!: CdkOverlayOrigin
 
   constructor(
     public overlay: Overlay,

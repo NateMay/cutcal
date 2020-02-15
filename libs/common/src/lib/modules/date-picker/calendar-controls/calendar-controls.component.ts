@@ -44,9 +44,9 @@ let nextUniqueId: number = 0
   `,
 })
 export class CalendarControlsComponent {
-  @Input() monthBtnID: string | null
-  @Input() prevBtnID: string | null
-  @Input() nextBtnID: string | null
+  @Input() monthBtnID!: string
+  @Input() prevBtnID!: string
+  @Input() nextBtnID!: string
 
   @Input() monthBtnDisabled: boolean = false
 

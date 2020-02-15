@@ -1,7 +1,6 @@
-import * as _ from 'lodash'
-import { sumNutritions } from '../../shared/functions/sumNutritions/sumNutritions'
-import { Meal } from '../../shared/models/meal'
-import { Nutrition } from '../../shared/models/nutrition'
+import { Meal } from '@cutcal/diet';
+import { Nutrition, sumNutritions } from '@cutcal/nutrition';
+import * as _ from 'lodash';
 
 export class DailyNutrition {
   date: Date

@@ -1,15 +1,17 @@
-import { Nutrition } from './nutrition'
-
+import * as _ from 'lodash';
+import { Nutrition } from './nutrition';
 /**
  * Full Nutrition object with all zeros
  */
-export const ZERO_NUTRITION = <Nutrition<number>>Object.freeze(BASE_NUTRITION())
+export const ZERO_NUTRITION = <Nutrition<number>>Object.freeze(BASE_NUTRITION(null))
 
+
+export const NUTRIENT_KEYS = _.keys(ZERO_NUTRITION) as Array<keyof Nutrition<any>>
 /**
  * Returns a new, comprehensive nutrition object with zero values
  */
 
-export function BASE_NUTRITION<T>(value: any = 0): Nutrition<T> {
+export function BASE_NUTRITION<T>(value: T): Nutrition<T> {
   return {
     // ENERGY
     calories: value,

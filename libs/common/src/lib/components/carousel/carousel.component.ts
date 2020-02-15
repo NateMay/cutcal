@@ -234,7 +234,7 @@ export class CarouselComponent implements OnDestroy, AfterContentInit {
     return slide ? slide.nativeElement.textContent : ''
   }
 
-  @ViewChildren('slide', { read: ElementRef }) slideRefs: QueryList<ElementRef>
+  @ViewChildren('slide', { read: ElementRef }) slideRefs!: QueryList<ElementRef>
 
   @ContentChildren(CarouselSlide)
   carouselSlides: QueryList<CarouselSlide>

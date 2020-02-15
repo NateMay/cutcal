@@ -12,7 +12,7 @@ import { Directive, Input, OnInit } from '@angular/core'
   selector: '[connectForm],[ccConnectForm]',
 })
 export class ConnectFormDirective implements OnInit {
-  @Input('connectForm') path: string
+  @Input('connectForm') path!: string
 
   // constructor(
   //   private formGroupDirective: FormGroupDirective,

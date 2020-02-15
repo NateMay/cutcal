@@ -668,37 +668,6 @@
         }
       }
     },
-    "cutcal-header": {
-      "projectType": "library",
-      "root": "libs/cutcal/header",
-      "sourceRoot": "libs/cutcal/header/src",
-      "prefix": "cc",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/cutcal/header/tsconfig.lib.json",
-              "libs/cutcal/header/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/header/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/cutcal/header/jest.config.js",
-            "tsConfig": "libs/cutcal/header/tsconfig.spec.json",
-            "setupFile": "libs/cutcal/header/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "cutcal-profile": {
       "projectType": "library",
       "root": "libs/cutcal/profile",
@@ -721,37 +690,6 @@
             "jestConfig": "libs/cutcal/profile/jest.config.js",
             "tsConfig": "libs/cutcal/profile/tsconfig.spec.json",
             "setupFile": "libs/cutcal/profile/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "cutcal-sidebar": {
-      "projectType": "library",
-      "root": "libs/cutcal/sidebar",
-      "sourceRoot": "libs/cutcal/sidebar/src",
-      "prefix": "cc",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/cutcal/sidebar/tsconfig.lib.json",
-              "libs/cutcal/sidebar/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/sidebar/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/cutcal/sidebar/jest.config.js",
-            "tsConfig": "libs/cutcal/sidebar/tsconfig.spec.json",
-            "setupFile": "libs/cutcal/sidebar/src/test-setup.ts"
           }
         }
       },

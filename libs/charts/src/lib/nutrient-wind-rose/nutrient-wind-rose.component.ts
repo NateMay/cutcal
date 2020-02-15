@@ -1,10 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core'
+import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import More from 'highcharts/highcharts-more'
 import Data from 'highcharts/modules/data'
 import Windbarb from 'highcharts/modules/windbarb'
-import { Nutrition } from '../../../models/nutrition'
-import { ZERO_NUTRITION } from '../../../usda_nutrition/base-nutrition'
 
 // FEATURE (balance) wire up to data
 

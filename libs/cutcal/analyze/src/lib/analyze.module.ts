@@ -7,11 +7,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar'
 import { MatSelectModule } from '@angular/material/select'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { RouterModule, Routes } from '@angular/router'
-import {
-  BasicsModule,
-  CCAnimationsModuls,
-  DatePickerModule,
-} from '@cutcal/common'
+import { InspectNutrientModule } from '@cutcal/charts'
+import { BasicsModule, CCAnimationsModule, DatePickerModule } from '@cutcal/common'
 import { CheckableNutrientsModule } from '@cutcal/nutrition'
 import { StoreModule } from '@ngrx/store'
 import { HighchartsChartModule } from 'highcharts-angular'
@@ -49,8 +46,8 @@ const MAT_MODULES = [
     DatePickerModule,
     CheckableNutrientsModule,
     HighchartsChartModule,
-    CCAnimationsModuls,
-    InspectNutrientModuls.forRoot(),
+    CCAnimationsModule,
+    InspectNutrientModule.forRoot(),
     StoreModule.forFeature('analyze', analyzeReducer),
     RouterModule.forChild(routes),
   ],

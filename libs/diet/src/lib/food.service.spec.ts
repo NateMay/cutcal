@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { AuthService } from '../auth/auth.service';
-import { FirestoreService } from '../fireStore/fireStore.service';
+import { AuthService } from '@cutcal/auth';
+import { FirestoreService } from '@cutcal/fire';
 import { FoodService } from './food.service';
 
 // DEPENDS ON (recipe) then TEST (food-service)

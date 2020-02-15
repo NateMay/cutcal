@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core'
-import { HighChartsDataPoint } from '../../models/highcharts-data-point'
+import { HighChartsDataPoint } from '@cutcal/charts'
 
 export const INSPECTION_DATA = new InjectionToken<{}>('InspectionData')
 

@@ -3,17 +3,11 @@ import { Injectable } from '@angular/core'
 import { AuthService } from '@cutcal/auth'
 import { KVP } from '@cutcal/core'
 import { createPortion, Image, Portion } from '@cutcal/diet'
-import { Nutrition } from '@cutcal/nutrition'
+import { NutrientMetaData, NUTRIENTS, Nutrition } from '@cutcal/nutrition'
 import * as _ from 'lodash'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { NutrientMetaData } from './../nutrient-details'
-import { NUTRIENTS } from './../nutrient-metadata'
-import {
-  FdcFoodDetailResponse,
-  FdcFoodMeasure,
-  FdcFoodNutrient,
-} from './fdc-detail'
+import { FdcFoodDetailResponse, FdcFoodMeasure, FdcFoodNutrient } from './fdc-detail'
 import { FDCFoodSearchResponse } from './fdc-search'
 
 export interface Food2 {

@@ -1,25 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  EventEmitter,
-  HostBinding,
-  HostListener,
-  Input,
-  NgZone,
-  OnChanges,
-  Output,
-  SimpleChanges,
-  ViewChild,
-} from '@angular/core'
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, NgZone, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core'
 import { DomSanitizer, SafeStyle, SafeUrl } from '@angular/platform-browser'
 import { CropperPosition } from '../interfaces/cropper-position'
 import { ImageCroppedEvent } from '../interfaces/image-cropped-event'
-import {
-  resetExifOrientation,
-  transformBase64BasedOnExifRotation,
-} from '../utils/exif.utils'
+import { resetExifOrientation, transformBase64BasedOnExifRotation } from '../utils/exif.utils'
 import { resizeCanvas } from '../utils/resize.utils'
 
 /**
@@ -130,11 +113,11 @@ export type OutputType = 'base64' | 'file' | 'both'
   `,
 })
 export class ImageCropperComponent implements OnChanges {
-  private originalImage: any
-  private originalBase64: string
-  private moveStart: MoveStart
-  private maxSize: Dimensions
-  private originalSize: Dimensions
+  private originalImage!: any
+  private originalBase64!: string
+  private moveStart!: MoveStart
+  private maxSize!: Dimensions
+  private originalSize!: Dimensions
   private setImageMaxSizeRetries = 0
   private cropperScaledMinWidth = 20
   private cropperScaledMinHeight = 20
@@ -143,7 +126,7 @@ export class ImageCropperComponent implements OnChanges {
   marginLeft: SafeStyle | string = '0px'
   imageVisible = false
 
-  @ViewChild('sourceImage', { static: true }) sourceImage: ElementRef
+  @ViewChild('sourceImage') sourceImage!: ElementRef
 
   @Input()
   set imageFileChanged(file: File) {

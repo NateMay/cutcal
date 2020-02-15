@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '@cutcal/auth';
 import { FdcService } from './fdc.service';
 
 describe('FdcService', () => {

@@ -100,17 +100,17 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
   @HostBinding('style.width')
   width: string = '205px'
 
-  pickerOverlayRef: OverlayRef
+  pickerOverlayRef!: OverlayRef
 
-  pickerRef: ComponentRef<DatePickerDialogComponent>
+  pickerRef!: ComponentRef<DatePickerDialogComponent>
 
   get ariaLabel() {
     return `${this.label} - ${this.placeholder}`
   }
 
-  @ViewChild('input', { static: true }) input: ElementRef
+  @ViewChild('input') input!: ElementRef
 
-  @ViewChild('pickerOrigin', { static: true }) pickerOrigin: CdkOverlayOrigin
+  @ViewChild('pickerOrigin') pickerOrigin!: CdkOverlayOrigin
 
   @HostListener('document:mousedown', ['$event'])
   onmousedown(event: MouseEvent): void {
@@ -204,7 +204,7 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
       })
   }
 
-  private createInjector(data): PortalInjector {
+  private createInjector(data: DatePickerDialogData): PortalInjector {
     return new PortalInjector(
       this.injector,
       new WeakMap<any, any>([[DATE_PICKER_DATA, data]])
@@ -225,7 +225,7 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
     this.closePicker()
   }
 
-  registerOnChange(fn: (date: Date) => void): void {
+  registerOnChange(fn: (date: Date | null) => void): void {
     this.onChange = fn
   }
 

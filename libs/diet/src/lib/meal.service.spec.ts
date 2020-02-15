@@ -1,10 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { AuthService } from '@cutcal/auth';
+import { STRICT_RUNTIME_CHECKS } from '@cutcal/core';
+import { FirestoreService } from '@cutcal/fire';
 import { StoreModule } from '@ngrx/store';
 import * as _ from 'lodash';
 import { of } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { bread, jam } from '../../../../data/food-seed';
+import { lunch1, lunch1_bread, lunch1_id, lunch1_jam, lunch1_pb } from '../../../../data/meal-seed';
+import { peanutButter } from './../../../../data/food-seed';
 import { MealService } from './meal.service';
 
 // DEPENDS ON (recipe) then TEST (meal-service)
@@ -38,7 +44,7 @@ describe('MealService', () => {
             ...reducers,
             auth: authReducer,
           },
-          RUNTIME_CHECKS
+          STRICT_RUNTIME_CHECKS
         ),
       ],
       providers: [

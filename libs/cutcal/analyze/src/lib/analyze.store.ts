@@ -1,6 +1,5 @@
+import { NutrCheckable, Nutrition, nutrtionSelections } from '@cutcal/nutrition'
 import { Action, createAction, createReducer, on } from '@ngrx/store'
-import { Nutrition } from '../shared/models/nutrition'
-import { NutrCheckable, nutrtionSelections } from './models/checkable-nutrient'
 
 // ****** ACTIONS ******* //
 

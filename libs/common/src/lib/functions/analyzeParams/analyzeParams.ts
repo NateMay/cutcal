@@ -1,5 +1,5 @@
 import { NavigationExtras } from '@angular/router'
-import { Timeframe } from './../../types/timeframe'
+import { Timeframe } from '@cutcal/core'
 
 /**
  * Creates the proper url for any data range or date and timeframe

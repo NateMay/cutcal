@@ -8,5 +8,5 @@
 export function dateArray(len: number, startDate: Date = new Date()): Date[] {
   return Array.apply(null, { length: len })
     .map(Number.call, Number)
-    .map(num => startDate.addDays(num))
+    .map((num: number) => startDate.addDays(num))
 }

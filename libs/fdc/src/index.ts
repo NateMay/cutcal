@@ -1,1 +1,2 @@
-export * from './lib/fdc.module'
+export * from './lib';
+

@@ -25,7 +25,7 @@ export function docJoin<T>(
 ): (source: Observable<Partial<T>>) => Observable<T> {
   return source =>
     defer(() => {
-      let parentDoc
+      let parentDoc: any
 
       const keys = Object.keys(paths)
 

@@ -1,7 +1,7 @@
-import * as _ from 'lodash'
-import { BASE_NUTRITION } from './base-nutrition'
-import { NutrientMetaData, USDA_NUTRIENT_DETAILS } from './nutrient-details'
-import { Nutrition } from './nutrition'
+import * as _ from 'lodash';
+import { NUTRIENT_KEYS } from './base-nutrition';
+import { NutrientMetaData, USDA_NUTRIENT_DETAILS } from './nutrient-details';
+import { Nutrition } from './nutrition';
 
 class NutrientMetadataStore {
   private _nutrients: Nutrition<string>
@@ -44,28 +44,29 @@ class NutrientMetadataStore {
   }
 
   constructor() {
-    this._ids = this.nutrientData('id')
-    this._shortNames = this.nutrientData('shortName')
-    this._units = this.nutrientData('unit')
-    this._nutrients = this.nutrientData('nutrient')
+    this._ids = this.nutrientData<number>('id')
+    this._shortNames = this.nutrientData<string>('shortName')
+    this._units = this.nutrientData<string>('unit')
+    this._nutrients = this.nutrientData<string>('nutrient')
   }
 
   // @Memoize()
-  nutrientData(
+  nutrientData<T extends string | number>(
     whichDetail: 'id' | 'nutrient' | 'unit' | 'shortName'
-  ): Nutrition<any> {
-    const nutrObject = BASE_NUTRITION(null)
+  ): Nutrition<T> {
+    const result: Nutrition<string | number> = {};
 
-    // tslint:disable:forin (needs to be fast)
-    for (const nutrient in nutrObject) {
+    NUTRIENT_KEYS.forEach(nutrient => {
       if (!USDA_NUTRIENT_DETAILS[nutrient])
         console.warn(
           `details needed for "${nutrient}". https://ndb.nal.usda.gov/ndb/nutrients/index`
         )
-      else nutrObject[nutrient] = USDA_NUTRIENT_DETAILS[nutrient][whichDetail]
-    }
+      else {
+        result[nutrient] = USDA_NUTRIENT_DETAILS[nutrient][whichDetail]
+      }
+    });
 
-    return nutrObject
+    return result as Nutrition<T>
   }
 }
 

@@ -249,13 +249,13 @@ export class DetailPanelsComponent implements OnInit {
   showChart: boolean = false
   enableEditiing: boolean = false
 
-  primaries: Primaries<Portion>
-  calories: Portion
-  fat: Portion
-  carbohydrates: Portion
-  protein: Portion
+  // primaries: Primaries<Portion>
+  calories!: Portion
+  fat!: Portion
+  carbohydrates!: Portion
+  protein!: Portion
 
-  @Input() portion: Portion | null
+  @Input() portion!: Portion | null
 
   @Input() chartDelay: number = 0
 
@@ -267,7 +267,7 @@ export class DetailPanelsComponent implements OnInit {
     })
   }
 
-  private _nutrition: Nutrition<number>
+  private _nutrition!: Nutrition<number>
   @Input() set nutrition(nutrition: Nutrition<number>) {
     const units = NUTRIENTS.units
     this.calories = createPortion(units.calories || 'cal', nutrition.calories)

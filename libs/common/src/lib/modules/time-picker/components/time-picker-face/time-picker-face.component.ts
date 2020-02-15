@@ -117,8 +117,8 @@ export class TimepickerFaceComponent
   @Output() timeChange = new EventEmitter<ClockFaceTime>()
   @Output() timeSelected = new EventEmitter<number>()
 
-  @ViewChild('clockFace', { static: true }) clockFace: ElementRef
-  @ViewChild('clockHand', { static: true }) clockHand: ElementRef
+  @ViewChild('clockFace') clockFace!: ElementRef
+  @ViewChild('clockHand') clockHand!: ElementRef
 
   private isStarted: boolean
   private touchStartHandler: () => any

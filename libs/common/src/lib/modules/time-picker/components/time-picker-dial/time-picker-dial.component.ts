@@ -56,10 +56,10 @@ import { disableHours, disableMinutes, getHours, getMinutes } from '../../utils/
 export class TimepickerDialComponent implements OnChanges {
   timeUnit = TimeUnit
 
-  hours: ClockFaceTime[]
-  minutes: ClockFaceTime[]
+  hours: ClockFaceTime[] = []
+  minutes: ClockFaceTime[] = []
 
-  isHintVisible: boolean
+  isHintVisible: boolean = false
 
   @Input() editableHintTmpl!: TemplateRef<Node>
   @Input() hour!: number | string

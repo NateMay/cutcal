@@ -1,18 +1,8 @@
 import { Component, Input } from '@angular/core'
+import { caloriesFromAll, NUTRIENTS, Nutrition } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
-import {
-  ChartOptions,
-  Options,
-  PlotOptions,
-  PointOptionsObject,
-  SeriesOptionsType,
-  TitleOptions,
-  TooltipOptions,
-} from 'highcharts'
+import { ChartOptions, Options, PlotOptions, PointOptionsObject, SeriesOptionsType, TitleOptions, TooltipOptions } from 'highcharts'
 import * as _ from 'lodash'
-import { NUTRIENTS } from '../../../classes/nutrientMetadata/nutrientMetadata'
-import { caloriesFromAll } from '../../../functions/caloriesFrom/caloriesFrom'
-import { Nutrition } from '../../../models/nutrition'
 
 interface SeriesPieDataOptions extends PointOptionsObject {
   type?: string

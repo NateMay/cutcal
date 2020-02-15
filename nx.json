@@ -59,13 +59,7 @@
     "cutcal-footer": {
       "tags": ["cutcal", "feature"]
     },
-    "cutcal-header": {
-      "tags": ["cutcal", "feature"]
-    },
     "cutcal-profile": {
-      "tags": ["cutcal", "feature"]
-    },
-    "cutcal-sidebar": {
       "tags": ["cutcal", "feature"]
     },
     "cutcal-recipe-builder": {

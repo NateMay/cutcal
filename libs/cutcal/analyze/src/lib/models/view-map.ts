@@ -1,4 +1,4 @@
-import { KVP } from '../../shared/models/key-value-pair'
+import { KVP } from '@cutcal/core'
 import { AnalysisChartVM } from './analysis-chart'
 
 export interface ViewMap {

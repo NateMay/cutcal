@@ -1,43 +1,25 @@
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import {
-  Component,
-  Injector,
-  OnDestroy,
-  OnInit,
-  ViewContainerRef,
-} from '@angular/core'
+import { Component, Injector, OnDestroy, OnInit, ViewContainerRef } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { AuthService } from '@cutcal/auth'
-import {
-  InspectionData,
-  INSPECTION_DATA,
-  InspectNutrientDialogComponent,
-  setLightGridTheme,
-} from '@cutcal/charts'
-import { analyzeParams, dateArray } from '@cutcal/common'
+import { HighChartsDataPoint, InspectionData, INSPECTION_DATA, InspectNutrientDialogComponent, setLightGridTheme } from '@cutcal/charts'
+import { analyzeParams, AppState, dateArray } from '@cutcal/common'
 import { KVP } from '@cutcal/core'
 import { MealService } from '@cutcal/diet'
-import {
-  createNutrCheckableMap,
-  NutrCheckable,
-  Nutrition,
-  nutrtionSelections,
-} from '@cutcal/nutrition'
+import { createNutrCheckableMap, NutrCheckable, Nutrition, nutrtionSelections } from '@cutcal/nutrition'
 import { Store } from '@ngrx/store'
 import * as Highcharts from 'highcharts'
 import { Options, SeriesOptionsType } from 'highcharts'
 import * as _ from 'lodash'
 import { combineLatest, Subject } from 'rxjs'
 import { first, map, switchMap, takeUntil, tap } from 'rxjs/operators'
-import {
-  BASE_ANALYZE_CHART_OPTIONS,
-  HighChartsDataPoint,
-} from './constants/analyze.options'
+import { BASE_ANALYZE_CHART_OPTIONS } from './constants/analyze.options'
 import { AnalysisChartVM } from './models/analysis-chart'
 import { ChartControls, updateControls } from './models/chart-controls'
 import { DailyNutrition } from './models/daily-nutrition'
 import { ViewMap } from './models/view-map'
+
 
 // Sets Highchart Theme
 setLightGridTheme()
@@ -331,9 +313,10 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
     if (!chart.options.series)
       throw new Error('[CutCal] toggleSeries() - series is undefined')
 
-    chart.options.series = checkable.isChecked
-      ? [...chart.options.series, this.getSeries(checkable, chart.controls)]
-      : chart.options.series.filter(s => s.nutrient !== checkable.propName)
+    // FIXME (analyze)
+    // chart.options.series = checkable.isChecked
+    //   ? [...chart.options.series, this.getSeries(checkable, chart.controls)]
+    //   : chart.options.series.filter(s => s.nutrient !== checkable.propName)
 
     this.charts[chart.unit] = { ...chart }
   }
@@ -353,8 +336,8 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
 
   // ***************   INSPECTION MODAL   ****************** //
 
-  openModal: SeriesPointClickCallbackFunction = (
-    event: Highcharts.SeriesPointClickEventObject
+  openModal = (
+    event
   ) => {
     /**
      * @reference [Overlay-Stackblitz] {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts}

@@ -1,7 +1,7 @@
-import * as _ from 'lodash'
-import { DailyValue } from '../../../models/daily-value'
-import { Nutrition } from '../../../models/nutrition'
-import { KeysIn } from '../../../types/keys-in'
+import { KeysIn } from '@cutcal/core';
+import { DailyValue, Nutrition } from '@cutcal/nutrition';
+import * as _ from 'lodash';
+
 
 export class NutritionLabel {
   total_calories: number
@@ -30,8 +30,7 @@ export class NutritionLabel {
     const dvPercentPartial: (nutruent: string) => number = _.partial(
       getPercentDV,
       nutr,
-      dv,
-      _
+      dv
     )
 
     this.total_calories = nutr.calories || 0

@@ -1,25 +1,19 @@
-import { Injectable } from '@angular/core'
-import { DocumentReference } from '@angular/fire/firestore'
-import { AngularFireFunctions } from '@angular/fire/functions'
-import { AngularFireStorage } from '@angular/fire/storage'
-import { KVP } from '@cutcal/core'
-import {
-  createMeal,
-  createUsage,
-  Food,
-  Meal,
-  Tripple,
-  Usage,
-} from '@cutcal/diet'
-import { multiplyNutrition, updateNutritions } from '@cutcal/nutrition'
-import * as _ from 'lodash'
-import { combineLatest, Observable, of } from 'rxjs'
-import { filter, first, map, share, switchMap } from 'rxjs/operators'
-import { addPortion, scaleNutrition, timestamp } from '../../functions'
-import { defaultMealName } from '../../functions/deafultMealName'
-import { purifyObject } from '../../functions/purifyObject/purifyObject'
-import { removeId } from '../../functions/removeID'
-import { FirestoreService } from '../fireStore/fireStore.service'
+import { Injectable } from '@angular/core';
+import { DocumentReference } from '@angular/fire/firestore';
+import { AngularFireFunctions } from '@angular/fire/functions';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { AuthService } from '@cutcal/auth';
+import { addPortion, defaultMealName, purifyObject, scaleNutrition } from '@cutcal/common';
+import { KVP, timestamp } from '@cutcal/core';
+import { FirestoreService, removeId } from '@cutcal/fire';
+import { multiplyNutrition, updateNutritions } from '@cutcal/nutrition';
+import * as _ from 'lodash';
+import { combineLatest, Observable, of } from 'rxjs';
+import { filter, first, map, share, switchMap } from 'rxjs/operators';
+import { Food } from './food';
+import { createMeal, Meal } from './meal';
+import { Tripple } from './tripple';
+import { createUsage, DeleteUsagePayload, Usage } from './usage';
 
 export type MealTripple = [Meal, KVP<Usage>, KVP<Food>]
 export type MealsTripple = [KVP<Meal>, KVP<Usage>, KVP<Food>]
@@ -40,7 +34,7 @@ export class MealService {
   constructor(
     private db: FirestoreService,
     private storage: AngularFireStorage,
-    private auth: AuthServics,
+    private auth: AuthService,
     // https://github.com/angular/angularfire2/blob/master/docs/functions/functions.md
     private fns: AngularFireFunctions
   ) {}
@@ -60,7 +54,7 @@ export class MealService {
 
     const usages$ = this.db
       .colWithIds$<Usage>(`${this.mealCol}/${mealId}/usages`)
-      .pipe(map(usages => _.keyBy(usages, '_id')))
+    .pipe(map((usages: Usage[]) => _.keyBy(usages, '_id')))
 
     const foods$ = this.getFoodsFromUsages(usages$)
 
@@ -120,7 +114,7 @@ export class MealService {
           .where('timestamp', '<=', endDate.endOfDay())
       )
       .pipe(
-        map(meals => _.keyBy(meals, '_id')),
+        map((meals: Meal[]) => _.keyBy(meals, '_id')),
         share()
       )
   }

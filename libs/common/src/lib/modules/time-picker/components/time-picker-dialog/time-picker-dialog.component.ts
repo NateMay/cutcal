@@ -126,7 +126,7 @@ export class TimepickerDialogComponent implements OnDestroy {
     return this.input && this.input.format
   }
 
-  @ViewChild('timepickerww', { static: false }) timepickerComponent: ElementRef
+  @ViewChild('timepickerww') timepickerComponent!: ElementRef
 
   constructor(
     @Optional() @Inject(TIME_PICKER_DATA) public data: TimePickerData

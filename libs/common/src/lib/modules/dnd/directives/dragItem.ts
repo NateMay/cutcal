@@ -13,15 +13,17 @@ export const DRAG_SKIP_COUNT = 6
   selector: '[drag],[ccDrag]',
 })
 export class DragItem {
+
+  static default: string = '../../../../assets/svgs/meal.svg'
+
   private img = <HTMLImageElement>document.getElementById('drag-obj')
   private app = <HTMLImageElement>document.getElementById('app-root')
 
-  private default: string = '../../../../assets/svgs/meal.svg'
 
   @Input() drag: any
   // @Input() dropID: string;
   @Input() immediate = false // for testing
-  @Input() dragImage: string | null
+  @Input() dragImage: string | null = DragItem.default
 
   @Boolish
   @Input()
@@ -41,7 +43,7 @@ export class DragItem {
       this.renderer.setAttribute(
         this.img,
         'src',
-        this.dragImage || this.default
+        this.dragImage || DragItem.default
       )
   }
 

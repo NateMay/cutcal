@@ -1,20 +1,13 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  isDevMode,
-  Output,
-} from '@angular/core'
-import { MatSliderChange } from '@angular/material/slider'
-import { Router } from '@angular/router'
-import { getQuantityStep } from '../../functions/increment/increment'
-import { Food, isFood } from '../../models/food'
-import { Ingredient } from '../../models/ingredient'
-import { isMeal, Meal } from '../../models/meal'
-import { Portion } from '../../models/portion'
-import { Usage } from '../../models/usage'
-import { IngredientPortionChange } from './ingredientPortionChange'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, isDevMode, Output } from '@angular/core';
+import { MatSliderChange } from '@angular/material/slider';
+import { Router } from '@angular/router';
+import { getQuantityStep } from '@cutcal/common';
+import { Food, isFood } from './../food';
+import { Ingredient } from './../ingredient';
+import { isMeal, Meal } from './../meal';
+import { Portion } from './../portion';
+import { Usage } from './../usage';
+import { IngredientPortionChange } from './ingredientPortionChange';
 
 // FEATURE (ingredient-listitem) make the edit panel a modal
 
@@ -122,13 +115,13 @@ export class IngredientsListitemComponent {
 
   readonly basicImage = '../../../../assets/svgs/meal.svg'
 
-  usage: Usage
-  food: Food
-  step: number
+  usage!: Usage
+  food!: Food
+  step!: number
   min: number = 0
-  max: number
-  quantity: number
-  unit: string
+  max!: number
+  quantity!: number
+  unit!: string
   showing: boolean = false
 
   portions: Portion[]
