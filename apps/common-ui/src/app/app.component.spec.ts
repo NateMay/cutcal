@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -16,6 +17,7 @@ describe('AppComponent', () => {
         NoopAnimationsModule,
         RouterTestingModule,
       ],
+      schemas: [NO_ERRORS_SCHEMA],
       declarations: [AppComponent],
     }).compileComponents();
   }));

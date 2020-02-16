@@ -30,7 +30,8 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "stats": "webpack-bundle-analyzer dist/stats.json",
-    "build:stats": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json"
+    "build:stats": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json",
+    "kill:4200": "sudo kill $(sudo lsof -t -i:4200)"
   },
   "private": true,
   "dependencies": {
@@ -115,6 +116,9 @@
     "typescript": "~3.7.5"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "npm run affected:test && npm run format && git add .",
+      "pre-push": "npm run lint && npm run test && npm run e2e"
+    }
   }
 }
