@@ -1,7 +1,6 @@
 export * from './constants/arrow.codes'
 export * from './constants/months'
 export * from './constants/runtime-checks'
-export * from './functions/timestamp/timestamp'
 export * from './functions/toRawType/toRawType'
 export * from './functions/uniqueID/uniqueID'
 export * from './key-value-pair'

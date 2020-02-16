@@ -1,3 +1,4 @@
+import { OverlayModule } from '@angular/cdk/overlay';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -55,7 +56,7 @@ describe('Date Picker & Dialog', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [TestDatePickerComponent],
-      imports: [DatePickerModule, NoopAnimationsModule],
+      imports: [DatePickerModule, NoopAnimationsModule, OverlayModule],
       providers: [
         { provide: RefocusService, useValue: { reCastFocusId: () => {} } },
       ],

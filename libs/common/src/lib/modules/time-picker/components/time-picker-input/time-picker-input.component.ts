@@ -157,8 +157,8 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
     this.inputEl.nativeElement.value = val
   }
 
-  @ViewChild('inputEl') inputEl!: ElementRef
-  @ViewChild('pickerOrigin') pickerOrigin!: CdkOverlayOrigin
+  @ViewChild('inputEl', { static: true }) inputEl!: ElementRef
+  @ViewChild('pickerOrigin', { static: true }) pickerOrigin!: CdkOverlayOrigin
 
   // TODO (time-picker) get rid of this and redesign the api pof the component
   /**

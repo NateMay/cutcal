@@ -59,5 +59,6 @@ const MATERIAL = [
   ],
   exports: [...COMPONENTS],
   declarations: [...COMPONENTS],
+  entryComponents: [TimepickerDialogComponent],
 })
 export class TimePickerModule {}

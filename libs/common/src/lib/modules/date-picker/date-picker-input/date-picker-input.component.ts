@@ -130,9 +130,9 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
     return `${this.label} - ${this.placeholder}`
   }
 
-  @ViewChild('input') input!: ElementRef
+  @ViewChild('input', { static: true }) input!: ElementRef
 
-  @ViewChild('pickerOrigin') pickerOrigin!: CdkOverlayOrigin
+  @ViewChild('pickerOrigin', { static: true }) pickerOrigin!: CdkOverlayOrigin
 
   @HostListener('document:mousedown', ['$event'])
   onmousedown(event: MouseEvent): void {
@@ -168,16 +168,20 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
      */
     this.pickerOverlayRef = this.overlay.create(
       new OverlayConfig({
+        width: '250px',
+        height: 'auto',
         scrollStrategy: this.overlay.scrollStrategies.reposition(),
         positionStrategy: this.overlay
           .position()
-          .connectedTo(
-            this.pickerOrigin.elementRef,
-            { originX: 'start', originY: 'bottom' },
-            { overlayX: 'start', overlayY: 'top' }
-          ),
-        width: '250px',
-        height: 'auto',
+          .flexibleConnectedTo(this.pickerOrigin.elementRef)
+          .withPositions([
+            {
+              originX: 'start',
+              originY: 'bottom',
+              overlayX: 'start',
+              overlayY: 'top',
+            },
+          ]),
       })
     )
   }

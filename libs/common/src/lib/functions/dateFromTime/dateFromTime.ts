@@ -27,6 +27,5 @@ export function forceZero(num: number): string {
 }
 
 export function isValidTime(time: string): boolean {
-  console.log(/^(0?[1-9]|1[012])(:[0-5]\d) [APap][mM]$/.test(time))
   return /^(0?[1-9]|1[012])(:[0-5]\d) [APap][mM]$/.test(time)
 }

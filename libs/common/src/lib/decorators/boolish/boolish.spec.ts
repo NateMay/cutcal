@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { getByDir } from '../../../../../ng-testing/src/lib/getByDir';
+import { getByDir } from '@cutcal/ng-testing';
 import { Boolish } from './boolish';
 
 @Component({

@@ -2,16 +2,18 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   AbstractControl,
-  FormBuilder,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
 import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting,
+} from '@angular/platform-browser-dynamic/testing';
+import {
   password,
   PasswordValidatorDir as PasswordValidator,
 } from './password';
-
 @Component({
   template: `
     <form [formGroup]="form">
@@ -19,12 +21,10 @@ import {
     </form>
   `,
 })
-class TestPasswordValidatorComponent {
-  form: FormGroup;
-
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({ password: null });
-  }
+export class TestPasswordValidatorComponent {
+  form: FormGroup = new FormGroup({
+    password: null,
+  });
 }
 
 describe('password validator', () => {
@@ -77,6 +77,12 @@ describe('password validator', () => {
     let fixture: ComponentFixture<TestPasswordValidatorComponent>;
 
     beforeEach(() => {
+      TestBed.resetTestEnvironment();
+      TestBed.initTestEnvironment(
+        BrowserDynamicTestingModule,
+        platformBrowserDynamicTesting()
+      );
+
       TestBed.configureTestingModule({
         declarations: [TestPasswordValidatorComponent, PasswordValidator],
         imports: [ReactiveFormsModule, FormsModule],

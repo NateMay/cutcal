@@ -1,3 +1,10 @@
+// TEST (timepicker)
+describe('Timepicker utils', () => {
+  it('should not have tests yet', () => {
+    expect(true).toBeTruthy();
+  });
+});
+
 // import { TimeAdapter } from '../services/time-adapter';
 // import { isBetween, isSameOrAfter, isSameOrBefore } from './timepicker.utils';
 

@@ -1,7 +1,8 @@
 import { EventEmitter } from '@angular/core';
+import { createSpyObj } from '@cutcal/ng-testing';
 import { executeOnStable } from './executeOnStable';
 
-export const mockNgZone = jasmine.createSpyObj('mockNgZone', [
+export const mockNgZone = createSpyObj('mockNgZone', [
   'run',
   'runOutsideAngular',
 ]);

@@ -8,8 +8,8 @@ import {
   purifyObject,
   scaleNutrition,
 } from '@cutcal/common'
-import { KVP, timestamp } from '@cutcal/core'
-import { FirestoreService, removeId } from '@cutcal/fire'
+import { KVP } from '@cutcal/core'
+import { FirestoreService, removeId, timestamp } from '@cutcal/fire'
 import { multiplyNutrition, updateNutritions } from '@cutcal/nutrition'
 import * as _ from 'lodash'
 import { combineLatest, Observable, of } from 'rxjs'

@@ -1,4 +1,4 @@
-import { Nutrition } from '../../models/nutrition';
+import { Nutrition } from '../nutrition';
 import { sumNutritions } from './sumNutritions';
 
 const NUTRS: Array<Nutrition<number>> = [

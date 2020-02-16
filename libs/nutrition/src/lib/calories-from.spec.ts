@@ -3,7 +3,7 @@ import {
   caloriesFrom,
   caloriesFromAll,
   caloriesFromSingle,
-} from './caloriesFrom';
+} from './calories-from';
 
 it('caloriesFrom() - shared/functions calculates (from a nutrion object) the calories for the specified single macro nutrient', () => {
   expect(

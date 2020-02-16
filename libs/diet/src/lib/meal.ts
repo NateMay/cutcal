@@ -1,4 +1,4 @@
-import { timestamp as newTimestamp } from '@cutcal/core'
+import { timestamp as newTimestamp } from '@cutcal/fire'
 import { Nutrition } from '@cutcal/nutrition'
 import { firestore } from 'firebase/app'
 import { Image } from './images'

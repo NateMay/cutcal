@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MealService } from '../../../services/meal/meal.service';
-import { DndModule } from '../dnd.module';
+import { MealService } from '@cutcal/diet';
+import { DndModule } from '../../modules/dnd/dnd.module';
 import { TrashComponent } from './trash.component';
 
 // TEST (trash)
@@ -16,6 +16,7 @@ describe('TrashComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      declarations: [TrashComponent],
       imports: [DndModule],
       providers: [{ provide: MealService, useValue: mealSvcStub }],
     }).compileComponents();

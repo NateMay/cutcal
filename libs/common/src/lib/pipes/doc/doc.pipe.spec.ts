@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FirestoreService } from '@cutcal/fire';
 import { of } from 'rxjs';
-import { FirestoreService } from '../../services/fireStore/fireStore.service';
 import { DocPipe } from './doc.pipe';
 
 @Component({
@@ -35,6 +35,8 @@ describe('Doc (firebase) Pipe', () => {
 
   it('unwraps a document in the template', () => {
     fixture.detectChanges();
-    expect(fixture.debugElement.nativeElement.textContent).toBe('Hello World');
+    expect(fixture.debugElement.nativeElement.textContent).toContain(
+      'Hello World'
+    );
   });
 });
