@@ -47,8 +47,7 @@ export class DatePickerYearsComponent implements OnInit {
   }
 
   recalculate(currentYear: number): void {
-    this.years = Array.apply(null, <any>{ length: 15 })
-      .map(Number.call, Number)
+    this.years = Array(15).fill(null).map( (x, i) => i )
       .map((num: number) => {
         const year = currentYear - 7 + num
         return {

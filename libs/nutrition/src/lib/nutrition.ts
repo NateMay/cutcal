@@ -1,3 +1,4 @@
+import { KeysIn } from '../../../core/src/lib/keys-in';
 // ************ //
 // ** Energy ** //
 // ************ //
@@ -350,3 +351,5 @@ export interface Nutrition<T>
     Others<T> {
   gravity?: T // https://en.wikipedia.org/wiki/Specific_gravity
 }
+
+export type Nutrient = KeysIn<Nutrition<any>, string>

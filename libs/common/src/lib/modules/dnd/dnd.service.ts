@@ -1,11 +1,5 @@
 import { DOCUMENT } from '@angular/common'
-import {
-  Inject,
-  Injectable,
-  OnDestroy,
-  Renderer2,
-  RendererFactory2,
-} from '@angular/core'
+import { Inject, Injectable, OnDestroy, Renderer2, RendererFactory2 } from '@angular/core'
 import { BehaviorSubject, fromEvent } from 'rxjs'
 import { tap } from 'rxjs/operators'
 
@@ -56,11 +50,11 @@ export class DndSvc implements OnDestroy {
     if (root) root.appendChild(this.ghost)
 
     fromEvent(this.document, 'mousedown')
-      .pipe(tap((mousemove: MouseEvent) => (this._lockImage = true)))
+      .pipe(tap((mousemove: Event) => (this._lockImage = true)))
       .subscribe()
 
     fromEvent(this.document, 'mouseup')
-      .pipe(tap((mousemove: MouseEvent) => (this._lockImage = false)))
+      .pipe(tap((mousemove: Event) => (this._lockImage = false)))
       .subscribe()
   }
 

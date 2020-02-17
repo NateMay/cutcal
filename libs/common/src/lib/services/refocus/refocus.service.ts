@@ -10,7 +10,7 @@ import { executeOnStable } from '../../functions/executeOnStable/executeOnStable
   providedIn: 'root',
 })
 export class RefocusService {
-  id: string
+  id!: string | null
   refocus: boolean = false
 
   reCastFocusId(id: string) {
@@ -24,8 +24,10 @@ export class RefocusService {
         this.refocus = false
 
         executeOnStable(this.ngZone, () => {
-          const element = document.getElementById(this.id)
-          if (element) element.focus()
+          if (this.id) {
+            const element = document.getElementById(this.id)
+            if (element) element.focus()
+          }
         })
       }
     })

@@ -1,30 +1,13 @@
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import {
-  Component,
-  Injector,
-  OnDestroy,
-  OnInit,
-  ViewContainerRef,
-} from '@angular/core'
+import { Component, Injector, OnDestroy, OnInit, ViewContainerRef } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { AuthService } from '@cutcal/auth'
-import {
-  HighChartsDataPoint,
-  InspectionData,
-  INSPECTION_DATA,
-  InspectNutrientDialogComponent,
-  setLightGridTheme,
-} from '@cutcal/charts'
+import { HighChartsDataPoint, InspectionData, INSPECTION_DATA, InspectNutrientDialogComponent, setLightGridTheme } from '@cutcal/charts'
 import { analyzeParams, dateArray } from '@cutcal/common'
 import { KVP } from '@cutcal/core'
 import { MealService } from '@cutcal/diet'
-import {
-  createNutrCheckableMap,
-  NutrCheckable,
-  Nutrition,
-  nutrtionSelections,
-} from '@cutcal/nutrition'
+import { createNutrCheckableMap, NutrCheckable, Nutrition, nutrtionSelections } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import { Options, SeriesOptionsType } from 'highcharts'
 import * as _ from 'lodash'
@@ -303,8 +286,8 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   closeChart(chart: AnalysisChartVM): void {
-    _.forEach(this.nutrCheckables, (checkable: NutrCheckable) => {
-      if (checkable.unit == chart.unit) checkable.isChecked = false
+    _.forEach(this.nutrCheckables, checkable => {
+      if (checkable && checkable.unit == chart.unit) checkable.isChecked = false
     })
 
     chart.options.series = []

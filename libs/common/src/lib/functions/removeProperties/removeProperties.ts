@@ -1,11 +1,12 @@
+import { KVP } from '@cutcal/core';
 /**
  * Removes all members of an oject from among those passed in
  * @param {Object} objIn the object to modify
  * @param {string[]} props key names to remove
  */
 
-export function removePropsDeeply(objIn: {}, props: string[]): {} {
-  const objOut = {}
+export function removePropsDeeply(objIn: KVP<any>, props: string[]): {} {
+  const objOut: KVP<any> = {}
 
   Object.keys(objIn)
     .filter(key => !props.includes(key))

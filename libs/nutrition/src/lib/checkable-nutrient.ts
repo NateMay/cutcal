@@ -20,11 +20,7 @@ export interface NutrCheckable {
 export function createNutrCheckableMap(
   checkables: Nutrition<NutrCheckable>
 ): KVP<NutrCheckable[]> {
-  const result = _.groupBy(
-    checkables,
-    (checkable: NutrCheckable) => checkable.unit
-  )
-  if (!result) throw new Error('')
+  const result = _.groupBy(checkables, 'unit')
   return result as KVP<NutrCheckable[]>
 }
 
@@ -35,17 +31,14 @@ export function createNutrCheckableMap(
 export function nutrtionSelections(
   selected?: string[]
 ): Nutrition<NutrCheckable> {
-  return _.keyBy(
-    _.map(
-      ZERO_NUTRITION,
-      (value: number, prop: string) =>
-        ({
-          label: NUTRIENTS.shortNames[prop] || prop,
-          propName: prop,
-          unit: NUTRIENTS.units[prop],
-          isChecked: selected ? selected.includes(prop) : false,
-        } as NutrCheckable)
-    ),
-    'propName'
-  )
+  const result: Nutrition<NutrCheckable> = {}
+  for (const nutrient in ZERO_NUTRITION) {
+    result[nutrient] = {
+      label: NUTRIENTS.shortNames[nutrient!] || nutrient,
+      propName: nutrient,
+      unit: NUTRIENTS.units[nutrient!],
+      isChecked: selected ? selected.includes(nutrient) : false,
+    }
+  }
+  return result
 }

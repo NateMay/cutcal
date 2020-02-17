@@ -51,8 +51,8 @@ export class DatePickerDialogComponent {
 
   selectedDate: Date = new Date()
   focusDate: Date = new Date()
-  focusId: string
-  previousFocus: HTMLElement
+  focusId!: string
+  previousFocus!: HTMLElement
   monthBtnDisabled: boolean = false
 
   @ViewChild(CalendarFaceComponent) face!: CalendarFaceComponent

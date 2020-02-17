@@ -1,22 +1,5 @@
-import {
-  animate,
-  AnimationEvent,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations'
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  HostBinding,
-  HostListener,
-  Input,
-  NgZone,
-  OnInit,
-  Output,
-} from '@angular/core'
+import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations'
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, HostListener, Input, NgZone, OnInit, Output } from '@angular/core'
 import { Weekday, WEEKDAYS } from '@cutcal/core'
 import * as _ from 'lodash'
 import { executeOnStable } from '../../../functions/executeOnStable/executeOnStable'
@@ -122,7 +105,7 @@ export class CalendarFaceComponent implements OnInit {
   private selectingStart: boolean = true
 
   // view model
-  calendar: CalFaceDay[][]
+  calendar!: CalFaceDay[][]
 
   // animation state
   slideState: 'center' | 'left' | 'right' = 'center'
@@ -142,13 +125,13 @@ export class CalendarFaceComponent implements OnInit {
   set focusId(value: string) {
     this._focusId = value || this._uid
   }
-  private _focusId: string
+  private _focusId!: string
   private _uid = `cc-calendar-selected-day-${nextUniqueId++}`
 
   /**
    * @description when selecting dates ranges, this is the beginning date of the range
    */
-  private _startDate: Date
+  private _startDate: Date = new Date()
   @Input() set startDate(date: Date) {
     if (!!this.startDate && this.startDate.isSameDay(date)) return
     this._startDate = date
@@ -162,7 +145,7 @@ export class CalendarFaceComponent implements OnInit {
   /**
    * @description when selecting dates ranges, this is the ending date of the range
    */
-  private _endDate: Date
+  private _endDate: Date = new Date()
   @Input() set endDate(date: Date) {
     if (!!this.endDate && this.endDate.isSameDay(date)) return
     this._endDate = date
@@ -309,9 +292,20 @@ export class CalendarFaceComponent implements OnInit {
     return this.selectingStart ? date > this.endDate : date < this.startDate
   }
 
-  setAndEmit(property: string, date: Date): void {
-    this[`${property}Date`] = date
-    this[`${property}DateChange`].emit(date)
+  setAndEmit(property: 'start' | 'end' | 'focus' | 'selected', date: Date): void {
+    if (property === 'start') {
+      this.startDate = date
+      this.startDateChange.emit(date)
+    } else if (property === 'end') {
+      this.endDate = date
+      this.endDateChange.emit(date)
+    } else if (property === 'focus') {
+      this.focusDate = date
+      this.focusDateChange.emit(date)
+    } else if (property === 'selected') {
+      this.selectedDate = date
+      this.selectedDateChange.emit(date)
+    } else throw new Error(`[CutCal] Calendar Face setAndEmit() called with invalid param`)
   }
 
   setRangeEqual(date: Date): void {

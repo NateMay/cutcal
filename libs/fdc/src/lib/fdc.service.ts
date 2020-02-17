@@ -7,11 +7,7 @@ import { NUTRIENTS, Nutrition } from '@cutcal/nutrition'
 import * as _ from 'lodash'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import {
-  FdcFoodDetailResponse,
-  FdcFoodMeasure,
-  FdcFoodNutrient,
-} from './fdc-detail'
+import { FdcFoodDetailResponse, FdcFoodMeasure, FdcFoodNutrient } from './fdc-detail'
 import { FDCFoodSearchResponse } from './fdc-search'
 
 export interface Food2 {
@@ -106,7 +102,7 @@ export class FdcService {
   getFdcFood(fdcId: number | string): Observable<Food2> {
     // ?api_key=${this.apiKey}
     return this.http
-      .get(`${this.endPoint2}/${fdcId}`)
+      .get<FdcFoodDetailResponse>(`${this.endPoint2}/${fdcId}`)
       .pipe(
         map((response: FdcFoodDetailResponse) =>
           createFood2(

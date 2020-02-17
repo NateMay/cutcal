@@ -33,7 +33,7 @@ export function docJoinOn<T>(
 ): (source: Observable<Partial<T>>) => Observable<T> {
   return source =>
     defer(() => {
-      let parentDoc
+      let parentDoc: any
 
       return source.pipe(
         // Store the parent

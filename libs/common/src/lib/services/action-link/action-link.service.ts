@@ -1,12 +1,8 @@
-import { Injectable } from '@angular/core'
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  ParamMap,
-  RouterStateSnapshot,
-} from '@angular/router'
-import { Observable, Subject } from 'rxjs'
-import { filter, map } from 'rxjs/operators'
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, ParamMap, RouterStateSnapshot } from '@angular/router';
+import { KVP } from '@cutcal/core';
+import { Observable, Subject } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 /** Actinng as a CanActivate guard to intercept routing actions */
 @Injectable()
@@ -28,7 +24,7 @@ export class ActionLinkObserver implements CanActivate {
       return undefined
     }
     // Reduces the keys arrayn into the resulting object
-    return params.keys.reduce((obj, key) => {
+    return params.keys.reduce((obj: KVP<any>, key: string) => {
       // Adds the single key, value pair
       obj[key] = params.get(key)
       return obj

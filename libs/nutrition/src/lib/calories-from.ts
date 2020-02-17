@@ -40,19 +40,12 @@ export function caloriesFrom(
 
 export function caloriesFromAll(nutr: Nutrition<number>): CaloriesFrom {
   const macros: CaloriesFrom = adjustPerGram(nutr)
-
-  const calculate: (macro: number) => number = _.partial(
-    caloriesFromSingle,
-    _,
-    _.sum(_.values(macros)),
-    nutr.calories
-  )
-
+  const sum = _.sum(_.values(macros))
   return {
-    carbohydrates: calculate(macros.carbohydrates) || 0,
-    protein: calculate(macros.protein) || 0,
-    fat: calculate(macros.fat) || 0,
-    alcohol: calculate(macros.alcohol) || 0,
+    carbohydrates: caloriesFromSingle(macros.carbohydrates, sum, nutr.calories) || 0,
+    protein: caloriesFromSingle(macros.protein, sum, nutr.calories) || 0,
+    fat: caloriesFromSingle(macros.fat, sum, nutr.calories) || 0,
+    alcohol: caloriesFromSingle(macros.alcohol, sum, nutr.calories) || 0,
   }
 }
 
@@ -74,7 +67,8 @@ export function adjustPerGram(nutrition: Nutrition<number>): CaloriesFrom {
 export function caloriesFromSingle(
   adjustedQuant: number,
   sumOfAdjusted: number,
-  totalCalories: number
+  totalCalories: number | undefined
 ): number {
+  if (totalCalories === undefined) throw new Error('[CutCal] must have calories to calulcate')
   return (adjustedQuant / sumOfAdjusted) * totalCalories
 }

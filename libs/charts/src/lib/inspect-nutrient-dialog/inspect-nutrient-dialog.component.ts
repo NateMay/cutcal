@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core'
 import { scaleNutrient } from '@cutcal/common'
 import { KVP } from '@cutcal/core'
 import { Food, Meal, MealService, MealsTripple, Usage } from '@cutcal/diet'
+import { Nutrient } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import { Options, PointOptionsObject, SeriesOptionsType } from 'highcharts'
 import Drilldown from 'highcharts/modules/drilldown'
@@ -92,9 +93,9 @@ export class InspectNutrientDialogComponent implements OnInit {
   get title(): string {
     return this.series.name || ''
   }
-  get nutrient(): string {
+  get nutrient(): Nutrient {
     // URGENT FIXME - new highcharts api
-    return 'calroies'
+    return 'calories'
     // return this.series.userOptions.nutrient
   }
   get unit(): string {
@@ -121,7 +122,7 @@ export class InspectNutrientDialogComponent implements OnInit {
 
   getNutrientTotal([meals, usages, foods]: MealsTripple): void {
     this.nutrientTotal = _.sum(
-      _.map(meals, meal => meal.nutrition[this.nutrient])
+      _.map(meals, meal => meal.nutrition[this.nutrient!] || 0)
     )
   }
 
@@ -186,7 +187,7 @@ export class InspectNutrientDialogComponent implements OnInit {
   }
 
   createMealPoint(meal: Meal): SeriesPieDataOptions {
-    const value: number = meal.nutrition[this.nutrient]
+    const value: number = meal.nutrition[this.nutrient!] || 0
     return {
       name: meal.name,
       y: (value * 100) / this.nutrientTotal,

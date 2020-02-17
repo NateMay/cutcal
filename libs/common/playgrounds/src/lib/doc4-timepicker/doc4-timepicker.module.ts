@@ -1,12 +1,14 @@
-import { CommonModule } from '@angular/common'
-import { NgModule } from '@angular/core'
-import { RouterModule } from '@angular/router'
-import { Doc4TimepickerComponent } from './doc4-timepicker.component'
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { DocUtilModule } from '../doc-utils.module';
+import { Doc4TimepickerComponent } from './doc4-timepicker.component';
 
 @NgModule({
   declarations: [Doc4TimepickerComponent],
   imports: [
     CommonModule,
+    DocUtilModule,
     RouterModule.forChild([
       {
         path: '',

@@ -1,6 +1,6 @@
 import { KVP } from '@cutcal/core'
 import { Food, Portion, Usage } from '@cutcal/diet'
-import { multiplyNutrition, Nutrition } from '@cutcal/nutrition'
+import { multiplyNutrition, Nutrient, Nutrition } from '@cutcal/nutrition'
 import * as _ from 'lodash'
 
 /**
@@ -38,11 +38,10 @@ export function scaleNutrition(usage: Usage, food: Food): Nutrition<number> {
 export function scaleNutrient(
   usage: Usage,
   food: Food,
-  nutrient: string
+  nutrient: Nutrient
 ): number {
   const conversionFactor = getConversionFactor(usage, food)
-
-  return food.nutrition[nutrient] * conversionFactor
+  return food.nutrition[nutrient!] || 0 * conversionFactor
 }
 
 function getConversionFactor(usage: Usage, food: Food): number {
@@ -131,20 +130,20 @@ export function addPortion(portionA: Portion) {
   }
 }
 
+const SAFE_UNIT_MAP: KVP<string> = {
+  µg: 'mcg',
+  tbsp: 'Tbs',
+  tablespoon: 'Tbs',
+  pound: 'lb',
+}
+
 /**
  * Converts unit string unsupported by {@link https://github.com/ben-ng/convert-units}
  * @param {string} unit the CutCal unit
  * @returns {string} the convert-units (npm) unit string
  */
 function safeUnit(unit: string): string {
-  return (
-    {
-      µg: 'mcg',
-      tbsp: 'Tbs',
-      tablespoon: 'Tbs',
-      pound: 'lb',
-    }[unit] || unit
-  )
+  return SAFE_UNIT_MAP[unit] || unit
 }
 
 /**

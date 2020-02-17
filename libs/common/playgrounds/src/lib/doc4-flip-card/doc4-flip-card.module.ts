@@ -1,12 +1,14 @@
-import { CommonModule } from '@angular/common'
-import { NgModule } from '@angular/core'
-import { RouterModule } from '@angular/router'
-import { Doc4FlipCardComponent } from './doc4-flip-card.component'
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { DocUtilModule } from '../doc-utils.module';
+import { Doc4FlipCardComponent } from './doc4-flip-card.component';
 
 @NgModule({
   declarations: [Doc4FlipCardComponent],
   imports: [
     CommonModule,
+    DocUtilModule,
     RouterModule.forChild([
       {
         path: '',

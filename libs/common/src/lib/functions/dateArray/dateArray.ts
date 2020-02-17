@@ -6,7 +6,9 @@
  *  dateArray(3, new Date(2018, 0, 1)) => [ 1 Jan, 2 Jan, 3 Jan ], // but date objects
  */
 export function dateArray(len: number, startDate: Date = new Date()): Date[] {
-  return Array.apply(null, { length: len })
-    .map(Number.call, Number)
+  return Array(len)
+    .fill(null)
+    .map((x: null, i: number) => i)
     .map((num: number) => startDate.addDays(num))
 }
+

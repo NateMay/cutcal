@@ -1,28 +1,6 @@
-import {
-  CdkOverlayOrigin,
-  Overlay,
-  OverlayConfig,
-  OverlayRef,
-} from '@angular/cdk/overlay'
+import { CdkOverlayOrigin, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ComponentRef,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  HostBinding,
-  HostListener,
-  Injector,
-  Input,
-  NgZone,
-  OnInit,
-  Output,
-  ViewChild,
-  ViewContainerRef,
-} from '@angular/core'
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, ElementRef, EventEmitter, forwardRef, HostBinding, HostListener, Injector, Input, NgZone, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { Boolish } from '../../../decorators/boolish/boolish'
 import { eventWithin } from '../../../functions/eventWithin/eventWithin'
@@ -84,7 +62,7 @@ export const DATE_PICKER_CONTROL_VALUE_ACCESSOR: any = {
   `,
 })
 export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
-  @Input() date: Date | null
+  @Input() date!: Date | null
   @Output() dateChange = new EventEmitter<Date | null>()
 
   /**
@@ -97,7 +75,7 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
   set idStr(value: string) {
     this._id = value || this._uid
   }
-  private _id: string
+  private _id!: string
   private _uid = `cc-date-picker-input-${nextUniqueId++}`
 
   @Input() label: string = 'Selected a Date'

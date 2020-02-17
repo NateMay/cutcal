@@ -1,26 +1,11 @@
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import {
-  Component,
-  ComponentRef,
-  ElementRef,
-  EventEmitter,
-  HostListener,
-  Injector,
-  Input,
-  OnInit,
-  Output,
-  ViewChild,
-  ViewContainerRef,
-} from '@angular/core'
+import { Component, ComponentRef, ElementRef, EventEmitter, HostListener, Injector, Input, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core'
 import { Boolish } from '../../../decorators/boolish/boolish'
 import { eventWithin } from '../../../functions/eventWithin/eventWithin'
 import { ImageCroppedEvent } from '../interfaces/image-cropped-event'
 import { UploadDialogComponent } from '../upload-dialog/upload-dialog.component'
-import {
-  ImageCroperData,
-  IMAGE_CROPPER_DATA,
-} from '../utils/image-cropper.data'
+import { ImageCroperData, IMAGE_CROPPER_DATA } from '../utils/image-cropper.data'
 
 let nextUniqueId = 0
 
@@ -57,7 +42,7 @@ export class UploadButtonComponent implements OnInit {
   set idStr(value: string) {
     this._id = value || this._uid
   }
-  private _id: string
+  private _id!: string
   private _uid = `image-upload-${nextUniqueId++}`
 
   @Boolish
@@ -194,7 +179,7 @@ export class UploadButtonComponent implements OnInit {
     // ).subscribe();
   }
 
-  private createInjector(data): PortalInjector {
+  private createInjector(data: ImageCroperData): PortalInjector {
     return new PortalInjector(
       this.injector,
       new WeakMap<any, any>([[IMAGE_CROPPER_DATA, data]])

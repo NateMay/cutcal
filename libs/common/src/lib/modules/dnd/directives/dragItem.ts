@@ -1,13 +1,4 @@
-import {
-  Directive,
-  EventEmitter,
-  HostListener,
-  Inject,
-  Input,
-  NgZone,
-  Output,
-  Renderer2,
-} from '@angular/core'
+import { Directive, EventEmitter, HostListener, Inject, Input, NgZone, Output, Renderer2 } from '@angular/core'
 import { fromEvent } from 'rxjs'
 import { finalize, first, skip, takeUntil, tap } from 'rxjs/operators'
 import { Boolish } from '../../../decorators/boolish/boolish'
@@ -35,7 +26,7 @@ export class DragItem {
   @Boolish
   @Input()
   showTrash: boolean = true
-  @Output() dragStart = new EventEmitter<MouseEvent>()
+  @Output() dragStart = new EventEmitter<Event>()
 
   constructor(
     public dndSvc: DndSvc,
@@ -62,14 +53,14 @@ export class DragItem {
     fromEvent(document, 'mousemove')
       .pipe(
         skip(this.immediate ? 0 : DRAG_SKIP_COUNT), // prevents accidental drag on clicks
-        tap((mousemove: MouseEvent) => this.update(mousemove)),
+        tap((mousemove: Event) => this.update(mousemove)),
         takeUntil(mouseUp$),
         finalize(() => executeOnStable(this.ngZone, () => this.reset()))
       )
       .subscribe()
   }
 
-  initialize(mousemove: MouseEvent): void {
+  initialize(mousemove: Event): void {
     mousemove.preventDefault()
     mousemove.stopPropagation()
     // this.dndSvc.dropID = this.dropID || 'no dropID';
@@ -81,10 +72,10 @@ export class DragItem {
     this.dragStart.emit(mousemove)
   }
 
-  update(mousemove: MouseEvent): void {
+  update(mousemove: Event): void {
     mousemove.preventDefault()
     if (!this.dndSvc.isDragging && !!this.drag) this.initialize(mousemove)
-    this.setPosition(mousemove)
+    this.setPosition(<MouseEvent>mousemove)
   }
 
   setPosition(event: MouseEvent): void {

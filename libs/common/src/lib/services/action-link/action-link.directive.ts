@@ -1,10 +1,4 @@
-import {
-  Directive,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  Output,
-} from '@angular/core'
+import { Directive, EventEmitter, Input, OnDestroy, Output } from '@angular/core'
 import { Subscription } from 'rxjs'
 import { ActionLinkObserver } from './action-link.service'
 
@@ -12,7 +6,7 @@ import { ActionLinkObserver } from './action-link.service'
   selector: '[ccActionLink]',
 })
 export class ActionLinkDirective implements OnDestroy {
-  private sub: Subscription
+  private sub!: Subscription | null
 
   constructor(private observer: ActionLinkObserver) {}
 
