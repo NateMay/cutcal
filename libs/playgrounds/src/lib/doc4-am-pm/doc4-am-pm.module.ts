@@ -1,22 +1,22 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
-import { DatePickerModule } from '../../../../src/lib/modules/date-picker/date-picker.module'
+import { AmPmToggleModule } from '@cutcal/common'
 import { DocUtilModule } from '../doc-utils.module'
-import { Doc4DatepickerComponent } from './doc4-datepicker.component'
+import { Doc4AmPmComponent } from './doc4-am-pm.component'
 
 @NgModule({
-  declarations: [Doc4DatepickerComponent],
+  declarations: [Doc4AmPmComponent],
   imports: [
     CommonModule,
-    DatePickerModule,
     DocUtilModule,
+    AmPmToggleModule,
     RouterModule.forChild([
       {
         path: '',
-        component: Doc4DatepickerComponent,
+        component: Doc4AmPmComponent,
       },
     ]),
   ],
 })
-export class Doc4DatepickerModule {}
+export class Doc4AmPmModule {}

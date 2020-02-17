@@ -80,7 +80,7 @@
         "libs/common-ui/timepicker/timepicker/src/index.ts"
       ],
       "@cutcal/common": ["libs/common/src/index.ts"],
-      "@cutcal/common/playgrounds": ["libs/common/playgrounds/src/index.ts"],
+      "@cutcal/playgrounds": ["libs/playgrounds/src/index.ts"],
       "@cutcal/core": ["libs/core/src/index.ts"],
       "@cutcal/diet": ["libs/diet/src/index.ts"],
       "@cutcal/user": ["libs/user/src/index.ts"],

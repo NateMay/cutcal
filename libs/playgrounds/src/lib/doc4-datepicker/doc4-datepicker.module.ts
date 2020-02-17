@@ -1,20 +1,22 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
+import { DatePickerModule } from '@cutcal/common'
 import { DocUtilModule } from '../doc-utils.module'
-import { Doc4TimepickerComponent } from './doc4-timepicker.component'
+import { Doc4DatepickerComponent } from './doc4-datepicker.component'
 
 @NgModule({
-  declarations: [Doc4TimepickerComponent],
+  declarations: [Doc4DatepickerComponent],
   imports: [
     CommonModule,
+    DatePickerModule,
     DocUtilModule,
     RouterModule.forChild([
       {
         path: '',
-        component: Doc4TimepickerComponent,
+        component: Doc4DatepickerComponent,
       },
     ]),
   ],
 })
-export class Doc4TimepickerModule {}
+export class Doc4DatepickerModule {}

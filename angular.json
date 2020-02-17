@@ -980,26 +980,26 @@
     },
     "playgrounds": {
       "projectType": "library",
-      "root": "libs/common/playgrounds",
-      "sourceRoot": "libs/common/playgrounds/src",
+      "root": "libs/playgrounds",
+      "sourceRoot": "libs/playgrounds/src",
       "prefix": "cutcal",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/common/playgrounds/tsconfig.lib.json",
-              "libs/common/playgrounds/tsconfig.spec.json"
+              "libs/playgrounds/tsconfig.lib.json",
+              "libs/playgrounds/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/common/playgrounds/**"]
+            "exclude": ["**/node_modules/**", "!libs/playgrounds/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/common/playgrounds/jest.config.js",
-            "tsConfig": "libs/common/playgrounds/tsconfig.spec.json",
-            "setupFile": "libs/common/playgrounds/src/test-setup.ts"
+            "jestConfig": "libs/playgrounds/jest.config.js",
+            "tsConfig": "libs/playgrounds/tsconfig.spec.json",
+            "setupFile": "libs/playgrounds/src/test-setup.ts"
           }
         }
       },

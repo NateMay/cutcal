@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
+import { DndModule } from '@cutcal/common'
 import { DocUtilModule } from '../doc-utils.module'
 import { Doc4DndComponent } from './doc4-dnd.component'
 
@@ -9,6 +10,7 @@ import { Doc4DndComponent } from './doc4-dnd.component'
   imports: [
     CommonModule,
     DocUtilModule,
+    DndModule,
     RouterModule.forChild([
       {
         path: '',

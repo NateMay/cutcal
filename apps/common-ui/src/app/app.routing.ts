@@ -26,91 +26,71 @@ const COMMONUI_ROUTES: Routes = [
   {
     path: 'date-picker',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
-        module => module.Doc4DatepickerModule
-      ),
+      import('@cutcal/playgrounds').then(module => module.Doc4DatepickerModule),
   },
   {
     path: 'time-picker',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
-        module => module.Doc4TimepickerModule
-      ),
+      import('@cutcal/playgrounds').then(module => module.Doc4TimepickerModule),
   },
   {
     path: 'am-pm-toggle',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
-        module => module.Doc4AmPmModule
-      ),
+      import('@cutcal/playgrounds').then(module => module.Doc4AmPmModule),
   },
   {
     path: 'datetime-binder',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
+      import('@cutcal/playgrounds').then(
         module => module.Doc4DatetimeBinderModule
       ),
   },
   {
     path: 'breadcrumbs',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
+      import('@cutcal/playgrounds').then(
         module => module.Doc4BreadcrumbsModule
       ),
   },
   {
     path: 'nutrition-label',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
-        module => module.Doc4NutrLabelModule
-      ),
+      import('@cutcal/playgrounds').then(module => module.Doc4NutrLabelModule),
   },
   {
     path: 'holdable',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
-        module => module.Doc4HoldableModule
-      ),
+      import('@cutcal/playgrounds').then(module => module.Doc4HoldableModule),
   },
   {
     path: 'upload',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
-        module => module.Doc4ImgUploadModule
-      ),
+      import('@cutcal/playgrounds').then(module => module.Doc4ImgUploadModule),
   },
   {
     path: 'dnd',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(module => module.Doc4DndModule),
+      import('@cutcal/playgrounds').then(module => module.Doc4DndModule),
   },
   {
     path: 'flip',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
-        module => module.Doc4FlipCardModule
-      ),
+      import('@cutcal/playgrounds').then(module => module.Doc4FlipCardModule),
   },
   {
     path: 'animate',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
-        module => module.Doc4AnimateModule
-      ),
+      import('@cutcal/playgrounds').then(module => module.Doc4AnimateModule),
   },
   {
     path: 'carousel',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
-        module => module.Doc4CarouselModule
-      ),
+      import('@cutcal/playgrounds').then(module => module.Doc4CarouselModule),
   },
   {
     path: 'dyn-width',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
-        module => module.Doc4DynWidthModule
-      ),
+      import('@cutcal/playgrounds').then(module => module.Doc4DynWidthModule),
   },
 ]
 

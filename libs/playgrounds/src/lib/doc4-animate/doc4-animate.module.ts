@@ -1,20 +1,22 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
+import { CCAnimationsModule } from '@cutcal/common'
 import { DocUtilModule } from '../doc-utils.module'
-import { Doc4CarouselComponent } from './doc4-carousel.component'
+import { Doc4AnimateComponent } from './doc4-animate.component'
 
 @NgModule({
-  declarations: [Doc4CarouselComponent],
+  declarations: [Doc4AnimateComponent],
   imports: [
     CommonModule,
     DocUtilModule,
+    CCAnimationsModule,
     RouterModule.forChild([
       {
         path: '',
-        component: Doc4CarouselComponent,
+        component: Doc4AnimateComponent,
       },
     ]),
   ],
 })
-export class Doc4CarouselModule {}
+export class Doc4AnimateModule {}

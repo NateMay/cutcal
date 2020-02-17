@@ -1,22 +1,22 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
-import { AmPmToggleModule } from '../../../../src/lib/components/am-pm-toggle/am-pm-toggle.module'
+import { BreadCrumbsModule } from '@cutcal/common'
 import { DocUtilModule } from '../doc-utils.module'
-import { Doc4AmPmComponent } from './doc4-am-pm.component'
+import { Doc4BreadcrumbComponent } from './doc4-breadcrumb.component'
 
 @NgModule({
-  declarations: [Doc4AmPmComponent],
+  declarations: [Doc4BreadcrumbComponent],
   imports: [
     CommonModule,
     DocUtilModule,
-    AmPmToggleModule,
+    BreadCrumbsModule,
     RouterModule.forChild([
       {
         path: '',
-        component: Doc4AmPmComponent,
+        component: Doc4BreadcrumbComponent,
       },
     ]),
   ],
 })
-export class Doc4AmPmModule {}
+export class Doc4BreadcrumbsModule {}
