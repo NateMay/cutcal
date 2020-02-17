@@ -1,7 +1,7 @@
 import { getBrand } from '../support/app.po';
 
 describe('cutcal', () => {
-  beforeEach(() => cy.visit('/'));
+  beforeEach(() => cy.visit('/food-recipe'));
 
   it('should display welcome message', () => {
     // Custom command example, see `../support/commands.ts` file
