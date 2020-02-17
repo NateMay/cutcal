@@ -1,8 +1,8 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { DocUtilModule } from '../doc-utils.module';
-import { Doc4CarouselComponent } from './doc4-carousel.component';
+import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core'
+import { RouterModule } from '@angular/router'
+import { DocUtilModule } from '../doc-utils.module'
+import { Doc4CarouselComponent } from './doc4-carousel.component'
 
 @NgModule({
   declarations: [Doc4CarouselComponent],

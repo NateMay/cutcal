@@ -9,7 +9,7 @@ import {
 /* stylelint-disable declaration-block-trailing-semicolon */
 export const flip = animation(
   [
-    style({ 'backface-visibility': 'visible' }),
+    // style({ 'backface-visibility': 'visible' }),
     animate(
       '{{ timing }} ease-out',
       keyframes([
@@ -44,7 +44,7 @@ export function flipIn(
 ): AnimationReferenceMetadata {
   return animation(
     [
-      style({ 'backface-visibility': 'visible' }),
+      // style({ 'backface-visibility': 'visible' }),
       animate(
         '{{ timing }} ease-in',
         keyframes([
@@ -86,7 +86,7 @@ export function flipOut(
 ): AnimationReferenceMetadata {
   return animation(
     [
-      style({ 'backface-visibility': 'visible' }),
+      // style({ 'backface-visibility': 'visible' }),
       animate(
         '{{ timing }}',
         keyframes([

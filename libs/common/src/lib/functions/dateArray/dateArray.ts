@@ -11,4 +11,3 @@ export function dateArray(len: number, startDate: Date = new Date()): Date[] {
     .map((x: null, i: number) => i)
     .map((num: number) => startDate.addDays(num))
 }
-

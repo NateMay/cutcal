@@ -34,7 +34,7 @@
 <div class="charts-conatiner">
     <!-- Chart Areas -->
     <ng-container *ngIf="baseSerieseData; else loading">
-        <ng-container *ngFor="let chart of charts | coll">
+        <ng-container *ngFor="let chart of charts | keyvalue">
             <ng-container *ngIf="chart.options.series.length">
                 <cc-analysis-chart
                     [chart]="chart"

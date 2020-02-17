@@ -1,4 +1,4 @@
-import { Nutrition } from '@cutcal/nutrition';
+import { Nutrition } from '@cutcal/nutrition'
 
 /**
  * Performs an operation on every member of a Nutrition object
@@ -9,7 +9,6 @@ export function modifyNutrition(
   nutrition: Nutrition<number>,
   predicate: (value: any) => any
 ): Nutrition<number> {
-
   const result: Nutrition<number> = {}
   for (const nutrient in nutrition) {
     result[nutrient] = predicate(nutrition[nutrient])

@@ -1,8 +1,25 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, NgZone, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostBinding,
+  HostListener,
+  Input,
+  NgZone,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core'
 import { DomSanitizer, SafeStyle, SafeUrl } from '@angular/platform-browser'
 import { CropperPosition } from '../interfaces/cropper-position'
 import { ImageCroppedEvent } from '../interfaces/image-cropped-event'
-import { resetExifOrientation, transformBase64BasedOnExifRotation } from '../utils/exif.utils'
+import {
+  resetExifOrientation,
+  transformBase64BasedOnExifRotation,
+} from '../utils/exif.utils'
 import { resizeCanvas } from '../utils/resize.utils'
 
 /**

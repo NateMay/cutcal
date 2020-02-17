@@ -31,7 +31,7 @@ describe('Sanitize Pipe', () => {
   it('should only call the handler if a new object is received', () => {
     fixture.detectChanges();
     expect(getDe(fixture, 'img').styles['background-image']).toBe(
-      'url("../../../assets/images/april.jpg")'
+      'url(../../../assets/images/april.jpg)'
     );
   });
 });

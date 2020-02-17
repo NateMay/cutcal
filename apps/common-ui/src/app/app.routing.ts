@@ -82,9 +82,7 @@ const COMMONUI_ROUTES: Routes = [
   {
     path: 'dnd',
     loadChildren: () =>
-      import('@cutcal/common/playgrounds').then(
-        module => module.Doc4DndModule
-      ),
+      import('@cutcal/common/playgrounds').then(module => module.Doc4DndModule),
   },
   {
     path: 'flip',

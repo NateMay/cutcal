@@ -18,7 +18,7 @@ export abstract class WindowRef {
   }
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class BrowserWindowRef extends WindowRef {
   constructor(@Inject(PLATFORM_ID) private platformId: {}) {
     super()

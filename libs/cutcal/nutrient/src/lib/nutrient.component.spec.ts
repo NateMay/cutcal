@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { CheckableNutrientsModule } from '@cutcal/nutrition';
 import { NutrientComponent } from './nutrient.component';
 
 describe('NutrientComponent', () => {
@@ -9,6 +10,7 @@ describe('NutrientComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [NutrientComponent],
+      imports: [CheckableNutrientsModule, NoopAnimationsModule],
     }).compileComponents();
   }));
 

@@ -1,5 +1,22 @@
-import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations'
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, HostListener, Input, NgZone, OnInit, Output } from '@angular/core'
+import {
+  animate,
+  AnimationEvent,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  HostBinding,
+  HostListener,
+  Input,
+  NgZone,
+  OnInit,
+  Output,
+} from '@angular/core'
 import { Weekday, WEEKDAYS } from '@cutcal/core'
 import * as _ from 'lodash'
 import { executeOnStable } from '../../../functions/executeOnStable/executeOnStable'
@@ -192,10 +209,7 @@ export class CalendarFaceComponent implements OnInit {
   }
 
   get shouldCreate() {
-    return (
-      (!!this.focusDate && !!this.selectedDate) ||
-      (!!this.startDate && !!this.selectedDate)
-    )
+    return !!this.selectedDate && (!!this.focusDate || !!this.startDate)
   }
 
   @Output() monthClick = new EventEmitter<Date>()
@@ -292,7 +306,10 @@ export class CalendarFaceComponent implements OnInit {
     return this.selectingStart ? date > this.endDate : date < this.startDate
   }
 
-  setAndEmit(property: 'start' | 'end' | 'focus' | 'selected', date: Date): void {
+  setAndEmit(
+    property: 'start' | 'end' | 'focus' | 'selected',
+    date: Date
+  ): void {
     if (property === 'start') {
       this.startDate = date
       this.startDateChange.emit(date)
@@ -305,7 +322,10 @@ export class CalendarFaceComponent implements OnInit {
     } else if (property === 'selected') {
       this.selectedDate = date
       this.selectedDateChange.emit(date)
-    } else throw new Error(`[CutCal] Calendar Face setAndEmit() called with invalid param`)
+    } else
+      throw new Error(
+        `[CutCal] Calendar Face setAndEmit() called with invalid param`
+      )
   }
 
   setRangeEqual(date: Date): void {

@@ -1,4 +1,4 @@
-import { KVP } from '@cutcal/core';
+import { KVP } from '@cutcal/core'
 /**
  * Removes all members of an oject from among those passed in
  * @param {Object} objIn the object to modify

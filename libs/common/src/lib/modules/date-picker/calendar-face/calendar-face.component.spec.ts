@@ -147,15 +147,34 @@ describe('CalendarFaceComponent', () => {
       expect(component.elementFocus).toBeTruthy();
     });
 
-    it('should return true from "shouldCreate()" only if there is both a "focusDate" and "selectedDate"', () => {
+    it('should return true from "shouldCreate()" only when required dates are present', () => {
+      component['_startDate'] = null;
       component['_focusDate'] = null;
       component['_selectedDate'] = new Date();
       expect(component.shouldCreate).toBe(false);
 
+      component['_startDate'] = new Date();
+      component['_focusDate'] = null;
+      component['_selectedDate'] = null;
+      expect(component.shouldCreate).toBe(false);
+
+      component['_startDate'] = null;
       component['_focusDate'] = new Date();
       component['_selectedDate'] = null;
       expect(component.shouldCreate).toBe(false);
 
+      component['_startDate'] = new Date();
+      component['_focusDate'] = new Date();
+      component['_selectedDate'] = null;
+      expect(component.shouldCreate).toBe(false);
+
+      component['_startDate'] = new Date();
+      component['_focusDate'] = null;
+      component['_selectedDate'] = new Date();
+      expect(component.shouldCreate).toBe(true);
+
+      component['_startDate'] = null;
+      component['_focusDate'] = new Date();
       component['_selectedDate'] = new Date();
       expect(component.shouldCreate).toBe(true);
     });

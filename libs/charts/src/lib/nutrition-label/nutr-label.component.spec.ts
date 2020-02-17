@@ -1,13 +1,11 @@
 import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { PluralPipeModule, UnitPipeModule } from '@cutcal/common';
+import { createPortion } from '@cutcal/diet';
 import { getDe } from '@cutcal/ng-testing';
-import { MOCK_NUTRITION } from '../../../../../../../data/nutrition1.mock';
-import { createPortion } from '../../../functions/createPortion';
-import { UnitPipeModule } from '../../../pipes/unit/unit-pipe.module';
-import { DEAFULT_DAILY_VALUE } from '../../../usda_nutrition/daily-value/daily-value';
-import { DailyValueSvc } from '../../../usda_nutrition/daily-value/daily-value.service';
-import { PluralPipeModule } from './../../../pipes/plural/plural-pipe.module';
+import { DailyValueSvc, DEAFULT_DAILY_VALUE } from '@cutcal/nutrition';
+import { MOCK_NUTRITION } from '../../../../../data/nutrition1.mock';
 import { NutrLabelComponent } from './nutr-label.component';
 
 @Component({

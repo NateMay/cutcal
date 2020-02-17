@@ -1,5 +1,11 @@
 import { DOCUMENT } from '@angular/common'
-import { Inject, Injectable, OnDestroy, Renderer2, RendererFactory2 } from '@angular/core'
+import {
+  Inject,
+  Injectable,
+  OnDestroy,
+  Renderer2,
+  RendererFactory2,
+} from '@angular/core'
 import { BehaviorSubject, fromEvent } from 'rxjs'
 import { tap } from 'rxjs/operators'
 

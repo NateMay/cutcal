@@ -11,7 +11,20 @@ class TesterLink {
 
 @Component({
   selector: 'cc-common-ui-sidenav',
-  templateUrl: './common-ui-sidenav.component.html',
+  template: `
+    <h4 style="text-align: center;">Components</h4>
+    <hr />
+    <mat-action-list>
+      <button
+        mat-list-item
+        *ngFor="let link of links"
+        routerLinkActive="active"
+        [routerLink]="link.route"
+      >
+        {{ link.label }}
+      </button>
+    </mat-action-list>
+  `,
   styleUrls: ['./common-ui-sidenav.component.scss'],
 })
 export class CommonUiSidenavComponent implements OnInit {

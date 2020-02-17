@@ -1,4 +1,13 @@
-import { Directive, EventEmitter, HostListener, Inject, Input, NgZone, Output, Renderer2 } from '@angular/core'
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  Inject,
+  Input,
+  NgZone,
+  Output,
+  Renderer2,
+} from '@angular/core'
 import { fromEvent } from 'rxjs'
 import { finalize, first, skip, takeUntil, tap } from 'rxjs/operators'
 import { Boolish } from '../../../decorators/boolish/boolish'
@@ -67,8 +76,7 @@ export class DragItem {
     this.dndSvc.startDrag(this.drag, this.showTrash)
     this.renderer.setStyle(this.img, 'transform', 'scale(1, 1)')
     this.renderer.setStyle(this.app, 'user-select', 'none')
-    const selection = this._window.getSelection()
-    if (selection) selection.removeAllRanges()
+    this.clearSelection()
     this.dragStart.emit(mousemove)
   }
 
@@ -87,6 +95,10 @@ export class DragItem {
     this.dndSvc.endDrag()
     this.renderer.setStyle(this.img, 'transform', 'scale(0, 0)')
     this.renderer.setStyle(this.app, 'user-select', 'auto')
+    this.clearSelection()
+  }
+  clearSelection() {
+    if (!this._window || !this._window.getSelection) return
     const selection = this._window.getSelection()
     if (selection) selection.removeAllRanges()
   }

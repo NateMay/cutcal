@@ -1,8 +1,8 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { DocUtilModule } from '../doc-utils.module';
-import { Doc4DynWidthComponent } from './doc4-dyn-width.component';
+import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core'
+import { RouterModule } from '@angular/router'
+import { DocUtilModule } from '../doc-utils.module'
+import { Doc4DynWidthComponent } from './doc4-dyn-width.component'
 
 @NgModule({
   declarations: [Doc4DynWidthComponent],

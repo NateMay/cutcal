@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MockHighChartsModule } from '../../../testing/nodeModules/highcharts.mock.module';
+import { MockHighChartsModule } from '@cutcal/ng-testing';
 import { AnalysisChartComponent } from './analysis-chart.component';
 
 // TEST (analyze)

@@ -10,18 +10,17 @@ import { MatSliderModule } from '@angular/material/slider';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { DndModule, PipesModule } from '@cutcal/common';
 import {
   getAllDe,
   getByDir,
   getEl,
   MOCK_HAMMER_LOADER,
 } from '@cutcal/ng-testing';
-import { createMealWithId } from '../../functions/createMeal';
-import { createUsage } from '../../functions/createUsage';
-import { Ingredient } from '../../models/ingredient';
-import { DndModule } from '../../modules/dnd/dnd.module';
-import { PipesModule } from '../../pipes/pipes.module';
-import { bread } from './../../../../../../data/food-seed';
+import { bread } from '../../../../../data/food-seed';
+import { Ingredient } from '../ingredient';
+import { createMealWithId } from '../meal';
+import { createUsage } from '../usage';
 import { IngredientsListitemComponent } from './ingredients-listitem.component';
 describe('IngredientsListitemComponent', () => {
   let fixture: ComponentFixture<IngredientsListitemComponent>;

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PipesModule } from '@cutcal/common';
 import { MockHighChartsModule } from '@cutcal/ng-testing';
-import { PipesModule } from '../../../pipes/pipes.module';
 import { NutrientWindRoseComponent } from './nutrient-wind-rose.component';
 
 describe('NutrientWindRoseComponent', () => {

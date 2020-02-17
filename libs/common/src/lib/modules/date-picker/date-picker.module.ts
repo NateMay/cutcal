@@ -45,5 +45,6 @@ const MATERIAL = [
   ],
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS],
+  entryComponents: [DatePickerDialogComponent],
 })
 export class DatePickerModule {}

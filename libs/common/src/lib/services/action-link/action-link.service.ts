@@ -1,8 +1,13 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, ParamMap, RouterStateSnapshot } from '@angular/router';
-import { KVP } from '@cutcal/core';
-import { Observable, Subject } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Injectable } from '@angular/core'
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  ParamMap,
+  RouterStateSnapshot,
+} from '@angular/router'
+import { KVP } from '@cutcal/core'
+import { Observable, Subject } from 'rxjs'
+import { filter, map } from 'rxjs/operators'
 
 /** Actinng as a CanActivate guard to intercept routing actions */
 @Injectable()

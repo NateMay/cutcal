@@ -1,6 +1,12 @@
 import { transition, trigger, useAnimation } from '@angular/animations'
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core'
-import { AnimateComponent, AnimateSpeed, Animations, CCAnimationsModule, flip } from '@cutcal/common'
+import {
+  AnimateComponent,
+  AnimateSpeed,
+  Animations,
+  CCAnimationsModule,
+  flip,
+} from '@cutcal/common'
 
 @Component({
   animations: [trigger('flip', [transition('* => *', useAnimation(flip))])],

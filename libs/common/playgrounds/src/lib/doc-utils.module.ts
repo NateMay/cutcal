@@ -15,7 +15,7 @@ const MODULES = [
   MatSlideToggleModule,
   MatSelectModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
 ]
 
 @NgModule({

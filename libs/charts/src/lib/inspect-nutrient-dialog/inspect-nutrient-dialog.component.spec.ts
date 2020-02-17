@@ -1,12 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  createFood,
+  createMeal,
+  createUsage,
+  MealService,
+  MealsTripple,
+} from '@cutcal/diet';
 import { MockHighChartsModule } from '@cutcal/ng-testing';
 import { of } from 'rxjs';
-import { createMeal } from '../../functions';
-import { createUsage } from '../../functions/createUsage';
-import { createFood } from '../../models';
-import { MealService, MealsTripple } from '../../services/meal/meal.service';
 import { InspectNutrientDialogComponent } from './inspect-nutrient-dialog.component';
 import { INSPECTION_DATA } from './inspection-data';
 

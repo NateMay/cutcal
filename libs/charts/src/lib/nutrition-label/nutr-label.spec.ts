@@ -1,5 +1,5 @@
-import { MOCK_NUTRITION } from '../../../../../../../data/nutrition1.mock';
-import { DEAFULT_DAILY_VALUE } from '../../../usda_nutrition/daily-value/daily-value';
+import { DEAFULT_DAILY_VALUE } from '@cutcal/nutrition';
+import { MOCK_NUTRITION } from '../../../../../data/nutrition1.mock';
 import { NutritionLabel } from './nutr-label';
 
 it('NutritionLabel class should calculate properly', () => {

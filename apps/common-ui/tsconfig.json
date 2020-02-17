@@ -9,7 +9,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
-    "strictFunctionTypes": true,
+    "strictFunctionTypes": true
     // "noImplicitThis": true,
     // "noImplicitAny": true,
   },

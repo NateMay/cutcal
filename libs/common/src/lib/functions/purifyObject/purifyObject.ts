@@ -1,4 +1,4 @@
-import { KVP } from '@cutcal/core';
+import { KVP } from '@cutcal/core'
 /**
  * Remove keys for nulls and undefined members
  * @param {Object} obj

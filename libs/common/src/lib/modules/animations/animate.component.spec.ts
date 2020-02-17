@@ -3,7 +3,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AnimateComponent } from './animate.component';
 import { CCAnimationsModule } from './animations.module';
 
-describe('AnimateComponent', () => {
+fdescribe('AnimateComponent', () => {
   let component: AnimateComponent;
   let fixture: ComponentFixture<AnimateComponent>;
 

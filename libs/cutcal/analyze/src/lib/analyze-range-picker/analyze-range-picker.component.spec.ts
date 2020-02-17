@@ -7,8 +7,7 @@ import {
 } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MOCK_HAMMER_LOADER } from '../../../testing/nodeModules/mockHammerProvider';
-import { MockRouterSvc } from '../../../testing/nodeModules/router.mock';
+import { MockRouterSvc, MOCK_HAMMER_LOADER } from '@cutcal/ng-testing';
 import { AnalyzeRangePickerComponent } from './analyze-range-picker.component';
 
 describe('AnalyzeRangePickerComponent', () => {
