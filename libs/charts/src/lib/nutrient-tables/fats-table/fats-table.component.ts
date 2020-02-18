@@ -45,7 +45,8 @@ import * as _ from 'lodash'
         <td><span class="unit"> (g) </span></td>
         <td class="daily-value">
           {{
-            nutrition.saturatedFat / rda('saturatedFat') | percent: digitsInfo2
+            nutrition.saturatedFat || 0 / rda('saturatedFat')
+              | percent: digitsInfo2
           }}
         </td>
       </tr>
@@ -78,7 +79,7 @@ import * as _ from 'lodash'
         <td><span class="unit"> (g) </span></td>
         <td class="daily-value">
           {{
-            nutrition.monoUnsaturated / rda('monoUnsaturated')
+            nutrition.monoUnsaturated || 0 / rda('monoUnsaturated')
               | percent: digitsInfo2
           }}
         </td>
@@ -112,7 +113,7 @@ import * as _ from 'lodash'
         <td><span class="unit"> (g) </span></td>
         <td class="daily-value">
           {{
-            nutrition.polyUnsaturated / rda('polyUnsaturated')
+            nutrition.polyUnsaturated || 0 / rda('polyUnsaturated')
               | percent: digitsInfo2
           }}
         </td>
@@ -162,7 +163,7 @@ import * as _ from 'lodash'
         <td><span class="unit"> (g) </span></td>
         <td class="daily-value">
           {{
-            nutrition.transUnsaturated / rda('transUnsaturated')
+            nutrition.transUnsaturated || 0 / rda('transUnsaturated')
               | percent: digitsInfo2
           }}
         </td>

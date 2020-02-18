@@ -36,7 +36,8 @@ import * as _ from 'lodash'
         </td>
         <td class="daily-value">
           {{
-            nutrition.dietary_fiber / rda('dietary_fiber') | percent: precInfo
+            nutrition.dietary_fiber || 0 / rda('dietary_fiber')
+              | percent: precInfo
           }}
         </td>
       </tr>
@@ -48,7 +49,7 @@ import * as _ from 'lodash'
         </td>
         <td class="daily-value">
           {{
-            nutrition.insoluble_fiber / rda('insoluble_fiber')
+            nutrition.insoluble_fiber || 0 / rda('insoluble_fiber')
               | percent: precInfo
           }}
         </td>
@@ -61,7 +62,8 @@ import * as _ from 'lodash'
         </td>
         <td class="daily-value">
           {{
-            nutrition.soluble_fiber / rda('soluble_fiber') | percent: precInfo
+            nutrition.soluble_fiber || 0 / rda('soluble_fiber')
+              | percent: precInfo
           }}
         </td>
       </tr>
@@ -72,7 +74,7 @@ import * as _ from 'lodash'
           <span class="unit"> ({{ carbs['starch']?.unit }}) </span>
         </td>
         <td class="daily-value">
-          {{ nutrition.starch / rda('starch') | percent: precInfo }}
+          {{ nutrition.starch || 0 / rda('starch') | percent: precInfo }}
         </td>
       </tr>
       <tr>
@@ -82,7 +84,7 @@ import * as _ from 'lodash'
           <span class="unit"> ({{ carbs['carb_sum']?.unit }}) </span>
         </td>
         <td class="daily-value">
-          {{ nutrition.carb_sum / rda('carb_sum') | percent: precInfo }}
+          {{ nutrition.carb_sum || 0 / rda('carb_sum') | percent: precInfo }}
         </td>
       </tr>
       <tr>
@@ -92,7 +94,9 @@ import * as _ from 'lodash'
           <span class="unit"> ({{ carbs['carb_other']?.unit }}) </span>
         </td>
         <td class="daily-value">
-          {{ nutrition.carb_other / rda('carb_other') | percent: precInfo }}
+          {{
+            nutrition.carb_other || 0 / rda('carb_other') | percent: precInfo
+          }}
         </td>
       </tr>
       <tr>
@@ -102,7 +106,7 @@ import * as _ from 'lodash'
           <span class="unit"> ({{ carbs['inulin']?.unit }}) </span>
         </td>
         <td class="daily-value">
-          {{ nutrition.inulin / rda('inulin') | percent: precInfo }}
+          {{ nutrition.inulin || 0 / rda('inulin') | percent: precInfo }}
         </td>
       </tr>
       <tr>
@@ -115,7 +119,7 @@ import * as _ from 'lodash'
         </td>
         <td class="daily-value">
           {{
-            nutrition.epigallocatechin / rda('epigallocatechin')
+            nutrition.epigallocatechin || 0 / rda('epigallocatechin')
               | percent: precInfo
           }}
         </td>
