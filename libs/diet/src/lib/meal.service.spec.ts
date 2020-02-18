@@ -60,7 +60,7 @@ xdescribe('MealService', () => {
       ],
     });
 
-    mealSvc = TestBed.get(MealService);
+    mealSvc = TestBed.inject(MealService);
   });
 
   it('injects the meal service', () => {

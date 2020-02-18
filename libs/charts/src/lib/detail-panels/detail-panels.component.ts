@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { createPortion, Portion } from '@cutcal/diet'
-import { NUTRIENTS, Nutrition } from '@cutcal/nutrition'
+import { NUTRIENTS, Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
 
 export interface Primaries<T> {
   calories?: T
@@ -81,17 +81,17 @@ export interface Primaries<T> {
         <mat-expansion-panel-header>
           <mat-panel-title
             >Calories <span class="spacer"></span>
-            {{ calories.quantity || 0 | number: numInfo }}&nbsp;<sub>{{
+            {{ calories.quantity | number: numInfo }}&nbsp;<sub>{{
               calories.unit
             }}</sub></mat-panel-title
           >
         </mat-expansion-panel-header>
         <br />
         <div class="calories-chart-wrapper" *ngIf="nutrition?.calories">
-          <calories-chart
+          <cc-calories-chart
             *ngIf="showChart"
             [nutrition]="nutrition"
-          ></calories-chart>
+          ></cc-calories-chart>
         </div>
         <table cc-calories [nutrition]="nutrition"></table>
         <br />
@@ -104,7 +104,7 @@ export interface Primaries<T> {
         <mat-expansion-panel-header>
           <mat-panel-title
             >Protein <span class="spacer"></span>
-            {{ protein.quantity || 0 | number: numInfo }}&nbsp;<sub>{{
+            {{ protein.quantity | number: numInfo }}&nbsp;<sub>{{
               protein.unit
             }}</sub></mat-panel-title
           >
@@ -120,7 +120,7 @@ export interface Primaries<T> {
         <mat-expansion-panel-header>
           <mat-panel-title
             >Fats <span class="spacer"></span>
-            {{ fat.quantity || 0 | number: numInfo }}&nbsp;<sub>{{
+            {{ fat.quantity | number: numInfo }}&nbsp;<sub>{{
               fat.unit
             }}</sub></mat-panel-title
           >
@@ -136,7 +136,7 @@ export interface Primaries<T> {
         <mat-expansion-panel-header>
           <mat-panel-title
             >Carbohydrates <span class="spacer"></span>
-            {{ carbohydrates.quantity || 0 | number: numInfo }}&nbsp;<sub>{{
+            {{ carbohydrates.quantity | number: numInfo }}&nbsp;<sub>{{
               carbohydrates.unit
             }}</sub></mat-panel-title
           >
@@ -277,7 +277,7 @@ export class DetailPanelsComponent implements OnInit {
       nutrition.carbohydrates
     )
     this.protein = createPortion(units.protein || 'g', nutrition.protein)
-    this._nutrition = nutrition
+    this._nutrition = Object.assign({}, ZERO_NUTRITION, nutrition)
   }
   get nutrition() {
     return this._nutrition

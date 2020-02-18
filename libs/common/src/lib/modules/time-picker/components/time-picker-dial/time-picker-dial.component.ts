@@ -91,10 +91,7 @@ export class TimepickerDialComponent implements OnChanges {
   @Output() minuteChanged = new EventEmitter<ClockFaceTime>()
 
   ngOnChanges(changes: SimpleChanges) {
-    if (
-      (changes['period'] && changes['period'].currentValue) ||
-      (changes['format'] && changes['format'].currentValue)
-    ) {
+    if (changes['period']?.currentValue || changes['format']?.currentValue) {
       const hours = getHours(this.format)
 
       this.hours = disableHours(hours, {
@@ -104,10 +101,7 @@ export class TimepickerDialComponent implements OnChanges {
         period: this.period,
       })
     }
-    if (
-      (changes['period'] && changes['period'].currentValue) ||
-      (changes['hour'] && changes['hour'].currentValue)
-    ) {
+    if (changes['period']?.currentValue || changes['hour']?.currentValue) {
       const minutes = getMinutes(this.minutesGap)
 
       this.minutes = disableMinutes(minutes, +this.hour, {

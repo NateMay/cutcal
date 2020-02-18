@@ -154,12 +154,7 @@ export class ImageCropperComponent implements OnChanges {
   @Input()
   set imageChangedEvent(event: any) {
     this.initCropper()
-    if (
-      event &&
-      event.target &&
-      event.target.files &&
-      event.target.files.length > 0
-    ) {
+    if (event?.target?.files?.length > 0) {
       this.loadImageFile(event.target.files[0])
     }
   }
@@ -299,11 +294,7 @@ export class ImageCropperComponent implements OnChanges {
   private checkImageMaxSizeRecursively(): void {
     if (this.setImageMaxSizeRetries > 40) {
       this.loadImageFailed.emit()
-    } else if (
-      this.sourceImage &&
-      this.sourceImage.nativeElement &&
-      this.sourceImage.nativeElement.offsetWidth > 0
-    ) {
+    } else if (this.sourceImage?.nativeElement?.offsetWidth > 0) {
       this.setMaxSize()
       this.setCropperScaledMinSize()
       this.resetCropperPosition()
@@ -828,16 +819,10 @@ export class ImageCropperComponent implements OnChanges {
   }
 
   private getClientX(event: any): number {
-    return (
-      event.clientX ||
-      (event.touches && event.touches[0] && event.touches[0].clientX)
-    )
+    return event?.clientX || event?.touches[0]?.clientX
   }
 
   private getClientY(event: any): number {
-    return (
-      event.clientY ||
-      (event.touches && event.touches[0] && event.touches[0].clientY)
-    )
+    return event.clientY || event?.touches[0]?.clientY
   }
 }

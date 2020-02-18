@@ -102,7 +102,7 @@ describe('IngredientsListitemComponent', () => {
   });
 
   it('should route away when clicked', () => {
-    const spy = spyOn(TestBed.get(Router), 'navigate');
+    const spy = spyOn(TestBed.inject(Router), 'navigate');
     fixture.detectChanges();
     goToButton.nativeElement.click();
     expect(spy).toHaveBeenCalledWith([

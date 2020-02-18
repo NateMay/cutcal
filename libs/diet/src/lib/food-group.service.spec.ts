@@ -11,7 +11,7 @@ describe('Foodgroup Service', () => {
       providers: [FoodGroupSvc],
     });
 
-    foodGroupSvc = TestBed.get(FoodGroupSvc);
+    foodGroupSvc = TestBed.inject(FoodGroupSvc);
   });
 
   it('injects the foodgroup service', () => {

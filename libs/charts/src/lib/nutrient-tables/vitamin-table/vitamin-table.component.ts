@@ -41,7 +41,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.vit_A | number: numInfo }}</td>
         <td><span class="unit"> (IU) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_A || 0 / rda('vit_A') | percent: precInfo }}
+          {{ nutrition.vit_A / rda('vit_A') | percent: precInfo }}
         </td>
       </tr>
       <ng-container *ngIf="vitA_Open">
@@ -61,7 +61,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.vit_C | number: numInfo }}</td>
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_C || 0 / rda('vit_C') | percent: precInfo }}
+          {{ nutrition.vit_C / rda('vit_C') | percent: precInfo }}
         </td>
       </tr>
       <tr>
@@ -74,7 +74,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.vit_D | number: numInfo }}</td>
         <td><span class="unit"> (IU) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_D || 0 / rda('vit_D') | percent: precInfo }}
+          {{ nutrition.vit_D / rda('vit_D') | percent: precInfo }}
         </td>
       </tr>
       <ng-container *ngIf="vitD_Open">
@@ -98,7 +98,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.vit_E | number: numInfo }}</td>
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_E || 0 / rda('vit_E') | percent: precInfo }}
+          {{ nutrition.vit_E / rda('vit_E') | percent: precInfo }}
         </td>
       </tr>
       <ng-container *ngIf="vitE_Open">
@@ -118,7 +118,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.vit_K | number: numInfo }}</td>
         <td><span class="unit"> (mcg) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_K || 0 / rda('vit_K') | percent: precInfo }}
+          {{ nutrition.vit_K / rda('vit_K') | percent: precInfo }}
         </td>
       </tr>
       <tr>
@@ -126,7 +126,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.thiamin | number: numInfo }}</td>
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
-          {{ nutrition.thiamin || 0 / rda('thiamin') | percent: precInfo }}
+          {{ nutrition.thiamin / rda('thiamin') | percent: precInfo }}
         </td>
       </tr>
       <tr>
@@ -134,9 +134,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.riboflavin | number: numInfo }}</td>
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
-          {{
-            nutrition.riboflavin || 0 / rda('riboflavin') | percent: precInfo
-          }}
+          {{ nutrition.riboflavin / rda('riboflavin') | percent: precInfo }}
         </td>
       </tr>
       <tr>
@@ -144,7 +142,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.niacin | number: numInfo }}</td>
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
-          {{ nutrition.niacin || 0 / rda('niacin') | percent: precInfo }}
+          {{ nutrition.niacin / rda('niacin') | percent: precInfo }}
         </td>
       </tr>
       <tr>
@@ -152,7 +150,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.vit_B6 | number: numInfo }}</td>
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_B6 || 0 / rda('vit_B6') | percent: precInfo }}
+          {{ nutrition.vit_B6 / rda('vit_B6') | percent: precInfo }}
         </td>
       </tr>
 
@@ -165,7 +163,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.folate | number: numInfo }}</td>
         <td><span class="unit"> (mcg) </span></td>
         <td class="daily-value">
-          {{ nutrition.folate || 0 / rda('folate') | percent: precInfo }}
+          {{ nutrition.folate / rda('folate') | percent: precInfo }}
         </td>
       </tr>
       <ng-container *ngIf="folate_Open">
@@ -185,7 +183,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.vit_B12 | number: numInfo }}</td>
         <td><span class="unit"> (mcg) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_B12 || 0 / rda('vit_B12') | percent: precInfo }}
+          {{ nutrition.vit_B12 / rda('vit_B12') | percent: precInfo }}
         </td>
       </tr>
       <tr>
@@ -196,7 +194,7 @@ import * as _ from 'lodash'
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
           {{
-            nutrition.pantothenic_acid || 0 / rda('pantothenic_acid')
+            nutrition.pantothenic_acid / rda('pantothenic_acid')
               | percent: precInfo
           }}
         </td>
@@ -206,7 +204,7 @@ import * as _ from 'lodash'
         <td class="quant">{{ nutrition.choline | number: numInfo }}</td>
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
-          {{ nutrition.choline || 0 / rda('choline') | percent: precInfo }}
+          {{ nutrition.choline / rda('choline') | percent: precInfo }}
         </td>
       </tr>
     </tbody>
@@ -255,6 +253,6 @@ export class VitaminTableComponent {
 
   rda(propName: string): number {
     const range: NutritionRange = _.get(this.dv.snapshot.nutrition, propName)
-    return range && range.RDA ? range.RDA : 1
+    return range?.RDA ? range.RDA : 1
   }
 }

@@ -7,7 +7,7 @@ import {
 import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
 
 @Component({
-  selector: 'table[cc-insufficient, cc-insufficient',
+  selector: 'table[cc-insufficient], cc-insufficient',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'cc-insufficient' },
   styleUrls: ['../nutrient-table.scss', './insufficient-table.component.scss'],

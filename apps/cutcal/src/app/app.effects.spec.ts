@@ -12,7 +12,7 @@
 //     providers: [AppEffects, provideMockActions(() => actions$)],
 //   });
 
-//   effects = TestBed.get<AppEffects>(AppEffects);
+//   effects = TestBed.inject<AppEffects>(AppEffects);
 // });
 
 it('should be created', () => {

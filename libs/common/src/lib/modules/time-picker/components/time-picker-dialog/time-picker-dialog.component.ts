@@ -115,19 +115,19 @@ export class TimepickerDialogComponent implements OnDestroy {
   }
 
   get minTime(): Date {
-    return this.input && this.input.min
+    return this.input?.min
   }
 
   get maxTime(): Date {
-    return this.input && this.input.max
+    return this.input?.max
   }
 
   get disabled(): boolean {
-    return this.input && this.input.disabled
+    return this.input?.disabled
   }
 
   get format(): number {
-    return this.input && this.input.format
+    return this.input?.format
   }
 
   @ViewChild('timepickerww', { static: true }) timepickerComponent!: ElementRef

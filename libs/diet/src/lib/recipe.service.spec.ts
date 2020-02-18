@@ -11,7 +11,7 @@ describe('Recipe Service', () => {
       providers: [RecipeSvc],
     });
 
-    recipeSvc = TestBed.get(RecipeSvc);
+    recipeSvc = TestBed.inject(RecipeSvc);
   });
 
   it('injects the foodgroup service', () => {

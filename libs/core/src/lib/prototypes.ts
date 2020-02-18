@@ -419,32 +419,3 @@ function daysBetween(this: Date, date2: Date) {
   // Convert back to days and return
   return Math.abs(Math.round(difference_ms / one_day))
 }
-
-// Object.prototype.filter = filter;
-// interface Object { filter: typeof filter }
-
-// /**
-//  * Extracts the file extension
-//  * @example
-//  *   const greeting = {
-//  *     a: 'Hello',
-//  *     b: 'Hey',
-//  *     c: 'Bye Bye'
-//  *   }
-//  *
-//  *  const longGreetings = greetings.filter((value, key) => value.length >= 5);
-//  *
-//  * @reference [Medium] {@link https://medium.com/better-programming/javascript-tips-1-the-filter-method-for-object-properties-a2d6869b5127}
-//  */
-// function filter(predicate) {
-//   if (!this.__proto__ || this.__proto__.constructor.name !== 'object')
-//     throw new Error('[CutCal] Cannot invoke the filter method: this input is not an object')
-
-//   const newObj = {}
-//   for (const prop in this) {
-//     if (this.hasOwnProperty(prop) && predicate(this[prop], prop, this))
-//       newObj[prop] = this[prop]
-//   }
-
-//   return newObj;
-// }

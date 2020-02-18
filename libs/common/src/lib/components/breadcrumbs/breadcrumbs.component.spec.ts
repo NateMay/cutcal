@@ -44,7 +44,7 @@ describe('BreadcrumbsComponent', () => {
   });
 
   it('routes call properly', () => {
-    const spy = spyOn(TestBed.get(Router), 'navigate');
+    const spy = spyOn(TestBed.inject(Router), 'navigate');
     component.crumbs = crumbs;
     fixture.detectChanges();
 

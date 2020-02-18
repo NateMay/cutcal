@@ -150,7 +150,7 @@ export class CalendarFaceComponent implements OnInit {
    */
   private _startDate: Date = new Date()
   @Input() set startDate(date: Date) {
-    if (!!this.startDate && this.startDate.isSameDay(date)) return
+    if (this.startDate?.isSameDay(date)) return
     this._startDate = date
     this.createCalendar()
   }
@@ -164,7 +164,7 @@ export class CalendarFaceComponent implements OnInit {
    */
   private _endDate: Date = new Date()
   @Input() set endDate(date: Date) {
-    if (!!this.endDate && this.endDate.isSameDay(date)) return
+    if (this.endDate?.isSameDay(date)) return
     this._endDate = date
     this.createCalendar()
   }
@@ -289,7 +289,7 @@ export class CalendarFaceComponent implements OnInit {
   }
 
   get startAndEndEqual(): boolean {
-    return !!this.startDate && this.startDate.isSameDay(this.endDate)
+    return this.startDate?.isSameDay(this.endDate)
   }
 
   adjustUnknown(date: Date) {

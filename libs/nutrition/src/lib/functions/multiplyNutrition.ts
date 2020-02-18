@@ -1,4 +1,4 @@
-import { Nutrition } from '../nutrition'
+import { Nutrient, Nutrition } from '../nutrition'
 
 /**
  * Multiplies every member of a Nutrition object
@@ -10,8 +10,8 @@ export function multiplyNutrition(
   multipler: number
 ): Nutrition<number> {
   const result: Nutrition<number> = {}
-  for (const nutrient in nutrition) {
-    result[nutrient] = nutrition[nutrient] * multipler
+  for (const nutrient of Object.keys(nutrition) as Nutrient[]) {
+    result[nutrient] = (nutrition[nutrient] || 0) * multipler
   }
   return result
 }

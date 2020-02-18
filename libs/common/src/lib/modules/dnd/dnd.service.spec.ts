@@ -9,7 +9,7 @@ describe('DndSvc', () => {
     TestBed.configureTestingModule({
       providers: [DndSvc],
     });
-    service = TestBed.get(DndSvc);
+    service = TestBed.inject(DndSvc);
     appendSpy = spyOn(document.body, 'appendChild');
   });
 

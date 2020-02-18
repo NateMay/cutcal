@@ -1,12 +1,13 @@
-import { KVP } from '@cutcal/core'
 import * as _ from 'lodash'
 import { ZERO_NUTRITION } from './base-nutrition'
 import { NUTRIENTS } from './nutrient-metadata'
+import { NutrientUnit } from './nutrient-units'
 import { Nutrition } from './nutrition'
 
 /**
  * Object to manage the data about which nutrients are selected
  */
+export type NutrCheckableMap = { [key in NutrientUnit]: NutrCheckable[] }
 export interface NutrCheckable {
   label: string
   propName: string
@@ -19,9 +20,9 @@ export interface NutrCheckable {
  */
 export function createNutrCheckableMap(
   checkables: Nutrition<NutrCheckable>
-): KVP<NutrCheckable[]> {
+): NutrCheckableMap {
   const result = _.groupBy(checkables, 'unit')
-  return result as KVP<NutrCheckable[]>
+  return result as NutrCheckableMap
 }
 
 /**
@@ -32,11 +33,13 @@ export function nutrtionSelections(
   selected?: string[]
 ): Nutrition<NutrCheckable> {
   const result: Nutrition<NutrCheckable> = {}
-  for (const nutrient in ZERO_NUTRITION) {
+  for (const nutrient of Object.keys(ZERO_NUTRITION) as Array<
+    keyof Nutrition<any>
+  >) {
     result[nutrient] = {
-      label: NUTRIENTS.shortNames[nutrient!] || nutrient,
+      label: NUTRIENTS.shortNames[nutrient] || nutrient,
       propName: nutrient,
-      unit: NUTRIENTS.units[nutrient!],
+      unit: NUTRIENTS.units[nutrient],
       isChecked: selected ? selected.includes(nutrient) : false,
     }
   }

@@ -9,8 +9,8 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
-    "strictFunctionTypes": true
-    // "noImplicitThis": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true
     // "noImplicitAny": true,
   },
   "include": ["**/*.ts"]

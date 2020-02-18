@@ -41,7 +41,7 @@ export function scaleNutrient(
   nutrient: Nutrient
 ): number {
   const conversionFactor = getConversionFactor(usage, food)
-  return food.nutrition[nutrient!] || 0 * conversionFactor
+  return (food.nutrition[nutrient] || 0) * conversionFactor
 }
 
 function getConversionFactor(usage: Usage, food: Food): number {

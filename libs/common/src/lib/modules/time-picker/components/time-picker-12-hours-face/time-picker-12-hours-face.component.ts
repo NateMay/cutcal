@@ -44,7 +44,7 @@ export class Timepicker12HoursFaceComponent implements OnChanges {
     this.hourSelected.next(time)
   }
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['period'] && changes['period'].currentValue) {
+    if (changes['period']?.currentValue) {
       this.hoursList = disableHours(this.hoursList, {
         min: this.minTime,
         max: this.maxTime,

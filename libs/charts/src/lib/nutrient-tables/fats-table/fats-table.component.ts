@@ -45,8 +45,7 @@ import * as _ from 'lodash'
         <td><span class="unit"> (g) </span></td>
         <td class="daily-value">
           {{
-            nutrition.saturatedFat || 0 / rda('saturatedFat')
-              | percent: digitsInfo2
+            nutrition.saturatedFat / rda('saturatedFat') | percent: digitsInfo2
           }}
         </td>
       </tr>
@@ -79,7 +78,7 @@ import * as _ from 'lodash'
         <td><span class="unit"> (g) </span></td>
         <td class="daily-value">
           {{
-            nutrition.monoUnsaturated || 0 / rda('monoUnsaturated')
+            nutrition.monoUnsaturated / rda('monoUnsaturated')
               | percent: digitsInfo2
           }}
         </td>
@@ -113,7 +112,7 @@ import * as _ from 'lodash'
         <td><span class="unit"> (g) </span></td>
         <td class="daily-value">
           {{
-            nutrition.polyUnsaturated || 0 / rda('polyUnsaturated')
+            nutrition.polyUnsaturated / rda('polyUnsaturated')
               | percent: digitsInfo2
           }}
         </td>
@@ -163,7 +162,7 @@ import * as _ from 'lodash'
         <td><span class="unit"> (g) </span></td>
         <td class="daily-value">
           {{
-            nutrition.transUnsaturated || 0 / rda('transUnsaturated')
+            nutrition.transUnsaturated / rda('transUnsaturated')
               | percent: digitsInfo2
           }}
         </td>
@@ -224,7 +223,7 @@ export class FatsTableComponent {
   // Recommended Daily Allowance
   rda(path: string): number {
     const range: NutritionRange = _.get(this.dv.snapshot.nutrition, path)
-    return range && range.RDA ? range.RDA : 1
+    return range?.RDA ? range.RDA : 1
   }
 
   constructor(private dv: DailyValueSvc) {}

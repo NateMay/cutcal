@@ -60,6 +60,6 @@ export class OtherTableComponent {
   // Recommended Daily Allowance
   rda(path: string): number {
     const range: NutritionRange = _.get(this.dv.snapshot.nutrition, path)
-    return range && range.RDA ? range.RDA : 1
+    return range?.RDA ? range.RDA : 1
   }
 }

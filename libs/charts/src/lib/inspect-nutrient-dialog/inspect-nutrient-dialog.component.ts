@@ -122,7 +122,7 @@ export class InspectNutrientDialogComponent implements OnInit {
 
   getNutrientTotal([meals, usages, foods]: MealsTripple): void {
     this.nutrientTotal = _.sum(
-      _.map(meals, meal => meal.nutrition[this.nutrient!] || 0)
+      _.map(meals, meal => meal.nutrition[this.nutrient] || 0)
     )
   }
 
@@ -187,7 +187,7 @@ export class InspectNutrientDialogComponent implements OnInit {
   }
 
   createMealPoint(meal: Meal): SeriesPieDataOptions {
-    const value: number = meal.nutrition[this.nutrient!] || 0
+    const value: number = meal.nutrition[this.nutrient] || 0
     return {
       name: meal.name,
       y: (value * 100) / this.nutrientTotal,

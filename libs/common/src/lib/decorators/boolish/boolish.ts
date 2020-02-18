@@ -3,7 +3,7 @@
  * @type decorator
  */
 
-export function Boolish(target: any, property: string): any {
+export function Boolish(this: any, target: any, property: string): any {
   let val: boolean
   return {
     set: (value: any): void => {

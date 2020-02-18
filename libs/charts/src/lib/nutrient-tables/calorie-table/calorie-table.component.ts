@@ -81,7 +81,7 @@ export class CalorieTableComponent {
   }
 
   getPerent(macro: keyof CaloriesFrom): number {
-    return this.nutrition && this.nutrition.calories
+    return this.nutrition?.calories
       ? this.caloresFrom[macro] / this.nutrition.calories
       : 0
   }
@@ -91,6 +91,6 @@ export class CalorieTableComponent {
   // Recommended Daily Allowance
   rda(propName: string): number {
     const range: NutritionRange = _.get(this.dv.snapshot.nutrition, propName)
-    return range && range.RDA ? range.RDA : 1
+    return range?.RDA ? range.RDA : 1
   }
 }

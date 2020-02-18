@@ -73,7 +73,7 @@ describe('Drag and Drop directives', () => {
     fixture = TestBed.createComponent(TestDndComponent);
     fixture.detectChanges();
 
-    dndSvc = TestBed.get(DndSvc);
+    dndSvc = TestBed.inject(DndSvc);
 
     dragEl = getDe(fixture, '.drag');
     dragDir = getDirective<DragItem>(fixture.debugElement, DragItem);

@@ -129,11 +129,11 @@ export class FdcService {
   private nutritionFromResponse(
     response: FdcFoodDetailResponse
   ): Nutrition<number> {
-    const base = {}
+    const base: KVP<number> = {}
     const details = _.keyBy(NUTRIENTS.allDetails, 'id')
     response.foodNutrients.forEach((foodNutrient: FdcFoodNutrient) => {
       const meta = details[foodNutrient.nutrient.id]
-      if (meta && meta.propName) base[meta.propName] = foodNutrient.value
+      if (meta?.propName) base[meta.propName] = foodNutrient.value || 0
     })
     return base
   }

@@ -146,12 +146,7 @@ export class TimepickerFaceComponent
     const faceTimeChanges = changes['faceTime']
     const selectedTimeChanges = changes['selectedTime']
 
-    if (
-      faceTimeChanges &&
-      faceTimeChanges.currentValue &&
-      selectedTimeChanges &&
-      selectedTimeChanges.currentValue
-    ) {
+    if (faceTimeChanges?.currentValue && selectedTimeChanges?.currentValue) {
       /* Set time according to passed an input value */
       const newTime = this.faceTime.find(
         time => time.time === this.selectedTime.time
@@ -160,10 +155,10 @@ export class TimepickerFaceComponent
         throw new Error('[CutCal] timepicker failed to set the time properly')
       else this.selectedTime = newTime
     }
-    if (selectedTimeChanges && selectedTimeChanges.currentValue) {
+    if (selectedTimeChanges?.currentValue) {
       this.setClockHandPosition()
     }
-    if (faceTimeChanges && faceTimeChanges.currentValue) {
+    if (faceTimeChanges?.currentValue) {
       // To avoid an error ExpressionChangedAfterItHasBeenCheckedError
       setTimeout(() => this.selectAvailableTime())
     }

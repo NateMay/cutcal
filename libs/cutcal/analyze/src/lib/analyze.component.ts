@@ -22,6 +22,8 @@ import { MealService } from '@cutcal/diet'
 import {
   createNutrCheckableMap,
   NutrCheckable,
+  NutrCheckableMap,
+  NutrientUnit,
   Nutrition,
   nutrtionSelections,
 } from '@cutcal/nutrition'
@@ -166,7 +168,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   initializeCharts(): void {
-    const unitMap: KVP<NutrCheckable[]> = createNutrCheckableMap(
+    const unitMap: NutrCheckableMap = createNutrCheckableMap(
       this.nutrCheckables
     )
 
@@ -180,21 +182,21 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   /**
    * @reference [Highcharts] {@link https://www.highcharts.com/demo/line-basic}
    */
-  createCharts(unitMap: KVP<NutrCheckable[]>, controls: KVP<ChartControls>) {
-    return _.keyBy(
-      _.map(unitMap, (checkables, unit) => {
-        const options = BASE_ANALYZE_CHART_OPTIONS()
+  createCharts(
+    unitMap: NutrCheckableMap,
+    controls: KVP<ChartControls>
+  ): KVP<AnalysisChartVM> {
+    const result: KVP<AnalysisChartVM> = {}
+    for (const unit of Object.keys(unitMap) as NutrientUnit[]) {
+      const options = BASE_ANALYZE_CHART_OPTIONS()
 
-        this.setChartOptions(controls[unit], options)
+      this.setChartOptions(controls[unit], options)
 
-        options.series = this.getChartSeriesOptions(checkables, controls[unit])
+      options.series = this.getChartSeriesOptions(unitMap[unit], controls[unit])
 
-        // const chart = new Highcharts.Chart(options);
-
-        return new AnalysisChartVM(unit, options, controls[unit])
-      }),
-      'unit'
-    )
+      result[unit] = new AnalysisChartVM(unit, options, controls[unit])
+    }
+    return result
   }
 
   // ***************   CALCULATE DATA SERIES   ****************** //
@@ -304,7 +306,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
 
   closeChart(chart: AnalysisChartVM): void {
     _.forEach(this.nutrCheckables, checkable => {
-      if (checkable && checkable.unit == chart.unit) checkable.isChecked = false
+      if (checkable?.unit == chart.unit) checkable.isChecked = false
     })
 
     chart.options.series = []
@@ -351,7 +353,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
 
   // ***************   INSPECTION MODAL   ****************** //
 
-  openModal = event => {
+  openModal = (event: any) => {
     /**
      * @reference [Overlay-Stackblitz] {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts}
      */

@@ -1,5 +1,4 @@
-import { KeysIn } from '@cutcal/core'
-import { DailyValue, Nutrition } from '@cutcal/nutrition'
+import { DailyValue, Nutrient, Nutrition } from '@cutcal/nutrition'
 
 export class NutritionLabel {
   total_calories: number
@@ -24,22 +23,22 @@ export class NutritionLabel {
   perc_iron: number
 
   constructor(nutr: Nutrition<number>, dv: DailyValue) {
-    this.total_calories = nutr.calories || 0
-    this.total_fat = nutr.fat || 0
+    this.total_calories = nutr.calories ?? 0
+    this.total_fat = nutr.fat ?? 0
     this.perc_fat = getPercentDV(nutr, dv, 'fat')
-    this.total_sat_fat = nutr.saturatedFat || 0
+    this.total_sat_fat = nutr.saturatedFat ?? 0
     this.perc_sat_fat = getPercentDV(nutr, dv, 'saturatedFat')
-    this.total_trans_fat = nutr.transUnsaturated || 0
-    this.cholesterol = nutr.cholesterol || 0
+    this.total_trans_fat = nutr.transUnsaturated ?? 0
+    this.cholesterol = nutr.cholesterol ?? 0
     this.perc_cholesterol = getPercentDV(nutr, dv, 'cholesterol')
-    this.sodium = nutr.sodium || 0
+    this.sodium = nutr.sodium ?? 0
     this.perc_sodium = getPercentDV(nutr, dv, 'sodium')
-    this.total_carb = nutr.carbohydrates || 0
+    this.total_carb = nutr.carbohydrates ?? 0
     this.perc_carbs = getPercentDV(nutr, dv, 'carbohydrates')
-    this.dietary_fiber = nutr.dietary_fiber || 0
+    this.dietary_fiber = nutr.dietary_fiber ?? 0
     this.perc_dietary_fiber = getPercentDV(nutr, dv, 'dietary_fiber')
-    this.total_sugar = nutr.sugar || 0
-    this.total_protein = nutr.protein || 0
+    this.total_sugar = nutr.sugar ?? 0
+    this.total_protein = nutr.protein ?? 0
     this.perc_vit_a = getPercentDV(nutr, dv, 'vit_A')
     this.perc_vit_c = getPercentDV(nutr, dv, 'vit_C')
     this.perc_calcium = getPercentDV(nutr, dv, 'calcium')
@@ -50,11 +49,15 @@ export class NutritionLabel {
 function getPercentDV(
   nutr: Nutrition<number>,
   dv: DailyValue,
-  propName: KeysIn<Nutrition<any>, string>
+  nutrient: Nutrient
 ): number {
-  if (!propName) throw new Error('')
-  const numerator = nutr[propName]
-  const denominator = dv.nutrition[propName]
-  if (!numerator || !denominator || !denominator.RDA) throw new Error('')
+  if (!nutrient)
+    throw new Error('[Cutcal] getPercentDV() requires valid nutrient key')
+  const numerator = nutr[nutrient] || 0
+  const denominator = dv.nutrition[nutrient]
+  if (!denominator?.RDA)
+    throw new Error(
+      '[Cutcal] getPercentDV() called with invalid denominator.RDA'
+    )
   else return numerator / denominator.RDA
 }

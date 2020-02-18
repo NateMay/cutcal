@@ -10,6 +10,7 @@ export interface CaloriesFrom {
   fat: number
   alcohol: number
 }
+export type CaloriesSource = keyof CaloriesFrom
 
 /**
  * Calculates the percent of calories from a given marco-nutrient
@@ -43,10 +44,10 @@ export function caloriesFromAll(nutr: Nutrition<number>): CaloriesFrom {
   const sum = _.sum(_.values(macros))
   return {
     carbohydrates:
-      caloriesFromSingle(macros.carbohydrates, sum, nutr.calories) || 0,
-    protein: caloriesFromSingle(macros.protein, sum, nutr.calories) || 0,
-    fat: caloriesFromSingle(macros.fat, sum, nutr.calories) || 0,
-    alcohol: caloriesFromSingle(macros.alcohol, sum, nutr.calories) || 0,
+      caloriesFromSingle(macros.carbohydrates, sum, nutr.calories) ?? 0,
+    protein: caloriesFromSingle(macros.protein, sum, nutr.calories) ?? 0,
+    fat: caloriesFromSingle(macros.fat, sum, nutr.calories) ?? 0,
+    alcohol: caloriesFromSingle(macros.alcohol, sum, nutr.calories) ?? 0,
   }
 }
 
@@ -58,10 +59,10 @@ export function caloriesFromAll(nutr: Nutrition<number>): CaloriesFrom {
  */
 export function adjustPerGram(nutrition: Nutrition<number>): CaloriesFrom {
   return {
-    carbohydrates: (nutrition.carbohydrates || 0) * 4,
-    protein: (nutrition.protein || 0) * 4,
-    fat: (nutrition.fat || 0) * 9,
-    alcohol: (nutrition.alcohol || 0) * 7,
+    carbohydrates: (nutrition.carbohydrates ?? 0) * 4,
+    protein: (nutrition.protein ?? 0) * 4,
+    fat: (nutrition.fat ?? 0) * 9,
+    alcohol: (nutrition.alcohol ?? 0) * 7,
   }
 }
 

@@ -27,7 +27,7 @@ function getNewFunction(
   const identifier = ++counter
 
   // The function returned here gets called instead of originalMethod.
-  return function(...args: any[]) {
+  return function(this: any, ...args: any[]) {
     const propValName = `__memoized_value_${identifier}`
     const propMapName = `__memoized_map_${identifier}`
 

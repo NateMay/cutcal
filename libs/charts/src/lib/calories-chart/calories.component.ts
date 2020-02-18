@@ -1,5 +1,10 @@
 import { Component, Input } from '@angular/core'
-import { caloriesFromAll, NUTRIENTS, Nutrition } from '@cutcal/nutrition'
+import {
+  CaloriesFrom,
+  caloriesFromAll,
+  NUTRIENTS,
+  Nutrition,
+} from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import {
   ChartOptions,
@@ -9,6 +14,7 @@ import {
   TooltipOptions,
 } from 'highcharts'
 import * as _ from 'lodash'
+import { CaloriesSource } from '../../../../nutrition/src/lib/calories-from'
 
 @Component({
   selector: 'cc-calories-chart',
@@ -35,20 +41,16 @@ export class CaloriesChartComponent {
 
     const caloriesFrom = caloriesFromAll(nutrition)
 
-    const total = _.reduce(caloriesFrom, (sum, curr) => sum + curr) || 0
-
-    if (!this.chartOptions.series) throw new Error('')
+    if (!this.chartOptions.series)
+      throw new Error('[CutCal] calories component requires valid chart series')
 
     // URGENT FIXME - new highcharts api
-    this.chartOptions.series[0]['data'] = _.map(
-      caloriesFrom,
-      (value: number, key: string) => ({
-        name: NUTRIENTS.shortNames[key],
-        y: value,
-        percent: (value * 100) / total,
-        unit: NUTRIENTS.units[key],
-      })
-    ).filter(point => point.y > 0)
+    this.chartOptions.series = [
+      {
+        data: this.buildChartData(caloriesFrom),
+        type: 'pie',
+      },
+    ]
 
     this.updateChart = true
   }
@@ -80,5 +82,23 @@ export class CaloriesChartComponent {
         },
       ],
     }
+  }
+
+  buildChartData(caloriesFrom: CaloriesFrom) {
+    const totalCalories = _.reduce(caloriesFrom, (sum, curr) => sum + curr) || 0
+
+    const result = []
+    for (const source of Object.keys(caloriesFrom) as CaloriesSource[]) {
+      const calories = caloriesFrom[source]
+      if (calories > 0) {
+        result.push({
+          name: NUTRIENTS.shortNames[source],
+          y: calories,
+          percent: (calories * 100) / totalCalories,
+          unit: NUTRIENTS.units[source],
+        })
+      }
+    }
+    return result
   }
 }

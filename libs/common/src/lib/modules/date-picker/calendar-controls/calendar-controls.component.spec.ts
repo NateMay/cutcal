@@ -60,7 +60,7 @@ describe('Calendar Controls Component', () => {
     const nextSpy = spyOn(parent, 'nextBtn');
     const prevSpy = spyOn(parent, 'prevBtn');
     const monthSpy = spyOn(parent, 'monthBtn');
-    const refocus = spyOn(TestBed.get(RefocusService), 'reCastFocusId');
+    const refocus = spyOn(TestBed.inject(RefocusService), 'reCastFocusId');
 
     fixture.detectChanges();
 

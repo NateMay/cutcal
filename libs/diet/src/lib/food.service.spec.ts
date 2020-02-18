@@ -31,7 +31,7 @@ describe('Food Service', () => {
       ],
     });
 
-    foodSvc = TestBed.get(FoodService);
+    foodSvc = TestBed.inject(FoodService);
   });
 
   it('injects the food service', () => {
