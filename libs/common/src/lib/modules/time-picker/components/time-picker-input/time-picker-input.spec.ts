@@ -73,7 +73,7 @@ describe('Time Picker Module', () => {
 
   it('should bind to the placeholder', () => {
     parent.placeholder = 'XX placeholder XX';
-    parent.time = null;
+    parent.time = '';
     fixture.detectChanges();
     expect(getDe(fixture, 'input').attributes['placeholder']).toBe(
       'XX placeholder XX'

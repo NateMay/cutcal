@@ -19,6 +19,7 @@ import {
 } from '@angular/core'
 import { Weekday, WEEKDAYS } from '@cutcal/core'
 import * as _ from 'lodash'
+import { assertIsDefined } from '../../../../../../core/src/lib/functions/assertIsDefined'
 import { executeOnStable } from '../../../functions/executeOnStable/executeOnStable'
 import { getFullCalendar } from '../../../functions/getFullCalendar/getFullCalendar'
 
@@ -148,13 +149,13 @@ export class CalendarFaceComponent implements OnInit {
   /**
    * @description when selecting dates ranges, this is the beginning date of the range
    */
-  private _startDate: Date = new Date()
-  @Input() set startDate(date: Date) {
+  private _startDate: Date | null = new Date()
+  @Input() set startDate(date: Date | null) {
     if (this.startDate?.isSameDay(date)) return
     this._startDate = date
     this.createCalendar()
   }
-  get startDate() {
+  get startDate(): Date | null {
     return this._startDate
   }
   @Output() startDateChange = new EventEmitter<Date>()
@@ -162,13 +163,13 @@ export class CalendarFaceComponent implements OnInit {
   /**
    * @description when selecting dates ranges, this is the ending date of the range
    */
-  private _endDate: Date = new Date()
-  @Input() set endDate(date: Date) {
+  private _endDate: Date | null = new Date()
+  @Input() set endDate(date: Date | null) {
     if (this.endDate?.isSameDay(date)) return
     this._endDate = date
     this.createCalendar()
   }
-  get endDate() {
+  get endDate(): Date | null {
     return this._endDate
   }
   @Output() endDateChange = new EventEmitter<Date>()
@@ -176,13 +177,13 @@ export class CalendarFaceComponent implements OnInit {
   /**
    * @description selected date when not selecting a range
    */
-  private _selectedDate: Date = new Date()
-  @Input() set selectedDate(date: Date) {
-    if (this.selectedDate.isSameDay(date)) return
+  private _selectedDate: Date | null = new Date()
+  @Input() set selectedDate(date: Date | null) {
+    if (this.selectedDate?.isSameDay(date)) return
     this._selectedDate = date
     this.createCalendar()
   }
-  get selectedDate() {
+  get selectedDate(): Date | null {
     return this._selectedDate
   }
   @Output() selectedDateChange = new EventEmitter<Date>()
@@ -190,16 +191,17 @@ export class CalendarFaceComponent implements OnInit {
   /**
    * @description date to which the calendar should open
    */
-  private _focusDate: Date = new Date()
-  @Input() set focusDate(date: Date) {
-    if (this.focusDate.isSameDay(date)) return
-    if (!this.focusDate.isSameMonth(date))
-      this.slideState = this.focusDate.isBefore(date) ? 'left' : 'right'
+  private _focusDate: Date | null = null
+  @Input() set focusDate(date: Date | null) {
+    assertIsDefined(date)
+    if (this.focusDate?.isSameDay(date)) return
+    if (!this.focusDate?.isSameMonth(date))
+      this.slideState = this.focusDate?.isBefore(date) ? 'left' : 'right'
     this._focusDate = date
     this.calLabel = date.toLocaleDateString()
     this.createCalendar()
   }
-  get focusDate() {
+  get focusDate(): Date | null {
     return this._focusDate
   }
   @Output() focusDateChange = new EventEmitter<Date>()
@@ -265,6 +267,7 @@ export class CalendarFaceComponent implements OnInit {
   }
 
   changeFocus(event: KeyboardEvent, days: number) {
+    assertIsDefined(this.focusDate)
     event.preventDefault()
     this.setAndEmit('focus', this.focusDate.addDays(days))
   }
@@ -289,10 +292,12 @@ export class CalendarFaceComponent implements OnInit {
   }
 
   get startAndEndEqual(): boolean {
+    assertIsDefined(this.startDate)
     return this.startDate?.isSameDay(this.endDate)
   }
 
   adjustUnknown(date: Date) {
+    assertIsDefined(this.startDate)
     if (date > this.startDate) {
       this.setAndEmit('end', date)
       this.selectingStart = false
@@ -303,6 +308,7 @@ export class CalendarFaceComponent implements OnInit {
   }
 
   invalidRange(date: Date): boolean {
+    if (!this.endDate || !this.startDate) return false
     return this.selectingStart ? date > this.endDate : date < this.startDate
   }
 
@@ -334,6 +340,7 @@ export class CalendarFaceComponent implements OnInit {
   }
 
   public changeMonth(dir: number) {
+    assertIsDefined(this.focusDate)
     this.setAndEmit('focus', this.focusDate.addMonths(dir))
   }
 

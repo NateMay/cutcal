@@ -50,7 +50,7 @@ export class TimeAdapter {
   // }
 
   static isTimeAvailable(
-    time: string,
+    time?: string | null,
     min?: Date,
     max?: Date,
     granularity?: 'hours' | 'minutes',

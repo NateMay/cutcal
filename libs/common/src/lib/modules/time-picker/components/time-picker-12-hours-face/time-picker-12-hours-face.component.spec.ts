@@ -24,7 +24,7 @@ describe('Timepicker12HoursFaceComponent', () => {
         currentValue: TimePeriod.PM,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
       },
     };
     const time = new Date();
@@ -53,7 +53,7 @@ describe('Timepicker12HoursFaceComponent', () => {
         currentValue: null,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
       },
     };
 

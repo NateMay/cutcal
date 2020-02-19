@@ -88,25 +88,27 @@ describe('password validator', () => {
     it('should require capitals letters', () => {
       component.form.patchValue({ password: 'asdhg234234' });
       fixture.detectChanges();
-      expect(component.form.get('password').hasError('noCap')).toBe(true);
+      expect(component?.form?.get('password')?.hasError('noCap')).toBe(true);
     });
 
     it('should require a number', () => {
       component.form.patchValue({ password: 'CutCal' });
       fixture.detectChanges();
-      expect(component.form.get('password').hasError('noNum')).toBe(true);
+      expect(component?.form?.get('password')?.hasError('noNum')).toBe(true);
     });
 
     it('should require 6 characters', () => {
       component.form.patchValue({ password: 'ABC12' });
       fixture.detectChanges();
-      expect(component.form.get('password').hasError('lessthan6')).toBe(true);
+      expect(component?.form?.get('password')?.hasError('lessthan6')).toBe(
+        true
+      );
     });
 
     it('should be a valid control when the password meets the requirements', () => {
       component.form.patchValue({ password: 'CutCal1' });
       fixture.detectChanges();
-      expect(component.form.get('password').valid).toBe(true);
+      expect(component?.form?.get('password')?.valid).toBe(true);
     });
   });
 });

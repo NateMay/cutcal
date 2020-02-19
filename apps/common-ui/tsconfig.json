@@ -10,8 +10,8 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "strictFunctionTypes": true,
-    "noImplicitThis": true
-    // "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true
   },
   "include": ["**/*.ts"]
 }

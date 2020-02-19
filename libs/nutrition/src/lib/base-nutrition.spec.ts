@@ -1,10 +1,9 @@
+import * as _ from 'lodash';
 import { BASE_NUTRITION } from './base-nutrition';
 
 it('Zero Nutrition is all zeros', () => {
-  const zero = BASE_NUTRITION(0);
-
-  Object.keys(zero).forEach(key => {
-    expect(zero[key]).toBe(0);
+  _.forEach(BASE_NUTRITION(0), value => {
+    expect(value).toBe(0);
   });
 });
 

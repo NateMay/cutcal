@@ -84,7 +84,7 @@ export const DATE_PICKER_CONTROL_VALUE_ACCESSOR: any = {
   `,
 })
 export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
-  @Input() date!: Date | null
+  @Input() date: Date | null = null
   @Output() dateChange = new EventEmitter<Date | null>()
 
   /**

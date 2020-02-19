@@ -299,7 +299,7 @@ function isToday(this: Date): boolean {
  * @example
  *   new Date('Jan 12 2018, 9am').isSameDay(new Date('Jan 12 2018, 2pm')) => true
  */
-function isSameDay(this: Date, date: Date): boolean {
+function isSameDay(this: Date, date: Date | null): boolean {
   if (!date) return false
 
   return (
@@ -326,7 +326,8 @@ function firstDayOfWeek(this: Date): Date {
  * @example
  * { Oct 22 }.isBefore( { Oct 21 } ) => false
  */
-function isBefore(this: Date, compare: Date): boolean {
+function isBefore(this: Date, compare: Date | null): boolean {
+  if (!compare) throw new Error('[CutCal] isBefore() requires a valid date')
   return this.getTime() < compare.getTime()
 }
 
@@ -382,7 +383,8 @@ function assignTime(this: Date, time: Date): Date {
  * { Oct 22 2018 }.isSameMonth( { Oct 5 2018 }, ) => true
  * { Oct 22 2019 }.isSameMonth( { Oct 5 2018 }, ) => false
  */
-function isSameMonth(this: Date, date: Date): boolean {
+function isSameMonth(this: Date, date: Date | null): boolean {
+  if (!date) return false
   return (
     this.getMonth() === date.getMonth() &&
     this.getFullYear() === date.getFullYear()

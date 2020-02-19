@@ -24,7 +24,7 @@ describe('TimepickerMinutesFaceComponent', () => {
         currentValue: TimePeriod.PM,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
       },
     };
     const time = new Date();
@@ -54,7 +54,7 @@ describe('TimepickerMinutesFaceComponent', () => {
         currentValue: null,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
       },
     };
 

@@ -9,7 +9,7 @@ import { Boolish } from './boolish';
   `,
 })
 class TestBoolishComponent {
-  notABoolean = 'false';
+  notABoolean: any = 'false';
 }
 @Component({
   selector: 'cc-a-test',

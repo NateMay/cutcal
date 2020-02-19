@@ -19,7 +19,7 @@ import { DatePickerInputComponent } from './date-picker-input.component';
   `,
 })
 class TestDatePickerComponent {
-  date: Date = new Date(2019, 3, 20);
+  date: Date | null = new Date(2019, 3, 20);
   label: string = 'My Label';
   dateFormat: string = 'longDate';
   placeholder: string = 'Date';
@@ -164,7 +164,7 @@ describe('Date Picker & Dialog', () => {
     parent.date = new Date(2017, 3, 19);
     fixture.detectChanges();
     focusInput();
-    input.value = null;
+    input.value = '';
     tabOut();
     expect(parent.date).toBe(null);
     fixture.detectChanges();

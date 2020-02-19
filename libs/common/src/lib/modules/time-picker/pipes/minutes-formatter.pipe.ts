@@ -4,7 +4,10 @@ import { Pipe, PipeTransform } from '@angular/core'
   name: 'minutesFormatter',
 })
 export class MinutesFormatterPipe implements PipeTransform {
-  transform(minute: number, gap = 5): number | string {
+  transform(
+    minute?: number | null,
+    gap = 5
+  ): number | string | undefined | null {
     if (!minute) {
       return minute
     }

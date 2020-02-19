@@ -31,7 +31,7 @@ describe('TimepickerDialComponent', () => {
         currentValue: TimePeriod.AM,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
       },
     };
 
@@ -47,7 +47,7 @@ describe('TimepickerDialComponent', () => {
         currentValue: 24,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
       },
     };
 
@@ -62,7 +62,7 @@ describe('TimepickerDialComponent', () => {
         currentValue: 24,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
       },
     };
 
@@ -78,7 +78,7 @@ describe('TimepickerDialComponent', () => {
         currentValue: null,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
       },
     };
 
@@ -88,9 +88,9 @@ describe('TimepickerDialComponent', () => {
   });
 
   it('should emit changed time unit', fakeAsync(() => {
-    let timeUnit = null;
+    let timeUnit: TimeUnit | null = null;
 
-    component.timeUnitChanged.subscribe(unit => (timeUnit = unit));
+    component.timeUnitChanged.subscribe((unit: TimeUnit) => (timeUnit = unit));
     component.changeTimeUnit(TimeUnit.MINUTE);
 
     expect(timeUnit).toBe(TimeUnit.MINUTE);

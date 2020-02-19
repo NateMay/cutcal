@@ -104,13 +104,13 @@ export class TimepickerDialogComponent implements OnDestroy {
 
   @Input() editableHintTmpl!: TemplateRef<Node>
 
-  @Input() set minutesGap(gap: number) {
+  @Input() set minutesGap(gap: number | null) {
     if (gap == null) return
     gap = Math.floor(gap)
     this._minutesGap = gap <= 59 ? gap : 1
   }
 
-  get minutesGap(): number {
+  get minutesGap(): number | null {
     return this._minutesGap
   }
 

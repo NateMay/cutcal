@@ -32,7 +32,7 @@ describe('TimepickerDialControlComponent', () => {
     expect(component.previousTime).toBeUndefined();
 
     component.saveTimeAndChangeTimeUnit(
-      { preventDefault: () => null } as FocusEvent,
+      new FocusEvent('focus'),
       TimeUnit.MINUTE
     );
 
@@ -72,7 +72,7 @@ describe('TimepickerDialControlComponent', () => {
         previousValue: undefined,
         currentValue: 1,
         firstChange: true,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
       },
     };
     component.timeUnit = TimeUnit.HOUR;
@@ -87,7 +87,7 @@ describe('TimepickerDialControlComponent', () => {
         previousValue: undefined,
         currentValue: '1',
         firstChange: false,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
       },
     };
     component._time = '4';
@@ -103,7 +103,7 @@ describe('TimepickerDialControlComponent', () => {
         previousValue: undefined,
         currentValue: null,
         firstChange: false,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
       },
     };
     component._time = '4';

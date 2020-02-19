@@ -61,10 +61,7 @@ describe('TimepickerComponent', () => {
     expect(component.minutesGap).toBe(6);
   });
 
-  it('should not set minutesGap if null or undefined', () => {
-    component.minutesGap = undefined;
-    expect(component.minutesGap).toBeUndefined();
-
+  it('should not set minutesGap if null', () => {
     component.minutesGap = null;
     expect(component.minutesGap).toBeUndefined();
   });

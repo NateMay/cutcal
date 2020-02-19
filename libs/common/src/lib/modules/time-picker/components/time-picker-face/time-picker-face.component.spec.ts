@@ -82,13 +82,13 @@ describe('TimepickerFaceComponent', () => {
       faceTime: {
         currentValue: [{ time: 11, angle: 20 }],
         previousValue: undefined,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
         firstChange: true,
       },
       selectedTime: {
         currentValue: { time: 11, angle: 30 },
         previousValue: undefined,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
         firstChange: true,
       },
     };
@@ -107,7 +107,7 @@ describe('TimepickerFaceComponent', () => {
       selectedTime: {
         currentValue: { time: 11, angle: 30 },
         previousValue: undefined,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
         firstChange: true,
       },
     };
@@ -126,7 +126,7 @@ describe('TimepickerFaceComponent', () => {
       faceTime: {
         currentValue: [],
         previousValue: undefined,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
         firstChange: true,
       },
     };
@@ -147,7 +147,7 @@ describe('TimepickerFaceComponent', () => {
       faceTime: {
         currentValue: [],
         previousValue: undefined,
-        isFirstChange: () => null,
+        isFirstChange: () => true,
         firstChange: true,
       },
     };
@@ -346,7 +346,7 @@ describe('TimepickerFaceComponent', () => {
       expect(component.isMinuteSelected(minute)).toBeFalsy();
 
       component.isClockFaceDisabled = false;
-      component.minutesGap = undefined;
+      component.minutesGap = null;
       component.selectedTime.time = 5;
       expect(component.isMinuteSelected(5)).toBeTruthy();
     });

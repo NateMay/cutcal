@@ -11,6 +11,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DndModule, PipesModule } from '@cutcal/common';
+import { timestamp } from '@cutcal/fire';
 import {
   getAllDe,
   getByDir,
@@ -18,6 +19,7 @@ import {
   MOCK_HAMMER_LOADER,
 } from '@cutcal/ng-testing';
 import { bread } from '../../../../../data/food-seed';
+import { createImage } from '../images';
 import { Ingredient } from '../ingredient';
 import { createMealWithId } from '../meal';
 import { createUsage } from '../usage';
@@ -60,11 +62,11 @@ describe('IngredientsListitemComponent', () => {
     component.root = createMealWithId(
       'roodId',
       'name',
-      null,
+      timestamp(),
       {},
       '',
       [],
-      null,
+      createImage(''),
       'userId'
     );
 

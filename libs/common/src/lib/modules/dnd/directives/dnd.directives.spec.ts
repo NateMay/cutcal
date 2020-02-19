@@ -105,9 +105,9 @@ describe('Drag and Drop directives', () => {
       fixture.whenStable().then(() => {
         fixture.detectChanges();
         const image = document.getElementById('drag-obj');
-        expect(image.style.left).toBe('400px');
-        expect(image.style.top).toBe('500px');
-        expect(image.style.transform).toBe('scale(1, 1)');
+        expect(image?.style?.left).toBe('400px');
+        expect(image?.style?.top).toBe('500px');
+        expect(image?.style?.transform).toBe('scale(1, 1)');
       });
     }));
   });

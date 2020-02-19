@@ -125,7 +125,7 @@ export class TimepickerFaceComponent
   @Input() selectedTime!: ClockFaceTime
   @Input() unit!: TimeUnit
   @Input() format!: number
-  @Input() minutesGap!: number
+  @Input() minutesGap: number | null = null
 
   @Output() timeChange = new EventEmitter<ClockFaceTime>()
   @Output() timeSelected = new EventEmitter<number>()
