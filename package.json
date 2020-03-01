@@ -55,7 +55,7 @@
     "@ngrx/schematics": "^8.6.0",
     "@ngrx/store": "^8.6.0",
     "@ngrx/store-devtools": "^8.6.0",
-    "@nrwl/angular": "9.0.0",
+    "@nrwl/angular": "9.0.4",
     "convert-units": "^2.3.4",
     "core-js": "^2.5.4",
     "firebase": "^7.8.2",
@@ -80,12 +80,12 @@
     "@angular/language-service": "^9.0.1",
     "@nestjs/schematics": "^6.9.4",
     "@nestjs/testing": "^6.8.3",
-    "@nrwl/cypress": "9.0.0",
-    "@nrwl/jest": "9.0.0",
-    "@nrwl/nest": "9.0.0",
-    "@nrwl/node": "9.0.0",
+    "@nrwl/cypress": "9.0.4",
+    "@nrwl/jest": "9.0.4",
+    "@nrwl/nest": "9.0.4",
+    "@nrwl/node": "9.0.4",
     "@nrwl/schematics": "^8.12.4",
-    "@nrwl/workspace": "9.0.0",
+    "@nrwl/workspace": "9.0.4",
     "@types/jest": "24.0.9",
     "@types/lodash": "^4.14.149",
     "@types/node": "^12.12.27",
@@ -118,8 +118,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format && git add . && npm run affected:all",
-      "pre-push": "npm run lint && npm run test && npm run e2e"
+
     }
   }
 }
