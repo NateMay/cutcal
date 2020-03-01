@@ -8,9 +8,9 @@ import {
   Output,
   Renderer2,
 } from '@angular/core'
+import { Boolish } from '@cutcal/core'
 import { fromEvent } from 'rxjs'
 import { finalize, first, skip, takeUntil, tap } from 'rxjs/operators'
-import { Boolish } from '../../../decorators/boolish/boolish'
 import { executeOnStable } from '../../../functions'
 import { WINDOW } from '../../../services/window.service'
 import { DndSvc } from '../dnd.service'

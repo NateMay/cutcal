@@ -1,6 +1,7 @@
 export * from './constants/arrow.codes'
 export * from './constants/months'
 export * from './constants/runtime-checks'
+export * from './decorators'
 export * from './functions/assertIsDefined'
 export * from './functions/toRawType/toRawType'
 export * from './functions/uniqueID/uniqueID'

@@ -47,7 +47,7 @@ export class MyHammerConfig extends GestureConfig {
     RoutingModule,
     Layout1Module,
     /**
-     * IMP: Order matters
+     * IMPORTANT - Order matters
      *   1️⃣ StoreModule
      *   2️⃣ StoreDevtoolsModule
      *   3️⃣ EffectsModule

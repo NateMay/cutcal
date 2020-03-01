@@ -145,8 +145,8 @@ export class AnimateComponent implements OnInit, OnDestroy {
   // Computes the element visibility ratio
   private get visibility() {
     return this.intersectRatio(
-      this.clientRect(this.elm),
-      this.getScrollingArea(this.elm)
+      this.clientRect(this.host),
+      this.getScrollingArea(this.host)
     )
   }
 
@@ -179,14 +179,14 @@ export class AnimateComponent implements OnInit, OnDestroy {
   // }
 
   constructor(
-    private elm: ElementRef,
+    private host: ElementRef,
     private scroll: ScrollDispatcher,
     private zone: NgZone
   ) {}
 
   ngOnInit() {
     // Triggers the animation based on the input flags
-    this.animateTrigger(this.elm)
+    this.animateTrigger(this.host)
       .pipe(tap(trigger => (this.trigger = trigger ? this.play : this.idle)))
       .subscribe()
   }

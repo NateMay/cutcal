@@ -8,6 +8,8 @@
     },
     "tsconfig.json": "*",
     "tslint.json": "*",
+    ".stylelintrc": "*",
+    ".prettierrc": "*",
     "nx.json": "*"
   },
   "projects": {
@@ -39,76 +41,76 @@
       "implicitDependencies": ["food-review"]
     },
     "nutrition": {
-      "tags": ["shared"]
+      "tags": ["scope:shared"]
     },
     "ng-testing": {
-      "tags": ["shared"]
+      "tags": ["scope:shared"]
     },
     "cutcal-food-recipe": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-analyze": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-calendar": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-fallback": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-footer": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-profile": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-recipe-builder": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-meal-ingredient": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-nutrient": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-legal": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-business": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-grocery-pantry": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-support": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "cutcal-landing": {
-      "tags": ["cutcal", "feature"]
+      "tags": ["scope:cutcal", "type:feature"]
     },
     "common": {
-      "tags": ["common"]
+      "tags": ["scope:shared"]
     },
     "playgrounds": {
-      "tags": ["common"]
+      "tags": ["scope:common-ui"]
     },
     "core": {
-      "tags": ["shared"]
+      "tags": ["scope:util"]
     },
     "diet": {
-      "tags": ["data-model"]
+      "tags": ["scope:shared"]
     },
     "user": {
-      "tags": ["data-model"]
+      "tags": ["scope:shared"]
     },
     "auth": {
-      "tags": ["shared"]
+      "tags": ["scope:util"]
     },
     "charts": {
-      "tags": ["shared"]
+      "tags": ["scope:shared"]
     },
     "fire": {
-      "tags": []
+      "tags": ["scope:util"]
     },
     "fdc": {
       "tags": []

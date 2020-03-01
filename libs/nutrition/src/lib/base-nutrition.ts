@@ -1,15 +1,14 @@
 import * as _ from 'lodash'
-import { Nutrition } from './nutrition'
+import { Nutrient, Nutrition } from './nutrition'
 /**
  * Full Nutrition object with all zeros
  */
 export const ZERO_NUTRITION = <Nutrition<number>>(
-  Object.freeze(BASE_NUTRITION(null))
+  Object.freeze(BASE_NUTRITION(0))
 )
 
-export const NUTRIENT_KEYS = _.keys(ZERO_NUTRITION) as Array<
-  keyof Nutrition<any>
->
+export const NUTRIENT_KEYS = _.keys(ZERO_NUTRITION) as Nutrient[]
+
 /**
  * Returns a new, comprehensive nutrition object with zero values
  */

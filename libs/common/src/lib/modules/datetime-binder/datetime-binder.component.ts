@@ -8,9 +8,9 @@ import {
   Output,
 } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
+import { Boolish } from '@cutcal/core'
 import { Subject } from 'rxjs'
 import { delay, map, takeUntil, tap } from 'rxjs/operators'
-import { Boolish } from '../../decorators/boolish/boolish'
 import { dateFromTime } from '../../functions/dateFromTime/dateFromTime'
 import { DatePickerInputComponent } from '../date-picker/date-picker-input/date-picker-input.component'
 import { TimePickerInputComponent } from '../time-picker/components/time-picker-input/time-picker-input.component'

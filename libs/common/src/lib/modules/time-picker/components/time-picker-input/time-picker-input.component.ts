@@ -25,8 +25,8 @@ import {
   ViewContainerRef,
 } from '@angular/core'
 import { NG_VALUE_ACCESSOR } from '@angular/forms'
+import { Boolish } from '@cutcal/core'
 import { BehaviorSubject } from 'rxjs'
-import { Boolish } from '../../../../decorators/boolish/boolish'
 import { dateFromTime } from '../../../../functions/dateFromTime/dateFromTime'
 import { executeOnStable } from '../../../../functions/executeOnStable/executeOnStable'
 import { TimePickerData, TIME_PICKER_DATA } from '../../utils/time-picker-data'

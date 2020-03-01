@@ -5,7 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core'
-import { Boolish } from '../../decorators/boolish/boolish'
+import { Boolish } from '@cutcal/core'
 
 let nextUniqueId = 0
 

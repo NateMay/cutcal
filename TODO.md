@@ -24,3 +24,9 @@
       4. year
    3. create recipe (desktop too)
 7. stylelint per lib "selector-class-pattern"
+
+[algolia](https://itnext.io/firebase-algolia-6c58fba930b7)
+
+## Low Priority
+
+1. [npm install debug](https://www.npmjs.com/package/debug)

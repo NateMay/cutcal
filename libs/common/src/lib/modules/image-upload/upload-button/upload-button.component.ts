@@ -13,7 +13,7 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core'
-import { Boolish } from '../../../decorators/boolish/boolish'
+import { Boolish } from '@cutcal/core'
 import { eventWithin } from '../../../functions/eventWithin/eventWithin'
 import { ImageCroppedEvent } from '../interfaces/image-cropped-event'
 import { UploadDialogComponent } from '../upload-dialog/upload-dialog.component'
@@ -85,7 +85,7 @@ export class UploadButtonComponent implements OnInit {
     if (!this.cropperOverlayRef.hasAttached()) return
     if (
       !eventWithin(event, [
-        this.el.nativeElement,
+        this.host.nativeElement,
         this.cropperOverlayRef.hostElement,
       ])
     )
@@ -101,7 +101,7 @@ export class UploadButtonComponent implements OnInit {
   }
 
   constructor(
-    private el: ElementRef,
+    private host: ElementRef,
     private overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
     private injector: Injector

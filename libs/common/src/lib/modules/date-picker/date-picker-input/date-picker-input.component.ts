@@ -24,7 +24,7 @@ import {
   ViewContainerRef,
 } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
-import { Boolish } from '../../../decorators/boolish/boolish'
+import { Boolish } from '@cutcal/core'
 import { eventWithin } from '../../../functions/eventWithin/eventWithin'
 import { executeOnStable } from '../../../functions/executeOnStable/executeOnStable'
 import { DatePickerDialogData, DATE_PICKER_DATA } from '../date-picker-data'
