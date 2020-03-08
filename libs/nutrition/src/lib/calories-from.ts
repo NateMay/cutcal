@@ -1,5 +1,5 @@
 import { Nutrition } from '@cutcal/nutrition'
-import * as _ from 'lodash'
+import { sum, values } from 'lodash'
 
 /**
  * Stores information about the calorie break down from Fats, Protein, and Carbs
@@ -20,16 +20,16 @@ export type CaloriesSource = keyof CaloriesFrom
 export function caloriesFrom(
   macro: 'fat' | 'carbohydrates' | 'protein' | 'alcohol',
   nutrition: Nutrition<number>
-): number {
+): number | never {
   if (!nutrition.calories)
-    throw new Error(
+    throw Error(
       '[CutCal] caloriesFrom() requires a nutrition object with calories'
     )
   const macros: CaloriesFrom = adjustPerGram(nutrition)
 
   return caloriesFromSingle(
     macros[macro],
-    _.sum(_.values(macros)),
+    sum(values(macros)),
     nutrition.calories
   )
 }
@@ -41,13 +41,13 @@ export function caloriesFrom(
 
 export function caloriesFromAll(nutr: Nutrition<number>): CaloriesFrom {
   const macros: CaloriesFrom = adjustPerGram(nutr)
-  const sum = _.sum(_.values(macros))
+  const total = sum(values(macros))
   return {
     carbohydrates:
-      caloriesFromSingle(macros.carbohydrates, sum, nutr.calories) ?? 0,
-    protein: caloriesFromSingle(macros.protein, sum, nutr.calories) ?? 0,
-    fat: caloriesFromSingle(macros.fat, sum, nutr.calories) ?? 0,
-    alcohol: caloriesFromSingle(macros.alcohol, sum, nutr.calories) ?? 0,
+      caloriesFromSingle(macros.carbohydrates, total, nutr.calories) ?? 0,
+    protein: caloriesFromSingle(macros.protein, total, nutr.calories) ?? 0,
+    fat: caloriesFromSingle(macros.fat, total, nutr.calories) ?? 0,
+    alcohol: caloriesFromSingle(macros.alcohol, total, nutr.calories) ?? 0,
   }
 }
 
@@ -70,8 +70,8 @@ export function caloriesFromSingle(
   adjustedQuant: number,
   sumOfAdjusted: number,
   totalCalories: number | undefined
-): number {
+): number | never {
   if (totalCalories === undefined)
-    throw new Error('[CutCal] must have calories to calulcate')
+    throw Error('[CutCal] must have calories to calulcate')
   return (adjustedQuant / sumOfAdjusted) * totalCalories
 }

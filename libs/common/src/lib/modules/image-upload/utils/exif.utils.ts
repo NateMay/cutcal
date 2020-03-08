@@ -35,7 +35,7 @@ export function transformBase64BasedOnExifRotation(
         ctx.drawImage(img, 0, 0)
         resolve(canvas.toDataURL())
       } else {
-        reject(new Error('No context'))
+        reject(Error('No context'))
       }
     }
     img.src = srcBase64

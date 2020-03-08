@@ -1,5 +1,5 @@
 import { KVP } from '@cutcal/core'
-import * as _ from 'lodash'
+import { get, keyBy, map } from 'lodash'
 
 export type ChartType = 'line' | 'column' | 'bar'
 
@@ -18,15 +18,15 @@ export function updateControls(
   units: KVP<any>,
   previous?: KVP<ChartControls>
 ): KVP<ChartControls> {
-  return _.keyBy(
-    _.map(
+  return keyBy(
+    map(
       units,
       (X, unit) =>
         ({
           unit,
-          type: _.get(previous, `${unit}.type`) || 'column',
-          valueStacked: _.get(previous, `${unit}.valueStacked`) || false,
-          percentStacked: _.get(previous, `${unit}.percentStacked`) || false,
+          type: get(previous, `${unit}.type`) || 'column',
+          valueStacked: get(previous, `${unit}.valueStacked`) || false,
+          percentStacked: get(previous, `${unit}.percentStacked`) || false,
         } as ChartControls)
     ),
     'unit'

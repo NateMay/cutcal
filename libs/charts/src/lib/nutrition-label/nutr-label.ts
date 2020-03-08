@@ -50,14 +50,12 @@ function getPercentDV(
   nutr: Nutrition<number>,
   dv: DailyValue,
   nutrient: Nutrient
-): number {
+): number | never {
   if (!nutrient)
-    throw new Error('[Cutcal] getPercentDV() requires valid nutrient key')
+    throw Error('[Cutcal] getPercentDV() requires valid nutrient key')
   const numerator = nutr[nutrient] || 0
   const denominator = dv.nutrition[nutrient]
   if (!denominator?.RDA)
-    throw new Error(
-      '[Cutcal] getPercentDV() called with invalid denominator.RDA'
-    )
+    throw Error('[Cutcal] getPercentDV() called with invalid denominator.RDA')
   else return numerator / denominator.RDA
 }

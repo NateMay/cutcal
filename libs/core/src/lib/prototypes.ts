@@ -326,8 +326,8 @@ function firstDayOfWeek(this: Date): Date {
  * @example
  * { Oct 22 }.isBefore( { Oct 21 } ) => false
  */
-function isBefore(this: Date, compare: Date | null): boolean {
-  if (!compare) throw new Error('[CutCal] isBefore() requires a valid date')
+function isBefore(this: Date, compare: Date | null): boolean | never {
+  if (!compare) throw Error('[CutCal] isBefore() requires a valid date')
   return this.getTime() < compare.getTime()
 }
 
@@ -340,9 +340,9 @@ function isBefore(this: Date, compare: Date | null): boolean {
  *   new Date('Oct 22').isBetween( new Date( 'Oct 21' ), new Date('Oct 23' ) ) => true
  *   new Date('Oct 22, 9am').isBetween( new Date( 'Oct 22, 10am' ), new Date('Oct 23' ) ) => false
  */
-function isBetween(this: Date, minDate: Date, maxDate: Date): boolean {
+function isBetween(this: Date, minDate: Date, maxDate: Date): boolean | never {
   if (!this.getTime)
-    throw new Error('[CutCal] isBetween() was called on a non Date object')
+    throw Error('[CutCal] isBetween() was called on a non Date object')
 
   const gtmin = !minDate ? true : this.getTime() >= minDate.getTime()
   const ltmax = !maxDate ? true : this.getTime() <= maxDate.getTime()

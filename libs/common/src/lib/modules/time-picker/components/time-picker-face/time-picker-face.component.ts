@@ -142,7 +142,7 @@ export class TimepickerFaceComponent
     this.addTouchEvents()
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void | never {
     const faceTimeChanges = changes['faceTime']
     const selectedTimeChanges = changes['selectedTime']
 
@@ -152,7 +152,7 @@ export class TimepickerFaceComponent
         time => time.time === this.selectedTime.time
       )
       if (!newTime)
-        throw new Error('[CutCal] timepicker failed to set the time properly')
+        throw Error('[CutCal] timepicker failed to set the time properly')
       else this.selectedTime = newTime
     }
     if (selectedTimeChanges?.currentValue) {

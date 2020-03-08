@@ -1,7 +1,7 @@
 // import { sumUsagesNutritions } from '../../src/app/shared/functions/sumUsagesNutritions/sumUsagesNutritions';
 import { KVP, uniqueID } from '@cutcal/core'
 import { Food, Usage } from '@cutcal/diet'
-import * as _ from 'lodash'
+import { forEach } from 'lodash'
 
 export const FOODS: KVP<Food> = {}
 
@@ -376,7 +376,7 @@ export function findUsagesForFood(parentFoodId: string): Usage[] {
  * @param {Food} food
  */
 export function assignFoodRefAndParentId(food: Food, dbID: string): void {
-  _.forEach(FOOD_USAGES, usage => {
+  forEach(FOOD_USAGES, usage => {
     if (usage.parentId == food._id) {
       usage.parentId = dbID
       usage.foodId = dbID

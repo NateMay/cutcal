@@ -1,4 +1,4 @@
-import * as _ from 'lodash'
+import { forEach } from 'lodash'
 import { NUTRIENT_KEYS } from './base-nutrition'
 import { NutrientMetaData, USDA_NUTRIENT_DETAILS } from './nutrient-details'
 import { Nutrition } from './nutrition'
@@ -10,7 +10,7 @@ class NutrientMetadataStore {
 
   get allDetails(): Nutrition<NutrientMetaData> {
     const details = Object.assign({}, USDA_NUTRIENT_DETAILS)
-    _.forEach(details, (X, propName) => (details[propName].propName = propName))
+    forEach(details, (_, propName) => (details[propName].propName = propName))
     return details
   }
 

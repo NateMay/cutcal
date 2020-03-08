@@ -29,7 +29,10 @@ export function analyzeParams(
   }
 }
 
-function analyzeStartDate(fromDate: Date, timeframe: Timeframe) {
+function analyzeStartDate(
+  fromDate: Date,
+  timeframe: Timeframe
+): string | never {
   switch (timeframe) {
     case 'week':
       return fromDate.firstDayOfWeek().toUrlString()
@@ -38,13 +41,13 @@ function analyzeStartDate(fromDate: Date, timeframe: Timeframe) {
     case 'year':
       return new Date(fromDate.getFullYear(), 0, 1).toUrlString()
     default:
-      throw new Error(
+      throw Error(
         `[CutCal] analyzeStartDate() is not currently accounting for the 'day' Timeframe`
       )
   }
 }
 
-function analyzeEndDate(fromDate: Date, timeframe: Timeframe) {
+function analyzeEndDate(fromDate: Date, timeframe: Timeframe): string | never {
   switch (timeframe) {
     case 'week':
       return fromDate
@@ -56,7 +59,7 @@ function analyzeEndDate(fromDate: Date, timeframe: Timeframe) {
     case 'year':
       return new Date(fromDate.getFullYear(), 11, 31).toUrlString()
     default:
-      throw new Error(
+      throw Error(
         `[CutCal] analyzeEndDate() is not currently accounting for the 'day' Timeframe`
       )
   }

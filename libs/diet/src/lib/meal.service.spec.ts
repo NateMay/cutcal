@@ -5,7 +5,7 @@ import { AuthService } from '@cutcal/auth';
 import { reducers } from '@cutcal/common';
 import { STRICT_RUNTIME_CHECKS } from '@cutcal/core';
 import { StoreModule } from '@ngrx/store';
-import * as _ from 'lodash';
+import { values } from 'lodash';
 import { first } from 'rxjs/operators';
 import { bread, jam } from '../../../../data/food-seed';
 import {
@@ -87,8 +87,8 @@ xdescribe('MealService', () => {
       .subscribe(([meal, usages, foods]) => {
         returned = true;
         expect(meal).toEqual(lunch1);
-        expect(_.values(usages)).toEqual([lunch1_pb, lunch1_jam, lunch1_bread]);
-        expect(_.values(foods)).toEqual([peanutButter, jam, bread]);
+        expect(values(usages)).toEqual([lunch1_pb, lunch1_jam, lunch1_bread]);
+        expect(values(foods)).toEqual([peanutButter, jam, bread]);
       });
 
     expect(returned).toBe(true);

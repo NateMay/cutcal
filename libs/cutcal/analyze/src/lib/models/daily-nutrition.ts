@@ -1,6 +1,6 @@
 import { Meal } from '@cutcal/diet'
 import { Nutrition, sumNutritions } from '@cutcal/nutrition'
-import * as _ from 'lodash'
+import { flatMap } from 'lodash'
 
 export class DailyNutrition {
   date: Date
@@ -12,6 +12,6 @@ export class DailyNutrition {
     this.meals = meals
     this.date = meals[0].timestamp.toDate().stripTime()
     this.dateString = this.date.toUrlString()
-    this.nutrition = sumNutritions(_.flatMap(meals, meal => meal.nutrition))
+    this.nutrition = sumNutritions(flatMap(meals, meal => meal.nutrition))
   }
 }

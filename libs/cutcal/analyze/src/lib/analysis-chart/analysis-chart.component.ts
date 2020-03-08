@@ -8,7 +8,7 @@ import {
 import { MatSelectChange } from '@angular/material/select'
 import { MatSlideToggleChange } from '@angular/material/slide-toggle'
 import * as Highcharts from 'highcharts'
-import * as _ from 'lodash'
+import { merge } from 'lodash'
 import { AnalysisChartVM } from '../models/analysis-chart'
 import { ChartControls } from '../models/chart-controls'
 
@@ -93,7 +93,7 @@ export class AnalysisChartComponent {
 
   valueStackedChange(change: MatSlideToggleChange) {
     this.controlsChange.emit(
-      _.merge(this.controls, {
+      merge(this.controls, {
         valueStacked: change.checked,
         percentStacked: change.checked ? false : this.controls.percentStacked,
       })
@@ -102,7 +102,7 @@ export class AnalysisChartComponent {
 
   percentStackedChange(change: MatSlideToggleChange) {
     this.controlsChange.emit(
-      _.merge(this.controls, {
+      merge(this.controls, {
         percentStacked: change.checked,
         valueStacked: change.checked ? false : this.controls.valueStacked,
       })
@@ -110,6 +110,6 @@ export class AnalysisChartComponent {
   }
 
   typeChange(change: MatSelectChange) {
-    this.controlsChange.emit(_.merge(this.controls, { type: change.value }))
+    this.controlsChange.emit(merge(this.controls, { type: change.value }))
   }
 }

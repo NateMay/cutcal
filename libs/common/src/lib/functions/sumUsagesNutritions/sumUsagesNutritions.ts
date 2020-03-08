@@ -1,7 +1,7 @@
 import { KVP } from '@cutcal/core'
 import { Food, Usage } from '@cutcal/diet'
 import { Nutrition, sumNutritions } from '@cutcal/nutrition'
-import * as _ from 'lodash'
+import { map } from 'lodash'
 import { scaleNutrition } from '../convertNutrition/convertNutrition'
 
 /**
@@ -15,6 +15,6 @@ export function sumUsagesNutritions(
   foods: KVP<Food>
 ): Nutrition<number> {
   return sumNutritions(
-    _.map(usages, usage => scaleNutrition(usage, foods[usage.foodId]))
+    map(usages, usage => scaleNutrition(usage, foods[usage.foodId]))
   )
 }

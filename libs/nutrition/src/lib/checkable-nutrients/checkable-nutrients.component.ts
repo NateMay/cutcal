@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { MatCheckboxChange } from '@angular/material/checkbox'
-import * as _ from 'lodash'
+import { isEqual } from 'lodash'
 import { NutrCheckable } from './../checkable-nutrient'
 import { getNutritionParts, NutritionParts } from './../getNutritionParts'
 import { Nutrition } from './../nutrition'
@@ -146,7 +146,7 @@ export class CheckableNutrientsComponent {
 
   private _nutrCheckables: Nutrition<NutrCheckable>
   @Input() set nutrCheckables(nutrCheckables: Nutrition<NutrCheckable>) {
-    if (_.isEqual(this.nutrCheckables, nutrCheckables)) return
+    if (isEqual(this.nutrCheckables, nutrCheckables)) return
     this.updateDataStructures(nutrCheckables, getNutritionParts(nutrCheckables))
   }
   get nutrCheckables(): Nutrition<NutrCheckable> {
@@ -158,10 +158,10 @@ export class CheckableNutrientsComponent {
     nutrCheckables: Nutrition<NutrCheckable>,
     nutrGroupCheckables?: NutritionParts<NutrCheckable>
   ) {
-    if (!_.isEqual(this.nutrCheckables, nutrCheckables)) {
+    if (!isEqual(this.nutrCheckables, nutrCheckables)) {
       this._nutrCheckables = nutrCheckables
     }
-    if (!_.isEqual(this.nutrGroupCheckables, nutrGroupCheckables)) {
+    if (!isEqual(this.nutrGroupCheckables, nutrGroupCheckables)) {
       this.nutrGroupCheckables =
         nutrGroupCheckables || getNutritionParts(nutrCheckables)
     }

@@ -11,7 +11,7 @@ import {
 import { KVP } from '@cutcal/core'
 import { FirestoreService, removeId, timestamp } from '@cutcal/fire'
 import { multiplyNutrition, updateNutritions } from '@cutcal/nutrition'
-import * as _ from 'lodash'
+import { find, flatten, isEmpty, keyBy, map as _map } from 'lodash'
 import { combineLatest, Observable, of } from 'rxjs'
 import { filter, first, map, share, switchMap } from 'rxjs/operators'
 import { Food } from './food'
@@ -58,7 +58,7 @@ export class MealService {
 
     const usages$ = this.db
       .colWithIds$<Usage>(`${this.mealCol}/${mealId}/usages`)
-      .pipe(map((usages: Usage[]) => _.keyBy(usages, '_id')))
+      .pipe(map((usages: Usage[]) => keyBy(usages, '_id')))
 
     const foods$ = this.getFoodsFromUsages(usages$)
 
@@ -68,9 +68,9 @@ export class MealService {
   }
 
   // this.db.colWithIds$(`parentCollection`).pipe(
-  //   map(parentDocs => _.keyBy(parentDocs, '_id')),
-  //   flatMap(parentDocs => combineLatest(_.map(parentDocs, parent => this.db.docWithId$(`childDocs/${parent.childId}`))).pipe(
-  //     map(childDocs => _.keyBy(childDocs, '_id')),
+  //   map(parentDocs => keyBy(parentDocs, '_id')),
+  //   flatMap(parentDocs => combineLatest(_map(parentDocs, parent => this.db.docWithId$(`childDocs/${parent.childId}`))).pipe(
+  //     map(childDocs => keyBy(childDocs, '_id')),
   //     map(childDocs => ({parentDocs, childDocs}))
   //   ))
   // );
@@ -118,7 +118,7 @@ export class MealService {
           .where('timestamp', '<=', endDate.endOfDay())
       )
       .pipe(
-        map((meals: Meal[]) => _.keyBy(meals, '_id')),
+        map((meals: Meal[]) => keyBy(meals, '_id')),
         share()
       )
   }
@@ -132,13 +132,13 @@ export class MealService {
     return meals$.pipe(
       switchMap(meals =>
         combineLatest(
-          _.map(meals, meal =>
+          _map(meals, meal =>
             this.db.colWithIds$<Usage>(`${this.mealCol}/${meal._id}/usages`)
           )
         )
       ),
-      map(us => _.flatten(us)),
-      map(usages => _.keyBy(usages, '_id'))
+      map(us => flatten(us)),
+      map(usages => keyBy(usages, '_id'))
     )
   }
 
@@ -150,15 +150,15 @@ export class MealService {
   getFoodsFromUsages(usages$: Observable<KVP<Usage>>): Observable<KVP<Food>> {
     return usages$.pipe(
       switchMap(usages =>
-        _.isEmpty(usages)
+        isEmpty(usages)
           ? of({})
           : combineLatest(
-              _.map(usages, usage =>
+              _map(usages, usage =>
                 this.db.docWithId$<Food>(`${this.foodCol}/${usage.foodId}`)
               )
             )
       ),
-      map(foods => _.keyBy(foods, '_id'))
+      map(foods => keyBy(foods, '_id'))
     )
   }
 
@@ -193,9 +193,9 @@ export class MealService {
    * @param {Meal} meal meal to delete
    * @return {Promise<void>}
    */
-  deleteMeal(meal: Meal): Promise<any> {
+  deleteMeal(meal: Meal): Promise<any> | never {
     if (!meal._id)
-      throw new Error(
+      throw Error(
         '[CutCal] Meal Service deleteMeal() DeleteMealPayload requires a meal._id'
       )
     const payload = { mealId: meal._id }
@@ -222,9 +222,9 @@ export class MealService {
    * @param {string} name new name for the meal
    * @return {Promise<void>}
    */
-  changeName(meal: Meal, name: string): Promise<void> {
+  changeName(meal: Meal, name: string): Promise<void> | never {
     if (!meal._id)
-      throw new Error(
+      throw Error(
         '[CutCal] Meal Service changeName() DeleteMealPayload requires a meal._id'
       )
     if (meal.name == name.trim()) return Promise.resolve()
@@ -240,9 +240,9 @@ export class MealService {
    * @param {string} notes new description for the meal
    * @return {Promise<void>}
    */
-  changeNotes(meal: Meal, notes: string): Promise<void> {
+  changeNotes(meal: Meal, notes: string): Promise<void> | never {
     if (!meal._id)
-      throw new Error(
+      throw Error(
         '[CutCal] Meal Service changeNotes() DeleteMealPayload requires a meal._id'
       )
     if (meal.notes == notes.trim()) return Promise.resolve()
@@ -264,9 +264,9 @@ export class MealService {
     food: Food,
     unit: string,
     quantity: number
-  ): Promise<any> {
+  ): Promise<any> | never {
     if (!meal._id)
-      throw new Error(
+      throw Error(
         '[CutCal] Meal Service changePortion() DeleteMealPayload requires a meal._id'
       )
     const adjustedUsage = { ...usage, unit, quantity }
@@ -301,18 +301,22 @@ export class MealService {
    * @param {Usage} usage
    */
 
-  async addUsage(food: Food, meal: Meal, usages?: KVP<Usage>): Promise<any> {
+  async addUsage(
+    food: Food,
+    meal: Meal,
+    usages?: KVP<Usage>
+  ): Promise<any> | never {
     if (!meal._id)
-      throw new Error(
+      throw Error(
         '[CutCal] Meal Service addUsage() requires a meal with a meal_id'
       )
 
-    usages = usages || _.keyBy(await this.getUsages(meal._id), '_id')
+    usages = usages || keyBy(await this.getUsages(meal._id), '_id')
 
     const { unit, quantity } = food.defaultPortion
 
     // If the food exists, just increment it
-    const existing: Usage | undefined = _.find(
+    const existing: Usage | undefined = find(
       usages,
       usage => usage.foodId == food._id
     )
@@ -359,11 +363,11 @@ export class MealService {
       .toPromise()
   }
 
-  async createMealAddUsage(food: Food, date: Date): Promise<any> {
+  async createMealAddUsage(food: Food, date: Date): Promise<any> | never {
     const { unit, quantity } = food.defaultPortion
 
     if (!food.nutrition)
-      throw new Error(
+      throw Error(
         '[CutCal] MealService createMealAddUsage() requires a food with a nutrition Object'
       )
 
@@ -406,16 +410,16 @@ export class MealService {
    * @param {Tripple} : MealTripple or MealsTripple
    */
   invalidMappings([X, usages, foods]: Tripple): boolean {
-    return !_.map(usages, usage => foods[usage.foodId]).some(food => !food)
+    return !_map(usages, usage => foods[usage.foodId]).some(food => !food)
   }
 
   // move this into a calendar service
-  // getMonthData(date: Date): Observable<MonthCalendar> {
+  // getMonthData(date: Date): Observable<MonthCalendar> | never {
   //   const calendar: Date[] = getFullCalendar(date)
 
   //   const last: Date | undefined = _.last(calendar)
 
-  //   if (!last) throw new Error('[CutCal] getMonthData() has no last date')
+  //   if (!last) throw Error('[CutCal] getMonthData() has no last date')
 
   //   return this.getMealRange(calendar[0], last.endOfDay()).pipe(
   //     map(meals => createCalendar(date, meals)),

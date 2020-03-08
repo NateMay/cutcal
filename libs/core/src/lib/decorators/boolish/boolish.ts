@@ -3,7 +3,10 @@
  * @type decorator
  */
 
-export function Boolish(this: any, target: any, property: string): any {
+export const Boolish: PropertyDecorator = (
+  target: any,
+  propertyKey: string | symbol
+): any => {
   let val: boolean
   return {
     set: (value: any): void => {
@@ -11,7 +14,7 @@ export function Boolish(this: any, target: any, property: string): any {
       else if (typeof value == 'string' && value !== '')
         val = value == 'false' ? false : true
       else if (typeof value == 'number') val = !!value
-      else val = target[property]
+      else val = target[propertyKey]
     },
     get: (): boolean => val,
     enumerable: true,

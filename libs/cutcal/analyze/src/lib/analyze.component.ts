@@ -29,7 +29,7 @@ import {
 } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import { Options, SeriesOptionsType } from 'highcharts'
-import * as _ from 'lodash'
+import { forEach, get, groupBy, keyBy, map as _map } from 'lodash'
 import { combineLatest, Subject } from 'rxjs'
 import { first, map, switchMap, takeUntil, tap } from 'rxjs/operators'
 import { BASE_ANALYZE_CHART_OPTIONS } from './constants/analyze.options'
@@ -130,17 +130,15 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
           return this.mealSvc.getMealRange(start, end)
         }),
         map(meals =>
-          _.groupBy(meals, meal =>
+          groupBy(meals, meal =>
             meal.timestamp
               .toDate()
               .stripTime()
               .toString()
           )
         ),
-        map(dailyMeals =>
-          _.map(dailyMeals, meals => new DailyNutrition(meals))
-        ),
-        tap(dailyNutrs => (this.dailyData = _.keyBy(dailyNutrs, 'dateString'))),
+        map(dailyMeals => _map(dailyMeals, meals => new DailyNutrition(meals))),
+        tap(dailyNutrs => (this.dailyData = keyBy(dailyNutrs, 'dateString'))),
         tap(() => this.initializeCharts()),
         takeUntil(this.unsub$)
       )
@@ -234,7 +232,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
     return base.map(point => {
       const day = this.dailyData[point.name]
       const date = point.name.urlToDate()
-      const value = _.get(day, `nutrition.${propName}`) || 0
+      const value = get(day, `nutrition.${propName}`) || 0
 
       return {
         date,
@@ -269,7 +267,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
 
     this.setChartOptions(controls, this.charts[controls.unit].options)
 
-    _.forEach(options.series, point => {
+    forEach(options.series, point => {
       point.type = controls.type
     })
 
@@ -288,13 +286,13 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
     this.setStacking(controls, options)
   }
 
-  setStacking(controls: ChartControls, options: Options): void {
+  setStacking(controls: ChartControls, options: Options): void | never {
     const plotOps = options.plotOptions
     if (!plotOps)
-      throw new Error('[CutCal] setStacking(): plotOptions is undefined')
+      throw Error('[CutCal] setStacking(): plotOptions is undefined')
     const option = plotOps[controls.type]
     if (!option)
-      throw new Error(
+      throw Error(
         `[CutCal] setStacking(): option "${controls.type}" is not defined`
       )
     option.stacking = controls.valueStacked
@@ -305,7 +303,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   closeChart(chart: AnalysisChartVM): void {
-    _.forEach(this.nutrCheckables, checkable => {
+    forEach(this.nutrCheckables, checkable => {
       if (checkable?.unit == chart.unit) checkable.isChecked = false
     })
 
@@ -317,18 +315,17 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   /**
    * This method is used to add or remove a nutrient from the chart
    */
-  toggleSeries(checkable: NutrCheckable): void {
-    if (!checkable.unit)
-      throw new Error('[CutCal] toggleSeries() requires a unit')
+  toggleSeries(checkable: NutrCheckable): void | never {
+    if (!checkable.unit) throw Error('[CutCal] toggleSeries() requires a unit')
     if (!this.charts[checkable.unit])
-      throw new Error(
+      throw Error(
         `[CutCal] toggleSeries() chart for "${checkable.unit}" does not exist`
       )
 
     const chart = this.charts[checkable.unit]
 
     if (!chart.options.series)
-      throw new Error('[CutCal] toggleSeries() - series is undefined')
+      throw Error('[CutCal] toggleSeries() - series is undefined')
 
     // FIXME (analyze)
     // chart.options.series = checkable.isChecked

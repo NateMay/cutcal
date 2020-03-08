@@ -4,9 +4,9 @@ import { AuthService } from '@cutcal/auth'
 import { KVP } from '@cutcal/core'
 import { createPortion, Image, Portion } from '@cutcal/diet'
 import { NUTRIENTS, Nutrition } from '@cutcal/nutrition'
-import * as _ from 'lodash'
+import { keyBy } from 'lodash'
 import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { map, shareReplay } from 'rxjs/operators'
 import {
   FdcFoodDetailResponse,
   FdcFoodMeasure,
@@ -67,9 +67,9 @@ export function createFood2(
   isDessert?: boolean,
   foodRefs?: string[],
   instructions?: string[]
-): Food2 {
+): Food2 | never {
   if (!name || !defaultPortion || !portions)
-    throw new Error(
+    throw Error(
       '[CutCal] createFood2() requires name, defaultPortion, & portions'
     )
   return {
@@ -122,7 +122,8 @@ export class FdcService {
             {},
             {}
           )
-        )
+        ),
+        shareReplay()
       )
   }
 
@@ -130,7 +131,7 @@ export class FdcService {
     response: FdcFoodDetailResponse
   ): Nutrition<number> {
     const base: KVP<number> = {}
-    const details = _.keyBy(NUTRIENTS.allDetails, 'id')
+    const details = keyBy(NUTRIENTS.allDetails, 'id')
     response.foodNutrients.forEach((foodNutrient: FdcFoodNutrient) => {
       const meta = details[foodNutrient.nutrient.id]
       if (meta?.propName) base[meta.propName] = foodNutrient.value || 0
@@ -144,7 +145,7 @@ export class FdcService {
         unit: 'grams',
         quantity: 100,
       },
-      ..._.keyBy(
+      ...keyBy(
         response.foodMeasures ||
           [].map((portion: FdcFoodMeasure) =>
             createPortion(

@@ -1,4 +1,4 @@
-import * as _ from 'lodash'
+import { isNumber, mergeWith } from 'lodash'
 import { Nutrition } from '../nutrition'
 
 /**
@@ -8,10 +8,10 @@ import { Nutrition } from '../nutrition'
 export function sumNutritions(
   source: Array<Nutrition<number>>
 ): Nutrition<number> {
-  return _.mergeWith.apply(
+  return mergeWith.apply(
     null,
     [{}].concat(source).concat((value: number, src: number) => {
-      return _.isNumber(value) ? value + src : src
+      return isNumber(value) ? value + src : src
     })
   )
 }

@@ -4,7 +4,7 @@
  * Assigns the time from a time string to a data object
  * @param {string} time "12:34 AM"
  */
-export function dateFromTime(time: string): Date {
+export function dateFromTime(time: string): Date | never {
   if (!isValidTime(time))
     throw Error('[CutCal] dateFromTime() must recieve valid time string')
 

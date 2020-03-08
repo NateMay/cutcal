@@ -13,7 +13,7 @@ import {
   TitleOptions,
   TooltipOptions,
 } from 'highcharts'
-import * as _ from 'lodash'
+import { reduce } from 'lodash'
 import { CaloriesSource } from '../../../../nutrition/src/lib/calories-from'
 
 @Component({
@@ -42,7 +42,7 @@ export class CaloriesChartComponent {
     const caloriesFrom = caloriesFromAll(nutrition)
 
     if (!this.chartOptions.series)
-      throw new Error('[CutCal] calories component requires valid chart series')
+      throw Error('[CutCal] calories component requires valid chart series')
 
     // URGENT FIXME - new highcharts api
     this.chartOptions.series = [
@@ -85,7 +85,7 @@ export class CaloriesChartComponent {
   }
 
   buildChartData(caloriesFrom: CaloriesFrom) {
-    const totalCalories = _.reduce(caloriesFrom, (sum, curr) => sum + curr) || 0
+    const totalCalories = reduce(caloriesFrom, (sum, curr) => sum + curr) || 0
 
     const result = []
     for (const source of Object.keys(caloriesFrom) as CaloriesSource[]) {

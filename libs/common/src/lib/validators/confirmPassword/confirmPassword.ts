@@ -29,7 +29,7 @@ export class ConfrmPasswordDir implements Validator {
     const password = confirm.root.get(this.confirmPassword)
 
     if (!password)
-      throw new Error(
+      throw Error(
         '[CutCal] Confirm validator requires an accompanying password validator'
       )
 

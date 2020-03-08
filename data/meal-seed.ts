@@ -2,7 +2,7 @@ import { sumUsagesNutritions } from '@cutcal/common'
 import { KVP, uniqueID } from '@cutcal/core'
 import { Food, Meal, Usage } from '@cutcal/diet'
 import { firestore } from 'firebase/app'
-import * as _ from 'lodash'
+import { forEach } from 'lodash'
 import { bread_id, FOODS, jam_id, peanutButter_id } from './food-seed'
 const USER_ID = 'ELYrdCulPrd9z8eHgyNgibmhnlH2'
 
@@ -84,7 +84,7 @@ export function findUsagesForMeal(mealId: string) {
 }
 
 export function assignMealParentId(meal: Meal, dbID: string): void {
-  _.forEach(MEAL_USAGES, usage => {
+  forEach(MEAL_USAGES, usage => {
     if (usage.parentId == meal._id) {
       usage.parentId = dbID
       usage.rootId = dbID
@@ -93,7 +93,7 @@ export function assignMealParentId(meal: Meal, dbID: string): void {
 }
 
 export function assignMealUsagesFoodIds(food: Food, dbID: string): void {
-  _.forEach(MEAL_USAGES, usage => {
+  forEach(MEAL_USAGES, usage => {
     if (usage.foodId == food._id) {
       usage.foodId = dbID
     }

@@ -21,3 +21,19 @@
 .mat-expansion-panel {
   box-shadow: none;
 }
+
+.food-icon {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #999;
+  margin-right: 6px;
+}
+
+.food-name {
+  width: calc(100% - 34px);
+  margin-right: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -7,8 +7,12 @@
  *     return ...
  *   }
  */
-export function ConsoleReturn(message: string = '') {
-  return (target: {}, key: string | symbol, descriptor: PropertyDescriptor) => {
+export function ConsoleReturn(message: string = ''): MethodDecorator {
+  return (
+    target: object,
+    key: string | symbol,
+    descriptor: PropertyDescriptor
+  ) => {
     const original = descriptor.value
 
     descriptor.value = function(...args: any[]) {

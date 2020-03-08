@@ -56,7 +56,7 @@ export class TimeAdapter {
     granularity?: 'hours' | 'minutes',
     minutesGap?: number,
     format?: number
-  ): boolean {
+  ): boolean | never {
     if (!time) return false
 
     const convertedTime: Date = dateFromTime(time)
@@ -64,7 +64,7 @@ export class TimeAdapter {
     const minutes = convertedTime.getMinutes()
 
     if (minutesGap && minutes % minutesGap !== 0) {
-      throw new Error(
+      throw Error(
         `[CutCal] Your minutes - ${minutes} doesn\'t match your minutesGap - ${minutesGap}`
       )
     }

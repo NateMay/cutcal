@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { map, shareReplay } from 'rxjs/operators'
 
 export interface WikiDetails {
   snippet: string
@@ -61,7 +61,8 @@ export class GoogleService {
             link: item0.link,
             img: image,
           }
-        })
+        }),
+        shareReplay()
       )
   }
 }

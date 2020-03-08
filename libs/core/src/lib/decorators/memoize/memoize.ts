@@ -2,18 +2,20 @@
  * Memoizes the output of a function
  * @type decorator
  */
-export function Memoize(hashFunction?: (...args: any[]) => any) {
+export function Memoize(
+  hashFunction?: (...args: any[]) => any
+): MethodDecorator {
   return (
     target: {},
-    propertyKey: string,
-    descriptor: TypedPropertyDescriptor<any>
-  ) => {
+    propertyKey: string | symbol,
+    descriptor: PropertyDescriptor
+  ): PropertyDescriptor | void | never => {
     if (descriptor.value != null)
       descriptor.value = getNewFunction(descriptor.value, hashFunction)
     else if (descriptor.get != null)
       descriptor.get = getNewFunction(descriptor.get, hashFunction)
     else
-      throw new Error(
+      throw Error(
         '[CutCal] Only put a Memoize() decorator on a method or get accessor.'
       )
   }

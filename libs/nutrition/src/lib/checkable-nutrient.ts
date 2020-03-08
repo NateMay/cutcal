@@ -1,4 +1,4 @@
-import * as _ from 'lodash'
+import { groupBy } from 'lodash'
 import { ZERO_NUTRITION } from './base-nutrition'
 import { NUTRIENTS } from './nutrient-metadata'
 import { NutrientUnit } from './nutrient-units'
@@ -21,7 +21,7 @@ export interface NutrCheckable {
 export function createNutrCheckableMap(
   checkables: Nutrition<NutrCheckable>
 ): NutrCheckableMap {
-  const result = _.groupBy(checkables, 'unit')
+  const result = groupBy(checkables, 'unit')
   return result as NutrCheckableMap
 }
 

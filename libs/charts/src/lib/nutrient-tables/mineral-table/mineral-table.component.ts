@@ -9,7 +9,7 @@ import {
   NutritionRange,
   ZERO_NUTRITION,
 } from '@cutcal/nutrition'
-import * as _ from 'lodash'
+import { get } from 'lodash'
 
 @Component({
   selector: 'table[cc-mineral],cc-mineral',
@@ -65,7 +65,7 @@ export class MineralTableComponent {
 
   // Recommended Daily Allowance
   rda(path: string): number {
-    const range: NutritionRange = _.get(this.dv.snapshot.nutrition, path)
+    const range: NutritionRange = get(this.dv.snapshot.nutrition, path)
     return range?.RDA ? range.RDA : 1
   }
 }

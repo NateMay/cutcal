@@ -12,7 +12,7 @@ export const WINDOW = new InjectionToken('WindowToken')
 
 export abstract class WindowRef {
   get nativeWindow(): Window | {} {
-    throw new Error(
+    throw Error(
       '[CutCal] WindowRef is not implemented on this platform, but is being referenced'
     )
   }
@@ -27,7 +27,7 @@ export class BrowserWindowRef extends WindowRef {
     if (isPlatformBrowser(this.platformId)) {
       return window
     } else
-      throw new Error(
+      throw Error(
         '[CutCal] WindowRef is not implemented on this platform, but is being referenced'
       )
   }

@@ -1,4 +1,4 @@
-import * as _ from 'lodash'
+import { get } from 'lodash'
 import { NUTRIENTS } from './../nutrient-metadata'
 
 /**
@@ -7,5 +7,5 @@ import { NUTRIENTS } from './../nutrient-metadata'
  */
 
 export function getNutrientID(nutrientName: string): number {
-  return _.get(NUTRIENTS.ids, nutrientName)
+  return get(NUTRIENTS.ids, nutrientName)
 }

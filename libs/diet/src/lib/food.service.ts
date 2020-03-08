@@ -6,7 +6,7 @@ import { AuthService } from '@cutcal/auth'
 import { KVP, uniqueID } from '@cutcal/core'
 import { FirestoreService } from '@cutcal/fire'
 import * as firebase from 'firebase/app'
-import * as _ from 'lodash'
+import { isEmpty, keyBy, map as _map } from 'lodash'
 import { combineLatest, Observable, of } from 'rxjs'
 import { filter, finalize, flatMap, map } from 'rxjs/operators'
 import { Food } from './food'
@@ -48,7 +48,7 @@ export class FoodService {
 
     const usages$ = this.db
       .colWithIds$<Usage>(`${this.foodCol}/${foodId}/usages`)
-      .pipe(map(usages => _.keyBy(usages, '_id')))
+      .pipe(map(usages => keyBy(usages, '_id')))
 
     const foods$ = this.getFoodsFromUsages(usages$)
 
@@ -65,15 +65,15 @@ export class FoodService {
   getFoodsFromUsages(usages$: Observable<KVP<Usage>>): Observable<KVP<Food>> {
     return usages$.pipe(
       flatMap(usages =>
-        _.isEmpty(usages)
+        isEmpty(usages)
           ? of({})
           : combineLatest(
-              _.map(usages, usage =>
+              _map(usages, usage =>
                 this.db.docWithId$<Food>(`${this.foodCol}/${usage.foodId}`)
               )
             )
       ),
-      map(foods => _.keyBy(foods, '_id'))
+      map(foods => keyBy(foods, '_id'))
     )
   }
 
@@ -113,7 +113,7 @@ export class FoodService {
    * @param {Tripple} : MealTripple or MealsTripple
    */
   invalidMappings([X, usages, foods]: Tripple): boolean {
-    return !_.map(usages, usage => foods[usage.foodId]).some(food => !food)
+    return !_map(usages, usage => foods[usage.foodId]).some(food => !food)
   }
 
   newFoodImage(event: any, food: Food, uploaderId: string): void {

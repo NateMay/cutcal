@@ -17,7 +17,7 @@ import {
   TransUnsaturated,
   ZERO_NUTRITION,
 } from '@cutcal/nutrition'
-import * as _ from 'lodash'
+import { get, sum, values } from 'lodash'
 
 @Component({
   selector: 'table[cc-fats],cc-fats',
@@ -209,8 +209,8 @@ export class FatsTableComponent {
     this.transFats = getTransUnsaturated(deatils)
     this.satFats = getSaturatedFat(deatils)
 
-    this.omega3 = _.sum(_.values(getOmega3(this._nutrition)))
-    this.omega6 = _.sum(_.values(getOmega6(this._nutrition)))
+    this.omega3 = sum(values(getOmega3(this._nutrition)))
+    this.omega6 = sum(values(getOmega6(this._nutrition)))
   }
   get nutrition() {
     return this._nutrition
@@ -223,7 +223,7 @@ export class FatsTableComponent {
 
   // Recommended Daily Allowance
   rda(path: string): number {
-    const range: NutritionRange = _.get(this.dv.snapshot.nutrition, path)
+    const range: NutritionRange = get(this.dv.snapshot.nutrition, path)
     return range?.RDA ? range.RDA : 1
   }
 

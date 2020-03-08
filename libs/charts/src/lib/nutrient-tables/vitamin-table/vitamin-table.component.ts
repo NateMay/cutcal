@@ -15,7 +15,7 @@ import {
   VitaminE,
   ZERO_NUTRITION,
 } from '@cutcal/nutrition'
-import * as _ from 'lodash'
+import { get } from 'lodash'
 @Component({
   selector: 'table[cc-vitamin],cc-vitamin',
   host: { class: 'cc-vitamin' },
@@ -254,7 +254,7 @@ export class VitaminTableComponent {
   }
 
   rda(propName: string): number {
-    const range: NutritionRange = _.get(this.dv.snapshot.nutrition, propName)
+    const range: NutritionRange = get(this.dv.snapshot.nutrition, propName)
     return range?.RDA ? range.RDA : 1
   }
 }

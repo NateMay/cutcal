@@ -1,4 +1,4 @@
-import * as _ from 'lodash'
+import { dropRight } from 'lodash'
 import { dateArray } from '../dateArray/dateArray'
 
 /**
@@ -21,8 +21,8 @@ export function getFullCalendar(date: Date | null): Date[] {
   let dates = dateArray(42, firstOfMonth.addDays(-firstOfMonth.getDay()))
 
   // remove the last week(s) if there are no days from the current month
-  if (!dates[28].isSameMonth(date)) dates = _.dropRight(dates, 14)
-  else if (!dates[35].isSameMonth(date)) dates = _.dropRight(dates, 7)
+  if (!dates[28].isSameMonth(date)) dates = dropRight(dates, 14)
+  else if (!dates[35].isSameMonth(date)) dates = dropRight(dates, 7)
 
   return dates
 }

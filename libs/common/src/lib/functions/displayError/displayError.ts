@@ -19,10 +19,10 @@ export function displayError(
   form: FormGroup,
   controlName: string,
   errorName: string
-): boolean {
+): boolean | never {
   const control = form.get(controlName)
   if (!control)
-    throw new Error(
+    throw Error(
       `[CutCal] displayError() could not find control "${controlName}"`
     )
   else return control.touched && control.hasError(errorName)

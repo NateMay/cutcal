@@ -18,7 +18,7 @@ import {
   Output,
 } from '@angular/core'
 import { Weekday, WEEKDAYS } from '@cutcal/core'
-import * as _ from 'lodash'
+import { chunk } from 'lodash'
 import { assertIsDefined } from '../../../../../../core/src/lib/functions/assertIsDefined'
 import { executeOnStable } from '../../../functions/executeOnStable/executeOnStable'
 import { getFullCalendar } from '../../../functions/getFullCalendar/getFullCalendar'
@@ -237,7 +237,7 @@ export class CalendarFaceComponent implements OnInit {
   // gets the calndar array, maps the days to the vire model, and chucks it by 7-day weeks
   createCalendar(): void {
     if (this.shouldCreate)
-      this.calendar = _.chunk(
+      this.calendar = chunk(
         getFullCalendar(this.focusDate).map(date => ({
           date,
           startDate: date.isSameDay(this.startDate),
@@ -315,7 +315,7 @@ export class CalendarFaceComponent implements OnInit {
   setAndEmit(
     property: 'start' | 'end' | 'focus' | 'selected',
     date: Date
-  ): void {
+  ): void | never {
     if (property === 'start') {
       this.startDate = date
       this.startDateChange.emit(date)
@@ -329,7 +329,7 @@ export class CalendarFaceComponent implements OnInit {
       this.selectedDate = date
       this.selectedDateChange.emit(date)
     } else
-      throw new Error(
+      throw Error(
         `[CutCal] Calendar Face setAndEmit() called with invalid param`
       )
   }

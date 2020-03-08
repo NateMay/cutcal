@@ -1,9 +1,9 @@
 import { chain, externalSchematic, Rule } from '@angular-devkit/schematics'
 import * as path from 'path'
 
-export default function(schema: any): Rule {
+export default function(schema: any): Rule | never {
   // if (!schema.name.startsWith('auth-')) {
-  //   throw new Error(`Auth modules must be prefixed with 'auth-'`);
+  //   throw Error(`Auth modules must be prefixed with 'auth-'`);
   // }
 
   return chain([

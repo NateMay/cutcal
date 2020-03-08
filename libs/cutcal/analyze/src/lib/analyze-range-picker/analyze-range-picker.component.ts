@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { analyzeParams, CCValidators } from '@cutcal/common'
-import * as _ from 'lodash'
+import { isDate } from 'lodash'
 
 @Component({
   selector: 'cc-analyze-range-picker',
@@ -138,8 +138,8 @@ export class AnalyzeRangePickerComponent {
 
   validRange(): boolean {
     return (
-      _.isDate(this.startDate) &&
-      _.isDate(this.endDate) &&
+      isDate(this.startDate) &&
+      isDate(this.endDate) &&
       this.startDate < this.endDate
     )
   }

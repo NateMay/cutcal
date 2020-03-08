@@ -6,7 +6,7 @@ import { Nutrient } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import { Options, PointOptionsObject, SeriesOptionsType } from 'highcharts'
 import Drilldown from 'highcharts/modules/drilldown'
-import * as _ from 'lodash'
+import { filter, forEach, map as _map, sum, values } from 'lodash'
 import { first, tap } from 'rxjs/operators'
 import { InspectionData, INSPECTION_DATA } from './inspection-data'
 
@@ -121,8 +121,8 @@ export class InspectNutrientDialogComponent implements OnInit {
   }
 
   getNutrientTotal([meals, usages, foods]: MealsTripple): void {
-    this.nutrientTotal = _.sum(
-      _.map(meals, meal => meal.nutrition[this.nutrient] || 0)
+    this.nutrientTotal = sum(
+      _map(meals, meal => meal.nutrition[this.nutrient] || 0)
     )
   }
 
@@ -140,7 +140,7 @@ export class InspectNutrientDialogComponent implements OnInit {
         },
       ],
       drilldown: {
-        series: _.values<KVP<SeriesOptionsType>>(this.drilldownSeries),
+        series: values<KVP<SeriesOptionsType>>(this.drilldownSeries),
       },
     }
   }
@@ -153,7 +153,7 @@ export class InspectNutrientDialogComponent implements OnInit {
    * @reference [StackOverflow] {@link https://stackoverflow.com/questions/23153403/drilldown-multiple-levels-highchart}
    */
   getSeriesData(meals: KVP<Meal>): any[] {
-    return _.map(meals, meal => {
+    return _map(meals, meal => {
       this.drilldownSeries[
         meal._id
       ] = this.createFirstLevelDrilldownSeriesOptions(meal)
@@ -168,20 +168,20 @@ export class InspectNutrientDialogComponent implements OnInit {
     return { id: meal._id, name: meal.name, data: [], type: 'pie' }
   }
 
-  handleIngredient(parentUsage: Usage, parentID: string): void {
+  handleIngredient(parentUsage: Usage, parentID: string): void | never {
     // URGENT FIXME - new highcharts api
     // this.drilldownSeries[parentID].data.push(
     //   this.createIngredientPoint(parentUsage)
     // )
     this.addChildrenToDrilldown(parentUsage._id)
-    throw new Error('need to fix this comment block (new highcharts api)')
+    throw Error('need to fix this comment block (new highcharts api)')
   }
 
   addChildrenToDrilldown(parentId: string) {
-    const children = _.filter(this.usages, usage => usage.parentId == parentId)
+    const children = filter(this.usages, usage => usage.parentId == parentId)
 
     if (children.length)
-      _.forEach(children, childUsage =>
+      forEach(children, childUsage =>
         this.handleIngredient(childUsage, parentId)
       )
   }

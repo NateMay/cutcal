@@ -12,14 +12,14 @@ import {
   TitleOptions,
   TooltipOptions,
 } from 'highcharts'
-import * as _ from 'lodash'
+import { cloneDeep } from 'lodash'
 
 /**
  * @reference [Highcharts-Docs] {@link https://api.highcharts.com/highcharts/}
  */
 
 export function BASE_ANALYZE_CHART_OPTIONS() {
-  return _.cloneDeep(BASE_OPTIONS)
+  return cloneDeep(BASE_OPTIONS)
 }
 
 export const BASE_OPTIONS: Highcharts.Options = {
