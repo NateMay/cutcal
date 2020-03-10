@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     ])
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Check service worker update
     // this.sw.checkSWUpdate();
   }

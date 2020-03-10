@@ -2,11 +2,13 @@ import { Action } from '@ngrx/store'
 
 /**
  * Fixes breaking issue related to lazy loading ngrx forFeature() modules
- * @reference {@link https://github.com/ngrx/platform/issues/825 Overlay Stackblitz}
- * @source wesselvdv comment on Feb 23
- * @note must be exported for --aot build
+ * @param {string} action sdfsdfsf
+ * @returns {string}
+ * {@link https://github.com/ngrx/platform/issues/825 Overlay Stackblitz}
+ *  wesselvdv comment on Feb 23
+ * must be exported for --aot build
  */
-export function actionSanitizer(action: any) {
+export function actionSanitizer(action: any): any {
   return JSON.parse(stringify(action))
 }
 

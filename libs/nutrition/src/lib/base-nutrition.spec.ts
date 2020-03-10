@@ -13,7 +13,7 @@ it(`Zero Nutrition has ${nutritionMemberCount}`, () => {
   const zero = BASE_NUTRITION(0);
   let keysCount = 0;
 
-  Object.keys(zero).forEach(key => {
+  Object.keys(zero).forEach(() => {
     keysCount++;
   });
 

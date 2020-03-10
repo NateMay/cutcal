@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import { KVP } from '@cutcal/core'
 
 /**
@@ -518,7 +519,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
   },
 
   /**
-   * @reference {@link https://en.wikipedia.org/wiki/List_of_saturated_fatty_acids}
+   * {@link https://en.wikipedia.org/wiki/List_of_saturated_fatty_acids Wikipedia}
    */
   saturatedFat: {
     id: 1258,
@@ -628,7 +629,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
   },
 
   /**
-   * @reference {@link https://en.wikipedia.org/wiki/Monounsaturated_fat}
+   * {@link https://en.wikipedia.org/wiki/Monounsaturated_fat Wikipedia}
    */
   monoUnsaturated: {
     id: 1292,
@@ -744,7 +745,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
   },
 
   /**
-   * @reference {@link https://en.wikipedia.org/wiki/List_of_saturated_fatty_acids}
+   * @summary {@link https://en.wikipedia.org/wiki/List_of_saturated_fatty_acids Wikipedia}
    */
   polyUnsaturated: {
     id: 1293,
