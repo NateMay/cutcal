@@ -1,9 +1,9 @@
 import { DailyValue } from './daily-value'
 
 /**
- * @reference [ConsumerLabs] {@link http://www.consumerlab.com/RDAs/}
- * @reference [NationalAcademies] {@link http://nationalacademies.org/hmd/~/media/Files/Report%20Files/2019/DRI-Tables-2019/6_DRIValues_Summary.pdf?la=en}
- * @reference [MacroNutrients] {@link https://www.nap.edu/read/10490/chapter/15#953}
+ * @reference {@link http://www.consumerlab.com/RDAs/ ConsumerLabs}
+ * @reference {@link http://nationalacademies.org/hmd/~/media/Files/Report%20Files/2019/DRI-Tables-2019/6_DRIValues_Summary.pdf?la=en NationalAcademies}
+ * @reference {@link https://www.nap.edu/read/10490/chapter/15#953 MacroNutrients}
  */
 
 // Vitamin K 120.0 µg

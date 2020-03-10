@@ -1,32 +1,13 @@
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import {
-  Component,
-  Injector,
-  OnDestroy,
-  OnInit,
-  ViewContainerRef,
-} from '@angular/core'
+import { Component, Injector, OnDestroy, OnInit, ViewContainerRef } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { AuthService } from '@cutcal/auth'
-import {
-  HighChartsDataPoint,
-  InspectionData,
-  INSPECTION_DATA,
-  InspectNutrientDialogComponent,
-  setLightGridTheme,
-} from '@cutcal/charts'
+import { HighChartsDataPoint, InspectionData, INSPECTION_DATA, InspectNutrientDialogComponent, setLightGridTheme } from '@cutcal/charts'
 import { analyzeParams, dateArray } from '@cutcal/common'
 import { KVP } from '@cutcal/core'
 import { MealService } from '@cutcal/diet'
-import {
-  createNutrCheckableMap,
-  NutrCheckable,
-  NutrCheckableMap,
-  NutrientUnit,
-  Nutrition,
-  nutrtionSelections,
-} from '@cutcal/nutrition'
+import { createNutrCheckableMap, NutrCheckable, NutrCheckableMap, NutrientUnit, Nutrition, nutrtionSelections } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import { Options, SeriesOptionsType } from 'highcharts'
 import { forEach, get, groupBy, keyBy, map as _map } from 'lodash'
@@ -42,8 +23,8 @@ import { ViewMap } from './models/view-map'
 setLightGridTheme()
 
 /**
- * @reference [StackOverflow] {@link https://stackoverflow.com/questions/2388115/get-locale-short-date-format-using-javascript}
- * @reference [Mozilla] {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString}
+ * @reference {@link https://stackoverflow.com/questions/2388115/get-locale-short-date-format-using-javascript StackOverflow}
+ * @reference {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString Mozilla}
  */
 const MONTH_DAY_FORMAT: Intl.DateTimeFormatOptions = {
   month: 'short',
@@ -178,7 +159,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   /**
-   * @reference [Highcharts] {@link https://www.highcharts.com/demo/line-basic}
+   * @reference {@link https://www.highcharts.com/demo/line-basic Highcharts}
    */
   createCharts(
     unitMap: NutrCheckableMap,
@@ -352,7 +333,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
 
   openModal = (event: any) => {
     /**
-     * @reference [Overlay-Stackblitz] {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts}
+     * @reference {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts Overlay Stackblitz}
      */
 
     this.inspectOverlayRef = this.overlay.create(

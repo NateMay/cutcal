@@ -14,7 +14,7 @@ export interface DailyValue {
 
 /**
  * Information about intake ranges for any nutrient
- * @refernce [National-Academies-Press] {@link https://www.nap.edu/read/10925/chapter/3#23}
+ * @refernce {@link https://www.nap.edu/read/10925/chapter/3#23 National Academies Press}
  */
 
 export interface NutritionRange {

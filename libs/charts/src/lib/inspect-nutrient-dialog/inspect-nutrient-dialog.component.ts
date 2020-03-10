@@ -148,9 +148,9 @@ export class InspectNutrientDialogComponent implements OnInit {
   /**
    * Creates the series data AND the drildown data recursively
    * @param {KVP<Meal>} meals all the meals from the day
-   * @reference [Highcharts] {@link https://www.highcharts.com/demo/pie-drilldown}
-   * @reference [Stackblitz] {@link https://stackblitz.com/edit/highcharts-angular-drilldown}
-   * @reference [StackOverflow] {@link https://stackoverflow.com/questions/23153403/drilldown-multiple-levels-highchart}
+   * @reference {@link https://www.highcharts.com/demo/pie-drilldown Highcharts}
+   * @reference {@link https://stackblitz.com/edit/highcharts-angular-drilldown Stackblitz}
+   * @reference {@link https://stackoverflow.com/questions/23153403/drilldown-multiple-levels-highchart StackOverflow}
    */
   getSeriesData(meals: KVP<Meal>): any[] {
     return _map(meals, meal => {

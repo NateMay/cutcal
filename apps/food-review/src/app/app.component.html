@@ -1,3 +1,55 @@
-<div class="test-api">Message: {{ hello$ | async | json }}</div>
+<div fxFlex="300px">
+    <div fxLayout="row">
+        <mat-form-field>
+            <mat-label>Search</mat-label>
+            <input #input matInput placeholder="Ex. Avocado" value="Avocado" />
+        </mat-form-field>
 
-<router-outlet></router-outlet>
+        <button mat-button (click)="search(input.value)">next</button>
+    </div>
+    <hr />
+    <section>
+        <ng-container *ngIf="results$ | async as results">
+            <div fxLayout="column">
+                <button
+                    *ngFor="let result of results"
+                    fxLayout="column"
+                    class="item"
+                    (click)="selected = result"
+                >
+                    <div>
+                        <b>{{ result.title }}</b>
+                    </div>
+
+                    <p>
+                        <span class="image-container">
+                            <img class="side" [attr.src]="result.imgs[1]" />
+                        </span>
+                        {{ result.snippet }}
+                    </p>
+                </button>
+            </div>
+        </ng-container>
+    </section>
+</div>
+
+<div fxFlex>
+    <div *ngIf="selected" fxLayout="column">
+        <h2>{{ selected?.title }}</h2>
+        <div class="image-container">
+            <img class="main" [attr.src]="selected.imgs[0]" />
+        </div>
+
+        <mat-form-field>
+            <mat-label>Search</mat-label>
+            <textarea
+                #input
+                matInput
+                mat-autosize
+                [(value)]="description"
+            ></textarea>
+        </mat-form-field>
+    </div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->

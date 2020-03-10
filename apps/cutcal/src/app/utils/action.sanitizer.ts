@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store'
 
 /**
  * Fixes breaking issue related to lazy loading ngrx forFeature() modules
- * @reference [Overlay-Stackblitz] {@link https://github.com/ngrx/platform/issues/825}
+ * @reference {@link https://github.com/ngrx/platform/issues/825 Overlay Stackblitz}
  * @source wesselvdv comment on Feb 23
  * @note must be exported for --aot build
  */

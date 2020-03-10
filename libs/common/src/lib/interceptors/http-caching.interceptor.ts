@@ -1,11 +1,4 @@
-import {
-  HttpEvent,
-  HttpHandler,
-  HttpHeaders,
-  HttpInterceptor,
-  HttpRequest,
-  HttpResponse,
-} from '@angular/common/http'
+import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable, of } from 'rxjs'
 import { startWith, tap } from 'rxjs/operators'
@@ -18,7 +11,7 @@ import { RequestCache } from '../services/request-cache.service'
  *   then also re-run the package search, using response from next(),
  *   returning an observable that emits the cached response first.
  *   If not in cache or not cachable, pass request through to next()
- * @refrence {@link https://github.com/angular/angular/blob/master/aio/content/examples/http/src/app/}
+ * @refrence {@link https://github.com/angular/angular/blob/master/aio/content/examples/http/src/app/ Github}
  *
  * @note not currently used, but could be a furture optimization
  */

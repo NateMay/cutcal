@@ -2,7 +2,7 @@ import * as Highcharts from 'highcharts'
 
 /**
  * Sets the deafult theme options for a hightcharts chart
- * @reference [HighCharts-Github] {@link https://github.com/highcharts/highcharts/tree/master/js/themes}
+ * @reference {@link https://github.com/highcharts/highcharts/tree/master/js/themes HighCharts Github}
  */
 export function setLightGridTheme() {
   Highcharts.createElement(

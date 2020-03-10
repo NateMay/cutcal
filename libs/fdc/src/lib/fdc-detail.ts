@@ -1,7 +1,7 @@
 // nx
 /**
  * FoodData Central API
- * @usage [response] {@link https://api.nal.usda.gov/fdc/v1/336711?api_key=####}
+ * @usage {@link https://api.nal.usda.gov/fdc/v1/336711?api_key=#### Response}
  */
 export interface FdcFoodDetailResponse {
   foodClass: string

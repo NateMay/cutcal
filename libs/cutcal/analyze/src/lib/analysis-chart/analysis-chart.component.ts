@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 import { MatSelectChange } from '@angular/material/select'
 import { MatSlideToggleChange } from '@angular/material/slide-toggle'
 import * as Highcharts from 'highcharts'
@@ -13,7 +7,7 @@ import { AnalysisChartVM } from '../models/analysis-chart'
 import { ChartControls } from '../models/chart-controls'
 
 /**
- * @reference [Highcharts-Angular] {@link https://github.com/highcharts/highcharts-angular/tree/master/src/app}
+ * @reference {@link https://github.com/highcharts/highcharts-angular/tree/master/src/app Highcharts Angular}
  */
 @Component({
   selector: 'cc-analysis-chart',

@@ -62,8 +62,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cutcal:build",
-            "proxyConfig": "apps/cutcal/proxy.conf.json"
+            "browserTarget": "cutcal:build"
           },
           "configurations": {
             "production": {
@@ -400,7 +399,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "food-review:build"
+            "browserTarget": "food-review:build",
+            "proxyConfig": "apps/food-review/proxy.conf.json"
           },
           "configurations": {
             "production": {

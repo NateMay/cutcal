@@ -4,7 +4,7 @@ import { Directive, Input, OnInit } from '@angular/core'
 
 /**
  * Replaces references with the docs for
- * @refrence [NatanelBasal] {@link https://netbasal.com/connect-angular-forms-to-ngrx-store-c495d17e129}
+ * @refrence {@link https://netbasal.com/connect-angular-forms-to-ngrx-store-c495d17e129 Natanel Basal}
  * @note not currently used, but might be an optimization to leverage
  */
 

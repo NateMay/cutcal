@@ -1,21 +1,8 @@
-import {
-  ChartOptions,
-  LegendOptions,
-  PlotAreaOptions,
-  PlotBarOptions,
-  PlotColumnOptions,
-  PlotLineOptions,
-  PlotOptions,
-  ResponsiveOptions,
-  ResponsiveRulesOptions,
-  SeriesOptionsType,
-  TitleOptions,
-  TooltipOptions,
-} from 'highcharts'
+import { ChartOptions, LegendOptions, PlotAreaOptions, PlotBarOptions, PlotColumnOptions, PlotLineOptions, PlotOptions, ResponsiveOptions, ResponsiveRulesOptions, SeriesOptionsType, TitleOptions, TooltipOptions } from 'highcharts'
 import { cloneDeep } from 'lodash'
 
 /**
- * @reference [Highcharts-Docs] {@link https://api.highcharts.com/highcharts/}
+ * @reference {@link https://api.highcharts.com/highcharts/ Highcharts Docs}
  */
 
 export function BASE_ANALYZE_CHART_OPTIONS() {

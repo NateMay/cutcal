@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import { get } from 'lodash'
 import { Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
 
 export interface WikiDetails {
   snippet: string
   link: string
-  img: string
+  imgs: string[]
+  title: string
 }
 
 interface EngineResponse {
@@ -16,53 +18,68 @@ interface EngineItem {
   pagemap: PageMap
   snippet: string
   link: string
+  title: string
+  cacheId: string
+  displayLink: string
+  formattedUrl: string
+  htmlFormattedUrl: string
+  htmlSnippet: string
+  htmlTitle: string
+  kind: string
 }
 interface PageMap {
-  metatags: any[]
-  cse_image: any[]
+  metatags?: WikiMetaTag[]
+  cse_image?: WikiImage[]
+  cse_thumbnail?: WikiImage[]
 }
+interface WikiImage {
+  src: string
+}
+interface WikiMetaTag {
+  referrer: string
+  'og:image': string
+}
+/**
+ * @reference [Custom Search](https://cse.google.com/cse/all)
+ */
 
 @Injectable({
   providedIn: 'root',
 })
 export class GoogleService {
   readonly apiKey = 'AIzaSyAspWF0dPGZo9XRlZpTn4j3ZzoAtrJJIpA'
-  // https://cse.google.com/cse/all
   readonly engine = '005525034399704142974:oxjpozizj0m'
   readonly endPoint = 'https://www.googleapis.com/customsearch/v1'
 
   constructor(private http: HttpClient) {}
 
-  getWikiDetails(
-    searchTerm: string,
-    itemNum: number = 0
-  ): Observable<WikiDetails> {
-    const modified = searchTerm
+  endpoint(searchTerm: string): string {
+    const cleanTerm = searchTerm
       .trim()
       .replace(/\s\s+/g, ' ')
       .replace(' ', '+')
-    return this.http
-      .get<EngineResponse>(
-        `${this.endPoint}?key=${this.apiKey}&cx=${this.engine}&q=${modified}`
-      )
-      .pipe(
-        map((response: EngineResponse) => {
-          const item0 = response.items[itemNum]
-          let image
-          try {
-            const meta = item0.pagemap.metatags
-            const cse = item0.pagemap.cse_image
-            image = meta[0]['og:image'] || cse[0].src
-          } catch {
-            image = '../../../../assets/svgs/food.svg'
-          }
-          return {
-            snippet: item0.snippet,
-            link: item0.link,
-            img: image,
-          }
-        }),
-        shareReplay()
-      )
+    return `${this.endPoint}?key=${this.apiKey}&cx=${this.engine}&q=${cleanTerm}`
+  }
+
+  getSearchResults(searchTerm: string): Observable<WikiDetails[]> {
+    return this.http.get<EngineResponse>(this.endpoint(searchTerm)).pipe(
+      map((response: EngineResponse) => {
+        return response.items.map(item => ({
+          snippet: item.snippet,
+          link: item.link,
+          imgs: this.getImages(item.pagemap),
+          title: item.title.replace(' - Wikipedia', ''),
+        }))
+      }),
+      shareReplay()
+    )
+  }
+
+  getImages(pagemap: PageMap): string[] {
+    return [
+      get(pagemap, 'cse_image[0].src'),
+      get(pagemap, 'cse_thumbnail[0].src'),
+      get(pagemap, `metatags[0]['og:image']`),
+    ]
   }
 }

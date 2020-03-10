@@ -1,15 +1,6 @@
 /* tslint:disable:max-line-length*/
 import { Injectable } from '@angular/core'
-import {
-  Action,
-  AngularFirestore,
-  AngularFirestoreCollection,
-  AngularFirestoreDocument,
-  DocumentChangeAction,
-  DocumentSnapshotDoesNotExist,
-  DocumentSnapshotExists,
-  QueryFn,
-} from '@angular/fire/firestore'
+import { Action, AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentChangeAction, DocumentSnapshotDoesNotExist, DocumentSnapshotExists, QueryFn } from '@angular/fire/firestore'
 import * as firebase from 'firebase/app'
 import { Observable } from 'rxjs'
 import { first, map, tap } from 'rxjs/operators'
@@ -20,9 +11,9 @@ type DocPredicate<T> = string | AngularFirestoreDocument<T>
 
 /**
  * Service full of FireStore querying helper methods
- * @source [Angular-Firebase] https://angularfirebase.com/lessons/firestore-advanced-usage-angularfire/
- * @refrence [set-add-update-upsert] https://stackoverflow.com/questions/46597327/difference-between-set-with-merge-true-and-update
- * @refrence [Query-Techniques] https://www.youtube.com/watch?v=35RlydUf6xo
+ * @source {@link https://angularfirebase.com/lessons/firestore-advanced-usage-angularfire/ Angular Firebase}
+ * @refrence {@link https://stackoverflow.com/questions/46597327/difference-between-set-with-merge-true-and-update Set, Add, Update, & Upsert}
+ * @refrence {@link https://www.youtube.com/watch?v=35RlydUf6xo Query Techniques}
  * @example
  *   photo = '../assets/images/april.jpg';
  *

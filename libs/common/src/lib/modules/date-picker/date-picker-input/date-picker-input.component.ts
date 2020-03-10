@@ -1,28 +1,6 @@
-import {
-  CdkOverlayOrigin,
-  Overlay,
-  OverlayConfig,
-  OverlayRef,
-} from '@angular/cdk/overlay'
+import { CdkOverlayOrigin, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ComponentRef,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  HostBinding,
-  HostListener,
-  Injector,
-  Input,
-  NgZone,
-  OnInit,
-  Output,
-  ViewChild,
-  ViewContainerRef,
-} from '@angular/core'
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, ElementRef, EventEmitter, forwardRef, HostBinding, HostListener, Injector, Input, NgZone, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { Boolish } from '@cutcal/core'
 import { eventWithin } from '../../../functions/eventWithin/eventWithin'
@@ -164,7 +142,7 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
     /**
-     * @reference [Overlay-Stackblitz] {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts}
+     * @reference {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts Overlay Stackblitz}
      */
     this.pickerOverlayRef = this.overlay.create(
       new OverlayConfig({

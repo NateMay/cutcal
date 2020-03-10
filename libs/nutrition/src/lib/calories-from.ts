@@ -54,7 +54,7 @@ export function caloriesFromAll(nutr: Nutrition<number>): CaloriesFrom {
 /**
  * Converts grams into calories for each macro-nutrient
  * @param {Nutrition<number>} nutrition the nutrition object from which to calculate
- * @refrence [USDA] https://www.nal.usda.gov/fnic/how-many-calories-are-one-gram-fat-carbohydrate-or-protein
+ * @refrence {@link https://www.nal.usda.gov/fnic/how-many-calories-are-one-gram-fat-carbohydrate-or-protein USDA}
  * @returns CaloriesFrom
  */
 export function adjustPerGram(nutrition: Nutrition<number>): CaloriesFrom {

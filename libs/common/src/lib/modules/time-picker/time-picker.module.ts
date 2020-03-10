@@ -23,7 +23,7 @@ import { MinutesFormatterPipe } from './pipes/minutes-formatter.pipe'
 
 /**
  * forked from:
- * @reference [ngx-material-timepicker] {@link https://agranom.github.io/ngx-material-timepicker/}
+ * @reference {@link https://agranom.github.io/ngx-material-timepicker/ ngx-material-timepicker}
  */
 
 const COMPONENTS = [

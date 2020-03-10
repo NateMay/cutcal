@@ -3,7 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser'
 
 /**
  * Sanitizes data for the template
- * @refrence https://stackoverflow.com/questions/49419662/why-sanitizer-bypasssecuritytruststyle-returns-warning-when-setting-style-backg
+ * @refrence {@link https://stackoverflow.com/questions/49419662/why-sanitizer-bypasssecuritytruststyle-returns-warning-when-setting-style-backg Stackoverflow}
  * @example
  *   photo = '../../../assets/images/april.jpg';
  *
