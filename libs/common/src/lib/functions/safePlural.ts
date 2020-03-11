@@ -1,5 +1,4 @@
 import { plural } from 'pluralize'
 
-export function safePlural(unit: string, quantity: number): string {
-  return quantity == 1 ? unit : plural(unit)
-}
+export const safePlural = (unit: string, quantity: number): string =>
+  quantity == 1 ? unit : plural(unit)

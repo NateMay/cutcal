@@ -71,7 +71,7 @@ describe('IngredientsListitemComponent', () => {
     );
 
     [goToButton, editButton] = getAllDe(fixture, 'button');
-    quantityInput = () => getEl(fixture, 'input');
+    quantityInput = (): HTMLInputElement => getEl(fixture, 'input');
     unitInput = getByDir(fixture, MatSelect);
   });
 
@@ -104,7 +104,7 @@ describe('IngredientsListitemComponent', () => {
   });
 
   it('should route away when clicked', () => {
-    const spy = spyOn(TestBed.inject(Router), 'navigate');
+    const spy = jest.spyOn(TestBed.inject(Router), 'navigate');
     fixture.detectChanges();
     goToButton.nativeElement.click();
     expect(spy).toHaveBeenCalledWith([
@@ -133,7 +133,7 @@ describe('IngredientsListitemComponent', () => {
     fixture.detectChanges();
     editButton.nativeElement.click();
     fixture.detectChanges();
-    const spy = spyOn(component.portionChange, 'emit');
+    const spy = jest.spyOn(component.portionChange, 'emit');
     const input = quantityInput();
     input.value = '25';
     input.dispatchEvent(new Event('input'));

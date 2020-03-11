@@ -2,19 +2,19 @@ import { HttpRequest, HttpResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 
 /**
- * @note not currently implemented
- * not sure where I found this - N8
+ * Not currently implemented
+ * Not sure where I found this - N8
  */
 
 @Injectable()
 export class MessageService {
   messages: string[] = []
 
-  add(message: string) {
+  add(message: string): void {
     this.messages.push(message)
   }
 
-  clear() {
+  clear(): void {
     this.messages = []
   }
 }

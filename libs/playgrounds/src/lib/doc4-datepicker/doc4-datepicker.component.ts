@@ -78,7 +78,7 @@ export class Doc4DatepickerComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
   addMonth(): void {
     this.date = this.date.addMonth()

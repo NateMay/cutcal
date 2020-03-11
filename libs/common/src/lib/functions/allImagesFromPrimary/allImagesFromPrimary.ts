@@ -1,9 +1,9 @@
 /**
- * Gets all of the image references by size for a single image
+ * @description Gets all of the image references by size for a single image
  * @param {string} url one image url
  */
 
-export function allImagesFromPrimary(url: string): string[] {
+export const allImagesFromPrimary = (url: string): string[] => {
   if (url.includes('meal.png')) return []
   return [
     url,

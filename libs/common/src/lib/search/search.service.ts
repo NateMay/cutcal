@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Subject } from 'rxjs'
+import { Observable, Subject } from 'rxjs'
 
 @Injectable({
   providedIn: 'root',
@@ -7,11 +7,11 @@ import { Subject } from 'rxjs'
 export class SearchService {
   _focusFirst: Subject<void> = new Subject()
 
-  get listenFocusFirst() {
+  get listenFocusFirst(): Observable<void> {
     return this._focusFirst.asObservable()
   }
 
-  focusFirst() {
+  focusFirst(): void {
     this._focusFirst.next()
   }
 }

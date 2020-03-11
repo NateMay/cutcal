@@ -17,9 +17,8 @@ import {
   OnInit,
   Output,
 } from '@angular/core'
-import { Weekday, WEEKDAYS } from '@cutcal/core'
+import { assertIsDefined, Weekday, WEEKDAYS } from '@cutcal/core'
 import { chunk } from 'lodash'
-import { assertIsDefined } from '../../../../../../core/src/lib/functions/assertIsDefined'
 import { executeOnStable } from '../../../functions/executeOnStable/executeOnStable'
 import { getFullCalendar } from '../../../functions/getFullCalendar/getFullCalendar'
 
@@ -210,7 +209,7 @@ export class CalendarFaceComponent implements OnInit {
     return document.querySelector<HTMLElement>(`#${this.focusId}[tabindex="0"]`)
   }
 
-  get shouldCreate() {
+  get shouldCreate(): boolean {
     return !!this.selectedDate && (!!this.focusDate || !!this.startDate)
   }
 
@@ -219,18 +218,18 @@ export class CalendarFaceComponent implements OnInit {
 
   @HostBinding('attr.aria-label') calLabel = 'caledar'
 
-  @HostListener('focusin') startManaging() {
-    this.managingFocus = true
-  }
-  @HostListener('focusout') stopManaging() {
-    this.managingFocus = false
-  }
-
   constructor(private ngZone: NgZone) {
     this.focusId = this.focusId
   }
 
-  ngOnInit() {
+  @HostListener('focusin') startManaging(): void {
+    this.managingFocus = true
+  }
+  @HostListener('focusout') stopManaging(): void {
+    this.managingFocus = false
+  }
+
+  ngOnInit(): void {
     if (!this.calendar) this.createCalendar()
   }
 
@@ -266,13 +265,13 @@ export class CalendarFaceComponent implements OnInit {
       })
   }
 
-  changeFocus(event: KeyboardEvent, days: number) {
+  changeFocus(event: KeyboardEvent, days: number): void {
     assertIsDefined(this.focusDate)
     event.preventDefault()
     this.setAndEmit('focus', this.focusDate.addDays(days))
   }
 
-  public dayClicked(date: Date) {
+  public dayClicked(date: Date): void {
     if (this.range) this.rangeClick(date)
     else {
       this.setAndEmit('focus', date)
@@ -282,7 +281,7 @@ export class CalendarFaceComponent implements OnInit {
   }
 
   // TEST (date-picker)
-  rangeClick(date: Date) {
+  rangeClick(date: Date): void {
     if (this.startAndEndEqual) this.adjustUnknown(date)
     else if (this.invalidRange(date)) this.setRangeEqual(date)
     else if (this.selectingStart) this.setAndEmit('start', date)
@@ -296,7 +295,7 @@ export class CalendarFaceComponent implements OnInit {
     return this.startDate?.isSameDay(this.endDate)
   }
 
-  adjustUnknown(date: Date) {
+  adjustUnknown(date: Date): void {
     assertIsDefined(this.startDate)
     if (date > this.startDate) {
       this.setAndEmit('end', date)
@@ -339,12 +338,12 @@ export class CalendarFaceComponent implements OnInit {
     this.setAndEmit('end', date)
   }
 
-  public changeMonth(dir: number) {
+  public changeMonth(dir: number): void {
     assertIsDefined(this.focusDate)
     this.setAndEmit('focus', this.focusDate.addMonths(dir))
   }
 
-  onAnimationEvent(event: AnimationEvent) {
+  onAnimationEvent(event: AnimationEvent): void {
     this.slideState =
       event.fromState == 'center'
         ? event.toState == 'right'

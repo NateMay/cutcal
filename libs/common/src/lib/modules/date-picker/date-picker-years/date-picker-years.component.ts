@@ -32,17 +32,17 @@ export class DatePickerYearsComponent implements OnInit {
     this._focusDate = focusDate
     this.recalculate(focusDate.getFullYear())
   }
-  get focusDate() {
+  get focusDate(): Date {
     return this._focusDate
   }
 
-  get selectedYear() {
+  get selectedYear(): number | null {
     return this.selectedDate ? this.selectedDate.getFullYear() : null
   }
 
   @Output() yearSelect = new EventEmitter<number>()
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.recalculate(this.selectedYear || this.focusDate.getFullYear())
   }
 

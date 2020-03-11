@@ -57,7 +57,7 @@ export class MineralTableComponent {
     this._nutrition = Object.assign({}, ZERO_NUTRITION, nutrition)
     this.minerals = getMinerals<NutrientMetaData>(NUTRIENTS.allDetails)
   }
-  get nutrition() {
+  get nutrition(): Nutrition<number> {
     return this._nutrition
   }
 

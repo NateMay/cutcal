@@ -3,11 +3,13 @@ import { FirestoreService } from '@cutcal/fire'
 import { Observable } from 'rxjs'
 
 /**
- * Unwrapps a firestore document reference in the template
+ * @description Unwrapps a firestore document reference in the template
  * @example
+ * ```html
  *   <div *ngIf="noteDoc | async as note">
  *     {{ (note.user | doc | async)?.name }}
  *   </div>
+ * ```
  */
 
 @Pipe({

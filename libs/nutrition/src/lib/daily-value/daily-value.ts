@@ -2,7 +2,7 @@ import { FdcUnit } from '@cutcal/fdc'
 import { Nutrition } from '../nutrition'
 
 /**
- * Metadata for Nutrtion<NutritionRange>
+ * @description Metadata for Nutrtion<NutritionRange>
  */
 export interface DailyValue {
   id: number
@@ -13,8 +13,8 @@ export interface DailyValue {
 }
 
 /**
- * Information about intake ranges for any nutrient
- * @refernce {@link https://www.nap.edu/read/10925/chapter/3#23 National Academies Press}
+ * @description Information about intake ranges for any nutrient
+ * @see {@link https://www.nap.edu/read/10925/chapter/3#23 National Academies Press}
  */
 
 export interface NutritionRange {

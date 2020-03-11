@@ -38,11 +38,11 @@ export const flip = animation(
   { params: { timing: '500ms', delay: 0 } }
 )
 
-export function flipIn(
+export const flipIn = (
   rotateX: number,
   rotateY: number
-): AnimationReferenceMetadata {
-  return animation(
+): AnimationReferenceMetadata =>
+  animation(
     [
       // style({ 'backface-visibility': 'visible' }),
       animate(
@@ -75,16 +75,15 @@ export function flipIn(
     ],
     { params: { timing: '500ms', delay: 0, rotateX, rotateY } }
   )
-}
 
 export const flipInX = flipIn(1, 0)
 export const flipInY = flipIn(0, 1)
 
-export function flipOut(
+export const flipOut = (
   rotateX: number,
   rotateY: number
-): AnimationReferenceMetadata {
-  return animation(
+): AnimationReferenceMetadata =>
+  animation(
     [
       // style({ 'backface-visibility': 'visible' }),
       animate(
@@ -108,7 +107,6 @@ export function flipOut(
     ],
     { params: { timing: '500ms', delay: 0, rotateX, rotateY } }
   )
-}
 
 export const flipOutX = flipOut(1, 0)
 export const flipOutY = flipOut(0, 1)

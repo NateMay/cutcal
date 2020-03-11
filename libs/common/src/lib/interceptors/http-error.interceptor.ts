@@ -1,10 +1,16 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http'
+import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+} from '@angular/common/http'
 import { Observable, throwError } from 'rxjs'
 import { catchError, retry } from 'rxjs/operators'
 
 /**
- * @refrence {@link https://github.com/angular/angular/blob/master/aio/content/examples/http/src/app/ Github}
- * @note not currently used, but could be a furture optimization
+ * @description Not currently used, but could be a furture optimization
+ * @see {@link https://github.com/angular/angular/blob/master/aio/content/examples/http/src/app/ Github}
  */
 
 export class HttpErrorInterceptor implements HttpInterceptor {

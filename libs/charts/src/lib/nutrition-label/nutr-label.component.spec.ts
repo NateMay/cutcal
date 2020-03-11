@@ -23,7 +23,7 @@ class TestNutrLabelComponent {
 
 describe('Nutrition Label Component', () => {
   let fixture: ComponentFixture<TestNutrLabelComponent>;
-  let parent: TestNutrLabelComponent;
+  // let parent: TestNutrLabelComponent;
   let component: NutrLabelComponent;
 
   beforeEach(() => {
@@ -37,7 +37,7 @@ describe('Nutrition Label Component', () => {
     });
 
     fixture = TestBed.createComponent(TestNutrLabelComponent);
-    parent = fixture.componentInstance;
+    // parent = fixture.componentInstance;
     component = fixture.debugElement.query(By.directive(NutrLabelComponent))
       .componentInstance;
     fixture.detectChanges();
@@ -120,25 +120,25 @@ describe('Nutrition Label Component', () => {
   });
 
   it('Vitamin A label is present', () => {
-    const vit_a = getDe(fixture, '.vit_a .label').nativeElement.textContent;
-    expect(vit_a).toContain('Vitamin A');
+    const vitA = getDe(fixture, '.vit_a .label').nativeElement.textContent;
+    expect(vitA).toContain('Vitamin A');
 
-    const vit_a_value = getDe(fixture, '.vit_a').nativeElement.textContent;
-    expect(vit_a_value).toContain('9%');
+    const vitAValue = getDe(fixture, '.vit_a').nativeElement.textContent;
+    expect(vitAValue).toContain('9%');
   });
 
   it('Vitamin C label is present', () => {
-    const vit_c = getDe(fixture, '.vit_c').nativeElement.textContent;
-    expect(vit_c).toContain('Vitamin C');
-    expect(vit_c).toContain('62%');
+    const vitC = getDe(fixture, '.vit_c').nativeElement.textContent;
+    expect(vitC).toContain('Vitamin C');
+    expect(vitC).toContain('62%');
   });
 
   it('Calcium label is present', () => {
     const calcium = getDe(fixture, '.calcium .label').nativeElement.textContent;
     expect(calcium).toContain('Calcium');
 
-    const calcium_value = getDe(fixture, '.calcium').nativeElement.textContent;
-    expect(calcium_value).toContain('6%');
+    const calciumValue = getDe(fixture, '.calcium').nativeElement.textContent;
+    expect(calciumValue).toContain('6%');
   });
 
   it('Iron label is present', () => {

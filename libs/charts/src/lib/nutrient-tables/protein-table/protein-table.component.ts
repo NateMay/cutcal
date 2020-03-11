@@ -51,14 +51,14 @@ export class ProteinTableComponent {
 
     this.aminos = getAminoAcids<NutrientMetaData>(NUTRIENTS.allDetails)
   }
-  get nutrition() {
+  get nutrition(): Nutrition<number> {
     return this._nutrition
   }
+
+  constructor(private dv: DailyValueSvc) {}
 
   rda(path: string): number {
     const range: NutritionRange = get(this.dv.snapshot.nutrition, path)
     return range?.RDA ? range.RDA : 1
   }
-
-  constructor(private dv: DailyValueSvc) {}
 }

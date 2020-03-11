@@ -5,16 +5,15 @@ import { map } from 'lodash'
 import { scaleNutrition } from '../convertNutrition/convertNutrition'
 
 /**
- * Agggregates the nutrition from among the usages passed in
+ * @description Agggregates the nutrition from among the usages passed in
  * @param {KVP<Usage>} usages
  * @param {KVP<Food>} foods
  * @returns {Nutrition<number>}
  */
-export function sumUsagesNutritions(
+export const sumUsagesNutritions = (
   usages: KVP<Usage>,
   foods: KVP<Food>
-): Nutrition<number> {
-  return sumNutritions(
+): Nutrition<number> =>
+  sumNutritions(
     map(usages, usage => scaleNutrition(usage, foods[usage.foodId]))
   )
-}

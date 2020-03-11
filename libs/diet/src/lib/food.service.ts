@@ -10,7 +10,6 @@ import { isEmpty, keyBy, map as _map } from 'lodash'
 import { combineLatest, Observable, of } from 'rxjs'
 import { filter, finalize, flatMap, map } from 'rxjs/operators'
 import { Food } from './food'
-import { Recipe } from './recipe'
 import { Tripple } from './tripple'
 import { createUsage, Usage } from './usage'
 
@@ -34,7 +33,7 @@ export class FoodService {
   ) {}
 
   /**
-   * Gets a single food, all usages in its subcollection, and all associated foods
+   * @description Gets a single food, all usages in its subcollection, and all associated foods
    * @example
    *   this.getFoodUsagesFoods('4b4D3QkatPNFmbbe2XZw').subscribe(
    *     ([food, usages, foods]: FoodTripple) => {
@@ -53,12 +52,12 @@ export class FoodService {
     const foods$ = this.getFoodsFromUsages(usages$)
 
     return combineLatest(food$, usages$, foods$).pipe(
-      filter(this.invalidMappings)
+      filter(tripple => this.invalidMappings(tripple))
     )
   }
 
   /**
-   * Takes a usages map and gets the associated foods
+   * @description Takes a usages map and gets the associated foods
    * @param {Observable<KVP<Usage>>} usages$
    * @returns {Observable<KVP<Food>>}
    */
@@ -98,21 +97,21 @@ export class FoodService {
     )
   }
 
-  createRecipe(recipe: Recipe, image: File) {
-    // TODO (recipe) (cloud-function)
-    // const knownUsages = _.map(recipe.ingredients, ingredient => ingredient.usage);
-    // const embeddedUsages =
-    // combineLatest(
-    //   _.map(recipe.ingredients.map(ingredient => ingredient.food), food => )
-    // )
-    // this.db.colWithIds$(`${this.foodCol}`)
-  }
+  // TODO (recipe) (cloud-function)
+  // createRecipe(recipe: Recipe, image: File) {
+  //   const knownUsages = _.map(recipe.ingredients, ingredient => ingredient.usage);
+  //   const embeddedUsages =
+  //   combineLatest(
+  //     _.map(recipe.ingredients.map(ingredient => ingredient.food), food => )
+  //   )
+  //   this.db.colWithIds$(`${this.foodCol}`)
+  // }
 
   /**
-   * Protects from race condition where a food is not yet referenced properly
+   * @description Protects from race condition where a food is not yet referenced properly
    * @param {Tripple} : MealTripple or MealsTripple
    */
-  invalidMappings([X, usages, foods]: Tripple): boolean {
+  invalidMappings([, usages, foods]: Tripple): boolean {
     return !_map(usages, usage => foods[usage.foodId]).some(food => !food)
   }
 
@@ -120,7 +119,7 @@ export class FoodService {
     this.newFoodImageFile(event.target.files[0], food, uploaderId)
   }
 
-  newFoodImageFile(file: File, food: Food, uploaderId: string) {
+  newFoodImageFile(file: File, food: Food, uploaderId: string): void {
     const filePath = `foods/${food._id}/${uniqueID()}.${file.name.extension()}`
 
     const metaData: UploadMetadata = {

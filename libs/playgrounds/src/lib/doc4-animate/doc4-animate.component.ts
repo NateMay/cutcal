@@ -147,22 +147,22 @@ export class Doc4AnimateComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.exitAnimations = this._exitAnimations
     setTimeout(() => this.replayExists(), 300)
   }
 
-  replayAll() {
+  replayAll(): void {
     this.enters.forEach(animation => (animation.replay = true))
     this.replayExists()
   }
 
-  replayExists() {
+  replayExists(): void {
     this.exitAnimations = []
     setTimeout(() => (this.exitAnimations = this._exitAnimations), this.timeout)
   }
 
-  replayExit(animation: Animations) {
+  replayExit(animation: Animations): void {
     this.exitAnimations = this.exitAnimations.filter(an => an !== animation)
     setTimeout(() => (this.exitAnimations = this._exitAnimations), this.timeout)
   }

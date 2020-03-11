@@ -8,23 +8,22 @@ export class MockRouterSvc {
   private subject = new Subject()
   public events = this.subject.asObservable()
 
-  navigate(url: string) {
+  navigate(url: string): void {
     this.triggerNavEvents(`http://cutcal/${url}`)
   }
 
-  triggerNavEvents(url: string, urlAfter?: string) {
+  triggerNavEvents(url: string, urlAfter?: string): void {
     this.subject.next(
       new NavigationEnd(
         0,
         `http://cutcal/${url}`,
-        Boolean(urlAfter) ? `http://cutcal/${urlAfter}` : `http://cutcal/${url}`
+        urlAfter ? `http://cutcal/${urlAfter}` : `http://cutcal/${url}`
       )
     )
   }
 }
 
 @Directive({
-  // tslint:disable-next-line
   selector: 'routerLink',
 })
 export class MockRouterLink {

@@ -50,6 +50,7 @@ const reducer = createReducer<SearchState>(
   }))
 )
 
-export function searchReducer(state: SearchState | undefined, action: Action) {
-  return reducer(state, action)
-}
+export const searchReducer = (
+  state: SearchState | undefined,
+  action: Action
+): SearchState => reducer(state, action)

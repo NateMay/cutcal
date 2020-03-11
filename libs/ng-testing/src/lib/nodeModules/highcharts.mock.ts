@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common'
 import { Component, EventEmitter, Input, NgModule, Output } from '@angular/core'
 
 @Component({
-  // tslint:disable-next-line
   selector: 'highcharts-chart',
   template: '',
 })

@@ -20,7 +20,7 @@ class TestHoldableDirectiveComponent {
 
   currTime: number;
 
-  holdTime(holdTime: number) {
+  holdTime(holdTime: number): void {
     this.currTime = holdTime;
   }
 }
@@ -43,7 +43,7 @@ describe('HoldableDirective', () => {
   it('emits holdtime to the host properly, clearing after mouseup', fakeAsync(() => {
     component.interval = 200;
     fixture.detectChanges();
-    const holdTimeSpy = spyOn(component, 'holdTime');
+    const holdTimeSpy = jest.spyOn(component, 'holdTime');
 
     button.triggerEventHandler('mousedown', null);
     tick(1000);
@@ -55,9 +55,8 @@ describe('HoldableDirective', () => {
 
     expect(holdTimeSpy).not.toHaveBeenCalledWith(100);
 
-    holdTimeSpy.calls.reset();
     button.triggerEventHandler('mouseup', null);
     fixture.detectChanges();
-    expect(holdTimeSpy).toHaveBeenCalledWith(0);
+    expect(holdTimeSpy).toHaveBeenCalledTimes(5);
   }));
 });

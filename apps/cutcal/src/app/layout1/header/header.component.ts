@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
     public viewContainerRef: ViewContainerRef
   ) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
   // openSpaghettiPanel() {
   //   const position1: ConnectedPosition = {

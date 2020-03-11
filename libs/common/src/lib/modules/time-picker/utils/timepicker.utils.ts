@@ -1,30 +1,27 @@
-export function isSameOrAfter(
+export const isSameOrAfter = (
   time: Date,
   compareWith: Date,
   unit: 'hours' | 'minutes' = 'minutes'
-): boolean {
-  return unit === 'hours'
+): boolean =>
+  unit === 'hours'
     ? time.getHours() >= compareWith.getHours()
     : time.getMinutes() >= compareWith.getMinutes()
-}
 
-export function isSameOrBefore(
+export const isSameOrBefore = (
   time: Date,
   compareWith: Date,
   unit: 'hours' | 'minutes' = 'minutes'
-): boolean {
-  return unit === 'hours'
+): boolean =>
+  unit === 'hours'
     ? time.getHours() <= compareWith.getHours()
     : time.getMinutes() <= compareWith.getMinutes()
-}
 
-export function isBetween(
+export const isBetween = (
   time: Date,
   before: Date,
   after: Date,
   unit: 'hours' | 'minutes' = 'minutes'
-): boolean {
-  return unit === 'hours'
+): boolean =>
+  unit === 'hours'
     ? isSameOrBefore(time, after, unit) && isSameOrAfter(time, before, unit)
     : isSameOrBefore(time, after) && isSameOrAfter(time, before)
-}

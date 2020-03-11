@@ -3,16 +3,16 @@ import { KVP, uniqueID } from '@cutcal/core'
 import { Food, Meal, Usage } from '@cutcal/diet'
 import { firestore } from 'firebase/app'
 import { forEach } from 'lodash'
-import { bread_id, FOODS, jam_id, peanutButter_id } from './food-seed'
+import { breadID, FOODS, jamID, peanutButterID } from './food-seed'
 const USER_ID = 'ELYrdCulPrd9z8eHgyNgibmhnlH2'
 
 // Meals
 export const MEALS: KVP<Meal> = {}
 
 // Breakfast
-export const breakfast1_id = uniqueID()
+export const breakfast1ID = uniqueID()
 export const breakfast1 = {
-  _id: breakfast1_id,
+  _id: breakfast1ID,
   name: 'Breakfast',
   timestamp: firestore.Timestamp.fromDate(new Date(2019, 7, 23)),
   description: 'breakfast description',
@@ -21,12 +21,12 @@ export const breakfast1 = {
   image: {},
   userId: USER_ID,
 }
-MEALS[breakfast1_id] = breakfast1
+MEALS[breakfast1ID] = breakfast1
 
 // lunch
-export const lunch1_id = uniqueID()
+export const lunch1ID = uniqueID()
 export const lunch1 = {
-  _id: lunch1_id,
+  _id: lunch1ID,
   name: 'Lunch',
   timestamp: firestore.Timestamp.fromDate(new Date(2019, 7, 23)),
   description: 'lunch description',
@@ -35,55 +35,54 @@ export const lunch1 = {
   image: {},
   userId: USER_ID,
 }
-MEALS[lunch1_id] = lunch1
+MEALS[lunch1ID] = lunch1
 
 // Meal Usages
 export const MEAL_USAGES: KVP<Usage> = {}
 
 // Lunch Peanut Butter
-export const lunch1_pb_id = uniqueID()
-export const lunch1_pb = {
-  _id: lunch1_pb_id,
+export const lunch1PBID = uniqueID()
+export const lunch1PB = {
+  _id: lunch1PBID,
   unit: 'tbsp',
   quantity: 2,
-  foodId: peanutButter_id,
-  parentId: lunch1_id,
-  rootId: lunch1_id,
+  foodId: peanutButterID,
+  parentId: lunch1ID,
+  rootId: lunch1ID,
 }
-MEAL_USAGES[lunch1_pb_id] = lunch1_pb
+MEAL_USAGES[lunch1PBID] = lunch1PB
 
 // Lunch Jam
-export const lunch1_jam_id = uniqueID()
-export const lunch1_jam = {
-  _id: lunch1_jam_id,
+export const lunch1JamID = uniqueID()
+export const lunch1Jam = {
+  _id: lunch1JamID,
   unit: 'tablespoon',
   quantity: 2,
-  foodId: jam_id,
-  parentId: lunch1_id,
-  rootId: lunch1_id,
+  foodId: jamID,
+  parentId: lunch1ID,
+  rootId: lunch1ID,
 }
-MEAL_USAGES[lunch1_jam_id] = lunch1_jam
+MEAL_USAGES[lunch1JamID] = lunch1Jam
 
 // Lunch Bread
-export const lunch1_bread_id = uniqueID()
-export const lunch1_bread = {
-  _id: lunch1_bread_id,
+export const lunch1BreadID = uniqueID()
+export const lunch1Bread = {
+  _id: lunch1BreadID,
   unit: 'slice',
   quantity: 2,
-  foodId: bread_id,
-  parentId: lunch1_id,
-  rootId: lunch1_id,
+  foodId: breadID,
+  parentId: lunch1ID,
+  rootId: lunch1ID,
 }
-MEAL_USAGES[lunch1_bread_id] = lunch1_bread
+MEAL_USAGES[lunch1BreadID] = lunch1Bread
 
 lunch1.nutrition = sumUsagesNutritions(MEAL_USAGES, FOODS)
 
 // ID reassignment function
-export function findUsagesForMeal(mealId: string) {
-  return Object.values(MEAL_USAGES).filter(usage => usage.parentId == mealId)
-}
+export const findUsagesForMeal = (mealId: string): Usage[] =>
+  Object.values(MEAL_USAGES).filter(usage => usage.parentId == mealId)
 
-export function assignMealParentId(meal: Meal, dbID: string): void {
+export const assignMealParentId = (meal: Meal, dbID: string): void => {
   forEach(MEAL_USAGES, usage => {
     if (usage.parentId == meal._id) {
       usage.parentId = dbID
@@ -92,7 +91,7 @@ export function assignMealParentId(meal: Meal, dbID: string): void {
   })
 }
 
-export function assignMealUsagesFoodIds(food: Food, dbID: string): void {
+export const assignMealUsagesFoodIds = (food: Food, dbID: string): void => {
   forEach(MEAL_USAGES, usage => {
     if (usage.foodId == food._id) {
       usage.foodId = dbID

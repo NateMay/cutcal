@@ -33,14 +33,11 @@ export class BrowserWindowRef extends WindowRef {
   }
 }
 
-export function windowFactory(
+export const windowFactory = (
   browserWindowRef: BrowserWindowRef,
   platformId: {}
-): Window | {} {
-  return isPlatformBrowser(platformId)
-    ? browserWindowRef.nativeWindow
-    : new Object()
-}
+): Window | {} =>
+  isPlatformBrowser(platformId) ? browserWindowRef.nativeWindow : new Object()
 
 const browserWindowProvider: ClassProvider = {
   provide: WindowRef,

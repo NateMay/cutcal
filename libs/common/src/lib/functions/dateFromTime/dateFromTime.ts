@@ -1,7 +1,7 @@
 // TODO (move) into the TimeAdapter
 
 /**
- * Assigns the time from a time string to a data object
+ * @description Assigns the time from a time string to a data object
  * @param {string} time "12:34 AM"
  */
 export function dateFromTime(time: string): Date | never {
@@ -22,10 +22,8 @@ export function timeFromDate(date: Date): string {
   return `${forceZero(hour)}:${forceZero(date.getMinutes())} ${period}`
 }
 
-export function forceZero(num: number): string {
-  return num < 10 ? `0${num}` : `${num}`
-}
+export const forceZero = (num: number): string =>
+  num < 10 ? `0${num}` : `${num}`
 
-export function isValidTime(time: string): boolean {
-  return /^(0?[1-9]|1[012])(:[0-5]\d) [APap][mM]$/.test(time)
-}
+export const isValidTime = (time: string): boolean =>
+  /^(0?[1-9]|1[012])(:[0-5]\d) [APap][mM]$/.test(time)

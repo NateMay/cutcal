@@ -24,7 +24,7 @@ export class LandingComponent {
   ) {}
 
   // lazyloading components and modules
-  async loadComponent() {
+  async loadComponent(): Promise<void> {
     const {
       AmPmToggleComponent,
       DatePickerModule,
@@ -44,11 +44,9 @@ export class LandingComponent {
     this.anchor2.createComponent(factory2)
   }
 
-  private async loadModuleFactory(t: any) {
-    if (t instanceof NgModuleFactory) {
-      return t
-    } else {
-      return await this.compiler.compileModuleAsync(t)
-    }
+  private async loadModuleFactory(t: any): Promise<NgModuleFactory<any>> {
+    return t instanceof NgModuleFactory
+      ? t
+      : await this.compiler.compileModuleAsync(t)
   }
 }

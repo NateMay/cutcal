@@ -109,7 +109,7 @@ export class InspectNutrientDialogComponent implements OnInit {
     private mealSvc: MealService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.mealSvc
       .getMealRangeUsagesFoods(this.date.stripTime(), this.date.endOfDay())
       .pipe(
@@ -126,7 +126,7 @@ export class InspectNutrientDialogComponent implements OnInit {
     )
   }
 
-  createChart([meals, usages, foods]: MealsTripple) {
+  createChart([meals, usages, foods]: MealsTripple): void {
     this.foods = foods
     this.usages = usages
 
@@ -146,11 +146,11 @@ export class InspectNutrientDialogComponent implements OnInit {
   }
 
   /**
-   * Creates the series data AND the drildown data recursively
+   * @description Creates the series data AND the drildown data recursively
    * @param {KVP<Meal>} meals all the meals from the day
-   * @reference {@link https://www.highcharts.com/demo/pie-drilldown Highcharts}
-   * @reference {@link https://stackblitz.com/edit/highcharts-angular-drilldown Stackblitz}
-   * @reference {@link https://stackoverflow.com/questions/23153403/drilldown-multiple-levels-highchart StackOverflow}
+   * @see {@link https://www.highcharts.com/demo/pie-drilldown Highcharts}
+   * @see {@link https://stackblitz.com/edit/highcharts-angular-drilldown Stackblitz}
+   * @see {@link https://stackoverflow.com/questions/23153403/drilldown-multiple-levels-highchart StackOverflow}
    */
   getSeriesData(meals: KVP<Meal>): any[] {
     return _map(meals, meal => {
@@ -177,7 +177,7 @@ export class InspectNutrientDialogComponent implements OnInit {
     throw Error('need to fix this comment block (new highcharts api)')
   }
 
-  addChildrenToDrilldown(parentId: string) {
+  addChildrenToDrilldown(parentId: string): void {
     const children = filter(this.usages, usage => usage.parentId == parentId)
 
     if (children.length)

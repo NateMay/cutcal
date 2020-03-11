@@ -127,6 +127,32 @@ export class FdcService {
       )
   }
 
+  queryFood(
+    searchStr: string,
+    page: number = 1
+  ): Observable<FDCFoodSearchResponse> {
+    // https://DEMO_KEY@api.nal.usda.gov/fdc/v1/search
+    return this.http.post<FDCFoodSearchResponse>(
+      'https://fdc.nal.usda.gov/portal-data/external/search',
+      {
+        exactBrandOwner: null,
+        generalSearchInput: searchStr,
+        includeDataTypes: {
+          'Survey (FNDDS)': true,
+          Foundation: true,
+          Branded: false,
+          'SR Legacy': true,
+        },
+        pageNumber: page.toString(),
+        referenceFoodsCheckBox: 'true',
+        sortCriteria: {
+          sortColumn: 'description',
+          sortDirection: 'asc',
+        },
+      }
+    )
+  }
+
   private nutritionFromResponse(
     response: FdcFoodDetailResponse
   ): Nutrition<number> {
@@ -166,31 +192,5 @@ export class FdcService {
 
   private tagsFromResponse(response: FdcFoodDetailResponse): string[] {
     return response.foodAttributes.map(att => att.value)
-  }
-
-  queryFood(
-    searchStr: string,
-    page: number = 1
-  ): Observable<FDCFoodSearchResponse> {
-    // https://DEMO_KEY@api.nal.usda.gov/fdc/v1/search
-    return this.http.post<FDCFoodSearchResponse>(
-      'https://fdc.nal.usda.gov/portal-data/external/search',
-      {
-        exactBrandOwner: null,
-        generalSearchInput: searchStr,
-        includeDataTypes: {
-          'Survey (FNDDS)': true,
-          Foundation: true,
-          Branded: false,
-          'SR Legacy': true,
-        },
-        pageNumber: page.toString(),
-        referenceFoodsCheckBox: 'true',
-        sortCriteria: {
-          sortColumn: 'description',
-          sortDirection: 'asc',
-        },
-      }
-    )
   }
 }

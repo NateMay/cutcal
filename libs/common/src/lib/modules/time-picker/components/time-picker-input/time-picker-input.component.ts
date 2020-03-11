@@ -1,9 +1,32 @@
-import { CdkOverlayOrigin, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
+import {
+  CdkOverlayOrigin,
+  Overlay,
+  OverlayConfig,
+  OverlayRef,
+} from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, ElementRef, EventEmitter, forwardRef, HostBinding, HostListener, Injector, Input, NgZone, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core'
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ComponentRef,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  HostBinding,
+  HostListener,
+  Injector,
+  Input,
+  NgZone,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core'
 import { NG_VALUE_ACCESSOR } from '@angular/forms'
 import { Boolish } from '@cutcal/core'
-import { BehaviorSubject } from 'rxjs'
+import { BehaviorSubject, Observable } from 'rxjs'
 import { dateFromTime } from '../../../../functions/dateFromTime/dateFromTime'
 import { executeOnStable } from '../../../../functions/executeOnStable/executeOnStable'
 import { TimePickerData, TIME_PICKER_DATA } from '../../utils/time-picker-data'
@@ -82,7 +105,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
 
   // bound value
   private _time$ = new BehaviorSubject<string>('')
-  get time$() {
+  get time$(): Observable<string> {
     return this._time$.asObservable()
   }
   _time!: string
@@ -93,7 +116,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
     this._time$.next(time || '')
     this.updateInputValue()
   }
-  get time() {
+  get time(): string {
     return this._time$.getValue()
   }
   @Output() timeChange: EventEmitter<string> = new EventEmitter()
@@ -140,14 +163,26 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
   // TODO (time-picker) get rid of this and redesign the api pof the component
   /**
    * @example
+   * ```html
    *   <mat-form-field>
    *    <input ccTimePickerInput="picker1">
    *    <cc-time-picker #picker1></cc-time-picker>
    *   </mat-form-field>
+   * ```
    */
   @Input()
   @HostBinding('style.width')
   width: string = '205px'
+
+  constructor(
+    private overlay: Overlay,
+    private viewContainerRef: ViewContainerRef,
+    private injector: Injector,
+    private zone: NgZone,
+    private cdr: ChangeDetectorRef
+  ) {
+    this.idStr = this.idStr
+  }
 
   @HostListener('document:mousedown', ['$event'])
   onmousedown(event: MouseEvent): void {
@@ -163,19 +198,9 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
     this.pickerOverlayRef.detach()
   }
 
-  constructor(
-    private overlay: Overlay,
-    private viewContainerRef: ViewContainerRef,
-    private injector: Injector,
-    private zone: NgZone,
-    private cdr: ChangeDetectorRef
-  ) {
-    this.idStr = this.idStr
-  }
-
-  ngOnInit() {
+  ngOnInit(): void {
     /**
-     * @reference {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts Overlay Stackblitz}
+     * @see {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts Overlay Stackblitz}
      */
     this.pickerOverlayRef = this.overlay.create(
       new OverlayConfig({
@@ -193,12 +218,12 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
     )
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this._time = this.inputEl.nativeElement.value
   }
 
   // used by the datetime-binder to make updates
-  markForCheck() {
+  markForCheck(): void {
     this.cdr.markForCheck()
   }
 
@@ -224,12 +249,12 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
     )
   }
 
-  blur() {
+  blur(): void {
     this.onTouched()
     this.changeValue(this.inputVal)
   }
 
-  reFocusTrigger() {
+  reFocusTrigger(): void {
     if (this.pickerOverlayRef.hasAttached())
       executeOnStable(this.zone, () => {
         const trigger = document.getElementById(`${this.idStr}-trigger`)
@@ -255,7 +280,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
     this.inputVal = this.time
   }
 
-  changeValue(value: string) {
+  changeValue(value: string): void {
     if (this.time == value) return
     this.time = value
     this.time = value
@@ -278,6 +303,6 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
     this.disabled = isDisabled
   }
 
-  onChange = (time: string) => {}
-  onTouched = () => {}
+  onChange = (time: string): void => {}
+  onTouched = (): void => {}
 }

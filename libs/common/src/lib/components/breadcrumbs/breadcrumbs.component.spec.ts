@@ -22,7 +22,7 @@ describe('BreadcrumbsComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [BreadcrumbsComponent],
-      providers: [{ provide: Router, useValue: { navigate: () => {} } }],
+      providers: [{ provide: Router, useValue: { navigate: (): void => {} } }],
     });
     fixture = TestBed.createComponent(BreadcrumbsComponent);
     component = fixture.componentInstance;
@@ -37,19 +37,19 @@ describe('BreadcrumbsComponent', () => {
     fixture.detectChanges();
 
     const links = getAllDe(fixture, 'a');
-    expect(links.length).toBe(3);
+    expect(links).toHaveLength(3);
     expect(links[0].nativeElement.textContent).toContain('home');
     expect(links[1].nativeElement.textContent).toContain('first');
     expect(links[2].nativeElement.textContent).toContain('last');
   });
 
   it('routes call properly', () => {
-    const spy = spyOn(TestBed.inject(Router), 'navigate');
+    const spy = jest.spyOn(TestBed.inject(Router), 'navigate');
     component.crumbs = crumbs;
     fixture.detectChanges();
 
     const links = getAllDe(fixture, 'a');
-    expect(links.length).toBe(3);
+    expect(links).toHaveLength(3);
     links[2].nativeElement.click();
 
     expect(spy).toHaveBeenCalledWith(['abc', '123', 'xyz']);

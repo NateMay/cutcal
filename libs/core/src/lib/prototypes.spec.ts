@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 describe('addDay() - Date.prototype', () => {
   it(`should add a single day to a date`, () => {
     const jul6: Date = new Date(2018, 6, 6);
@@ -209,7 +210,7 @@ it(`getFileExtension() - shared/functions - should get the extention string from
   expect('this/is/the/path.ext'.extension()).toBe('ext');
 });
 
-it(`firstDayOfMonth() - Date.prototype - should calculate the first day of the subject date\'s month`, () => {
+it(`firstDayOfMonth() - Date.prototype - should calculate the first day of the subject date's month`, () => {
   const mar1: Date = new Date(2017, 2, 1);
   const mar17: Date = new Date(2017, 2, 17);
 
@@ -222,7 +223,7 @@ it(`firstDayOfMonth() - Date.prototype - should calculate the first day of the s
 });
 
 describe('firstDayOfWeek() - Date.prototype', () => {
-  it(`should calculate the first day of the subject dates\'s week`, () => {
+  it(`should calculate the first day of the subject dates's week`, () => {
     const mar17: Date = new Date(2017, 2, 17);
     const mar12: Date = new Date(2017, 2, 12);
 
@@ -232,7 +233,7 @@ describe('firstDayOfWeek() - Date.prototype', () => {
 });
 
 describe('getDaysInMonth() - Date.prototype', () => {
-  it(`should get the number of days in the subject date\'s month`, () => {
+  it(`should get the number of days in the subject date's month`, () => {
     const mar: Date = new Date(2017, 2, 17);
     expect(mar.getDaysInMonth()).toBe(31);
 
@@ -345,7 +346,7 @@ describe('isToday() - Date.prototype', () => {
   });
 });
 
-it(`lastDayOfMonth() - Date.prototype - returns the last day of the subject date\'s month`, () => {
+it(`lastDayOfMonth() - Date.prototype - returns the last day of the subject date's month`, () => {
   const date = new Date(2018, 2, 4);
   const lastDay = new Date(2018, 2, 31);
   expect(date.lastDayOfMonth()).toEqual(lastDay);

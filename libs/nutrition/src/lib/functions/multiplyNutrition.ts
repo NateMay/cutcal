@@ -1,7 +1,7 @@
 import { Nutrient, Nutrition } from '../nutrition'
 
 /**
- * Multiplies every member of a Nutrition object
+ * @description Multiplies every member of a Nutrition object
  * @param {Nutrition<number>} nutrition
  * @param {number} multipler
  */

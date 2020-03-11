@@ -20,9 +20,9 @@ import { Layout1Module } from './layout1/layout1.module'
 import { actionSanitizer } from './utils/action.sanitizer'
 import { CustomSerializer } from './utils/serializer'
 
-export const metaReducers: Array<MetaReducer<
-  AppState
->> = !environment.production ? [] : []
+export const metaReducers: MetaReducer<AppState>[] = !environment.production
+  ? []
+  : []
 
 const DEV_TOOLS_OPTIONS: StoreDevtoolsOptions = {
   maxAge: 25,
@@ -48,10 +48,10 @@ export class MyHammerConfig extends GestureConfig {
     Layout1Module,
     /**
      * IMPORTANT - Order matters
-     *   1️⃣ StoreModule
-     *   2️⃣ StoreDevtoolsModule
-     *   3️⃣ EffectsModule
-     *   4️⃣ StoreRouterConnectingModule
+     * 1️⃣ StoreModule
+     * 2️⃣ StoreDevtoolsModule
+     * 3️⃣ EffectsModule
+     * 4️⃣ StoreRouterConnectingModule
      */
     StoreModule.forRoot(reducers, {
       metaReducers,

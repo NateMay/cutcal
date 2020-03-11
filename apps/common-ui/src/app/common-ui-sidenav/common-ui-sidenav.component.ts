@@ -47,5 +47,5 @@ export class CommonUiSidenavComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

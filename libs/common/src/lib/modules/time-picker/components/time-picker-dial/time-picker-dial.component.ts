@@ -90,7 +90,7 @@ export class TimepickerDialComponent implements OnChanges {
   @Output() hourChanged = new EventEmitter<ClockFaceTime>()
   @Output() minuteChanged = new EventEmitter<ClockFaceTime>()
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes['period']?.currentValue || changes['format']?.currentValue) {
       const hours = getHours(this.format)
 

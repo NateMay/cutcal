@@ -91,7 +91,7 @@ export class AnalyzeRangePickerComponent {
     this._startDate = this.focusDate = startDate
     this.form.patchValue({ startDate })
   }
-  get startDate() {
+  get startDate(): Date {
     return this._startDate
   }
 
@@ -100,7 +100,7 @@ export class AnalyzeRangePickerComponent {
     this._endDate = this.focusDate = endDate
     this.form.patchValue({ endDate })
   }
-  get endDate() {
+  get endDate(): Date {
     return this._endDate
   }
 
@@ -144,16 +144,16 @@ export class AnalyzeRangePickerComponent {
     )
   }
 
-  changeMonth(dir: number) {
+  changeMonth(dir: number): void {
     this.focusDate = this.focusDate.addMonths(dir)
   }
 
-  monthSelect(monthIndex: number) {
+  monthSelect(monthIndex: number): void {
     this.focusDate = new Date(this.focusDate.getFullYear(), monthIndex, 1)
     this.calView = 'days'
   }
 
-  yearSelect(year: number) {
+  yearSelect(year: number): void {
     this.focusDate = new Date(year, this.focusDate.getMonth(), 1)
     this.calView = 'months'
   }

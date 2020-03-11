@@ -28,9 +28,9 @@ class TestCalControlsComponent {
   nextBtnLabel = 'next btn';
   format = 'MMMM yyyy';
 
-  prevBtn() {}
-  nextBtn() {}
-  monthBtn() {}
+  prevBtn(): void {}
+  nextBtn(): void {}
+  monthBtn(): void {}
 }
 
 describe('Calendar Controls Component', () => {
@@ -43,7 +43,10 @@ describe('Calendar Controls Component', () => {
       declarations: [CalendarControlsComponent, TestCalControlsComponent],
       imports: [MatIconModule],
       providers: [
-        { provide: RefocusService, useValue: { reCastFocusId: () => {} } },
+        {
+          provide: RefocusService,
+          useValue: { reCastFocusId: (): void => {} },
+        },
       ],
     });
 
@@ -57,10 +60,10 @@ describe('Calendar Controls Component', () => {
   });
 
   it('buttons emit', () => {
-    const nextSpy = spyOn(parent, 'nextBtn');
-    const prevSpy = spyOn(parent, 'prevBtn');
-    const monthSpy = spyOn(parent, 'monthBtn');
-    const refocus = spyOn(TestBed.inject(RefocusService), 'reCastFocusId');
+    const nextSpy = jest.spyOn(parent, 'nextBtn');
+    const prevSpy = jest.spyOn(parent, 'prevBtn');
+    const monthSpy = jest.spyOn(parent, 'monthBtn');
+    const refocus = jest.spyOn(TestBed.inject(RefocusService), 'reCastFocusId');
 
     fixture.detectChanges();
 

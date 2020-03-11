@@ -220,7 +220,6 @@ export class CarouselComponent implements OnDestroy, AfterContentInit {
 
   /**
    * @description This defines the index of the active slide that the carousel should display initially
-   * @twoway true
    */
   @Input() set activeSlide(activeSlide: number) {
     if (this._activeSlide === activeSlide) return
@@ -268,13 +267,13 @@ export class CarouselComponent implements OnDestroy, AfterContentInit {
     this.idStr = this.idStr
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     this.activeSlides = this.getPreviousCurrentNextIndexes(0)
     this.differ = this.differs.find(this.activeSlides).create()
     if (this.slideCount > 1 && this.autoPlayDuration > 0) this.startTimer()
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.cd.detach()
     this.stopTimer()
   }

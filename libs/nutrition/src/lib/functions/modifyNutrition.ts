@@ -2,8 +2,8 @@ import { Nutrition } from '@cutcal/nutrition'
 import { Nutrient } from '../nutrition'
 
 /**
- * Performs an operation on every member of a Nutrition object
- * @param {Nutrition<number>} object the object over which to iterate
+ * @description Performs an operation on every member of a Nutrition object
+ * @param {Nutrition<number>} nutrition the object over which to iterate
  * @param {Function} predicate the operation to perform on each member
  */
 export function modifyNutrition(

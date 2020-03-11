@@ -1,10 +1,10 @@
 import * as Highcharts from 'highcharts'
 
 /**
- * Sets the deafult theme options for a hightcharts chart
- * @reference {@link https://github.com/highcharts/highcharts/tree/master/js/themes HighCharts Github}
+ * @description Sets the deafult theme options for a hightcharts chart
+ * @see {@link https://github.com/highcharts/highcharts/tree/master/js/themes HighCharts Github}
  */
-export function setLightGridTheme() {
+export const setLightGridTheme = (): void => {
   Highcharts.createElement(
     'link',
     {

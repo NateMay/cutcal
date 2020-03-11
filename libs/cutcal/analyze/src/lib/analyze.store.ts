@@ -28,9 +28,7 @@ const reducer = createReducer<AnalyzeState>(
   }))
 )
 
-export function analyzeReducer(
+export const analyzeReducer = (
   state: AnalyzeState | undefined,
   action: Action
-) {
-  return reducer(state, action)
-}
+): AnalyzeState => reducer(state, action)

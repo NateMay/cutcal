@@ -31,25 +31,15 @@ describe('toRawType', () => {
 
   // doesn't work despite the Medium Article ???
 
-  // it('should identify "RegExp"s', () => {
-  //   expect(
-  //     toRawType(toRawType(/sdfsd/i) )
-  //   ).toBe('RegExp')
-  // })
+  it('should identify "RegExp"s', () => {
+    expect(toRawType(toRawType(/sdfsd/i))).toBe('RegExp');
+  });
 
   it('should identify "Object"s', () => {
     expect(toRawType({})).toBe('Object');
   });
 
-  // it('should identify ""', () => {
-  //   expect(
-  //     toRawType(null)
-  //   ).toBe('')
-  // })
-
-  // it('should identify ""', () => {
-  //   expect(
-  //     toRawType(null)
-  //   ).toBe('')
-  // })
+  it('should identify ""', () => {
+    expect(toRawType(null)).toBe('');
+  });
 });

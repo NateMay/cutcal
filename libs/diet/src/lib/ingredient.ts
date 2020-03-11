@@ -2,14 +2,16 @@ import { Food } from './food'
 import { Usage } from './usage'
 
 /**
- * A Food (which is an abstract notion) is often paired with a Usage representing
- *   a specific unit of consumption. This interface is a pairing of these.
+ * @description A Food (which is an abstract notion) is often paired with
+ * a Usage representing a specific unit of consumption. This interface is
+ * a pairing of these.
  */
 export interface Ingredient {
   usage: Usage
   food: Food
 }
 
-export function createIngredient(usage: Usage, food: Food): Ingredient {
-  return { usage, food }
-}
+export const createIngredient = (usage: Usage, food: Food): Ingredient => ({
+  usage,
+  food,
+})

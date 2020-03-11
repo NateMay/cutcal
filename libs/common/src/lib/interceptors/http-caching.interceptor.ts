@@ -1,26 +1,36 @@
-import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http'
+import {
+  HttpEvent,
+  HttpHandler,
+  HttpHeaders,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse,
+} from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable, of } from 'rxjs'
 import { startWith, tap } from 'rxjs/operators'
 import { RequestCache } from '../services/request-cache.service'
 
 /**
- * If request is cachable (e.g., package search) and
- *   response is in cache return the cached response as observable.
- *   If has 'x-refresh' header that is true,
- *   then also re-run the package search, using response from next(),
- *   returning an observable that emits the cached response first.
- *   If not in cache or not cachable, pass request through to next()
- * @refrence {@link https://github.com/angular/angular/blob/master/aio/content/examples/http/src/app/ Github}
+ * @description If request is cachable (e.g., package search) and
+ * response is in cache return the cached response as observable.
+ * If has 'x-refresh' header that is true,
+ * then also re-run the package search, using response from next(),
+ * returning an observable that emits the cached response first.
+ * If not in cache or not cachable, pass request through to next()
+ * @see {@link https://github.com/angular/angular/blob/master/aio/content/examples/http/src/app/ Github}
  *
- * @note not currently used, but could be a furture optimization
+ * Not currently used, but could be a furture optimization
  */
 
 @Injectable()
 export class CachingInterceptor implements HttpInterceptor {
   constructor(private cache: RequestCache) {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
     // continue if not cachable.
     if (!isCachable(req)) {
       return next.handle(req)
@@ -44,14 +54,12 @@ export class CachingInterceptor implements HttpInterceptor {
 }
 
 /** Is this request cachable? */
-function isCachable(req: HttpRequest<any>) {
-  // Only GET requests are cachable
-  return (
-    req.method === 'GET' &&
-    // Only npm package search is cachable in this app
-    -1 < req.url.indexOf('https://npmsearch.com/query')
-  )
-}
+const isCachable = (
+  req: HttpRequest<any>
+): boolean => // Only GET requests are cachable
+  req.method === 'GET' &&
+  // Only npm package search is cachable in this app
+  -1 < req.url.indexOf('https://npmsearch.com/query')
 
 /**
  * Get server response observable by sending request to `next()`.

@@ -6,8 +6,8 @@ export class SearchParams {
   term: string
   maxResults: number
   foodGroup?: string
-  user_id1?: string // logged in user
-  user_id2?: string // user who data is benig viewed
+  userID1?: string // logged in user
+  userID2?: string // user who data is benig viewed
 
   pantry?: boolean
   recipe?: string // accept only, reject, undefined
@@ -20,8 +20,8 @@ export class SearchParams {
     term: string,
     maxResults: number,
     foodGroup?: string,
-    user_id1?: string,
-    user_id2?: string,
+    userID1?: string,
+    userID2?: string,
     pantry?: boolean,
     recipe?: string,
     meal?: string,
@@ -32,8 +32,8 @@ export class SearchParams {
     this.term = term
     this.maxResults = maxResults
     if (foodGroup) this.foodGroup = foodGroup
-    if (user_id1) this.user_id1 = user_id1
-    if (user_id2) this.user_id2 = user_id2
+    if (userID1) this.userID1 = userID1
+    if (userID2) this.userID2 = userID2
     if (pantry) this.pantry = pantry
     if (recipe) this.recipe = recipe
     if (meal) this.meal = meal

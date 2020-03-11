@@ -49,22 +49,22 @@ export class SidebarSearchComponent implements OnInit {
 
   @ViewChild('inputEl') inputEl!: ElementRef
 
+  constructor() {}
+
   // @HostListener('document:keydown.escape')
-  deactivateSearch() {
+  deactivateSearch(): void {
     this.searchAcivated = false
   }
 
-  activateSearch() {
+  activateSearch(): void {
     this.searchAcivated = true
   }
 
   @HostListener('document:keydown.control.l')
-  focusAndActiveSearch() {
+  focusAndActiveSearch(): void {
     this.inputEl.nativeElement.focus()
     this.searchAcivated = true
   }
 
-  constructor() {}
-
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

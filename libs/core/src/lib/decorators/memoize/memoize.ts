@@ -1,35 +1,32 @@
 /**
- * Memoizes the output of a function
- * @type decorator
+ * @description Decorator which memoizes the output of a function
  */
-export function Memoize(
+export const Memoize = (
   hashFunction?: (...args: any[]) => any
-): MethodDecorator {
-  return (
-    target: {},
-    propertyKey: string | symbol,
-    descriptor: PropertyDescriptor
-  ): PropertyDescriptor | void | never => {
-    if (descriptor.value != null)
-      descriptor.value = getNewFunction(descriptor.value, hashFunction)
-    else if (descriptor.get != null)
-      descriptor.get = getNewFunction(descriptor.get, hashFunction)
-    else
-      throw Error(
-        '[CutCal] Only put a Memoize() decorator on a method or get accessor.'
-      )
-  }
+): MethodDecorator => (
+  target: {},
+  propertyKey: string | symbol,
+  descriptor: PropertyDescriptor
+): PropertyDescriptor | void | never => {
+  if (descriptor.value != null)
+    descriptor.value = getNewFunction(descriptor.value, hashFunction)
+  else if (descriptor.get != null)
+    descriptor.get = getNewFunction(descriptor.get, hashFunction)
+  else
+    throw Error(
+      '[CutCal] Only put a Memoize() decorator on a method or get accessor.'
+    )
 }
 
 let counter = 0
 function getNewFunction(
   originalMethod: () => void,
   hashFunction?: (...args: any[]) => any
-) {
+): () => any {
   const identifier = ++counter
 
   // The function returned here gets called instead of originalMethod.
-  return function(this: any, ...args: any[]) {
+  return function(this: any, ...args: any[]): any {
     const propValName = `__memoized_value_${identifier}`
     const propMapName = `__memoized_map_${identifier}`
 
@@ -37,7 +34,7 @@ function getNewFunction(
 
     if (hashFunction || args.length > 0) {
       // Get or create map
-      if (!this.hasOwnProperty(propMapName)) {
+      if (!Object.prototype.hasOwnProperty.call(this, propMapName)) {
         Object.defineProperty(this, propMapName, {
           configurable: false,
           enumerable: false,
@@ -56,7 +53,7 @@ function getNewFunction(
         myMap.set(hashKey, returnedValue)
       }
     } else {
-      if (this.hasOwnProperty(propValName)) {
+      if (Object.prototype.hasOwnProperty.call(this, propValName)) {
         returnedValue = this[propValName]
       } else {
         returnedValue = originalMethod.apply(this, args)

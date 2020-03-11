@@ -40,7 +40,7 @@ interface WikiMetaTag {
   'og:image': string
 }
 /**
- * @reference [Custom Search](https://cse.google.com/cse/all)
+ * @see [Custom Search](https://cse.google.com/cse/all)
  */
 
 @Injectable({
@@ -63,14 +63,14 @@ export class GoogleService {
 
   getSearchResults(searchTerm: string): Observable<WikiDetails[]> {
     return this.http.get<EngineResponse>(this.endpoint(searchTerm)).pipe(
-      map((response: EngineResponse) => {
-        return response.items.map(item => ({
+      map((response: EngineResponse) =>
+        response.items.map(item => ({
           snippet: item.snippet,
           link: item.link,
           imgs: this.getImages(item.pagemap),
           title: item.title.replace(' - Wikipedia', ''),
         }))
-      }),
+      ),
       shareReplay()
     )
   }

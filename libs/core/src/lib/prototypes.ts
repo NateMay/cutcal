@@ -1,3 +1,5 @@
+/* eslint-disable jsdoc/check-param-names */
+
 /**
  * *****************
  * String prototypes
@@ -15,8 +17,8 @@ interface String {
 }
 
 /**
- * Formats the date for use in url parameters
- * @return {Date}
+ * @description Formats the date for use in url parameters
+ * @returns {Date}
  * @example
  * { Jan 12 }.urlToDate( ) => '1-12-2018'
  */
@@ -26,8 +28,8 @@ function urlToDate(this: string): Date {
 }
 
 /**
- * Formats the date for use in url parameters
- * @return {Date}
+ * @description Formats the date for use in url parameters
+ * @returns {Date}
  * @example
  * 'Helorld'.insertText('lo W', 'before', 'orl' ) => 'Hello World'
  */
@@ -46,7 +48,7 @@ function insertText(
 }
 
 /**
- * Extracts the file extension
+ * @description Extracts the file extension
  * @example
  *   'a/file/path.ext'.extension(); => 'ext'
  */
@@ -111,8 +113,8 @@ interface Date {
 }
 
 /**
- * Set to first moment of the day
- * @return {Date}
+ * @description Set to first moment of the day
+ * @returns {Date}
  */
 function stripTime(this: Date): Date {
   this.setHours(0, 0, 0, 0)
@@ -120,8 +122,8 @@ function stripTime(this: Date): Date {
 }
 
 /**
- * Set to first moment of the day
- * @return {Date}
+ * @description Set to first moment of the day
+ * @returns {Date}
  */
 function setTimeNow(this: Date): Date {
   const now = new Date()
@@ -135,8 +137,8 @@ function setTimeNow(this: Date): Date {
 }
 
 /**
- * Set to first moment of the day
- * @return {Date}
+ * @description Set to first moment of the day
+ * @returns {Date}
  */
 function endOfDay(this: Date): Date {
   this.setHours(23, 59, 59, 999)
@@ -144,8 +146,8 @@ function endOfDay(this: Date): Date {
 }
 
 /**
- * Returns the first Date of the month
- * @return {Date}
+ * @description Returns the first Date of the month
+ * @returns {Date}
  * @example
  * { Jan 12 }.firstDayOfMonth( ) => { Jan 1 }
  */
@@ -154,8 +156,8 @@ function firstDayOfMonth(this: Date): Date {
 }
 
 /**
- * Returns the last Date of the month
- * @return {Date}
+ * @description Returns the last Date of the month
+ * @returns {Date}
  * @example
  * { Jan 12 }.lastDayOfMonth( ) => { Jan 31 }
  */
@@ -164,8 +166,8 @@ function lastDayOfMonth(this: Date): Date {
 }
 
 /**
- * Increments a date by 1 day
- * @return {Date}
+ * @description Increments a date by 1 day
+ * @returns {Date}
  * @example
  *   new Date(2019, 3, 4).addDay() => Date(2019, 3, 5)
  */
@@ -174,9 +176,9 @@ function addDay(this: Date): Date {
 }
 
 /**
- * Returns a new Date() object incrmented by the specified dayCount
+ * @description Returns a new Date() object incrmented by the specified dayCount
  * @param {number} dayCount The number of days to increment (negatives are valid)
- * @return {Date}
+ * @returns {Date}
  * @example
  *   new Date(2019, 3, 4).addDays(4) => Date(2019, 3, 8)
  */
@@ -187,8 +189,8 @@ function addDays(this: Date, dayCount: number = 1): Date {
 }
 
 /**
- * Increments a date by 1 month
- * @return {Date}
+ * @description Increments a date by 1 month
+ * @returns {Date}
  * @example
  *   new Date(2019, 3, 4).addMonth() => Date(2019, 4, 4)
  */
@@ -197,9 +199,9 @@ function addMonth(this: Date): Date {
 }
 
 /**
- * Returns a new Date() object incrmented by the specified monthCount
+ * @description Returns a new Date() object incrmented by the specified monthCount
  * @param {number} monthCount The number of days to increment (negatives are valid)
- * @return {Date}
+ * @returns {Date}
  * @example
  *   new Date(2019, 0, 15).addMonths(3) => Date(2019, 3, 15)
  *   new Date(2019, 9, 31).addMonths(1) => Date(2019, 10, 30) // oct => nov
@@ -214,8 +216,8 @@ function addMonths(this: Date, monthCount: number = 1): Date {
 }
 
 /**
- * Whether a year is a leap year
- * @return {boolean}
+ * @description Whether a year is a leap year
+ * @returns {boolean}
  * @example
  *   new Date(2012, 9, 31) => true;
  */
@@ -224,13 +226,12 @@ function isLeapYear(this: Date): boolean {
   return _isLeapYear(this.getFullYear())
 }
 
-function _isLeapYear(year: number): boolean {
-  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
-}
+const _isLeapYear = (year: number): boolean =>
+  (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
 
 /**
- * Gets the number of days in the month
- * @return {number}
+ * @description Gets the number of days in the month
+ * @returns {number}
  * @example
  *   new Date(2012, 1, 5).getDaysInMonth() => 29
  */
@@ -238,26 +239,14 @@ function getDaysInMonth(this: Date): number {
   return _getDaysInMonth(this.getFullYear(), this.getMonth())
 }
 
-function _getDaysInMonth(year: number, month: number): number {
-  return [
-    31,
-    _isLeapYear(year) ? 29 : 28,
-    31,
-    30,
-    31,
-    30,
-    31,
-    31,
-    30,
-    31,
-    30,
-    31,
-  ][month]
-}
+const _getDaysInMonth = (year: number, month: number): number =>
+  [31, _isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][
+    month
+  ]
 
 /**
- * Increments a date by 1 year
- * @return {Date}
+ * @description Increments a date by 1 year
+ * @returns {Date}
  * @example
  *   new Date(2018, 0, 12).addYear() => new Date(2019, 0, 12)
  */
@@ -266,9 +255,9 @@ function addYear(this: Date): Date {
 }
 
 /**
- * Returns a new Date() object incrmented by the specified YearCount
+ * @description Returns a new Date() object incrmented by the specified YearCount
  * @param {number} yearCount The number of days to increment (negatives are valid)
- * @return {Date}
+ * @returns {Date}
  * @example
  *   new Date(2018, 0, 12).addYears(3) => new Date(2021, 0, 12)
  */
@@ -281,8 +270,8 @@ function addYears(this: Date, yearCount: number = 1): Date {
 }
 
 /**
- * true if date is same day as today regardless of the time
- * @return {Boolean}
+ * @description true if date is same day as today regardless of the time
+ * @returns {boolean}
  */
 function isToday(this: Date): boolean {
   const today = new Date()
@@ -294,8 +283,8 @@ function isToday(this: Date): boolean {
 }
 
 /**
- * detects if the datesshare the dame day, month and year
- * @return {Boolean}
+ * @description detects if the datesshare the dame day, month and year
+ * @returns {boolean}
  * @example
  *   new Date('Jan 12 2018, 9am').isSameDay(new Date('Jan 12 2018, 2pm')) => true
  */
@@ -310,8 +299,8 @@ function isSameDay(this: Date, date: Date | null): boolean {
 }
 
 /**
- * Returns the Date of the current or previous sunday
- * @return {Date}
+ * @description Returns the Date of the current or previous sunday
+ * @returns {Date}
  * @example
  * { Monday 22 }.firstDayOfWeek() => { Sunday 22 }
  */
@@ -320,9 +309,9 @@ function firstDayOfWeek(this: Date): Date {
 }
 
 /**
- * Whether the date is before the argument
+ * @description Whether the date is before the argument
  * @param {Date} compare the date with which to compare
- * @return {Boolean}
+ * @returns {boolean}
  * @example
  * { Oct 22 }.isBefore( { Oct 21 } ) => false
  */
@@ -332,11 +321,11 @@ function isBefore(this: Date, compare: Date | null): boolean | never {
 }
 
 /**
- * Whether the date is between those provided
+ * @description Whether the date is between those provided
  * @param {Date} minDate lower bound of checked range
  * @param {Date} maxDate uppder bound of checked range
- * @return {Boolean}
- * @examples
+ * @returns {boolean}
+ * @example
  *   new Date('Oct 22').isBetween( new Date( 'Oct 21' ), new Date('Oct 23' ) ) => true
  *   new Date('Oct 22, 9am').isBetween( new Date( 'Oct 22, 10am' ), new Date('Oct 23' ) ) => false
  */
@@ -351,8 +340,8 @@ function isBetween(this: Date, minDate: Date, maxDate: Date): boolean | never {
 }
 
 /**
- * Returns the age of something born at the moment represented by the underlying Date
- * @return {number}
+ * @description Returns the age of something born at the moment represented by the underlying Date
+ * @returns {number}
  */
 function age(this: Date, asOf: Date = new Date()): number {
   const birthDate = new Date(this)
@@ -363,8 +352,8 @@ function age(this: Date, asOf: Date = new Date()): number {
 }
 
 /**
- * Returns a new Date matching the underlying date, but passed in time
- * @return {Date}
+ * @description Returns a new Date matching the underlying date, but passed in time
+ * @returns {Date}
  * @example
  * { Oct 22 9am }.assignTime( { Jan 5 4pm }, ) => { Oct 22 4pm }
  */
@@ -377,8 +366,8 @@ function assignTime(this: Date, time: Date): Date {
 }
 
 /**
- * Whether argument Date is in the same month as the underlying Date
- * @return {Boolean}
+ * @description Whether argument Date is in the same month as the underlying Date
+ * @returns {boolean}
  * @example
  * { Oct 22 2018 }.isSameMonth( { Oct 5 2018 }, ) => true
  * { Oct 22 2019 }.isSameMonth( { Oct 5 2018 }, ) => false
@@ -392,8 +381,8 @@ function isSameMonth(this: Date, date: Date | null): boolean {
 }
 
 /**
- * Formats the date for use in url parameters
- * @return {String}
+ * @description Formats the date for use in url parameters
+ * @returns {string}
  * @example
  * { Jan 12 }.toUrlString( ) => '1-12-2018'
  */
@@ -402,22 +391,22 @@ function toUrlString(this: Date): string {
 }
 
 /**
- * Calculates the number of days between 2 dates
- * @return {String}
+ * @description Calculates the number of days between 2 dates
+ * @returns {string}
  * @example
  * { Jan 12 }.daysBetween( Jan 14  ) => 2
  */
-function daysBetween(this: Date, date2: Date) {
+function daysBetween(this: Date, date2: Date): number {
   // Get 1 day in milliseconds
-  const one_day = 1000 * 60 * 60 * 24
+  const oneDay = 1000 * 60 * 60 * 24
 
   // Convert both dates to milliseconds
-  const date1_ms = this.getTime()
-  const date2_ms = date2.getTime()
+  const date1Milli = this.getTime()
+  const date2Milli = date2.getTime()
 
   // Calculate the difference in milliseconds
-  const difference_ms = date2_ms - date1_ms
+  const differencemilli = date2Milli - date1Milli
 
   // Convert back to days and return
-  return Math.abs(Math.round(difference_ms / one_day))
+  return Math.abs(Math.round(differencemilli / oneDay))
 }

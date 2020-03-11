@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FirestoreService } from '@cutcal/fire';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { DocPipe } from './doc.pipe';
 
 @Component({
@@ -19,7 +19,7 @@ describe('Doc (firebase) Pipe', () => {
 
   beforeEach(() => {
     const dbStub = {
-      doc$: () => of({ prop: 'Hello World' }),
+      doc$: (): Observable<any> => of({ prop: 'Hello World' }),
     };
     TestBed.configureTestingModule({
       declarations: [DocPipe, TestDocPipeComp],

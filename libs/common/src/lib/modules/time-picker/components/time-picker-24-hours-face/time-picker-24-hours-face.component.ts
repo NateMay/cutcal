@@ -42,7 +42,7 @@ export class Timepicker24HoursFaceComponent implements AfterContentInit {
     this.hourSelected.next(time)
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     this.hoursList = disableHours(this.hoursList, {
       min: this.minTime,
       max: this.maxTime,

@@ -251,7 +251,7 @@ export class ImageCropperComponent implements OnChanges {
   private loadImageFile(file: File): void {
     const fileReader = new FileReader()
 
-    fileReader.onload = (event: any) => {
+    fileReader.onload = (event: any): void => {
       this.isValidImageType(file.type)
         ? this.checkExifAndLoadBase64Image(event.target.result)
         : this.loadImageFailed.emit()
@@ -275,7 +275,7 @@ export class ImageCropperComponent implements OnChanges {
       imageBase64
     )
     this.originalImage = new Image()
-    this.originalImage.onload = () => {
+    this.originalImage.onload = (): void => {
       this.originalSize.width = this.originalImage.width
       this.originalSize.height = this.originalImage.height
       this.cd.markForCheck()
@@ -315,19 +315,19 @@ export class ImageCropperComponent implements OnChanges {
     this.setCropperScaledMinSize()
   }
 
-  rotateLeft() {
+  rotateLeft(): void {
     this.transformBase64(8)
   }
 
-  rotateRight() {
+  rotateRight(): void {
     this.transformBase64(6)
   }
 
-  flipHorizontal() {
+  flipHorizontal(): void {
     this.transformBase64(2)
   }
 
-  flipVertical() {
+  flipVertical(): void {
     this.transformBase64(4)
   }
 
@@ -491,7 +491,7 @@ export class ImageCropperComponent implements OnChanges {
     }
   }
 
-  private move(event: any) {
+  private move(event: any): void {
     const diffX = this.getClientX(event) - this.moveStart.clientX
     const diffY = this.getClientY(event) - this.moveStart.clientY
 
@@ -701,7 +701,7 @@ export class ImageCropperComponent implements OnChanges {
       const width = imagePosition.x2 - imagePosition.x1
       const height = imagePosition.y2 - imagePosition.y1
 
-      const cropCanvas = document.createElement('canvas') as HTMLCanvasElement
+      const cropCanvas = document.createElement('canvas')
       cropCanvas.width = width
       cropCanvas.height = height
 

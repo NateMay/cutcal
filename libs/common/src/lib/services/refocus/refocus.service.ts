@@ -13,11 +13,6 @@ export class RefocusService {
   id!: string | null
   refocus: boolean = false
 
-  reCastFocusId(id: string) {
-    this.id = id
-    this.refocus = true
-  }
-
   constructor(private router: Router, private ngZone: NgZone) {
     this.router.events.subscribe(event => {
       if (this.refocus && event instanceof NavigationEnd) {
@@ -31,5 +26,10 @@ export class RefocusService {
         })
       }
     })
+  }
+
+  reCastFocusId(id: string): void {
+    this.id = id
+    this.refocus = true
   }
 }

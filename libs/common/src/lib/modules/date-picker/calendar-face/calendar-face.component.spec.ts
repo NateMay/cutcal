@@ -14,10 +14,10 @@ describe('CalendarFaceComponent', () => {
     el.dispatchEvent(new KeyboardEvent('keydown', { key }));
   };
 
-  const focusIn = () => {
+  const focusIn = (): void => {
     fixture.debugElement.nativeElement.dispatchEvent(new FocusEvent('focusin'));
   };
-  const focusOut = () => {
+  const focusOut = (): void => {
     fixture.debugElement.nativeElement.dispatchEvent(
       new FocusEvent('focusout')
     );
@@ -51,7 +51,9 @@ describe('CalendarFaceComponent', () => {
   describe('selectedDate management', () => {
     it('should set the _selectedDate when a new date is passed to it', () => {
       component.selectedDate = new Date(1901, 0, 1);
-      expect(component?.selectedDate?.isSameDay(new Date(1901, 0, 1)));
+      expect(component?.selectedDate?.isSameDay(new Date(1901, 0, 1))).toBe(
+        true
+      );
     });
 
     it('should emit set the "selectedDateChange" when a new date is passed to it', () => {
@@ -63,7 +65,7 @@ describe('CalendarFaceComponent', () => {
     });
 
     it('should call createCalendar() when a new date is passed to it', () => {
-      spyOn(component, 'createCalendar');
+      jest.spyOn(component, 'createCalendar');
       component.selectedDate = new Date(1901, 0, 1);
       expect(component.createCalendar).toHaveBeenCalled();
     });
@@ -72,10 +74,10 @@ describe('CalendarFaceComponent', () => {
       component.selectedDate = new Date();
       fixture.detectChanges();
 
-      spyOn(component, 'createCalendar');
+      jest.spyOn(component, 'createCalendar');
       component.selectedDateChange
         .pipe(first())
-        .subscribe(date => expect(true).toBe(false)); // should never execute
+        .subscribe(() => expect(true).toBe(false)); // should never execute
 
       component.selectedDate = new Date();
       expect(component.createCalendar).not.toHaveBeenCalled();
@@ -134,7 +136,7 @@ describe('CalendarFaceComponent', () => {
     });
 
     it('should call createCalendar() when a new date is passed to it', () => {
-      spyOn(component, 'createCalendar');
+      jest.spyOn(component, 'createCalendar');
       component.focusDate = new Date(1901, 0, 1);
       expect(component.createCalendar).toHaveBeenCalled();
     });
@@ -143,17 +145,17 @@ describe('CalendarFaceComponent', () => {
       component.focusDate = new Date();
       fixture.detectChanges();
 
-      spyOn(component, 'createCalendar');
+      jest.spyOn(component, 'createCalendar');
       component.focusDateChange
         .pipe(first())
-        .subscribe(date => expect(true).toBe(false)); // should never execute
+        .subscribe(() => expect(true).toBe(false)); // should never execute
 
       component.focusDate = new Date();
       expect(component.createCalendar).not.toHaveBeenCalled();
     });
 
     // FIXME
-    xit('should return a day button when dayToFocus is accessed', () => {
+    it('should return a day button when dayToFocus is accessed', () => {
       expect(component.elementFocus).toBeTruthy();
     });
 
@@ -190,7 +192,7 @@ describe('CalendarFaceComponent', () => {
     });
 
     it('should call castFocus() in all cases when createCalendar() is called ', () => {
-      spyOn(component, 'castFocus');
+      jest.spyOn(component, 'castFocus');
       component['_selectedDate'] = null;
       component.createCalendar();
       expect(component.castFocus).toHaveBeenCalled();
@@ -290,7 +292,7 @@ describe('CalendarFaceComponent', () => {
   });
 
   // FIXME
-  xit('castFocus() focuses the element of the focusDate', () => {
+  it('castFocus() focuses the element of the focusDate', () => {
     focusIn();
     component.castFocus();
     fixture.detectChanges();

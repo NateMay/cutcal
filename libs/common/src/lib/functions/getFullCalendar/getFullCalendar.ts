@@ -2,9 +2,8 @@ import { dropRight } from 'lodash'
 import { dateArray } from '../dateArray/dateArray'
 
 /**
- * Gets a full month plus filler days at the ends in a 1-dimensional array
+ * @description Gets a full month plus filler days at the ends in a 1-dimensional array
  * @param {Date} date a date in the target month
- * @param {number} maxDays maximum number of days to produce
  * @returns {Date[]}
  * @example
  *   getFullCalendar(new Date()) => // an array of dates cooresponding the the calendar face of a month

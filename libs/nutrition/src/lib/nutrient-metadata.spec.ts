@@ -8,11 +8,11 @@ describe('Nutrient Metadata', () => {
   });
 
   it('creats ids getter', () => {
-    expect(nutrients.ids.vit_C).toBe(1162);
+    expect(nutrients.ids.vitC).toBe(1162);
   });
 
   it('creats nutrients getter', () => {
-    expect(nutrients.nutrients.vit_A).toBe('Vitamin A, IU');
+    expect(nutrients.nutrients.vitA).toBe('Vitamin A, IU');
   });
 
   it('creats shortNames getter', () => {

@@ -60,7 +60,7 @@ export class AmPmToggleComponent {
     this.idStr = this.idStr
   }
 
-  update() {
+  update(): void {
     this.isPM = !this.isPM
     this.isPMChange.emit(this.isPM)
   }

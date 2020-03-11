@@ -279,11 +279,11 @@ export class DetailPanelsComponent implements OnInit {
     this.protein = createPortion(units.protein || 'g', nutrition.protein)
     this._nutrition = Object.assign({}, ZERO_NUTRITION, nutrition)
   }
-  get nutrition() {
+  get nutrition(): Nutrition<number> {
     return this._nutrition
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     setTimeout(() => (this.showChart = true), this.chartDelay)
   }
 }

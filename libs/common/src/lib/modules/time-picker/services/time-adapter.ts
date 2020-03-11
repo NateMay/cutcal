@@ -9,7 +9,7 @@ import {
 // @dynamic
 export class TimeAdapter {
   static parseTime(time: string, format = 12): string {
-    if (time.indexOf(':') === -1) return 'Invalid time'
+    if (!time.includes(':')) return 'Invalid time'
 
     let period = time
       .trim()
@@ -44,18 +44,12 @@ export class TimeAdapter {
   //     return `${forceZero(hour)}:${forceZero(time.getMinutes())} ${period}`;
   // }
 
-  // static convertTimeToDateTime(time: string, format = 12): Date {
-  //     const timeMask = (format === 24) ? TimeFormat.TWENTY_FOUR_SHORT : TimeFormat.TWELVE_SHORT;
-  //     return DateTime.fromFormat(this.parseTime(time, format), timeMask);
-  // }
-
   static isTimeAvailable(
     time?: string | null,
     min?: Date,
     max?: Date,
     granularity?: 'hours' | 'minutes',
-    minutesGap?: number,
-    format?: number
+    minutesGap?: number
   ): boolean | never {
     if (!time) return false
 
@@ -65,7 +59,7 @@ export class TimeAdapter {
 
     if (minutesGap && minutes % minutesGap !== 0) {
       throw Error(
-        `[CutCal] Your minutes - ${minutes} doesn\'t match your minutesGap - ${minutesGap}`
+        `[CutCal] Your minutes - ${minutes} doesn't match your minutesGap - ${minutesGap}`
       )
     }
     const isAfter =
@@ -79,8 +73,8 @@ export class TimeAdapter {
     return isAfter || isBefore || between || isAvailable
   }
 
-  /***
-   *  Format hour according to time format (12 or 24)
+  /**
+   * @description Format hour according to time format (12 or 24)
    */
   static formatHour(
     currentHour: number,

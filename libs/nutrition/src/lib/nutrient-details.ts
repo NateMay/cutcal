@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import { KVP } from '@cutcal/core'
+import { Nutrition } from './nutrition'
 
 /**
- * Static Nutrient Metadata
+ * @description Static Nutrient Metadata
  * @property {number} id FoodData Central nutrient ID
  * @property {number} nbr nutrient id (leagacy from USDA I think)
  * @property {string} nutrient Proper, FDC name
@@ -19,7 +19,7 @@ export interface NutrientMetaData {
   propName?: string
 }
 
-export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
+export const USDA_NUTRIENT_DETAILS: Nutrition<NutrientMetaData> = {
   water: {
     id: 1051,
     nbr: 255,
@@ -69,21 +69,21 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Carbohydrate',
     unit: 'g',
   },
-  dietary_fiber: {
+  dietaryFiber: {
     id: 1079,
     nbr: 291,
     nutrient: 'Fiber, total dietary',
     shortName: 'Dietary Fiber',
     unit: 'g',
   },
-  soluble_fiber: {
+  solubleFiber: {
     id: 1082,
     nbr: 295,
     nutrient: 'Fiber, soluble',
     shortName: 'Soluble Fiber',
     unit: 'g',
   },
-  insoluble_fiber: {
+  insolubleFiber: {
     id: 1084,
     nbr: 297,
     nutrient: 'Fiber, insoluble',
@@ -146,7 +146,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Galactose',
     unit: 'g',
   },
-  sugar_alcohol: {
+  sugarAlcohol: {
     id: 1086,
     nbr: 299,
     nutrient: 'Total sugar alcohols',
@@ -244,7 +244,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Selenium',
     unit: 'µg',
   },
-  vit_C: {
+  vitC: {
     id: 1162,
     nbr: 401,
     nutrient: 'Vitamin C, total ascorbic acid',
@@ -272,14 +272,14 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Niacin',
     unit: 'mg',
   },
-  pantothenic_acid: {
+  pantothenicAcid: {
     id: 1170,
     nbr: 410,
     nutrient: 'Pantothenic acid',
     shortName: 'Pantothenic Acid',
     unit: 'mg',
   },
-  vit_B6: {
+  vitB6: {
     id: 1175,
     nbr: 415,
     nutrient: 'Vitamin B-6',
@@ -300,21 +300,21 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Folate',
     unit: 'µg',
   },
-  folic_acid: {
+  folicAcid: {
     id: 1186,
     nbr: 431,
     nutrient: 'Folic acid',
     shortName: 'Folic acid',
     unit: 'µg',
   },
-  food_folate: {
+  foodFolate: {
     id: 1187,
     nbr: 432,
     nutrient: 'Folate, food',
     shortName: 'Food Folate',
     unit: 'µg',
   },
-  dietary_folate_equiv: {
+  dietaryFolateEquiv: {
     id: 1190,
     nbr: 435,
     nutrient: 'Folate DFE',
@@ -335,21 +335,21 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Betaine',
     unit: 'mg',
   },
-  vit_B12: {
+  vitB12: {
     id: 1178,
     nbr: 418,
     nutrient: 'Vitamin B-12',
     shortName: 'Vitamin B-12',
     unit: 'µg',
   },
-  added_B12: {
+  addedB12: {
     id: 1246,
     nbr: 578,
     nutrient: 'Vitamin B-12, added',
     shortName: 'Vitamin B-12, added',
     unit: 'µg',
   },
-  retinol_activity_equiv: {
+  retinolActivityEquiv: {
     id: 1106,
     nbr: 320,
     nutrient: 'Vitamin A, RAE',
@@ -363,28 +363,28 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Retinol',
     unit: 'µg',
   },
-  beta_carotene: {
+  betaCarotene: {
     id: 1107,
     nbr: 321,
     nutrient: 'Carotene beta',
     shortName: 'Carotene beta',
     unit: 'µg',
   },
-  alpha_carotene: {
+  alphaCarotene: {
     id: 1108,
     nbr: 322,
     nutrient: 'Carotene alpha',
     shortName: 'Carotene alpha',
     unit: 'µg',
   },
-  beta_cryptoxanthin: {
+  betaCryptoxanthin: {
     id: 1120,
     nbr: 334,
     nutrient: 'Cryptoxanthin, beta',
     shortName: 'Cryptoxanthin Beta',
     unit: 'µg',
   },
-  vit_A: {
+  vitA: {
     id: 1104,
     nbr: 318,
     nutrient: 'Vitamin A, IU',
@@ -398,70 +398,70 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Lycopene',
     unit: 'µg',
   },
-  lutein_zeaxanthin: {
+  luteinZeaxanthin: {
     id: 1123,
     nbr: 338,
     nutrient: 'Lutein + zeaxanthin',
     shortName: 'Lutein + Zeaxanthin',
     unit: 'µg',
   },
-  vit_E: {
+  vitE: {
     id: 1109,
     nbr: 323,
     nutrient: 'Vitamin E (alpha-tocopherol)',
     shortName: 'Vitamin E',
     unit: 'mg',
   },
-  vit_E_added: {
+  vitEAdded: {
     id: 1242,
     nbr: 573,
     nutrient: 'Vitamin E, added',
     shortName: 'Vitamin E, added',
     unit: 'mg',
   },
-  beta_tocopherol: {
+  betaTocopherol: {
     id: 1125,
     nbr: 341,
     nutrient: 'Tocopherol beta',
     shortName: 'Tocopherol Beta',
     unit: 'mg',
   },
-  gamma_tocopherol: {
+  gammaTocopherol: {
     id: 1126,
     nbr: 342,
     nutrient: 'Tocopherol gamma',
     shortName: 'Tocopherol Gamma',
     unit: 'mg',
   },
-  delta_tocopherol: {
+  deltaTocopherol: {
     id: 1127,
     nbr: 343,
     nutrient: 'Tocopherol delta',
     shortName: 'Tocopherol Delta',
     unit: 'mg',
   },
-  alpha_tocotrienol: {
+  alphaTocotrienol: {
     id: 1128,
     nbr: 344,
     nutrient: 'Tocotrienol alpha',
     shortName: 'Tocotrienol Alpha',
     unit: 'mg',
   },
-  beta_tocotrienol: {
+  betaTocotrienol: {
     id: 1129,
     nbr: 345,
     nutrient: 'Tocotrienol beta',
     shortName: 'Tocotrienol Beta',
     unit: 'mg',
   },
-  gamma_tocotrienol: {
+  gammaTocotrienol: {
     id: 1130,
     nbr: 346,
     nutrient: 'Tocotrienol gamma',
     shortName: 'Tocotrienol Gamma',
     unit: 'mg',
   },
-  delta_tocotrienol: {
+  deltaTocotrienol: {
     id: 1131,
     nbr: 347,
     nutrient: 'Tocotrienol delta',
@@ -489,14 +489,14 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Vitamin D3',
     unit: 'µg',
   },
-  vit_D: {
+  vitD: {
     id: 1110,
     nbr: 324,
     nutrient: 'Vitamin D',
     shortName: 'Vitamin D',
     unit: 'iu',
   },
-  vit_K: {
+  vitK: {
     id: 1185,
     nbr: 430,
     nutrient: 'Vitamin K (phylloquinone)',
@@ -510,7 +510,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Dihydrophylloquinone',
     unit: 'µg',
   },
-  menaquinone_4: {
+  menaquinone4: {
     id: 1183,
     nbr: 428,
     nutrient: 'Menaquinone-4',
@@ -652,7 +652,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Pentadecenoic Acid',
     unit: 'g',
   },
-  _16$1_undif: {
+  _16$1Undif: {
     id: 1275,
     nbr: 626,
     nutrient: 'Monounsaturated Fatty Acid - 16:01 undifferentiated',
@@ -680,7 +680,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Heptadecenoic Acid',
     unit: 'g',
   },
-  _18$1_undif: {
+  _18$1Undif: {
     id: 1268,
     nbr: 617,
     nutrient: 'Monounsaturated Fatty Acid - 18:01 undifferentiated',
@@ -715,7 +715,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Gadoleic Acid',
     unit: 'g',
   },
-  _22$1_undif: {
+  _22$1Undif: {
     id: 1279,
     nbr: 630,
     nutrient: 'Monounsaturated Fatty Acid - 22:1 undifferentiated',
@@ -754,7 +754,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Polyunsaturated Fat',
     unit: 'g',
   },
-  _18$2_undif: {
+  _18$2Undif: {
     id: 1269,
     nbr: 618,
     nutrient: 'Polyunsaturated Fatty acids - 18:02 undifferentiated',
@@ -768,7 +768,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Linoleic acid',
     unit: 'g',
   },
-  _18$2_CLAs: {
+  _18$2CLAs: {
     id: 1311,
     nbr: 670,
     nutrient: 'Polyunsaturated Fatty acids - 18:2 CLAs',
@@ -789,14 +789,14 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: '18:2 i',
     unit: 'g',
   },
-  _18$2t_nfd: {
+  _18$2tNFD: {
     id: 1306,
     nbr: 665,
     nutrient: 'Polyunsaturated Fatty acids - 18:2 t not further defined',
     shortName: '18:2 t',
     unit: 'g',
   },
-  _18$3_undif: {
+  _18$3Undif: {
     id: 1270,
     nbr: 619,
     nutrient: 'Polyunsaturated Fatty acids - 18:3 undifferentiated',
@@ -838,7 +838,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Eicosadienoic Acid',
     unit: 'g',
   },
-  _20$3_undif: {
+  _20$3Undif: {
     id: 1325,
     nbr: 689,
     nutrient: 'Polyunsaturated Fatty acids - 20:03 undifferentiated',
@@ -859,7 +859,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Dihomo-gamma-linolenic acid',
     unit: 'g',
   },
-  _20$4_undif: {
+  _20$4Undif: {
     id: 1271,
     nbr: 620,
     nutrient: 'Polyunsaturated Fatty acids - 20:4 undifferentiated',
@@ -958,7 +958,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Campesterol',
     unit: 'mg',
   },
-  beta_sitosterol: {
+  betaSitosterol: {
     id: 1288,
     nbr: 641,
     nutrient: 'Beta-sitosterol',
@@ -1056,14 +1056,14 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Alanine',
     unit: 'g',
   },
-  aspartic_acid: {
+  asparticAcid: {
     id: 1223,
     nbr: 514,
     nutrient: 'Aspartic acid',
     shortName: 'Aspartic acid',
     unit: 'g',
   },
-  glutamic_acid: {
+  glutamicAcid: {
     id: 1224,
     nbr: 515,
     nutrient: 'Glutamic acid',
@@ -1126,14 +1126,14 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Nitrogen',
     unit: 'g',
   },
-  acetic_acid: {
+  aceticAcid: {
     id: 1026,
     nbr: 230,
     nutrient: 'Acetic acid',
     shortName: 'Acetic acid',
     unit: 'mg',
   },
-  lactic_acid: {
+  lacticAcid: {
     id: 1038,
     nbr: 242,
     nutrient: 'Lactic acid',
@@ -1154,7 +1154,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Sorbitol',
     unit: 'g',
   },
-  sugars_nlea: {
+  sugarsNLEA: {
     id: 1063,
     nbr: 269.3,
     nutrient: 'Sugars, Total NLEA',
@@ -1175,14 +1175,14 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Ribose',
     unit: 'g',
   },
-  carb_sum: {
+  carbSum: {
     id: 1050,
     nbr: 205.2,
     nutrient: 'Carbohydrate, by summation',
     shortName: 'Carbohydrate, by summation',
     unit: 'g',
   },
-  carb_other: {
+  carbOther: {
     id: 1072,
     nbr: 284,
     nutrient: 'Carbohydrate, other',
@@ -1210,7 +1210,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Epigallocatechin 3 Gallate',
     unit: 'g',
   },
-  fat_nlea: {
+  fatNLEA: {
     id: 1085,
     nbr: 298,
     nutrient: 'Total fat (NLEA)',
@@ -1280,28 +1280,28 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Lutein',
     unit: 'µg',
   },
-  cis_lutein_zeaxanthin: {
+  cisLuteinZeaxanthin: {
     id: 1161,
     nbr: 338.3,
     nutrient: 'cis-Lutein/Zeaxanthin',
     shortName: 'cis-Lutein/Zeaxanthin',
     unit: 'µg',
   },
-  cis_beta_carotene: {
+  cisBetaCarotene: {
     id: 1159,
     nbr: 321.1,
     nutrient: 'cis-beta-Carotene',
     shortName: 'cis-beta-Carotene',
     unit: 'µg',
   },
-  trans_beta_carotene: {
+  transBetaCarotene: {
     id: 2028,
     nutrient: 'trans-beta-Carotene',
     shortName: 'trans-beta-Carotene',
     unit: 'µg',
     nbr: 321.2,
   },
-  trans_lycopene: {
+  transLycopene: {
     id: 2029,
     nutrient: 'trans-Lycopene',
     shortName: 'trans-Lycopene',
@@ -1315,7 +1315,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     unit: 'µg',
     nbr: 335,
   },
-  vit_E_label: {
+  vitELabel: {
     id: 1124,
     nbr: 340,
     nutrient: 'Vitamin E (label entry primarily)',
@@ -1329,28 +1329,28 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Boron',
     unit: 'µg',
   },
-  cis_lycopene: {
+  cisLycopene: {
     id: 1160,
     nbr: 337.1,
     nutrient: 'cis-Lycopene',
     shortName: 'cis-Lycopene',
     unit: 'µg',
   },
-  _5_methyl_tetrahydrofolate: {
+  _5MethylTetrahydrofolate: {
     id: 1188,
     nbr: 433,
     nutrient: '5-methyl tetrahydrofolate',
     shortName: '5-methyl tetrahydrofolate',
     unit: 'µg',
   },
-  _10_Formyl_folic_acid: {
+  _10FormylFolicAcid: {
     id: 1191,
     nbr: 436,
     nutrient: '10-Formyl folic acid (10HCOFA)',
     shortName: '10-Formyl folic acid (10HCOFA)',
     unit: 'µg',
   },
-  _5_Formyltetrahydrofolic_acid: {
+  _5FormyltetrahydrofolicAcid: {
     id: 1192,
     nbr: 437,
     nutrient: '5-Formyltetrahydrofolic acid',
@@ -1358,35 +1358,35 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     unit: 'µg',
   },
 
-  choline_free: {
+  cholineFree: {
     id: 1194,
     nbr: 450,
     nutrient: 'Choline, free',
     shortName: 'Choline, free',
     unit: 'mg',
   },
-  choline_phosphocholine: {
+  cholinePhosphocholine: {
     id: 1195,
     nbr: 451,
     nutrient: 'Choline, from phosphocholine',
     shortName: 'Choline, from phosphocholine',
     unit: 'mg',
   },
-  choline_phosphotidyl: {
+  cholinePhosphotidyl: {
     id: 1196,
     nbr: 452,
     nutrient: 'Choline, from phosphotidyl choline',
     shortName: 'Choline, from phosphotidyl choline',
     unit: 'mg',
   },
-  choline_glycerophosphocholine: {
+  cholineGlycerophosphocholine: {
     id: 1197,
     nbr: 453,
     nutrient: 'Choline, from glycerophosphocholine',
     shortName: 'Choline, from glycerophosphocholine',
     unit: 'mg',
   },
-  choline_sphingomyelin: {
+  cholineSphingomyelin: {
     id: 1199,
     nbr: 455,
     nutrient: 'Choline, from sphingomyelin',
@@ -1610,7 +1610,7 @@ export const USDA_NUTRIENT_DETAILS: KVP<NutrientMetaData> = {
     shortName: 'Specific Gravity',
     unit: 'sp_gr',
   },
-  vit_E_ate: {
+  vitEAte: {
     id: 1158,
     nbr: 394,
     nutrient: 'Vitamin E (alpha-tocopherol equivalents)',

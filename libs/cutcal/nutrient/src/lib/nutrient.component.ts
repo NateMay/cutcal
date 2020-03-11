@@ -106,11 +106,11 @@ export class NutrientComponent implements OnInit {
 
   constructor(private titleSvc: Title) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.nutrCheckables = nutrtionSelections(['calories'])
   }
 
-  checkableChange(checkable: NutrCheckable) {
+  checkableChange(checkable: NutrCheckable): void {
     this.titleSvc.setTitle(checkable.label)
   }
 }

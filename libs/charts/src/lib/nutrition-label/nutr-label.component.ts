@@ -41,7 +41,7 @@ import { NutritionLabel } from './nutr-label'
           <td colspan="2">
             <span class="label calories"
               ><b>Calories</b>
-              {{ labelDetails?.total_calories | number: '1.0-0' }}</span
+              {{ labelDetails?.totalCalories | number: '1.0-0' }}</span
             >
           </td>
           <td colspan="1">
@@ -57,11 +57,11 @@ import { NutritionLabel } from './nutr-label'
           <td colspan="2">
             <span class="label total_fat">
               <b> Total Fat &nbsp; </b>
-              {{ labelDetails?.total_fat | number: '1.0-0' }}g
+              {{ labelDetails?.totalFat | number: '1.0-0' }}g
             </span>
           </td>
           <td>
-            <b>{{ labelDetails?.perc_fat | percent: '.0-0' }}</b>
+            <b>{{ labelDetails?.percFat | percent: '.0-0' }}</b>
           </td>
         </tr>
         <tr>
@@ -69,11 +69,11 @@ import { NutritionLabel } from './nutr-label'
           <td>
             <span class="label sat_fat">
               <b> Saturated Fat &nbsp; </b>
-              {{ labelDetails?.total_sat_fat | number: '1.0-0' }}g
+              {{ labelDetails?.totalSatFat | number: '1.0-0' }}g
             </span>
           </td>
           <td>
-            <b>{{ labelDetails?.perc_sat_fat | percent: '.0-0' }}</b>
+            <b>{{ labelDetails?.percSatFat | percent: '.0-0' }}</b>
           </td>
         </tr>
         <tr>
@@ -81,7 +81,7 @@ import { NutritionLabel } from './nutr-label'
           <td>
             <span class="label trans_fat">
               Trans Fat &nbsp;
-              {{ labelDetails?.total_trans_fat | number: '1.0-0' }}g
+              {{ labelDetails?.totalTransFat | number: '1.0-0' }}g
             </span>
           </td>
           <td></td>
@@ -94,7 +94,7 @@ import { NutritionLabel } from './nutr-label'
             </span>
           </td>
           <td>
-            <b> {{ labelDetails?.perc_cholesterol | percent: '.0-0' }} </b>
+            <b> {{ labelDetails?.percCholesterol | percent: '.0-0' }} </b>
           </td>
         </tr>
         <tr>
@@ -105,18 +105,18 @@ import { NutritionLabel } from './nutr-label'
             </span>
           </td>
           <td>
-            <b> {{ labelDetails?.perc_sodium | percent: '.0-0' }} </b>
+            <b> {{ labelDetails?.percSodium | percent: '.0-0' }} </b>
           </td>
         </tr>
         <tr>
           <td colspan="2">
             <span class="label carbs">
               <b>Total Carbohydrates &nbsp; </b>
-              {{ labelDetails?.total_carb | number: '1.0-0' }}g
+              {{ labelDetails?.totalCarb | number: '1.0-0' }}g
             </span>
           </td>
           <td>
-            <b> {{ labelDetails?.perc_carbs | percent: '.0-0' }} </b>
+            <b> {{ labelDetails?.percCarbs | percent: '.0-0' }} </b>
           </td>
         </tr>
         <tr>
@@ -124,18 +124,18 @@ import { NutritionLabel } from './nutr-label'
           <td>
             <span class="label fiber">
               Dietary Fiber &nbsp;
-              {{ labelDetails?.dietary_fiber | number: '1.0-0' }}g
+              {{ labelDetails?.dietaryFiber | number: '1.0-0' }}g
             </span>
           </td>
           <td>
-            <b> {{ labelDetails?.perc_dietary_fiber | percent: '.0-0' }} </b>
+            <b> {{ labelDetails?.percDietaryFiber | percent: '.0-0' }} </b>
           </td>
         </tr>
         <tr>
           <td class="blank-cell"></td>
           <td>
             <span class="label sugar">
-              Sugars &nbsp; {{ labelDetails?.total_sugar | number: '1.0-0' }}g
+              Sugars &nbsp; {{ labelDetails?.totalSugar | number: '1.0-0' }}g
             </span>
           </td>
           <td></td>
@@ -144,7 +144,7 @@ import { NutritionLabel } from './nutr-label'
           <td colspan="2">
             <span class="label protein">
               <b> Protein &nbsp; </b>
-              {{ labelDetails?.total_protein | number: '1.0-0' }}g
+              {{ labelDetails?.totalProtein | number: '1.0-0' }}g
             </span>
           </td>
           <td></td>
@@ -157,19 +157,19 @@ import { NutritionLabel } from './nutr-label'
         <tr>
           <td colspan="2" class="vit_a">
             <div class="label">Vitamin A &nbsp;</div>
-            {{ labelDetails?.perc_vit_a | percent: '.0-0' }}
+            {{ labelDetails?.percVitA | percent: '.0-0' }}
           </td>
           <td class="vit_c">
-            Vitamin C &nbsp; {{ labelDetails?.perc_vit_c | percent: '.0-0' }}
+            Vitamin C &nbsp; {{ labelDetails?.percVitC | percent: '.0-0' }}
           </td>
         </tr>
         <tr class="thin-end">
           <td colspan="2" class="calcium">
             <div class="label">Calcium &nbsp;</div>
-            {{ labelDetails?.perc_calcium | percent: '.0-0' }}
+            {{ labelDetails?.percCalcium | percent: '.0-0' }}
           </td>
           <td class="iron">
-            Iron &nbsp; {{ labelDetails?.perc_iron | percent: '.0-0' }}
+            Iron &nbsp; {{ labelDetails?.percIron | percent: '.0-0' }}
           </td>
         </tr>
       </tbody>

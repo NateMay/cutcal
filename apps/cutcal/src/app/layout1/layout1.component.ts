@@ -9,5 +9,5 @@ export class Layout1Component implements OnInit {
     console.count('Layout1Component')
   }
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

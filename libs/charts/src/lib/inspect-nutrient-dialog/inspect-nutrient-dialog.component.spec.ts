@@ -10,7 +10,7 @@ import {
 } from '@cutcal/diet';
 import { timestamp } from '@cutcal/fire';
 import { MockHighChartsModule } from '@cutcal/ng-testing';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { createPortion } from '../../../../diet/src/lib/portion';
 import { InspectNutrientDialogComponent } from './inspect-nutrient-dialog.component';
 import { INSPECTION_DATA } from './inspection-data';
@@ -47,7 +47,7 @@ describe('Inspect Nutrient Dialog Component', () => {
   ];
 
   const mealSvc = {
-    getMealRangeUsagesFoods: () => of(tripple),
+    getMealRangeUsagesFoods: (): Observable<MealsTripple> => of(tripple),
   };
 
   const injectionData = {
@@ -92,7 +92,7 @@ describe('Inspect Nutrient Dialog Component', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('sums the nutritions', () => {
+  // _it('sums the nutritions', () => {
   //   fixture.detectChanges();
   //   expect(component.nutrientTotal).toEqual({
 

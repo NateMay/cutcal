@@ -33,11 +33,11 @@ export class InsufficientTableComponent implements OnInit {
   @Input() set nutrition(nutrition: Nutrition<number>) {
     this._nutrition = Object.assign({}, ZERO_NUTRITION, nutrition)
   }
-  get nutrition() {
+  get nutrition(): Nutrition<number> {
     return this._nutrition
   }
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

@@ -1,6 +1,28 @@
-import { CdkOverlayOrigin, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
+import {
+  CdkOverlayOrigin,
+  Overlay,
+  OverlayConfig,
+  OverlayRef,
+} from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, ElementRef, EventEmitter, forwardRef, HostBinding, HostListener, Injector, Input, NgZone, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ComponentRef,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  HostBinding,
+  HostListener,
+  Injector,
+  Input,
+  NgZone,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { Boolish } from '@cutcal/core'
 import { eventWithin } from '../../../functions/eventWithin/eventWithin'
@@ -91,10 +113,12 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
   // TODO (date-picker) get rid of this and redesign the api pof the component
   /**
    * @example
+   * ```html
    *   <mat-form-field>
    *    <input ccDatePickerInput="picker1">
    *    <cc-date-picker #picker1></cc-date-picker>
    *   </mat-form-field>
+   * ```
    */
   @Input()
   @HostBinding('style.width')
@@ -104,13 +128,23 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
 
   pickerRef!: ComponentRef<DatePickerDialogComponent>
 
-  get ariaLabel() {
+  get ariaLabel(): string {
     return `${this.label} - ${this.placeholder}`
   }
 
   @ViewChild('input', { static: true }) input!: ElementRef
 
   @ViewChild('pickerOrigin', { static: true }) pickerOrigin!: CdkOverlayOrigin
+
+  constructor(
+    private overlay: Overlay,
+    private viewContainerRef: ViewContainerRef,
+    private injector: Injector,
+    private zone: NgZone,
+    private cdr: ChangeDetectorRef
+  ) {
+    this.idStr = this.idStr
+  }
 
   @HostListener('document:mousedown', ['$event'])
   onmousedown(event: MouseEvent): void {
@@ -130,19 +164,9 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
     this.pickerOverlayRef.detach()
   }
 
-  constructor(
-    private overlay: Overlay,
-    private viewContainerRef: ViewContainerRef,
-    private injector: Injector,
-    private zone: NgZone,
-    private cdr: ChangeDetectorRef
-  ) {
-    this.idStr = this.idStr
-  }
-
-  ngOnInit() {
+  ngOnInit(): void {
     /**
-     * @reference {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts Overlay Stackblitz}
+     * @see {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts Overlay Stackblitz}
      */
     this.pickerOverlayRef = this.overlay.create(
       new OverlayConfig({
@@ -165,7 +189,7 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
   }
 
   // used by the datetime-binder to make updates
-  markForCheck() {
+  markForCheck(): void {
     this.cdr.markForCheck()
   }
 
@@ -195,11 +219,11 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
     )
   }
 
-  blur() {
+  blur(): void {
     this.onTouched()
   }
 
-  reFocusTrigger() {
+  reFocusTrigger(): void {
     if (this.pickerOverlayRef.hasAttached())
       executeOnStable(this.zone, () => {
         const trigger = document.getElementById(`${this.idStr}-trigger`)
@@ -241,6 +265,6 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
     this.disabled = isDisabled
   }
 
-  onChange = (date: Date | null) => {}
-  onTouched = () => {}
+  onChange = (date: Date | null): void => {}
+  onTouched = (): void => {}
 }

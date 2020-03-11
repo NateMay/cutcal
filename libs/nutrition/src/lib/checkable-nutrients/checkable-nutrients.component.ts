@@ -16,13 +16,11 @@ interface TemplateData {
   children?: TemplateData[]
 }
 
-function createData(
+const createData = (
   label: string,
   key: string,
   children?: TemplateData[]
-): TemplateData {
-  return { label, key, children }
-}
+): TemplateData => ({ label, key, children })
 
 /**
  * List of checkboxes to toggle selected nutrients
@@ -144,6 +142,7 @@ export class CheckableNutrientsComponent {
   // Data Structures for Checkables
   nutrGroupCheckables: NutritionParts<NutrCheckable>
 
+  @Output() nutrCheckablesChange = new EventEmitter<Nutrition<NutrCheckable>>()
   private _nutrCheckables: Nutrition<NutrCheckable>
   @Input() set nutrCheckables(nutrCheckables: Nutrition<NutrCheckable>) {
     if (isEqual(this.nutrCheckables, nutrCheckables)) return
@@ -152,12 +151,11 @@ export class CheckableNutrientsComponent {
   get nutrCheckables(): Nutrition<NutrCheckable> {
     return this._nutrCheckables
   }
-  @Output() nutrCheckablesChange = new EventEmitter<Nutrition<NutrCheckable>>()
 
   updateDataStructures(
     nutrCheckables: Nutrition<NutrCheckable>,
     nutrGroupCheckables?: NutritionParts<NutrCheckable>
-  ) {
+  ): void {
     if (!isEqual(this.nutrCheckables, nutrCheckables)) {
       this._nutrCheckables = nutrCheckables
     }

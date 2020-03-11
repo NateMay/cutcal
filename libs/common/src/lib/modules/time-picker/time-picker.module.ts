@@ -22,8 +22,7 @@ import { TimepickerPeriodComponent } from './components/time-picker-period/time-
 import { MinutesFormatterPipe } from './pipes/minutes-formatter.pipe'
 
 /**
- * forked from:
- * @reference {@link https://agranom.github.io/ngx-material-timepicker/ ngx-material-timepicker}
+ * @see {@link https://agranom.github.io/ngx-material-timepicker/ ngx-material-timepicker}
  */
 
 const COMPONENTS = [

@@ -1,7 +1,7 @@
 import { KVP } from '@cutcal/core'
 /**
- * Removes all members of an oject from among those passed in
- * @param {Object} objIn the object to modify
+ * @description Removes all members of an oject from among those passed in
+ * @param {KVP<any>} objIn the object to modify
  * @param {string[]} props key names to remove
  */
 

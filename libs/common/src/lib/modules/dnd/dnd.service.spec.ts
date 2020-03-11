@@ -3,14 +3,14 @@ import { DndSvc } from './dnd.service';
 
 describe('DndSvc', () => {
   let service: DndSvc;
-  let appendSpy: jasmine.Spy;
+  // let appendSpy: jest.SpyInstance<Node, [Node]>
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [DndSvc],
     });
     service = TestBed.inject(DndSvc);
-    appendSpy = spyOn(document.body, 'appendChild');
+    // appendSpy = jest.spyOn(document.body, 'appendChild');
   });
 
   it('dragging starts as false', () => {

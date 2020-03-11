@@ -38,7 +38,7 @@ export const CATEGORIES: CategoryVM[] = [
 
 // DISTANT: (content) move into content
 /**
- * @source {@link https://www.allrecipes.com/recipes/?internalSource=hub%20nav&referringId=79&referringContentType=Recipe%20Hub&referringPosition=1&linkName=hub%20nav%20exposed&clickId=hub%20nav%202}
+ * @see {@link https://www.allrecipes.com/recipes/?internalSource=hub%20nav&referringId=79&referringContentType=Recipe%20Hub&referringPosition=1&linkName=hub%20nav%20exposed&clickId=hub%20nav%202}
  */
 export const SEARCH_CATEGORIES = {
   'Meal Type': {

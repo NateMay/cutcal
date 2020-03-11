@@ -6,9 +6,7 @@ it('convertSnaps() - shared/functions', () => {
       payload: {
         doc: {
           id: '12345',
-          data: () => {
-            return { obj: 'obj' };
-          },
+          data: (): any => ({ obj: 'obj' }),
         },
       },
     },

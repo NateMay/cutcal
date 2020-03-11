@@ -34,91 +34,91 @@ import { get } from 'lodash'
     <tbody>
       <tr>
         <td>
-          <button class="clickable" (click)="vitA_Open = !vitA_Open">
+          <button class="clickable" (click)="vitA_Open = !vitAOpen">
             Vitamin A
           </button>
         </td>
-        <td class="quant">{{ nutrition.vit_A | number: numInfo }}</td>
+        <td class="quant">{{ nutrition.vitA | number: numInfo }}</td>
         <td><span class="unit"> (IU) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_A || 0 / rda('vit_A') | percent: precInfo }}
+          {{ nutrition.vitA || 0 / rda('vitA') | percent: precInfo }}
         </td>
       </tr>
-      <ng-container *ngIf="vitA_Open">
-        <tr class="child" *ngFor="let vit_A of vit_As | keyvalue">
-          <td>{{ vit_A?.shortName }}</td>
+      <ng-container *ngIf="vitAOpen">
+        <tr class="child" *ngFor="let vitA of vitAs | keyvalue">
+          <td>{{ vitA?.shortName }}</td>
           <td class="quant">
-            {{ nutrition[vit_A.propName] | number: numInfo }}
+            {{ nutrition[vitA.propName] | number: numInfo }}
           </td>
           <td>
-            <span class="unit"> ({{ vit_A?.unit }}) </span>
+            <span class="unit"> ({{ vitA?.unit }}) </span>
           </td>
           <td class="daily-value">~</td>
         </tr>
       </ng-container>
       <tr>
         <td>Vitamin C</td>
-        <td class="quant">{{ nutrition.vit_C | number: numInfo }}</td>
+        <td class="quant">{{ nutrition.vitC | number: numInfo }}</td>
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_C || 0 / rda('vit_C') | percent: precInfo }}
+          {{ nutrition.vitC || 0 / rda('vitC') | percent: precInfo }}
         </td>
       </tr>
       <tr>
-        <!-- add breakdown vit_D items {{vitamins}} -->
+        <!-- add breakdown vitD items {{vitamins}} -->
         <td>
           <button class="clickable" (click)="vitD_Open = !vitD_Open">
             Vitamin D
           </button>
         </td>
-        <td class="quant">{{ nutrition.vit_D | number: numInfo }}</td>
+        <td class="quant">{{ nutrition.vitD | number: numInfo }}</td>
         <td><span class="unit"> (IU) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_D || 0 / rda('vit_D') | percent: precInfo }}
+          {{ nutrition.vitD || 0 / rda('vitD') | percent: precInfo }}
         </td>
       </tr>
       <ng-container *ngIf="vitD_Open">
-        <tr class="child" *ngFor="let vit_D of vit_Ds | keyvalue">
-          <td>{{ vit_D?.shortName }}</td>
+        <tr class="child" *ngFor="let vitD of vitDs | keyvalue">
+          <td>{{ vitD?.shortName }}</td>
           <td class="quant">
-            {{ nutrition[vit_D.propName] | number: numInfo }}
+            {{ nutrition[vitD.propName] | number: numInfo }}
           </td>
           <td>
-            <span class="unit"> ({{ vit_D?.unit }}) </span>
+            <span class="unit"> ({{ vitD?.unit }}) </span>
           </td>
           <td class="daily-value">~</td>
         </tr>
       </ng-container>
       <tr>
         <td>
-          <button class="clickable" (click)="vitE_Open = !vitE_Open">
+          <button class="clickable" (click)="vitE_Open = !vitEOpen">
             Vitamin E
           </button>
         </td>
-        <td class="quant">{{ nutrition.vit_E | number: numInfo }}</td>
+        <td class="quant">{{ nutrition.vitE | number: numInfo }}</td>
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_E || 0 / rda('vit_E') | percent: precInfo }}
+          {{ nutrition.vitE || 0 / rda('vitE') | percent: precInfo }}
         </td>
       </tr>
-      <ng-container *ngIf="vitE_Open">
-        <tr class="child" *ngFor="let vit_E of vit_Es | keyvalue">
-          <td>{{ vit_E?.shortName }}</td>
+      <ng-container *ngIf="vitEOpen">
+        <tr class="child" *ngFor="let vitE of vitEs | keyvalue">
+          <td>{{ vitE?.shortName }}</td>
           <td class="quant">
-            {{ nutrition[vit_E.propName] | number: numInfo }}
+            {{ nutrition[vitE.propName] | number: numInfo }}
           </td>
           <td>
-            <span class="unit"> ({{ vit_E?.unit }}) </span>
+            <span class="unit"> ({{ vitE?.unit }}) </span>
           </td>
           <td class="daily-value">~</td>
         </tr>
       </ng-container>
       <tr>
         <td>Vitamin K</td>
-        <td class="quant">{{ nutrition.vit_K | number: numInfo }}</td>
+        <td class="quant">{{ nutrition.vitK | number: numInfo }}</td>
         <td><span class="unit"> (mcg) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_K || 0 / rda('vit_K') | percent: precInfo }}
+          {{ nutrition.vitK || 0 / rda('vitK') | percent: precInfo }}
         </td>
       </tr>
       <tr>
@@ -149,16 +149,16 @@ import { get } from 'lodash'
       </tr>
       <tr>
         <td>Vitamin B6</td>
-        <td class="quant">{{ nutrition.vit_B6 | number: numInfo }}</td>
+        <td class="quant">{{ nutrition.vitB6 | number: numInfo }}</td>
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_B6 || 0 / rda('vit_B6') | percent: precInfo }}
+          {{ nutrition.vitB6 || 0 / rda('vitB6') | percent: precInfo }}
         </td>
       </tr>
 
       <tr>
         <td>
-          <button class="clickable" (click)="folate_Open = !folate_Open">
+          <button class="clickable" (click)="folate_Open = !folateOpen">
             Folate
           </button>
         </td>
@@ -168,7 +168,7 @@ import { get } from 'lodash'
           {{ nutrition.folate || 0 / rda('folate') | percent: precInfo }}
         </td>
       </tr>
-      <ng-container *ngIf="folate_Open">
+      <ng-container *ngIf="folateOpen">
         <tr class="child" *ngFor="let folate of folates | keyvalue">
           <td>{{ folate?.shortName }}</td>
           <td class="quant">
@@ -182,21 +182,21 @@ import { get } from 'lodash'
       </ng-container>
       <tr>
         <td>Vitamin B12</td>
-        <td class="quant">{{ nutrition.vit_B12 | number: numInfo }}</td>
+        <td class="quant">{{ nutrition.vitB12 | number: numInfo }}</td>
         <td><span class="unit"> (mcg) </span></td>
         <td class="daily-value">
-          {{ nutrition.vit_B12 || 0 / rda('vit_B12') | percent: precInfo }}
+          {{ nutrition.vitB12 || 0 / rda('vitB12') | percent: precInfo }}
         </td>
       </tr>
       <tr>
         <td>Pantothenic Acid</td>
         <td class="quant">
-          {{ nutrition.pantothenic_acid | number: numInfo }}
+          {{ nutrition.pantothenicAcid | number: numInfo }}
         </td>
         <td><span class="unit"> (mg) </span></td>
         <td class="daily-value">
           {{
-            nutrition.pantothenic_acid || 0 / rda('pantothenic_acid')
+            nutrition.pantothenicAcid || 0 / rda('pantothenic_acid')
               | percent: precInfo
           }}
         </td>
@@ -217,27 +217,27 @@ export class VitaminTableComponent {
 
   readonly numInfo = '1.1-1'
 
-  vitA_Open: boolean = false
+  vitAOpen: boolean = false
   vitD_Open: boolean = false
-  vitE_Open: boolean = false
-  folate_Open: boolean = false
+  vitEOpen: boolean = false
+  folateOpen: boolean = false
 
   toggleAllText: string = 'Expand'
 
   folates: Folate<NutrientMetaData>
-  vit_As: VitaminA<NutrientMetaData>
-  vit_Ds: VitaminD<NutrientMetaData>
-  vit_Es: VitaminE<NutrientMetaData>
+  vitAs: VitaminA<NutrientMetaData>
+  vitDs: VitaminD<NutrientMetaData>
+  vitEs: VitaminE<NutrientMetaData>
 
   private _nutrition: Nutrition<number>
   @Input() set nutrition(nutrition: Nutrition<number>) {
     this._nutrition = Object.assign({}, ZERO_NUTRITION, nutrition)
     this.folates = getFolate<NutrientMetaData>(NUTRIENTS.allDetails)
-    this.vit_Ds = getVitaminD<NutrientMetaData>(NUTRIENTS.allDetails)
-    this.vit_Es = getVitaminE<NutrientMetaData>(NUTRIENTS.allDetails)
-    this.vit_As = getVitaminA<NutrientMetaData>(NUTRIENTS.allDetails)
+    this.vitDs = getVitaminD<NutrientMetaData>(NUTRIENTS.allDetails)
+    this.vitEs = getVitaminE<NutrientMetaData>(NUTRIENTS.allDetails)
+    this.vitAs = getVitaminA<NutrientMetaData>(NUTRIENTS.allDetails)
   }
-  get nutrition() {
+  get nutrition(): Nutrition<number> {
     return this._nutrition
   }
 
@@ -246,10 +246,10 @@ export class VitaminTableComponent {
   toggleAll(): void {
     if (this.toggleAllText === 'Expand') {
       this.toggleAllText = 'Collapse'
-      this.vitA_Open = this.vitE_Open = this.folate_Open = true
+      this.vitAOpen = this.vitEOpen = this.folateOpen = true
     } else {
       this.toggleAllText = 'Expand'
-      this.vitA_Open = this.vitE_Open = this.folate_Open = false
+      this.vitAOpen = this.vitEOpen = this.folateOpen = false
     }
   }
 

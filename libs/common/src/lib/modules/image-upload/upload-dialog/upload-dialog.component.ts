@@ -92,21 +92,21 @@ export class UploadDialogComponent {
     this.imageChangedEvent = data.event
   }
 
-  cropped(event: ImageCroppedEvent) {
+  cropped(event: ImageCroppedEvent): void {
     this.data.imageCropped(event)
     this.croppedImage = event.base64
   }
 
-  rotateLeft() {
+  rotateLeft(): void {
     this.imageCropper.rotateLeft()
   }
-  rotateRight() {
+  rotateRight(): void {
     this.imageCropper.rotateRight()
   }
-  flipHorizontal() {
+  flipHorizontal(): void {
     this.imageCropper.flipHorizontal()
   }
-  flipVertical() {
+  flipVertical(): void {
     this.imageCropper.flipVertical()
   }
 }

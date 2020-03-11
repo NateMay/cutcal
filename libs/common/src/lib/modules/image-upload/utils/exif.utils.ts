@@ -11,13 +11,13 @@ export function resetExifOrientation(srcBase64: string): Promise<string> {
   }
 }
 
-export function transformBase64BasedOnExifRotation(
+export const transformBase64BasedOnExifRotation = (
   srcBase64: string,
   exifRotation: number
-): Promise<string> {
-  return new Promise((resolve, reject) => {
+): Promise<string> =>
+  new Promise((resolve, reject) => {
     const img = new Image()
-    img.onload = () => {
+    img.onload = (): void => {
       const width = img.width
       const height = img.height
       const canvas = document.createElement('canvas')
@@ -40,7 +40,6 @@ export function transformBase64BasedOnExifRotation(
     }
     img.src = srcBase64
   })
-}
 
 function getExifRotation(imageBase64: string): number {
   const view = new DataView(base64ToArrayBuffer(imageBase64))
@@ -76,8 +75,10 @@ function getExifRotation(imageBase64: string): number {
   return -1
 }
 
-function base64ToArrayBuffer(imageBase64: string) {
-  imageBase64 = imageBase64.replace(/^data\:([^\;]+)\;base64,/gim, '')
+function base64ToArrayBuffer(
+  imageBase64: string
+): ArrayBuffer | SharedArrayBuffer {
+  imageBase64 = imageBase64.replace(/^data:([^;]+);base64,/gim, '')
   const binaryString = atob(imageBase64)
   const len = binaryString.length
   const bytes = new Uint8Array(len)
@@ -92,7 +93,7 @@ function transformCanvas(
   orientation: number,
   width: number,
   height: number
-) {
+): void {
   switch (orientation) {
     case 2:
       ctx.transform(-1, 0, 0, 1, width, 0)

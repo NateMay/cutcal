@@ -212,7 +212,7 @@ export class FatsTableComponent {
     this.omega3 = sum(values(getOmega3(this._nutrition)))
     this.omega6 = sum(values(getOmega6(this._nutrition)))
   }
-  get nutrition() {
+  get nutrition(): Nutrition<number> {
     return this._nutrition
   }
 
@@ -221,11 +221,11 @@ export class FatsTableComponent {
   polySaturated_open: boolean = false
   transSaturated_open: boolean = false
 
+  constructor(private dv: DailyValueSvc) {}
+
   // Recommended Daily Allowance
   rda(path: string): number {
     const range: NutritionRange = get(this.dv.snapshot.nutrition, path)
     return range?.RDA ? range.RDA : 1
   }
-
-  constructor(private dv: DailyValueSvc) {}
 }

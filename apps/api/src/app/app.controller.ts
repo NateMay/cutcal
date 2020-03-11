@@ -1,6 +1,6 @@
-import { Message } from '@cutcal/api-interfaces';
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Message } from '@cutcal/api-interfaces'
+import { Body, Controller, Get, Post } from '@nestjs/common'
+import { AppService } from './app.service'
 
 @Controller()
 export class AppController {
@@ -16,4 +16,3 @@ export class AppController {
     return this.appService.scrapeDescription(link)
   }
 }
-

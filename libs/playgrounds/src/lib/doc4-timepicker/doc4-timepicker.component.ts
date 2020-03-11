@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'cutcal-doc4-timepicker',
@@ -84,14 +84,14 @@ import { Component, OnInit } from '@angular/core'
   `,
   styleUrls: ['./doc4-timepicker.component.css'],
 })
-export class Doc4TimepickerComponent implements OnInit {
+export class Doc4TimepickerComponent {
   time = '03:15 pm'
 
   constructor() {}
 
-  ngOnInit() {}
-
-  timeChange(time: string): void {}
+  timeChange(time: string): void {
+    console.log(time)
+  }
 
   changeTimeProg(time: string): void {
     this.time = time

@@ -5,10 +5,10 @@ import { Image } from './images'
 // FEATURE (meal) category / color
 
 /**
- * Object representing the notion of a meal
+ * @description Object representing the notion of a meal
  *
  * All ingredients of a meal (and therefore its nutrition) are composed
- *   of a pairing of a food with its Usage.
+ * of a pairing of a food with its Usage.
  *
  * Usages are asscoaiated in Firbase via a subcollection "usages"
  */
@@ -27,11 +27,10 @@ export interface Meal {
   // color?: string;
 }
 
-export function isMeal(obj: any): boolean {
-  return !!obj.timestamp && !!obj.name && !!obj.nutrition
-}
+export const isMeal = (obj: any): boolean =>
+  !!obj.timestamp && !!obj.name && !!obj.nutrition
 
-export function createMeal(
+export const createMeal = (
   name?: string,
   timestamp?: firestore.Timestamp,
   nutrition?: Nutrition<number>,
@@ -39,20 +38,18 @@ export function createMeal(
   instructions?: string[],
   image?: Image,
   userId?: string
-): Meal {
-  return {
-    name: name || '',
-    timestamp: timestamp || newTimestamp(),
-    notes: description || '',
-    nutrition: nutrition || {},
-    instructions: instructions || [],
-    image: image || { url: '' },
-    userId: userId || '',
-    _id: '',
-  }
-}
+): Meal => ({
+  name: name || '',
+  timestamp: timestamp || newTimestamp(),
+  notes: description || '',
+  nutrition: nutrition || {},
+  instructions: instructions || [],
+  image: image || { url: '' },
+  userId: userId || '',
+  _id: '',
+})
 
-export function createMealWithId(
+export const createMealWithId = (
   _id: string,
   name?: string,
   timestamp?: firestore.Timestamp,
@@ -61,20 +58,18 @@ export function createMealWithId(
   instructions?: string[],
   image?: Image,
   userId?: string
-): Meal {
-  return {
-    _id,
-    ...createMeal(
-      name,
-      timestamp,
-      nutrition,
-      description,
-      instructions,
-      image,
-      userId
-    ),
-  }
-}
+): Meal => ({
+  _id,
+  ...createMeal(
+    name,
+    timestamp,
+    nutrition,
+    description,
+    instructions,
+    image,
+    userId
+  ),
+})
 
 /**
  * Passed to the cloud function to delete a meal

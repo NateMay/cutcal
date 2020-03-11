@@ -13,9 +13,10 @@ import { DndSvc } from '../dnd.service'
 })
 export class DropTarget {
   @Input() drop: any
-  constructor(public svc: DndSvc) {}
 
   @Output() onDrop = new EventEmitter<DndPayload<any, any>>()
+
+  constructor(public svc: DndSvc) {}
 
   @HostListener('mouseup')
   dropEmit(): void {

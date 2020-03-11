@@ -18,13 +18,13 @@ describe('TimepickerMinutesFaceComponent', () => {
   });
 
   it('should call disableMinutes once period changed', () => {
-    const spy = spyOn(TimepickerTime, 'disableMinutes');
+    const spy = jest.spyOn(TimepickerTime, 'disableMinutes');
     const changes: SimpleChanges = {
       period: {
         currentValue: TimePeriod.PM,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
       },
     };
     const time = new Date();
@@ -48,13 +48,13 @@ describe('TimepickerMinutesFaceComponent', () => {
   });
 
   it('should not call disableMinutes', () => {
-    const spy = spyOn(TimepickerTime, 'disableMinutes');
+    const spy = jest.spyOn(TimepickerTime, 'disableMinutes');
     const changes: SimpleChanges = {
       minTime: {
         currentValue: null,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
       },
     };
 

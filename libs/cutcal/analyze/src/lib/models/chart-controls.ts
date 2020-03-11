@@ -14,11 +14,11 @@ export interface ChartControls {
   unit: string
 }
 
-export function updateControls(
+export const updateControls = (
   units: KVP<any>,
   previous?: KVP<ChartControls>
-): KVP<ChartControls> {
-  return keyBy(
+): KVP<ChartControls> =>
+  keyBy(
     map(
       units,
       (X, unit) =>
@@ -31,4 +31,3 @@ export function updateControls(
     ),
     'unit'
   )
-}

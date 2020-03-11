@@ -1,5 +1,5 @@
 /**
- * @Reference {@link https://medium.com/javascript-in-plain-english/you-must-understand-these-14-javasript-functions-1f4fa1c620e2 Medium}
+ * @see {@link https://medium.com/javascript-in-plain-english/you-must-understand-these-14-javasript-functions-1f4fa1c620e2 Medium}
  */
 export function toRawType(value): string {
   const _toString = Object.prototype.toString

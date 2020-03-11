@@ -34,22 +34,22 @@ export class ExpertReputation extends ReputationType {
 }
 
 export class NutritionistReputation extends ReputationType {
-  client_weeks: number // 1 for each consecutive 7 days with a client
+  clientWeeks: number // 1 for each consecutive 7 days with a client
   constructor() {
     super('Nutritionist')
-    this.client_weeks = 0
+    this.clientWeeks = 0
   }
 }
 
 export class ChefReputation extends ReputationType {
   points: number
   badges: Badge[]
-  liked_recipes: number
-  created_recipes: number
+  likedRecipes: number
+  createdRecipes: number
   constructor() {
     super('Chef')
-    this.liked_recipes = 0
-    this.created_recipes = 0
+    this.likedRecipes = 0
+    this.createdRecipes = 0
   }
 }
 
@@ -72,8 +72,8 @@ export const MOCK_REPUTATIONS: Reputations = {
         date: new Date(),
       },
     ],
-    liked_recipes: 10,
-    created_recipes: 5,
+    likedRecipes: 10,
+    createdRecipes: 5,
   },
   nutritionist: {
     name: 'Nutritionist',
@@ -84,7 +84,7 @@ export const MOCK_REPUTATIONS: Reputations = {
         date: new Date(),
       },
     ],
-    client_weeks: 20,
+    clientWeeks: 20,
   },
   expert: {
     name: 'Expert',

@@ -1,3 +1,4 @@
+/* eslint-disable jest/expect-expect */
 import { OverlayModule } from '@angular/cdk/overlay';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -36,22 +37,22 @@ describe('Date Picker & Dialog', () => {
   let input: HTMLInputElement;
 
   // FIXME (datepicker) cannot currectly access the overlay
-  const assertOpen = () => {
+  const assertOpen = (): void => {
     expect(component.pickerOverlayRef.hasAttached()).toBeTruthy();
   };
 
-  const assertClosed = () => {
+  const assertClosed = (): void => {
     fixture.detectChanges();
     const dialog = getByDir(fixture, DatePickerDialogComponent);
     expect(!!dialog && component.pickerOverlayRef.hasAttached()).toBe(false);
   };
 
-  const focusInput = () => {
+  const focusInput = (): void => {
     fixture.detectChanges();
     input.dispatchEvent(new FocusEvent('focus'));
   };
 
-  const tabOut = () =>
+  const tabOut = (): boolean =>
     input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' }));
 
   beforeEach(() => {
@@ -59,7 +60,10 @@ describe('Date Picker & Dialog', () => {
       declarations: [TestDatePickerComponent],
       imports: [DatePickerModule, NoopAnimationsModule, OverlayModule],
       providers: [
-        { provide: RefocusService, useValue: { reCastFocusId: () => {} } },
+        {
+          provide: RefocusService,
+          useValue: { reCastFocusId: (): void => {} },
+        },
       ],
     });
     fixture = TestBed.createComponent(TestDatePickerComponent);
@@ -135,7 +139,7 @@ describe('Date Picker & Dialog', () => {
   });
 
   // FIXME (datepicker) cannot currectly access the overlay
-  xit('bind by selecting a day from the date picker dialog & closes the picker', () => {
+  it('bind by selecting a day from the date picker dialog & closes the picker', () => {
     // arrange
     parent.dateFormat = 'longDate';
     focusInput();

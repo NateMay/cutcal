@@ -1,21 +1,18 @@
 import { KVP } from '@cutcal/core'
 import { Food, Portion, Usage } from '@cutcal/diet'
 import { multiplyNutrition, Nutrient, Nutrition } from '@cutcal/nutrition'
+/**
+ * @see {@link https://github.com/ben-ng/convert-units}
+ * There are no typing for this library
+ */
+// if (window) (window as any).global = window
+// declare const require: (moduleId: string) => any
+// const convert = require('convert-units')
+import * as convert from 'convert-units'
 import { forEach } from 'lodash'
 
 /**
- * @source {@link https://github.com/ben-ng/convert-units}
- * @note there are no typing for this library
- */
-
-// FIXME (bad practice) import crrrectly
-if (window) (window as any).global = window
-declare const require: (moduleId: string) => any
-// tslint:disable-next-line
-const convert = require('convert-units')
-
-/**
- * Adjusts the base food nutrition according the portion specified in the usage
+ * @description Adjusts the base food nutrition according the portion specified in the usage
  * @param {Usage} usage
  * @param {Food} food
  * @returns {Nutrition<number>}
@@ -27,8 +24,8 @@ export function scaleNutrition(usage: Usage, food: Food): Nutrition<number> {
 }
 
 /**
- * Will adjust the a nutrient on the food's stored nutrition
- *   according the portion specified in the usage
+ * @description Will adjust the a nutrient on the food's stored nutrition
+ * according the portion specified in the usage
  *
  * @param {Usage} usage
  * @param {Food} food
@@ -115,20 +112,21 @@ function getCompatibleFoodPortion(usage: Usage, food: Food): Portion | never {
 }
 
 // TEST (convert)
+interface PortionAdder {
+  to: (portionB: Portion) => number
+}
 /**
- * converts and adds a quantity to another
+ * @description converts and adds a quantity to another
  * @example
  *   addPortion('g', 3000).to({ unit:'kg', quantity: 1 }) => 4 // (kg)
  */
-export function addPortion(portionA: Portion) {
-  return {
-    to: (portionB: Portion): number =>
-      portionB.quantity +
-      convert(portionA.quantity)
-        .from(safeUnit(portionA.unit))
-        .to(safeUnit(portionB.unit)),
-  }
-}
+export const addPortion = (portionA: Portion): PortionAdder => ({
+  to: (portionB: Portion): number =>
+    portionB.quantity +
+    convert(portionA.quantity)
+      .from(safeUnit(portionA.unit))
+      .to(safeUnit(portionB.unit)),
+})
 
 const SAFE_UNIT_MAP: KVP<string> = {
   µg: 'mcg',
@@ -138,28 +136,24 @@ const SAFE_UNIT_MAP: KVP<string> = {
 }
 
 /**
- * Converts unit string unsupported by {@link https://github.com/ben-ng/convert-units}
+ * @description Converts unit string unsupported by {@link https://github.com/ben-ng/convert-units}
  * @param {string} unit the CutCal unit
  * @returns {string} the convert-units (npm) unit string
  */
-function safeUnit(unit: string): string {
-  return SAFE_UNIT_MAP[unit] || unit
-}
+const safeUnit = (unit: string): string => SAFE_UNIT_MAP[unit] || unit
 
 /**
- * Gets all possible units which a unit can be converted to
+ * @description Gets all possible units which a unit can be converted to
  * @param {string} unit the CutCal unit
  */
-export function possibilities(unit: string): string[] {
-  return convert()
+export const possibilities = (unit: string): string[] =>
+  convert()
     .from(safeUnit(unit))
     .possibilities()
-}
 
-export function getAlternatePortions(portion: Portion): Portion[] {
-  return possibilities(portion.unit).map(altUnit =>
+export const getAlternatePortions = (portion: Portion): Portion[] =>
+  possibilities(portion.unit).map(altUnit =>
     convert(portion.quantity)
       .from(safeUnit(portion.unit))
       .to(safeUnit(altUnit))
   )
-}

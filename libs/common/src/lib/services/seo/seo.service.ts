@@ -28,7 +28,7 @@ export interface MetaTagConfig {
 export class SeoService {
   constructor(private meta: Meta) {}
 
-  generateTags(config: MetaTagConfig) {
+  generateTags(config: MetaTagConfig): void {
     // default values
     // TODO (move) to firebase and keep in localStorage
     config = {

@@ -39,26 +39,26 @@ describe('Boolish Decorator', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should fix bad booleans', () => {
+  it('should fix bad booleans - "false"', () => {
     fixture.detectChanges();
     expect(child.aBoolean).toBe(false);
   });
 
-  it('should fix bad booleans', () => {
+  it('should fix bad booleans - "true"', () => {
     component.notABoolean = 'true';
     child.aBoolean = false;
     fixture.detectChanges();
     expect(child.aBoolean).toBe(true);
   });
 
-  it('should fix bad booleans', () => {
+  it('should fix bad booleans - true', () => {
     component.notABoolean = undefined;
     child.aBoolean = true;
     fixture.detectChanges();
     expect(child.aBoolean).toBe(true);
   });
 
-  it('should fix bad booleans', () => {
+  it('should fix bad booleans - false', () => {
     component.notABoolean = undefined;
     child.aBoolean = false;
     fixture.detectChanges();

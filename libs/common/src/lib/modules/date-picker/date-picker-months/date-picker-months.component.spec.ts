@@ -10,7 +10,7 @@ import { DatePickerMonthsComponent } from './date-picker-months.component';
     <cc-date-picker-months
       [selectedDate]="selectedDate"
       [focusDate]="focusDate"
-      (monthSelect)="monthSelect($event)"
+      (monthSelect)="monthSelect()"
     ></cc-date-picker-months>
   `,
 })
@@ -18,7 +18,7 @@ class TestDatePickerMonthsComponent {
   selectedDate: Date = new Date(2019, 3, 5);
   focusDate: Date = new Date(2019, 3, 6);
 
-  monthSelect(monthIndex: number) {}
+  monthSelect(): void {}
 }
 
 describe('DatePickerMonthsComponent', () => {
@@ -46,12 +46,12 @@ describe('DatePickerMonthsComponent', () => {
 
   it('should have 12 months', () => {
     const buttons = getAllDe(fixture, 'button');
-    expect(buttons.length).toBe(12);
+    expect(buttons).toHaveLength(12);
   });
 
   // FIXME
-  xit('should emit the index of the month clicked', () => {
-    const spy = spyOn(parent, 'monthSelect');
+  it('should emit the index of the month clicked', () => {
+    const spy = jest.spyOn(parent, 'monthSelect');
     const buttons = getAllDe(fixture, 'button');
     fixture.detectChanges();
     buttons[4].nativeElement.click();

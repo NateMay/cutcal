@@ -1,18 +1,17 @@
 import { round } from 'lodash'
 
 /**
- * Determines the appropirate step adjustment
+ * @description Determines the appropirate step adjustment
  * @param {number} quantity
  * @param {number} direction
- * @return {number}
+ * @returns {number}
  */
 
-export function increment(quantity: number, direction: number): number {
-  return round(quantity + direction * getQuantityStep(quantity), 2)
-}
+export const increment = (quantity: number, direction: number): number =>
+  round(quantity + direction * getQuantityStep(quantity), 2)
 
-export function getQuantityStep(quant: number): number {
-  return quant <= 0.01
+export const getQuantityStep = (quant: number): number =>
+  quant <= 0.01
     ? quant
     : quant <= 0.05
     ? 0.01
@@ -27,4 +26,3 @@ export function getQuantityStep(quant: number): number {
     : quant <= 30
     ? 1
     : 5
-}

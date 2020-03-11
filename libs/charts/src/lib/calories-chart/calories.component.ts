@@ -84,7 +84,7 @@ export class CaloriesChartComponent {
     }
   }
 
-  buildChartData(caloriesFrom: CaloriesFrom) {
+  buildChartData(caloriesFrom: CaloriesFrom): any[] {
     const totalCalories = reduce(caloriesFrom, (sum, curr) => sum + curr) || 0
 
     const result = []

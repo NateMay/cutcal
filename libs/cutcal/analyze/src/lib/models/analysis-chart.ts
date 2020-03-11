@@ -21,8 +21,7 @@ export class AnalysisChartVM {
     // chart: Highcharts.Chart
   ) {
     if (!this.options.title) this.options.title = { text: '' }
-    // tslint:disable-next-line:no-non-null-assertion
-    this.options!.title!.text = `Daily Intake - ${NUTRIENT_UNIT_LOOKUP[unit]} (${unit})`
+    this.options.title.text = `Daily Intake - ${NUTRIENT_UNIT_LOOKUP[unit]} (${unit})`
     this.unit = unit
     this.options = options
     this.controls = controls

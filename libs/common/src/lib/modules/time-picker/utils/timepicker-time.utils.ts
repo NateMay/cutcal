@@ -3,8 +3,8 @@ import { ClockFaceTime } from '../models/clock-face-time.interface'
 import { DisabledTimeConfig } from '../models/disabled-time-config.interface'
 import { TimeAdapter } from '../services/time-adapter'
 
-export function getHours(format: number): ClockFaceTime[] {
-  return Array(format)
+export const getHours = (format: number): ClockFaceTime[] =>
+  Array(format)
     .fill(1)
     .map((v, i) => {
       const angleStep = 30
@@ -12,7 +12,6 @@ export function getHours(format: number): ClockFaceTime[] {
       const angle = angleStep * time
       return { time: time === 24 ? 0 : time, angle }
     })
-}
 
 export function disableHours(
   hours: ClockFaceTime[],
@@ -61,7 +60,7 @@ export function disableMinutes(
   minutes: ClockFaceTime[],
   selectedHour: number,
   config: DisabledTimeConfig
-) {
+): ClockFaceTime[] {
   if (config.min || config.max) {
     const hour = TimeAdapter.formatHour(
       selectedHour,

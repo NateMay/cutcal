@@ -1,9 +1,9 @@
 import { EventEmitter } from '@angular/core';
 import { executeOnStable } from './executeOnStable';
 
-export class MockNgZone {
+class MockNgZone {
   onStable = new EventEmitter<any>();
-  runOutsideAngular(func) {
+  runOutsideAngular(func): void {
     func();
     return;
   }

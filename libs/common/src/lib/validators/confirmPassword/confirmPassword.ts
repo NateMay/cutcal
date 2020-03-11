@@ -1,9 +1,14 @@
 import { Attribute, Directive, forwardRef } from '@angular/core'
-import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms'
+import {
+  AbstractControl,
+  NG_VALIDATORS,
+  ValidationErrors,
+  Validator,
+} from '@angular/forms'
 
 /**
- * Directive which pairs with a passord form control and ensures equality
- * @source {@link https://scotch.io/tutorials/how-to-implement-a-custom-validator-directive-confirm-password-in-angular-2 Scotch.io}
+ * @description Directive which pairs with a passord form control and ensures equality
+ * @see {@link https://scotch.io/tutorials/how-to-implement-a-custom-validator-directive-confirm-password-in-angular-2 Scotch.io}
  */
 
 @Directive({

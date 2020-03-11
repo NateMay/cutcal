@@ -1,9 +1,9 @@
 import { DailyValue } from './daily-value'
 
 /**
- * @reference {@link http://www.consumerlab.com/RDAs/ ConsumerLabs}
- * @reference {@link http://nationalacademies.org/hmd/~/media/Files/Report%20Files/2019/DRI-Tables-2019/6_DRIValues_Summary.pdf?la=en NationalAcademies}
- * @reference {@link https://www.nap.edu/read/10490/chapter/15#953 MacroNutrients}
+ * @see {@link http://www.consumerlab.com/RDAs/ ConsumerLabs}
+ * @see {@link http://nationalacademies.org/hmd/~/media/Files/Report%20Files/2019/DRI-Tables-2019/6_DRIValues_Summary.pdf?la=en NationalAcademies}
+ * @see {@link https://www.nap.edu/read/10490/chapter/15#953 MacroNutrients}
  */
 
 // Vitamin K 120.0 µg
@@ -51,7 +51,7 @@ export const DEAFULT_DAILY_VALUE: DailyValue = {
       UL: 450,
       unit: 'g',
     },
-    dietary_fiber: {
+    dietaryFiber: {
       EAR: 15,
       RDA: 38,
       AI: 30,
@@ -114,35 +114,35 @@ export const DEAFULT_DAILY_VALUE: DailyValue = {
       UL: 860,
       unit: 'g',
     },
-    vit_A: {
+    vitA: {
       EAR: 3000,
       RDA: 4000,
       AI: 3300,
       UL: 10000,
       unit: 'iu',
     },
-    vit_C: {
+    vitC: {
       EAR: 90,
       RDA: 130,
       AI: 110,
       UL: 2000,
       unit: 'mg',
     },
-    vit_D: {
+    vitD: {
       EAR: 200,
       RDA: 260,
       AI: 230,
       UL: 4000,
       unit: 'iu',
     },
-    vit_E: {
+    vitE: {
       EAR: 15,
       RDA: 25,
       AI: 18,
       UL: 210,
       unit: 'mg',
     },
-    vit_K: {
+    vitK: {
       EAR: 120,
       RDA: 150,
       AI: 130,
@@ -170,7 +170,7 @@ export const DEAFULT_DAILY_VALUE: DailyValue = {
       UL: 135,
       unit: 'mg',
     },
-    vit_B6: {
+    vitB6: {
       EAR: 2,
       RDA: 2.4,
       AI: 2.5,
@@ -184,7 +184,7 @@ export const DEAFULT_DAILY_VALUE: DailyValue = {
       UL: 1000,
       unit: 'µg',
     },
-    vit_B12: {
+    vitB12: {
       EAR: 2.4,
       RDA: 5.3,
       AI: 3,
@@ -213,7 +213,7 @@ export const DEAFULT_DAILY_VALUE: DailyValue = {
       UL: 350,
       unit: 'µg',
     },
-    pantothenic_acid: {
+    pantothenicAcid: {
       EAR: 10,
       RDA: 11,
       AI: 11,

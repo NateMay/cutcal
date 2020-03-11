@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core'
 import { MatSelectChange } from '@angular/material/select'
 import { MatSlideToggleChange } from '@angular/material/slide-toggle'
 import * as Highcharts from 'highcharts'
@@ -7,7 +13,7 @@ import { AnalysisChartVM } from '../models/analysis-chart'
 import { ChartControls } from '../models/chart-controls'
 
 /**
- * @reference {@link https://github.com/highcharts/highcharts-angular/tree/master/src/app Highcharts Angular}
+ * @see {@link https://github.com/highcharts/highcharts-angular/tree/master/src/app Highcharts Angular}
  */
 @Component({
   selector: 'cc-analysis-chart',
@@ -75,7 +81,7 @@ export class AnalysisChartComponent {
 
   @Input() chart: AnalysisChartVM
 
-  get controls() {
+  get controls(): ChartControls {
     return this.chart.controls
   }
 
@@ -85,7 +91,7 @@ export class AnalysisChartComponent {
 
   constructor() {}
 
-  valueStackedChange(change: MatSlideToggleChange) {
+  valueStackedChange(change: MatSlideToggleChange): void {
     this.controlsChange.emit(
       merge(this.controls, {
         valueStacked: change.checked,
@@ -94,7 +100,7 @@ export class AnalysisChartComponent {
     )
   }
 
-  percentStackedChange(change: MatSlideToggleChange) {
+  percentStackedChange(change: MatSlideToggleChange): void {
     this.controlsChange.emit(
       merge(this.controls, {
         percentStacked: change.checked,
@@ -103,7 +109,7 @@ export class AnalysisChartComponent {
     )
   }
 
-  typeChange(change: MatSelectChange) {
+  typeChange(change: MatSelectChange): void {
     this.controlsChange.emit(merge(this.controls, { type: change.value }))
   }
 }

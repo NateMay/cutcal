@@ -137,7 +137,7 @@ export class TimepickerFaceComponent
   private touchStartHandler: () => any
   private touchEndHandler: () => any
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.setClockHandPosition()
     this.addTouchEvents()
   }
@@ -169,7 +169,7 @@ export class TimepickerFaceComponent
   }
 
   @HostListener('mousedown', ['$event'])
-  onMousedown(e: MouseEvent | TouchEvent) {
+  onMousedown(e: MouseEvent | TouchEvent): void {
     e.preventDefault()
     this.isStarted = true
   }
@@ -227,7 +227,7 @@ export class TimepickerFaceComponent
   }
 
   @HostListener('mouseup', ['$event'])
-  onMouseup(e: MouseEvent | TouchEvent) {
+  onMouseup(e: MouseEvent | TouchEvent): void {
     e.preventDefault()
     this.isStarted = false
   }
@@ -244,7 +244,7 @@ export class TimepickerFaceComponent
     )
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.removeTouchEvents()
   }
 
@@ -322,9 +322,8 @@ export class TimepickerFaceComponent
   }
 }
 
-function roundAngle(angle: number, step: number): number {
-  return Math.round(angle / step) * step
-}
+const roundAngle = (angle: number, step: number): number =>
+  Math.round(angle / step) * step
 
 function countAngleByCords(
   x0: number,

@@ -20,25 +20,24 @@ import { FirestoreService } from './fireStore.service';
 //   return { randomCollectionName, ref, stocks, names };
 // }
 
-// TEST https://github.com/soumak77/firebase-mock
-export const TEST_CONFIG = {
-  apiKey: 'A;kjsbdfkjabsd;kjabscoidaoiabvpabdv',
-  authDomain: 'kjhadsfkpjhsdlfkjhasd.firebaseapp.com',
-  databaseURL: 'https://angularfirestore.firebaseio.com',
-  projectId: 'kjnd;kcjz;cvkjnsdvkj',
-  storageBucket: 'angularfirestore.appspot.com',
-  messagingSenderId: '7i623471298410',
-};
-
 describe('AngularFirestore', () => {
   let app: FirebaseApp;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let afs: AngularFirestore;
   let service: FirestoreService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        AngularFireModule.initializeApp(TEST_CONFIG),
+        // TEST https://github.com/soumak77/firebase-mock
+        AngularFireModule.initializeApp({
+          apiKey: 'A;kjsbdfkjabsd;kjabscoidaoiabvpabdv',
+          authDomain: 'kjhadsfkpjhsdlfkjhasd.firebaseapp.com',
+          databaseURL: 'https://angularfirestore.firebaseio.com',
+          projectId: 'kjnd;kcjz;cvkjnsdvkj',
+          storageBucket: 'angularfirestore.appspot.com',
+          messagingSenderId: '7i623471298410',
+        }),
         AngularFirestoreModule,
       ],
     });
@@ -124,7 +123,7 @@ describe('AngularFirestore', () => {
 
   // TEST (firestore-service) mock
   it('inspectCol() returns a Promise', () => {
-    const spy = spyOn(Date.prototype, 'getTime');
+    const spy = jest.spyOn(Date.prototype, 'getTime');
     const col = service.col('path/to/doc');
     service.inspectCol(col);
     expect(spy).toHaveBeenCalled();
@@ -132,7 +131,7 @@ describe('AngularFirestore', () => {
 
   // TEST (firestore-service) mock
   it('inspectDoc() returns a Promise', () => {
-    const spy = spyOn(Date.prototype, 'getTime');
+    const spy = jest.spyOn(Date.prototype, 'getTime');
     const doc = service.doc('path/to/a/document');
     service.inspectDoc(doc);
     expect(spy).toHaveBeenCalled();

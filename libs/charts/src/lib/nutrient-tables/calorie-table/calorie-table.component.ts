@@ -80,13 +80,13 @@ export class CalorieTableComponent {
     return this._nutrition
   }
 
+  constructor(private dv: DailyValueSvc) {}
+
   getPerent(macro: keyof CaloriesFrom): number {
     return this.nutrition?.calories
       ? this.caloresFrom[macro] / this.nutrition.calories
       : 0
   }
-
-  constructor(private dv: DailyValueSvc) {}
 
   // Recommended Daily Allowance
   rda(propName: string): number {

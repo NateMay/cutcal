@@ -1,38 +1,35 @@
 import { Action } from '@ngrx/store'
 
 /**
- * Fixes breaking issue related to lazy loading ngrx forFeature() modules
- * @param {string} action sdfsdfsf
+ * @description Fixes breaking issue related to lazy loading ngrx forFeature() modules
+ * @param {string} action
  * @returns {string}
  * {@link https://github.com/ngrx/platform/issues/825 Overlay Stackblitz}
- *  wesselvdv comment on Feb 23
- * must be exported for --aot build
+ * - wesselvdv comment on Feb 23
+ * - must be exported for --aot build
  */
-export function actionSanitizer(action: any): any {
-  return JSON.parse(stringify(action))
-}
+export const actionSanitizer = (action: any): any =>
+  JSON.parse(stringify(action))
 
-export function stringify(
+export const stringify = (
   obj: any,
   replacer?: () => any,
   spaces?: any,
   cycleReplacer?: () => any
-): string {
-  return JSON.stringify(obj, serializer(replacer, cycleReplacer), spaces)
-}
+): string => JSON.stringify(obj, serializer(replacer, cycleReplacer), spaces)
 
-function serializer(replacer: any, cycleReplacer: any) {
+function serializer(replacer: any, cycleReplacer: any): any {
   const stack: Action[] = []
   const keys: string[] = []
 
   if (cycleReplacer == null) {
-    cycleReplacer = (key: string, value: any) => {
+    cycleReplacer = (key: string, value: any): any => {
       if (stack[0] === value) return '[Circular ~]'
       return `[Circular ~.${keys.slice(0, stack.indexOf(value)).join('.')}]`
     }
   }
 
-  return function(this: any, key: string, value: any) {
+  return function(this: any, key: string, value: any): any {
     if (stack.length > 0) {
       const thisPos = stack.indexOf(this)
       ~thisPos ? stack.splice(thisPos + 1) : stack.push(this)

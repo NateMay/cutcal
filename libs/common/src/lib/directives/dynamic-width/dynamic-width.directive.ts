@@ -26,13 +26,13 @@ export class DynamicWidthDirective implements OnInit, OnDestroy {
     return (<HTMLElement>this.host.nativeElement).getBoundingClientRect().width
   }
 
-  get isNewWidth() {
+  get isNewWidth(): boolean {
     return Math.abs(this._storedWidth - this.currentWidth) > 2
   }
 
   constructor(private host: ElementRef) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this._storedWidth = this.currentWidth
 
     setTimeout(() => this.width.emit(this._storedWidth))
@@ -50,7 +50,7 @@ export class DynamicWidthDirective implements OnInit, OnDestroy {
       .subscribe()
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     // this.width.emit(0);
     this.unsub$.next()
     this.unsub$.complete()

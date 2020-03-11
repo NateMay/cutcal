@@ -85,13 +85,13 @@ export class Doc4DndComponent {
     this.value1 = payload.drag
     this.calculate()
   }
-  val2Drop(payload: DndPayload<number, null>) {
+  val2Drop(payload: DndPayload<number, null>): void {
     if (typeof payload.drag !== 'number') return
     this.value2 = payload.drag
     this.calculate()
   }
 
-  operDrop(payload: DndPayload<string, null>) {
+  operDrop(payload: DndPayload<string, null>): void {
     if (typeof payload.drag !== 'string') return
     this.operator = payload.drag
     this.calculate()

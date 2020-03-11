@@ -1,6 +1,6 @@
 import { KVP } from '@cutcal/core'
+import { Usage } from '@cutcal/diet'
 import { BioData } from './bio-data'
-import { Usage } from './usage'
 /**
  * Notions to capture:
  *
@@ -10,7 +10,6 @@ import { Usage } from './usage'
  * 4) Privacy - what gets displayed if anything and to whom
  */
 
-/*tslint:disable:max-line-length*/
 export interface CutCalUser {
   ccInfo: CutCalManagedInfo
   ownerInfo: OwnerManagedInfo

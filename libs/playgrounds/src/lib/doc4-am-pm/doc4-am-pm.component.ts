@@ -19,5 +19,5 @@ export class Doc4AmPmComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

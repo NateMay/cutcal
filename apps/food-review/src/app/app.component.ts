@@ -16,10 +16,7 @@ export class AppComponent {
 
   results$: Observable<WikiDetails[]>
 
-  constructor(
-    private google: GoogleService,
-    private wiki: WikipediaService
-  ) {
+  constructor(private google: GoogleService, private wiki: WikipediaService) {
     this.search('avocado')
   }
 
@@ -30,10 +27,9 @@ export class AppComponent {
         // tap(console.log),
         tap((result: WikiDetails[]) => (this.selected = result[0])),
         switchMap(result => this.wiki.getDescription(result[0].link)),
-        tap(desc => this.description = desc.message),
+        tap(desc => (this.description = desc.message)),
         first()
       )
       .subscribe()
   }
-
 }

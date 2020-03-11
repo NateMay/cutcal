@@ -9,7 +9,7 @@ export interface RouterStateUrl {
 }
 
 /**
- * @note required for the RouterStore to work properly
+ * @description required for the RouterStore to work properly
  */
 @Injectable()
 export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {

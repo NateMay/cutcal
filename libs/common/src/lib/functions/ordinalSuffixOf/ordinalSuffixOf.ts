@@ -1,5 +1,5 @@
 /**
- * Gets the string suffix for a number
+ * @description Gets the string suffix for a number
  * @param {number} integer
  * @example
  *   ordinalSuffixOf(12); => 'th'

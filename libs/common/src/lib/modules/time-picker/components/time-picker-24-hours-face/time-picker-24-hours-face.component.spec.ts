@@ -17,8 +17,8 @@ describe('Timepicker24HoursFaceComponent', () => {
     component = fixture.componentInstance;
   });
 
-  xit('should call disableHours', () => {
-    const spy = spyOn(TimepickerTime, 'disableHours');
+  it('should call disableHours', () => {
+    const spy = jest.spyOn(TimepickerTime, 'disableHours');
     const time = new Date();
     const format = 24;
     const hours = TimepickerTime.getHours(format);
@@ -38,7 +38,7 @@ describe('Timepicker24HoursFaceComponent', () => {
   });
 
   it('should generate array with 24 items', () => {
-    expect(component.hoursList.length).toBe(24);
+    expect(component.hoursList).toHaveLength(24);
   });
 
   it('should emit selected hour (24hr format)', async(() => {

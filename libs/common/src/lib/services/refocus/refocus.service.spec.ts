@@ -13,7 +13,7 @@ import { RefocusService } from './refocus.service';
 class TestRefocusComponent {
   constructor(private focuser: RefocusService) {}
 
-  focusOn2() {
+  focusOn2(): void {
     this.focuser.reCastFocusId('second');
   }
 }

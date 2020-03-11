@@ -1,6 +1,5 @@
 /**
- * Converts boolean string to boolean for @Input()
- * @type decorator
+ * @description Decorator which converts boolean string to boolean for @Input()
  */
 
 export const Boolish: PropertyDecorator = (

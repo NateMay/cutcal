@@ -5,12 +5,12 @@ import { docJoin } from './docJoin';
 it('docJoin() adds the child to the parent  - shared/functions', () => {
   // arrange
   const afsStub = {
-    doc: (path: string) => ({
-      valueChanges: () => of({ docToJoin: 'anything' }),
+    doc: (path: string): any => ({
+      valueChanges: (): Observable<any> => of({ docToJoin: 'anything' }),
     }),
   };
 
-  const spy = spyOn(afsStub, 'doc').and.callThrough();
+  const spy = jest.spyOn(afsStub, 'doc');
 
   const firebaseResponse$: Observable<any> = of({
     assignmentProp: '<DOCUMENT_ID>',

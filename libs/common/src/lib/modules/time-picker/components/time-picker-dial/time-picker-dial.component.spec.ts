@@ -24,14 +24,14 @@ describe('TimepickerDialComponent', () => {
   });
 
   it('should call disableHours and disableMinutes on period change', () => {
-    const spyOnHours = spyOn(TimepickerTime, 'disableHours');
-    const spyOnMinutes = spyOn(TimepickerTime, 'disableMinutes');
+    const spyOnHours = jest.spyOn(TimepickerTime, 'disableHours');
+    const spyOnMinutes = jest.spyOn(TimepickerTime, 'disableMinutes');
     const changes: SimpleChanges = {
       period: {
         currentValue: TimePeriod.AM,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
       },
     };
 
@@ -41,13 +41,13 @@ describe('TimepickerDialComponent', () => {
   });
 
   it('should call disableHours on format change', () => {
-    const spyOnHours = spyOn(TimepickerTime, 'disableHours');
+    const spyOnHours = jest.spyOn(TimepickerTime, 'disableHours');
     const changes: SimpleChanges = {
       format: {
         currentValue: 24,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
       },
     };
 
@@ -56,13 +56,13 @@ describe('TimepickerDialComponent', () => {
   });
 
   it('should call disableMinutes on hour change', () => {
-    const spy = spyOn(TimepickerTime, 'disableMinutes');
+    const spy = jest.spyOn(TimepickerTime, 'disableMinutes');
     const changes: SimpleChanges = {
       hour: {
         currentValue: 24,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
       },
     };
 
@@ -71,14 +71,14 @@ describe('TimepickerDialComponent', () => {
   });
 
   it('should not call disableHours and disableMinutes', () => {
-    const spyOnHours = spyOn(TimepickerTime, 'disableHours');
-    const spyOnMinutes = spyOn(TimepickerTime, 'disableMinutes');
+    const spyOnHours = jest.spyOn(TimepickerTime, 'disableHours');
+    const spyOnMinutes = jest.spyOn(TimepickerTime, 'disableMinutes');
     const changes: SimpleChanges = {
       minTime: {
         currentValue: null,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
       },
     };
 

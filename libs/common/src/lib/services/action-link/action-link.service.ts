@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core'
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  ParamMap,
-  RouterStateSnapshot,
-} from '@angular/router'
+import { ActivatedRouteSnapshot, CanActivate, ParamMap } from '@angular/router'
 import { KVP } from '@cutcal/core'
 import { Observable, Subject } from 'rxjs'
 import { filter, map } from 'rxjs/operators'
@@ -15,14 +10,14 @@ export class ActionLinkObserver implements CanActivate {
   private observers$ = new Subject<ActivatedRouteSnapshot>()
 
   // Implements single route user authentication guarding
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate(route: ActivatedRouteSnapshot): boolean {
     // Pushes the snapshot for observers to react, eventually
     this.observers$.next(route)
     // Always prevents the real routing
     return false
   }
 
-  /** Turns a ParamMap into an object */
+  /** @description Turns a ParamMap into an object */
   private extract(params: ParamMap): { [key: string]: string } | undefined {
     // Skips when no params are present
     if (!params || params.keys.length <= 0) {
@@ -36,7 +31,7 @@ export class ActionLinkObserver implements CanActivate {
     }, {})
   }
 
-  /** Register the observer returning the observable emitting on the specified action(s) */
+  /** @description Register the observer returning the observable emitting on the specified action(s) */
   public register(
     ...actions: string[]
   ): Observable<{ [key: string]: string } | undefined> {

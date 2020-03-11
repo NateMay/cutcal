@@ -32,7 +32,7 @@ export class DatePickerMonthsComponent {
     return this.isSelected(index) ? 'primary' : ''
   }
 
-  isSelected(index: number) {
+  isSelected(index: number): boolean {
     return (
       this.selectedDate.getMonth() == index &&
       this.selectedDate.getFullYear() == this.focusDate.getFullYear()

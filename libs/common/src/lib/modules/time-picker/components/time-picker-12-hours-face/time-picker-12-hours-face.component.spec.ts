@@ -18,13 +18,13 @@ describe('Timepicker12HoursFaceComponent', () => {
   });
 
   it('should call disabledHours once period changed', () => {
-    const spy = spyOn(TimepickerTime, 'disableHours');
+    const spy = jest.spyOn(TimepickerTime, 'disableHours');
     const changes: SimpleChanges = {
       period: {
         currentValue: TimePeriod.PM,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
       },
     };
     const time = new Date();
@@ -47,13 +47,13 @@ describe('Timepicker12HoursFaceComponent', () => {
   });
 
   it('should not call disabledHours', () => {
-    const spy = spyOn(TimepickerTime, 'disableHours');
+    const spy = jest.spyOn(TimepickerTime, 'disableHours');
     const changes: SimpleChanges = {
       minTime: {
         currentValue: null,
         previousValue: undefined,
         firstChange: true,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
       },
     };
 
@@ -62,7 +62,7 @@ describe('Timepicker12HoursFaceComponent', () => {
   });
 
   it('should generate array with 12 items', () => {
-    expect(component.hoursList.length).toBe(12);
+    expect(component.hoursList).toHaveLength(12);
   });
 
   it('should emit selected hour (12hr format)', async(() => {

@@ -8,6 +8,7 @@
     "class-name": true,
     "comment-format": [true, "check-space"],
     "curly": false,
+    "array-type": false,
     "eofline": true,
     "forin": true,
     "import-blacklist": [true, "rxjs/Rx"],

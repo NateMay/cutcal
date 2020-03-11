@@ -39,7 +39,7 @@ export class TimepickerMinutesFaceComponent implements OnChanges {
 
   @Output() minuteChange = new EventEmitter<ClockFaceTime>()
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes['period']?.currentValue) {
       const minutes = getMinutes(this.minutesGap)
       this.minutesList = disableMinutes(minutes, this.selectedHour, {

@@ -3,9 +3,10 @@ import { Directive, Input, OnInit } from '@angular/core'
 // import { Store } from '@ngrx/store';
 
 /**
- * Replaces references with the docs for
- * @refrence {@link https://netbasal.com/connect-angular-forms-to-ngrx-store-c495d17e129 Natanel Basal}
- * @note not currently used, but might be an optimization to leverage
+ * @description Replaces references with the docs for. Not currently used.
+ * but might be an optimization to leverage
+ *
+ * @see {@link https://netbasal.com/connect-angular-forms-to-ngrx-store-c495d17e129 Natanel Basal}
  */
 
 @Directive({
@@ -19,7 +20,7 @@ export class ConnectFormDirective implements OnInit {
   //   private store: Store<any>
   // ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Update the form value based on the state
     // this.store.select(state => state.forms[this.path]).take(1).subscribe(formValue => {
     //   this.formGroupDirective.form.patchValue(formValue);

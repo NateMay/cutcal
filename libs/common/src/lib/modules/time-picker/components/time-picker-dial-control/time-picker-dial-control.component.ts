@@ -1,10 +1,11 @@
-/* tslint:disable:triple-equals */
 import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
+  OnChanges,
   Output,
+  SimpleChanges,
 } from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimeUnit } from '../../models/time-unit.enum'
@@ -26,7 +27,7 @@ import { DEFAULT_HOUR } from '../../utils/default-clock-face'
   `,
   styleUrls: ['time-picker-dial-control.component.scss'],
 })
-export class TimepickerDialControlComponent {
+export class TimepickerDialControlComponent implements OnChanges {
   previousTime: number | string
 
   @Input() timeList!: ClockFaceTime[]
@@ -42,17 +43,17 @@ export class TimepickerDialControlComponent {
   @Output() timeChanged = new EventEmitter<ClockFaceTime>()
 
   private get selectedTime(): ClockFaceTime | undefined {
-    return !!this._time
+    return this._time
       ? this.timeList.find(t => t.time === +this._time)
       : DEFAULT_HOUR
   }
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //     if (changes['time'] && (changes['time'].currentValue !== undefined)) {
-  //         if (!changes['time'].firstChange) return;
-  //         this.time = changes['time'].currentValue;
-  //     }
-  // }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['time'] && changes['time'].currentValue !== undefined) {
+      if (!changes['time'].firstChange) return
+      this.time = changes['time'].currentValue
+    }
+  }
 
   saveTimeAndChangeTimeUnit(event: FocusEvent, unit: TimeUnit): void {
     event.preventDefault()
@@ -127,15 +128,14 @@ function isInputAllowed(e: KeyboardEvent): boolean {
   )
 }
 
-function isTimeDisabledToChange(
+const isTimeDisabledToChange = (
   currentTime: string,
   nextTime: string,
   timeList: ClockFaceTime[]
-): boolean {
-  return /\d/.test(nextTime)
+): boolean =>
+  /\d/.test(nextTime)
     ? isTimeUnavailable(currentTime + nextTime, timeList)
     : false
-}
 
 function isTimeUnavailable(time: string, timeList: ClockFaceTime[]): boolean {
   const selectedTime = timeList.find(value => value.time === +time)

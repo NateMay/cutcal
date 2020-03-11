@@ -45,7 +45,7 @@ export class DragItem {
   ) {}
 
   @HostListener('mouseenter')
-  loadImage() {
+  loadImage(): void {
     if (!this.dndSvc.lockImage)
       this.renderer.setAttribute(
         this.img,
@@ -97,7 +97,7 @@ export class DragItem {
     this.renderer.setStyle(this.app, 'user-select', 'auto')
     this.clearSelection()
   }
-  clearSelection() {
+  clearSelection(): void {
     if (!this._window || !this._window.getSelection) return
     const selection = this._window.getSelection()
     if (selection) selection.removeAllRanges()

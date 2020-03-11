@@ -31,7 +31,7 @@ describe('toRawType', () => {
 
   // doesn't work despite the Medium Article ???
 
-  // it('should identify "RegExp"s', () => {
+  // _it('should identify "RegExp"s', () => {
   //   expect(
   //     toRawType(toRawType(/sdfsd/i) )
   //   ).toBe('RegExp')
@@ -41,13 +41,7 @@ describe('toRawType', () => {
     expect(toRawType({})).toBe('Object');
   });
 
-  // it('should identify ""', () => {
-  //   expect(
-  //     toRawType(null)
-  //   ).toBe('')
-  // })
-
-  // it('should identify ""', () => {
+  // _it('should identify ""', () => {
   //   expect(
   //     toRawType(null)
   //   ).toBe('')

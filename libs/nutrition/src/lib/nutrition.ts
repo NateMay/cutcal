@@ -19,22 +19,22 @@ export interface Sugars<T> {
   maltose?: T
   galactose?: T
   addedSugar?: T
-  sugar_alcohol?: T
+  sugarAlcohol?: T
   xylitol?: T
   sorbitol?: T
   ribose?: T
-  sugars_nlea?: T
+  sugarsNLEA?: T
 }
 
 export interface Carbohydrates<T> extends Sugars<T> {
   carbohydrates?: T
-  dietary_fiber?: T
-  soluble_fiber?: T
-  insoluble_fiber?: T
+  dietaryFiber?: T
+  solubleFiber?: T
+  insolubleFiber?: T
   starch?: T
   sugar?: T
-  carb_sum?: T
-  carb_other?: T
+  carbSum?: T
+  carbOther?: T
   inulin?: T
   epigallocatechin?: T
 }
@@ -71,12 +71,12 @@ export interface MonoUnsaturated<T> {
   _14$1t?: T
   _14$1c?: T
   _15$1?: T
-  _16$1_undif?: T
+  _16$1Undif?: T
   _16$1c?: T
   _16$1t?: T
   _17$1?: T
   _17$1c?: T
-  _18$1_undif?: T
+  _18$1Undif?: T
   _18$1c?: T
   _18$1t?: T
   _18$1_11?: T
@@ -84,23 +84,23 @@ export interface MonoUnsaturated<T> {
   _20$1c?: T
   _20$1t?: T
   _22$02?: T
-  _22$1_undif?: T
+  _22$1Undif?: T
   _22$1c?: T
   _22$1t?: T
   _24$1c?: T
 }
 
 export interface PolyUnsaturated<T> {
-  _18$2_undif?: T
+  _18$2Undif?: T
   _18$2n6?: T
-  _18$2_CLAs?: T
+  _18$2CLAs?: T
   _18$2t?: T
   _18$2i?: T
-  _18$2t_nfd?: T
+  _18$2tNFD?: T
   _18$2c?: T
   _18$3c?: T
   _18$3t?: T
-  _18$3_undif?: T
+  _18$3Undif?: T
   _18$3n3?: T
   _18$3n6?: T
   _18$3i?: T
@@ -108,12 +108,12 @@ export interface PolyUnsaturated<T> {
   _20$2c?: T
   _20$2n6?: T
   _20$3c?: T
-  _20$3_undif?: T
+  _20$3Undif?: T
   _20$3n3?: T
   _20$3n6?: T
   _20$3n9?: T
   _20$4c?: T
-  _20$4_undif?: T
+  _20$4Undif?: T
   _20$4n6?: T
   _20$5n3?: T
   _20$5c?: T
@@ -156,7 +156,7 @@ export interface Fats<T>
     PolyUnsaturated<T>,
     TransUnsaturated<T> {
   fat?: T
-  fat_nlea?: T
+  fatNLEA?: T
   saturatedFat?: T
   polyUnsaturated?: T
   monoUnsaturated?: T
@@ -180,8 +180,8 @@ export interface AminoAcids<T> {
   arginine?: T
   histidine?: T
   alanine?: T
-  aspartic_acid?: T
-  glutamic_acid?: T
+  asparticAcid?: T
+  glutamicAcid?: T
   glycine?: T
   proline?: T
   serine?: T
@@ -200,26 +200,26 @@ export interface Protein<T> extends AminoAcids<T> {
 // ** Vitamins ** //
 // ************** //
 
-/// vitamin A
+// vitamin A
 export interface VitaminA<T> {
   retinol?: T
-  retinol_activity_equiv?: T
-  alpha_carotene?: T
-  beta_carotene?: T
-  beta_cryptoxanthin?: T
+  retinolActivityEquiv?: T
+  alphaCarotene?: T
+  betaCarotene?: T
+  betaCryptoxanthin?: T
   lycopene?: T
-  cis_lycopene?: T
-  lutein_zeaxanthin?: T
+  cisLycopene?: T
+  luteinZeaxanthin?: T
   zeaxanthin?: T
   lutein?: T
-  cis_lutein_zeaxanthin?: T
-  cis_beta_carotene?: T
-  trans_beta_carotene?: T
-  trans_lycopene?: T
+  cisLuteinZeaxanthin?: T
+  cisBetaCarotene?: T
+  transBetaCarotene?: T
+  transLycopene?: T
   cryptoxanthin?: T
 }
 
-/// vitamin D
+// / vitamin D
 export interface VitaminD<T> {
   d2?: T
   d3?: T
@@ -228,23 +228,23 @@ export interface VitaminD<T> {
 }
 
 export interface VitaminE<T> {
-  beta_tocopherol?: T
-  gamma_tocopherol?: T
-  delta_tocopherol?: T
-  vit_E_added?: T
-  alpha_tocotrienol?: T
-  beta_tocotrienol?: T
-  gamma_tocotrienol?: T
-  delta_tocotrienol?: T
-  vit_E_label?: T
-  vit_E_ate?: T
+  betaTocopherol?: T
+  gammaTocopherol?: T
+  deltaTocopherol?: T
+  vitEAdded?: T
+  alphaTocotrienol?: T
+  betaTocotrienol?: T
+  gammaTocotrienol?: T
+  deltaTocotrienol?: T
+  vitELabel?: T
+  vitEAte?: T
 }
 
-/// Folate
+// / Folate
 export interface Folate<T> {
-  food_folate?: T
-  folic_acid?: T
-  dietary_folate_equiv?: T
+  foodFolate?: T
+  folicAcid?: T
+  dietaryFolateEquiv?: T
 }
 
 export interface Vitamins<T>
@@ -252,36 +252,36 @@ export interface Vitamins<T>
     VitaminD<T>,
     VitaminE<T>,
     Folate<T> {
-  vit_A?: T
-  vit_C?: T
-  vit_D?: T
-  vit_E?: T
-  vit_K?: T
+  vitA?: T
+  vitC?: T
+  vitD?: T
+  vitE?: T
+  vitK?: T
   dihydrophylloquinone?: T
-  menaquinone_4?: T
+  menaquinone4?: T
   thiamin?: T
   riboflavin?: T
   niacin?: T
   folate?: T
-  vit_B6?: T
-  vit_B12?: T
-  added_B12?: T
+  vitB6?: T
+  vitB12?: T
+  addedB12?: T
   biotin?: T
   iodine?: T
-  pantothenic_acid?: T
+  pantothenicAcid?: T
   choline?: T
   betaine?: T
   phytoene?: T
   phytofluene?: T
   inositol?: T
-  _5_methyl_tetrahydrofolate?: T
-  _10_Formyl_folic_acid?: T
-  _5_Formyltetrahydrofolic_acid?: T
-  choline_free?: T
-  choline_phosphocholine?: T
-  choline_phosphotidyl?: T
-  choline_glycerophosphocholine?: T
-  choline_sphingomyelin?: T
+  _5MethylTetrahydrofolate?: T
+  _10FormylFolicAcid?: T
+  _5FormyltetrahydrofolicAcid?: T
+  cholineFree?: T
+  cholinePhosphocholine?: T
+  cholinePhosphotidyl?: T
+  cholineGlycerophosphocholine?: T
+  cholineSphingomyelin?: T
 }
 
 // ************** //
@@ -317,7 +317,7 @@ export interface Sterols<T> {
   phytosterols?: T
   stigmasterol?: T
   campesterol?: T
-  beta_sitosterol?: T
+  betaSitosterol?: T
 }
 
 // ************ //
@@ -330,8 +330,8 @@ export interface Others<T> {
   ash?: T
   caffeine?: T
   theobromine?: T
-  acetic_acid?: T
-  lactic_acid?: T
+  aceticAcid?: T
+  lacticAcid?: T
   sulfur?: T
 }
 

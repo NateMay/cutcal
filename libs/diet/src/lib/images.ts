@@ -9,10 +9,8 @@ export interface Image {
   uploaderId?: string
 }
 
-export function createImage(url: string, uploaderId?: string): Image {
-  return {
-    url,
-    votes: 0,
-    uploaderId,
-  }
-}
+export const createImage = (url: string, uploaderId?: string): Image => ({
+  url,
+  votes: 0,
+  uploaderId,
+})

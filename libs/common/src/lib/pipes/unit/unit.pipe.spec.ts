@@ -43,13 +43,13 @@ describe('unit Pipe', () => {
     expect(div.textContent).toContain('pound');
   });
 
-  it('should not pluralize if the quanity is 1', () => {
+  it('should pluralize if the quanity is not 1 (tsp)', () => {
     parent.unit = 'tsp';
     fixture.detectChanges();
     const div = getEl(fixture, 'div');
     expect(div.textContent).toContain('teaspoons');
   });
-  it('should not pluralize if the quanity is 1', () => {
+  it('should pluralize if the quanity is not 1 (tbsp)', () => {
     parent.unit = 'tbsp';
     fixture.detectChanges();
     const div = getEl(fixture, 'div');

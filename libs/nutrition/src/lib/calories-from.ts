@@ -13,7 +13,7 @@ export interface CaloriesFrom {
 export type CaloriesSource = keyof CaloriesFrom
 
 /**
- * Calculates the percent of calories from a given marco-nutrient
+ * @description Calculates the percent of calories from a given marco-nutrient
  * @param {'fat' | 'carbohydrates' | 'protein' | 'alcohol'} macro the macro nutrient desired
  * @param {Nutrition<number>} nutrition the nutrition object from which to calculate
  */
@@ -35,7 +35,7 @@ export function caloriesFrom(
 }
 
 /**
- * Calculates the percent of calories from a all marco-nutrients
+ * @description Calculates the percent of calories from a all marco-nutrients
  * @param {Nutrition<number>} nutrition the nutrition object from which to calculate
  */
 
@@ -52,19 +52,17 @@ export function caloriesFromAll(nutr: Nutrition<number>): CaloriesFrom {
 }
 
 /**
- * Converts grams into calories for each macro-nutrient
+ * @description Converts grams into calories for each macro-nutrient
  * @param {Nutrition<number>} nutrition the nutrition object from which to calculate
- * @refrence {@link https://www.nal.usda.gov/fnic/how-many-calories-are-one-gram-fat-carbohydrate-or-protein USDA}
+ * @see {@link https://www.nal.usda.gov/fnic/how-many-calories-are-one-gram-fat-carbohydrate-or-protein USDA}
  * @returns CaloriesFrom
  */
-export function adjustPerGram(nutrition: Nutrition<number>): CaloriesFrom {
-  return {
-    carbohydrates: (nutrition.carbohydrates ?? 0) * 4,
-    protein: (nutrition.protein ?? 0) * 4,
-    fat: (nutrition.fat ?? 0) * 9,
-    alcohol: (nutrition.alcohol ?? 0) * 7,
-  }
-}
+export const adjustPerGram = (nutrition: Nutrition<number>): CaloriesFrom => ({
+  carbohydrates: (nutrition.carbohydrates ?? 0) * 4,
+  protein: (nutrition.protein ?? 0) * 4,
+  fat: (nutrition.fat ?? 0) * 9,
+  alcohol: (nutrition.alcohol ?? 0) * 7,
+})
 
 export function caloriesFromSingle(
   adjustedQuant: number,

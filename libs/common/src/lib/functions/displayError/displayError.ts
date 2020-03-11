@@ -1,7 +1,7 @@
 import { FormGroup } from '@angular/forms'
 
 /**
- * Common form template error handling function
+ * @description Common form template error handling function
  * @param {FormGroup} form
  * @param {string} controlName
  * @param {string} errorName

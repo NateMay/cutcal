@@ -15,11 +15,10 @@ import { getProjectConfig } from '@nrwl/workspace'
 // import { join, normalize } from 'path';
 import { CommonComponenetSchematicOptions } from './schema'
 
-function generateLibrary(schema: CommonComponenetSchematicOptions): Rule {
-  return externalSchematic('@nrwl/workspace', 'lib', {
+const generateLibrary = (schema: CommonComponenetSchematicOptions): Rule =>
+  externalSchematic('@nrwl/workspace', 'lib', {
     name: schema.name,
   })
-}
 
 // export function setupOptions(tree: Tree, schema: any): any {
 //   const workspace: WorkspaceSchema = getWorkspace(tree);
@@ -37,7 +36,7 @@ function generateLibrary(schema: CommonComponenetSchematicOptions): Rule {
 
 function generateFiles(schema: CommonComponenetSchematicOptions): Rule {
   console.log(schema)
-  return (tree: Tree, context: SchematicContext) => {
+  return (tree: Tree, context: SchematicContext): any => {
     // context.logger.info('adding NOTES.md to lib');
 
     const templateSource = apply(url('./files'), [
@@ -48,18 +47,19 @@ function generateFiles(schema: CommonComponenetSchematicOptions): Rule {
   }
 }
 
-export default function(schema: CommonComponenetSchematicOptions): Rule {
-  return (tree: Tree, context: SchematicContext) => {
-    // tree.create('hello.ts', `console.log('hello world')`)
-
-    return chain([generateLibrary(schema), generateFiles(schema)])(
-      tree,
-      context
-    )
-  }
-  // return chain([
-  //   externalSchematic('@nrwl/workspace', 'lib', {
-  //     name: schema.name,
-  //   }),
-  // ])
+export default (schema: CommonComponenetSchematicOptions): Rule => (
+  tree: Tree,
+  context: SchematicContext
+): any => {
+  // tree.create('hello.ts', `console.log('hello world')`)
+  const x = chain([generateLibrary(schema), generateFiles(schema)])(
+    tree,
+    context
+  )
+  return x
 }
+// return chain([
+//   externalSchematic('@nrwl/workspace', 'lib', {
+//     name: schema.name,
+//   }),
+// ]);

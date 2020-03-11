@@ -10,11 +10,11 @@ import { MemoizePipe } from './memoize.pipe';
 class TestMemoizeComp {
   contextobj = { value: 'hi 1' };
 
-  method(obj: any) {
+  method(obj: any): any {
     return obj.value;
   }
 
-  renewContext() {
+  renewContext(): void {
     this.contextobj = { value: 'hi 2' };
   }
 }
@@ -36,7 +36,7 @@ describe('Memoize Pipe', () => {
   });
 
   it('should only call the handler if a new object is received', () => {
-    const spy1 = spyOn(component, 'method').and.callThrough();
+    const spy1 = jest.spyOn(component, 'method');
     fixture.detectChanges();
     expect(spy1).toHaveBeenCalledTimes(1);
     fixture.detectChanges();

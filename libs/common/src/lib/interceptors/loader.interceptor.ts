@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 // import { AppState } from '../../redux/app.state'
 
 /**
- * Loads a spinner while the data loads
- * @refrence {@link https://medium.com/better-programming/angular-loader-interceptor-f0b37e244ccb Medium}
- * @note not currently used, but could be a furture optimization
+ * @description Loads a spinner while the data loads.
+ * Not currently used, but could be a furture optimization.
+ * @see {@link https://medium.com/better-programming/angular-loader-interceptor-f0b37e244ccb Medium}
  */
 
 @Injectable()

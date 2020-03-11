@@ -1,6 +1,14 @@
-/* tslint:disable:max-line-length*/
 import { Injectable } from '@angular/core'
-import { Action, AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentChangeAction, DocumentSnapshotDoesNotExist, DocumentSnapshotExists, QueryFn } from '@angular/fire/firestore'
+import {
+  Action,
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument,
+  DocumentChangeAction,
+  DocumentSnapshotDoesNotExist,
+  DocumentSnapshotExists,
+  QueryFn,
+} from '@angular/fire/firestore'
 import * as firebase from 'firebase/app'
 import { Observable } from 'rxjs'
 import { first, map, tap } from 'rxjs/operators'
@@ -10,20 +18,16 @@ type CollectionPredicate<T> = string | AngularFirestoreCollection<T>
 type DocPredicate<T> = string | AngularFirestoreDocument<T>
 
 /**
- * Service full of FireStore querying helper methods
- * @source {@link https://angularfirebase.com/lessons/firestore-advanced-usage-angularfire/ Angular Firebase}
- * @refrence {@link https://stackoverflow.com/questions/46597327/difference-between-set-with-merge-true-and-update Set, Add, Update, & Upsert}
- * @refrence {@link https://www.youtube.com/watch?v=35RlydUf6xo Query Techniques}
- * @example
- *   photo = '../assets/images/april.jpg';
- *
- *   <img [style.background-image]="'url(' + photo + ')' | sanitize">
+ * @description Service full of FireStore querying helper methods
+ * @see {@link https://angularfirebase.com/lessons/firestore-advanced-usage-angularfire/ Angular Firebase}
+ * @see {@link https://stackoverflow.com/questions/46597327/difference-between-set-with-merge-true-and-update Set, Add, Update, & Upsert}
+ * @see {@link https://www.youtube.com/watch?v=35RlydUf6xo Query Techniques}
  */
 @Injectable({
   providedIn: 'root',
 })
 export class FirestoreService {
-  get serverTimestamp() {
+  get serverTimestamp(): firebase.firestore.FieldValue {
     return firebase.firestore.FieldValue.serverTimestamp()
   }
 
@@ -32,7 +36,7 @@ export class FirestoreService {
   // #region Get Reference
 
   /**
-   * Returns a collection reference
+   * @description Returns a collection reference
    * @param {CollectionPredicate<T>} ref name of the collection or ref
    * @param {Function} queryFn The function to restrict.
    * @returns {AngularFirestoreCollection} collection reference
@@ -46,7 +50,7 @@ export class FirestoreService {
   }
 
   /**
-   * Returns a doc reference
+   * @description Returns a doc reference
    * @param {DocPredicate<T>} ref path to the doc
    * @returns {AngularFirestoreDocument} doc reference
    * @example
@@ -61,12 +65,12 @@ export class FirestoreService {
   // #region GET Data
 
   /**
-   * Returns a doc
+   * @description Returns a doc
    * @param {DocPredicate<T>} ref path to the doc or reference
    * @returns {Observable<T>} Observable of doc
    * @example this.db.doc$('notes/ID')
    */
-  doc$<T>(ref: DocPredicate<T>): Observable<T> {
+  doc$<T>(ref: DocPredicate<T>): Observable<T | undefined> {
     return this.doc(ref)
       .snapshotChanges()
       .pipe(
@@ -75,15 +79,13 @@ export class FirestoreService {
             doc: Action<
               DocumentSnapshotDoesNotExist | DocumentSnapshotExists<T>
             >
-          ) => {
-            return doc.payload.data() as T
-          }
+          ) => doc.payload.data()
         )
       )
   }
 
   /**
-   * Returns a doc
+   * @description Returns a doc
    * @param {DocPredicate<T>} ref path to the doc or reference
    * @returns {Observable<T>} Observable of the data object
    * @example this.db.doc$('notes/ID')
@@ -98,7 +100,7 @@ export class FirestoreService {
               DocumentSnapshotDoesNotExist | DocumentSnapshotExists<T>
             >
           ) => {
-            const data = doc.payload.data() as T
+            const data = doc.payload.data()
             const _id = doc.payload.id
             return { _id, ...data }
           }
@@ -107,29 +109,30 @@ export class FirestoreService {
   }
 
   /**
-   * Returns a collection
+   * @description Returns a collection
    * @param {CollectionPredicate<T>} ref name of the collection or reference
    * @param {Function} queryFn The function to restrict.
    * @returns {Observable<T>} Observable of collection
    * @example db.col$('notes')
    */
-  col$<T>(ref: CollectionPredicate<T>, queryFn?: QueryFn): Observable<T[]> {
+  col$<T>(
+    ref: CollectionPredicate<T>,
+    queryFn?: QueryFn
+  ): Observable<T[] | undefined[]> {
     return this.col(ref, queryFn)
       .snapshotChanges()
       .pipe(
-        map((docs: Array<DocumentChangeAction<T>>) => {
-          return docs.map((a: DocumentChangeAction<T>) =>
-            a.payload.doc.data()
-          ) as T[]
-        })
+        map((docs: DocumentChangeAction<T>[]) =>
+          docs.map((a: DocumentChangeAction<T>) => a.payload.doc.data())
+        )
       )
   }
 
   /**
-   * Returns a collection with the doc reference as a property on the object
+   * @description Returns a collection with the doc reference as a property on the object
    * @param {CollectionPredicate<T>} ref name of the collection or reference
    * @param {Function} queryFn The function to restrict.
-   * @returns {Observable<T + doc.id>} Observable of collection with _id field from ref.id
+   * @returns {Observable<T>} Observable of collection with _id field from ref.id
    * @example db.colWithIds$('notes')
    */
   colWithIds$<T>(
@@ -144,7 +147,7 @@ export class FirestoreService {
   // #region Alter Data
 
   /**
-   * Overwrites or Creates a Document with timestamps
+   * @description Overwrites or Creates a Document with timestamps
    * @param {DocPredicate<T>} ref name of the collection
    * @param {any} data The function to restrict.
    * @returns {Promise<DocumentReference>} Returns a Success Promise
@@ -160,7 +163,7 @@ export class FirestoreService {
   }
 
   /**
-   * Updates a document to the specified collection updating the timestamp
+   * @description Updates a document to the specified collection updating the timestamp
    * @param {DocPredicate<T>} ref name of the collection
    * @param {any} data The function to restrict.
    * @returns {Promise<DocumentReference>} Returns a Success Promise
@@ -174,7 +177,7 @@ export class FirestoreService {
   }
 
   /**
-   * Deletes a document
+   * @description Deletes a document
    * @param {DocPredicate<T>} ref name of the collection
    * @returns {Promise<void>} Returns a Success Promise
    * @example db.delete('items/_id') })
@@ -184,7 +187,7 @@ export class FirestoreService {
   }
 
   /**
-   * Creates a document to the specified collection adding timestamps
+   * @description Creates a document to the specified collection adding timestamps
    * @param {CollectionPredicate<T>} ref name of the collection
    * @param {any} data The function to restrict.
    * @returns {Promise<DocumentReference>} Returns the Document Reference
@@ -204,7 +207,7 @@ export class FirestoreService {
   }
 
   /**
-   * Creates a document or updates non-destructively (only adds property)
+   * @description Creates a document or updates non-destructively (only adds property)
    * @param {DocPredicate<T>} ref path to doc or reference
    * @param {any} data The function to restrict.
    * @returns {Promise<void>} Returns a Success Promise
@@ -219,18 +222,14 @@ export class FirestoreService {
     return doc.then(
       (
         snap: Action<DocumentSnapshotDoesNotExist | DocumentSnapshotExists<T>>
-      ) => {
-        return snap.payload.exists
-          ? this.update(ref, data)
-          : this.set(ref, data)
-      }
+      ) => (snap.payload.exists ? this.update(ref, data) : this.set(ref, data))
     )
   }
 
   // #region Inspect Data
 
   /**
-   * console.log()s the doc
+   * @description console.log()s the doc
    * @param {DocPredicate<T>} ref path to doc or reference
    * @returns {void}
    * @example this.db.inspectDoc('notes/xyz')
@@ -256,7 +255,7 @@ export class FirestoreService {
   }
 
   /**
-   * console.log()s the doc load time
+   * @description console.log()s the doc load time
    * @param {CollectionPredicate<T>} ref name of the collection or reference
    * @returns {void}
    * @example this.db.inspectCol('notes')
@@ -267,7 +266,7 @@ export class FirestoreService {
       .snapshotChanges()
       .pipe(
         first(),
-        tap((c: Array<DocumentChangeAction<any>>) => {
+        tap((c: DocumentChangeAction<any>[]) => {
           const tock = new Date().getTime() - tick
           console.log(`Loaded Collection in ${tock}ms`, c)
         })
@@ -276,14 +275,14 @@ export class FirestoreService {
   }
 
   /**
-   * Starts a batch for an atomic write
+   * @description Starts a batch for an atomic write
    * @returns {WriteBatch}
    */
   get batch(): firebase.firestore.WriteBatch {
     return this.afs.firestore.batch()
   }
 
-  get newId() {
+  get newId(): string {
     return this.afs.createId()
   }
 }

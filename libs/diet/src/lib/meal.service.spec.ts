@@ -10,16 +10,16 @@ import { first } from 'rxjs/operators';
 import { bread, jam } from '../../../../data/food-seed';
 import {
   lunch1,
-  lunch1_bread,
-  lunch1_id,
-  lunch1_jam,
-  lunch1_pb,
+  lunch1Bread,
+  lunch1ID,
+  lunch1Jam,
+  lunch1PB,
 } from '../../../../data/meal-seed';
 import { peanutButter } from './../../../../data/food-seed';
 import { MealService } from './meal.service';
 
 // FIXME
-xdescribe('MealService', () => {
+describe('MealService', () => {
   let mealSvc: MealService;
 
   // const dbSpy = createSpyObj<FirestoreService>([
@@ -32,12 +32,12 @@ xdescribe('MealService', () => {
 
   const storageStub = {
     storage: {
-      refFromURL: () => ({ delete: () => {} }),
+      refFromURL: (): any => ({ delete: (): void => {} }),
     },
   };
 
   const fnsStub = {
-    httpsCallable: () => {},
+    httpsCallable: (): void => {},
   };
 
   beforeEach(() => {
@@ -67,7 +67,7 @@ xdescribe('MealService', () => {
     expect(mealSvc).toBeTruthy();
   });
 
-  it('injects the meal service', () => {
+  it('getMealUsagesFoods should get data', () => {
     // dbSpy.docWithId$.and.returnValues(
     //   of(lunch1),
     //   of(peanutButter),
@@ -82,12 +82,12 @@ xdescribe('MealService', () => {
     let returned = false;
 
     mealSvc
-      .getMealUsagesFoods(lunch1_id)
+      .getMealUsagesFoods(lunch1ID)
       .pipe(first())
       .subscribe(([meal, usages, foods]) => {
         returned = true;
         expect(meal).toEqual(lunch1);
-        expect(values(usages)).toEqual([lunch1_pb, lunch1_jam, lunch1_bread]);
+        expect(values(usages)).toEqual([lunch1PB, lunch1Jam, lunch1Bread]);
         expect(values(foods)).toEqual([peanutButter, jam, bread]);
       });
 

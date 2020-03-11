@@ -43,7 +43,7 @@ describe('TimepickerFaceComponent', () => {
   });
 
   // FIXME (time-picker) broken test
-  xit('should decrease clock hand with format 24 and time more than 12', () => {
+  it('should decrease clock hand with format 24 and time more than 12', () => {
     component.selectedTime = { time: 13, angle: 30 };
     component.format = 24;
     component.ngAfterViewInit();
@@ -53,7 +53,7 @@ describe('TimepickerFaceComponent', () => {
   });
 
   // FIXME (time-picker) broken test
-  xit('should decrease clock hand with format 24 and time is "00" ', () => {
+  it('should decrease clock hand with format 24 and time is "00" ', () => {
     component.selectedTime = { time: 0, angle: 30 };
     component.format = 24;
     component.ngAfterViewInit();
@@ -63,7 +63,7 @@ describe('TimepickerFaceComponent', () => {
   });
 
   // FIXME (time-picker) broken test
-  xit('should increase clock hand with format 24 and time less or equal 12', () => {
+  it('should increase clock hand with format 24 and time less or equal 12', () => {
     component.selectedTime = { time: 12, angle: 30 };
     component.format = 24;
     component.ngAfterViewInit();
@@ -82,13 +82,13 @@ describe('TimepickerFaceComponent', () => {
       faceTime: {
         currentValue: [{ time: 11, angle: 20 }],
         previousValue: undefined,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
         firstChange: true,
       },
       selectedTime: {
         currentValue: { time: 11, angle: 30 },
         previousValue: undefined,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
         firstChange: true,
       },
     };
@@ -107,7 +107,7 @@ describe('TimepickerFaceComponent', () => {
       selectedTime: {
         currentValue: { time: 11, angle: 30 },
         previousValue: undefined,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
         firstChange: true,
       },
     };
@@ -126,7 +126,7 @@ describe('TimepickerFaceComponent', () => {
       faceTime: {
         currentValue: [],
         previousValue: undefined,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
         firstChange: true,
       },
     };
@@ -147,7 +147,7 @@ describe('TimepickerFaceComponent', () => {
       faceTime: {
         currentValue: [],
         previousValue: undefined,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
         firstChange: true,
       },
     };
@@ -240,7 +240,7 @@ describe('TimepickerFaceComponent', () => {
     }));
 
     // FIXME (time-picker) broken test
-    xit('should return angle from III quarter', fakeAsync(() => {
+    it('should return angle from III quarter', fakeAsync(() => {
       let selectedTime: ClockFaceTime = { time: 1, angle: 5 };
       const mouseCords: MouseEventInit = { clientX: 2, clientY: 500 };
 
@@ -254,7 +254,7 @@ describe('TimepickerFaceComponent', () => {
     }));
 
     // FIXME (time-picker) broken test
-    xit('should return angle from IV quarter', fakeAsync(() => {
+    it('should return angle from IV quarter', fakeAsync(() => {
       let selectedTime: ClockFaceTime = { time: 1, angle: 5 };
       const mouseCords: MouseEventInit = { clientX: 20, clientY: 20 };
 
@@ -268,7 +268,7 @@ describe('TimepickerFaceComponent', () => {
     }));
 
     // FIXME (time-picker) broken test
-    xit('should select hour from inner clock face', fakeAsync(() => {
+    it('should select hour from inner clock face', fakeAsync(() => {
       let selectedTime: ClockFaceTime = { time: 1, angle: 5 };
       const mouseCords: MouseEventInit = { clientX: 150, clientY: 200 };
 
@@ -353,6 +353,6 @@ describe('TimepickerFaceComponent', () => {
   });
 });
 
-function getStyle(element: ElementRef): (prop: string) => string {
-  return (prop: string) => element.nativeElement.style[prop];
-}
+const getStyle = (element: ElementRef): ((prop: string) => string) => (
+  prop: string
+): string => element.nativeElement.style[prop];

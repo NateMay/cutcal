@@ -14,9 +14,12 @@ import { ActionLinkObserver } from './action-link.service'
 export class ActionLinkDirective implements OnDestroy {
   private sub!: Subscription | null
 
+  /** @description Emits on activation */
+  @Output() activate = new EventEmitter<{ [key: string]: string } | undefined>()
+
   constructor(private observer: ActionLinkObserver) {}
 
-  /** Sets the link path the directive will activate upon */
+  /** @description Sets the link path the directive will activate upon */
   @Input() set wmActionLink(link: string) {
     // Unsubscribes previous subscriptions, if any
     if (this.sub) this.sub.unsubscribe()
@@ -27,11 +30,7 @@ export class ActionLinkDirective implements OnDestroy {
       .subscribe(params => this.activate.emit(params))
   }
 
-  /** Emits on activation */
-  @Output() activate = new EventEmitter<{ [key: string]: string } | undefined>()
-
-  /** Disposes of the subscriptions */
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.sub) this.sub.unsubscribe()
   }
 }

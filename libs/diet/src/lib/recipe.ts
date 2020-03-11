@@ -24,7 +24,7 @@ export interface Recipe {
   instructions?: string[]
 }
 
-export function createRecipe(
+export const createRecipe = (
   name: string,
   description: string,
   defaultPortion: Portion,
@@ -38,20 +38,18 @@ export function createRecipe(
   primaryImage: Image,
   secondaryImages: KVP<Image>,
   ingredients: Ingredient[]
-): Recipe {
-  return {
-    name,
-    description,
-    defaultPortion,
-    ingredients,
-    nutrition,
-    portions,
-    createdBy,
-    isRecipe,
-    isMeal,
-    instructions,
-    foodGroup,
-    primaryImage,
-    secondaryImages,
-  }
-}
+): Recipe => ({
+  name,
+  description,
+  defaultPortion,
+  ingredients,
+  nutrition,
+  portions,
+  createdBy,
+  isRecipe,
+  isMeal,
+  instructions,
+  foodGroup,
+  primaryImage,
+  secondaryImages,
+})

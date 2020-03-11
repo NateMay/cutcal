@@ -138,7 +138,7 @@ export class IngredientsListitemComponent {
   @Input() set root(root: Meal | Food) {
     this._root = root
   }
-  get root() {
+  get root(): Meal | Food {
     return this._root
   }
 
@@ -173,11 +173,11 @@ export class IngredientsListitemComponent {
       )
   }
 
-  onSliderChange(change: MatSliderChange) {
+  onSliderChange(change: MatSliderChange): void {
     this.updateLocalQuantity(change.value || 1)
   }
 
-  updateLocalQuantity(quantity: number) {
+  updateLocalQuantity(quantity: number): void {
     this.quantity = quantity
     this.max = this.quantity * 2
     this.step = getQuantityStep(this.quantity)
@@ -192,7 +192,7 @@ export class IngredientsListitemComponent {
     })
   }
 
-  delete() {
+  delete(): void {
     this.deleteUsage.emit({
       rootId: this.root._id,
       usageId: this.usage._id,

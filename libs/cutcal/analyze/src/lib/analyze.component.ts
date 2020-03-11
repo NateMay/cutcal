@@ -1,13 +1,32 @@
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import { Component, Injector, OnDestroy, OnInit, ViewContainerRef } from '@angular/core'
+import {
+  Component,
+  Injector,
+  OnDestroy,
+  OnInit,
+  ViewContainerRef,
+} from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { AuthService } from '@cutcal/auth'
-import { HighChartsDataPoint, InspectionData, INSPECTION_DATA, InspectNutrientDialogComponent, setLightGridTheme } from '@cutcal/charts'
+import {
+  HighChartsDataPoint,
+  InspectionData,
+  INSPECTION_DATA,
+  InspectNutrientDialogComponent,
+  setLightGridTheme,
+} from '@cutcal/charts'
 import { analyzeParams, dateArray } from '@cutcal/common'
 import { KVP } from '@cutcal/core'
 import { MealService } from '@cutcal/diet'
-import { createNutrCheckableMap, NutrCheckable, NutrCheckableMap, NutrientUnit, Nutrition, nutrtionSelections } from '@cutcal/nutrition'
+import {
+  createNutrCheckableMap,
+  NutrCheckable,
+  NutrCheckableMap,
+  NutrientUnit,
+  Nutrition,
+  nutrtionSelections,
+} from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import { Options, SeriesOptionsType } from 'highcharts'
 import { forEach, get, groupBy, keyBy, map as _map } from 'lodash'
@@ -23,8 +42,8 @@ import { ViewMap } from './models/view-map'
 setLightGridTheme()
 
 /**
- * @reference {@link https://stackoverflow.com/questions/2388115/get-locale-short-date-format-using-javascript StackOverflow}
- * @reference {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString Mozilla}
+ * @see {@link https://stackoverflow.com/questions/2388115/get-locale-short-date-format-using-javascript StackOverflow}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString Mozilla}
  */
 const MONTH_DAY_FORMAT: Intl.DateTimeFormatOptions = {
   month: 'short',
@@ -47,7 +66,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   private inspectOverlayRef: OverlayRef
 
   /**
-   * A key-value map storing nutrition information by day
+   * @description A key-value map storing nutrition information by day
    * @example
    *  [ {date: new Date(2019, 3, 4), nutrition: Nutrition<number>}, ... ]
    */
@@ -78,7 +97,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   endDate: Date = new Date()
 
   // DISTANT (intl) retreive from localStorage once it's there
-  private get locale() {
+  private get locale(): string {
     return 'en-US'
   }
 
@@ -94,7 +113,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
     private auth: AuthService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.nutrCheckables = nutrtionSelections([
       'calories',
       'protein',
@@ -105,7 +124,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
     // Gets the url date params and recalculates the charts
     combineLatest(this.auth.activeUser$, this.route.queryParams)
       .pipe(
-        map(([uid, params]) => params),
+        map(([, params]) => params),
         switchMap((params: Params) => {
           const { start, end } = this.setDateRange(params)
           return this.mealSvc.getMealRange(start, end)
@@ -132,7 +151,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   /**
-   * Takes the dates from the route and sets them safely to be bound to the date-pickers
+   * @description Takes the dates from the route and sets them safely to be bound to the date-pickers
    */
   setDateRange(params: Params): any {
     this.startDate = params.start.urlToDate()
@@ -159,7 +178,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   /**
-   * @reference {@link https://www.highcharts.com/demo/line-basic Highcharts}
+   * @see {@link https://www.highcharts.com/demo/line-basic Highcharts}
    */
   createCharts(
     unitMap: NutrCheckableMap,
@@ -181,7 +200,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   // ***************   CALCULATE DATA SERIES   ****************** //
 
   /**
-   * Uses chart controls to generate the Highcharts series data
+   * @description Uses chart controls to generate the Highcharts series data
    */
   getChartSeriesOptions(
     checkables: NutrCheckable[],
@@ -203,7 +222,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   /**
-   * Updates a data series with corresponding values for the date
+   * @description Updates a data series with corresponding values for the date
    * @returns {HighChartsDataPoint[]} [ { name: 'June 1, 2019', y: 30 }, { name: 'June 2, 2019', y: 34 }, ...]
    */
   private assignPointValues(
@@ -226,10 +245,10 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   /**
-   * Creates a "base" data series of days defaulted to a value of 0
+   * @description Creates a "base" data series of days defaulted to a value of 0
    * @returns {HighChartsDataPoint[]}
    * @example
-   *   [ { name: 'June 1, 2019', y: 0 }, { name: 'June 2, 2019', y: 0 }, ...]
+   *  getBaseDataSeries() => [ { name: 'June 1, 2019', y: 0 }, { name: 'June 2, 2019', y: 0 }, ...]
    */
   private getBaseDataSeries(): HighChartsDataPoint[] {
     return dateArray(
@@ -241,7 +260,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   // ***************   CHART OPTIONS AND CONTROLS BINDINGS   ****************** //
 
   /**
-   * Changes to the chart controls enter here, then recreate the single chart
+   * @description Changes to the chart controls enter here, then recreate the single chart
    */
   controlsChange(controls: ChartControls): void {
     const options = this.charts[controls.unit].options
@@ -256,7 +275,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   /**
-   * This method updates the chart with the user's selection from among the chart controls
+   * @description This method updates the chart with the user's selection from among the chart controls
    */
   setChartOptions(controls: ChartControls, options: Options): void {
     options.xAxis = { categories: this.xAxisLabels(this.baseSerieseData) }
@@ -294,7 +313,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   /**
-   * This method is used to add or remove a nutrient from the chart
+   * @description This method is used to add or remove a nutrient from the chart
    */
   toggleSeries(checkable: NutrCheckable): void | never {
     if (!checkable.unit) throw Error('[CutCal] toggleSeries() requires a unit')
@@ -331,9 +350,9 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
 
   // ***************   INSPECTION MODAL   ****************** //
 
-  openModal = (event: any) => {
+  openModal = (event: any): void => {
     /**
-     * @reference {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts Overlay Stackblitz}
+     * @see {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts Overlay Stackblitz}
      */
 
     this.inspectOverlayRef = this.overlay.create(

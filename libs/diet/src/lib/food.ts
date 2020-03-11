@@ -4,11 +4,11 @@ import { Image } from './images'
 import { Portion } from './portion'
 
 /**
- * An Object storing information about an abstract notion of a Food, Recipe,
- *   or Meal, but not a specific consumption of it. Think of it as metadata
+ * @description An Object storing information about an abstract notion of a Food, Recipe,
+ * or Meal, but not a specific consumption of it. Think of it as metadata
  *
  * It is used to present abstract food information (like on the food page, or in search)
- *   or tangible moments of food consumption when paired with a Usage
+ * or tangible moments of food consumption when paired with a Usage
  *
  * The foundation Foods came from the
  * Built mainly from USDA data, this object stores basic information for a food
@@ -56,7 +56,7 @@ export interface Food {
   secondaryImages?: KVP<Image>
 }
 
-export function createFood(
+export const createFood = (
   name: string,
   nutrition: Nutrition<number>,
   portions: KVP<Portion>,
@@ -74,28 +74,26 @@ export function createFood(
   primaryImage?: Image,
   secondaryImages?: KVP<Image>,
   foodRefs?: string[]
-): Food {
-  return {
-    name,
-    USDAName,
-    description,
-    defaultPortion,
-    foodRefs,
-    nutrition,
-    portions,
-    footnotes,
-    sources,
-    createdBy,
-    NDBNO,
-    isRecipe,
-    isMeal,
-    instructions,
-    foodGroup,
-    uses: 0,
-    primaryImage,
-    secondaryImages,
-  }
-}
+): Food => ({
+  name,
+  USDAName,
+  description,
+  defaultPortion,
+  foodRefs,
+  nutrition,
+  portions,
+  footnotes,
+  sources,
+  createdBy,
+  NDBNO,
+  isRecipe,
+  isMeal,
+  instructions,
+  foodGroup,
+  uses: 0,
+  primaryImage,
+  secondaryImages,
+})
 
 export interface FoodSource {
   // usda
@@ -111,6 +109,5 @@ export interface FoodSource {
 }
 
 // TEST (food)
-export function isFood(obj: any): boolean {
-  return !!obj.NDBNO || !!obj.foodGroup || !!obj.USDAName || !!obj.portions
-}
+export const isFood = (obj: any): boolean =>
+  !!obj.NDBNO || !!obj.foodGroup || !!obj.USDAName || !!obj.portions

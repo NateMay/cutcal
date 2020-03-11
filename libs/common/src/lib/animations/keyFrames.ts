@@ -1,11 +1,10 @@
 import { AnimationStyleMetadata, style } from '@angular/animations'
 
 /**
- * Creates a swing like animation
- * @examples
- *  {@link https://github.com/daneden/animate.css/tree/master/source}
- *  {@link https://www.youtube.com/watch?v=5Z2C0wy4bmg}
- *  {@link https://angularfirebase.com/lessons/hammerjs-angular-5-animations-for-mobile-gestures-tutorial/}
+ * @description Creates a swing like animation
+ * @see {@link https://github.com/daneden/animate.css/tree/master/source Github}
+ * @see {@link https://www.youtube.com/watch?v=5Z2C0wy4bmg YouTube}
+ * @see {@link https://angularfirebase.com/lessons/hammerjs-angular-5-animations-for-mobile-gestures-tutorial/ AngularFirebase}
  */
 
 export const swing: AnimationStyleMetadata[] = [

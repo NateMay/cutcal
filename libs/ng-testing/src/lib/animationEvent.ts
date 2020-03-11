@@ -1,7 +1,8 @@
-export function mockAnimationEvent(fromState: string, toState: string): any {
-  return {
-    preventDefault: () => {},
-    fromState,
-    toState,
-  }
-}
+export const mockAnimationEvent = (
+  fromState: string,
+  toState: string
+): any => ({
+  preventDefault: (): void => {},
+  fromState,
+  toState,
+})

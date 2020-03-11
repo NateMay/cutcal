@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /*
  * Testing a simple Angular 2 component
  * More info: https://angular.io/docs/ts/latest/guide/testing.html#!#simple-component-test
@@ -49,7 +50,7 @@ describe('Drag and Drop directives', () => {
   let dropEl: DebugElement;
   let dndSvc: DndSvc;
 
-  const mouseEvent = (el: any, type: string) =>
+  const mouseEvent = (el: any, type: string): void =>
     el.dispatchEvent(
       new MouseEvent(type, <any>{
         preventDefault: () => {},
@@ -58,7 +59,7 @@ describe('Drag and Drop directives', () => {
       })
     );
 
-  const mousemoveToStart = () => {
+  const mousemoveToStart = (): void => {
     for (let e = 0; e <= DRAG_SKIP_COUNT; e++)
       mouseEvent(document, 'mousemove');
   };
@@ -94,7 +95,7 @@ describe('Drag and Drop directives', () => {
     });
 
     // TEST (dnd)
-    xit('dragSpecs payload stores in service', () => {
+    it('dragSpecs payload stores in service', () => {
       expect(dndSvc.dragData).toEqual('A');
     });
 
@@ -113,8 +114,8 @@ describe('Drag and Drop directives', () => {
   });
 
   it('calls data getter and setter appropriately', fakeAsync(() => {
-    const setter = spyOn(dndSvc, 'startDrag').and.callThrough();
-    const getter = spyOn(dndSvc, 'endDrag').and.callThrough();
+    const setter = jest.spyOn(dndSvc, 'startDrag');
+    const getter = jest.spyOn(dndSvc, 'endDrag');
 
     mouseEvent(dragEl.nativeElement, 'mousedown');
     mousemoveToStart();

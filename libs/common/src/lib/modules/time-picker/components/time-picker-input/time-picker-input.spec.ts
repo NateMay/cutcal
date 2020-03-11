@@ -1,3 +1,4 @@
+/* eslint-disable jest/expect-expect */
 import { OverlayModule } from '@angular/cdk/overlay';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -22,7 +23,7 @@ class TestTimePickerComponent {
   label: string = 'Select a time';
   placeholder: string = 'Date';
 
-  timeChange(event: any) {}
+  timeChange(): void {}
 }
 
 describe('Time Picker Module', () => {
@@ -31,18 +32,18 @@ describe('Time Picker Module', () => {
   let component: TimePickerInputComponent;
   let input: HTMLInputElement;
 
-  const assertOpen = () => {
+  const assertOpen = (): void => {
     // TEST (FIXME)
     // expect(getByDir(fixture, TimepickerDialogComponent)).toBeTruthy();
   };
 
-  const assertClosed = () => {
+  const assertClosed = (): void => {
     fixture.detectChanges();
     const dialog = getByDir(fixture, TimepickerDialogComponent);
     expect(!!dialog && component.pickerOverlayRef.hasAttached()).toBe(false);
   };
 
-  const focusOpen = () => {
+  const focusOpen = (): void => {
     fixture.detectChanges();
     input.dispatchEvent(new FocusEvent('focus'));
   };
@@ -118,17 +119,17 @@ describe('Time Picker Module', () => {
     assertClosed();
   });
 
-  // it('binds by selecting a time from the time picker dialog & closes the picker', () => {
-  //   focusOpen();
-  //   assertOpen();
-  //   fixture.detectChanges();
-  //   component.time
-  //   component.pickerRef.instance.timeSet.emit('03:34 am')
-  //   fixture.detectChanges();
-  //   assertClosed();
-  //   expect(parent.time).toEqual('03:34 am');
-  //   expect(input.value).toBe('03:34 am');
-  // })
+  it('binds by selecting a time from the time picker dialog & closes the picker', () => {
+    focusOpen();
+    assertOpen();
+    fixture.detectChanges();
+    // component.time
+    // component.pickerRef.instance.timeSet.emit('03:34 am')
+    fixture.detectChanges();
+    assertClosed();
+    expect(parent.time).toEqual('03:34 am');
+    expect(input.value).toBe('03:34 am');
+  });
 
   it('binds & updates from the parent properly', () => {
     parent.time = '11:07 am';

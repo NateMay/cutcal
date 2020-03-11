@@ -3,6 +3,7 @@ export interface Portion {
   quantity: number
 }
 
-export function createPortion(unit: string, quantity: number = 0): Portion {
-  return { unit, quantity }
-}
+export const createPortion = (unit: string, quantity: number = 0): Portion => ({
+  unit,
+  quantity,
+})

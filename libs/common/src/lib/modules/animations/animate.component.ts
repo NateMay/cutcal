@@ -96,7 +96,7 @@ export class AnimateComponent implements OnInit, OnDestroy {
   /** Speeds up or slows down the animation */
   @Input() speed: AnimateSpeed = 'normal'
 
-  @HostBinding('@animate') private trigger: string | {} = 'idle'
+  @HostBinding('@animate') private trigger: string | object = 'idle'
   @HostBinding('@.disabled') public disabled = false
 
   /** Emits at the end of the animation */
@@ -115,22 +115,22 @@ export class AnimateComponent implements OnInit, OnDestroy {
     this.disabled = coerceBooleanProperty(value)
   }
 
-  /** When true, keeps the animation idle until the next replay triggers */
+  /** @description When true, keeps the animation idle until the next replay triggers */
   @Input('paused') set pauseAnimation(value: boolean) {
     this.paused = coerceBooleanProperty(value)
   }
 
-  /** When true, triggers the animation on element scrolling in the viewport */
+  /** @description When true, triggers the animation on element scrolling in the viewport */
   @Input('aos') set enableAOS(value: boolean) {
     this.aos = coerceBooleanProperty(value)
   }
 
-  /** When true, triggers the animation on element scrolling in the viewport */
+  /** @description When true, triggers the animation on element scrolling in the viewport */
   @Input('once') set aosOnce(value: boolean) {
     this.once = coerceBooleanProperty(value)
   }
 
-  /** Replays the animation */
+  /** @description Replays the animation */
   @Input() set replay(replay: any) {
     // Skips whenever the animation never triggered
     if (this.trigger === 'idle') return
@@ -143,18 +143,18 @@ export class AnimateComponent implements OnInit, OnDestroy {
   }
 
   // Computes the element visibility ratio
-  private get visibility() {
+  private get visibility(): number {
     return this.intersectRatio(
       this.clientRect(this.host),
       this.getScrollingArea(this.host)
     )
   }
 
-  private get idle() {
+  private get idle(): object {
     return { value: 'idle' }
   }
 
-  private get play() {
+  private get play(): object {
     return {
       value: this.animate,
       // delay: this.delay,
@@ -184,18 +184,18 @@ export class AnimateComponent implements OnInit, OnDestroy {
     private zone: NgZone
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Triggers the animation based on the input flags
     this.animateTrigger(this.host)
       .pipe(tap(trigger => (this.trigger = trigger ? this.play : this.idle)))
       .subscribe()
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.dispose()
   }
 
-  private dispose() {
+  private dispose(): void {
     this.dispose$.next()
     this.dispose$.complete()
   }
@@ -274,7 +274,7 @@ export class AnimateComponent implements OnInit, OnDestroy {
     // Gets the cdkScolling container, if any
     const scroller = this.scroll.getAncestorScrollContainers(elm).pop()
     // Returns the element's most likely scrolling container area
-    return !!scroller
+    return scroller
       ? this.clientRect(scroller.getElementRef())
       : this.windowRect()
   }

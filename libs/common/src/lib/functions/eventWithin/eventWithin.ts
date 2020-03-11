@@ -1,10 +1,9 @@
 /**
- * Determines if an event is contained within an HTML Element
+ * @description Determines if an event is contained within an HTML
+ * Element (good for click outside type actins)
  * @param {Event} event
  * @param {Element[]} elements
- * @note good for click outside type actins
  */
 
-export function eventWithin(event: Event, elements: Element[]): boolean {
-  return elements.some(el => el.contains(<Node>event.target))
-}
+export const eventWithin = (event: Event, elements: Element[]): boolean =>
+  elements.some(el => el.contains(<Node>event.target))

@@ -51,7 +51,7 @@ export class OtherTableComponent {
     this._nutrition = Object.assign({}, ZERO_NUTRITION, nutrition)
     this.others = getOthers<NutrientMetaData>(NUTRIENTS.allDetails)
   }
-  get nutrition() {
+  get nutrition(): Nutrition<number> {
     return this._nutrition
   }
 

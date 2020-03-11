@@ -63,7 +63,7 @@ export class DatePickerDialogComponent {
     this.focusDate = this.selectedDate = data.selectedDate || new Date()
   }
 
-  monthBtnChange() {
+  monthBtnChange(): void {
     switch (this.view) {
       case 'days':
         this.view = 'years'
@@ -77,7 +77,7 @@ export class DatePickerDialogComponent {
     }
   }
 
-  direction(dir: number) {
+  direction(dir: number): void {
     switch (this.view) {
       case 'days':
         this.face.changeMonth(dir)
@@ -91,12 +91,12 @@ export class DatePickerDialogComponent {
     }
   }
 
-  monthSelect(monthIndex: number) {
+  monthSelect(monthIndex: number): void {
     this.focusDate = new Date(this.focusDate.getFullYear(), monthIndex, 1)
     this.view = 'days'
   }
 
-  yearSelect(year: number) {
+  yearSelect(year: number): void {
     this.focusDate = new Date(year, this.focusDate.getMonth(), 1)
     this.view = 'months'
   }

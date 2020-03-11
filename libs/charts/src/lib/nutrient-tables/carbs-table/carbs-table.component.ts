@@ -30,39 +30,39 @@ import { get } from 'lodash'
     <tbody>
       <tr>
         <td>Dietary Fiber</td>
-        <td class="quant">{{ nutrition.dietary_fiber | number: numInfo }}</td>
+        <td class="quant">{{ nutrition.dietaryFiber | number: numInfo }}</td>
         <td>
-          <span class="unit"> ({{ carbs['dietary_fiber']?.unit }}) </span>
+          <span class="unit"> ({{ carbs['dietaryFiber']?.unit }}) </span>
         </td>
         <td class="daily-value">
           {{
-            nutrition.dietary_fiber || 0 / rda('dietary_fiber')
+            nutrition.dietaryFiber || 0 / rda('dietaryFiber')
               | percent: precInfo
           }}
         </td>
       </tr>
       <tr>
         <td>Insoluble Fiber</td>
-        <td class="quant">{{ nutrition.insoluble_fiber | number: numInfo }}</td>
+        <td class="quant">{{ nutrition.insolubleFiber | number: numInfo }}</td>
         <td>
-          <span class="unit"> ({{ carbs['soluble_fiber']?.unit }}) </span>
+          <span class="unit"> ({{ carbs['solubleFiber']?.unit }}) </span>
         </td>
         <td class="daily-value">
           {{
-            nutrition.insoluble_fiber || 0 / rda('insoluble_fiber')
+            nutrition.insolubleFiber || 0 / rda('insolubleFiber')
               | percent: precInfo
           }}
         </td>
       </tr>
       <tr>
         <td>Soluble Fiber</td>
-        <td class="quant">{{ nutrition.soluble_fiber | number: numInfo }}</td>
+        <td class="quant">{{ nutrition.solubleFiber | number: numInfo }}</td>
         <td>
-          <span class="unit"> ({{ carbs['insoluble_fiber']?.unit }}) </span>
+          <span class="unit"> ({{ carbs['insolubleFiber']?.unit }}) </span>
         </td>
         <td class="daily-value">
           {{
-            nutrition.soluble_fiber || 0 / rda('soluble_fiber')
+            nutrition.solubleFiber || 0 / rda('solubleFiber')
               | percent: precInfo
           }}
         </td>
@@ -79,24 +79,22 @@ import { get } from 'lodash'
       </tr>
       <tr>
         <td>Carbs by Summation</td>
-        <td class="quant">{{ nutrition.carb_sum | number: numInfo }}</td>
+        <td class="quant">{{ nutrition.carbSum | number: numInfo }}</td>
         <td>
-          <span class="unit"> ({{ carbs['carb_sum']?.unit }}) </span>
+          <span class="unit"> ({{ carbs['carbSum']?.unit }}) </span>
         </td>
         <td class="daily-value">
-          {{ nutrition.carb_sum || 0 / rda('carb_sum') | percent: precInfo }}
+          {{ nutrition.carbSum || 0 / rda('carbSum') | percent: precInfo }}
         </td>
       </tr>
       <tr>
         <td>Carbs Other</td>
-        <td class="quant">{{ nutrition?.carb_other | number: numInfo }}</td>
+        <td class="quant">{{ nutrition?.carbOther | number: numInfo }}</td>
         <td>
           <span class="unit"> ({{ carbs['carb_other']?.unit }}) </span>
         </td>
         <td class="daily-value">
-          {{
-            nutrition.carb_other || 0 / rda('carb_other') | percent: precInfo
-          }}
+          {{ nutrition.carbOther || 0 / rda('carb_other') | percent: precInfo }}
         </td>
       </tr>
       <tr>
@@ -167,17 +165,17 @@ export class CarbsTableComponent {
     this.sugars = getSugars<NutrientMetaData>(NUTRIENTS.allDetails)
     this.carbs = getCarbohydrates<NutrientMetaData>(NUTRIENTS.allDetails)
   }
-  get nutrition() {
+  get nutrition(): Nutrition<number> {
     return this._nutrition
   }
 
   sugars_open: boolean = false
+
+  constructor(private dv: DailyValueSvc) {}
 
   // Recommended Daily Allowance
   rda(path: string): number {
     const range: NutritionRange = get(this.dv.snapshot.nutrition, path)
     return range?.RDA ? range.RDA : 1
   }
-
-  constructor(private dv: DailyValueSvc) {}
 }

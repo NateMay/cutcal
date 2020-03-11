@@ -52,8 +52,7 @@ describe('TimepickerDialControlComponent', () => {
     expect(component.previousTime).toBe(1);
   }));
 
-  // FIXME
-  xit('should not emit changed time if it does not exists', fakeAsync(() => {
+  it('should not emit changed time if it does not exists', fakeAsync(() => {
     const timeMock = { time: 1, angle: 30 };
     let time = null;
     component.timeList = [timeMock];
@@ -72,13 +71,13 @@ describe('TimepickerDialControlComponent', () => {
         previousValue: undefined,
         currentValue: 1,
         firstChange: true,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
       },
     };
     component.timeUnit = TimeUnit.HOUR;
-    // component.ngOnChanges(changes);
+    component.ngOnChanges(changes);
 
-    // expect(component._time).toBe('01');
+    expect(component._time).toBe('01');
   });
 
   it('should not format time if its the second change', () => {
@@ -87,14 +86,14 @@ describe('TimepickerDialControlComponent', () => {
         previousValue: undefined,
         currentValue: '1',
         firstChange: false,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
       },
     };
     component._time = '4';
     component.timeUnit = TimeUnit.HOUR;
-    // component.ngOnChanges(changes);
+    component.ngOnChanges(changes);
 
-    // expect(component._time).toBe('4');
+    expect(component._time).toBe('4');
   });
 
   it('should do nothing', () => {
@@ -103,12 +102,12 @@ describe('TimepickerDialControlComponent', () => {
         previousValue: undefined,
         currentValue: null,
         firstChange: false,
-        isFirstChange: () => true,
+        isFirstChange: (): boolean => true,
       },
     };
     component._time = '4';
-    // component.ngOnChanges(changes);
-    // expect(component._time).toBe('4');
+    component.ngOnChanges(changes);
+    expect(component._time).toBe('4');
   });
 
   it('should format time', async(() => {
@@ -210,7 +209,7 @@ describe('TimepickerDialControlComponent', () => {
       });
     });
 
-    xit('should call preventDefault if no time exist or time disabled', () => {
+    it('should call preventDefault if no time exist or time disabled', () => {
       const NUM_1 = 49; // 1
       component.timeList = [{ time: 1, angle: 30, disabled: true }];
       component._time = '1';

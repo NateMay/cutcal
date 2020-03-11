@@ -127,7 +127,7 @@ export class NutrientWindRoseComponent implements OnInit {
         endOnTick: false,
         showLastLabel: true,
         labels: {
-          formatter() {
+          formatter(): string {
             return this.value + '%'
           },
         },
@@ -149,7 +149,7 @@ export class NutrientWindRoseComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.nutrition = ZERO_NUTRITION
     setTimeout(() => (this.renderChart = true), 0)
   }

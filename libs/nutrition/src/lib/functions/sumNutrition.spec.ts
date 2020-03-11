@@ -1,7 +1,7 @@
 import { Nutrition } from '../nutrition';
 import { sumNutritions } from './sumNutritions';
 
-const NUTRS: Array<Nutrition<number>> = [
+const NUTRS: Nutrition<number>[] = [
   {
     calories: 10,
     fat: 10,

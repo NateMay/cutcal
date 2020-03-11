@@ -19,11 +19,13 @@ import { TimePickerInputComponent } from '../time-picker/components/time-picker-
 
 // TODO (binder) change the API
 /**
- *  <cc-datetime-binder
- *    (datetime)="outgoingDatetime($event)"
- *    [date]="incomingDate"
- *    [time]="incomingDate"
- *  ></cc-datetime-binder>
+ * ```html
+ *   <cc-datetime-binder
+ *     (datetime)="outgoingDatetime($event)"
+ *     [date]="incomingDate"
+ *     [time]="incomingDate"
+ *   ></cc-datetime-binder>
+ * ```
  */
 
 export const DATETIME_BINDER_CONTROL_VALUE_ACCESSOR: any = {
@@ -57,18 +59,18 @@ export class DatetimeBinderComponent
       this._timePicker.markForCheck()
     }
   }
-  get disabled() {
+  get disabled(): boolean {
     return this._disabled
   }
 
   /**
-   *   ↓  Date Picker  ↓
+   * ↓  Date Picker  ↓
    */
 
   _datetime: Date = new Date()
 
   @Input()
-  get datetime() {
+  get datetime(): Date {
     return this._datetime
   }
   set datetime(datetime: Date) {
@@ -78,7 +80,7 @@ export class DatetimeBinderComponent
 
   _datePicker!: DatePickerInputComponent
   @Input()
-  get datePicker() {
+  get datePicker(): DatePickerInputComponent {
     return this._datePicker
   }
   set datePicker(datePicker: DatePickerInputComponent) {
@@ -94,17 +96,17 @@ export class DatetimeBinderComponent
   }
 
   /**
-   *   ↑  Date Picker  ↑
+   * ↑  Date Picker  ↑
    *
    *
    *
    *
-   *   ↓  Time Picker  ↓
+   * ↓  Time Picker  ↓
    */
 
   _timePicker!: TimePickerInputComponent
   @Input()
-  get timePicker() {
+  get timePicker(): TimePickerInputComponent {
     return this._timePicker
   }
   set timePicker(timePicker: TimePickerInputComponent) {
@@ -121,26 +123,24 @@ export class DatetimeBinderComponent
   }
 
   /**
-   *   ↑  Time Picker  ↑
+   * ↑  Time Picker  ↑
    */
 
-  updateDate(date: Date | null) {
+  updateDate(date: Date | null): void {
     if (!date) return
     this.datetime = date.assignTime(this.datetime)
     this.datetimeChange.emit(this.datetime)
     this.writeValue(this.datetime)
   }
 
-  updateTime(time: Date | null) {
+  updateTime(time: Date | null): void {
     if (!time) return
     this.datetime = this.datetime.assignTime(time)
     this.datetimeChange.emit(this.datetime)
     this.writeValue(this.datetime)
   }
 
-  constructor() {}
-
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     setTimeout(() => {
       if (this.datePicker.date)
         this.datetime = this.datePicker.date.assignTime(this.datetime)
@@ -176,6 +176,6 @@ export class DatetimeBinderComponent
     this.disabled = isDisabled
   }
 
-  onChange = (date: Date) => {}
-  onTouched = () => {}
+  onChange = (date: Date): void => {}
+  onTouched = (): void => {}
 }

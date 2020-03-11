@@ -10,8 +10,8 @@ describe('TrashComponent', () => {
   let fixture: ComponentFixture<TrashComponent>;
 
   const mealSvcStub = {
-    deleteMeal: () => {},
-    deleteUsage: () => {},
+    deleteMeal: (): void => {},
+    deleteUsage: (): void => {},
   };
 
   beforeEach(async(() => {

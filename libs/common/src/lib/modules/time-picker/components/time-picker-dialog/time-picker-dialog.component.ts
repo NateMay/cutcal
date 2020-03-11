@@ -135,7 +135,7 @@ export class TimepickerDialogComponent implements OnDestroy {
   constructor(
     @Optional() @Inject(TIME_PICKER_DATA) public data: TimePickerData
   ) {
-    if (Boolean(data)) {
+    if (data) {
       this.input = data.input
       this.setDefaultTime(this.input.time)
     }
@@ -148,11 +148,12 @@ export class TimepickerDialogComponent implements OnDestroy {
     return `${forceZero(hour)}:${forceZero(minute)} ${period}`.trim()
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.unsub$.next()
     this.unsub$.complete()
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onHourSelected(hour: number): void {
     this.changeTimeUnit(TimeUnit.MINUTE)
     // this.hourSelected.next(hour);
@@ -206,9 +207,9 @@ export class TimepickerDialogComponent implements OnDestroy {
   }
 }
 
-/***
- * // TODO (move) into functions or TimeAdapter
- *  Format hour in 24hours format to meridian (AM or PM) format
+// TODO (move) into functions or TimeAdapter
+/**
+ * @description Format hour in 24hours format to meridian (AM or PM) format
  */
 function formatHourByPeriod(hour: number, period: TimePeriod): number {
   switch (period) {

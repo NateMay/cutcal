@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs'
 @Injectable()
 export class AuthService {
   private _activeUid = new BehaviorSubject<string>('')
-  get activeUid() {
+  get activeUid(): string {
     return this._activeUid.getValue()
   }
   get activeUser$(): Observable<string> {
@@ -12,7 +12,7 @@ export class AuthService {
   }
 
   private _trueUid = new BehaviorSubject<string>('')
-  get trueUid() {
+  get trueUid(): string {
     return this._trueUid.getValue()
   }
   get user$(): Observable<string> {

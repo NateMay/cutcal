@@ -3,7 +3,7 @@
 // import { Observable, of } from 'rxjs';
 // import { AppEffects } from './app.effects';
 
-// describe('AppEffects', () => {
+// _describe('AppEffects', () => {
 // let actions$: Observable<any>;
 // let effects: AppEffects;
 

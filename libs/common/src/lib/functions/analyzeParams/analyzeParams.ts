@@ -2,7 +2,7 @@ import { NavigationExtras } from '@angular/router'
 import { Timeframe } from '@cutcal/core'
 
 /**
- * Creates the proper url for any data range or date and timeframe
+ * @description Creates the proper url for any data range or date and timeframe
  * and puts it in the proper format for router.navigate()
  * @param {Date} fromDate
  * @param {Timeframe | Date} timeframe
@@ -10,29 +10,26 @@ import { Timeframe } from '@cutcal/core'
  *  this.router.navigate(['analyze'], analyzeParams(this.startDate, this.endDate));
  */
 // TODO (routing) change the first param into a tuple of start and end dates
-export function analyzeParams(
+export const analyzeParams = (
   fromDate: Date,
   timeframe: Timeframe | Date
-): NavigationExtras {
-  return {
-    queryParams: {
-      start:
-        typeof timeframe === 'object'
-          ? fromDate.toUrlString()
-          : analyzeStartDate(fromDate, timeframe),
+): NavigationExtras => ({
+  queryParams: {
+    start:
+      typeof timeframe === 'object'
+        ? fromDate.toUrlString()
+        : analyzeStartDate(fromDate, timeframe),
+    end:
+      typeof timeframe === 'object'
+        ? timeframe.toUrlString()
+        : analyzeEndDate(fromDate, timeframe),
+  },
+})
 
-      end:
-        typeof timeframe === 'object'
-          ? timeframe.toUrlString()
-          : analyzeEndDate(fromDate, timeframe),
-    },
-  }
-}
-
-function analyzeStartDate(
+const analyzeStartDate = (
   fromDate: Date,
   timeframe: Timeframe
-): string | never {
+): string | never => {
   switch (timeframe) {
     case 'week':
       return fromDate.firstDayOfWeek().toUrlString()
@@ -47,7 +44,10 @@ function analyzeStartDate(
   }
 }
 
-function analyzeEndDate(fromDate: Date, timeframe: Timeframe): string | never {
+const analyzeEndDate = (
+  fromDate: Date,
+  timeframe: Timeframe
+): string | never => {
   switch (timeframe) {
     case 'week':
       return fromDate

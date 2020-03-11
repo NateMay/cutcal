@@ -10,15 +10,15 @@ describe('Food Service', () => {
   let foodSvc: FoodService;
 
   const storageSub = {
-    upload: () => {},
-    ref: () => {},
+    upload: (): void => {},
+    ref: (): void => {},
   };
 
   const dbDouble = {
-    add: () => {},
-    colWithIds: () => {},
-    docWithId: () => {},
-    delete: () => {},
+    add: (): void => {},
+    colWithIds: (): void => {},
+    docWithId: (): void => {},
+    delete: (): void => {},
   };
 
   beforeEach(() => {
@@ -38,47 +38,47 @@ describe('Food Service', () => {
     expect(foodSvc).toBeTruthy();
   });
 
-  // it('createMeal', () => {
+  // _it('createMeal', () => {
 
   // })
 
-  // it('getMealRange', () => {
+  // _it('getMealRange', () => {
 
   // })
 
-  // it('getMealByID', () => {
+  // _it('getMealByID', () => {
 
   // })
 
-  // it('addIngredientAndUpdate', () => {
+  // _it('addIngredientAndUpdate', () => {
 
   // })
 
-  // it('removeIngredientAndUpdate', () => {
+  // _it('removeIngredientAndUpdate', () => {
 
   // })
 
-  // it('deleteMeal', () => {
+  // _it('deleteMeal', () => {
 
   // })
 
-  // it('addFoodToMeal', () => {
+  // _it('addFoodToMeal', () => {
 
   // })
 
-  // it('changeMealtime', () => {
+  // _it('changeMealtime', () => {
 
   // })
 
-  // it('getMealIngredients', () => {
+  // _it('getMealIngredients', () => {
 
   // })
 
-  // it('getIngredients', () => {
+  // _it('getIngredients', () => {
 
   // })
 
-  // it('getFoods', () => {
+  // _it('getFoods', () => {
 
   // })
 });

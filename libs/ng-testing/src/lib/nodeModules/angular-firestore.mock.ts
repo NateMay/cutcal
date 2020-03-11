@@ -12,10 +12,10 @@ export class MockAngularFirestore {
   _collectionValue: any
 
   _docValue: any
-  collection(...args: any) {
+  collection(): any {
     return this._collectionValue
   }
-  doc(...args: any) {
+  doc(): any {
     return this._docValue
   }
 }

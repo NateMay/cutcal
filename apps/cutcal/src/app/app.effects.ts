@@ -8,8 +8,6 @@ export const logout = createAction('[Auth] Logout')
 
 @Injectable()
 export class AppEffects {
-  constructor(private actions$: Actions, private router: Router) {}
-
   logout$ = createEffect(
     () =>
       this.actions$.pipe(
@@ -17,8 +15,12 @@ export class AppEffects {
         tap(() => {
           localStorage.removeItem('user')
         }),
-        tap(() => this.router.navigate(['/']))
+        tap(() => {
+          this.router.navigate(['/'])
+        })
       ),
     { dispatch: false }
   )
+
+  constructor(private actions$: Actions, private router: Router) {}
 }

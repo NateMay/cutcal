@@ -2,12 +2,12 @@ import { Pipe, PipeTransform } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 
 /**
- * Sanitizes data for the template
- * @refrence {@link https://stackoverflow.com/questions/49419662/why-sanitizer-bypasssecuritytruststyle-returns-warning-when-setting-style-backg Stackoverflow}
+ * @description Sanitizes data for the template
+ * @see {@link https://stackoverflow.com/questions/49419662/why-sanitizer-bypasssecuritytruststyle-returns-warning-when-setting-style-backg Stackoverflow}
  * @example
- *   photo = '../../../assets/images/april.jpg';
- *
- *   <img [style.background-image]="'url(' + photo + ')' | sanitize">
+ * ```html
+ *   <img [style.background-image]="'url(' + photoUrl + ')' | sanitize">
+ * ```
  */
 @Pipe({
   name: 'sanitize',

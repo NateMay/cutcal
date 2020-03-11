@@ -1,10 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core'
 
 /**
- * [attr]="methodName(value)"
- * becomes [attr]="value
- * [attr]="value | memoize : methodName"
- * @refernce https://medium.com/@ineedsomemeat/angular-optimization-memoized-pipe-functions-in-templates-75f62e16df5a
+ * @description memoizes methods bound in the template that would otherwise
+ * execute on every ngDoCheck() cycle
+ *
+ * @see {@link https://medium.com/ineedsomemeat/angular-optimization-memoized-pipe-functions-in-templates-75f62e16df5a Medium}
+ *
+ * @example
+ * ```html
+ *  <element [attr]="methodName(value)">Was this</element>
+ *
+ *  <element [attr]="value | memoize : methodName">Now this</element>
+ * ```
  */
 
 @Pipe({
@@ -16,6 +23,6 @@ export class MemoizePipe implements PipeTransform {
     handler: (value: any) => any,
     context?: any
   ): any {
-    return Boolean(context) ? handler.call(context, value) : handler(value)
+    return context ? handler.call(context, value) : handler(value)
   }
 }

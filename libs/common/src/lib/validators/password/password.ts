@@ -50,6 +50,5 @@ export const password: ValidatorFn = (
       }
 }
 
-export function isPresent(obj: any): boolean {
-  return obj !== undefined && obj !== null
-}
+export const isPresent = (obj: any): boolean =>
+  obj !== undefined && obj !== null

@@ -8,5 +8,5 @@ import { Component, OnInit } from '@angular/core'
 export class Doc4DatetimeBinderComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

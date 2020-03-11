@@ -37,12 +37,12 @@ export class HoldableDirective implements OnDestroy {
 
   @HostListener('mouseup')
   @HostListener('mouseleave')
-  onExit() {
+  onExit(): void {
     this.state.next('cancel')
   }
 
   @HostListener('mousedown')
-  onHold() {
+  onHold(): void {
     this.state.next('start')
 
     interval(this.interval)
@@ -59,7 +59,7 @@ export class HoldableDirective implements OnDestroy {
       .subscribe()
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.state.next('cancel')
   }
 }
