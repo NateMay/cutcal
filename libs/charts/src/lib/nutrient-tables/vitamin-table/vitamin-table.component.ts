@@ -34,7 +34,7 @@ import { get } from 'lodash'
     <tbody>
       <tr>
         <td>
-          <button class="clickable" (click)="vitA_Open = !vitAOpen">
+          <button class="clickable" (click)="vitAOpen = !vitAOpen">
             Vitamin A
           </button>
         </td>
@@ -91,7 +91,7 @@ import { get } from 'lodash'
       </ng-container>
       <tr>
         <td>
-          <button class="clickable" (click)="vitE_Open = !vitEOpen">
+          <button class="clickable" (click)="vitEOpen = !vitEOpen">
             Vitamin E
           </button>
         </td>
@@ -158,7 +158,7 @@ import { get } from 'lodash'
 
       <tr>
         <td>
-          <button class="clickable" (click)="folate_Open = !folateOpen">
+          <button class="clickable" (click)="folateOpen = !folateOpen">
             Folate
           </button>
         </td>

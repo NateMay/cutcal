@@ -1,4 +1,4 @@
-import { MeasureBase, UnitMap } from './unit-interfaces';
+import { MeasureBase, UnitMap } from './unit-interfaces'
 
 export type uVolume =
   | 'mm3'

@@ -16,6 +16,13 @@ import {
 import { reduce } from 'lodash'
 import { CaloriesSource } from '../../../../nutrition/src/lib/calories-from'
 
+interface PieSlice {
+  name?: string
+  y?: number
+  percent?: number
+  unit?: string
+}
+
 @Component({
   selector: 'cc-calories-chart',
   styleUrls: ['./calories.component.scss'],
@@ -87,7 +94,7 @@ export class CaloriesChartComponent {
   buildChartData(caloriesFrom: CaloriesFrom): any[] {
     const totalCalories = reduce(caloriesFrom, (sum, curr) => sum + curr) || 0
 
-    const result = []
+    const result: PieSlice[] = []
     for (const source of Object.keys(caloriesFrom) as CaloriesSource[]) {
       const calories = caloriesFrom[source]
       if (calories > 0) {

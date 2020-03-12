@@ -37,5 +37,4 @@ describe('toRawType', () => {
   it('should identify "Object"s', () => {
     expect(toRawType({})).toBe('Object');
   });
-
 });

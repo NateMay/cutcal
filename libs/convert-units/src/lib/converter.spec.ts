@@ -44,22 +44,22 @@ describe('UnitConverter', () => {
   });
 
   it('should convert volumn within system', () => {
-    const result = new UnitConverter(1).from('l').to('ml')
+    const result = new UnitConverter(1).from('l').to('ml');
     expect(result).toBe(1000);
   });
 
   it('should convert volumn across systems', () => {
-    const result = new UnitConverter(1).from('l').to('tsp')
-    expect(result).toBeCloseTo(202.8841356, 7)
+    const result = new UnitConverter(1).from('l').to('tsp');
+    expect(result).toBeCloseTo(202.8841356, 7);
   });
 
   it('should convert mass within system', () => {
-    const result = new UnitConverter(1).from('g').to('kg')
+    const result = new UnitConverter(1).from('g').to('kg');
     expect(result).toBe(0.001);
   });
 
   it('should convert mass across systems', () => {
-    const result = new UnitConverter(1).from('lb').to('kg')
-    expect(result).toBeCloseTo(0.453592, 6)
+    const result = new UnitConverter(1).from('lb').to('kg');
+    expect(result).toBeCloseTo(0.453592, 6);
   });
 });

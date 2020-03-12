@@ -1,7 +1,15 @@
+import { assertIsDefined } from '@cutcal/core'
 import { each, keys } from 'lodash'
 import { uMass } from './mass'
 import { MEASURES } from './measures'
-import { Measure, MeasureBase, UnitDescription, UnitDetails, UnitMap, UnitSystem } from './unit-interfaces'
+import {
+  Measure,
+  MeasureBase,
+  UnitDescription,
+  UnitDetails,
+  UnitMap,
+  UnitSystem,
+} from './unit-interfaces'
 import { uVolume } from './volume'
 
 /**
@@ -14,7 +22,7 @@ interface ConvertOptions {
   exclude?: Unit[]
   cutOffNumber?: number
 }
-const BASE_OPTIONS = {
+const BASE_OPTIONS: ConvertOptions = {
   exclude: [],
   cutOffNumber: 1,
 }
@@ -58,8 +66,8 @@ export const convert = (quantity: number = 1) => new UnitConverter(quantity)
 
 export class UnitConverter {
   private originalQuantity: number
-  private targetUnit: ConversionDetails
-  private originalUnit: ConversionDetails
+  private targetUnit: ConversionDetails | undefined
+  private originalUnit: ConversionDetails | undefined
 
   constructor(quantity: number = 1) {
     this.originalQuantity = quantity
@@ -74,13 +82,15 @@ export class UnitConverter {
    * @example
    *   convert(100).from('lb').('kg')
    */
-  from(from: Unit): this {
+  from(fromUnit: Unit): this {
     if (this.targetUnit) throw Error('.from() must be called before .to()')
 
-    this.originalUnit = this.getUnit(from)
+    this.originalUnit = this.getUnit(fromUnit)
+
+    assertIsDefined(this.originalUnit)
 
     if (!this.originalUnit) {
-      this.throwUnsupportedUnitError(from)
+      this.throwUnsupportedUnitError(fromUnit)
     }
 
     return this
@@ -95,6 +105,7 @@ export class UnitConverter {
     if (!this.originalUnit) throw Error('.to must be called after .from')
 
     this.targetUnit = this.getUnit(to)
+    assertIsDefined(this.targetUnit)
 
     let result
 
@@ -137,23 +148,28 @@ export class UnitConverter {
   /**
    * @description Converts the unit to the best available unit.
    */
-  toBest(newOptions: ConvertOptions): BestConvert {
+  toBest(newOptions: ConvertOptions): BestConvert | undefined {
     if (!this.originalUnit) throw Error('.toBest must be called after .from')
 
     const options: ConvertOptions = Object.assign(BASE_OPTIONS, newOptions)
 
-    let best
+    let best: BestConvert | undefined
     /**
      * Looks through every possibility for the 'best' available unit.
      * i.e. Where the value has the fewest numbers before the decimal point,
      * but is still higher than 1.
      */
     each(this.possibilities(), possibility => {
+      assertIsDefined(options.exclude)
+      assertIsDefined(this.originalUnit)
+
       const unit = this.describe(possibility)
       const isIncluded = options.exclude.includes(possibility)
 
       if (isIncluded && unit.system === this.originalUnit.system) {
         const result = this.to(possibility)
+
+        assertIsDefined(options.cutOffNumber)
         if (!best || (result >= options.cutOffNumber && result < best.val)) {
           best = {
             val: result,
@@ -168,32 +184,34 @@ export class UnitConverter {
     return best
   }
 
-  getUnit(abbr: Unit): ConversionDetails {
-    let found: ConversionDetails
+  getUnit(abbr: Unit): ConversionDetails | undefined {
+    let found: ConversionDetails | undefined
+    for (const measure of keys(MEASURES) as Measure[]) {
+      const systems: MeasureBase = MEASURES[measure]
 
-    each(MEASURES, (systems: MeasureBase, measure: Measure) => {
-      each(systems, (units: UnitMap, system: UnitSystem | '_anchors') => {
-        if (system == '_anchors') return false
+      for (const system of keys(systems) as UnitSystem[]) {
+        const units: UnitMap = systems[system]
 
-        each(units, (unit: UnitDetails, testAbbr: Unit) => {
+        for (const testAbbr of keys(units) as Unit[]) {
           if (testAbbr == abbr) {
             found = {
               abbr,
               measure,
               system,
-              unit,
+              unit: units[testAbbr],
             }
           }
-        })
-      })
-    })
-
+        }
+      }
+    }
     return found
   }
 
   describe(abbr: Unit): UnitDescription {
     const resp = this.getUnit(abbr)
-    let desc = null
+    let desc: Description | undefined
+
+    assertIsDefined(resp)
 
     try {
       desc = descriptor(resp)
@@ -201,6 +219,7 @@ export class UnitConverter {
       this.throwUnsupportedUnitError(abbr)
     }
 
+    assertIsDefined(desc)
     return desc
   }
 
@@ -229,16 +248,18 @@ export class UnitConverter {
   //   return list
   // }
 
-  throwUnsupportedUnitError = what => {
-    let validUnits = []
+  throwUnsupportedUnitError = (what: Unit): never => {
+    let validUnits: Unit[] = []
 
-    each(MEASURES, (systems, measure) => {
-      each(systems, (units, system) => {
-        if (system == '_anchors') return false
-
-        validUnits = validUnits.concat(keys(units))
-      })
-    })
+    for (const measure of keys(MEASURES) as Measure[]) {
+      const systems = MEASURES[measure]
+      for (const system of keys(systems) as (UnitSystem | '_anchors')[]) {
+        if (system !== '_anchors') {
+          const units = systems[system]
+          validUnits = [...validUnits, ...(keys(units) as Unit[])]
+        }
+      }
+    }
 
     throw Error(
       'Unsupported unit ' + what + ', use one of: ' + validUnits.join(', ')
@@ -250,22 +271,27 @@ export class UnitConverter {
    * @param measure
    */
   possibilities(measure?: Measure): Unit[] {
-    let possibilities = []
+    let possibilities: Unit[] = []
 
     if (!this.originalUnit && !measure) {
-      each(keys(MEASURES), meas => {
-        each(MEASURES[meas], (units, system) => {
+      for (const meas of keys(MEASURES) as Measure[]) {
+        const systems = MEASURES[meas]
+        for (const system of keys(systems) as (UnitSystem | '_anchors')[]) {
+          const units = systems[system]
           if (system !== '_anchors')
-            possibilities = possibilities.concat(keys(units))
-        })
-      })
+            possibilities = [...possibilities, ...(keys(units) as Unit[])]
+        }
+      }
     } else {
+      assertIsDefined(this.originalUnit)
       measure = measure || this.originalUnit.measure
 
-      each(MEASURES[measure], (units, system) => {
+      const systems = MEASURES[measure]
+      for (const system of keys(systems) as (UnitSystem | '_anchors')[]) {
+        const units = systems[system]
         if (system !== '_anchors')
-          possibilities = possibilities.concat(keys(units))
-      })
+          possibilities = [...possibilities, ...(keys(units) as Unit[])]
+      }
     }
 
     return possibilities

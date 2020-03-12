@@ -13,7 +13,6 @@ export interface UnitMap {
   [key: string]: UnitDetails
 }
 
-
 interface MeasureAnchors {
   metric: MeasureAnchor
   imperial: MeasureAnchor
@@ -36,4 +35,3 @@ export interface MeasureBases {
 }
 
 export type Measure = keyof MeasureBases
-

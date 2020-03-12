@@ -91,10 +91,10 @@ import { get } from 'lodash'
         <td>Carbs Other</td>
         <td class="quant">{{ nutrition?.carbOther | number: numInfo }}</td>
         <td>
-          <span class="unit"> ({{ carbs['carb_other']?.unit }}) </span>
+          <span class="unit"> ({{ carbs['carbOther']?.unit }}) </span>
         </td>
         <td class="daily-value">
-          {{ nutrition.carbOther || 0 / rda('carb_other') | percent: precInfo }}
+          {{ nutrition.carbOther || 0 / rda('carbOther') | percent: precInfo }}
         </td>
       </tr>
       <tr>
