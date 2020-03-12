@@ -29,6 +29,7 @@
         "api-interfaces",
         "ng-testing",
         "nutrition",
+        "convert-units",
         "cutcal-analyze",
         "cutcal-business",
         "cutcal-calendar",

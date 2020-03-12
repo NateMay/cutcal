@@ -5,6 +5,8 @@
     "emitDecoratorMetadata": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "noImplicitReturns": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,

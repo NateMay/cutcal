@@ -1255,6 +1255,38 @@
           "styleext": "scss"
         }
       }
+    },
+    "convert-units": {
+      "projectType": "library",
+      "root": "libs/convert-units",
+      "sourceRoot": "libs/convert-units/src",
+      "prefix": "cutcal",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/convert-units/tsconfig.lib.json",
+              "libs/convert-units/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/convert-units/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/convert-units/jest.config.js",
+            "tsConfig": "libs/convert-units/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/convert-units/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
