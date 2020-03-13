@@ -5,8 +5,9 @@
  * @param {string} time "12:34 AM"
  */
 export function dateFromTime(time: string): Date | never {
-  if (!isValidTime(time))
+  if (!isValidTime(time)) {
     throw Error('[CutCal] dateFromTime() must recieve valid time string')
+  }
 
   const [hour, remaining] = time.split(':')
   const [minutes, period] = remaining.split(' ')

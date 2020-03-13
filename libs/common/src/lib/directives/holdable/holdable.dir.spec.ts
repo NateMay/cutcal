@@ -1,10 +1,5 @@
 import { Component, DebugElement } from '@angular/core';
-import {
-  ComponentFixture,
-  fakeAsync,
-  TestBed,
-  tick,
-} from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { getDe } from '@cutcal/ng-testing';
 import { HoldableDirective } from './holdable.dir';
 
@@ -57,6 +52,6 @@ describe('HoldableDirective', () => {
 
     button.triggerEventHandler('mouseup', null);
     fixture.detectChanges();
-    expect(holdTimeSpy).toHaveBeenCalledTimes(5);
+    expect(holdTimeSpy).toHaveBeenCalledTimes(6);
   }));
 });

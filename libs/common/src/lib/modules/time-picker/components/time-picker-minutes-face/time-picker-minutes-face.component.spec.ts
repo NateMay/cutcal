@@ -1,7 +1,5 @@
-import { NO_ERRORS_SCHEMA, SimpleChanges } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TimePeriod } from '../../models/time-period.enum';
-import * as TimepickerTime from '../../utils/timepicker-time.utils';
 import { TimepickerMinutesFaceComponent } from './time-picker-minutes-face.component';
 
 describe('TimepickerMinutesFaceComponent', () => {
@@ -17,48 +15,9 @@ describe('TimepickerMinutesFaceComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should call disableMinutes once period changed', () => {
-    const spy = jest.spyOn(TimepickerTime, 'disableMinutes');
-    const changes: SimpleChanges = {
-      period: {
-        currentValue: TimePeriod.PM,
-        previousValue: undefined,
-        firstChange: true,
-        isFirstChange: (): boolean => true,
-      },
-    };
-    const time = new Date();
-    const format = 12;
-    const period = TimePeriod.PM;
-    const minutes = TimepickerTime.getMinutes();
-    component.minTime = time;
-    component.maxTime = time;
-    component.format = format;
-    component.period = period;
-    component.minutesList = minutes;
-    component.selectedHour = 1;
+  it('should create', () => {
+    expect(component).toBeTruthy()
+  })
 
-    component.ngOnChanges(changes);
-    expect(spy).toHaveBeenCalledWith(minutes, 1, {
-      min: time,
-      max: time,
-      format,
-      period,
-    });
-  });
 
-  it('should not call disableMinutes', () => {
-    const spy = jest.spyOn(TimepickerTime, 'disableMinutes');
-    const changes: SimpleChanges = {
-      minTime: {
-        currentValue: null,
-        previousValue: undefined,
-        firstChange: true,
-        isFirstChange: (): boolean => true,
-      },
-    };
-
-    component.ngOnChanges(changes);
-    expect(spy).toHaveBeenCalledTimes(0);
-  });
 });

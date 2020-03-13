@@ -3,7 +3,7 @@ import { executeOnStable } from './executeOnStable';
 
 class MockNgZone {
   onStable = new EventEmitter<any>();
-  runOutsideAngular(func): void {
+  runOutsideAngular(func: () => any): void {
     func();
     return;
   }

@@ -1,10 +1,6 @@
 import { dateFromTime } from '../../../functions/dateFromTime/dateFromTime'
 import { TimePeriod } from '../models/time-period.enum'
-import {
-  isBetween,
-  isSameOrAfter,
-  isSameOrBefore,
-} from '../utils/timepicker.utils'
+import { isBetween, isSameOrAfter, isSameOrBefore } from '../utils/timepicker.utils'
 
 // @dynamic
 export class TimeAdapter {

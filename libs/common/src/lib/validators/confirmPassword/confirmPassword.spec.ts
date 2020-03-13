@@ -1,22 +1,17 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { PasswordValidatorDir as PasswordValidator } from '../password/password';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PasswordValidatorDir as PasswordValidator, PasswordValidatorDir } from '../password/password';
 import { ConfrmPasswordDir } from './confirmPassword';
 
 @Component({
   template: `
     <form [formGroup]="form">
-      <input formControlName="password" name="password" password />
+      <input formControlName="password" name="password" ccPassword />
       <input
         formControlName="confirm"
         name="confirm"
-        confirmPassword="password"
+        ccConfirmPassword="password"
       />
     </form>
   `,
@@ -40,6 +35,7 @@ describe('confirmPassword Validator', () => {
     TestBed.configureTestingModule({
       declarations: [
         ConfrmPasswordDir,
+        PasswordValidatorDir,
         TestConfirmValidatorComponent,
         PasswordValidator,
       ],
@@ -57,12 +53,12 @@ describe('confirmPassword Validator', () => {
   it('should add the "noMatch" error for the confirm field', () => {
     component.form.patchValue({ confirm: 'not a match' });
     fixture.detectChanges();
-    expect(component.form.controls['confirm'].hasError('noMatch')).toBeTruthy();
+    expect(component.form.get('confirm').hasError('noMatch')).toBeTruthy();
   });
 
   it('should not have an error is the password matches', () => {
     component.form.patchValue({ confirm: 'CutCal!$123' });
     fixture.detectChanges();
-    expect(component.form.controls['confirm'].hasError('noMatch')).toBeFalsy();
+    expect(component.form.get('confirm').hasError('noMatch')).toBeFalsy();
   });
 });

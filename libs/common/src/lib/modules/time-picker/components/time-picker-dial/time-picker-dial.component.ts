@@ -1,22 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges,
-  TemplateRef,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, TemplateRef } from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimePeriod } from '../../models/time-period.enum'
 import { TimeUnit } from '../../models/time-unit.enum'
-import {
-  disableHours,
-  disableMinutes,
-  getHours,
-  getMinutes,
-} from '../../utils/timepicker-time.utils'
+import { getHours, getMinutes } from '../../utils/timepicker-time.utils'
 
 @Component({
   selector: 'cc-timepicker-dial',
@@ -92,24 +78,10 @@ export class TimepickerDialComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['period']?.currentValue || changes['format']?.currentValue) {
-      const hours = getHours(this.format)
-
-      this.hours = disableHours(hours, {
-        min: this.minTime,
-        max: this.maxTime,
-        format: this.format,
-        period: this.period,
-      })
+      this.hours = getHours(this.format)
     }
     if (changes['period']?.currentValue || changes['hour']?.currentValue) {
-      const minutes = getMinutes(this.minutesGap)
-
-      this.minutes = disableMinutes(minutes, +this.hour, {
-        min: this.minTime,
-        max: this.maxTime,
-        format: this.format,
-        period: this.period,
-      })
+      this.minutes = getMinutes(this.minutesGap)
     }
   }
 

@@ -13,7 +13,7 @@ import { AmPmToggleComponent } from './am-pm-toggle.component';
   `,
 })
 class TestApPmComponent {
-  idStr;
+  idStr: string;
   isPM = false;
   disabled = false;
 }

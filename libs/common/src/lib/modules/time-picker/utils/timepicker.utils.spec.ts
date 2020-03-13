@@ -6,20 +6,20 @@ describe('TimepickerUtils', () => {
       expect(isSameOrAfter(new Date(), new Date())).toBeTruthy();
 
       expect(
-        isSameOrAfter(new Date(2020, 3, 10, 5, 6), new Date(2020, 3, 10, 5, 7))
+        isSameOrAfter(new Date(2020, 3, 10, 5, 10), new Date(2020, 3, 10, 5, 7))
       ).toBeTruthy();
     });
 
     it('should return false if hour less than min value', () => {
       expect(
         isSameOrAfter(new Date(2020, 3, 10, 5, 6), new Date(2020, 3, 10, 5, 7))
-      ).toBeTruthy();
+      ).toBeFalsy();
     });
 
     it('should return false', () => {
       expect(
         isSameOrAfter(
-          new Date(2020, 3, 10, 5, 6),
+          new Date(2020, 3, 10, 4, 6),
           new Date(2020, 3, 10, 5, 7),
           undefined
         )

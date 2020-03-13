@@ -1,13 +1,14 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Test } from '@nestjs/testing';
-
 import { AppService } from './app.service';
+
 
 describe('AppService', () => {
   let service: AppService;
 
   beforeAll(async () => {
     const app = await Test.createTestingModule({
-      providers: [AppService],
+      providers: [AppService, HttpClientTestingModule],
     }).compile();
 
     service = app.get<AppService>(AppService);

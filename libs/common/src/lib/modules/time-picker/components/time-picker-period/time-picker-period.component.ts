@@ -1,21 +1,8 @@
-import {
-  animate,
-  sequence,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations'
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core'
+import { animate, sequence, style, transition, trigger } from '@angular/animations'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimePeriod } from '../../models/time-period.enum'
 import { TimeUnit } from '../../models/time-unit.enum'
-import { disableHours, disableMinutes } from '../../utils/timepicker-time.utils'
 
 @Component({
   selector: 'cc-timepicker-period',
@@ -84,20 +71,8 @@ export class TimepickerPeriodComponent {
 
   private getDisabledTimeByPeriod(period: TimePeriod): ClockFaceTime[] {
     switch (this.activeTimeUnit) {
-      case TimeUnit.HOUR:
-        return disableHours(this.hours, {
-          min: this.minTime,
-          max: this.maxTime,
-          format: this.format,
-          period,
-        })
-      case TimeUnit.MINUTE:
-        return disableMinutes(this.minutes, +this.selectedHour, {
-          min: this.minTime,
-          max: this.maxTime,
-          format: this.format,
-          period,
-        })
+      case TimeUnit.HOUR: return this.hours
+      case TimeUnit.MINUTE: return this.minutes
     }
   }
 }

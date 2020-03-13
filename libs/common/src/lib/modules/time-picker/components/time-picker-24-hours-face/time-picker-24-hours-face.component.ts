@@ -1,14 +1,6 @@
-import {
-  AfterContentInit,
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
-import { TimePeriod } from '../../models/time-period.enum'
-import { disableHours, getHours } from '../../utils/timepicker-time.utils'
+import { getHours } from '../../utils/timepicker-time.utils'
 
 @Component({
   selector: 'cc-timepicker-24-hours-face',
@@ -23,7 +15,7 @@ import { disableHours, getHours } from '../../utils/timepicker-time.utils'
     ></cc-timepicker-face>
   `,
 })
-export class Timepicker24HoursFaceComponent implements AfterContentInit {
+export class Timepicker24HoursFaceComponent  {
   @Input() selectedHour!: ClockFaceTime
   @Input() minTime!: Date
   @Input() maxTime!: Date
@@ -40,14 +32,5 @@ export class Timepicker24HoursFaceComponent implements AfterContentInit {
 
   onTimeSelected(time: number): void {
     this.hourSelected.next(time)
-  }
-
-  ngAfterContentInit(): void {
-    this.hoursList = disableHours(this.hoursList, {
-      min: this.minTime,
-      max: this.maxTime,
-      format: this.format,
-      period: TimePeriod.AM,
-    })
   }
 }

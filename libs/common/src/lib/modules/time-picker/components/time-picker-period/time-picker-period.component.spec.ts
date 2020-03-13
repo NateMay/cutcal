@@ -30,7 +30,7 @@ describe('TimepickerPeriodComponent', () => {
     component.maxTime.setHours(15);
     component.hours = getHours(12);
     component.isPeriodAvailable = false;
-    component.periodChanged.subscribe(p => (component.selectedPeriod = p));
+    component.periodChanged.subscribe((p: TimePeriod) => (component.selectedPeriod = p));
     component.changePeriod();
 
     expect(component.isPeriodAvailable).toBeTruthy();
@@ -46,7 +46,7 @@ describe('TimepickerPeriodComponent', () => {
     component.maxTime.setHours(15);
     component.minutes = minutes;
     component.selectedHour = 4;
-    component.periodChanged.subscribe(p => (component.selectedPeriod = p));
+    component.periodChanged.subscribe((p: TimePeriod) => (component.selectedPeriod = p));
     component.changePeriod();
 
     expect(component.selectedPeriod).toBe(TimePeriod.PM);

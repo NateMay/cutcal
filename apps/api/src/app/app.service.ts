@@ -7,7 +7,7 @@ export class AppService {
   constructor(private readonly http: HttpService) {}
 
   getData(): Message {
-    return { message: 'Welcome to api!3' }
+    return { message: 'Welcome to api!' }
   }
 
   async scrapeDescription(link: string): Promise<Message> {

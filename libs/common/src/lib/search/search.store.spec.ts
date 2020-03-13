@@ -1,10 +1,12 @@
-import { closeSearch, openSearch, searchReducer } from './search.store';
+import { closeSearch, openSearch, searchReducer, SearchState } from './search.store';
 
 describe('reducer', () => {
-  let state;
+  let state: SearchState;
 
   beforeEach(() => {
-    state = {};
+    state = {
+      isOpen: false,
+    };
   });
 
   it('rootDate - GOT_TO_TODAY', () => {

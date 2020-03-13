@@ -1,11 +1,6 @@
 import { NO_ERRORS_SCHEMA, SimpleChanges } from '@angular/core';
-import {
-  async,
-  ComponentFixture,
-  fakeAsync,
-  TestBed,
-  tick,
-} from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ClockFaceTime } from '../../models/clock-face-time.interface';
 import { TimeUnit } from '../../models/time-unit.enum';
 import { getHours } from '../../utils/timepicker-time.utils';
 import { TimepickerDialControlComponent } from './time-picker-dial-control.component';
@@ -24,7 +19,7 @@ describe('TimepickerDialControlComponent', () => {
   });
 
   it('should set current time to previous time, change time unit', async(() => {
-    component.timeUnitChanged.subscribe(unit =>
+    component.timeUnitChanged.subscribe((unit: TimeUnit) =>
       expect(unit).toBe(TimeUnit.MINUTE)
     );
 
@@ -43,7 +38,7 @@ describe('TimepickerDialControlComponent', () => {
     const timeMock = { time: 1, angle: 30, disabled: false };
     let time = null;
     component.timeList = [timeMock];
-    component.timeChanged.subscribe(t => (time = t));
+    component.timeChanged.subscribe((t: ClockFaceTime) => (time = t));
     component._time = '1';
     component.updateTime();
 
@@ -56,7 +51,7 @@ describe('TimepickerDialControlComponent', () => {
     const timeMock = { time: 1, angle: 30 };
     let time = null;
     component.timeList = [timeMock];
-    component.timeChanged.subscribe(t => (time = t));
+    component.timeChanged.subscribe((t: ClockFaceTime) => (time = t));
     component._time = '';
     component.updateTime();
 

@@ -1,10 +1,5 @@
 import { Attribute, Directive, forwardRef } from '@angular/core'
-import {
-  AbstractControl,
-  NG_VALIDATORS,
-  ValidationErrors,
-  Validator,
-} from '@angular/forms'
+import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms'
 
 /**
  * @description Directive which pairs with a passord form control and ensures equality
@@ -23,7 +18,7 @@ import {
   ],
 })
 export class ConfrmPasswordDir implements Validator {
-  constructor(@Attribute('confirmPassword') public confirmPassword: string) {}
+  constructor(@Attribute('ccConfirmPassword') public confirmPassword: string) {}
 
   validate(confirm: AbstractControl): ValidationErrors | null {
     const password = confirm.root.get(this.confirmPassword)

@@ -1,13 +1,5 @@
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
-import {
-  async,
-  ComponentFixture,
-  getTestBed,
-  TestBed,
-} from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { async, ComponentFixture, getTestBed, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
@@ -37,10 +29,6 @@ describe('AppComponent', () => {
 
   it('should create the app', () => {
     expect(component).toBeTruthy();
-  });
-
-  it(`should have as title 'food-review'`, () => {
-    expect(component.title).toEqual('food-review');
   });
 
   it('should return an Observable<User[]>', () => {
