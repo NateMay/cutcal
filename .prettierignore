@@ -3,3 +3,4 @@
 /dist
 /coverage
 **/test.ts
+jest_html_reporters.html

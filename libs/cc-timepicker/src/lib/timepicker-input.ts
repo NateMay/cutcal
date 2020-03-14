@@ -1,7 +1,26 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion'
 import { DOWN_ARROW } from '@angular/cdk/keycodes'
-import { Directive, ElementRef, EventEmitter, forwardRef, Inject, Input, OnDestroy, Optional, Output } from '@angular/core'
-import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator, ValidatorFn, Validators } from '@angular/forms'
+import {
+  Directive,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  Inject,
+  Input,
+  OnDestroy,
+  Optional,
+  Output,
+} from '@angular/core'
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
+  ValidationErrors,
+  Validator,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms'
 import { ThemePalette } from '@angular/material/core'
 import { MatFormField } from '@angular/material/form-field'
 import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input'
@@ -269,8 +288,8 @@ export class CcTimepickerInput
     this._onTouched()
   }
 
-   /** Formats a value and sets it on the input element. */
-   private _formatValue(value: string | null) {
-    this._elementRef.nativeElement.value = value;
+  /** Formats a value and sets it on the input element. */
+  private _formatValue(value: string | null) {
+    this._elementRef.nativeElement.value = value
   }
 }

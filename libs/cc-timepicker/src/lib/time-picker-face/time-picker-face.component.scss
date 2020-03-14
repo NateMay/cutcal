@@ -1,0 +1,147 @@
+@import '../styles/config';
+@import 'palette';
+
+$clock-face-size: 238px;
+
+.clock-face {
+  width: $clock-face-size;
+  height: $clock-face-size;
+  border-radius: 50%;
+  border: 3px solid $theme-A-3;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: whitesmoke;
+
+  &_inner {
+    position: absolute;
+  }
+}
+
+.clock-face_container {
+  margin-left: -2px;
+  margin-top: -10px;
+}
+
+.clock-face_number {
+  position: absolute;
+  transform-origin: 0 100%;
+  width: 50px;
+  text-align: center;
+  z-index: 2;
+
+  &--outer {
+    height: calc(#{$clock-face-size} / 2 - 14px);
+
+    > span {
+      font-size: 16px;
+      color: $theme-A-2;
+    }
+
+    &::before {
+      content: '|';
+      position: absolute;
+      top: -14px;
+      font-size: 10px;
+      color: $theme-A-3;
+    }
+  }
+
+  &--inner {
+    > span {
+      font-size: 14px;
+      color: $theme-A-1;
+    }
+  }
+
+  > span {
+    user-select: none;
+    width: 30px;
+    height: 30px;
+    border: 2px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 50%;
+    font-weight: 500;
+    font-family: $primary-font-family;
+
+    &.active {
+      border: 2px solid $theme-A-3;
+      background-color: #fff;
+      color: $theme-A-3;
+    }
+
+    &.disabled {
+      color: $theme-A-0;
+    }
+  }
+}
+
+$clock_hand_length: 85px;
+
+.clock-face_clock-hand {
+  height: $clock_hand_length;
+  width: 2px;
+  transform-origin: 0 100%;
+  position: absolute;
+  top: calc(50% - #{$clock_hand_length});
+  z-index: 1;
+  background-color: $clock-hand-color;
+
+  @supports (background-color: $theme-A-3) {
+    background-color: $theme-A-3;
+  }
+
+  &::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: inherit;
+    position: absolute;
+    bottom: -3px;
+    left: -3.5px;
+  }
+}
+
+.clock-face_clock-hand_minute::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  left: calc(50% - 8px);
+  box-sizing: content-box;
+  border-width: 4px;
+  border-style: solid;
+  border-color: $clock-hand-color;
+
+  @supports (border-color: $theme-A-3) {
+    border-color: $theme-A-3;
+  }
+}
+
+@media (max-device-width: 1023px) and (orientation: landscape) {
+  .clock-face {
+    width: 225px;
+    height: 225px;
+    padding: 5px;
+  }
+
+  .clock-face_number {
+    &--outer {
+      height: calc(225px / 2 - 5px);
+    }
+  }
+
+  .clock-face_clock-hand_minute::before {
+    top: 0;
+  }
+}

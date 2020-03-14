@@ -1,8 +1,18 @@
-import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Attribute, ChangeDetectionStrategy, Component, ContentChild, Directive, Input, OnDestroy, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatButton } from '@angular/material/button';
-import { Subscription } from 'rxjs';
-import { CcTimepicker } from './timepicker';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion'
+import {
+  Attribute,
+  ChangeDetectionStrategy,
+  Component,
+  ContentChild,
+  Directive,
+  Input,
+  OnDestroy,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core'
+import { MatButton } from '@angular/material/button'
+import { Subscription } from 'rxjs'
+import { CcTimepicker } from './timepicker'
 
 /** Can be used to override the icon of a `ccTimepickerToggle`. */
 @Directive({
@@ -22,8 +32,8 @@ export class CcTimepickerToggleIcon {}
       [attr.tabindex]="disabled ? -1 : tabIndex"
       [disabled]="disabled"
       [disableRipple]="disableRipple"
-      (click)="_open($event)">
-
+      (click)="_open($event)"
+    >
       <svg
         *ngIf="!_customIcon"
         class="cc-timepicker-toggle-default-icon"
@@ -31,8 +41,11 @@ export class CcTimepickerToggleIcon {}
         width="24px"
         height="24px"
         fill="currentColor"
-        focusable="false">
-        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+        focusable="false"
+      >
+        <path
+          d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 11 6 L 11 12.414062 L 15.292969 16.707031 L 16.707031 15.292969 L 13 11.585938 L 13 6 L 11 6 z"
+        />
       </svg>
 
       <ng-content select="[ccTimepickerToggleIcon]"></ng-content>
@@ -40,7 +53,7 @@ export class CcTimepickerToggleIcon {}
   `,
   styleUrls: ['./timepicker-toggle.scss'],
   host: {
-    'class': 'cc-timepicker-toggle',
+    class: 'cc-timepicker-toggle',
     // Always set the tabindex to -1 so that it doesn't overlap with any custom tabindex the
     // consumer may have provided, while still being able to receive focus.
     '[attr.tabindex]': 'disabled ? null : -1',
@@ -51,46 +64,46 @@ export class CcTimepickerToggleIcon {}
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CcTimepickerToggle implements OnDestroy {
+  static ngAcceptInputType_disabled: BooleanInput
 
-  static ngAcceptInputType_disabled: BooleanInput;
-
-  private _stateChanges = Subscription.EMPTY;
+  private _stateChanges = Subscription.EMPTY
 
   /** Timepicker instance that the button will toggle. */
-  @Input('for') timepicker: CcTimepicker;
+  @Input('for') timepicker: CcTimepicker
 
   /** Tabindex for the toggle. */
-  @Input() tabIndex: number | null;
+  @Input() tabIndex: number | null
 
   /** Whether the toggle button is disabled. */
   @Input()
   get disabled(): boolean {
     if (this._disabled === undefined && this.timepicker) {
-      return this.timepicker.disabled;
+      return this.timepicker.disabled
     }
 
-    return !!this._disabled;
+    return !!this._disabled
   }
   set disabled(value: boolean) {
-    this._disabled = coerceBooleanProperty(value);
+    this._disabled = coerceBooleanProperty(value)
   }
-  private _disabled: boolean;
+  private _disabled: boolean
 
   /** Whether ripples on the toggle should be disabled. */
-  @Input() disableRipple: boolean;
+  @Input() disableRipple: boolean
 
   /** Custom icon set by the consumer. */
-  @ContentChild(CcTimepickerToggleIcon) _customIcon: CcTimepickerToggleIcon;
+  @ContentChild(CcTimepickerToggleIcon) _customIcon: CcTimepickerToggleIcon
 
   /** Underlying button element. */
-  @ViewChild('button') _button: MatButton;
+  @ViewChild('button') _button: MatButton
 
   constructor(
     // private _changeDetectorRef: ChangeDetectorRef,
-    @Attribute('tabindex') defaultTabIndex: string) {
-
-    const parsedTabIndex = Number(defaultTabIndex);
-    this.tabIndex = (parsedTabIndex || parsedTabIndex === 0) ? parsedTabIndex : null;
+    @Attribute('tabindex') defaultTabIndex: string
+  ) {
+    const parsedTabIndex = Number(defaultTabIndex)
+    this.tabIndex =
+      parsedTabIndex || parsedTabIndex === 0 ? parsedTabIndex : null
   }
 
   // ngOnChanges(changes: SimpleChanges) {
@@ -100,7 +113,7 @@ export class CcTimepickerToggle implements OnDestroy {
   // }
 
   ngOnDestroy() {
-    this._stateChanges.unsubscribe();
+    this._stateChanges.unsubscribe()
   }
 
   // ngAfterContentInit() {
@@ -109,9 +122,8 @@ export class CcTimepickerToggle implements OnDestroy {
 
   _open(event: Event): void {
     if (this.timepicker && !this.disabled) {
-      this.timepicker.open();
-      event.stopPropagation();
+      this.timepicker.open()
+      event.stopPropagation()
     }
   }
-
 }

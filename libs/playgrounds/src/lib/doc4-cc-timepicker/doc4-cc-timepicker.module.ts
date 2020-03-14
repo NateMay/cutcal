@@ -1,11 +1,9 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { CcTimepickerModule } from '@cutcal/cc-timepicker';
-import { DocUtilModule } from '../doc-utils.module';
-import { Doc4CcTimepickerComponent } from './doc4-cc-timepicker.component';
-
-
+import { CommonModule } from '@angular/common'
+import { NgModule } from '@angular/core'
+import { RouterModule } from '@angular/router'
+import { CcTimepickerModule } from '@cutcal/cc-timepicker'
+import { DocUtilModule } from '../doc-utils.module'
+import { Doc4CcTimepickerComponent } from './doc4-cc-timepicker.component'
 
 @NgModule({
   declarations: [Doc4CcTimepickerComponent],
@@ -21,4 +19,4 @@ import { Doc4CcTimepickerComponent } from './doc4-cc-timepicker.component';
     ]),
   ],
 })
-export class Doc4CcTimepickerModule { }
+export class Doc4CcTimepickerModule {}

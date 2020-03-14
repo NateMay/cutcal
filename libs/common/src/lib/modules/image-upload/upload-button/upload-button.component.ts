@@ -1,11 +1,26 @@
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
-import { Component, ComponentRef, ElementRef, EventEmitter, HostListener, Injector, Input, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core'
+import {
+  Component,
+  ComponentRef,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Injector,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core'
 import { Boolish } from '@cutcal/core'
 import { eventWithin } from '../../../functions/eventWithin/eventWithin'
 import { ImageCroppedEvent } from '../interfaces/image-cropped-event'
 import { UploadDialogComponent } from '../upload-dialog/upload-dialog.component'
-import { ImageCroperData, IMAGE_CROPPER_DATA } from '../utils/image-cropper.data'
+import {
+  ImageCroperData,
+  IMAGE_CROPPER_DATA,
+} from '../utils/image-cropper.data'
 
 let nextUniqueId = 0
 

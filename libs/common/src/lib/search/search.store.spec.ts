@@ -1,4 +1,9 @@
-import { closeSearch, openSearch, searchReducer, SearchState } from './search.store';
+import {
+  closeSearch,
+  openSearch,
+  searchReducer,
+  SearchState,
+} from './search.store';
 
 describe('reducer', () => {
   let state: SearchState;

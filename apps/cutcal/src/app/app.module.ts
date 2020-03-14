@@ -60,6 +60,10 @@ export class MyHammerConfig extends GestureConfig {
     !environment.production
       ? StoreDevtoolsModule.instrument(DEV_TOOLS_OPTIONS)
       : [],
+    /**
+     * // TODO (ngrx) Customizable re-subscriptions for Effects
+     * {@link https://medium.com/ngrx/announcing-ngrx-version-9-immutability-out-of-the-box-customizable-effects-and-more-e4cf71be1a5b Brandon Roberts}
+     */
     EffectsModule.forRoot([AppEffects]),
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router',

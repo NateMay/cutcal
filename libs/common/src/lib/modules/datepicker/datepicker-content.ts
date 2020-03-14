@@ -1,19 +1,25 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, ViewChild, ViewEncapsulation } from '@angular/core';
-import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core';
-import { Subject } from 'rxjs';
-import { CcDatepicker } from './datepicker';
-import { ccDatepickerAnimations } from './datepicker-animations';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core'
+import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core'
+import { Subject } from 'rxjs'
+import { CcDatepicker } from './datepicker'
+import { ccDatepickerAnimations } from './datepicker-animations'
 
 @Component({
   selector: 'cc-dateicker-face',
   template: 'face',
 })
 export class CcDatePickerFace {
-  focusActiveCell() {
-
-  }
+  focusActiveCell() {}
 }
-
 
 /** Used to generate a unique ID for each datepicker instance. */
 // const datepickerUid = 0
@@ -54,7 +60,7 @@ const _CcDatepickerContentMixinBase: CanColorCtor &
   inputs: ['color'],
 })
 export class CcDatepickerContent extends _CcDatepickerContentMixinBase
- implements AfterViewInit, OnDestroy, CanColor {
+  implements AfterViewInit, OnDestroy, CanColor {
   /** Reference to the internal calendar component. */
   @ViewChild(CcDatePickerFace) _calendar: CcDatePickerFace
 
@@ -77,7 +83,7 @@ export class CcDatepickerContent extends _CcDatepickerContentMixinBase
      */
     private _changeDetectorRef?: ChangeDetectorRef
   ) {
-    super(elementRef);
+    super(elementRef)
   }
 
   ngAfterViewInit() {

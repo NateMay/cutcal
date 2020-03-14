@@ -1,7 +1,15 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PasswordValidatorDir as PasswordValidator, PasswordValidatorDir } from '../password/password';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import {
+  PasswordValidatorDir as PasswordValidator,
+  PasswordValidatorDir,
+} from '../password/password';
 import { ConfrmPasswordDir } from './confirmPassword';
 
 @Component({

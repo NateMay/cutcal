@@ -1,10 +1,30 @@
 import { Directionality } from '@angular/cdk/bidi'
 import { coerceBooleanProperty } from '@angular/cdk/coercion'
 import { ESCAPE, UP_ARROW } from '@angular/cdk/keycodes'
-import { Overlay, OverlayConfig, OverlayRef, PositionStrategy, ScrollStrategy } from '@angular/cdk/overlay'
+import {
+  Overlay,
+  OverlayConfig,
+  OverlayRef,
+  PositionStrategy,
+  ScrollStrategy,
+} from '@angular/cdk/overlay'
 import { ComponentPortal } from '@angular/cdk/portal'
 import { DOCUMENT } from '@angular/common'
-import { ChangeDetectionStrategy, Component, ComponentRef, EventEmitter, Inject, InjectionToken, Input, NgZone, OnDestroy, Optional, Output, ViewContainerRef, ViewEncapsulation } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ComponentRef,
+  EventEmitter,
+  Inject,
+  InjectionToken,
+  Input,
+  NgZone,
+  OnDestroy,
+  Optional,
+  Output,
+  ViewContainerRef,
+  ViewEncapsulation,
+} from '@angular/core'
 import { CanColor, ThemePalette } from '@angular/material/core'
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'
 import { merge, Subject, Subscription } from 'rxjs'
@@ -33,7 +53,6 @@ export const CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER = {
   exportAs: 'ccTimepicker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-
 })
 export class CcTimepicker implements OnDestroy, CanColor {
   private _scrollStrategy: () => ScrollStrategy
@@ -79,8 +98,8 @@ export class CcTimepicker implements OnDestroy, CanColor {
   /** The input element this timepicker is associated with. */
   _timepickerInput: CcTimepickerInput
 
-    /** Reference to the datepicker that created the overlay. */
-  datepicker: CcTimepicker;
+  /** Reference to the datepicker that created the overlay. */
+  datepicker: CcTimepicker
 
   /**
    * Whether the calendar UI is in touch mode. In touch mode the calendar opens in a dialog rather
@@ -104,7 +123,7 @@ export class CcTimepicker implements OnDestroy, CanColor {
   @Output('closed') closedStream: EventEmitter<void> = new EventEmitter<void>()
 
   /** Emits when an animation has finished. */
-  _animationDone = new Subject<void>();
+  _animationDone = new Subject<void>()
 
   /** Whether the calendar is open. */
   @Input()
@@ -140,9 +159,8 @@ export class CcTimepicker implements OnDestroy, CanColor {
   }
   _color: ThemePalette
 
-    /** Current state of the animation. */
-    _animationState: 'enter' | 'void' = 'enter';
-
+  /** Current state of the animation. */
+  _animationState: 'enter' | 'void' = 'enter'
 
   constructor(
     private _dialog: MatDialog,
@@ -153,7 +171,7 @@ export class CcTimepicker implements OnDestroy, CanColor {
     @Optional() private _dir: Directionality,
     private _overlay: Overlay
   ) {
-    this._scrollStrategy = scrollStrategy;
+    this._scrollStrategy = scrollStrategy
   }
 
   ngOnDestroy() {

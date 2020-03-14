@@ -1,5 +1,10 @@
 import { Attribute, Directive, forwardRef } from '@angular/core'
-import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms'
+import {
+  AbstractControl,
+  NG_VALIDATORS,
+  ValidationErrors,
+  Validator,
+} from '@angular/forms'
 
 /**
  * @description Directive which pairs with a passord form control and ensures equality

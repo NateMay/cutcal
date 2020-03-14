@@ -12,4 +12,3 @@ export * from './doc4-holdable'
 export * from './doc4-img-upload'
 export * from './doc4-nutr-label'
 export * from './doc4-timepicker'
-

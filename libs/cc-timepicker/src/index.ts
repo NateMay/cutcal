@@ -1,2 +1,1 @@
-export * from './lib/timepicker.module';
-
+export * from './lib/timepicker.module'

@@ -1,5 +1,16 @@
-import { Component, ElementRef, Inject, Input, Optional, TemplateRef, ViewChild } from '@angular/core'
-import { dateFromTime, forceZero } from '../../../../functions/dateFromTime/dateFromTime'
+import {
+  Component,
+  ElementRef,
+  Inject,
+  Input,
+  Optional,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core'
+import {
+  dateFromTime,
+  forceZero,
+} from '../../../../functions/dateFromTime/dateFromTime'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimePeriod } from '../../models/time-period.enum'
 import { TimeUnit } from '../../models/time-unit.enum'

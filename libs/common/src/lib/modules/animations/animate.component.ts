@@ -1,8 +1,28 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion'
 import { ScrollDispatcher } from '@angular/cdk/scrolling'
-import { Component, ElementRef, EventEmitter, HostBinding, Input, NgZone, OnDestroy, OnInit, Output } from '@angular/core'
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostBinding,
+  Input,
+  NgZone,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core'
 import { Observable, of, Subject } from 'rxjs'
-import { delay, distinctUntilChanged, flatMap, map, scan, startWith, takeUntil, takeWhile, tap } from 'rxjs/operators'
+import {
+  delay,
+  distinctUntilChanged,
+  flatMap,
+  map,
+  scan,
+  startWith,
+  takeUntil,
+  takeWhile,
+  tap,
+} from 'rxjs/operators'
 import { ANIMATIONS } from './animate.animations'
 
 export type Animations =

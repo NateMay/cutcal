@@ -1,10 +1,30 @@
 import { Directionality } from '@angular/cdk/bidi'
 import { coerceBooleanProperty } from '@angular/cdk/coercion'
 import { ESCAPE, UP_ARROW } from '@angular/cdk/keycodes'
-import { Overlay, OverlayConfig, OverlayRef, PositionStrategy, ScrollStrategy } from '@angular/cdk/overlay'
+import {
+  Overlay,
+  OverlayConfig,
+  OverlayRef,
+  PositionStrategy,
+  ScrollStrategy,
+} from '@angular/cdk/overlay'
 import { ComponentPortal } from '@angular/cdk/portal'
 import { DOCUMENT } from '@angular/common'
-import { ChangeDetectionStrategy, Component, ComponentRef, EventEmitter, Inject, InjectionToken, Input, NgZone, OnDestroy, Optional, Output, ViewContainerRef, ViewEncapsulation } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ComponentRef,
+  EventEmitter,
+  Inject,
+  InjectionToken,
+  Input,
+  NgZone,
+  OnDestroy,
+  Optional,
+  Output,
+  ViewContainerRef,
+  ViewEncapsulation,
+} from '@angular/core'
 import { CanColor, ThemePalette } from '@angular/material/core'
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'
 import { merge, Subject, Subscription } from 'rxjs'

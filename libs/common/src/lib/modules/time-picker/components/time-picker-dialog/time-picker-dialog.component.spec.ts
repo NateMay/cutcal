@@ -8,7 +8,6 @@ describe('TimepickerComponent', () => {
   let fixture: ComponentFixture<TimepickerDialogComponent>;
   let component: TimepickerDialogComponent;
 
-
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [TimepickerDialogComponent],
@@ -75,6 +74,5 @@ describe('TimepickerComponent', () => {
       component.changePeriod(TimePeriod.PM);
       expect(component.selectedPeriod).toBe(TimePeriod.PM);
     });
-
   });
 });
