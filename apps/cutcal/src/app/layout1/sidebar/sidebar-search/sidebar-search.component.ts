@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  OnInit,
-  ViewChild,
-} from '@angular/core'
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core'
 
 @Component({
   selector: 'cc-sidebar-search',
@@ -47,7 +41,7 @@ export class SidebarSearchComponent implements OnInit {
 
   searchAcivated = true
 
-  @ViewChild('inputEl') inputEl!: ElementRef
+  @ViewChild('inputEl') inputEl!: ElementRef<HTMLInputElement>
 
   constructor() {}
 

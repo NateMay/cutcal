@@ -34,6 +34,7 @@ yarn-error.log
 testem.log
 /typings
 report*
+jest_html_reporters.html
 
 # System Files
 .DS_Store

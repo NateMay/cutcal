@@ -8,14 +8,6 @@ describe('TimepickerComponent', () => {
   let fixture: ComponentFixture<TimepickerDialogComponent>;
   let component: TimepickerDialogComponent;
 
-  // const DEFAULT_HOUR: ClockFaceTime = {
-  //   time: 12,
-  //   angle: 360,
-  // };
-  // const DEFAULT_MINUTE: ClockFaceTime = {
-  //   time: 0,
-  //   angle: 360,
-  // };
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
@@ -69,10 +61,6 @@ describe('TimepickerComponent', () => {
     const hour = { time: 11, angle: 360 };
     const minute = { time: 44, angle: 36 };
 
-    afterEach(() => {
-      component.ngOnDestroy(); // unsubscribe from all
-    });
-
     it('should change hour on onHourChange', () => {
       component.onHourChange(hour);
       expect(component.selectedHour).toEqual(hour);
@@ -88,16 +76,5 @@ describe('TimepickerComponent', () => {
       expect(component.selectedPeriod).toBe(TimePeriod.PM);
     });
 
-    it('should not change hour, minute, period if unsubscribe', () => {
-      component.ngOnDestroy();
-
-      component.onHourChange(hour);
-      component.onMinuteChange(minute);
-      component.changePeriod(TimePeriod.PM);
-
-      expect(component.selectedHour).not.toEqual(hour);
-      expect(component.selectedMinute).not.toEqual(minute);
-      expect(component.selectedPeriod).not.toBe(TimePeriod.PM);
-    });
   });
 });

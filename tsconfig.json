@@ -89,7 +89,8 @@
       "@cutcal/charts": ["libs/charts/src/index.ts"],
       "@cutcal/fire": ["libs/fire/src/index.ts"],
       "@cutcal/fdc": ["libs/fdc/src/index.ts"],
-      "@cutcal/convert-units": ["libs/convert-units/src/index.ts"]
+      "@cutcal/convert-units": ["libs/convert-units/src/index.ts"],
+      "@cutcal/cc-timepicker": ["libs/cc-timepicker/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

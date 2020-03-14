@@ -1,14 +1,14 @@
 import { async, TestBed } from '@angular/core/testing';
-import { PlaygroundsModule } from './playgrounds.module';
+import { CcTimepickerModule } from './timepicker.module';
 
-describe('CommonPlaygroundsModule', () => {
+describe('CcTimepickerModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [PlaygroundsModule],
+      imports: [CcTimepickerModule],
     }).compileComponents();
   }));
 
   it('should create', () => {
-    expect(PlaygroundsModule).toBeDefined();
+    expect(CcTimepickerModule).toBeDefined();
   });
 });

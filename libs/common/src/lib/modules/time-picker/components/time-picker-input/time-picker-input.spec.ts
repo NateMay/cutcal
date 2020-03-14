@@ -119,17 +119,17 @@ describe('Time Picker Module', () => {
     assertClosed();
   });
 
-  it('binds by selecting a time from the time picker dialog & closes the picker', () => {
-    focusOpen();
-    assertOpen();
-    fixture.detectChanges();
-    // component.time
-    // component.pickerRef.instance.timeSet.emit('03:34 am')
-    fixture.detectChanges();
-    assertClosed();
-    expect(parent.time).toEqual('03:34 am');
-    expect(input.value).toBe('03:34 am');
-  });
+  // _it('binds by selecting a time from the time picker dialog & closes the picker', () => {
+  //   focusOpen();
+  //   assertOpen();
+  //   fixture.detectChanges();
+  //   component.timeChange.emit(03:34 am)
+  //   component.pickerRef.instance.setTime('03:34 am')
+  //   fixture.detectChanges();
+  //   assertClosed();
+  //   expect(parent.time).toEqual('03:34 am');
+  //   expect(input.value).toBe('03:34 am');
+  // });
 
   it('binds & updates from the parent properly', () => {
     parent.time = '11:07 am';

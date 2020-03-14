@@ -117,6 +117,9 @@
     },
     "convert-units": {
       "tags": []
+    },
+    "cc-timepicker": {
+      "tags": []
     }
   }
 }

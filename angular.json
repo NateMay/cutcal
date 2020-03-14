@@ -1287,6 +1287,50 @@
           "styleext": "scss"
         }
       }
+    },
+    "cc-timepicker": {
+      "projectType": "library",
+      "root": "libs/cc-timepicker",
+      "sourceRoot": "libs/cc-timepicker/src",
+      "prefix": "cc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/cc-timepicker/tsconfig.lib.json",
+            "project": "libs/cc-timepicker/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/cc-timepicker/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cc-timepicker/tsconfig.lib.json",
+              "libs/cc-timepicker/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cc-timepicker/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cc-timepicker/jest.config.js",
+            "tsConfig": "libs/cc-timepicker/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/cc-timepicker/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -1,25 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  EventEmitter,
-  HostBinding,
-  HostListener,
-  Input,
-  NgZone,
-  OnChanges,
-  Output,
-  SimpleChanges,
-  ViewChild,
-} from '@angular/core'
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, NgZone, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core'
 import { DomSanitizer, SafeStyle, SafeUrl } from '@angular/platform-browser'
 import { CropperPosition } from '../interfaces/cropper-position'
 import { ImageCroppedEvent } from '../interfaces/image-cropped-event'
-import {
-  resetExifOrientation,
-  transformBase64BasedOnExifRotation,
-} from '../utils/exif.utils'
+import { resetExifOrientation, transformBase64BasedOnExifRotation } from '../utils/exif.utils'
 import { resizeCanvas } from '../utils/resize.utils'
 
 /**
@@ -143,7 +126,7 @@ export class ImageCropperComponent implements OnChanges {
   marginLeft: SafeStyle | string = '0px'
   imageVisible = false
 
-  @ViewChild('sourceImage') sourceImage!: ElementRef
+  @ViewChild('sourceImage') sourceImage!: ElementRef<HTMLImageElement>
 
   @Input()
   set imageFileChanged(file: File) {

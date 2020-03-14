@@ -1,18 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  Inject,
-  Input,
-  OnDestroy,
-  Optional,
-  TemplateRef,
-  ViewChild,
-} from '@angular/core'
-import { Subject } from 'rxjs'
-import {
-  dateFromTime,
-  forceZero,
-} from '../../../../functions/dateFromTime/dateFromTime'
+import { Component, ElementRef, Inject, Input, Optional, TemplateRef, ViewChild } from '@angular/core'
+import { dateFromTime, forceZero } from '../../../../functions/dateFromTime/dateFromTime'
 import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { TimePeriod } from '../../models/time-period.enum'
 import { TimeUnit } from '../../models/time-unit.enum'
@@ -89,9 +76,7 @@ import { TimePickerInputComponent } from '../time-picker-input/time-picker-input
     </span>
   `,
 })
-export class TimepickerDialogComponent implements OnDestroy {
-  private unsub$: Subject<void> = new Subject()
-
+export class TimepickerDialogComponent {
   private _minutesGap: number
   private input: TimePickerInputComponent
 
@@ -146,11 +131,6 @@ export class TimepickerDialogComponent implements OnDestroy {
     const minute = this.selectedMinute.time
     const period = format === 12 ? this.selectedPeriod : ''
     return `${forceZero(hour)}:${forceZero(minute)} ${period}`.trim()
-  }
-
-  ngOnDestroy(): void {
-    this.unsub$.next()
-    this.unsub$.complete()
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

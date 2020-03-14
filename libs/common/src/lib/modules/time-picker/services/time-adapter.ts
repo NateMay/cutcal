@@ -83,6 +83,7 @@ export class TimeAdapter {
 
     if (period === TimePeriod.AM && hour === 12) return 0
     else if (period === TimePeriod.PM && hour === 24) return 12
+
     return hour
   }
 }

@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
-import { CommonUiLandingComponent } from './common-ui-landing/common-ui-landing.component'
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { CommonUiLandingComponent } from './common-ui-landing/common-ui-landing.component';
 
 // 'date-picker'
 // 'date-picker2'
@@ -37,6 +37,11 @@ const COMMONUI_ROUTES: Routes = [
     path: 'am-pm-toggle',
     loadChildren: () =>
       import('@cutcal/playgrounds').then(module => module.Doc4AmPmModule),
+  },
+  {
+    path: 'cc-timepicker',
+    loadChildren: () =>
+      import('@cutcal/playgrounds').then(module => module.Doc4CcTimepickerModule),
   },
   {
     path: 'datetime-binder',

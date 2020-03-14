@@ -1,12 +1,4 @@
-import {
-  Directive,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-} from '@angular/core'
+import { Directive, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core'
 import { interval, Subject } from 'rxjs'
 import { takeUntil, tap } from 'rxjs/operators'
 
@@ -30,7 +22,7 @@ export class DynamicWidthDirective implements OnInit, OnDestroy {
     return Math.abs(this._storedWidth - this.currentWidth) > 2
   }
 
-  constructor(private host: ElementRef) {}
+  constructor(private host: ElementRef<any>) {}
 
   ngOnInit(): void {
     this._storedWidth = this.currentWidth

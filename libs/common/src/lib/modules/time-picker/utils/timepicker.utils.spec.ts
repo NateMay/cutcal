@@ -39,8 +39,6 @@ describe('TimepickerUtils', () => {
     });
 
     it('should return false if hour more than max', () => {
-      // const max = TimeAdapter.convertTimeToDateTime('11:11 am');
-      // const time = TimeAdapter.convertTimeToDateTime('12:10 pm');
       expect(
         isSameOrBefore(
           new Date(2020, 3, 10, 6, 6),
@@ -51,11 +49,9 @@ describe('TimepickerUtils', () => {
     });
 
     it('should return false', () => {
-      // const max = TimeAdapter.convertTimeToDateTime('11:11 am');
-      // const time = TimeAdapter.convertTimeToDateTime('12:10 pm');
       expect(
         isSameOrBefore(
-          new Date(2020, 3, 10, 6, 6),
+          new Date(2020, 3, 10, 5, 5),
           new Date(2020, 3, 10, 5, 7),
           undefined
         )
