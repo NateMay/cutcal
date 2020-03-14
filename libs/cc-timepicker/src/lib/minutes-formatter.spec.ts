@@ -1,10 +1,10 @@
-import { MinutesFormatterPipe } from './minutes-formatter.pipe';
+import { CcMinutesFormatterPipe } from './minutes-formatter';
 
 describe('MinutesFormatterPipe', () => {
-  let pipe: MinutesFormatterPipe;
+  let pipe: CcMinutesFormatterPipe;
 
   beforeEach(() => {
-    pipe = new MinutesFormatterPipe();
+    pipe = new CcMinutesFormatterPipe();
   });
 
   it('should create an instance', () => {

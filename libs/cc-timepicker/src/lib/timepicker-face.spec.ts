@@ -6,25 +6,24 @@ import {
   TestBed,
   tick,
 } from '@angular/core/testing';
-import { StyleSanitizerPipe } from '../../../../pipes/style-sanitizer/style-sanitizer.pipe';
-import { ClockFaceTime } from '../../models/clock-face-time.interface';
-import { TimeUnit } from '../../models/time-unit.enum';
-import { MinutesFormatterPipe } from '../../pipes/minutes-formatter.pipe';
-import { TimepickerFaceComponent } from './time-picker-face.component';
+import { StyleSanitizerPipe } from '@cutcal/common';
+import { CcMinutesFormatterPipe } from './minutes-formatter';
+import { CcTimepickerFace } from './timepicker-face';
+import { ClockFaceTime, TimeUnit } from './timepicker-utils';
 
 describe('TimepickerFaceComponent', () => {
-  let fixture: ComponentFixture<TimepickerFaceComponent>;
-  let component: TimepickerFaceComponent;
+  let fixture: ComponentFixture<CcTimepickerFace>;
+  let component: CcTimepickerFace;
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [
-        TimepickerFaceComponent,
+        CcTimepickerFace,
         StyleSanitizerPipe,
-        MinutesFormatterPipe,
+        CcMinutesFormatterPipe,
       ],
       schemas: [NO_ERRORS_SCHEMA],
-    }).createComponent(TimepickerFaceComponent);
+    }).createComponent(CcTimepickerFace);
 
     component = fixture.componentInstance;
   });

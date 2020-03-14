@@ -1,22 +1,20 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { TimePeriod } from '../../models/time-period.enum';
-import { TimeUnit } from '../../models/time-unit.enum';
-import { getHours, getMinutes } from '../../utils/timepicker-time.utils';
-import { TimepickerPeriodComponent } from './time-picker-period.component';
+import { CcTimepickerPeriodComponent } from './timepicker-period';
+import { getHours, getMinutes, TimePeriod, TimeUnit } from './timepicker-utils';
 
 describe('TimepickerPeriodComponent', () => {
-  let fixture: ComponentFixture<TimepickerPeriodComponent>;
-  let component: TimepickerPeriodComponent;
+  let fixture: ComponentFixture<CcTimepickerPeriodComponent>;
+  let component: CcTimepickerPeriodComponent;
   const minutes = getMinutes();
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      declarations: [TimepickerPeriodComponent],
+      declarations: [CcTimepickerPeriodComponent],
       imports: [NoopAnimationsModule],
       schemas: [NO_ERRORS_SCHEMA],
-    }).createComponent(TimepickerPeriodComponent);
+    }).createComponent(CcTimepickerPeriodComponent);
 
     component = fixture.componentInstance;
   });

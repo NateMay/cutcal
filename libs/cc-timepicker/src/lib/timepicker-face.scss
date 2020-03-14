@@ -1,7 +1,10 @@
-@import '../styles/config';
 @import 'palette';
 
-$clock-face-size: 238px;
+$clock-hand-color: deepskyblue;
+
+$clock-face-size: 280px;
+
+$primary-font-family: Roboto, 'Helvetica Neue', sans-serif;
 
 .clock-face {
   width: $clock-face-size;
@@ -34,11 +37,10 @@ $clock-face-size: 238px;
   z-index: 2;
 
   &--outer {
-    height: calc(#{$clock-face-size} / 2 - 14px);
+    height: calc(#{$clock-face-size} / 2 - 13px);
 
     > span {
-      font-size: 16px;
-      color: $theme-A-2;
+      font-size: 18px;
     }
 
     &::before {
@@ -59,15 +61,14 @@ $clock-face-size: 238px;
 
   > span {
     user-select: none;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     border: 2px solid transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
     border-radius: 50%;
-    font-weight: 500;
     font-family: $primary-font-family;
 
     &.active {
@@ -82,7 +83,7 @@ $clock-face-size: 238px;
   }
 }
 
-$clock_hand_length: 85px;
+$clock_hand_length: 100px;
 
 .clock-face_clock-hand {
   height: $clock_hand_length;

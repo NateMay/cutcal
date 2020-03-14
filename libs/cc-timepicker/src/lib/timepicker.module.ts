@@ -6,18 +6,18 @@ import { NgModule } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
 import { MatDialogModule } from '@angular/material/dialog'
 import { AmPmToggleModule, StyleSanitizerModule } from '@cutcal/common'
-import { MinutesFormatterPipe } from './pipes/minutes-formatter.pipe'
-import { Timepicker12HoursFaceComponent } from './time-picker-12-hours-face/time-picker-12-hours-face.component'
-import { Timepicker24HoursFaceComponent } from './time-picker-24-hours-face/time-picker-24-hours-face.component'
-import { TimepickerFaceComponent } from './time-picker-face/time-picker-face.component'
-import { TimepickerMinutesFaceComponent } from './time-picker-minutes-face/time-picker-minutes-face.component'
-import { TimepickerPeriodComponent } from './time-picker-period/time-picker-period.component'
+import { CcTimepicker12HoursFaceComponent } from './12-hours-face'
+import { CcTimepicker24HoursFaceComponent } from './24-hours-face'
+import { CcTimepickerMinutesFace } from './minutes-face'
+import { CcMinutesFormatterPipe } from './minutes-formatter'
 import {
   CcTimepicker,
   CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER,
 } from './timepicker'
-import { CcTimepickerContent, CcTimePickerFace } from './timepicker-content'
+import { CcTimepickerContent, CcTimePickerDialog } from './timepicker-content'
+import { CcTimepickerFace } from './timepicker-face'
 import { CcTimepickerInput } from './timepicker-input'
+import { CcTimepickerPeriodComponent } from './timepicker-period'
 import { CcTimepickerToggle } from './timepicker-toggle'
 
 @NgModule({
@@ -36,20 +36,20 @@ import { CcTimepickerToggle } from './timepicker-toggle'
     CcTimepickerToggle,
     CcTimepickerInput,
     CcTimepickerContent,
-    CcTimePickerFace,
-    TimepickerMinutesFaceComponent,
-    TimepickerPeriodComponent,
-    Timepicker12HoursFaceComponent,
-    Timepicker24HoursFaceComponent,
-    TimepickerFaceComponent,
-    MinutesFormatterPipe,
+    CcTimePickerDialog,
+    CcTimepickerMinutesFace,
+    CcTimepickerPeriodComponent,
+    CcTimepicker12HoursFaceComponent,
+    CcTimepicker24HoursFaceComponent,
+    CcTimepickerFace,
+    CcMinutesFormatterPipe,
   ],
   exports: [
     CcTimepicker,
     CcTimepickerToggle,
     CcTimepickerInput,
     CcTimepickerContent,
-    CcTimePickerFace,
+    CcTimePickerDialog,
   ],
   providers: [CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER],
 })

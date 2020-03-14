@@ -18,6 +18,7 @@ import { Component, OnInit } from '@angular/core'
       />
       <cc-timepicker-toggle matSuffix [for]="picker"></cc-timepicker-toggle>
       <cc-timepicker #picker></cc-timepicker>
+      <!-- <cc-timepicker #picker touchUi></cc-timepicker> -->
     </mat-form-field>
   `,
   styleUrls: ['./doc4-cc-timepicker.component.css'],

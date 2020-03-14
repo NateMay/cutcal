@@ -5,23 +5,23 @@ import {
   Input,
   Output,
 } from '@angular/core'
-import { ClockFaceTime } from '../models/clock-face-time.interface'
-import { getHours } from '../utils/timepicker-time.utils'
+import { ClockFaceTime, getHours, TimePeriod } from './timepicker-utils'
 
 @Component({
-  selector: 'cc-timepicker-24-hours-face',
+  selector: 'cc-timepicker-12-hours-face',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <cc-timepicker-face
       [selectedTime]="selectedHour"
       [faceTime]="hoursList"
-      [format]="format"
       (timeChange)="hourChange.next($event)"
       (timeSelected)="onTimeSelected($event)"
     ></cc-timepicker-face>
   `,
 })
-export class Timepicker24HoursFaceComponent {
+export class CcTimepicker12HoursFaceComponent {
+  @Input() period: TimePeriod = TimePeriod.AM
+
   @Input() selectedHour!: ClockFaceTime
   @Input() minTime!: Date
   @Input() maxTime!: Date
@@ -33,7 +33,7 @@ export class Timepicker24HoursFaceComponent {
   hoursList: ClockFaceTime[] = []
 
   constructor() {
-    this.hoursList = getHours(24)
+    this.hoursList = getHours(12)
   }
 
   onTimeSelected(time: number): void {

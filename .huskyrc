@@ -1,5 +1,5 @@
 {
   "hooks": {
-    "pre-commit": "nx format:write && git add ."
+    "pre-commit": "nx format:write && npm run eslint && git add ."
   }
 }

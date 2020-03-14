@@ -1,0 +1,42 @@
+.cc-timepicker-content {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.cc-timpicker-contols {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.cc-timpicker-contols span,
+.cc-timpicker-contols input {
+  font-size: 50px;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.cc-timpicker-contols input {
+  border: none;
+  background-color: transparent;
+  width: 60px;
+  padding: 0;
+  border-radius: 3px;
+  text-align: right;
+  color: currentColor;
+}
+
+.cc-timepicker-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 16px 16px 8px;
+}
+
+.cc-timepicker-actions button {
+  margin-left: 8px;
+}

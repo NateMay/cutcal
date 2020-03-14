@@ -12,13 +12,11 @@ import {
   Input,
   Output,
 } from '@angular/core'
-import { ClockFaceTime } from '../models/clock-face-time.interface'
-import { TimePeriod } from '../models/time-period.enum'
-import { TimeUnit } from '../models/time-unit.enum'
+import { ClockFaceTime, TimePeriod, TimeUnit } from './timepicker-utils'
 
 @Component({
   selector: 'cc-timepicker-period',
-  styleUrls: ['time-picker-period.component.scss'],
+  styleUrls: ['timepicker-period.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('scaleInOut', [
@@ -48,7 +46,7 @@ import { TimeUnit } from '../models/time-unit.enum'
     </div>
   `,
 })
-export class TimepickerPeriodComponent {
+export class CcTimepickerPeriodComponent {
   timePeriod = TimePeriod
   isPeriodAvailable = true
 

@@ -1,5 +1,19 @@
-@import '../styles/config';
-@import '../styles/dial-common';
+@import 'palette';
+
+$primary-font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+.timepicker-dial {
+  &__item {
+    cursor: pointer;
+    color: $theme-A-2;
+    font-family: $primary-font-family;
+
+    &_active {
+      color: $theme-A-3;
+      background-color: rgba(0, 0, 0, 0.07);
+    }
+  }
+}
 
 :host {
   display: flex;

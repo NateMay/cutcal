@@ -12,8 +12,7 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core'
-import { ClockFaceTime } from '../models/clock-face-time.interface'
-import { TimeUnit } from '../models/time-unit.enum'
+import { ClockFaceTime, TimeUnit } from './timepicker-utils'
 
 const CLOCK_HAND_STYLES = {
   small: {
@@ -28,7 +27,7 @@ const CLOCK_HAND_STYLES = {
 
 @Component({
   selector: 'cc-timepicker-face',
-  styleUrls: ['./time-picker-face.component.scss'],
+  styleUrls: ['./timepicker-face.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div #clockFace class="clock-face">
@@ -114,8 +113,7 @@ const CLOCK_HAND_STYLES = {
     </ng-template>
   `,
 })
-export class TimepickerFaceComponent
-  implements AfterViewInit, OnChanges, OnDestroy {
+export class CcTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
   timeUnit = TimeUnit
 
   isClockFaceDisabled: boolean

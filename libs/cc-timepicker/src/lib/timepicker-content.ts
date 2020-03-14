@@ -12,52 +12,60 @@ import {
 import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core'
 import { dateFromTime } from '@cutcal/common'
 import { Subject } from 'rxjs'
-import { ClockFaceTime } from './models/clock-face-time.interface'
-import { TimePeriod } from './models/time-period.enum'
-import { TimeUnit } from './models/time-unit.enum'
 import { CcTimepicker } from './timepicker'
 import { ccTimepickerAnimations } from './timepicker-animations'
-import { DEFAULT_HOUR, DEFAULT_MINUTE } from './utils/default-clock-face'
-@Component({
-  selector: 'cc-timpicker-face',
-  template: `
-    <input #hour value="12" />:<input value="30" />
+import {
+  ClockFaceTime,
+  DEFAULT_HOUR,
+  DEFAULT_MINUTE,
+  TimePeriod,
+  TimeUnit,
+} from './timepicker-utils'
 
-    <div class="timepicker__main-content">
-      <div class="timepicker__body" [ngSwitch]="activeTimeUnit">
-        <div *ngSwitchCase="timeUnit.HOUR">
-          <cc-timepicker-24-hours-face
-            *ngIf="format === 24; else ampmHours"
+@Component({
+  selector: 'cc-timepicker-dialog',
+  host: { class: 'cc-timepicker-dialog' },
+  template: `
+    <div class="cc-timpicker-contols">
+      <input #hour value="12" />
+      <span>:</span>
+      <input value="30" />
+      <cc-timepicker-period></cc-timepicker-period>
+    </div>
+
+    <ng-container [ngSwitch]="activeTimeUnit">
+      <div *ngSwitchCase="timeUnit.HOUR">
+        <cc-timepicker-24-hours-face
+          *ngIf="format === 24; else ampmHours"
+          (hourChange)="onHourChange($event)"
+          [selectedHour]="selectedHour"
+          [format]="format"
+          (hourSelected)="onHourSelected($event)"
+        ></cc-timepicker-24-hours-face>
+
+        <ng-template #ampmHours>
+          <cc-timepicker-12-hours-face
             (hourChange)="onHourChange($event)"
             [selectedHour]="selectedHour"
-            [format]="format"
+            [period]="selectedPeriod"
             (hourSelected)="onHourSelected($event)"
-          ></cc-timepicker-24-hours-face>
-
-          <ng-template #ampmHours>
-            <cc-timepicker-12-hours-face
-              (hourChange)="onHourChange($event)"
-              [selectedHour]="selectedHour"
-              [period]="selectedPeriod"
-              (hourSelected)="onHourSelected($event)"
-            ></cc-timepicker-12-hours-face>
-          </ng-template>
-        </div>
-
-        <cc-timepicker-minutes-face
-          *ngSwitchCase="timeUnit.MINUTE"
-          [selectedMinute]="selectedMinute"
-          [selectedHour]="selectedHour?.time"
-          [format]="format"
-          [period]="selectedPeriod"
-          [minutesGap]="minutesGap"
-          (minuteChange)="onMinuteChange($event)"
-        ></cc-timepicker-minutes-face>
+          ></cc-timepicker-12-hours-face>
+        </ng-template>
       </div>
-    </div>
+
+      <cc-timepicker-minutes-face
+        *ngSwitchCase="timeUnit.MINUTE"
+        [selectedMinute]="selectedMinute"
+        [selectedHour]="selectedHour?.time"
+        [format]="format"
+        [period]="selectedPeriod"
+        [minutesGap]="minutesGap"
+        (minuteChange)="onMinuteChange($event)"
+      ></cc-timepicker-minutes-face>
+    </ng-container>
   `,
 })
-export class CcTimePickerFace {
+export class CcTimePickerDialog {
   selectedHour: ClockFaceTime
   selectedMinute: ClockFaceTime
   selectedPeriod: TimePeriod
@@ -135,7 +143,6 @@ export class CcTimePickerFace {
   }
 }
 
-// TODO (move) into functions or TimeAdapter
 /**
  * @description Format hour in 24hours format to meridian (AM or PM) format
  */
@@ -154,22 +161,26 @@ function formatHourByPeriod(hour: number, period: TimePeriod): number {
 // const timepickerUid = 0
 
 // Boilerplate for applying mixins to CcTimepickerContent.
-class MatTimepickerContentBase {
+class CcTimepickerContentBase {
   constructor(public _elementRef: ElementRef<any>) {}
 }
 const _CcTimepickerContentMixinBase: CanColorCtor &
-  typeof MatTimepickerContentBase = mixinColor(MatTimepickerContentBase)
+  typeof CcTimepickerContentBase = mixinColor(CcTimepickerContentBase)
 
 /**
  * Component used as the content for the timepicker dialog and popup. We use this instead of using
- * MatCalendar directly as the content so we can control the initial focus. This also gives us a
+ * CcTimePickerFace directly as the content so we can control the initial focus. This also gives us a
  * place to put additional features of the popup that are not part of the calendar itself in the
  * future. (e.g. confirmation buttons).
  */
 @Component({
   selector: 'cc-timepicker-content',
   template: `
-    <cc-timpicker-face cdkTrapFocus></cc-timpicker-face>
+    <cc-timepicker-dialog cdkTrapFocus></cc-timepicker-dialog>
+    <div class="cc-timepicker-actions">
+      <button mat-button>CANCEL</button>
+      <button mat-button color="primary">OK</button>
+    </div>
   `,
   host: {
     class: 'cc-timepicker-content',
@@ -189,7 +200,7 @@ const _CcTimepickerContentMixinBase: CanColorCtor &
 export class CcTimepickerContent extends _CcTimepickerContentMixinBase
   implements AfterViewInit, OnDestroy, CanColor {
   /** Reference to the internal calendar component. */
-  @ViewChild(CcTimePickerFace) _calendar: CcTimePickerFace
+  @ViewChild(CcTimePickerDialog) _calendar: CcTimePickerDialog
 
   /** Reference to the timepicker that created the overlay. */
   timepicker: CcTimepicker

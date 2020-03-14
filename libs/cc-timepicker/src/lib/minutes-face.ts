@@ -7,10 +7,12 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core'
-import { ClockFaceTime } from '../models/clock-face-time.interface'
-import { TimePeriod } from '../models/time-period.enum'
-import { TimeUnit } from '../models/time-unit.enum'
-import { getMinutes } from '../utils/timepicker-time.utils'
+import {
+  ClockFaceTime,
+  getMinutes,
+  TimePeriod,
+  TimeUnit,
+} from './timepicker-utils'
 
 @Component({
   selector: 'cc-timepicker-minutes-face',
@@ -25,7 +27,7 @@ import { getMinutes } from '../utils/timepicker-time.utils'
     ></cc-timepicker-face>
   `,
 })
-export class TimepickerMinutesFaceComponent implements OnChanges {
+export class CcTimepickerMinutesFace implements OnChanges {
   minutesList: ClockFaceTime[] = []
   timeUnit = TimeUnit
 

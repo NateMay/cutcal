@@ -42,7 +42,7 @@ export const MAT_TIMEPICKER_VALIDATORS: any = {
 /**
  * An event used for timepicker input and change events. We don't always have access to a native
  * input or change event because the event may have been triggered by the user clicking on the
- * calendar popup. For consistency, we always use MatTimepickerInputEvent instead.
+ * calendar popup. For consistency, we always use CcTimepickerInputEvent instead.
  */
 export class CcTimepickerInputEvent {
   /** The new value for the target timepicker input. */
@@ -192,7 +192,7 @@ export class CcTimepickerInput
   private _parseValidator: ValidatorFn = (): ValidationErrors | null =>
     this._lastValueValid
       ? null
-      : { matDatepickerParse: { text: this._elementRef.nativeElement.value } }
+      : { ccTimepickerParse: { text: this._elementRef.nativeElement.value } }
 
   // tslint:disable-next-line: member-ordering
   // eslint-disable-next-line @typescript-eslint/member-ordering
