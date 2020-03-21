@@ -25,10 +25,9 @@ import {
   ViewContainerRef,
 } from '@angular/core'
 import { NG_VALUE_ACCESSOR } from '@angular/forms'
-import { Boolish } from '@cutcal/core'
+import { Boolish, onStable } from '@cutcal/core'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { dateFromTime } from '../../../../functions/dateFromTime/dateFromTime'
-import { executeOnStable } from '../../../../functions/executeOnStable/executeOnStable'
 import { TimePickerData, TIME_PICKER_DATA } from '../../utils/time-picker-data'
 import { TimepickerDialogComponent } from '../time-picker-dialog/time-picker-dialog.component'
 
@@ -256,7 +255,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
 
   reFocusTrigger(): void {
     if (this.pickerOverlayRef.hasAttached())
-      executeOnStable(this.zone, () => {
+      onStable(this.zone, () => {
         const trigger = document.getElementById(`${this.idStr}-trigger`)
         if (trigger) trigger.focus()
       })

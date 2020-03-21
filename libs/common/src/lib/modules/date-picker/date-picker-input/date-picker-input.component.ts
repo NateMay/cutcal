@@ -24,9 +24,8 @@ import {
   ViewContainerRef,
 } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
-import { Boolish } from '@cutcal/core'
+import { Boolish, onStable } from '@cutcal/core'
 import { eventWithin } from '../../../functions/eventWithin/eventWithin'
-import { executeOnStable } from '../../../functions/executeOnStable/executeOnStable'
 import { DatePickerDialogData, DATE_PICKER_DATA } from '../date-picker-data'
 import { DatePickerDialogComponent } from '../date-picker-dialog/date-picker-dialog.component'
 
@@ -225,7 +224,7 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
 
   reFocusTrigger(): void {
     if (this.pickerOverlayRef.hasAttached())
-      executeOnStable(this.zone, () => {
+      onStable(this.zone, () => {
         const trigger = document.getElementById(`${this.idStr}-trigger`)
         if (!trigger) console.warn('trigger not refocused')
         else trigger.focus()

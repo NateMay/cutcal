@@ -3,5 +3,10 @@
   "compilerOptions": {
     "types": ["node", "jest"]
   },
-  "include": ["**/*.ts"]
+  "include": [
+    "**/*.ts",
+    "../core/src/lib/services/window.service.ts",
+    "../core/src/lib/services/navigator.service.ts",
+    "../diet/src/lib/deafultMealName.ts"
+  ]
 }

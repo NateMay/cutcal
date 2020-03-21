@@ -29,7 +29,6 @@ module.exports = {
     'jsdoc/check-alignment': 1,
     'jsdoc/check-indentation': 1,
     'jsdoc/check-param-names': 1,
-    'jsdoc/check-tag-names': 1,
     'jsdoc/check-types': 1,
     'jsdoc/implements-on-classes': 1,
     'jsdoc/match-description': 1,

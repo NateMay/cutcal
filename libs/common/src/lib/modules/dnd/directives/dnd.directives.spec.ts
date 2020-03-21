@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /*
  * Testing a simple Angular 2 component
- * More info: https://angular.io/docs/ts/latest/guide/testing.html#!#simple-component-test
+ * More info: {@link https://angular.io/docs/ts/latest/guide/testing.html#!#simple-component-test}
  */
 
 import { Component, DebugElement } from '@angular/core';
@@ -12,9 +12,8 @@ import {
   TestBed,
   tick,
 } from '@angular/core/testing';
-import { getDe } from '../../../../../../ng-testing/src/lib/getDe';
-import { getDirective } from '../../../../../../ng-testing/src/lib/getDirective';
-import { WINDOW_PROVIDER } from '../../../services/window.service';
+import { WINDOW_PROVIDER } from '@cutcal/core';
+import { getDe, getDirective } from '@cutcal/ng-testing';
 import { DndModule } from '../dnd.module';
 import { DndSvc } from '../dnd.service';
 import { DragItem, DRAG_SKIP_COUNT } from './dragItem';

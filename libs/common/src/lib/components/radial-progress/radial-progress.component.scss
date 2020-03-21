@@ -1,0 +1,66 @@
+$back-stroke-color: #ccc;
+$arc-stroke-color: #056dae;
+$check-bg: #008a24;
+$check-stroke-color: #fff;
+$ease-timing: 0.4s;
+
+:host {
+  display: inline-block;
+  text-align: center;
+}
+
+.rpb-back {
+  stroke: $back-stroke-color;
+  fill: transparent;
+  // stroke-width: 1px;
+  transition: all $ease-timing ease-out;
+
+  &-done {
+    fill: $check-bg;
+    stroke: $check-bg;
+    stroke-dasharray: initial;
+  }
+}
+
+.rpb-arc {
+  stroke: $arc-stroke-color;
+  fill: transparent;
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
+  animation: rpb-animate-arc $ease-timing ease-out forwards;
+  transition: all $ease-timing ease-out;
+
+  &-done {
+    fill: $check-bg;
+    stroke: $check-bg;
+    stroke-dasharray: initial;
+  }
+}
+
+// @keyframes rpb-animate-arc {
+// 	0% {
+// 		/*stroke-dasharray: 0 100;*/
+// 		// stroke-dashoffset: 100%;
+// 		stroke-dashoffset: 145.51326; // radius ?
+// 		// will probably need to move animation stuff to view
+// 		// keyframes is not scoped with angular emulated encapsulation
+// 		// https://www.bennadel.com/blog/3360-css-keyframes-animations-are-not-scoped-with-emulated-view-encapsulation-in-angular-4-4-6.htm
+// 	}
+// 	25% {
+// 		stroke-dashoffset: 145.51326; // radius ?
+// 	}
+// }
+
+@keyframes rpb-animate-arc {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.rpb-done-check {
+  fill: none;
+  stroke: $check-stroke-color;
+  // stroke-linecap: round;
+  // stroke-linejoin: round;
+}

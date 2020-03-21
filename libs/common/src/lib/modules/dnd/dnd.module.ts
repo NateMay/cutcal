@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'
-import { WINDOW_PROVIDER } from '../../services/window.service'
+import { WINDOW_PROVIDER } from '@cutcal/core'
 import { DragItem } from './directives/dragItem'
 import { DropTarget } from './directives/dropTarget'
 

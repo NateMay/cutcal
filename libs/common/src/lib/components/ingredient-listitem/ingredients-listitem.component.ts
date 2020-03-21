@@ -3,18 +3,28 @@ import {
   Component,
   EventEmitter,
   Input,
-  isDevMode,
   Output,
 } from '@angular/core'
 import { MatSliderChange } from '@angular/material/slider'
 import { Router } from '@angular/router'
-import { getQuantityStep } from '@cutcal/common'
-import { Food, isFood } from './../food'
-import { Ingredient } from './../ingredient'
-import { isMeal, Meal } from './../meal'
-import { Portion } from './../portion'
-import { Usage } from './../usage'
-import { IngredientPortionChange } from './ingredientPortionChange'
+import { devWarn } from '@cutcal/core'
+import {
+  Food,
+  Ingredient,
+  isFood,
+  isMeal,
+  Meal,
+  Portion,
+  Usage,
+} from '@cutcal/diet'
+import { getQuantityStep } from '../../functions/increment/increment'
+
+export interface IngredientPortionChange {
+  usage: Usage
+  food: Food
+  unit: string
+  quantity: number
+}
 
 // FEATURE (ingredient-listitem) make the edit panel a modal
 
@@ -167,8 +177,8 @@ export class IngredientsListitemComponent {
         'ingredient',
         this.usage._id,
       ])
-    else if (isDevMode())
-      console.warn(
+    else
+      devWarn(
         '"cc-ingredient-listitem" requires property "rootIs" to be set for routing to work'
       )
   }

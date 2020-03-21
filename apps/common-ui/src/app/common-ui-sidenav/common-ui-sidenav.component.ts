@@ -44,6 +44,7 @@ export class CommonUiSidenavComponent implements OnInit {
     new TesterLink('Carousel', 'carousel'),
     new TesterLink('Dynamic Width', 'dyn-width'),
     new TesterLink('CC Timepicker', 'cc-timepicker'),
+    new TesterLink('Masking', 'masking'),
   ]
 
   constructor() {}

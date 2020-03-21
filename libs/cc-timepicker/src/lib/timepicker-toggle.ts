@@ -27,8 +27,8 @@ export class CcTimepickerToggleIcon {}
       #button
       mat-icon-button
       type="button"
-      [attr.aria-haspopup]="timepicker ? 'dialog' : null"
       aria-label="open time picker"
+      [attr.aria-haspopup]="timepicker ? 'dialog' : null"
       [attr.tabindex]="disabled ? -1 : tabIndex"
       [disabled]="disabled"
       [disableRipple]="disableRipple"

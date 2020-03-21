@@ -29,6 +29,11 @@ const COMMONUI_ROUTES: Routes = [
       import('@cutcal/playgrounds').then(module => module.Doc4DatepickerModule),
   },
   {
+    path: 'masking',
+    loadChildren: () =>
+      import('@cutcal/playgrounds').then(module => module.Doc4MaskingModule),
+  },
+  {
     path: 'time-picker',
     loadChildren: () =>
       import('@cutcal/playgrounds').then(module => module.Doc4TimepickerModule),

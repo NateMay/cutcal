@@ -17,9 +17,8 @@ import {
   OnInit,
   Output,
 } from '@angular/core'
-import { assertIsDefined, Weekday, WEEKDAYS } from '@cutcal/core'
+import { assertIsDefined, onStable, Weekday, WEEKDAYS } from '@cutcal/core'
 import { chunk } from 'lodash'
-import { executeOnStable } from '../../../functions/executeOnStable/executeOnStable'
 import { getFullCalendar } from '../../../functions/getFullCalendar/getFullCalendar'
 
 // TODO (date-picker) implement with KeyValueDiffers https://netbasal.com/getting-to-know-angular-differs-60cd68f4bd8f
@@ -260,7 +259,7 @@ export class CalendarFaceComponent implements OnInit {
 
   castFocus(): void {
     if (this.managingFocus)
-      executeOnStable(this.ngZone, () => {
+      onStable(this.ngZone, () => {
         if (this.elementFocus) this.elementFocus.focus()
       })
   }

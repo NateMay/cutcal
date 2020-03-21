@@ -8,11 +8,9 @@ import {
   Output,
   Renderer2,
 } from '@angular/core'
-import { Boolish } from '@cutcal/core'
+import { Boolish, onStable, WINDOW } from '@cutcal/core'
 import { fromEvent } from 'rxjs'
 import { finalize, first, skip, takeUntil, tap } from 'rxjs/operators'
-import { executeOnStable } from '../../../functions'
-import { WINDOW } from '../../../services/window.service'
 import { DndSvc } from '../dnd.service'
 
 // delays the drag-obj so it doesn't appear on clicks
@@ -64,7 +62,7 @@ export class DragItem {
         skip(this.immediate ? 0 : DRAG_SKIP_COUNT), // prevents accidental drag on clicks
         tap((mousemove: Event) => this.update(mousemove)),
         takeUntil(mouseUp$),
-        finalize(() => executeOnStable(this.ngZone, () => this.reset()))
+        finalize(() => onStable(this.ngZone, () => this.reset()))
       )
       .subscribe()
   }

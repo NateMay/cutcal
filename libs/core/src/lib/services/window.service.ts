@@ -11,32 +11,32 @@ import {
 export const WINDOW = new InjectionToken('WindowToken')
 
 export abstract class WindowRef {
-  get nativeWindow(): Window | {} {
+  get nativeWindow(): Window | object {
     throw Error(
-      '[CutCal] WindowRef is not implemented on this platform, but is being referenced'
+      '[CutCal] WindowRef is an abstract class but is being references'
     )
   }
 }
 
 @Injectable({ providedIn: 'root' })
 export class BrowserWindowRef extends WindowRef {
-  constructor(@Inject(PLATFORM_ID) private platformId: {}) {
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {
     super()
   }
-  get nativeWindow(): Window | {} {
+  get nativeWindow(): Window | object {
     if (isPlatformBrowser(this.platformId)) {
       return window
     } else
       throw Error(
-        '[CutCal] WindowRef is not implemented on this platform, but is being referenced'
+        '[CutCal] window is not implemented on this platform, but is being referenced'
       )
   }
 }
 
 export const windowFactory = (
   browserWindowRef: BrowserWindowRef,
-  platformId: {}
-): Window | {} =>
+  platformId: object
+): Window | object =>
   isPlatformBrowser(platformId) ? browserWindowRef.nativeWindow : new Object()
 
 const browserWindowProvider: ClassProvider = {

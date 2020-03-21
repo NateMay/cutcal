@@ -2,18 +2,14 @@ import { Injectable } from '@angular/core'
 import { DocumentReference } from '@angular/fire/firestore'
 import { AngularFireFunctions } from '@angular/fire/functions'
 import { AuthService } from '@cutcal/auth'
-import {
-  addPortion,
-  defaultMealName,
-  purifyObject,
-  scaleNutrition,
-} from '@cutcal/common'
-import { KVP } from '@cutcal/core'
+import { KVP, purifyObject } from '@cutcal/core'
 import { FirestoreService, removeId, timestamp } from '@cutcal/fire'
 import { multiplyNutrition, updateNutritions } from '@cutcal/nutrition'
 import { find, flatten, isEmpty, keyBy, map as _map } from 'lodash'
 import { combineLatest, Observable, of } from 'rxjs'
 import { filter, first, map, share, switchMap } from 'rxjs/operators'
+import { addPortion, scaleNutrition } from './convertNutrition/convertNutrition'
+import { defaultMealName } from './deafultMealName'
 import { Food } from './food'
 import { createMeal, Meal } from './meal'
 import { Tripple } from './tripple'

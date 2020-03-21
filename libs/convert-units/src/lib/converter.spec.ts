@@ -1,5 +1,5 @@
+import { removeDups } from '@cutcal/core';
 import { keys } from 'lodash';
-import { removeDups } from '../../../core/src/lib/functions/removeDups/removeDups';
 import { UnitConverter } from './converter';
 import { MASS } from './mass';
 import { VOLUME } from './volume';

@@ -1,5 +1,5 @@
 import { EventEmitter } from '@angular/core';
-import { executeOnStable } from './executeOnStable';
+import { onStable } from './onStable';
 
 class MockNgZone {
   onStable = new EventEmitter<any>();
@@ -9,11 +9,11 @@ class MockNgZone {
   }
 }
 
-describe('executeOnStable() - shared/functions', () => {
+describe('onStable() - shared/functions', () => {
   it('should get the extention string from a file path', () => {
     const zone = new MockNgZone();
     let called = false;
-    executeOnStable(<any>zone, () => (called = true));
+    onStable(<any>zone, () => (called = true));
     zone.onStable.emit();
     expect(called).toBe(true);
   });

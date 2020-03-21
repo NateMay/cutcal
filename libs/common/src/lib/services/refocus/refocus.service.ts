@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
-import { executeOnStable } from '../../functions/executeOnStable/executeOnStable'
+import { onStable } from '@cutcal/core'
 
 /**
  * Service which recasts focus to an element after some disruptive operation
@@ -18,7 +18,7 @@ export class RefocusService {
       if (this.refocus && event instanceof NavigationEnd) {
         this.refocus = false
 
-        executeOnStable(this.ngZone, () => {
+        onStable(this.ngZone, () => {
           if (this.id) {
             const element = document.getElementById(this.id)
             if (element) element.focus()

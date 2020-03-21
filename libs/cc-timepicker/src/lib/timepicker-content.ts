@@ -75,7 +75,7 @@ export class CcTimePickerDialog {
 
   @ViewChild('hour') hourInput: ElementRef<HTMLInputElement>
 
-  format = 12
+  format = 24
 
   private _minutesGap: number
   @Input() set minutesGap(gap: number | null) {
@@ -88,6 +88,7 @@ export class CcTimePickerDialog {
   }
 
   constructor() {
+    // TODO (tp) pass in default time
     this.setDefaultTime('10:30 pm')
   }
 

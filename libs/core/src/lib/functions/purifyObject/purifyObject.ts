@@ -1,5 +1,5 @@
 import { keys } from 'lodash'
-import { KVP } from '../../../../../core/src/lib/key-value-pair'
+import { KVP } from '../../key-value-pair'
 /**
  * @description Remove keys for nulls and undefined members
  * @param {object} obj

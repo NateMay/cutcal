@@ -18,11 +18,11 @@ import {
   getEl,
   MOCK_HAMMER_LOADER,
 } from '@cutcal/ng-testing';
-import { bread } from '../../../../../data/food-seed';
-import { createImage } from '../images';
-import { Ingredient } from '../ingredient';
-import { createMealWithId } from '../meal';
-import { createUsage } from '../usage';
+import { bread } from '../../../../../../data/food-seed';
+import { createImage } from '../../../../../diet/src/lib/images';
+import { Ingredient } from '../../../../../diet/src/lib/ingredient';
+import { createMealWithId } from '../../../../../diet/src/lib/meal';
+import { createUsage } from '../../../../../diet/src/lib/usage';
 import { IngredientsListitemComponent } from './ingredients-listitem.component';
 describe('IngredientsListitemComponent', () => {
   let fixture: ComponentFixture<IngredientsListitemComponent>;
