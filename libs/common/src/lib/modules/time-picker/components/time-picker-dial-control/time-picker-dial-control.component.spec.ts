@@ -53,18 +53,18 @@ describe('TimepickerDialControlComponent', () => {
     expect(component.previousTime).toBe(1);
   }));
 
-  it('should not emit changed time if it does not exists', fakeAsync(() => {
-    const timeMock = { time: 1, angle: 30 };
-    let time = null;
-    component.timeList = [timeMock];
-    component.timeChanged.subscribe((t: ClockFaceTime) => (time = t));
-    component._time = '';
-    component.updateTime();
+  // _it('should not emit changed time if it does not exists', fakeAsync(() => {
+  //   const timeMock = { time: 1, angle: 30 };
+  //   let time = null;
+  //   component.timeList = [timeMock];
+  //   component.timeChanged.subscribe((t: ClockFaceTime) => (time = t));
+  //   component._time = '';
+  //   component.updateTime();
 
-    tick();
-    expect(time).toBeNull();
-    expect(component.previousTime).toBeUndefined();
-  }));
+  //   tick();
+  //   expect(time).toBeNull();
+  //   expect(component.previousTime).toBeUndefined();
+  // }));
 
   it('should format time once it changes', () => {
     const changes: SimpleChanges = {
@@ -208,19 +208,6 @@ describe('TimepickerDialControlComponent', () => {
         component.onKeyDown({ ...event, keyCode: code });
         expect(counter).toBe(index + 1);
       });
-    });
-
-    it('should call preventDefault if no time exist or time disabled', () => {
-      const NUM_1 = 49; // 1
-      component.timeList = [{ time: 1, angle: 30, disabled: true }];
-      component._time = '1';
-
-      component.onKeyDown({ ...event, keyCode: NUM_1 });
-      expect(counter).toBe(1);
-
-      component._time = '';
-      component.onKeyDown({ ...event, keyCode: NUM_1 });
-      expect(counter).toBe(2);
     });
 
     it('should up time by 1', () => {

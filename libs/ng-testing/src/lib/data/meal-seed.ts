@@ -1,6 +1,5 @@
-import { sumUsagesNutritions } from '@cutcal/common'
 import { KVP, uniqueID } from '@cutcal/core'
-import { Food, Meal, Usage } from '@cutcal/diet'
+import { Food, Meal, sumUsagesNutritions, Usage } from '@cutcal/diet'
 import { firestore } from 'firebase/app'
 import { forEach } from 'lodash'
 import { breadID, FOODS, jamID, peanutButterID } from './food-seed'
@@ -11,11 +10,10 @@ export const MEALS: KVP<Meal> = {}
 
 // Breakfast
 export const breakfast1ID = uniqueID()
-export const breakfast1 = {
+export const breakfast1: Meal = {
   _id: breakfast1ID,
   name: 'Breakfast',
   timestamp: firestore.Timestamp.fromDate(new Date(2019, 7, 23)),
-  description: 'breakfast description',
   nutrition: {},
   instructions: [],
   image: {},
@@ -25,11 +23,10 @@ MEALS[breakfast1ID] = breakfast1
 
 // lunch
 export const lunch1ID = uniqueID()
-export const lunch1 = {
+export const lunch1: Meal = {
   _id: lunch1ID,
   name: 'Lunch',
   timestamp: firestore.Timestamp.fromDate(new Date(2019, 7, 23)),
-  description: 'lunch description',
   nutrition: {},
   instructions: [],
   image: {},
@@ -42,7 +39,7 @@ export const MEAL_USAGES: KVP<Usage> = {}
 
 // Lunch Peanut Butter
 export const lunch1PBID = uniqueID()
-export const lunch1PB = {
+export const lunch1PB: Usage = {
   _id: lunch1PBID,
   unit: 'tbsp',
   quantity: 2,
@@ -54,7 +51,7 @@ MEAL_USAGES[lunch1PBID] = lunch1PB
 
 // Lunch Jam
 export const lunch1JamID = uniqueID()
-export const lunch1Jam = {
+export const lunch1Jam: Usage = {
   _id: lunch1JamID,
   unit: 'tablespoon',
   quantity: 2,
@@ -66,7 +63,7 @@ MEAL_USAGES[lunch1JamID] = lunch1Jam
 
 // Lunch Bread
 export const lunch1BreadID = uniqueID()
-export const lunch1Bread = {
+export const lunch1Bread: Usage = {
   _id: lunch1BreadID,
   unit: 'slice',
   quantity: 2,
@@ -93,8 +90,6 @@ export const assignMealParentId = (meal: Meal, dbID: string): void => {
 
 export const assignMealUsagesFoodIds = (food: Food, dbID: string): void => {
   forEach(MEAL_USAGES, usage => {
-    if (usage.foodId == food._id) {
-      usage.foodId = dbID
-    }
+    if (usage.foodId == food._id) usage.foodId = dbID
   })
 }

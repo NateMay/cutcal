@@ -1,7 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core'
-import { scaleNutrient } from '@cutcal/common'
 import { KVP } from '@cutcal/core'
-import { Food, Meal, MealService, MealsTripple, Usage } from '@cutcal/diet'
+import {
+  Food,
+  Meal,
+  MealService,
+  MealsTripple,
+  scaleNutrient,
+  Usage,
+} from '@cutcal/diet'
 import { Nutrient } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import { Options, PointOptionsObject, SeriesOptionsType } from 'highcharts'

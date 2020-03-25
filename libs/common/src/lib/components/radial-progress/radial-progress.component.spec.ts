@@ -239,7 +239,7 @@ describe('RadialProgressComponent', () => {
       expect(arcCircle.getAttribute('r')).toBe('23');
       expect(arcCircle.style.strokeWidth).toBe('4px');
       // Some browsers calculatons may not match exact decimal point, so we just want to check basic number
-      expect(arcCircle.style.strokeDasharray).toMatch(/36.[\d]*, 144.[\d]*/);
+      expect(arcCircle.style.strokeDasharray).toMatch(/36.[\d]* 144.[\d]*/);
       expect(arcCircle.style.strokeDashoffset).toMatch(/36.[\d]*/);
     });
 

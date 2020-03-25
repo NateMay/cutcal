@@ -57,7 +57,7 @@ describe('TimepickerUtils', () => {
     it('should return false', () => {
       expect(
         isSameOrBefore(
-          new Date(2020, 3, 10, 5, 5),
+          new Date(2020, 3, 10, 5, 9),
           new Date(2020, 3, 10, 5, 7),
           undefined
         )

@@ -1,18 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CcTimepicker } from './timepicker';
-
-describe('TimepickerComponent', () => {
-  let component: CcTimepicker;
-  let fixture: ComponentFixture<CcTimepicker>;
+import { CcDatepicker } from './datepicker';
+/**
+ * To run this test, remove this directory from "testPathIgnorePatterns"
+ * in "libs/common/jest.config.js"
+ */
+describe('Datepicker Component', () => {
+  let component: CcDatepicker;
+  let fixture: ComponentFixture<CcDatepicker>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CcTimepicker],
+      declarations: [CcDatepicker],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CcTimepicker);
+    fixture = TestBed.createComponent(CcDatepicker);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,4 +7,5 @@ module.exports = {
     'jest-preset-angular/build/HTMLCommentSerializer.js',
   ],
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+  testPathIgnorePatterns: ['<rootDir>/src/lib/modules/datepicker'],
 }

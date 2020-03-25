@@ -3,6 +3,7 @@ import { firestore } from 'firebase/app'
 /**
  * @description Creates a firebase timestamp
  * @param {Date} date date of the timestamp
+ * @note I don't think this can be tested
  */
 
 export const timestamp = (date: Date = new Date()): firestore.Timestamp =>

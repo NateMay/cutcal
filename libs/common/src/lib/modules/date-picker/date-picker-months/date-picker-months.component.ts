@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
-import { KVP, MonthMetaData, MONTHS } from '@cutcal/core'
+import { MonthMetaData, MONTHS } from '@cutcal/core'
 
 @Component({
   selector: 'cc-date-picker-months',
   template: `
     <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
       <button
-        *ngFor="let month of months | keyvalue"
+        *ngFor="let month of months"
         [color]="color(month.index)"
         mat-button
-        (click)="monthSelect.emit(month.index)"
+        (click)="monthSelect.emit(month.index); test(month)"
       >
         {{ month.short }}
       </button>
@@ -20,7 +20,7 @@ import { KVP, MonthMetaData, MONTHS } from '@cutcal/core'
 export class DatePickerMonthsComponent {
   // TODO (date-picker) manage focus
 
-  months: KVP<MonthMetaData> = MONTHS
+  months: MonthMetaData[] = MONTHS
 
   @Input() selectedDate: Date = new Date()
   @Input() focusDate: Date = new Date()
@@ -38,4 +38,6 @@ export class DatePickerMonthsComponent {
       this.selectedDate.getFullYear() == this.focusDate.getFullYear()
     )
   }
+
+  test(month: any) {}
 }

@@ -244,7 +244,7 @@ export class CalendarFaceComponent implements OnInit {
           currMonth: date.isSameMonth(this.focusDate),
           isToday: date.isToday(),
           isSelected: date.isSameDay(this.selectedDate),
-          tabindex: date.isSameDay(this.focusDate) ? 0 : -1,
+          tabindex: date.isSameDay(this.focusDate || this.startDate) ? 0 : -1,
         })),
         7
       )

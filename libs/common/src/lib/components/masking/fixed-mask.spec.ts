@@ -1,23 +1,40 @@
+import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CcFixedMask } from './fixed-mask';
+import { CcMaskingModule } from './masking.module';
+
+@Component({
+  template: `
+    <cc-fixed-mask [mask]="mask" [(value)]="value">
+      <input ccMaskedInput [attr.type]="type" />
+    </cc-fixed-mask>
+  `,
+})
+class TestMaskingComponent {
+  type: string;
+
+  value: string | number;
+
+  mask: string = '(999) 999-9999';
+}
 
 describe('CcFixedMask', () => {
-  let component: CcFixedMask;
-  let fixture: ComponentFixture<CcFixedMask>;
+  let fixture: ComponentFixture<TestMaskingComponent>;
+  let consumer: TestMaskingComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CcFixedMask],
+      declarations: [TestMaskingComponent],
+      imports: [CcMaskingModule],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CcFixedMask);
-    component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TestMaskingComponent);
+    consumer = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(consumer).toBeTruthy();
   });
 });

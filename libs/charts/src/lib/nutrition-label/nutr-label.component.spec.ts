@@ -3,9 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { PluralPipeModule, UnitPipeModule } from '@cutcal/common';
 import { createPortion } from '@cutcal/diet';
-import { getDe } from '@cutcal/ng-testing';
+import { getDe, MOCK_NUTRITION } from '@cutcal/ng-testing';
 import { DailyValueSvc, DEAFULT_DAILY_VALUE } from '@cutcal/nutrition';
-import { MOCK_NUTRITION } from '../../../../../data/nutrition1.mock';
 import { NutrLabelComponent } from './nutr-label.component';
 
 @Component({

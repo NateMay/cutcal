@@ -11,18 +11,20 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DndModule, PipesModule } from '@cutcal/common';
+import {
+  createImage,
+  createMealWithId,
+  createUsage,
+  Ingredient,
+} from '@cutcal/diet';
 import { timestamp } from '@cutcal/fire';
 import {
+  bread,
   getAllDe,
   getByDir,
   getEl,
   MOCK_HAMMER_LOADER,
 } from '@cutcal/ng-testing';
-import { bread } from '../../../../../../data/food-seed';
-import { createImage } from '../../../../../diet/src/lib/images';
-import { Ingredient } from '../../../../../diet/src/lib/ingredient';
-import { createMealWithId } from '../../../../../diet/src/lib/meal';
-import { createUsage } from '../../../../../diet/src/lib/usage';
 import { IngredientsListitemComponent } from './ingredients-listitem.component';
 describe('IngredientsListitemComponent', () => {
   let fixture: ComponentFixture<IngredientsListitemComponent>;
@@ -117,7 +119,6 @@ describe('IngredientsListitemComponent', () => {
 
   it('should reveal the portion inputs when edit is clicked', () => {
     fixture.detectChanges();
-
     expect(quantityInput()).toBeFalsy();
     expect(unitInput).toBeFalsy();
 

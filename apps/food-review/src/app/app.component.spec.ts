@@ -51,19 +51,11 @@ describe('AppComponent', () => {
   });
 
   it('should create the app', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('should return an Observable<User[]>', () => {
-    fixture.detectChanges();
-    const req = httpMock.expectOne({ method: 'GET', url: '/api/hello' });
-    expect(req.request.method).toEqual('GET');
-    req.flush({ message: 'Welcome to api!' });
-
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('div').textContent).toContain(
-      'Welcome to api!'
+    const httpRequest = httpMock.expectOne(
+      'https://www.googleapis.com/customsearch/v1?key=AIzaSyAspWF0dPGZo9XRlZpTn4j3ZzoAtrJJIpA&cx=005525034399704142974:oxjpozizj0m&q=avocado'
     );
+    expect(httpRequest.request.method).toBe('GET');
+    expect(component).toBeTruthy();
+    httpRequest.flush({ name: 'Avocado' });
   });
 });

@@ -7,7 +7,7 @@ export const FOODS: KVP<Food> = {}
 
 // Peanut Butter
 export const peanutButterID = uniqueID()
-export const peanutButter = {
+export const peanutButter: Food = {
   _id: peanutButterID,
   NDBNO: '16098',
   USDAName:
@@ -324,7 +324,7 @@ export const FOOD_USAGES: KVP<Usage> = {}
 
 // PBJ Peanut Butter
 export const pbjPBID = uniqueID()
-export const pbjPB = {
+export const pbjPB: Usage = {
   _id: pbjPBID,
   unit: 'tbsp',
   quantity: 2,
@@ -336,7 +336,7 @@ FOOD_USAGES[pbjPBID] = pbjPB
 
 // PBJ Jam
 export const pbjJamID = uniqueID()
-export const pbjJam = {
+export const pbjJam: Usage = {
   _id: pbjJamID,
   unit: 'tablespoon',
   quantity: 2,
@@ -348,7 +348,7 @@ FOOD_USAGES[pbjJamID] = pbjJam
 
 // PBJ Bread
 export const pbjBreadID = uniqueID()
-export const pbjBread = {
+export const pbjBread: Usage = {
   _id: pbjBreadID,
   unit: 'slice',
   quantity: 2,
