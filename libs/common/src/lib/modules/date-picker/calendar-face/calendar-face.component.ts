@@ -4,7 +4,7 @@ import {
   state,
   style,
   transition,
-  trigger,
+  trigger
 } from '@angular/animations'
 import {
   ChangeDetectionStrategy,
@@ -15,7 +15,7 @@ import {
   Input,
   NgZone,
   OnInit,
-  Output,
+  Output
 } from '@angular/core'
 import { assertIsDefined, onStable, Weekday, WEEKDAYS } from '@cutcal/core'
 import { chunk } from 'lodash'
@@ -44,7 +44,7 @@ const ANIMATION_SPEED = 50
   host: {
     class: 'cc-calendar-face',
     role: 'grid',
-    'aria-readonly': 'true',
+    'aria-readonly': 'true'
   },
   animations: [
     trigger('slide', [
@@ -53,8 +53,8 @@ const ANIMATION_SPEED = 50
       state('center', style({ transform: 'translateX(0)', opacity: 1 })),
       transition('left <=> right', animate(0)),
       transition('center <=> left', animate(`${ANIMATION_SPEED}ms ease-out`)),
-      transition('center <=> right', animate(`${ANIMATION_SPEED}ms ease-out`)),
-    ]),
+      transition('center <=> right', animate(`${ANIMATION_SPEED}ms ease-out`))
+    ])
   ],
   template: `
     <!-- Weekdays -->
@@ -110,7 +110,7 @@ const ANIMATION_SPEED = 50
         </span>
       </div>
     </div>
-  `,
+  `
 })
 export class CalendarFaceComponent implements OnInit {
   readonly weekdays: Weekday[] = WEEKDAYS
@@ -217,7 +217,7 @@ export class CalendarFaceComponent implements OnInit {
 
   @HostBinding('attr.aria-label') calLabel = 'caledar'
 
-  constructor(private ngZone: NgZone) {
+  constructor(private readonly ngZone: NgZone) {
     this.focusId = this.focusId
   }
 
@@ -244,7 +244,7 @@ export class CalendarFaceComponent implements OnInit {
           currMonth: date.isSameMonth(this.focusDate),
           isToday: date.isToday(),
           isSelected: date.isSameDay(this.selectedDate),
-          tabindex: date.isSameDay(this.focusDate || this.startDate) ? 0 : -1,
+          tabindex: date.isSameDay(this.focusDate || this.startDate) ? 0 : -1
         })),
         7
       )

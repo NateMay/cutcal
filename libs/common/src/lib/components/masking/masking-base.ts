@@ -4,7 +4,7 @@ import {
   Directive,
   ElementRef,
   Inject,
-  Renderer2,
+  Renderer2
 } from '@angular/core'
 
 /**
@@ -12,10 +12,10 @@ import {
  * we wouldn't need this, but we do need a reference to the nativeElement
  */
 @Directive({
-  selector: 'input[ccMaskedInput]',
+  selector: 'input[ccMaskedInput]'
 })
 export class CcMaskedInput {
-  constructor(public input: ElementRef<HTMLInputElement>) {}
+  constructor(public readonly input: ElementRef<HTMLInputElement>) {}
 }
 
 /**

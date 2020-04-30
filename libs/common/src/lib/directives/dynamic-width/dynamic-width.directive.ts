@@ -5,13 +5,13 @@ import {
   Input,
   OnDestroy,
   OnInit,
-  Output,
+  Output
 } from '@angular/core'
 import { interval, Subject } from 'rxjs'
 import { takeUntil, tap } from 'rxjs/operators'
 
 @Directive({
-  selector: '[dynamicWidth],[ccDynamicWidth]',
+  selector: '[dynamicWidth],[ccDynamicWidth]'
 })
 export class DynamicWidthDirective implements OnInit, OnDestroy {
   private unsub$: Subject<void> = new Subject()
@@ -30,7 +30,7 @@ export class DynamicWidthDirective implements OnInit, OnDestroy {
     return Math.abs(this._storedWidth - this.currentWidth) > 2
   }
 
-  constructor(private host: ElementRef<any>) {}
+  constructor(private readonly host: ElementRef<any>) {}
 
   ngOnInit(): void {
     this._storedWidth = this.currentWidth

@@ -5,11 +5,11 @@ import { Meta } from '@angular/platform-browser'
   selector: 'cc-root',
   template: `
     <router-outlet></router-outlet>
-  `,
+  `
 })
 export class AppComponent implements OnInit {
   // private sw: ServiceWorkerService,
-  constructor(private meta: Meta) {
+  constructor(private readonly meta: Meta) {
     this.meta.addTags([
       { charset: 'UTF-8' },
       { name: 'description', content: 'CutCal Nutrition Planner' },
@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
       {
         name: 'keywords',
         content:
-          'Meal planner, Nutrition, Nutrition aggregator, Calorie counter',
-      },
+          'Meal planner, Nutrition, Nutrition aggregator, Calorie counter'
+      }
     ])
   }
 

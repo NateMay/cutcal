@@ -19,7 +19,7 @@ export class AuthService {
     return this._trueUid.asObservable()
   }
 
-  // constructor(private store: Store<AppState>) {
+  // constructor(private readonly store: Store<AppState>) {
   //   this.store
   //     .pipe(
   //       select(userSelector),

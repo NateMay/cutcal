@@ -20,12 +20,12 @@ import { BreadCrumb } from './breadcrumb'
       class="breadcrumb dark"
       >{{ crumb.label }}</a
     >
-  `,
+  `
 })
 export class BreadcrumbsComponent {
   @Input() crumbs: BreadCrumb[] = []
 
-  constructor(private router: Router) {}
+  constructor(private readonly router: Router) {}
 
   goTo(crumb: BreadCrumb): void {
     if (crumb.route) this.router.navigate(crumb.route)

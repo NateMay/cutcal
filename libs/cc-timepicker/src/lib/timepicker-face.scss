@@ -40,7 +40,7 @@ $primary-font-family: Roboto, 'Helvetica Neue', sans-serif;
     height: calc(#{$clock-face-size} / 2 - 13px);
 
     > span {
-      font-size: 18px;
+      font-size: 22px;
     }
 
     &::before {
@@ -54,15 +54,15 @@ $primary-font-family: Roboto, 'Helvetica Neue', sans-serif;
 
   &--inner {
     > span {
-      font-size: 14px;
+      font-size: 16px;
       color: $theme-A-1;
     }
   }
 
   > span {
     user-select: none;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     border: 2px solid transparent;
     display: flex;
     justify-content: center;

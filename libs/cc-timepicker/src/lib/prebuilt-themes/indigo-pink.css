@@ -7,20 +7,20 @@
   border-radius: 4px;
 }
 
-.cc-timpicker-contols {
+.cc-timepicker-controls {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 8px 0;
 }
 
-.cc-timpicker-contols span,
-.cc-timpicker-contols input {
+.cc-timepicker-controls span,
+.cc-timepicker-controls input {
   font-size: 50px;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
-.cc-timpicker-contols input {
+.cc-timepicker-controls input {
   border: none;
   background-color: transparent;
   width: 60px;
@@ -34,7 +34,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 16px 16px 8px;
+  margin: 8px 16px 0;
 }
 
 .cc-timepicker-actions button {

@@ -1,28 +1,15 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  EventEmitter,
-  HostListener,
-  Input,
-  OnChanges,
-  OnDestroy,
-  Output,
-  SimpleChanges,
-  ViewChild,
-} from '@angular/core'
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild } from '@angular/core'
 import { ClockFaceTime, TimeUnit } from './timepicker-utils'
 
 const CLOCK_HAND_STYLES = {
   small: {
-    height: '75px',
-    top: 'calc(50% - 75px)',
+    height: '90px',
+    top: 'calc(50% - 90px)'
   },
   large: {
     height: '103px',
-    top: 'calc(50% - 103px)',
-  },
+    top: 'calc(50% - 103px)'
+  }
 }
 
 @Component({
@@ -65,8 +52,8 @@ const CLOCK_HAND_STYLES = {
             [style.height.px]="innerClockFaceSize"
             *ngFor="let time of faceTime.slice(12, 24); trackBy: trackByTime"
           >
+          <!-- [style.transform]="time.rotation" -->
             <span
-              [style.transform]="'rotateZ(-' + time.angle + 'deg)' | sanitize"
               [ngClass]="{
                 active: isHourSelected(time.time),
                 disabled: time.disabled
@@ -79,10 +66,10 @@ const CLOCK_HAND_STYLES = {
       </div>
 
       <span
-        class="clock-face_clock-hand"
-        [ngClass]="{ 'clock-face_clock-hand_minute': unit === timeUnit.MINUTE }"
         #clockHand
+        class="clock-face_clock-hand"
         [hidden]="isClockFaceDisabled"
+        [ngClass]="{ 'clock-face_clock-hand_minute': unit === timeUnit.MINUTE }"
       ></span>
     </div>
 
@@ -111,13 +98,13 @@ const CLOCK_HAND_STYLES = {
         </div>
       </div>
     </ng-template>
-  `,
+  `
 })
 export class CcTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
   timeUnit = TimeUnit
 
   isClockFaceDisabled: boolean
-  innerClockFaceSize = 75
+  innerClockFaceSize = 85
 
   @Input() faceTime!: ClockFaceTime[]
   @Input() selectedTime!: ClockFaceTime

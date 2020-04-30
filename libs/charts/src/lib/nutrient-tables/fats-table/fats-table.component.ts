@@ -15,7 +15,7 @@ import {
   PolyUnsaturated,
   SaturatedFat,
   TransUnsaturated,
-  ZERO_NUTRITION,
+  ZERO_NUTRITION
 } from '@cutcal/nutrition'
 import { get, sum, values } from 'lodash'
 
@@ -184,7 +184,7 @@ import { get, sum, values } from 'lodash'
         </tr>
       </ng-container>
     </tbody>
-  `,
+  `
 })
 export class FatsTableComponent {
   readonly numInfo = '1.1-1' // quantity
@@ -221,7 +221,7 @@ export class FatsTableComponent {
   polySaturated_open: boolean = false
   transSaturated_open: boolean = false
 
-  constructor(private dv: DailyValueSvc) {}
+  constructor(private readonly dv: DailyValueSvc) {}
 
   // Recommended Daily Allowance
   rda(path: string): number {

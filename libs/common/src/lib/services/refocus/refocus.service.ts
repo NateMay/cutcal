@@ -7,13 +7,16 @@ import { onStable } from '@cutcal/core'
  */
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class RefocusService {
   id!: string | null
   refocus: boolean = false
 
-  constructor(private router: Router, private ngZone: NgZone) {
+  constructor(
+    private readonly router: Router,
+    private readonly ngZone: NgZone
+  ) {
     this.router.events.subscribe(event => {
       if (this.refocus && event instanceof NavigationEnd) {
         this.refocus = false

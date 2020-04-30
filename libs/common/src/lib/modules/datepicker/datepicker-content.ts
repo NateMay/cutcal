@@ -6,7 +6,7 @@ import {
   ElementRef,
   OnDestroy,
   ViewChild,
-  ViewEncapsulation,
+  ViewEncapsulation
 } from '@angular/core'
 import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core'
 import { Subject } from 'rxjs'
@@ -15,7 +15,7 @@ import { ccDatepickerAnimations } from './datepicker-animations'
 
 @Component({
   selector: 'cc-dateicker-face',
-  template: 'face',
+  template: 'face'
 })
 export class CcDatePickerFace {
   focusActiveCell() {}
@@ -26,7 +26,7 @@ export class CcDatePickerFace {
 
 // Boilerplate for applying mixins to CcDatepickerContent.
 class MatDatepickerContentBase {
-  constructor(public _elementRef: ElementRef) {}
+  constructor(public readonly _elementRef: ElementRef) {}
 }
 const _CcDatepickerContentMixinBase: CanColorCtor &
   typeof MatDatepickerContentBase = mixinColor(MatDatepickerContentBase)
@@ -48,16 +48,16 @@ const _CcDatepickerContentMixinBase: CanColorCtor &
     class: 'cc-datepicker-content',
     '[@transformPanel]': '_animationState',
     '(@transformPanel.done)': '_animationDone.next()',
-    '[class.cc-datepicker-content-touch]': 'datepicker.touchUi',
+    '[class.cc-datepicker-content-touch]': 'datepicker.touchUi'
   },
   animations: [
     ccDatepickerAnimations.transformPanel,
-    ccDatepickerAnimations.fadeInCalendar,
+    ccDatepickerAnimations.fadeInCalendar
   ],
   exportAs: 'ccDatepickerContent',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  inputs: ['color'],
+  inputs: ['color']
 })
 export class CcDatepickerContent extends _CcDatepickerContentMixinBase
   implements AfterViewInit, OnDestroy, CanColor {

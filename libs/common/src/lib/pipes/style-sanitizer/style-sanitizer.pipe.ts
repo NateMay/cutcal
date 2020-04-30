@@ -10,10 +10,10 @@ import { DomSanitizer } from '@angular/platform-browser'
  * ```
  */
 @Pipe({
-  name: 'sanitize',
+  name: 'sanitize'
 })
 export class StyleSanitizerPipe implements PipeTransform {
-  constructor(private domSanitizer: DomSanitizer) {}
+  constructor(private readonly domSanitizer: DomSanitizer) {}
 
   transform(value: string): any {
     return !value ? value : this.domSanitizer.bypassSecurityTrustStyle(value)

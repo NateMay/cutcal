@@ -3,7 +3,7 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output,
+  Output
 } from '@angular/core'
 import { RefocusService } from '../../../services/refocus/refocus.service'
 
@@ -47,7 +47,7 @@ let nextUniqueId: number = 0
     >
       <mat-icon>chevron_right</mat-icon>
     </button>
-  `,
+  `
 })
 export class CalendarControlsComponent {
   @Input() monthBtnID!: string
@@ -80,7 +80,7 @@ export class CalendarControlsComponent {
   @Output() nextBtn = new EventEmitter<void>()
   @Output() monthBtn = new EventEmitter<void>()
 
-  constructor(private focuser: RefocusService) {
+  constructor(private readonly focuser: RefocusService) {
     const _uuid = nextUniqueId++
     this.prevBtnID = `prev-month-${_uuid}`
     this.nextBtnID = `next-month-${_uuid}`

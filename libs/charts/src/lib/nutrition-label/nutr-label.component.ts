@@ -4,7 +4,7 @@ import {
   caloriesFrom,
   DailyValueSvc,
   Nutrition,
-  ZERO_NUTRITION,
+  ZERO_NUTRITION
 } from '@cutcal/nutrition'
 import { NutritionLabel } from './nutr-label'
 
@@ -239,7 +239,7 @@ import { NutritionLabel } from './nutr-label'
     <p class="small-info text-center">
       Fat 9 &bull; Carbohydrate 4 &bull; Protein 4
     </p>
-  `,
+  `
 })
 export class NutrLabelComponent {
   @Input() label!: string
@@ -258,5 +258,5 @@ export class NutrLabelComponent {
     )
   }
 
-  constructor(private dvSvc: DailyValueSvc) {}
+  constructor(private readonly dvSvc: DailyValueSvc) {}
 }

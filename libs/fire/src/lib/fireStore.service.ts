@@ -7,7 +7,7 @@ import {
   DocumentChangeAction,
   DocumentSnapshotDoesNotExist,
   DocumentSnapshotExists,
-  QueryFn,
+  QueryFn
 } from '@angular/fire/firestore'
 import * as firebase from 'firebase/app'
 import { Observable } from 'rxjs'
@@ -24,14 +24,14 @@ type DocPredicate<T> = string | AngularFirestoreDocument<T>
  * @see {@link https://www.youtube.com/watch?v=35RlydUf6xo Query Techniques}
  */
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class FirestoreService {
   get serverTimestamp(): firebase.firestore.FieldValue {
     return firebase.firestore.FieldValue.serverTimestamp()
   }
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private readonly afs: AngularFirestore) {}
 
   // #region Get Reference
 
@@ -158,7 +158,7 @@ export class FirestoreService {
     return this.doc(ref).set({
       ...data,
       updatedAt: stamp,
-      createdAt: stamp,
+      createdAt: stamp
     })
   }
 
@@ -172,7 +172,7 @@ export class FirestoreService {
   update<T>(ref: DocPredicate<T>, data: any): Promise<void> {
     return this.doc(ref).update({
       ...data,
-      updatedAt: this.serverTimestamp,
+      updatedAt: this.serverTimestamp
     })
   }
 
@@ -202,7 +202,7 @@ export class FirestoreService {
     return this.col(ref).add({
       ...data,
       updatedAt: stamp,
-      createdAt: stamp,
+      createdAt: stamp
     })
   }
 

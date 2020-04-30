@@ -7,6 +7,6 @@ export * from './lib/getDe'
 export * from './lib/getDirective'
 export * from './lib/getDirectives'
 export * from './lib/getEl'
-export * from './lib/ng-testing.module'
 export * from './lib/nodeModules'
 export * from './test-setup'
+

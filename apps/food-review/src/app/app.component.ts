@@ -7,7 +7,7 @@ import { WikipediaService } from './wikipedia/wikipedia.service'
 @Component({
   selector: 'cc-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   selected: WikiDetails
@@ -16,7 +16,10 @@ export class AppComponent {
 
   results$: Observable<WikiDetails[]>
 
-  constructor(private google: GoogleService, private wiki: WikipediaService) {
+  constructor(
+    private readonly google: GoogleService,
+    private readonly wiki: WikipediaService
+  ) {
     this.search('avocado')
   }
 

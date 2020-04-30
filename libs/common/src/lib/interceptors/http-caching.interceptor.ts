@@ -4,7 +4,7 @@ import {
   HttpHeaders,
   HttpInterceptor,
   HttpRequest,
-  HttpResponse,
+  HttpResponse
 } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable, of } from 'rxjs'
@@ -25,7 +25,7 @@ import { RequestCache } from '../services/request-cache.service'
 
 @Injectable()
 export class CachingInterceptor implements HttpInterceptor {
-  constructor(private cache: RequestCache) {}
+  constructor(private readonly cache: RequestCache) {}
 
   intercept(
     req: HttpRequest<any>,

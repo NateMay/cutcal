@@ -10,11 +10,9 @@ import { CcTimepicker12HoursFaceComponent } from './12-hours-face'
 import { CcTimepicker24HoursFaceComponent } from './24-hours-face'
 import { CcTimepickerMinutesFace } from './minutes-face'
 import { CcMinutesFormatterPipe } from './minutes-formatter'
-import {
-  CcTimepicker,
-  CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER,
-} from './timepicker'
+import { CcTimepicker, CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER } from './timepicker'
 import { CcTimepickerContent, CcTimePickerDialog } from './timepicker-content'
+import { CcTimePickerControls } from './timepicker-controls'
 import { CcTimepickerFace } from './timepicker-face'
 import { CcTimepickerInput } from './timepicker-input'
 import { CcTimepickerPeriodComponent } from './timepicker-period'
@@ -43,6 +41,7 @@ import { CcTimepickerToggle } from './timepicker-toggle'
     CcTimepicker24HoursFaceComponent,
     CcTimepickerFace,
     CcMinutesFormatterPipe,
+    CcTimePickerControls
   ],
   exports: [
     CcTimepicker,
@@ -50,6 +49,7 @@ import { CcTimepickerToggle } from './timepicker-toggle'
     CcTimepickerInput,
     CcTimepickerContent,
     CcTimePickerDialog,
+    CcTimePickerControls
   ],
   providers: [CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER],
 })

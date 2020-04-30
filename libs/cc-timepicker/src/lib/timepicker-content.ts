@@ -1,37 +1,16 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  Input,
-  OnDestroy,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core'
-import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core'
-import { dateFromTime } from '@cutcal/common'
-import { Subject } from 'rxjs'
-import { CcTimepicker } from './timepicker'
-import { ccTimepickerAnimations } from './timepicker-animations'
-import {
-  ClockFaceTime,
-  DEFAULT_HOUR,
-  DEFAULT_MINUTE,
-  TimePeriod,
-  TimeUnit,
-} from './timepicker-utils'
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, ViewChild, ViewEncapsulation } from '@angular/core';
+import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core';
+import { dateFromTime } from '@cutcal/common';
+import { Subject } from 'rxjs';
+import { CcTimepicker } from './timepicker';
+import { ccTimepickerAnimations } from './timepicker-animations';
+import { ClockFaceTime, DEFAULT_HOUR, DEFAULT_MINUTE, TimePeriod, TimeUnit } from './timepicker-utils';
 
 @Component({
   selector: 'cc-timepicker-dialog',
   host: { class: 'cc-timepicker-dialog' },
   template: `
-    <div class="cc-timpicker-contols">
-      <input #hour value="12" />
-      <span>:</span>
-      <input value="30" />
-      <cc-timepicker-period></cc-timepicker-period>
-    </div>
+    <cc-timepicker-controls></cc-timepicker-controls>
 
     <ng-container [ngSwitch]="activeTimeUnit">
       <div *ngSwitchCase="timeUnit.HOUR">
@@ -63,9 +42,10 @@ import {
         (minuteChange)="onMinuteChange($event)"
       ></cc-timepicker-minutes-face>
     </ng-container>
-  `,
+  `
 })
 export class CcTimePickerDialog {
+
   selectedHour: ClockFaceTime
   selectedMinute: ClockFaceTime
   selectedPeriod: TimePeriod
@@ -75,7 +55,7 @@ export class CcTimePickerDialog {
 
   @ViewChild('hour') hourInput: ElementRef<HTMLInputElement>
 
-  format = 24
+  format = 12
 
   private _minutesGap: number
   @Input() set minutesGap(gap: number | null) {
@@ -105,7 +85,7 @@ export class CcTimePickerDialog {
       this.selectedMinute = {
         ...DEFAULT_MINUTE,
         time: minutes,
-        angle: minutes * 6,
+        angle: minutes * 6
       }
       this.selectedPeriod = period as TimePeriod
     } else this.resetTime()
@@ -163,7 +143,7 @@ function formatHourByPeriod(hour: number, period: TimePeriod): number {
 
 // Boilerplate for applying mixins to CcTimepickerContent.
 class CcTimepickerContentBase {
-  constructor(public _elementRef: ElementRef<any>) {}
+  constructor(public readonly _elementRef: ElementRef<any>) {}
 }
 const _CcTimepickerContentMixinBase: CanColorCtor &
   typeof CcTimepickerContentBase = mixinColor(CcTimepickerContentBase)
@@ -175,7 +155,6 @@ const _CcTimepickerContentMixinBase: CanColorCtor &
  * future. (e.g. confirmation buttons).
  */
 @Component({
-  selector: 'cc-timepicker-content',
   template: `
     <cc-timepicker-dialog cdkTrapFocus></cc-timepicker-dialog>
     <div class="cc-timepicker-actions">
@@ -187,16 +166,16 @@ const _CcTimepickerContentMixinBase: CanColorCtor &
     class: 'cc-timepicker-content',
     '[@transformPanel]': '_animationState',
     '(@transformPanel.done)': '_animationDone.next()',
-    '[class.cc-timepicker-content-touch]': 'timepicker.touchUi',
+    '[class.cc-timepicker-content-touch]': 'timepicker.touchUi'
   },
   animations: [
     ccTimepickerAnimations.transformPanel,
-    ccTimepickerAnimations.fadeInCalendar,
+    ccTimepickerAnimations.fadeInCalendar
   ],
   exportAs: 'ccTimepickerContent',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  inputs: ['color'],
+  inputs: ['color']
 })
 export class CcTimepickerContent extends _CcTimepickerContentMixinBase
   implements AfterViewInit, OnDestroy, CanColor {

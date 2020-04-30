@@ -7,7 +7,7 @@ import {
   Nutrition,
   NutritionRange,
   Sterols,
-  ZERO_NUTRITION,
+  ZERO_NUTRITION
 } from '@cutcal/nutrition'
 import { get } from 'lodash'
 
@@ -41,7 +41,7 @@ import { get } from 'lodash'
         </td>
       </tr>
     </tbody>
-  `,
+  `
 })
 export class SterolsTableComponent {
   readonly precInfo = '1.0-1'
@@ -57,7 +57,7 @@ export class SterolsTableComponent {
     return this._nutrition
   }
 
-  constructor(private dv: DailyValueSvc) {}
+  constructor(private readonly dv: DailyValueSvc) {}
 
   // Recommended Daily Allowance
   rda(path: string): number {

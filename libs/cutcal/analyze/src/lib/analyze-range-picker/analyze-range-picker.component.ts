@@ -77,7 +77,7 @@ import { isDate } from 'lodash'
       ></cc-date-picker-years>
     </ng-container>
   `,
-  styleUrls: ['./analyze-range-picker.component.scss'],
+  styleUrls: ['./analyze-range-picker.component.scss']
 })
 export class AnalyzeRangePickerComponent {
   calView: 'days' | 'months' | 'years' = 'days'
@@ -104,13 +104,16 @@ export class AnalyzeRangePickerComponent {
     return this._endDate
   }
 
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(
+    private readonly router: Router,
+    private readonly fb: FormBuilder
+  ) {
     this.focusDate = this.startDate
 
     this.form = this.fb.group(
       {
         startDate: [this.startDate, Validators.required],
-        endDate: [this.endDate, Validators.required],
+        endDate: [this.endDate, Validators.required]
       },
       { validator: CCValidators.dateRange('startDate', 'endDate') }
     )

@@ -44,14 +44,14 @@ interface WikiMetaTag {
  */
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class GoogleService {
   readonly apiKey = 'AIzaSyAspWF0dPGZo9XRlZpTn4j3ZzoAtrJJIpA'
   readonly engine = '005525034399704142974:oxjpozizj0m'
   readonly endPoint = 'https://www.googleapis.com/customsearch/v1'
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   endpoint(searchTerm: string): string {
     const cleanTerm = searchTerm
@@ -68,7 +68,7 @@ export class GoogleService {
           snippet: item.snippet,
           link: item.link,
           imgs: this.getImages(item.pagemap),
-          title: item.title.replace(' - Wikipedia', ''),
+          title: item.title.replace(' - Wikipedia', '')
         }))
       ),
       shareReplay()
@@ -79,7 +79,7 @@ export class GoogleService {
     return [
       get(pagemap, 'cse_image[0].src'),
       get(pagemap, 'cse_thumbnail[0].src'),
-      get(pagemap, `metatags[0]['og:image']`),
+      get(pagemap, `metatags[0]['og:image']`)
     ]
   }
 }

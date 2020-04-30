@@ -1,6 +1,5 @@
 export * from './am-pm-toggle'
 export * from './breadcrumbs'
-export * from './carousel'
 export * from './flip-card'
 export * from './food-image'
 export * from './ingredient-listitem'

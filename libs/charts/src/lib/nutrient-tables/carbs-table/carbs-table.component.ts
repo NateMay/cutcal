@@ -9,7 +9,7 @@ import {
   Nutrition,
   NutritionRange,
   Sugars,
-  ZERO_NUTRITION,
+  ZERO_NUTRITION
 } from '@cutcal/nutrition'
 import { get } from 'lodash'
 
@@ -148,7 +148,7 @@ import { get } from 'lodash'
         </tr>
       </ng-container>
     </tbody>
-  `,
+  `
 })
 export class CarbsTableComponent {
   readonly precInfo = '1.0-1'
@@ -171,7 +171,7 @@ export class CarbsTableComponent {
 
   sugars_open: boolean = false
 
-  constructor(private dv: DailyValueSvc) {}
+  constructor(private readonly dv: DailyValueSvc) {}
 
   // Recommended Daily Allowance
   rda(path: string): number {

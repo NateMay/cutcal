@@ -4,10 +4,10 @@ import { Message } from '@cutcal/api-interfaces'
 import { Observable } from 'rxjs'
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class WikipediaService {
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   getDescription(link: string): Observable<Message> {
     return this.http.post<Message>('/api/wikipedia', { link })

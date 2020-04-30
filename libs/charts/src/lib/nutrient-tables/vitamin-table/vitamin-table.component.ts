@@ -13,7 +13,7 @@ import {
   VitaminA,
   VitaminD,
   VitaminE,
-  ZERO_NUTRITION,
+  ZERO_NUTRITION
 } from '@cutcal/nutrition'
 import { get } from 'lodash'
 @Component({
@@ -210,7 +210,7 @@ import { get } from 'lodash'
         </td>
       </tr>
     </tbody>
-  `,
+  `
 })
 export class VitaminTableComponent {
   readonly precInfo = '1.0-1'
@@ -241,7 +241,7 @@ export class VitaminTableComponent {
     return this._nutrition
   }
 
-  constructor(private dv: DailyValueSvc) {}
+  constructor(private readonly dv: DailyValueSvc) {}
 
   toggleAll(): void {
     if (this.toggleAllText === 'Expand') {

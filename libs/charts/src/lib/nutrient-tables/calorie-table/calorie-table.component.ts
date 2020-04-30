@@ -5,7 +5,7 @@ import {
   DailyValueSvc,
   Nutrition,
   NutritionRange,
-  ZERO_NUTRITION,
+  ZERO_NUTRITION
 } from '@cutcal/nutrition'
 import { get } from 'lodash'
 
@@ -57,7 +57,7 @@ import { get } from 'lodash'
         </td>
       </tr>
     </tbody>
-  `,
+  `
 })
 export class CalorieTableComponent {
   readonly percentInfo = '1.0-1'
@@ -68,7 +68,7 @@ export class CalorieTableComponent {
     carbohydrates: 0,
     protein: 0,
     fat: 0,
-    alcohol: 0,
+    alcohol: 0
   }
 
   private _nutrition: Nutrition<number>
@@ -80,7 +80,7 @@ export class CalorieTableComponent {
     return this._nutrition
   }
 
-  constructor(private dv: DailyValueSvc) {}
+  constructor(private readonly dv: DailyValueSvc) {}
 
   getPerent(macro: keyof CaloriesFrom): number {
     return this.nutrition?.calories

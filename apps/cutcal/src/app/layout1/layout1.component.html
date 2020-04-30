@@ -1,6 +1,7 @@
 <mat-drawer-container class="app-container" autosize>
     <mat-drawer
         #drawer
+        role="complementary"
         class="app-sidenav mat-elevation-z2"
         mode="side"
         opened
@@ -11,20 +12,20 @@
         </cc-sidebar-search>
     </mat-drawer>
 
-    <span role="main">
-        <mat-toolbar>
-            <button
-                matRipple
-                class="toggle-sidebar mat-elevation-z2"
-                (click)="drawer.toggle()"
-            >
-                <mat-icon>chevron_left</mat-icon>
-            </button>
-            <cc-header></cc-header>
-        </mat-toolbar>
+    <mat-toolbar role="header">
+        <button
+            matRipple
+            class="toggle-sidebar mat-elevation-z2"
+            (click)="drawer.toggle()"
+        >
+            <mat-icon>chevron_left</mat-icon>
+        </button>
+        <cc-header></cc-header>
+    </mat-toolbar>
+    <main>
         <button [routerLink]="['']">landing</button>
         <button [routerLink]="['/nutrient']">nutrient</button>
         <button [routerLink]="['/food-recipe']">food</button>
         <router-outlet></router-outlet>
-    </span>
+    </main>
 </mat-drawer-container>

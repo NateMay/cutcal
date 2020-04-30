@@ -5,7 +5,7 @@ import {
   Inject,
   Injectable,
   InjectionToken,
-  PLATFORM_ID,
+  PLATFORM_ID
 } from '@angular/core'
 
 export const WINDOW = new InjectionToken('WindowToken')
@@ -20,7 +20,7 @@ export abstract class WindowRef {
 
 @Injectable({ providedIn: 'root' })
 export class BrowserWindowRef extends WindowRef {
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: object) {
     super()
   }
   get nativeWindow(): Window | object {
@@ -41,13 +41,13 @@ export const windowFactory = (
 
 const browserWindowProvider: ClassProvider = {
   provide: WindowRef,
-  useClass: BrowserWindowRef,
+  useClass: BrowserWindowRef
 }
 
 const windowProvider: FactoryProvider = {
   provide: WINDOW,
   useFactory: windowFactory,
-  deps: [WindowRef, PLATFORM_ID],
+  deps: [WindowRef, PLATFORM_ID]
 }
 
 export const WINDOW_PROVIDER = [browserWindowProvider, windowProvider]

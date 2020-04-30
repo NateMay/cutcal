@@ -38,7 +38,7 @@ const maxAge = 30000 // maximum cache age (ms)
 export class RequestCacheWithMap implements RequestCache {
   cache = new Map<string, RequestCacheEntry>()
 
-  constructor(private messenger: MessageService) {}
+  constructor(private readonly messenger: MessageService) {}
 
   get(req: HttpRequest<any>): HttpResponse<any> | undefined {
     const url = req.urlWithParams

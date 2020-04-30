@@ -7,7 +7,7 @@ import {
   Nutrition,
   NutritionRange,
   Others,
-  ZERO_NUTRITION,
+  ZERO_NUTRITION
 } from '@cutcal/nutrition'
 import { get } from 'lodash'
 
@@ -37,7 +37,7 @@ import { get } from 'lodash'
     </tbody>
   `,
   styleUrls: ['../nutrient-table.scss', './other-table.component.scss'],
-  host: { class: 'cc-other' },
+  host: { class: 'cc-other' }
 })
 export class OtherTableComponent {
   readonly precInfo = '1.0-1'
@@ -55,7 +55,7 @@ export class OtherTableComponent {
     return this._nutrition
   }
 
-  constructor(private dv: DailyValueSvc) {}
+  constructor(private readonly dv: DailyValueSvc) {}
 
   // Recommended Daily Allowance
   rda(path: string): number {

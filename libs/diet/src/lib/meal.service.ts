@@ -22,7 +22,7 @@ export type MealsTripple = [KVP<Meal>, KVP<Usage>, KVP<Food>]
  * A service used to interact with the firebase meals collection
  */
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class MealService {
   // TODO (env) consider providing these as a config object to toggle environments
@@ -32,11 +32,11 @@ export class MealService {
   foodCol: string = 'foods2'
 
   constructor(
-    private db: FirestoreService,
+    private readonly db: FirestoreService,
     // private storage: AngularFireStorage,
-    private auth: AuthService,
+    private readonly auth: AuthService,
     // https://github.com/angular/angularfire2/blob/master/docs/functions/functions.md
-    private fns: AngularFireFunctions
+    private readonly fns: AngularFireFunctions
   ) {}
 
   /**
@@ -176,7 +176,7 @@ export class MealService {
       purifyObject(
         removeId({
           ...meal,
-          userId: this.auth.activeUid,
+          userId: this.auth.activeUid
         })
       )
     )
@@ -206,7 +206,7 @@ export class MealService {
    */
   changeMealtime(mealId: string, date: Date): Promise<void> {
     return this.db.upsert(`${this.mealCol}/${mealId}`, {
-      timestamp: timestamp(date),
+      timestamp: timestamp(date)
     })
   }
 
@@ -224,7 +224,7 @@ export class MealService {
     if (meal.name == name.trim()) return Promise.resolve()
     else
       return this.db.upsert(`${this.mealCol}/${meal._id}`, {
-        name: name.trim(),
+        name: name.trim()
       })
   }
 
@@ -242,7 +242,7 @@ export class MealService {
     if (meal.notes == notes.trim()) return Promise.resolve()
     else
       return this.db.upsert(`${this.mealCol}/${meal._id}`, {
-        description: notes.trim(),
+        description: notes.trim()
       })
   }
 
@@ -282,7 +282,7 @@ export class MealService {
 
     // update the meal nutrition and the usage portion
     const mealNutritionPromise = this.db.upsert(`${this.mealCol}/${meal._id}`, {
-      nutrition: added,
+      nutrition: added
     })
     const usagePromise = this.db.upsert(
       `${this.mealCol}/${meal._id}/usages/${usage._id}`,
@@ -342,7 +342,7 @@ export class MealService {
         'add',
         meal.nutrition,
         scaleNutrition(newUsage, food)
-      ),
+      )
     })
 
     const usagePromise = this.db.add(

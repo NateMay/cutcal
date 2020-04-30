@@ -54,8 +54,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
   styleUrls: ['./radial-progress.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'cc-radial-progress',
-  },
+    class: 'cc-radial-progress'
+  }
 })
 export class RadialProgressComponent {
   // #region ========== Properties ========== //
@@ -140,7 +140,7 @@ export class RadialProgressComponent {
 
   // #region ========== Constructor / Lifecycle Hooks ========== //
 
-  constructor(private announcer: LiveAnnouncer) {}
+  constructor(private readonly announcer: LiveAnnouncer) {}
 
   // #endregion
 

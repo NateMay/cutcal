@@ -3,13 +3,13 @@ import {
   EventEmitter,
   Input,
   OnDestroy,
-  Output,
+  Output
 } from '@angular/core'
 import { Subscription } from 'rxjs'
 import { ActionLinkObserver } from './action-link.service'
 
 @Directive({
-  selector: '[ccActionLink]',
+  selector: '[ccActionLink]'
 })
 export class ActionLinkDirective implements OnDestroy {
   private sub!: Subscription | null
@@ -17,7 +17,7 @@ export class ActionLinkDirective implements OnDestroy {
   /** @description Emits on activation */
   @Output() activate = new EventEmitter<{ [key: string]: string } | undefined>()
 
-  constructor(private observer: ActionLinkObserver) {}
+  constructor(private readonly observer: ActionLinkObserver) {}
 
   /** @description Sets the link path the directive will activate upon */
   @Input() set wmActionLink(link: string) {

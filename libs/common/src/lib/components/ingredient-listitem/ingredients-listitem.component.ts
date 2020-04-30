@@ -3,7 +3,7 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output,
+  Output
 } from '@angular/core'
 import { MatSliderChange } from '@angular/material/slider'
 import { Router } from '@angular/router'
@@ -15,7 +15,7 @@ import {
   isMeal,
   Meal,
   Portion,
-  Usage,
+  Usage
 } from '@cutcal/diet'
 import { getQuantityStep } from '../../functions/increment/increment'
 
@@ -125,7 +125,7 @@ export interface DeleteIngredientPayload {
         </button>
       </div>
     </div>
-  `,
+  `
 })
 export class IngredientsListitemComponent {
   // TODO (listitem) add other portion that this can be converted to
@@ -166,7 +166,7 @@ export class IngredientsListitemComponent {
   @Output() portionChange = new EventEmitter<IngredientPortionChange>()
   @Output() deleteUsage = new EventEmitter<DeleteIngredientPayload>()
 
-  constructor(private router: Router) {}
+  constructor(private readonly router: Router) {}
 
   goToItem(): void {
     if (isFood(this.root)) this.router.navigate(['food', this.food._id])
@@ -175,7 +175,7 @@ export class IngredientsListitemComponent {
         'meal',
         this.usage.rootId,
         'ingredient',
-        this.usage._id,
+        this.usage._id
       ])
     else
       devWarn(
@@ -198,14 +198,14 @@ export class IngredientsListitemComponent {
       usage: this.usage,
       food: this.food,
       unit: this.unit,
-      quantity: this.quantity,
+      quantity: this.quantity
     })
   }
 
   delete(): void {
     this.deleteUsage.emit({
       rootId: this.root._id,
-      usageId: this.usage._id,
+      usageId: this.usage._id
     })
   }
 }

@@ -4,7 +4,7 @@ import {
   Injectable,
   OnDestroy,
   Renderer2,
-  RendererFactory2,
+  RendererFactory2
 } from '@angular/core'
 import { BehaviorSubject, fromEvent, Observable } from 'rxjs'
 import { tap } from 'rxjs/operators'
@@ -48,10 +48,10 @@ export class DndSvc implements OnDestroy {
   }
 
   constructor(
-    rendererFactory: RendererFactory2,
-    @Inject(DOCUMENT) private document: Document
+    private readonly rendererFactory: RendererFactory2,
+    @Inject(DOCUMENT) private readonly document: Document
   ) {
-    this.renderer = rendererFactory.createRenderer(null, null)
+    this.renderer = this.rendererFactory.createRenderer(null, null)
     const root = this.document.getElementById('app-root')
     if (root) root.appendChild(this.ghost)
 

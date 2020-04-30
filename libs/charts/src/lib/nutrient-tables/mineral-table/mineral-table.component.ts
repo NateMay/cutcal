@@ -7,7 +7,7 @@ import {
   NUTRIENTS,
   Nutrition,
   NutritionRange,
-  ZERO_NUTRITION,
+  ZERO_NUTRITION
 } from '@cutcal/nutrition'
 import { get } from 'lodash'
 
@@ -43,7 +43,7 @@ import { get } from 'lodash'
         </td>
       </tr>
     </tbody>
-  `,
+  `
 })
 export class MineralTableComponent {
   readonly precInfo = '1.1-1'
@@ -61,7 +61,7 @@ export class MineralTableComponent {
     return this._nutrition
   }
 
-  constructor(private dv: DailyValueSvc) {}
+  constructor(private readonly dv: DailyValueSvc) {}
 
   // Recommended Daily Allowance
   rda(path: string): number {

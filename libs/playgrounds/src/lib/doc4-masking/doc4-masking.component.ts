@@ -45,7 +45,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
     <button mat-button (click)="reset()">Reset</button>
     {{ formGroup.value | json }}
   `,
-  styleUrls: ['./doc4-masking.component.scss'],
+  styleUrls: ['./doc4-masking.component.scss']
 })
 export class Doc4MaskingComponent implements OnInit {
   value1 = '2342342'
@@ -54,9 +54,9 @@ export class Doc4MaskingComponent implements OnInit {
 
   defaultFormValues: any = {
     card: [null],
-    ssn: [333, Validators.required],
+    ssn: [333, Validators.required]
   }
-  constructor(private fb: FormBuilder) {
+  constructor(private readonly fb: FormBuilder) {
     this.formGroup = this.fb.group(this.defaultFormValues)
   }
 

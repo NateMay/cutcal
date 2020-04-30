@@ -9,7 +9,7 @@ import {
   Input,
   OnDestroy,
   Optional,
-  Output,
+  Output
 } from '@angular/core'
 import {
   AbstractControl,
@@ -19,7 +19,7 @@ import {
   ValidationErrors,
   Validator,
   ValidatorFn,
-  Validators,
+  Validators
 } from '@angular/forms'
 import { ThemePalette } from '@angular/material/core'
 import { MatFormField } from '@angular/material/form-field'
@@ -30,13 +30,13 @@ import { CcTimepicker } from './timepicker'
 export const CC_TIMEPICKER_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => CcTimepickerInput),
-  multi: true,
+  multi: true
 }
 
 export const MAT_TIMEPICKER_VALIDATORS: any = {
   provide: NG_VALIDATORS,
   useExisting: forwardRef(() => CcTimepickerInput),
-  multi: true,
+  multi: true
 }
 
 /**
@@ -63,7 +63,7 @@ export class CcTimepickerInputEvent {
   providers: [
     CC_TIMEPICKER_VALUE_ACCESSOR,
     MAT_TIMEPICKER_VALIDATORS,
-    { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: CcTimepickerInput },
+    { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: CcTimepickerInput }
   ],
   host: {
     '[attr.aria-haspopup]': '_timepicker ? "dialog" : null',
@@ -72,9 +72,9 @@ export class CcTimepickerInputEvent {
     '(input)': '_onInput($event.target.value)',
     '(change)': '_onChange()',
     '(blur)': '_onBlur()',
-    '(keydown)': '_onKeydown($event)',
+    '(keydown)': '_onKeydown($event)'
   },
-  exportAs: 'ccTimepickerInput',
+  exportAs: 'ccTimepickerInput'
 })
 export class CcTimepickerInput
   implements ControlValueAccessor, OnDestroy, Validator {
@@ -103,19 +103,13 @@ export class CcTimepickerInput
   private _value: string | null
 
   /** Emits when a `change` event is fired on this `<input>`. */
-  @Output() readonly timeChange: EventEmitter<
-    CcTimepickerInputEvent
-  > = new EventEmitter<CcTimepickerInputEvent>()
+  @Output() readonly timeChange = new EventEmitter<CcTimepickerInputEvent>()
 
   /** Emits when an `input` event is fired on this `<input>`. */
-  @Output() readonly timeInput: EventEmitter<
-    CcTimepickerInputEvent
-  > = new EventEmitter<CcTimepickerInputEvent>()
+  @Output() readonly timeInput = new EventEmitter<CcTimepickerInputEvent>()
 
   /** Emits when an `input` event is fired on this `<input>`. */
-  @Output() readonly dateInput: EventEmitter<
-    CcTimepickerInputEvent
-  > = new EventEmitter<CcTimepickerInputEvent>()
+  @Output() readonly dateInput = new EventEmitter<CcTimepickerInputEvent>()
 
   @Input()
   set ccTimepicker(value: CcTimepicker) {
@@ -197,7 +191,7 @@ export class CcTimepickerInput
   // tslint:disable-next-line: member-ordering
   // eslint-disable-next-line @typescript-eslint/member-ordering
   private _validator: ValidatorFn | null = Validators.compose([
-    this._parseValidator,
+    this._parseValidator
   ])
 
   validate(c: AbstractControl): ValidationErrors | null {

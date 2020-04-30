@@ -7,7 +7,7 @@ import {
   NUTRIENTS,
   Nutrition,
   NutritionRange,
-  ZERO_NUTRITION,
+  ZERO_NUTRITION
 } from '@cutcal/nutrition'
 import { get } from 'lodash'
 
@@ -38,7 +38,7 @@ import { get } from 'lodash'
         <td class="daily-value">-</td>
       </tr>
     </tbody>
-  `,
+  `
 })
 export class ProteinTableComponent {
   readonly digitsInfo = '1.2-2'
@@ -55,7 +55,7 @@ export class ProteinTableComponent {
     return this._nutrition
   }
 
-  constructor(private dv: DailyValueSvc) {}
+  constructor(private readonly dv: DailyValueSvc) {}
 
   rda(path: string): number {
     const range: NutritionRange = get(this.dv.snapshot.nutrition, path)

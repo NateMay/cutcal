@@ -100,11 +100,11 @@ module.exports = {
     'comma-dangle': [
       'error',
       {
-        arrays: 'always-multiline',
+        arrays: 'only-multiline',
         exports: 'always-multiline',
         functions: 'never',
-        imports: 'always-multiline',
-        objects: 'always-multiline',
+        imports: 'only-multiline',
+        objects: 'only-multiline',
       },
     ],
     complexity: 'off',

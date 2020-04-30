@@ -97,14 +97,14 @@ import { NutrCheckable, Nutrition, nutrtionSelections } from '@cutcal/nutrition'
         </section>
       </div>
     </div>
-  `,
+  `
 })
 export class NutrientComponent implements OnInit {
   selected: NutrCheckable
 
   nutrCheckables: Nutrition<NutrCheckable>
 
-  constructor(private titleSvc: Title) {}
+  constructor(private readonly titleSvc: Title) {}
 
   ngOnInit(): void {
     this.nutrCheckables = nutrtionSelections(['calories'])

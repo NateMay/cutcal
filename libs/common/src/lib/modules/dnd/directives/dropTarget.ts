@@ -3,27 +3,27 @@ import {
   EventEmitter,
   HostListener,
   Input,
-  Output,
+  Output
 } from '@angular/core'
 import { DndPayload } from '../dnd.payload'
 import { DndSvc } from '../dnd.service'
 
 @Directive({
-  selector: '[drop],[ccDrop]',
+  selector: '[drop],[ccDrop]'
 })
 export class DropTarget {
   @Input() drop: any
 
   @Output() onDrop = new EventEmitter<DndPayload<any, any>>()
 
-  constructor(public svc: DndSvc) {}
+  constructor(public readonly svc: DndSvc) {}
 
   @HostListener('mouseup')
   dropEmit(): void {
     if (this.svc.isDragging)
       this.onDrop.emit({
         drop: this.drop,
-        drag: this.svc.dragData,
+        drag: this.svc.dragData
       })
   }
 }
