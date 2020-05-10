@@ -35,8 +35,8 @@
     "test": "ng test",
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
-    "lint:funcs": "tslint --project functions/tsconfig.json",
-    "build:funcs": "tsc functions/src/index.ts --outDir dist/functions",
+    "lint:funcs": "tslint --project apps/functions/tsconfig.json",
+    "build:funcs": "tsc apps/functions/src/index.ts --outDir dist/apps/functions",
     "serve:funcs": "npm run build:functions && firebase emulators:start --only functions",
     "shell:funcs": "npm run build:functions && firebase functions:shell",
     "start:funcs": "npm run shell:functions",
@@ -70,7 +70,10 @@
     "angular-instantsearch": "^2.3.0",
     "cheerio": "^1.0.0-rc.3",
     "core-js": "^2.5.4",
+    "express": "^4.17.1",
     "firebase": "^7.14.3",
+    "firebase-admin": "^8.10.0",
+    "firebase-functions": "^3.6.1",
     "hammerjs": "^2.0.8",
     "highcharts": "^8.1.0",
     "highcharts-angular": "^2.4.0",
@@ -78,16 +81,26 @@
     "ngx-quicklink": "^0.2.0",
     "pluralize": "^8.0.0",
     "reflect-metadata": "^0.1.13",
+    "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "rxjs": "~6.5.5",
     "tslib": "^1.11.2",
-    "zone.js": "~0.10.2",
-    "firebase-admin": "^8.10.0",
-    "firebase-functions": "^3.6.1"
+    "zone.js": "~0.10.2"
   },
   "firebase-functions-dependencies": [
     "firebase-functions",
-    "firebase-admin"
+    "firebase-admin",
+    "firebase-tools",
+    "@nestjs/core",
+    "@nestjs/common",
+    "@nestjs/platform-express",
+    "express",
+    "request",
+    "cheerio",
+    "request-promise",
+    "reflect-metadata",
+    "rxjs",
+    "lodash"
   ],
   "devDependencies": {
     "@angular-devkit/architect": "~0.901.0",
@@ -124,6 +137,7 @@
     "eslint-plugin-jest": "^23.10.0",
     "eslint-plugin-jsdoc": "^22.2.0",
     "eslint-plugin-prefer-arrow": "^1.2.1",
+    "firebase-functions-test": "^0.2.0",
     "firebase-tools": "^7.16.2",
     "fuzzy": "^0.1.3",
     "husky": "^4.2.5",
@@ -144,7 +158,6 @@
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-defocus": "^2.0.6",
-    "typescript": "~3.8.3",
-    "firebase-functions-test": "^0.2.0"
+    "typescript": "~3.8.3"
   }
 }

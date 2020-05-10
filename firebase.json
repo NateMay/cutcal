@@ -25,10 +25,10 @@
   ],
   "functions": {
     "predeploy": [
-      "npm run lint:funcs",
-      "npm run build:funcs",
+      "nx lint functions",
+      "nx build functions",
       "node tools/scripts/build-firebase-functions-package-json.js"
     ],
-    "source": "dist/functions"
+    "source": "dist/apps/functions"
   }
 }

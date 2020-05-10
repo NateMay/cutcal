@@ -23,6 +23,9 @@
     "api": {
       "tags": []
     },
+    "functions": {
+      "tags": []
+    },
     "api-interfaces": {
       "tags": []
     },

@@ -8,29 +8,17 @@
   "include": [
     "**/*.d.ts",
     "../../libs/common-ui/breadcrumb/playground/src/index.ts",
-
     "../../libs/common-ui/animate/playground/src/index.ts",
-
     "../../libs/common-ui/am-pm/playground/src/index.ts",
-
     "../../libs/common-ui/carousel/playground/src/index.ts",
-
     "../../libs/common-ui/datepicker/playground/src/index.ts",
-
     "../../libs/common-ui/timepicker/playground/src/index.ts",
-
     "../../libs/common-ui/drag-n-drop/playground/src/index.ts",
-
     "../../libs/common-ui/date-time-binder/playground/src/index.ts",
-
     "../../libs/common-ui/dynamic-width/playground/src/index.ts",
-
     "../../libs/common-ui/flip-card/playground/src/index.ts",
-
     "../../libs/common-ui/holdable/playground/src/index.ts",
-
     "../../libs/common-ui/image-upload/playground/src/index.ts",
-
     "../../libs/common-ui/nutrition-label/playground/src/index.ts"
   ],
   "exclude": ["src/test-setup.ts", "**/*.spec.ts"]

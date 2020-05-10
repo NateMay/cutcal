@@ -1338,8 +1338,8 @@
       }
     },
     "functions": {
-      "root": "functions",
-      "sourceRoot": "functions/src",
+      "root": "apps/functions",
+      "sourceRoot": "apps/functions/src",
       "projectType": "application",
       "prefix": "api",
       "schematics": {},
@@ -1347,9 +1347,9 @@
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/functions",
-            "main": "functions/src/index.ts",
-            "tsConfig": "functions/tsconfig.json",
+            "outputPath": "dist/apps/functions",
+            "main": "apps/functions/src/main.ts",
+            "tsConfig": "apps/functions/tsconfig.json",
             "assets": [],
             "buildLibsFromSource": true
           }
@@ -1364,17 +1364,17 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
+              "apps/functions/tsconfig.app.json",
+              "apps/functions/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**"]
+            "exclude": ["**/node_modules/**", "!apps/functions/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/api/jest.config.js",
-            "tsConfig": "apps/api/tsconfig.spec.json",
+            "jestConfig": "apps/functions/jest.config.js",
+            "tsConfig": "apps/functions/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
