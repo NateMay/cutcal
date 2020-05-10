@@ -20,9 +20,6 @@
       "tags": [],
       "implicitDependencies": ["cutcal"]
     },
-    "api": {
-      "tags": []
-    },
     "functions": {
       "tags": []
     },

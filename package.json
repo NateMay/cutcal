@@ -35,8 +35,6 @@
     "test": "ng test",
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
-    "lint:funcs": "tslint --project apps/functions/tsconfig.json",
-    "build:funcs": "tsc apps/functions/src/index.ts --outDir dist/apps/functions",
     "serve:funcs": "npm run build:functions && firebase emulators:start --only functions",
     "shell:funcs": "npm run build:functions && firebase functions:shell",
     "start:funcs": "npm run shell:functions",

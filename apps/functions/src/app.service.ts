@@ -6,6 +6,9 @@ import * as rp from 'request-promise'
 export class AppService {
   constructor(private readonly http: HttpService) {}
 
+  /**
+   * @prod https://us-central1-cutcal.cloudfunctions.net/api/hello
+   */
   getData(): Message {
     return { message: 'Welcome to api!' }
   }

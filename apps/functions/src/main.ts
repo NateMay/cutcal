@@ -22,8 +22,6 @@ export const api = functions
     await createFunction(expressServer)
     expressServer(request, response)
   })
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
 
 /**
  * @enpoint https://us-central1-cutcal.cloudfunctions.net/helloWorld

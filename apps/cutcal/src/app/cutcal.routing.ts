@@ -21,7 +21,7 @@ const ROUTER_OPTIONS: ExtraOptions = {
         {
           path: '',
           loadChildren: () =>
-            import('@cutcal/cutcal/landing').then(
+            import('@cutcal/features/landing').then(
               module => module.LandingModule
             )
         },
@@ -32,91 +32,91 @@ const ROUTER_OPTIONS: ExtraOptions = {
             {
               path: 'food-recipe',
               loadChildren: () =>
-                import('@cutcal/cutcal/food-recipe').then(
+                import('@cutcal/features/food-recipe').then(
                   module => module.FoodRecipeModule
                 )
             },
             {
               path: 'analyze',
               loadChildren: () =>
-                import('@cutcal/cutcal/analyze').then(
+                import('@cutcal/features/analyze').then(
                   module => module.AnalyzeModule
                 )
             },
             {
               path: 'calendar',
               loadChildren: () =>
-                import('@cutcal/cutcal/calendar').then(
+                import('@cutcal/features/calendar').then(
                   module => module.CalendarModule
                 )
             },
             {
               path: 'fallback',
               loadChildren: () =>
-                import('@cutcal/cutcal/fallback').then(
+                import('@cutcal/features/fallback').then(
                   module => module.FallbackModule
                 )
             },
             {
               path: 'footer',
               loadChildren: () =>
-                import('@cutcal/cutcal/footer').then(
+                import('@cutcal/features/footer').then(
                   module => module.FooterModule
                 )
             },
             {
               path: 'profile',
               loadChildren: () =>
-                import('@cutcal/cutcal/profile').then(
+                import('@cutcal/features/profile').then(
                   module => module.ProfileModule
                 )
             },
             {
               path: 'recipe-builder',
               loadChildren: () =>
-                import('@cutcal/cutcal/recipe-builder').then(
+                import('@cutcal/features/recipe-builder').then(
                   module => module.RecipeBuilderModule
                 )
             },
             {
               path: 'meal-ingredient',
               loadChildren: () =>
-                import('@cutcal/cutcal/meal-ingredient').then(
+                import('@cutcal/features/meal-ingredient').then(
                   module => module.MealIngredientModule
                 )
             },
             {
               path: 'nutrient',
               loadChildren: () =>
-                import('@cutcal/cutcal/nutrient').then(
+                import('@cutcal/features/nutrient').then(
                   module => module.NutrientModule
                 )
             },
             {
               path: 'legal',
               loadChildren: () =>
-                import('@cutcal/cutcal/legal').then(
+                import('@cutcal/features/legal').then(
                   module => module.LegalModule
                 )
             },
             {
               path: 'business',
               loadChildren: () =>
-                import('@cutcal/cutcal/business').then(
+                import('@cutcal/features/business').then(
                   module => module.BusinessModule
                 )
             },
             {
               path: 'grocery-pantry',
               loadChildren: () =>
-                import('@cutcal/cutcal/grocery-pantry').then(
+                import('@cutcal/features/grocery-pantry').then(
                   module => module.GroceryPantryModule
                 )
             },
             {
               path: 'support',
               loadChildren: () =>
-                import('@cutcal/cutcal/support').then(
+                import('@cutcal/features/support').then(
                   module => module.SupportModule
                 )
             }
