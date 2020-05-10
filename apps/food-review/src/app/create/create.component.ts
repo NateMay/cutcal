@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { FdcService } from '@cutcal/fdc'
+import { FirestoreService } from '@cutcal/fire'
 import { Observable } from 'rxjs'
 import { first, switchMap, tap } from 'rxjs/operators'
 import { GoogleService, WikiDetails } from '../google/google.service'
@@ -19,10 +20,12 @@ export class CreateComponent {
   constructor(
     private readonly google: GoogleService,
     private readonly wiki: WikipediaService,
-    private readonly fdc: FdcService
+    private readonly fdc: FdcService,
+    private readonly fs: FirestoreService
   ) {
     this.search('avocado')
     this.fdc.queryFood('avocado').subscribe(console.log)
+    this.fs.docWithId$('test/JByoHEmRhXbqWl0TVSaP').subscribe(console.log)
   }
 
   search(term: string): void {

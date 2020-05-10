@@ -4,4 +4,6 @@
 /coverage
 **/test.ts
 jest_html_reporters.html
+
+# alglia hack yields breaking semicolon
 **/*polyfills.ts

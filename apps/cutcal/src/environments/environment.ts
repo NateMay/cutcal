@@ -4,6 +4,16 @@
 
 export const environment = {
   production: false,
+  firebase: {
+    apiKey: 'AIzaSyBROl1CexW2kIDCXE1yLwDlNMMfH1K-FnU',
+    authDomain: 'cutcal.firebaseapp.com',
+    databaseURL: 'https://cutcal.firebaseio.com',
+    projectId: 'cutcal',
+    storageBucket: 'cutcal.appspot.com',
+    messagingSenderId: '713550266736',
+    appId: '1:713550266736:web:60c465547702b42de68fb5',
+    measurementId: 'G-PFSSPCY36C'
+  }
 }
 
 /*

@@ -1,4 +1,7 @@
 import { Injectable, NgModule } from '@angular/core'
+import { AngularFireModule } from '@angular/fire'
+import { AngularFireAuthModule } from '@angular/fire/auth'
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { GestureConfig } from '@angular/material/core'
 import {
   BrowserModule,
@@ -51,6 +54,14 @@ export class MyHammerConfig extends GestureConfig {
     CutCalRoutingModule,
     Layout1Module,
     HammerModule,
+    /**
+     * @section [Firebase] 🔥
+     */
+    AngularFireModule.initializeApp(environment.firebase),
+    environment.production
+      ? AngularFirestoreModule.enablePersistence()
+      : AngularFirestoreModule,
+    AngularFireAuthModule,
     /**
      * IMPORTANT - Order matters
      * 1️⃣ StoreModule
