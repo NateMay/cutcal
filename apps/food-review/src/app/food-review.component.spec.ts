@@ -1,12 +1,12 @@
 import {
   HttpClientTestingModule,
-  HttpTestingController,
+  HttpTestingController
 } from '@angular/common/http/testing';
 import {
   async,
   ComponentFixture,
   getTestBed,
-  TestBed,
+  TestBed
 } from '@angular/core/testing';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,7 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { AppComponent } from './food-review.component';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -34,9 +34,9 @@ describe('AppComponent', () => {
         NoopAnimationsModule,
         MatButtonModule,
         MatListModule,
-        MatSidenavModule,
+        MatSidenavModule
       ],
-      declarations: [AppComponent],
+      declarations: [AppComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);

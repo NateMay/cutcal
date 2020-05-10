@@ -1,14 +1,14 @@
 import { async, TestBed } from '@angular/core/testing';
-import { FdcModule } from './fdc.module';
+import { CutCalModule } from './cutcal-root.module';
 
-describe('FdcModule', () => {
+describe('AppModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FdcModule],
+      imports: [CutCalModule]
     }).compileComponents();
   }));
 
   it('should create', () => {
-    expect(FdcModule).toBeDefined();
+    expect(CutCalModule).toBeDefined();
   });
 });

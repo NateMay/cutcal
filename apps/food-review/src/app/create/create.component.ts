@@ -1,15 +1,15 @@
 import { Component } from '@angular/core'
+import { FdcService } from '@cutcal/fdc'
 import { Observable } from 'rxjs'
 import { first, switchMap, tap } from 'rxjs/operators'
-import { GoogleService, WikiDetails } from './google/google.service'
-import { WikipediaService } from './wikipedia/wikipedia.service'
+import { GoogleService, WikiDetails } from '../google/google.service'
+import { WikipediaService } from '../wikipedia/wikipedia.service'
 
 @Component({
-  selector: 'cc-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss']
 })
-export class AppComponent {
+export class CreateComponent {
   selected: WikiDetails
 
   description: string = 'Loading...'
@@ -18,9 +18,11 @@ export class AppComponent {
 
   constructor(
     private readonly google: GoogleService,
-    private readonly wiki: WikipediaService
+    private readonly wiki: WikipediaService,
+    private readonly fdc: FdcService
   ) {
     this.search('avocado')
+    this.fdc.queryFood('avocado').subscribe(console.log)
   }
 
   search(term: string): void {

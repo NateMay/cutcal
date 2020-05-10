@@ -1,6 +1,8 @@
 /**
  * @description FoodData Central API
  * @see {@link https://api.nal.usda.gov/fdc/v1/336711?api_key=#### Response}
+ * @see {@link https://fdc.nal.usda.gov/api-spec/fdc_api.html#/ API Ref}
+ * @note FNDDS = Food and Nutrient Database for Dietary Studies
  */
 export interface FdcFoodDetailResponse {
   foodClass: string
@@ -13,7 +15,7 @@ export interface FdcFoodDetailResponse {
   foodAttributes: FdcFoodAttribute[]
   finalFoodInputFoods: FinalFoodInputFoods[]
   foodType: 'Survey (FNDDS)' | 'Branded' | 'Foundation' | 'SR Legacy'
-  foodCode: string
+  foodCode: string // FNDDS id
   fnddsFoodCategory: FnddsFoodCategory
   startDate?: string
   endDate?: string
@@ -21,6 +23,10 @@ export interface FdcFoodDetailResponse {
   totalRefuse: number
   scientificName?: string
   foodGroup?: FdcFoodGroup
+  gtinUpc?: string // GTIN or UPC code identifying the food. Only applies to Branded Foods.
+  ingredients?: string
+  allHighlightFields?: string // ??
+  score?: number // search match score
 }
 
 export interface FdcFoodGroup {

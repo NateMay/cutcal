@@ -7,7 +7,7 @@ import { Meta } from '@angular/platform-browser'
     <router-outlet></router-outlet>
   `
 })
-export class AppComponent implements OnInit {
+export class CutCalComponent implements OnInit {
   // private sw: ServiceWorkerService,
   constructor(private readonly meta: Meta) {
     this.meta.addTags([

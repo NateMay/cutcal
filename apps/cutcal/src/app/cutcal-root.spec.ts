@@ -6,37 +6,37 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { CutCalComponent } from './cutcal-root';
 
 @Component({
   selector: 'cc-sidebar-search,sidebar-search',
-  template: '',
+  template: ''
 })
 class MockSideSearch {}
 
 @Component({
   selector: 'cc-header,header',
-  template: '',
+  template: ''
 })
 class MockHeader {}
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent, MockSideSearch, MockHeader],
+      declarations: [CutCalComponent, MockSideSearch, MockHeader],
       imports: [
         HttpClientModule,
         MatSidenavModule,
         MatToolbarModule,
         MatIconModule,
         NoopAnimationsModule,
-        RouterTestingModule,
-      ],
+        RouterTestingModule
+      ]
     }).compileComponents();
   }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CutCalComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });

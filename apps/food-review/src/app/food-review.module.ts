@@ -7,13 +7,18 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatListModule } from '@angular/material/list'
 import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatToolbarModule } from '@angular/material/toolbar'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { RouterModule } from '@angular/router'
-import { AppComponent } from './app.component'
+import { FdcService } from '@cutcal/fdc'
+import { NgAisModule } from 'angular-instantsearch'
+import { AlgoliaComponent } from './algolia/algolia'
+import { CreateComponent } from './create/create.component'
+import { AppComponent } from './food-review.component'
+import { FoodReviewRouting } from './food-review.routing'
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AlgoliaComponent, CreateComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -24,10 +29,13 @@ import { AppComponent } from './app.component'
     MatListModule,
     MatSidenavModule,
     FlexLayoutModule,
+    MatToolbarModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    FoodReviewRouting,
+    // https://community.algolia.com/angular-instantsearch/getting-started.html#going-further
+    NgAisModule.forRoot()
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [FdcService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

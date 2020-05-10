@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators'
 export const logout = createAction('[Auth] Logout')
 
 @Injectable()
-export class AppEffects {
+export class CutCalEffects {
   logout$ = createEffect(
     () =>
       this.actions$.pipe(

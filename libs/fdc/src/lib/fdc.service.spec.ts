@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { AuthService } from '@cutcal/auth';
 import { FdcService } from './fdc.service';
 
 describe('FdcService', () => {
@@ -8,8 +7,7 @@ describe('FdcService', () => {
 
   it('should be created', () => {
     const mockHttp = <HttpClient>{};
-    const mockAuth = <AuthService>{};
-    const service: FdcService = new FdcService(mockHttp, mockAuth);
+    const service: FdcService = new FdcService(mockHttp);
     expect(service).toBeTruthy();
   });
 });

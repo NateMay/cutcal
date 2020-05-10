@@ -4,7 +4,8 @@ export const STRICT_RUNTIME_CHECKS = {
     strictStateSerializability: true,
     strictStateImmutability: true,
     strictActionImmutability: true,
-  },
+    strictActionWithinNgZone: true
+  }
 }
 
 export const WEAK_RUNTIME_CHECKS = {
@@ -12,6 +13,6 @@ export const WEAK_RUNTIME_CHECKS = {
     strictActionSerializability: false,
     strictStateSerializability: false,
     strictStateImmutability: false,
-    strictActionImmutability: false,
-  },
+    strictActionImmutability: false
+  }
 }

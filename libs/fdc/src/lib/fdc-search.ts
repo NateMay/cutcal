@@ -1,4 +1,9 @@
-// nx
+/**
+ * @description FoodData Central API
+ * @see {@link https://api.nal.usda.gov/fdc/v1/336711?api_key=#### Response}
+ * @see {@link https://fdc.nal.usda.gov/api-spec/fdc_api.html#/ API Ref}
+ * @note FNDDS = Food and Nutrient Database for Dietary Studies
+ */
 
 export type FdcDataType =
   | 'Branded'

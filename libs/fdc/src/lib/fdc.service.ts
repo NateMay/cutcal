@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { AuthService } from '@cutcal/auth'
 import { KVP } from '@cutcal/core'
 import { createPortion, Image, Portion } from '@cutcal/diet'
 import { NUTRIENTS, Nutrition } from '@cutcal/nutrition'
@@ -10,7 +9,7 @@ import { map, shareReplay } from 'rxjs/operators'
 import {
   FdcFoodDetailResponse,
   FdcFoodMeasure,
-  FdcFoodNutrient,
+  FdcFoodNutrient
 } from './fdc-detail'
 import { FDCFoodSearchResponse } from './fdc-search'
 
@@ -91,7 +90,7 @@ export function createFood2(
     nutrition,
     fdcId,
     portions,
-    uses: 0,
+    uses: 0
   } as Food2
 }
 
@@ -101,9 +100,9 @@ export class FdcService {
   readonly endPoint2 = 'https://fdc.nal.usda.gov/portal-data/external/'
   readonly apiKey = 'vWDhyXr0dktjb2xa7p8R2CockacoIMFEWDl8jx0R'
 
-  constructor(private http: HttpClient, private auth: AuthService) {}
+  constructor(private http: HttpClient) {}
 
-  getFdcFood(fdcId: number | string): Observable<Food2> {
+  getFdcFood(fdcId: number | string, uid?: string): Observable<Food2> {
     // ?api_key=${this.apiKey}
     return this.http
       .get<FdcFoodDetailResponse>(`${this.endPoint2}/${fdcId}`)
@@ -117,7 +116,7 @@ export class FdcService {
             response.description,
             this.portionsFromResponse(response),
             createPortion('grams', 100),
-            this.auth.trueUid,
+            uid,
             this.tagsFromResponse(response),
             {},
             {}
@@ -141,14 +140,14 @@ export class FdcService {
           'Survey (FNDDS)': true,
           Foundation: true,
           Branded: false,
-          'SR Legacy': true,
+          'SR Legacy': true
         },
         pageNumber: page.toString(),
         referenceFoodsCheckBox: 'true',
         sortCriteria: {
           sortColumn: 'description',
-          sortDirection: 'asc',
-        },
+          sortDirection: 'asc'
+        }
       }
     )
   }
@@ -169,7 +168,7 @@ export class FdcService {
     return {
       grams: {
         unit: 'grams',
-        quantity: 100,
+        quantity: 100
       },
       ...keyBy(
         response.foodMeasures ||
@@ -180,7 +179,7 @@ export class FdcService {
             )
           ),
         'unit'
-      ),
+      )
     }
   }
 
