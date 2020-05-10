@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { AngularFireFunctions } from '@angular/fire/functions'
 import { FdcService } from '@cutcal/fdc'
 import { FirestoreService } from '@cutcal/fire'
 import { Observable } from 'rxjs'
@@ -21,11 +22,15 @@ export class CreateComponent {
     private readonly google: GoogleService,
     private readonly wiki: WikipediaService,
     private readonly fdc: FdcService,
-    private readonly fs: FirestoreService
+    private readonly fs: FirestoreService,
+    private fns: AngularFireFunctions
   ) {
     this.search('avocado')
-    this.fdc.queryFood('avocado').subscribe(console.log)
-    this.fs.docWithId$('test/JByoHEmRhXbqWl0TVSaP').subscribe(console.log)
+    // this.fdc.queryFood('avocado').subscribe(console.log)
+    // this.fs.docWithId$('test/JByoHEmRhXbqWl0TVSaP').subscribe(console.log)
+
+    const callable = fns.httpsCallable('addFood')
+    callable({ fdcId: '1' }).subscribe(console.log)
   }
 
   search(term: string): void {

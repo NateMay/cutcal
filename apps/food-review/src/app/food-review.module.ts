@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { AngularFireModule } from '@angular/fire'
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFirestoreModule } from '@angular/fire/firestore'
+import { AngularFireFunctionsModule } from '@angular/fire/functions'
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
@@ -21,7 +22,6 @@ import { AlgoliaComponent } from './algolia/algolia'
 import { CreateComponent } from './create/create.component'
 import { AppComponent } from './food-review.component'
 import { FoodReviewRouting } from './food-review.routing'
-
 @NgModule({
   declarations: [AppComponent, AlgoliaComponent, CreateComponent],
   imports: [
@@ -39,6 +39,7 @@ import { FoodReviewRouting } from './food-review.routing'
     FoodReviewRouting,
     // https://community.algolia.com/angular-instantsearch/getting-started.html#going-further
     NgAisModule.forRoot(),
+    AngularFireFunctionsModule,
     /**
      * @section [Firebase] 🔥
      */

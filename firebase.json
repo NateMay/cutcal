@@ -10,6 +10,25 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "target": "food-review",
+      "public": "dist/apps/food-review",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
-  ]
+  ],
+  "functions": {
+    "predeploy": [
+      "npm run lint:funcs",
+      "npm run build:funcs",
+      "node tools/scripts/build-firebase-functions-package-json.js"
+    ],
+    "source": "dist/functions"
+  }
 }
