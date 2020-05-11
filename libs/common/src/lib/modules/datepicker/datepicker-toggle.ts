@@ -8,7 +8,7 @@ import {
   Input,
   OnDestroy,
   ViewChild,
-  ViewEncapsulation,
+  ViewEncapsulation
 } from '@angular/core'
 import { MatButton } from '@angular/material/button'
 import { Subscription } from 'rxjs'
@@ -16,7 +16,7 @@ import { CcDatepicker } from './datepicker'
 
 /** Can be used to override the icon of a `ccDatepickerToggle`. */
 @Directive({
-  selector: '[ccDatepickerToggleIcon]',
+  selector: '[ccDatepickerToggleIcon]'
 })
 export class CcDatepickerToggleIcon {}
 
@@ -51,17 +51,16 @@ export class CcDatepickerToggleIcon {}
       <ng-content select="[ccDatepickerToggleIcon]"></ng-content>
     </button>
   `,
-  styleUrls: ['./datepicker-toggle.scss'],
   host: {
     class: 'cc-datepicker-toggle',
     // Always set the tabindex to -1 so that it doesn't overlap with any custom tabindex the
     // consumer may have provided, while still being able to receive focus.
     '[attr.tabindex]': 'disabled ? null : -1',
-    '(focus)': '_button.focus()',
+    '(focus)': '_button.focus()'
   },
   exportAs: 'ccDatepickerToggle',
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CcDatepickerToggle implements OnDestroy {
   static ngAcceptInputType_disabled: BooleanInput

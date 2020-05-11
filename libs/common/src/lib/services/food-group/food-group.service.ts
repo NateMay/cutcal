@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
+import { FOOD_GROUPS } from '@cutcal/diet'
 import { BehaviorSubject } from 'rxjs'
-import { FOOD_GROUPS } from './food-groups'
 
 // FEATURE (food-groups) implement with https://material.angular.io/components/chips/overview
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class FoodGroupSvc {
   _foodGroups = new BehaviorSubject<string[]>(FOOD_GROUPS)

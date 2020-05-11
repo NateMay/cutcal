@@ -6,18 +6,20 @@ import {
   Input,
   NgZone,
   Output,
-  Renderer2,
+  Renderer2
 } from '@angular/core'
-import { Boolish, onStable, WINDOW } from '@cutcal/core'
+import { Boolish } from '@cutcal/core'
 import { fromEvent } from 'rxjs'
 import { finalize, first, skip, takeUntil, tap } from 'rxjs/operators'
+import { onStable } from '../../../functions/onStable/onStable'
+import { WINDOW } from '../../../services/window.service'
 import { DndSvc } from '../dnd.service'
 
 // delays the drag-obj so it doesn't appear on clicks
 export const DRAG_SKIP_COUNT = 6
 
 @Directive({
-  selector: '[drag],[ccDrag]',
+  selector: '[drag],[ccDrag]'
 })
 export class DragItem {
   static default: string = '../../../../assets/svgs/meal.svg'

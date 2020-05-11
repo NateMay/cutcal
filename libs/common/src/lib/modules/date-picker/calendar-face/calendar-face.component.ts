@@ -17,9 +17,10 @@ import {
   OnInit,
   Output
 } from '@angular/core'
-import { assertIsDefined, onStable, Weekday, WEEKDAYS } from '@cutcal/core'
+import { assertIsDefined, Weekday, WEEKDAYS } from '@cutcal/core'
 import { chunk } from 'lodash'
 import { getFullCalendar } from '../../../functions/getFullCalendar/getFullCalendar'
+import { onStable } from '../../../functions/onStable/onStable'
 
 // TODO (date-picker) implement with KeyValueDiffers https://netbasal.com/getting-to-know-angular-differs-60cd68f4bd8f
 

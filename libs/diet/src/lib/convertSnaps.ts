@@ -1,3 +1,5 @@
+// TODO move to @cutcal/fire
+
 /**
  * @description Converts document snapshots into the underlying document objects with the _id added as a property
  * @param {firebase.firestore.DocumentSnapshot[]} snaps result from DocumentReference.get()
@@ -7,5 +9,5 @@ export const convertSnaps = <T>(
   snaps: firebase.firestore.DocumentSnapshot[]
 ): T[] => <T[]>snaps.map((snap: firebase.firestore.DocumentSnapshot) => ({
     _id: snap.id,
-    ...(snap.data() as T),
+    ...(snap.data() as T)
   }))

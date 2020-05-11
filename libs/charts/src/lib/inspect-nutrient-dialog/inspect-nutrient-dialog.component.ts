@@ -1,13 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core'
+import { MealService, MealsTripple } from '@cutcal/common'
 import { KVP } from '@cutcal/core'
-import {
-  Food,
-  Meal,
-  MealService,
-  MealsTripple,
-  scaleNutrient,
-  Usage,
-} from '@cutcal/diet'
+import { Food, Meal, scaleNutrient, Usage } from '@cutcal/diet'
 import { Nutrient } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import { Options, PointOptionsObject, SeriesOptionsType } from 'highcharts'
@@ -43,7 +37,7 @@ Drilldown(Highcharts)
         <button mat-button>SHARE</button>
       </mat-card-actions>
     </mat-card>
-  `,
+  `
 })
 export class InspectNutrientDialogComponent implements OnInit {
   Highcharts: typeof Highcharts = Highcharts
@@ -66,8 +60,8 @@ export class InspectNutrientDialogComponent implements OnInit {
         type: 'pie',
         options3d: {
           enabled: true,
-          alpha: 45,
-        },
+          alpha: 45
+        }
       },
       title: { text: this.title },
       subtitle: { text: this.dateString },
@@ -75,15 +69,15 @@ export class InspectNutrientDialogComponent implements OnInit {
         headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
         pointFormat: `
         <span style="color:{point.color}">{point.name}</span>: <span>{point.value} {point.unit}</span><br>
-        <b>{point.y:.2f}%</b> of total<br/>`,
+        <b>{point.y:.2f}%</b> of total<br/>`
       },
       plotOptions: {
         pie: {
           cursor: 'pointer',
           // dataLabels: { enabled: false },
-          showInLegend: true,
-        },
-      },
+          showInLegend: true
+        }
+      }
     }
   }
 
@@ -142,12 +136,12 @@ export class InspectNutrientDialogComponent implements OnInit {
         {
           name: this.date.toDateString(),
           data: this.getSeriesData(meals),
-          type: 'pie',
-        },
+          type: 'pie'
+        }
       ],
       drilldown: {
-        series: values<KVP<SeriesOptionsType>>(this.drilldownSeries),
-      },
+        series: values<KVP<SeriesOptionsType>>(this.drilldownSeries)
+      }
     }
   }
 
@@ -199,7 +193,7 @@ export class InspectNutrientDialogComponent implements OnInit {
       y: (value * 100) / this.nutrientTotal,
       drilldown: meal._id,
       value,
-      unit: this.unit,
+      unit: this.unit
     }
   }
 
@@ -214,7 +208,7 @@ export class InspectNutrientDialogComponent implements OnInit {
       drilldown: usage._id,
       type: 'pie',
       value,
-      unit: this.unit,
+      unit: this.unit
     }
   }
 }

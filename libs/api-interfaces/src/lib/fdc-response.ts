@@ -1,3 +1,5 @@
+export type FdcUnit = 'kcal' | 'kj' | 'g' | 'mg' | 'iu' | 'µg' | 'sp_gr'
+
 /**
  * @description FoodData Central API
  * @see {@link https://api.nal.usda.gov/fdc/v1/336711?api_key=#### Response}

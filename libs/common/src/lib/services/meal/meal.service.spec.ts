@@ -23,19 +23,19 @@ describe('MealService', () => {
 
   const storageStub = {
     storage: {
-      refFromURL: (): any => ({ delete: (): void => {} }),
-    },
+      refFromURL: (): any => ({ delete: (): void => {} })
+    }
   };
 
   const fnsStub = {
-    httpsCallable: (): void => {},
+    httpsCallable: (): void => {}
   };
 
   const dbStub = {
     upsert: Promise.resolve(),
     add: Promise.resolve(),
     docWithId$: of(),
-    colWithIds$: of(),
+    colWithIds$: of()
   };
 
   beforeEach(() => {
@@ -43,19 +43,19 @@ describe('MealService', () => {
       imports: [
         StoreModule.forRoot(
           {
-            ...reducers,
+            ...reducers
             // auth: authReducer,
           },
           STRICT_RUNTIME_CHECKS
-        ),
+        )
       ],
       providers: [
         MealService,
         { provide: AngularFireStorage, useValue: storageStub },
         { provide: FirestoreService, useValue: dbStub },
         { provide: AuthService, useValue: { uid: '#userId#' } },
-        { provide: AngularFireFunctions, useValue: fnsStub },
-      ],
+        { provide: AngularFireFunctions, useValue: fnsStub }
+      ]
     });
 
     mealSvc = TestBed.inject(MealService);

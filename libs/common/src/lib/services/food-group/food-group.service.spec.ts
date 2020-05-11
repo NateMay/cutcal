@@ -8,7 +8,7 @@ describe('Foodgroup Service', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [FoodGroupSvc],
+      providers: [FoodGroupSvc]
     });
 
     foodGroupSvc = TestBed.inject(FoodGroupSvc);

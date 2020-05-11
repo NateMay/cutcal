@@ -2,8 +2,9 @@ import { Message } from '@cutcal/api-interfaces'
 import { HttpService, Injectable } from '@nestjs/common'
 import * as cheerio from 'cheerio'
 import * as rp from 'request-promise'
+
 @Injectable()
-export class AppService {
+export class WikiService {
   constructor(private readonly http: HttpService) {}
 
   /**

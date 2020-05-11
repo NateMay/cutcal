@@ -3,17 +3,23 @@ import { DocumentReference } from '@angular/fire/firestore'
 import { AngularFireFunctions } from '@angular/fire/functions'
 import { AuthService } from '@cutcal/auth'
 import { KVP, purifyObject } from '@cutcal/core'
+import {
+  addPortion,
+  createMeal,
+  createUsage,
+  defaultMealName,
+  DeleteUsagePayload,
+  Food,
+  Meal,
+  scaleNutrition,
+  Tripple,
+  Usage
+} from '@cutcal/diet'
 import { FirestoreService, removeId, timestamp } from '@cutcal/fire'
 import { multiplyNutrition, updateNutritions } from '@cutcal/nutrition'
 import { find, flatten, isEmpty, keyBy, map as _map } from 'lodash'
 import { combineLatest, Observable, of } from 'rxjs'
 import { filter, first, map, share, switchMap } from 'rxjs/operators'
-import { addPortion, scaleNutrition } from './convertNutrition/convertNutrition'
-import { defaultMealName } from './deafultMealName'
-import { Food } from './food'
-import { createMeal, Meal } from './meal'
-import { Tripple } from './tripple'
-import { createUsage, DeleteUsagePayload, Usage } from './usage'
 
 export type MealTripple = [Meal, KVP<Usage>, KVP<Food>]
 export type MealsTripple = [KVP<Meal>, KVP<Usage>, KVP<Food>]

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MealService } from '@cutcal/diet';
+import { MealService } from '@cutcal/common';
 import { DndModule } from '../../modules/dnd/dnd.module';
 import { TrashComponent } from './trash.component';
 
@@ -11,14 +11,14 @@ describe('TrashComponent', () => {
 
   const mealSvcStub = {
     deleteMeal: (): void => {},
-    deleteUsage: (): void => {},
+    deleteUsage: (): void => {}
   };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TrashComponent],
       imports: [DndModule],
-      providers: [{ provide: MealService, useValue: mealSvcStub }],
+      providers: [{ provide: MealService, useValue: mealSvcStub }]
     }).compileComponents();
   }));
 

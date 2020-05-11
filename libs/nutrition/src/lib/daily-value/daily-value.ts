@@ -1,4 +1,4 @@
-import { FdcUnit } from '@cutcal/fdc'
+import { FdcUnit } from '@cutcal/api-interfaces'
 import { Nutrition } from '../nutrition'
 
 /**
@@ -8,7 +8,6 @@ export interface DailyValue {
   id: number
   name: string
   description: string
-  // nutrition: Nutrition<NutritionRange>;
   nutrition: Nutrition<NutritionRange>
 }
 
@@ -39,6 +38,6 @@ export function createNutritionRange(
     EAR,
     RDA: RDA || EAR + 0.2 * range,
     AI,
-    UL: high ? high : EAR + 0.8 * range,
+    UL: high ? high : EAR + 0.8 * range
   }
 }

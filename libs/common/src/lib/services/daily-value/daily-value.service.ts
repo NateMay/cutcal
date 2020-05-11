@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
+import { DailyValue, DEAFULT_DAILY_VALUE } from '@cutcal/nutrition'
 import { BehaviorSubject, Observable } from 'rxjs'
-import { DailyValue } from './daily-value'
-import { DEAFULT_DAILY_VALUE } from './daily-values'
 
 // FEATURE (daily-value)
 
@@ -12,7 +11,7 @@ import { DEAFULT_DAILY_VALUE } from './daily-values'
  */
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class DailyValueSvc {
   private dailyValue = new BehaviorSubject<DailyValue>(DEAFULT_DAILY_VALUE)

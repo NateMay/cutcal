@@ -1,6 +1,5 @@
 import { Component } from '@angular/core'
 import { AngularFireFunctions } from '@angular/fire/functions'
-import { FdcService } from '@cutcal/fdc'
 import { FirestoreService } from '@cutcal/fire'
 import { Observable } from 'rxjs'
 import { first, switchMap, tap } from 'rxjs/operators'
@@ -21,7 +20,6 @@ export class CreateComponent {
   constructor(
     private readonly google: GoogleService,
     private readonly wiki: WikipediaService,
-    private readonly fdc: FdcService,
     private readonly fs: FirestoreService,
     private fns: AngularFireFunctions
   ) {
@@ -30,7 +28,7 @@ export class CreateComponent {
     // this.fs.docWithId$('test/JByoHEmRhXbqWl0TVSaP').subscribe(console.log)
 
     const callable = fns.httpsCallable('addFood')
-    callable({ fdcId: '1' }).subscribe(console.log)
+    callable({ fdcId: '786651' }).subscribe(console.log)
   }
 
   search(term: string): void {

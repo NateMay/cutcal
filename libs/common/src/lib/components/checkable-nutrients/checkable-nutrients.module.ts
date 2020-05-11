@@ -11,8 +11,8 @@ import { CheckableNutrientsComponent } from './checkable-nutrients.component'
     CommonModule,
     MatExpansionModule,
     MatCheckboxModule,
-    MatRadioModule,
+    MatRadioModule
   ],
-  exports: [CheckableNutrientsComponent],
+  exports: [CheckableNutrientsComponent]
 })
 export class CheckableNutrientsModule {}

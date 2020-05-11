@@ -15,17 +15,19 @@ import {
   OnInit,
   Output,
   Renderer2,
-  ViewEncapsulation,
+  ViewEncapsulation
 } from '@angular/core'
 import {
   ControlValueAccessor,
   NgControl,
-  NG_VALUE_ACCESSOR,
+  NG_VALUE_ACCESSOR
 } from '@angular/forms'
-import { devError, devWarn, onStable } from '@cutcal/core'
 import { findLastIndex, get } from 'lodash'
 import { fromEvent, merge, Observable, Subject } from 'rxjs'
 import { takeUntil, tap } from 'rxjs/operators'
+import { devError } from '../../functions/devError'
+import { devWarn } from '../../functions/devWarn'
+import { onStable } from '../../functions/onStable/onStable'
 import { MaskingBase } from './masking-base'
 import {
   CharChecker,
@@ -36,13 +38,13 @@ import {
   isWritable,
   MASK_CHECKERS,
   MASK_SPECIALS,
-  replaceAt,
+  replaceAt
 } from './masking.utils'
 
 const FIXED_MASK_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => CcFixedMask),
-  multi: true,
+  multi: true
 }
 
 export type CcPredefinedMask = keyof CcPredefinedMasks
@@ -63,7 +65,7 @@ export interface CcPredefinedMasks {
   `,
   providers: [FIXED_MASK_VALUE_ACCESSOR],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CcFixedMask extends MaskingBase
   implements ControlValueAccessor, OnDestroy, AfterContentInit, OnInit {
@@ -73,7 +75,7 @@ export class CcFixedMask extends MaskingBase
     ssn: '999-99-9999',
     partialSsn: '*9*9*9-*9*9-9999',
     hiddenSsn: '*9*9*9-*9*9-*9*9*9*9',
-    creditCard: '9999 9999 9999 9999',
+    creditCard: '9999 9999 9999 9999'
   })
   private unsub$ = new Subject<void>()
 

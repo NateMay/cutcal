@@ -1,7 +1,4 @@
 export * from './assertIsDefined'
-export * from './devError'
-export * from './devWarn'
-export * from './onStable/onStable'
 export * from './purifyObject/purifyObject'
 export * from './removeDups/removeDups'
 export * from './toRawType/toRawType'

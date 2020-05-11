@@ -2,7 +2,7 @@ import {
   CdkOverlayOrigin,
   Overlay,
   OverlayConfig,
-  OverlayRef,
+  OverlayRef
 } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
 import {
@@ -21,11 +21,12 @@ import {
   OnInit,
   Output,
   ViewChild,
-  ViewContainerRef,
+  ViewContainerRef
 } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
-import { Boolish, onStable } from '@cutcal/core'
+import { Boolish } from '@cutcal/core'
 import { eventWithin } from '../../../functions/eventWithin/eventWithin'
+import { onStable } from '../../../functions/onStable/onStable'
 import { DatePickerDialogData, DATE_PICKER_DATA } from '../date-picker-data'
 import { DatePickerDialogComponent } from '../date-picker-dialog/date-picker-dialog.component'
 
@@ -34,7 +35,7 @@ let nextUniqueId = 0
 export const DATE_PICKER_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   multi: true,
-  useExisting: forwardRef(() => DatePickerInputComponent),
+  useExisting: forwardRef(() => DatePickerInputComponent)
 }
 
 // TEST (date-picker) with reactive forms
@@ -80,7 +81,7 @@ export const DATE_PICKER_CONTROL_VALUE_ACCESSOR: any = {
         <mat-icon>calendar_today</mat-icon>
       </button>
     </mat-form-field>
-  `,
+  `
 })
 export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
   @Input() date: Date | null = null
@@ -150,7 +151,7 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
     if (
       !eventWithin(event, [
         this.pickerOrigin.elementRef.nativeElement,
-        this.pickerOverlayRef.hostElement,
+        this.pickerOverlayRef.hostElement
       ])
     ) {
       this.parseDate(this.input.nativeElement.value)
@@ -180,9 +181,9 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
               originX: 'start',
               originY: 'bottom',
               overlayX: 'start',
-              overlayY: 'top',
-            },
-          ]),
+              overlayY: 'top'
+            }
+          ])
       })
     )
   }
@@ -212,7 +213,7 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
             this.reFocusTrigger()
             this.pickerRef.instance.selectedDate = date
             this.pickerRef.instance.focusDate = date
-          },
+          }
         })
       )
     )

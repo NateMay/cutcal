@@ -11,14 +11,14 @@ describe('Food Service', () => {
 
   const storageSub = {
     upload: (): void => {},
-    ref: (): void => {},
+    ref: (): void => {}
   };
 
   const dbDouble = {
     add: (): void => {},
     colWithIds: (): void => {},
     docWithId: (): void => {},
-    delete: (): void => {},
+    delete: (): void => {}
   };
 
   beforeEach(() => {
@@ -27,8 +27,8 @@ describe('Food Service', () => {
         FoodService,
         { provide: FirestoreService, useValue: dbDouble },
         { provide: AuthService, useValue: { uid: 'userId' } },
-        { provide: AngularFireStorage, useValue: storageSub },
-      ],
+        { provide: AngularFireStorage, useValue: storageSub }
+      ]
     });
 
     foodSvc = TestBed.inject(FoodService);

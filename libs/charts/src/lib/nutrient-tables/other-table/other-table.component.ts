@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core'
+import { DailyValueSvc } from '@cutcal/common'
 import {
-  DailyValueSvc,
   getOthers,
   NutrientMetaData,
   NUTRIENTS,

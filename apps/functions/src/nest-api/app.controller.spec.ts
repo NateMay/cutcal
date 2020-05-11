@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { WikiService } from './wikipedia.service';
 
 class Httpmock {}
 
@@ -12,7 +12,7 @@ describe('AppController', () => {
     app = await Test.createTestingModule({
       controllers: [AppController],
       providers: [
-        AppService,
+        WikiService,
         {
           provide: HttpService,
           useClass: Httpmock

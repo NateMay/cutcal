@@ -1,7 +1,8 @@
 import { Component, HostBinding } from '@angular/core'
-import { isMeal, isUsage, Meal, MealService, Usage } from '@cutcal/diet'
+import { isMeal, isUsage, Meal, Usage } from '@cutcal/diet'
 import { DndPayload } from '../../modules/dnd/dnd.payload'
 import { DndSvc } from '../../modules/dnd/dnd.service'
+import { MealService } from '../../services/meal/meal.service'
 
 @Component({
   selector: 'cc-trash',

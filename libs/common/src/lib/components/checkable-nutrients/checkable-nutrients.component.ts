@@ -1,9 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { MatCheckboxChange } from '@angular/material/checkbox'
+import {
+  getNutritionParts,
+  NutrCheckable,
+  Nutrition,
+  NutritionParts
+} from '@cutcal/nutrition'
 import { isEqual } from 'lodash'
-import { NutrCheckable } from './../checkable-nutrient'
-import { getNutritionParts, NutritionParts } from './../getNutritionParts'
-import { Nutrition } from './../nutrition'
 
 export interface CheckableNutrientsChange {
   nutrCheckables: Nutrition<NutrCheckable>
@@ -106,7 +109,7 @@ const createData = (
         </span>
       </ng-container>
     </ng-template>
-  `,
+  `
 })
 export class CheckableNutrientsComponent {
   templateData: TemplateData[] = [
@@ -115,26 +118,26 @@ export class CheckableNutrientsComponent {
     createData('Charbohydrates', 'carbBase', [createData('Sugars', 'sugars')]),
 
     createData('Protein', 'proteinBase', [
-      createData('Amino Acids', 'aminoAcids'),
+      createData('Amino Acids', 'aminoAcids')
     ]),
 
     createData('Fats', 'fatBase', [
       createData('Saturated Fats', 'satFat'),
       createData('Polyunsaturated Fats', 'polyFat'),
       createData('Monounsaturated Fats', 'monoFat'),
-      createData('Transunsaturated Fats', 'transFat'),
+      createData('Transunsaturated Fats', 'transFat')
     ]),
 
     createData('Vitamins', 'vitaminBase', [
       createData('Vitamin A', 'vit_A'),
       createData('Vitamin D', 'vit_D'),
       createData('Vitamin E', 'vit_E'),
-      createData('Folate', 'folate'),
+      createData('Folate', 'folate')
     ]),
 
     createData('Minerals', 'minerals'),
     createData('Sterols', 'sterols'),
-    createData('Other', 'others'),
+    createData('Other', 'others')
   ]
 
   @Output() change = new EventEmitter<NutrCheckable>()

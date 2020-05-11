@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
-import { onStable } from '@cutcal/core'
+import { onStable } from '../../functions/onStable/onStable'
 
 /**
  * Service which recasts focus to an element after some disruptive operation

@@ -15,16 +15,18 @@ import {
   OnInit,
   Output,
   Renderer2,
-  ViewEncapsulation,
+  ViewEncapsulation
 } from '@angular/core'
 import {
   ControlValueAccessor,
   NgControl,
-  NG_VALUE_ACCESSOR,
+  NG_VALUE_ACCESSOR
 } from '@angular/forms'
-import { devError, devWarn, onStable } from '@cutcal/core'
 import { fromEvent, merge, Observable, Subject } from 'rxjs'
 import { takeUntil, tap } from 'rxjs/operators'
+import { devError } from '../../functions/devError'
+import { devWarn } from '../../functions/devWarn'
+import { onStable } from '../../functions/onStable/onStable'
 import { MaskingBase } from './masking-base'
 import { insertAt, numericChecker } from './masking.utils'
 
@@ -33,7 +35,7 @@ export type CcCurrenyDelimiter = '.' | ','
 const CURRENCY_MASK_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => CcCurrencyMask),
-  multi: true,
+  multi: true
 }
 
 @Component({
@@ -43,7 +45,7 @@ const CURRENCY_MASK_VALUE_ACCESSOR: any = {
   `,
   providers: [CURRENCY_MASK_VALUE_ACCESSOR],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CcCurrencyMask extends MaskingBase
   implements ControlValueAccessor, OnDestroy, AfterContentInit, OnInit {

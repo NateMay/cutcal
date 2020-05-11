@@ -9,12 +9,8 @@ import { dateArray } from '../dateArray/dateArray'
  *   getFullCalendar(new Date()) => // an array of dates cooresponding the the calendar face of a month
  */
 export function getFullCalendar(date: Date | null): Date[] {
-  if (!date) {
-    date = new Date()
-    console.warn(
-      '[CutCal] getFullCalendar() was called with null, defaulting to today.'
-    )
-  }
+  if (!date) date = new Date()
+
   const firstOfMonth = date.firstDayOfMonth().stripTime()
 
   let dates = dateArray(42, firstOfMonth.addDays(-firstOfMonth.getDay()))

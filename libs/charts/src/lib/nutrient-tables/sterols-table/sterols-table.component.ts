@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { DailyValueSvc } from '@cutcal/common'
 import {
-  DailyValueSvc,
   getSterols,
   NutrientMetaData,
   NUTRIENTS,

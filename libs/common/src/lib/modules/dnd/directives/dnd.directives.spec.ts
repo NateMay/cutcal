@@ -10,9 +10,9 @@ import {
   ComponentFixture,
   fakeAsync,
   TestBed,
-  tick,
+  tick
 } from '@angular/core/testing';
-import { WINDOW_PROVIDER } from '@cutcal/core';
+import { WINDOW_PROVIDER } from '@cutcal/common';
 import { getDe, getDirective } from '@cutcal/ng-testing';
 import { DndModule } from '../dnd.module';
 import { DndSvc } from '../dnd.service';
@@ -33,7 +33,7 @@ import { DropTarget } from './dropTarget';
 
       <div class="drop" [drop]="dropData">drop</div>
     </div>
-  `,
+  `
 })
 class TestDndComponent {
   dragImage = '../../../assets/images/april.jpg';
@@ -54,7 +54,7 @@ describe('Drag and Drop directives', () => {
       new MouseEvent(type, <any>{
         preventDefault: () => {},
         clientX: 432,
-        clientY: 532,
+        clientY: 532
       })
     );
 
@@ -67,7 +67,7 @@ describe('Drag and Drop directives', () => {
     TestBed.configureTestingModule({
       declarations: [TestDndComponent],
       imports: [DndModule],
-      providers: [DndSvc, WINDOW_PROVIDER],
+      providers: [DndSvc, WINDOW_PROVIDER]
     });
 
     fixture = TestBed.createComponent(TestDndComponent);

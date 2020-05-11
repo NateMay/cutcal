@@ -7,7 +7,6 @@ import {
 } from '@angular/core'
 import { MatSliderChange } from '@angular/material/slider'
 import { Router } from '@angular/router'
-import { devWarn } from '@cutcal/core'
 import {
   Food,
   Ingredient,
@@ -17,6 +16,7 @@ import {
   Portion,
   Usage
 } from '@cutcal/diet'
+import { devWarn } from '../../functions/devWarn'
 import { getQuantityStep } from '../../functions/increment/increment'
 
 export interface IngredientPortionChange {

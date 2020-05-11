@@ -14,7 +14,6 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { FdcService } from '@cutcal/fdc'
 import { FirestoreService } from '@cutcal/fire'
 import { NgAisModule } from 'angular-instantsearch'
 import { environment } from '../environments/environment'
@@ -49,7 +48,7 @@ import { FoodReviewRouting } from './food-review.routing'
       : AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [FdcService, FirestoreService],
+  providers: [FirestoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

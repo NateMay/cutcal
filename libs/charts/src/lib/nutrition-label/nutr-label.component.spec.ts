@@ -1,10 +1,14 @@
 import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { PluralPipeModule, UnitPipeModule } from '@cutcal/common';
+import {
+  DailyValueSvc,
+  PluralPipeModule,
+  UnitPipeModule
+} from '@cutcal/common';
 import { createPortion } from '@cutcal/diet';
 import { getDe, MOCK_NUTRITION } from '@cutcal/ng-testing';
-import { DailyValueSvc, DEAFULT_DAILY_VALUE } from '@cutcal/nutrition';
+import { DEAFULT_DAILY_VALUE } from '@cutcal/nutrition';
 import { NutrLabelComponent } from './nutr-label.component';
 
 @Component({
@@ -13,7 +17,7 @@ import { NutrLabelComponent } from './nutr-label.component';
       [nutrition]="nutrition"
       [portion]="portion"
     ></cc-nutrition-label>
-  `,
+  `
 })
 class TestNutrLabelComponent {
   nutrition = MOCK_NUTRITION;
@@ -31,8 +35,8 @@ describe('Nutrition Label Component', () => {
       declarations: [TestNutrLabelComponent, NutrLabelComponent],
       imports: [PluralPipeModule, UnitPipeModule],
       providers: [
-        { provide: DailyValueSvc, useValue: { snapshot: DEAFULT_DAILY_VALUE } },
-      ],
+        { provide: DailyValueSvc, useValue: { snapshot: DEAFULT_DAILY_VALUE } }
+      ]
     });
 
     fixture = TestBed.createComponent(TestNutrLabelComponent);

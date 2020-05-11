@@ -11,9 +11,9 @@ import { InspectNutrientModule } from '@cutcal/charts'
 import {
   BasicsModule,
   CCAnimationsModule,
-  DatePickerModule,
+  CheckableNutrientsModule,
+  DatePickerModule
 } from '@cutcal/common'
-import { CheckableNutrientsModule } from '@cutcal/nutrition'
 import { StoreModule } from '@ngrx/store'
 import { HighchartsChartModule } from 'highcharts-angular'
 import { AnalysisChartComponent } from './analysis-chart/analysis-chart.component'
@@ -24,8 +24,8 @@ import { analyzeReducer } from './analyze.store'
 const routes: Routes = [
   {
     path: '',
-    component: AnalyzeComponent,
-  },
+    component: AnalyzeComponent
+  }
 ]
 
 const MAT_MODULES = [
@@ -35,14 +35,14 @@ const MAT_MODULES = [
   MatProgressBarModule,
   MatDialogModule,
   OverlayModule,
-  MatCardModule,
+  MatCardModule
 ]
 
 @NgModule({
   declarations: [
     AnalyzeComponent,
     AnalysisChartComponent,
-    AnalyzeRangePickerComponent,
+    AnalyzeRangePickerComponent
   ],
   imports: [
     BasicsModule,
@@ -53,7 +53,7 @@ const MAT_MODULES = [
     CCAnimationsModule,
     InspectNutrientModule.forRoot(),
     StoreModule.forFeature('analyze', analyzeReducer),
-    RouterModule.forChild(routes),
-  ],
+    RouterModule.forChild(routes)
+  ]
 })
 export class AnalyzeModule {}

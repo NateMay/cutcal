@@ -5,7 +5,7 @@ import {
   Inject,
   Injectable,
   InjectionToken,
-  PLATFORM_ID,
+  PLATFORM_ID
 } from '@angular/core'
 
 export const NAVIGATOR = new InjectionToken('NavigatorToken')
@@ -46,14 +46,14 @@ export const navigatorFactory = (
 
 const browserNavigatorProvider: ClassProvider = {
   provide: NavigatorRef,
-  useClass: BrowserNavigatorRef,
+  useClass: BrowserNavigatorRef
 }
 
 /* Create an injectable provider that uses the NavigatorFactory function for returning the native Navigator object. */
 const NavigatorProvider: FactoryProvider = {
   provide: NAVIGATOR,
   useFactory: navigatorFactory,
-  deps: [NavigatorRef, PLATFORM_ID],
+  deps: [NavigatorRef, PLATFORM_ID]
 }
 
 /* Create an array of providers. */

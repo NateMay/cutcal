@@ -1,19 +1,18 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { BasicsModule } from '@cutcal/common'
-import { CheckableNutrientsModule } from '@cutcal/nutrition'
+import { BasicsModule, CheckableNutrientsModule } from '@cutcal/common'
 import { NutrientComponent } from './nutrient.component'
 
 const routes: Routes = [
   {
     path: '',
-    component: NutrientComponent,
+    component: NutrientComponent
   },
   {
     path: ':nutrient',
-    component: NutrientComponent,
-  },
+    component: NutrientComponent
+  }
 ]
 @NgModule({
   declarations: [NutrientComponent],
@@ -21,7 +20,7 @@ const routes: Routes = [
     CommonModule,
     BasicsModule,
     CheckableNutrientsModule,
-    RouterModule.forChild(routes),
-  ],
+    RouterModule.forChild(routes)
+  ]
 })
 export class NutrientModule {}

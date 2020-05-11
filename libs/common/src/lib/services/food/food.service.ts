@@ -4,19 +4,17 @@ import { AngularFireStorage } from '@angular/fire/storage'
 import { UploadMetadata } from '@angular/fire/storage/interfaces'
 import { AuthService } from '@cutcal/auth'
 import { KVP, uniqueID } from '@cutcal/core'
+import { createUsage, Food, Tripple, Usage } from '@cutcal/diet'
 import { FirestoreService } from '@cutcal/fire'
 import * as firebase from 'firebase/app'
 import { isEmpty, keyBy, map as _map } from 'lodash'
 import { combineLatest, Observable, of } from 'rxjs'
 import { filter, finalize, flatMap, map } from 'rxjs/operators'
-import { Food } from './food'
-import { Tripple } from './tripple'
-import { createUsage, Usage } from './usage'
 
 export type FoodTripple = [Food, KVP<Usage>, KVP<Food>]
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class FoodService {
   // TODO (env) consider providing this as a config object to toggle environments
@@ -125,8 +123,8 @@ export class FoodService {
     const metaData: UploadMetadata = {
       customMetadata: {
         uploaderId,
-        uploadDate: new Date().toString(),
-      },
+        uploadDate: new Date().toString()
+      }
     }
 
     const task = this.storage.upload(filePath, file, metaData)

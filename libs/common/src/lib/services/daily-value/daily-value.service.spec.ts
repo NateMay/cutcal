@@ -1,6 +1,6 @@
+import { DEAFULT_DAILY_VALUE } from '@cutcal/nutrition';
 import { first } from 'rxjs/operators';
 import { DailyValueSvc } from './daily-value.service';
-import { DEAFULT_DAILY_VALUE } from './daily-values';
 
 it('Daily Value service should return a reference to the daily value', () => {
   let result;

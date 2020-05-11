@@ -2,7 +2,7 @@ import {
   CdkOverlayOrigin,
   Overlay,
   OverlayConfig,
-  OverlayRef,
+  OverlayRef
 } from '@angular/cdk/overlay'
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal'
 import {
@@ -22,12 +22,13 @@ import {
   OnInit,
   Output,
   ViewChild,
-  ViewContainerRef,
+  ViewContainerRef
 } from '@angular/core'
 import { NG_VALUE_ACCESSOR } from '@angular/forms'
-import { Boolish, onStable } from '@cutcal/core'
+import { Boolish } from '@cutcal/core'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { dateFromTime } from '../../../../functions/dateFromTime/dateFromTime'
+import { onStable } from '../../../../functions/onStable/onStable'
 import { TimePickerData, TIME_PICKER_DATA } from '../../utils/time-picker-data'
 import { TimepickerDialogComponent } from '../time-picker-dialog/time-picker-dialog.component'
 
@@ -36,7 +37,7 @@ let nextUniqueId = 0
 export const TIME_PICKER_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   multi: true,
-  useExisting: forwardRef(() => TimePickerInputComponent),
+  useExisting: forwardRef(() => TimePickerInputComponent)
 }
 // DEPENDS ON (time-picker) then TEST (time-picker) with reactive forms
 
@@ -78,7 +79,7 @@ export const TIME_PICKER_CONTROL_VALUE_ACCESSOR: any = {
         <mat-icon>access_time</mat-icon>
       </button>
     </mat-form-field>
-  `,
+  `
 })
 export class TimePickerInputComponent implements OnInit, AfterViewInit {
   // Overlay Stuff
@@ -212,7 +213,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
             { overlayX: 'start', overlayY: 'top' }
           ),
         width: '250px',
-        height: 'auto',
+        height: 'auto'
       })
     )
   }
@@ -242,7 +243,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
           timeSet: (time: string) => {
             this.time = time
             this.writeValue(time)
-          },
+          }
         })
       )
     )

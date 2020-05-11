@@ -1,17 +1,17 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import {
+  FdcFoodDetailResponse,
+  FdcFoodMeasure,
+  FdcFoodNutrient,
+  FDCFoodSearchResponse
+} from '@cutcal/api-interfaces'
 import { KVP } from '@cutcal/core'
 import { createPortion, Image, Portion } from '@cutcal/diet'
 import { NUTRIENTS, Nutrition } from '@cutcal/nutrition'
 import { keyBy } from 'lodash'
 import { Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
-import {
-  FdcFoodDetailResponse,
-  FdcFoodMeasure,
-  FdcFoodNutrient
-} from './fdc-detail'
-import { FDCFoodSearchResponse } from './fdc-search'
 
 export interface Food2 {
   _id?: any

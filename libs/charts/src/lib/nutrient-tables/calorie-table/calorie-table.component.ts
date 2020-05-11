@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { DailyValueSvc } from '@cutcal/common'
 import {
   CaloriesFrom,
   caloriesFromAll,
-  DailyValueSvc,
   Nutrition,
   NutritionRange,
   ZERO_NUTRITION

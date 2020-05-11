@@ -5,7 +5,7 @@ import {
   Injector,
   OnDestroy,
   OnInit,
-  ViewContainerRef,
+  ViewContainerRef
 } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { AuthService } from '@cutcal/auth'
@@ -14,18 +14,17 @@ import {
   InspectionData,
   INSPECTION_DATA,
   InspectNutrientDialogComponent,
-  setLightGridTheme,
+  setLightGridTheme
 } from '@cutcal/charts'
-import { analyzeParams, dateArray } from '@cutcal/common'
+import { analyzeParams, dateArray, MealService } from '@cutcal/common'
 import { KVP } from '@cutcal/core'
-import { MealService } from '@cutcal/diet'
 import {
   createNutrCheckableMap,
   NutrCheckable,
   NutrCheckableMap,
   NutrientUnit,
   Nutrition,
-  nutrtionSelections,
+  nutrtionSelections
 } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import { Options, SeriesOptionsType } from 'highcharts'
@@ -47,18 +46,18 @@ setLightGridTheme()
  */
 const MONTH_DAY_FORMAT: Intl.DateTimeFormatOptions = {
   month: 'short',
-  day: 'numeric',
+  day: 'numeric'
 }
 
 const MONTH_DAY_YEAR_FORMAT: Intl.DateTimeFormatOptions = {
   ...MONTH_DAY_FORMAT,
-  year: '2-digit',
+  year: '2-digit'
 }
 
 @Component({
   host: { class: 'page-layout flush' },
   styleUrls: ['./analyze.component.scss'],
-  templateUrl: './analyze.component.html',
+  templateUrl: './analyze.component.html'
 })
 export class AnalyzeComponent implements OnDestroy, OnInit {
   private unsub$: Subject<void> = new Subject()
@@ -118,7 +117,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
       'calories',
       'protein',
       'carbohydrates',
-      'fat',
+      'fat'
     ])
 
     // Gets the url date params and recalculates the charts
@@ -217,7 +216,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
       type: control.type,
       unit: control.unit,
       nutrient: checked.propName,
-      data: this.assignPointValues(this.baseSerieseData, checked.propName),
+      data: this.assignPointValues(this.baseSerieseData, checked.propName)
     } as SeriesOptionsType
   }
 
@@ -239,7 +238,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
         name: date.toLocaleDateString(this.locale, MONTH_DAY_YEAR_FORMAT),
         y: value,
         events: { click: this.openModal },
-        clickable: value > 0,
+        clickable: value > 0
       } as HighChartsDataPoint
     })
   }
@@ -280,7 +279,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   setChartOptions(controls: ChartControls, options: Options): void {
     options.xAxis = { categories: this.xAxisLabels(this.baseSerieseData) }
     options.yAxis = {
-      title: { text: controls.percentStacked ? '%' : controls.unit },
+      title: { text: controls.percentStacked ? '%' : controls.unit }
     }
 
     this.setStacking(controls, options)
@@ -363,7 +362,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
           .position()
           .global()
           .centerHorizontally()
-          .centerVertically(),
+          .centerVertically()
       })
     )
 
