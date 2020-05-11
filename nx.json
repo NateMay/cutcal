@@ -112,9 +112,6 @@
     "fire": {
       "tags": ["scope:util"]
     },
-    "fdc": {
-      "tags": []
-    },
     "convert-units": {
       "tags": []
     },

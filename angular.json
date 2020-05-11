@@ -1173,38 +1173,6 @@
         }
       }
     },
-    "fdc": {
-      "projectType": "library",
-      "root": "libs/fdc",
-      "sourceRoot": "libs/fdc/src",
-      "prefix": "cutcal",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/fdc/tsconfig.lib.json",
-              "libs/fdc/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/fdc/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/fdc/jest.config.js",
-            "tsConfig": "libs/fdc/tsconfig.spec.json",
-            "setupFile": "libs/fdc/src/test-setup.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "convert-units": {
       "projectType": "library",
       "root": "libs/convert-units",
