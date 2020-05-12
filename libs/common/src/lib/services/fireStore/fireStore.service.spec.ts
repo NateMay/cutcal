@@ -4,7 +4,7 @@ import {
   AngularFirestore,
   AngularFirestoreCollection,
   AngularFirestoreDocument,
-  AngularFirestoreModule,
+  AngularFirestoreModule
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { FirestoreService } from './fireStore.service';
@@ -36,10 +36,10 @@ describe('AngularFirestore', () => {
           databaseURL: 'https://angularfirestore.firebaseio.com',
           projectId: 'kjnd;kcjz;cvkjnsdvkj',
           storageBucket: 'angularfirestore.appspot.com',
-          messagingSenderId: '7i623471298410',
+          messagingSenderId: '7i623471298410'
         }),
-        AngularFirestoreModule,
-      ],
+        AngularFirestoreModule
+      ]
     });
     inject(
       [FirebaseApp, AngularFirestore, FirestoreService],

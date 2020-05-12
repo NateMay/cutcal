@@ -15,11 +15,12 @@ import {
   Tripple,
   Usage
 } from '@cutcal/diet'
-import { FirestoreService, removeId, timestamp } from '@cutcal/fire'
+import { removeId, timestamp } from '@cutcal/fire'
 import { multiplyNutrition, updateNutritions } from '@cutcal/nutrition'
 import { find, flatten, isEmpty, keyBy, map as _map } from 'lodash'
 import { combineLatest, Observable, of } from 'rxjs'
 import { filter, first, map, share, switchMap } from 'rxjs/operators'
+import { FirestoreService } from '../fireStore/fireStore.service'
 
 export type MealTripple = [Meal, KVP<Usage>, KVP<Food>]
 export type MealsTripple = [KVP<Meal>, KVP<Usage>, KVP<Food>]

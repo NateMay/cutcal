@@ -2,11 +2,11 @@ import { TestBed } from '@angular/core/testing';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AuthService } from '@cutcal/auth';
-import { reducers } from '@cutcal/common';
 import { STRICT_RUNTIME_CHECKS } from '@cutcal/core';
-import { FirestoreService } from '@cutcal/fire';
 import { StoreModule } from '@ngrx/store';
 import { of } from 'rxjs';
+import { reducers } from '../../app.state';
+import { FirestoreService } from '../fireStore/fireStore.service';
 import { MealService } from './meal.service';
 
 // FIXME

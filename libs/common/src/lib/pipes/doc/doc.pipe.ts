@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core'
-import { FirestoreService } from '@cutcal/fire'
 import { Observable } from 'rxjs'
+import { FirestoreService } from '../../services/fireStore/fireStore.service'
 
 /**
  * @description Unwrapps a firestore document reference in the template

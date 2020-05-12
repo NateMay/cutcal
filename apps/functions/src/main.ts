@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import * as functions from 'firebase-functions'
-import { getFoodDump } from './addFood/getFoodDump'
-import { firestore } from './helpers/initializeApp'
+import { addFoodHandler } from './addFood/addFoodHandler'
 import { createServer } from './nest-api/createServer'
 
+/**
+ * @description nestjs REST API for Food Data Central, Google, & Wikipedia
+ */
 export const api = functions.region('us-central1').https.onRequest(createServer)
 
 /**
@@ -13,13 +15,12 @@ export const helloWorld = functions.https.onRequest((request, response) => {
   response.send('Hello from Firebase 2!')
 })
 
-export const addFood = functions.https.onCall(async (data, context) => {
-  // Only allow admin users to execute this function.
-  // ensureLoggedIn(context);
+/**
+ * @description callable function to request a new food, dump it in
+ * a firestore collection, modify it into the applicaion Food interface,
+ * and push to the alglia index
+ */
+export const addFood = functions.https.onCall(addFoodHandler)
 
-  const dump = await getFoodDump(data)
-
-  const result = await firestore.collection('fdc-dump').add(dump)
-
-  return `FDC item:: ${result.id}`
-})
+// TODO (onUpdate) https://fireship.io/lessons/algolia-cloud-functions/
+// usages, likes, etc

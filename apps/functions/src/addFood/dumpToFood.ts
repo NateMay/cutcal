@@ -14,13 +14,16 @@ export const dumpToFood = (dump: FdcDump): NewFood => ({
   description: dump.description,
   fdcId: dump.id,
   nutrition: nutritionFromResponse(dump.foodNutrients),
-  creator: null,
+  creator: {
+    name: 'Temp name',
+    timestamp: null
+  },
   defaultPortion: createPortion('grams', 100),
   portions: portionsFromResponse(dump.foodMeasures),
   ingredients: [],
   fdcName: dump.description,
   usage: 0,
-  images: null
+  images: []
 })
 
 const nutritionFromResponse = (

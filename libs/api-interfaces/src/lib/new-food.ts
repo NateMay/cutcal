@@ -12,18 +12,20 @@ export interface FoodBase {
   fdcId: number
 }
 
-export interface AlgoliaFood2 extends FoodBase {
+export interface AlgoliaFood extends FoodBase {
+  objectID: string
   highIn: string[] // list of nutrients that this food can act as a suppliment for
   ingredients: string[]
   isRecipe: boolean // whether it has instructions
   usageTier: number // for example: 0 - 99, 100 - 999, 1000 - 9999, etc
   creatorName: string
   categories: string[]
+  imageUrl: string
 }
 
 export interface NewFood extends FoodBase {
   nutrition: Nutrition<number>
-  creator: Food2Creator
+  creator: NewFoodCreator
   defaultPortion: Portion
   portions: KVP<Portion>
   ingredients: Food2Ingredient[]
@@ -38,7 +40,7 @@ interface Food2Ingredient {
   fdcId: number
 }
 
-interface Food2Creator {
+interface NewFoodCreator {
   name: string
   timestamp: firestore.Timestamp
 }

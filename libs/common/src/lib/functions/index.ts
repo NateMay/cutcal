@@ -1,5 +1,6 @@
 export * from './allImagesFromPrimary/allImagesFromPrimary'
 export * from './analyzeParams/analyzeParams'
+export * from './convertChangeAction/convertChangeAction'
 export * from './dateArray/dateArray'
 export * from './dateFromTime/dateFromTime'
 export * from './dateOutlet/dateOutlet'

@@ -98,7 +98,9 @@
     "request-promise",
     "reflect-metadata",
     "rxjs",
-    "lodash"
+    "lodash",
+    "algoliasearch",
+    "firebase"
   ],
   "devDependencies": {
     "@angular-devkit/architect": "~0.901.0",

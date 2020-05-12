@@ -6,14 +6,14 @@ import { Boolish } from './boolish';
 @Component({
   template: `
     <cc-a-test [aBoolean]="notABoolean"></cc-a-test>
-  `,
+  `
 })
 class TestBoolishComponent {
   notABoolean: any = 'false';
 }
 @Component({
   selector: 'cc-a-test',
-  template: ``,
+  template: ``
 })
 class TestBoolishChildComponent {
   @Boolish
@@ -28,7 +28,7 @@ describe('Boolish Decorator', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestBoolishComponent, TestBoolishChildComponent],
+      declarations: [TestBoolishComponent, TestBoolishChildComponent]
     });
     fixture = TestBed.createComponent(TestBoolishComponent);
     component = fixture.componentInstance;

@@ -12,7 +12,7 @@ import {
 import * as firebase from 'firebase/app'
 import { Observable } from 'rxjs'
 import { first, map, tap } from 'rxjs/operators'
-import { convertChangeAction } from './convertChangeAction'
+import { convertChangeAction } from '../../functions/convertChangeAction/convertChangeAction'
 
 type CollectionPredicate<T> = string | AngularFirestoreCollection<T>
 type DocPredicate<T> = string | AngularFirestoreDocument<T>

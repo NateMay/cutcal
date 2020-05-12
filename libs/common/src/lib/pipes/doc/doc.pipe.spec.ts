@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FirestoreService } from '@cutcal/fire';
+import { FirestoreService } from '@cutcal/common';
 import { Observable, of } from 'rxjs';
 import { DocPipe } from './doc.pipe';
 
 @Component({
   template: `
     {{ (docRef | doc | async).prop }}
-  `,
+  `
 })
 class TestDocPipeComp {
   docRef = {};
@@ -19,11 +19,11 @@ describe('Doc (firebase) Pipe', () => {
 
   beforeEach(() => {
     const dbStub = {
-      doc$: (): Observable<any> => of({ prop: 'Hello World' }),
+      doc$: (): Observable<any> => of({ prop: 'Hello World' })
     };
     TestBed.configureTestingModule({
       declarations: [DocPipe, TestDocPipeComp],
-      providers: [{ provide: FirestoreService, useValue: dbStub }],
+      providers: [{ provide: FirestoreService, useValue: dbStub }]
     });
     fixture = TestBed.createComponent(TestDocPipeComp);
     component = fixture.componentInstance;

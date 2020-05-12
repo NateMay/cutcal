@@ -39,7 +39,7 @@ function getNewFunction(
           configurable: false,
           enumerable: false,
           writable: false,
-          value: new Map<any, any>(),
+          value: new Map<any, any>()
         })
       }
       const myMap: Map<any, any> = this[propMapName]
@@ -61,7 +61,7 @@ function getNewFunction(
           configurable: false,
           enumerable: false,
           writable: false,
-          value: returnedValue,
+          value: returnedValue
         })
       }
     }

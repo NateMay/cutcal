@@ -6,16 +6,16 @@ it('convertSnaps() - shared/functions', () => {
       payload: {
         doc: {
           id: '12345',
-          data: (): any => ({ obj: 'obj' }),
-        },
-      },
-    },
+          data: (): any => ({ obj: 'obj' })
+        }
+      }
+    }
   ];
 
   expect(convertChangeAction(<any>snaps)).toEqual([
     {
       _id: '12345',
-      obj: 'obj',
-    },
+      obj: 'obj'
+    }
   ]);
 });

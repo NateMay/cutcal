@@ -17,6 +17,6 @@ export const Boolish: PropertyDecorator = (
     },
     get: (): boolean => val,
     enumerable: true,
-    configurable: true,
+    configurable: true
   }
 }

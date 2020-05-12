@@ -5,11 +5,11 @@ import { UploadMetadata } from '@angular/fire/storage/interfaces'
 import { AuthService } from '@cutcal/auth'
 import { KVP, uniqueID } from '@cutcal/core'
 import { createUsage, Food, Tripple, Usage } from '@cutcal/diet'
-import { FirestoreService } from '@cutcal/fire'
 import * as firebase from 'firebase/app'
 import { isEmpty, keyBy, map as _map } from 'lodash'
 import { combineLatest, Observable, of } from 'rxjs'
 import { filter, finalize, flatMap, map } from 'rxjs/operators'
+import { FirestoreService } from '../fireStore/fireStore.service'
 
 export type FoodTripple = [Food, KVP<Usage>, KVP<Food>]
 

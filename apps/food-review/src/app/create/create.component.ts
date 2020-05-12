@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { AngularFireFunctions } from '@angular/fire/functions'
-import { FirestoreService } from '@cutcal/fire'
+import { FirestoreService } from '@cutcal/common'
 import { Observable } from 'rxjs'
 import { first, switchMap, tap } from 'rxjs/operators'
 import { GoogleService, WikiDetails } from '../google/google.service'
@@ -22,20 +22,19 @@ export class CreateComponent {
     private readonly wiki: WikipediaService,
     private readonly fs: FirestoreService,
     private fns: AngularFireFunctions
-  ) {
-    this.search('avocado')
-    // this.fdc.queryFood('avocado').subscribe(console.log)
-    // this.fs.docWithId$('test/JByoHEmRhXbqWl0TVSaP').subscribe(console.log)
+  ) {}
 
-    const callable = fns.httpsCallable('addFood')
-    callable({ fdcId: '786651' }).subscribe(console.log)
+  addFoodById(fdcId: string): void {
+    const callable = this.fns.httpsCallable('addFood')
+    callable({ fdcId })
+      .pipe(first())
+      .subscribe(console.log)
   }
 
-  search(term: string): void {
-    this.results$ = this.google.getSearchResults(term)
+  addFoodByQuery(queryString: string): void {
+    this.results$ = this.google.getSearchResults(queryString)
     this.results$
       .pipe(
-        // tap(console.log),
         tap((result: WikiDetails[]) => (this.selected = result[0])),
         switchMap(result => this.wiki.getDescription(result[0].link)),
         tap(desc => (this.description = desc.message)),

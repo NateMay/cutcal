@@ -1,7 +1,6 @@
 export * from './constants/arrow.codes'
 export * from './constants/months'
 export * from './constants/runtime-checks'
-export * from './decorators'
 export * from './functions'
 export * from './key-value-pair'
 export * from './keys-in'

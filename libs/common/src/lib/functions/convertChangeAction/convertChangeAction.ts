@@ -8,5 +8,5 @@ import { DocumentChangeAction } from '@angular/fire/firestore'
 export const convertChangeAction = <T>(snaps: DocumentChangeAction<T>[]): T[] =>
   <T[]>snaps.map((snap: DocumentChangeAction<T>) => ({
     _id: snap.payload.doc.id,
-    ...snap.payload.doc.data(),
+    ...snap.payload.doc.data()
   }))
