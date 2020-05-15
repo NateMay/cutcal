@@ -5,10 +5,10 @@ import {
 } from './fdc-response'
 
 export interface FdcDump {
-  id: number
+  fdcId: number
   foodClass?: string
   description?: string
-  lastUpdated?: string
+  lastUpdated?: firebase.firestore.Timestamp
   categories?: string[]
   foodNutrients: FdcFoodNutrient[]
   foodMeasures?: FdcFoodMeasure[]
@@ -16,10 +16,11 @@ export interface FdcDump {
   finalFoodInputFoods?: FinalFoodInputFoods[]
   foodType?: 'Survey (FNDDS)' | 'Branded' | 'Foundation' | 'SR Legacy'
   foodCode?: string // FNDDS id
-  startDate?: string
-  endDate?: string
+  startDate?: firebase.firestore.Timestamp
+  endDate?: firebase.firestore.Timestamp
   totalRefuse?: number
   ingredients?: string
   scientificName?: string
   gtinUpc?: string // GTIN or UPC code identifying the food. Only applies to Branded Foods.
+  updatedAt?: firebase.firestore.Timestamp
 }

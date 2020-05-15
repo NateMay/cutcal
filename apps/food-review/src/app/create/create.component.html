@@ -1,14 +1,22 @@
 <div fxFlex="300px">
     <div fxLayout="row">
         <mat-form-field>
-            <mat-label>Search</mat-label>
+            <mat-label>Search by Term</mat-label>
             <input #input matInput placeholder="Ex. Avocado" value="Avocado" />
         </mat-form-field>
 
-        <button mat-button (click)="search(input.value)">next</button>
+        <button mat-button (click)="addFoodByQuery(input.value)">Next</button>
+
+        <mat-form-field>
+            <mat-label>Add By ID</mat-label>
+            <input #input2 matInput placeholder="786651" value="786651" />
+        </mat-form-field>
+
+        <button mat-button (click)="addFoodById(input2.value)">Add</button>
     </div>
-    <hr />
+
     <section>
+        <hr />
         <ng-container *ngIf="results$ | async as results">
             <div fxLayout="column">
                 <button

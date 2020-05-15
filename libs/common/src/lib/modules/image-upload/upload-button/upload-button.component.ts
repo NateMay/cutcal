@@ -11,15 +11,15 @@ import {
   OnInit,
   Output,
   ViewChild,
-  ViewContainerRef,
+  ViewContainerRef
 } from '@angular/core'
-import { Boolish } from '@cutcal/core'
+import { Boolish } from '../../../decorators/boolish/boolish'
 import { eventWithin } from '../../../functions/eventWithin/eventWithin'
 import { ImageCroppedEvent } from '../interfaces/image-cropped-event'
 import { UploadDialogComponent } from '../upload-dialog/upload-dialog.component'
 import {
   ImageCroperData,
-  IMAGE_CROPPER_DATA,
+  IMAGE_CROPPER_DATA
 } from '../utils/image-cropper.data'
 
 let nextUniqueId = 0
@@ -47,7 +47,7 @@ let nextUniqueId = 0
       [attr.id]="idStr"
       (change)="fileChangeEvent($event)"
     />
-  `,
+  `
 })
 export class UploadButtonComponent implements OnInit {
   @Input()
@@ -63,6 +63,7 @@ export class UploadButtonComponent implements OnInit {
   @Boolish
   @Input()
   raised: boolean = false
+
   @Input() ariaLabel = 'Upload An Image'
 
   @Output() closed = new EventEmitter<void>()
@@ -95,7 +96,7 @@ export class UploadButtonComponent implements OnInit {
     if (
       !eventWithin(event, [
         this.host.nativeElement,
-        this.cropperOverlayRef.hostElement,
+        this.cropperOverlayRef.hostElement
       ])
     )
       this.closeCropper()
@@ -123,7 +124,7 @@ export class UploadButtonComponent implements OnInit {
           .centerVertically(),
         width: 'auto',
         height: 'auto',
-        hasBackdrop: true,
+        hasBackdrop: true
       })
     )
   }
@@ -147,7 +148,7 @@ export class UploadButtonComponent implements OnInit {
           imageCroppedFile: e => this.imageCroppedFile.emit(e),
           imageLoaded: () => this.imageLoaded.emit(),
           cropperReady: () => this.cropperReady.emit(),
-          loadImageFailed: () => this.startCropImage.emit(),
+          loadImageFailed: () => this.startCropImage.emit()
         })
       )
     )

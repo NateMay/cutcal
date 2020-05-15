@@ -45,6 +45,7 @@
         "cutcal-recipe-builder",
         "cutcal-support",
         "common",
+        "core",
         "timpicker"
       ],
       "default": "cutcal"

@@ -3,9 +3,9 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output,
+  Output
 } from '@angular/core'
-import { Boolish } from '@cutcal/core'
+import { Boolish } from '../../decorators/boolish/boolish'
 
 let nextUniqueId = 0
 
@@ -36,7 +36,7 @@ let nextUniqueId = 0
       <span class="star star-5"></span>
       <span class="star star-6"></span>
     </label>
-  `,
+  `
 })
 export class AmPmToggleComponent {
   @Input()

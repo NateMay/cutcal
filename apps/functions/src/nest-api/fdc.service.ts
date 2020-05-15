@@ -33,7 +33,7 @@ export class FdcService {
   //           response.id,
   //           response.description,
   //           this.portionsFromResponse(response),
-  //           createPortion('grams', 100),
+  //           createPortion('g', 100),
   //           uid,
   //           this.tagsFromResponse(response),
   //           {},

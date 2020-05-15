@@ -25,8 +25,8 @@ import {
   ViewContainerRef
 } from '@angular/core'
 import { NG_VALUE_ACCESSOR } from '@angular/forms'
-import { Boolish } from '@cutcal/core'
 import { BehaviorSubject, Observable } from 'rxjs'
+import { Boolish } from '../../../../decorators/boolish/boolish'
 import { dateFromTime } from '../../../../functions/dateFromTime/dateFromTime'
 import { onStable } from '../../../../functions/onStable/onStable'
 import { TimePickerData, TIME_PICKER_DATA } from '../../utils/time-picker-data'
@@ -95,6 +95,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
 
   // Must come before the time setter
   private _format: 12 | 24 = 12
+
   @Input()
   set format(format: 12 | 24) {
     this._format = format === 24 ? 24 : 12

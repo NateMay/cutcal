@@ -237,7 +237,7 @@ export interface Primaries<T> {
       </mat-expansion-panel>
     </ng-template>
   `,
-  styleUrls: ['./detail-panels.component.scss'],
+  styleUrls: ['./detail-panels.component.scss']
 })
 export class DetailPanelsComponent implements OnInit {
   readonly numInfo = '1.1-1'
@@ -270,7 +270,7 @@ export class DetailPanelsComponent implements OnInit {
   private _nutrition!: Nutrition<number>
   @Input() set nutrition(nutrition: Nutrition<number>) {
     const units = NUTRIENTS.units
-    this.calories = createPortion(units.calories || 'cal', nutrition.calories)
+    this.calories = createPortion(units.calories || 'kcal', nutrition.calories)
     this.fat = createPortion(units.fat || 'g', nutrition.fat)
     this.carbohydrates = createPortion(
       units.carbohydrates || 'g',

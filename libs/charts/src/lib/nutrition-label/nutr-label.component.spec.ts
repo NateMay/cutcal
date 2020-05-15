@@ -21,7 +21,7 @@ import { NutrLabelComponent } from './nutr-label.component';
 })
 class TestNutrLabelComponent {
   nutrition = MOCK_NUTRITION;
-  portion = createPortion('tons', 42);
+  portion = createPortion('g', 42);
 }
 
 describe('Nutrition Label Component', () => {
@@ -52,7 +52,7 @@ describe('Nutrition Label Component', () => {
 
   it('Serving Size label is present', () => {
     expect(getDe(fixture, '.serving-size').nativeElement.textContent).toContain(
-      'Serving Size 42 tons'
+      'Serving Size 42 g'
     );
   });
 

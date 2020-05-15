@@ -1,5 +1,5 @@
-export * from './lib/api-interfaces'
 export * from './lib/fdc-dump'
 export * from './lib/fdc-response'
 export * from './lib/fdc-search'
 export * from './lib/new-food'
+export * from './lib/wikipedia-scrape'

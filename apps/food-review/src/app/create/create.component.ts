@@ -37,7 +37,7 @@ export class CreateComponent {
       .pipe(
         tap((result: WikiDetails[]) => (this.selected = result[0])),
         switchMap(result => this.wiki.getDescription(result[0].link)),
-        tap(desc => (this.description = desc.message)),
+        tap(desc => (this.description = desc.description)),
         first()
       )
       .subscribe()

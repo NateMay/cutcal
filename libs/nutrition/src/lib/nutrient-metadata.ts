@@ -1,3 +1,4 @@
+import { FdcUnit } from '@cutcal/api-interfaces'
 import { assertIsDefined } from '@cutcal/core'
 import { NUTRIENT_KEYS } from './base-nutrition'
 import { NutrientMetaData, USDA_NUTRIENT_DETAILS } from './nutrient-details'
@@ -6,13 +7,13 @@ import { Nutrient, Nutrition } from './nutrition'
 class NutrientMetadataStore {
   private _nutrients: Nutrition<string>
   private _shortNames: Nutrition<string>
-  private _units: Nutrition<string>
+  private _units: Nutrition<FdcUnit>
   private _ids: Nutrition<number>
 
   constructor() {
     this._ids = this.nutrientData<number>('id')
     this._shortNames = this.nutrientData<string>('shortName')
-    this._units = this.nutrientData<string>('unit')
+    this._units = this.nutrientData<FdcUnit>('unit')
     this._nutrients = this.nutrientData<string>('nutrient')
   }
 
@@ -54,7 +55,7 @@ class NutrientMetadataStore {
     return name
   }
 
-  get units(): Nutrition<string> {
+  get units(): Nutrition<FdcUnit> {
     return this._units
   }
   getUnit(key: keyof Nutrition<string>): string {

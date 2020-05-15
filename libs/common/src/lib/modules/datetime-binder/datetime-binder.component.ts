@@ -5,12 +5,12 @@ import {
   forwardRef,
   Input,
   OnDestroy,
-  Output,
+  Output
 } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
-import { Boolish } from '@cutcal/core'
 import { Subject } from 'rxjs'
 import { delay, map, takeUntil, tap } from 'rxjs/operators'
+import { Boolish } from '../../decorators/boolish/boolish'
 import { dateFromTime } from '../../functions/dateFromTime/dateFromTime'
 import { DatePickerInputComponent } from '../date-picker/date-picker-input/date-picker-input.component'
 import { TimePickerInputComponent } from '../time-picker/components/time-picker-input/time-picker-input.component'
@@ -31,14 +31,14 @@ import { TimePickerInputComponent } from '../time-picker/components/time-picker-
 export const DATETIME_BINDER_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   multi: true,
-  useExisting: forwardRef(() => DatetimeBinderComponent),
+  useExisting: forwardRef(() => DatetimeBinderComponent)
 }
 @Component({
   selector: 'cc-datetime-binder',
   host: { class: 'cc-datetime-binder' },
   styleUrls: ['./datetime-binder.component.scss'],
   providers: [DATETIME_BINDER_CONTROL_VALUE_ACCESSOR],
-  template: ``,
+  template: ``
 })
 export class DatetimeBinderComponent
   implements AfterViewInit, OnDestroy, ControlValueAccessor {

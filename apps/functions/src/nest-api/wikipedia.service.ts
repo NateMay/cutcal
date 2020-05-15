@@ -1,4 +1,4 @@
-import { Message } from '@cutcal/api-interfaces'
+import { WikiDescription } from '@cutcal/api-interfaces'
 import { HttpService, Injectable } from '@nestjs/common'
 import * as cheerio from 'cheerio'
 import * as rp from 'request-promise'
@@ -7,15 +7,12 @@ import * as rp from 'request-promise'
 export class WikiService {
   constructor(private readonly http: HttpService) {}
 
-  /**
-   * @prod https://us-central1-cutcal.cloudfunctions.net/api/hello
-   */
-  getData(): Message {
-    return { message: 'Welcome to api!' }
+  getData(): any {
+    return { data: 'Welcome to api!' }
   }
 
-  async scrapeDescription(link: string): Promise<Message> {
-    return { message: pluckEarlyParagraphs(await rp(link)) }
+  async scrapeDescription(link: string): Promise<WikiDescription> {
+    return { description: pluckEarlyParagraphs(await rp(link)) }
   }
 }
 

@@ -1,5 +1,5 @@
 export * from './assertIsDefined'
-export * from './purifyObject/purifyObject'
+export * from './purify/purify'
 export * from './removeDups/removeDups'
 export * from './toRawType/toRawType'
 export * from './uniqueID/uniqueID'
