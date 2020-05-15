@@ -26,12 +26,12 @@
     "api-interfaces": {
       "tags": []
     },
-    "common-ui": {
+    "common-ui-docs": {
       "tags": []
     },
     "common-ui-e2e": {
       "tags": [],
-      "implicitDependencies": ["common-ui"]
+      "implicitDependencies": ["common-ui-docs"]
     },
     "food-review": {
       "tags": []
@@ -88,11 +88,11 @@
     "cutcal-landing": {
       "tags": ["scope:cutcal", "type:feature"]
     },
-    "common": {
+    "common-ui": {
       "tags": ["scope:shared"]
     },
     "playgrounds": {
-      "tags": ["scope:common-ui"]
+      "tags": ["scope:common-ui-docs"]
     },
     "core": {
       "tags": ["scope:util"]

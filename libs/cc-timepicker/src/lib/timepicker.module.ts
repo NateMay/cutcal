@@ -5,12 +5,15 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
 import { MatDialogModule } from '@angular/material/dialog'
-import { AmPmToggleModule, StyleSanitizerModule } from '@cutcal/common'
+import { AmPmToggleModule, StyleSanitizerModule } from '@cutcal/common-ui'
 import { CcTimepicker12HoursFaceComponent } from './12-hours-face'
 import { CcTimepicker24HoursFaceComponent } from './24-hours-face'
 import { CcTimepickerMinutesFace } from './minutes-face'
 import { CcMinutesFormatterPipe } from './minutes-formatter'
-import { CcTimepicker, CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER } from './timepicker'
+import {
+  CcTimepicker,
+  CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER
+} from './timepicker'
 import { CcTimepickerContent, CcTimePickerDialog } from './timepicker-content'
 import { CcTimePickerControls } from './timepicker-controls'
 import { CcTimepickerFace } from './timepicker-face'
@@ -27,7 +30,7 @@ import { CcTimepickerToggle } from './timepicker-toggle'
     A11yModule,
     PortalModule,
     AmPmToggleModule,
-    StyleSanitizerModule,
+    StyleSanitizerModule
   ],
   declarations: [
     CcTimepicker,
@@ -51,6 +54,6 @@ import { CcTimepickerToggle } from './timepicker-toggle'
     CcTimePickerDialog,
     CcTimePickerControls
   ],
-  providers: [CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER],
+  providers: [CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER]
 })
 export class CcTimepickerModule {}

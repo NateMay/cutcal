@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { DndPayload } from '@cutcal/common'
+import { DndPayload } from '@cutcal/common-ui'
 
 @Component({
   selector: 'cutcal-doc4-dnd',
@@ -49,7 +49,7 @@ import { DndPayload } from '@cutcal/common'
       <div class="result">{{ result }}</div>
     </div>
   `,
-  styleUrls: ['./doc4-dnd.component.scss'],
+  styleUrls: ['./doc4-dnd.component.scss']
 })
 export class Doc4DndComponent {
   value1: number = 3

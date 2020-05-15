@@ -13,7 +13,7 @@ import {
   CCAnimationsModule,
   CheckableNutrientsModule,
   DatePickerModule
-} from '@cutcal/common'
+} from '@cutcal/common-ui'
 import { StoreModule } from '@ngrx/store'
 import { HighchartsChartModule } from 'highcharts-angular'
 import { AnalysisChartComponent } from './analysis-chart/analysis-chart.component'

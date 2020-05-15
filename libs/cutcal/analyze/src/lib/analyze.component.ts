@@ -16,7 +16,7 @@ import {
   InspectNutrientDialogComponent,
   setLightGridTheme
 } from '@cutcal/charts'
-import { analyzeParams, dateArray, MealService } from '@cutcal/common'
+import { analyzeParams, dateArray, MealService } from '@cutcal/common-ui'
 import { KVP } from '@cutcal/core'
 import {
   createNutrCheckableMap,

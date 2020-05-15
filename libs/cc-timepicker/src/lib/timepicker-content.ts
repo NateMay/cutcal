@@ -1,10 +1,26 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, ViewChild, ViewEncapsulation } from '@angular/core';
-import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core';
-import { dateFromTime } from '@cutcal/common';
-import { Subject } from 'rxjs';
-import { CcTimepicker } from './timepicker';
-import { ccTimepickerAnimations } from './timepicker-animations';
-import { ClockFaceTime, DEFAULT_HOUR, DEFAULT_MINUTE, TimePeriod, TimeUnit } from './timepicker-utils';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core'
+import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core'
+import { dateFromTime } from '@cutcal/common-ui'
+import { Subject } from 'rxjs'
+import { CcTimepicker } from './timepicker'
+import { ccTimepickerAnimations } from './timepicker-animations'
+import {
+  ClockFaceTime,
+  DEFAULT_HOUR,
+  DEFAULT_MINUTE,
+  TimePeriod,
+  TimeUnit
+} from './timepicker-utils'
 
 @Component({
   selector: 'cc-timepicker-dialog',
@@ -45,7 +61,6 @@ import { ClockFaceTime, DEFAULT_HOUR, DEFAULT_MINUTE, TimePeriod, TimeUnit } fro
   `
 })
 export class CcTimePickerDialog {
-
   selectedHour: ClockFaceTime
   selectedMinute: ClockFaceTime
   selectedPeriod: TimePeriod

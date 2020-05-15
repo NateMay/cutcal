@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MealService, MealsTripple } from '@cutcal/common';
+import { MealService, MealsTripple } from '@cutcal/common-ui';
 import { createFood, createMeal, createUsage } from '@cutcal/diet';
 import { timestamp } from '@cutcal/fire';
 import { MockHighChartsModule } from '@cutcal/ng-testing';

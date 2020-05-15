@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { BasicsModule, CheckableNutrientsModule } from '@cutcal/common'
+import { BasicsModule, CheckableNutrientsModule } from '@cutcal/common-ui'
 import { NutrientComponent } from './nutrient.component'
 
 const routes: Routes = [

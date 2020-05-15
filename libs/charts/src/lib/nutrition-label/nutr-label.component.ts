@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { DailyValueSvc } from '@cutcal/common'
+import { DailyValueSvc } from '@cutcal/common-ui'
 import { Portion } from '@cutcal/diet'
 import { caloriesFrom, Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
 import { NutritionLabel } from './nutr-label'

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { AngularFireFunctions } from '@angular/fire/functions'
-import { FirestoreService } from '@cutcal/common'
+import { FirestoreService } from '@cutcal/common-ui'
 import { Observable } from 'rxjs'
 import { first, switchMap, tap } from 'rxjs/operators'
 import { GoogleService, WikiDetails } from '../google/google.service'

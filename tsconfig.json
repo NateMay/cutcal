@@ -43,7 +43,7 @@
       ],
       "@cutcal/features/support": ["libs/cutcal/support/src/index.ts"],
       "@cutcal/features/landing": ["libs/cutcal/landing/src/index.ts"],
-      "@cutcal/common": ["libs/common/src/index.ts"],
+      "@cutcal/common-ui": ["libs/common-ui/src/index.ts"],
       "@cutcal/playgrounds": ["libs/playgrounds/src/index.ts"],
       "@cutcal/core": ["libs/core/src/index.ts"],
       "@cutcal/diet": ["libs/diet/src/index.ts"],

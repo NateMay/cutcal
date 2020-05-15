@@ -9,7 +9,7 @@ import {
   HAMMER_GESTURE_CONFIG
 } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { AppState, reducers } from '@cutcal/common'
+import { AppState, reducers } from '@cutcal/common-ui'
 import { STRICT_RUNTIME_CHECKS } from '@cutcal/core'
 import { EffectsModule } from '@ngrx/effects'
 import {

@@ -5,8 +5,8 @@ import {
   AnimateSpeed,
   Animations,
   CCAnimationsModule,
-  flip,
-} from '@cutcal/common'
+  flip
+} from '@cutcal/common-ui'
 
 @Component({
   animations: [trigger('flip', [transition('* => *', useAnimation(flip))])],
@@ -92,7 +92,7 @@ import {
       Replay Animations
     </button>
   `,
-  styleUrls: ['./doc4-animate.component.css'],
+  styleUrls: ['./doc4-animate.component.css']
 })
 export class Doc4AnimateComponent implements OnInit {
   flip = false
@@ -109,7 +109,7 @@ export class Doc4AnimateComponent implements OnInit {
       slow: 2200,
       normal: 1200,
       fast: 700,
-      faster: 500,
+      faster: 500
     }[this.speed]
   }
 
@@ -129,7 +129,7 @@ export class Doc4AnimateComponent implements OnInit {
     'zoomIn',
     'bumpIn',
     'flipInX',
-    'flipInY',
+    'flipInY'
   ]
 
   _exitAnimations: Animations[] = [
@@ -140,7 +140,7 @@ export class Doc4AnimateComponent implements OnInit {
     'fadeOutUp',
     'zoomOut',
     'flipOutX',
-    'flipOutY',
+    'flipOutY'
   ]
 
   exitAnimations: Animations[] = []

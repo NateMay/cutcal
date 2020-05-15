@@ -5,7 +5,7 @@ import {
   DailyValueSvc,
   PluralPipeModule,
   UnitPipeModule
-} from '@cutcal/common';
+} from '@cutcal/common-ui';
 import { createPortion } from '@cutcal/diet';
 import { getDe, MOCK_NUTRITION } from '@cutcal/ng-testing';
 import { DEAFULT_DAILY_VALUE } from '@cutcal/nutrition';

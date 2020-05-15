@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
-import { BasicsModule } from '@cutcal/common'
+import { BasicsModule } from '@cutcal/common-ui'
 import { MetricsModule } from '../metrics.module'
 import { CalorieTableComponent } from './calorie-table/calorie-table.component'
 import { CarbsTableComponent } from './carbs-table/carbs-table.component'
@@ -24,12 +24,12 @@ const COMPONENTS = [
   ExcessTableComponent,
   InsufficientTableComponent,
   FatsTableComponent,
-  CarbsTableComponent,
+  CarbsTableComponent
 ]
 
 @NgModule({
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS],
-  imports: [BasicsModule, MetricsModule, CommonModule],
+  imports: [BasicsModule, MetricsModule, CommonModule]
 })
 export class NutrientTablesModule {}

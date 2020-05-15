@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
-import { analyzeParams, CCValidators } from '@cutcal/common'
+import { analyzeParams, CCValidators } from '@cutcal/common-ui'
 import { isDate } from 'lodash'
 
 @Component({

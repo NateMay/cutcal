@@ -24,7 +24,7 @@
             "assets": ["apps/cutcal/src/favicon.ico", "apps/cutcal/src/assets"],
             "styles": ["apps/cutcal/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["libs/common/styles"]
+              "includePaths": ["libs/common-ui/styles"]
             },
             "scripts": []
           },
@@ -154,33 +154,33 @@
         }
       }
     },
-    "common-ui": {
+    "common-ui-docs": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/common-ui",
-      "sourceRoot": "apps/common-ui/src",
+      "root": "apps/common-ui-docs",
+      "sourceRoot": "apps/common-ui-docs/src",
       "prefix": "cc",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/common-ui",
-            "index": "apps/common-ui/src/index.html",
-            "main": "apps/common-ui/src/main.ts",
-            "polyfills": "apps/common-ui/src/polyfills.ts",
-            "tsConfig": "apps/common-ui/tsconfig.app.json",
+            "outputPath": "dist/apps/common-ui-docs",
+            "index": "apps/common-ui-docs/src/index.html",
+            "main": "apps/common-ui-docs/src/main.ts",
+            "polyfills": "apps/common-ui-docs/src/polyfills.ts",
+            "tsConfig": "apps/common-ui-docs/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/common-ui/src/favicon.ico",
-              "apps/common-ui/src/assets"
+              "apps/common-ui-docs/src/favicon.ico",
+              "apps/common-ui-docs/src/assets"
             ],
-            "styles": ["apps/common-ui/src/styles.scss"],
+            "styles": ["apps/common-ui-docs/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["libs/common/styles"]
+              "includePaths": ["libs/common-ui/styles"]
             },
             "scripts": []
           },
@@ -188,8 +188,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/common-ui/src/environments/environment.ts",
-                  "with": "apps/common-ui/src/environments/environment.prod.ts"
+                  "replace": "apps/common-ui-docs/src/environments/environment.ts",
+                  "with": "apps/common-ui-docs/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -218,36 +218,36 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "common-ui:build"
+            "browserTarget": "common-ui-docs:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "common-ui:build:production"
+              "browserTarget": "common-ui-docs:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "common-ui:build"
+            "browserTarget": "common-ui-docs:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/common-ui/tsconfig.app.json",
-              "apps/common-ui/tsconfig.spec.json"
+              "apps/common-ui-docs/tsconfig.app.json",
+              "apps/common-ui-docs/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/common-ui/**"]
+            "exclude": ["**/node_modules/**", "!apps/common-ui-docs/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/common-ui/jest.config.js",
-            "tsConfig": "apps/common-ui/tsconfig.spec.json",
-            "setupFile": "apps/common-ui/src/test-setup.ts",
+            "jestConfig": "apps/common-ui-docs/jest.config.js",
+            "tsConfig": "apps/common-ui-docs/tsconfig.spec.json",
+            "setupFile": "apps/common-ui-docs/src/test-setup.ts",
             "passWithNoTests": true
           }
         }
@@ -310,7 +310,7 @@
               "apps/food-review/src/styles.scss"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["libs/common/styles"]
+              "includePaths": ["libs/common-ui/styles"]
             },
             "scripts": []
           },
@@ -917,28 +917,28 @@
         }
       }
     },
-    "common": {
+    "common-ui": {
       "projectType": "library",
-      "root": "libs/common",
-      "sourceRoot": "libs/common/src",
+      "root": "libs/common-ui",
+      "sourceRoot": "libs/common-ui/src",
       "prefix": "cutcal",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/common/tsconfig.lib.json",
-              "libs/common/tsconfig.spec.json"
+              "libs/common-ui/tsconfig.lib.json",
+              "libs/common-ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/common/**"]
+            "exclude": ["**/node_modules/**", "!libs/common-ui/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/common/jest.config.js",
-            "tsConfig": "libs/common/tsconfig.spec.json",
-            "setupFile": "libs/common/src/test-setup.ts",
+            "jestConfig": "libs/common-ui/jest.config.js",
+            "tsConfig": "libs/common-ui/tsconfig.spec.json",
+            "setupFile": "libs/common-ui/src/test-setup.ts",
             "passWithNoTests": true
           }
         }

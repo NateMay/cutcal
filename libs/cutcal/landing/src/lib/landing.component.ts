@@ -5,13 +5,13 @@ import {
   Injector,
   NgModuleFactory,
   ViewChild,
-  ViewContainerRef,
+  ViewContainerRef
 } from '@angular/core'
 
 @Component({
   selector: 'cc-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss'],
+  styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent {
   @ViewChild('anchor1', { read: ViewContainerRef }) anchor1: ViewContainerRef
@@ -28,8 +28,8 @@ export class LandingComponent {
     const {
       AmPmToggleComponent,
       DatePickerModule,
-      DatePickerInputComponent,
-    } = await import('@cutcal/common')
+      DatePickerInputComponent
+    } = await import('@cutcal/common-ui')
     // self contained component
     const factory1 = this.factoryResolver.resolveComponentFactory(
       AmPmToggleComponent

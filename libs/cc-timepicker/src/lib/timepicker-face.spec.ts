@@ -4,9 +4,9 @@ import {
   ComponentFixture,
   fakeAsync,
   TestBed,
-  tick,
+  tick
 } from '@angular/core/testing';
-import { StyleSanitizerPipe } from '@cutcal/common';
+import { StyleSanitizerPipe } from '@cutcal/common-ui';
 import { CcMinutesFormatterPipe } from './minutes-formatter';
 import { CcTimepickerFace } from './timepicker-face';
 import { ClockFaceTime, TimeUnit } from './timepicker-utils';
@@ -20,9 +20,9 @@ describe('TimepickerFaceComponent', () => {
       declarations: [
         CcTimepickerFace,
         StyleSanitizerPipe,
-        CcMinutesFormatterPipe,
+        CcMinutesFormatterPipe
       ],
-      schemas: [NO_ERRORS_SCHEMA],
+      schemas: [NO_ERRORS_SCHEMA]
     }).createComponent(CcTimepickerFace);
 
     component = fixture.componentInstance;
@@ -75,28 +75,28 @@ describe('TimepickerFaceComponent', () => {
     component.selectedTime = { time: 12, angle: 30 };
     component.faceTime = [
       { time: 11, angle: 30, disabled: false },
-      { time: 12, angle: 30, disabled: true },
+      { time: 12, angle: 30, disabled: true }
     ];
     const changes: SimpleChanges = {
       faceTime: {
         currentValue: [{ time: 11, angle: 20 }],
         previousValue: undefined,
         isFirstChange: (): boolean => true,
-        firstChange: true,
+        firstChange: true
       },
       selectedTime: {
         currentValue: { time: 11, angle: 30 },
         previousValue: undefined,
         isFirstChange: (): boolean => true,
-        firstChange: true,
-      },
+        firstChange: true
+      }
     };
     component.ngOnChanges(changes);
 
     expect(component.selectedTime).toEqual({
       time: 12,
       angle: 30,
-      disabled: true,
+      disabled: true
     });
   });
 
@@ -107,8 +107,8 @@ describe('TimepickerFaceComponent', () => {
         currentValue: { time: 11, angle: 30 },
         previousValue: undefined,
         isFirstChange: (): boolean => true,
-        firstChange: true,
-      },
+        firstChange: true
+      }
     };
     component.ngOnChanges(changes);
 
@@ -119,15 +119,15 @@ describe('TimepickerFaceComponent', () => {
     component.selectedTime = { time: 11, angle: 30 };
     component.faceTime = [
       { time: 11, angle: 30, disabled: true },
-      { time: 12, angle: 30, disabled: false },
+      { time: 12, angle: 30, disabled: false }
     ];
     const changes: SimpleChanges = {
       faceTime: {
         currentValue: [],
         previousValue: undefined,
         isFirstChange: (): boolean => true,
-        firstChange: true,
-      },
+        firstChange: true
+      }
     };
     let updatedTime: ClockFaceTime = { time: 1, angle: 20 };
     component.timeChange.subscribe(
@@ -142,15 +142,15 @@ describe('TimepickerFaceComponent', () => {
     component.selectedTime = { time: 11, angle: 30 };
     component.faceTime = [
       { time: 11, angle: 30, disabled: true },
-      { time: 12, angle: 30, disabled: true },
+      { time: 12, angle: 30, disabled: true }
     ];
     const changes: SimpleChanges = {
       faceTime: {
         currentValue: [],
         previousValue: undefined,
         isFirstChange: (): boolean => true,
-        firstChange: true,
-      },
+        firstChange: true
+      }
     };
     let updatedTime: ClockFaceTime = { time: 1, angle: 20 };
     component.timeChange.subscribe(
@@ -188,7 +188,7 @@ describe('TimepickerFaceComponent', () => {
       { time: 21, angle: 630, disabled: false },
       { time: 22, angle: 660, disabled: false },
       { time: 23, angle: 690, disabled: false },
-      { time: 24, angle: 720, disabled: false },
+      { time: 24, angle: 720, disabled: false }
     ];
 
     const minutesFaceTime = Array(60)
@@ -198,7 +198,7 @@ describe('TimepickerFaceComponent', () => {
         const angle = (360 / 60) * index;
         return {
           time: index === 0 ? '00' : index,
-          angle: angle !== 0 ? angle : 360,
+          angle: angle !== 0 ? angle : 360
         };
       });
 

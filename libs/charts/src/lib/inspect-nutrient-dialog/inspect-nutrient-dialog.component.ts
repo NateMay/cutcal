@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core'
-import { MealService, MealsTripple } from '@cutcal/common'
+import { MealService, MealsTripple } from '@cutcal/common-ui'
 import { KVP } from '@cutcal/core'
 import { Food, Meal, scaleNutrient, Usage } from '@cutcal/diet'
 import { Nutrient } from '@cutcal/nutrition'
