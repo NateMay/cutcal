@@ -6,7 +6,7 @@ import {
   OverlayConfig,
   OverlayRef,
   PositionStrategy,
-  ScrollStrategy,
+  ScrollStrategy
 } from '@angular/cdk/overlay'
 import { ComponentPortal } from '@angular/cdk/portal'
 import { DOCUMENT } from '@angular/common'
@@ -23,12 +23,12 @@ import {
   Optional,
   Output,
   ViewContainerRef,
-  ViewEncapsulation,
+  ViewEncapsulation
 } from '@angular/core'
 import { CanColor, ThemePalette } from '@angular/material/core'
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'
-import { merge, Subject, Subscription } from 'rxjs'
-import { filter, first } from 'rxjs/operators'
+import { merge, Observable, Subject, Subscription, throwError } from 'rxjs'
+import { catchError, filter, first, tap } from 'rxjs/operators'
 import { CcTimepickerContent } from './timepicker-content'
 import { CcTimepickerInput } from './timepicker-input'
 
@@ -44,7 +44,7 @@ export const CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY = (
 export const CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER = {
   provide: CC_TIMEPICKER_SCROLL_STRATEGY,
   deps: [Overlay],
-  useFactory: CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY,
+  useFactory: CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY
 }
 
 @Component({
@@ -52,7 +52,7 @@ export const CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER = {
   template: '',
   exportAs: 'ccTimepicker',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class CcTimepicker implements OnDestroy, CanColor {
   private _scrollStrategy: () => ScrollStrategy
@@ -73,7 +73,11 @@ export class CcTimepicker implements OnDestroy, CanColor {
   private _focusedElementBeforeOpen: HTMLElement | null = null
 
   /** Emits new selected time when selected time changes. */
-  readonly _selectedChanged = new Subject<string>()
+  private readonly _selectedChanged = new Subject<string>()
+
+  get selectedChanged(): Observable<string> {
+    return this._selectedChanged.asObservable()
+  }
 
   /** Whether the timepicker pop-up should be disabled. */
   @Input()
@@ -93,7 +97,7 @@ export class CcTimepicker implements OnDestroy, CanColor {
   private _disabled: boolean
 
   /** Emits when the timepicker is disabled. */
-  readonly _disabledChange = new Subject<boolean>()
+  private readonly _disabledChange = new Subject<boolean>()
 
   /** The input element this timepicker is associated with. */
   _timepickerInput: CcTimepickerInput
@@ -123,7 +127,7 @@ export class CcTimepicker implements OnDestroy, CanColor {
   @Output('closed') closedStream: EventEmitter<void> = new EventEmitter<void>()
 
   /** Emits when an animation has finished. */
-  _animationDone = new Subject<void>()
+  private _animationDone = new Subject<void>()
 
   /** Whether the calendar is open. */
   @Input()
@@ -190,9 +194,12 @@ export class CcTimepicker implements OnDestroy, CanColor {
       throw Error('A CcTimepicker can only be associated with a single input.')
     }
     this._timepickerInput = input
-    this._inputSubscription = this._timepickerInput._valueChange.subscribe(
-      (value: string | null) => (this._selected = value)
-    )
+    this._inputSubscription = this._timepickerInput._valueChange
+      .pipe(
+        tap((value: string | null) => (this._selected = value)),
+        catchError(e => throwError(e))
+      )
+      .subscribe()
   }
 
   select(time: string): void {
@@ -227,9 +234,13 @@ export class CcTimepicker implements OnDestroy, CanColor {
     if (this._popupComponentRef && this._popupRef) {
       const instance = this._popupComponentRef.instance
       instance._startExitAnimation()
-      instance._animationDone
-        .pipe(first())
-        .subscribe(() => this._destroyPopup())
+      instance.animationDone
+        .pipe(
+          first(),
+          tap(() => this._destroyPopup()),
+          catchError(e => throwError(e))
+        )
+        .subscribe()
     }
     if (this._dialogRef) {
       this._dialogRef.close()
@@ -291,11 +302,17 @@ export class CcTimepicker implements OnDestroy, CanColor {
         maxHeight: '',
         position: {},
         autoFocus: true,
-        restoreFocus: true,
+        restoreFocus: true
       }
     )
 
-    this._dialogRef.afterClosed().subscribe(() => this.close())
+    this._dialogRef
+      .afterClosed()
+      .pipe(
+        tap(() => this.close()),
+        catchError(e => throwError(e))
+      )
+      .subscribe()
     this._dialogRef.componentInstance.timepicker = this
     this._dialogRef.componentInstance.color = this.color
   }
@@ -316,10 +333,12 @@ export class CcTimepicker implements OnDestroy, CanColor {
     // Update the position once the calendar has rendered.
     this._ngZone.onStable
       .asObservable()
-      .pipe(first())
-      .subscribe(() => {
-        this._popupRef.updatePosition()
-      })
+      .pipe(
+        first(),
+        tap(() => this._popupRef.updatePosition()),
+        catchError(e => throwError(e))
+      )
+      .subscribe()
   }
 
   /** Create the popup. */
@@ -330,7 +349,7 @@ export class CcTimepicker implements OnDestroy, CanColor {
       backdropClass: 'mat-overlay-transparent-backdrop',
       direction: this._dir,
       scrollStrategy: this._scrollStrategy(),
-      panelClass: 'cc-timepicker-popup',
+      panelClass: 'cc-timepicker-popup'
     })
 
     this._popupRef = this._overlay.create(overlayConfig)
@@ -349,13 +368,15 @@ export class CcTimepicker implements OnDestroy, CanColor {
               event.keyCode === UP_ARROW)
         )
       )
-    ).subscribe(event => {
-      if (event) {
-        event.preventDefault()
-      }
-
-      this.close()
-    })
+    )
+      .pipe(
+        tap(event => {
+          if (event) event.preventDefault()
+          this.close()
+        }),
+        catchError(e => throwError(e))
+      )
+      .subscribe()
   }
 
   /** Destroys the current popup overlay. */
@@ -380,26 +401,26 @@ export class CcTimepicker implements OnDestroy, CanColor {
           originX: 'start',
           originY: 'bottom',
           overlayX: 'start',
-          overlayY: 'top',
+          overlayY: 'top'
         },
         {
           originX: 'start',
           originY: 'top',
           overlayX: 'start',
-          overlayY: 'bottom',
+          overlayY: 'bottom'
         },
         {
           originX: 'end',
           originY: 'bottom',
           overlayX: 'end',
-          overlayY: 'top',
+          overlayY: 'top'
         },
         {
           originX: 'end',
           originY: 'top',
           overlayX: 'end',
-          overlayY: 'bottom',
-        },
+          overlayY: 'bottom'
+        }
       ])
   }
 }

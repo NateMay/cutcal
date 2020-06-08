@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true,
+    node: true
   },
   extends: [
     'eslint:recommended',
@@ -10,12 +10,12 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:jest/recommended',
     'prettier',
-    'plugin:cypress/recommended',
+    'plugin:cypress/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: 'tsconfig.json',
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: [
     '@typescript-eslint',
@@ -24,8 +24,23 @@ module.exports = {
     'cypress',
     'jsdoc',
     'prefer-arrow',
+    'rxjs'
   ],
   rules: {
+    'rxjs/no-async-subscribe': 'error',
+    'rxjs/no-compat': 'error',
+    'rxjs/no-index': 'error',
+    'rxjs/no-internal': 'error',
+    'rxjs/no-nested-subscribe': 'error',
+    'rxjs/no-ignored-observable': 'error',
+    'rxjs/no-nested-subscribe': 'error',
+    'rxjs/no-exposed-subjects': 'error',
+    'rxjs/no-unsafe-catch': 'error',
+    'rxjs/prefer-observer': 'error',
+    'rxjs/no-unsafe-switchmap': 'error',
+    'rxjs/no-unsafe-first': 'error',
+    'rxjs/no-subject-unsubscribe': 'error',
+    'rxjs/throw-error': 'error',
     'jsdoc/check-alignment': 1,
     'jsdoc/check-indentation': 1,
     'jsdoc/check-param-names': 1,
@@ -45,8 +60,8 @@ module.exports = {
     '@typescript-eslint/explicit-member-accessibility': [
       'off',
       {
-        accessibility: 'explicit',
-      },
+        accessibility: 'explicit'
+      }
     ],
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/member-delimiter-style': [
@@ -54,13 +69,13 @@ module.exports = {
       {
         multiline: {
           delimiter: 'semi',
-          requireLast: true,
+          requireLast: true
         },
         singleline: {
           delimiter: 'semi',
-          requireLast: false,
-        },
-      },
+          requireLast: false
+        }
+      }
     ],
     '@typescript-eslint/member-ordering': [
       'error',
@@ -70,9 +85,9 @@ module.exports = {
           'instance-field',
           'abstract-field',
           'constructor',
-          'method',
-        ],
-      },
+          'method'
+        ]
+      }
     ],
     '@typescript-eslint/no-empty-function': 'off',
     'no-self-assign': 'off',
@@ -83,7 +98,7 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/no-unused-vars': [
       'warn',
-      { ignoreRestSiblings: true, args: 'none' },
+      { ignoreRestSiblings: true, args: 'none' }
     ],
     '@typescript-eslint/no-parameter-properties': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
@@ -92,7 +107,7 @@ module.exports = {
     '@typescript-eslint/semi': [
       'off',
       'always',
-      { avoidEscape: true, allowTemplateLiterals: true },
+      { avoidEscape: true, allowTemplateLiterals: true }
     ],
     '@typescript-eslint/unified-signatures': 'error',
     'arrow-body-style': 'error',
@@ -104,8 +119,8 @@ module.exports = {
         exports: 'always-multiline',
         functions: 'never',
         imports: 'only-multiline',
-        objects: 'only-multiline',
-      },
+        objects: 'only-multiline'
+      }
     ],
     complexity: 'off',
     'constructor-super': 'error',
@@ -122,8 +137,8 @@ module.exports = {
     'max-len': [
       'off',
       {
-        code: 100,
-      },
+        code: 100
+      }
     ],
     'new-parens': 'off',
     'newline-per-chained-call': 'off',
@@ -152,9 +167,9 @@ module.exports = {
           'profile',
           'profileEnd',
           'timeStamp',
-          'context',
-        ],
-      },
+          'context'
+        ]
+      }
     ],
     'no-debugger': 'error',
     'no-empty': 'off',
@@ -169,8 +184,8 @@ module.exports = {
     'no-shadow': [
       'error',
       {
-        hoist: 'all',
-      },
+        hoist: 'all'
+      }
     ],
     'no-throw-literal': 'error',
     'no-trailing-spaces': 'error',
@@ -186,8 +201,8 @@ module.exports = {
       {
         disallowPrototype: true,
         singleReturnOnly: true,
-        classPropertiesAllowed: false,
-      },
+        classPropertiesAllowed: false
+      }
     ],
     'quote-props': 'off',
     radix: 'error',
@@ -210,10 +225,10 @@ module.exports = {
             'check-decl',
             'check-operator',
             'check-separator',
-            'check-type',
-          ],
-        },
-      },
-    ],
-  },
+            'check-type'
+          ]
+        }
+      }
+    ]
+  }
 }

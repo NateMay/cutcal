@@ -18,11 +18,17 @@ import { FirestoreService } from '@cutcal/common-ui'
 import { NgAisModule } from 'angular-instantsearch'
 import { environment } from '../environments/environment'
 import { AlgoliaComponent } from './algolia/algolia'
+import { DescriptionPipe } from './algolia/description.pipe'
 import { CreateComponent } from './create/create.component'
 import { AppComponent } from './food-review.component'
 import { FoodReviewRouting } from './food-review.routing'
 @NgModule({
-  declarations: [AppComponent, AlgoliaComponent, CreateComponent],
+  declarations: [
+    AppComponent,
+    AlgoliaComponent,
+    CreateComponent,
+    DescriptionPipe
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

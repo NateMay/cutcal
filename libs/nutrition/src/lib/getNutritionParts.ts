@@ -12,6 +12,7 @@ import {
   Others,
   PolyUnsaturated,
   Protein,
+  ProteinQuality,
   SaturatedFat,
   Sterols,
   Sugars,
@@ -19,7 +20,7 @@ import {
   VitaminA,
   VitaminD,
   VitaminE,
-  Vitamins,
+  Vitamins
 } from './nutrition'
 // TEST (NutritionParts)
 
@@ -58,12 +59,14 @@ export interface NutritionParts<T> {
 
 export const getEnergy = <T>(nutr: Nutrition<T>): Energy<T> => ({
   calories: nutr.calories,
-  kj: nutr.kj,
+  kj: nutr.kj
 })
 
 // ******************* //
 // ** Carbohydrates ** //
 // ******************* //
+
+// TODO (chart) Glycymic load https://nutritiondata.self.com/help/estimated-glycemic-load
 
 export const getSugars = <T>(nutr: Nutrition<T>): Sugars<T> => ({
   sucrose: nutr.sucrose,
@@ -77,7 +80,7 @@ export const getSugars = <T>(nutr: Nutrition<T>): Sugars<T> => ({
   xylitol: nutr.xylitol,
   sorbitol: nutr.sorbitol,
   ribose: nutr.ribose,
-  sugarsNLEA: nutr.sugarsNLEA,
+  sugarsNLEA: nutr.sugarsNLEA
 })
 
 export const getBaseCarbohydrates = <T>(
@@ -92,12 +95,12 @@ export const getBaseCarbohydrates = <T>(
   carbSum: nutr.carbSum,
   carbOther: nutr.carbOther,
   inulin: nutr.inulin,
-  epigallocatechin: nutr.epigallocatechin,
+  epigallocatechin: nutr.epigallocatechin
 })
 
 export const getCarbohydrates = <T>(nutr: Nutrition<T>): Carbohydrates<T> => ({
   ...getBaseCarbohydrates(nutr),
-  ...getSugars(nutr),
+  ...getSugars(nutr)
 })
 
 // ********** //
@@ -124,7 +127,7 @@ export const getSaturatedFat = <T>(nutr: Nutrition<T>): SaturatedFat<T> => ({
   _9$0: nutr._9$0,
   _11$0: nutr._11$0,
   _12$1: nutr._12$1,
-  _23$0: nutr._23$0,
+  _23$0: nutr._23$0
 })
 
 export const getMonoUnsaturated = <T>(
@@ -150,7 +153,7 @@ export const getMonoUnsaturated = <T>(
   _17$1c: nutr._17$1c,
   _20$1c: nutr._20$1c,
   _20$1t: nutr._20$1t,
-  _22$02: nutr._22$02,
+  _22$02: nutr._22$02
 })
 
 export const getPolyUnsaturated = <T>(
@@ -191,7 +194,7 @@ export const getPolyUnsaturated = <T>(
   _22$1n11: nutr._22$1n11,
   _22$3: nutr._22$3,
   _22$5c: nutr._22$5c,
-  _22$6c: nutr._22$6c,
+  _22$6c: nutr._22$6c
 })
 
 export const getOmega3 = <T>(nutr: Nutrition<T>): Omega3<T> => ({
@@ -200,7 +203,7 @@ export const getOmega3 = <T>(nutr: Nutrition<T>): Omega3<T> => ({
   _20$5n3: nutr._20$5n3,
   _22$6n3: nutr._22$6n3,
   _22$5n3: nutr._22$5n3,
-  _21$5: nutr._21$5,
+  _21$5: nutr._21$5
 })
 
 export const getOmega6 = <T>(nutr: Nutrition<T>): Omega6<T> => ({
@@ -208,14 +211,14 @@ export const getOmega6 = <T>(nutr: Nutrition<T>): Omega6<T> => ({
   _18$3n6: nutr._18$3n6,
   _20$2n6: nutr._20$2n6,
   _20$3n6: nutr._20$3n6,
-  _20$4n6: nutr._20$4n6,
+  _20$4n6: nutr._20$4n6
 })
 
 export const getTransUnsaturated = <T>(
   nutr: Nutrition<T>
 ): TransUnsaturated<T> => ({
   monoenoic: nutr.monoenoic,
-  polyenoic: nutr.polyenoic,
+  polyenoic: nutr.polyenoic
 })
 
 export const getBaseFats = <T>(nutr: Nutrition<T>): Partial<Fats<T>> => ({
@@ -224,7 +227,7 @@ export const getBaseFats = <T>(nutr: Nutrition<T>): Partial<Fats<T>> => ({
   saturatedFat: nutr.saturatedFat,
   polyUnsaturated: nutr.polyUnsaturated,
   monoUnsaturated: nutr.monoUnsaturated,
-  transUnsaturated: nutr.transUnsaturated,
+  transUnsaturated: nutr.transUnsaturated
 })
 
 export const getFats = <T>(nutr: Nutrition<T>): Fats<T> => ({
@@ -232,12 +235,27 @@ export const getFats = <T>(nutr: Nutrition<T>): Fats<T> => ({
   ...getSaturatedFat(nutr),
   ...getMonoUnsaturated(nutr),
   ...getPolyUnsaturated(nutr),
-  ...getTransUnsaturated(nutr),
+  ...getTransUnsaturated(nutr)
 })
 
 // ************* //
 // ** Protein ** //
 // ************* //
+
+// TODO (charts) create a chart like this: https://nutritiondata.self.com/help/analysis-help#protein-quality
+export const getProteinQuality = (
+  nutr: Nutrition<number>
+): ProteinQuality<number> => ({
+  tryptophan: nutr.tryptophan,
+  threonine: nutr.threonine,
+  isoleucine: nutr.isoleucine,
+  leucine: nutr.leucine,
+  lysine: nutr.lysine,
+  methionineCystine: nutr.methionine + nutr.cystine,
+  phenylalanineTyrosine: nutr.phenylalanine + nutr.tyrosine,
+  valine: nutr.valine,
+  histidine: nutr.histidine
+})
 
 export const getAminoAcids = <T>(nutr: Nutrition<T>): AminoAcids<T> => ({
   tryptophan: nutr.tryptophan,
@@ -262,16 +280,16 @@ export const getAminoAcids = <T>(nutr: Nutrition<T>): AminoAcids<T> => ({
   cysteine: nutr.cysteine,
   glutamine: nutr.glutamine,
   taurine: nutr.taurine,
-  dienoic: nutr.dienoic,
+  dienoic: nutr.dienoic
 })
 
 export const getBaseProtein = <T>(nutr: Nutrition<T>): Protein<T> => ({
-  protein: nutr.protein,
+  protein: nutr.protein
 })
 
 export const getProtein = <T>(nutr: Nutrition<T>): Protein<T> => ({
   protein: nutr.protein,
-  ...getAminoAcids(nutr),
+  ...getAminoAcids(nutr)
 })
 
 // ************** //
@@ -293,14 +311,14 @@ export const getVitaminA = <T>(nutr: Nutrition<T>): VitaminA<T> => ({
   cisBetaCarotene: nutr.cisBetaCarotene,
   transBetaCarotene: nutr.transBetaCarotene,
   transLycopene: nutr.transLycopene,
-  cryptoxanthin: nutr.cryptoxanthin,
+  cryptoxanthin: nutr.cryptoxanthin
 })
 
 export const getVitaminD = <T>(nutr: Nutrition<T>): VitaminD<T> => ({
   d2: nutr.d2,
   d3: nutr.d3,
   d2and3: nutr.d2and3,
-  calcifediol: nutr.calcifediol,
+  calcifediol: nutr.calcifediol
 })
 
 export const getVitaminE = <T>(nutr: Nutrition<T>): VitaminE<T> => ({
@@ -313,13 +331,13 @@ export const getVitaminE = <T>(nutr: Nutrition<T>): VitaminE<T> => ({
   gammaTocotrienol: nutr.gammaTocotrienol,
   deltaTocotrienol: nutr.deltaTocotrienol,
   vitELabel: nutr.vitELabel,
-  vitEAte: nutr.vitEAte,
+  vitEAte: nutr.vitEAte
 })
 
 export const getFolate = <T>(nutr: Nutrition<T>): Folate<T> => ({
   foodFolate: nutr.foodFolate,
   folicAcid: nutr.folicAcid,
-  dietaryFolateEquiv: nutr.dietaryFolateEquiv,
+  dietaryFolateEquiv: nutr.dietaryFolateEquiv
 })
 
 export const getBaseVitamins = <T>(
@@ -354,7 +372,7 @@ export const getBaseVitamins = <T>(
   cholinePhosphocholine: nutr.cholinePhosphocholine,
   cholinePhosphotidyl: nutr.cholinePhosphotidyl,
   cholineGlycerophosphocholine: nutr.cholineGlycerophosphocholine,
-  cholineSphingomyelin: nutr.cholineSphingomyelin,
+  cholineSphingomyelin: nutr.cholineSphingomyelin
 })
 
 export const getVitamins = <T>(nutr: Nutrition<T>): Vitamins<T> => ({
@@ -362,7 +380,7 @@ export const getVitamins = <T>(nutr: Nutrition<T>): Vitamins<T> => ({
   ...getFolate(nutr),
   ...getVitaminA(nutr),
   ...getVitaminE(nutr),
-  ...getVitaminD(nutr),
+  ...getVitaminD(nutr)
 })
 
 // ************** //
@@ -386,7 +404,7 @@ export const getMinerals = <T>(nutr: Nutrition<T>): Minerals<T> => ({
   chlorine: nutr.chlorine,
   chromium: nutr.chromium,
   cobalt: nutr.cobalt,
-  boron: nutr.boron,
+  boron: nutr.boron
 })
 
 export const getSterols = <T>(nutr: Nutrition<T>): Sterols<T> => ({
@@ -394,7 +412,7 @@ export const getSterols = <T>(nutr: Nutrition<T>): Sterols<T> => ({
   phytosterols: nutr.phytosterols,
   stigmasterol: nutr.stigmasterol,
   campesterol: nutr.campesterol,
-  betaSitosterol: nutr.betaSitosterol,
+  betaSitosterol: nutr.betaSitosterol
 })
 
 export const getOthers = <T>(nutr: Nutrition<T>): Others<T> => ({
@@ -405,7 +423,7 @@ export const getOthers = <T>(nutr: Nutrition<T>): Others<T> => ({
   theobromine: nutr.theobromine,
   aceticAcid: nutr.aceticAcid,
   lacticAcid: nutr.lacticAcid,
-  sulfur: nutr.sulfur,
+  sulfur: nutr.sulfur
 })
 
 /**
@@ -438,5 +456,5 @@ export const getNutritionParts = <T>(
   vitamins: getVitamins(nutr),
   minerals: getMinerals(nutr),
   sterols: getSterols(nutr),
-  others: getOthers(nutr),
+  others: getOthers(nutr)
 })

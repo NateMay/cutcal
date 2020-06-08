@@ -24,7 +24,7 @@ export class HoldableDirective implements OnDestroy {
 
   @Input() interval: number = 100
 
-  state: Subject<string> = new Subject()
+  private state: Subject<string> = new Subject()
 
   cancel: Observable<string>
 

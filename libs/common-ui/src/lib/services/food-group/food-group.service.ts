@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs'
   providedIn: 'root'
 })
 export class FoodGroupSvc {
-  _foodGroups = new BehaviorSubject<string[]>(FOOD_GROUPS)
+  private _foodGroups = new BehaviorSubject<string[]>(FOOD_GROUPS)
 
   get foodGroups(): string[] {
     return this._foodGroups.getValue()

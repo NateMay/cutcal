@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { AlgoliaFood, NewFood } from '@cutcal/api-interfaces'
+import { AlgoliaFood, NewFood, primaryImage } from '@cutcal/api-interfaces'
 import * as algoliasearch from 'algoliasearch'
 import * as functions from 'firebase-functions'
 
@@ -7,14 +7,15 @@ import * as functions from 'firebase-functions'
  * Set consifg data like this:
  *
  * @example
- * firebase functions:config:set algolia.APP_ID="#################"
+ * firebase functions:config:set algolia.appid="YOUR_APP_ID" algolia.apikey="YOUR_API_KEY"
  *
  * @question Do I need the "SEARCH_KEY" for any reason?
  * https://www.algolia.com/apps/OB2L36C5AS/api-keys/all
  */
-const { APP_ID, ADMIN_KEY } = functions.config().algolia
 
-const client = algoliasearch.default(APP_ID, ADMIN_KEY)
+const { appid, apikey } = functions.config().algolia
+
+const client = algoliasearch.default(appid, apikey)
 const index = client.initIndex('dev_CUTCAL')
 
 /**
@@ -29,23 +30,22 @@ export const addFoodToAlgolia = async ({ food }: { food: NewFood }) => {
 export const foodToAlgolia = (food: NewFood): AlgoliaFood => ({
   objectID: `${food.fdcId}`,
   fdcId: food.fdcId,
+  fdcName: food.fdcName,
 
   usageTier: getUsageTier(food.uses),
   likesTier: getLikeTier(food.likes),
   creatorName: food.creator.name,
-  categories: food.categories,
-
-  // TODO scrape
+  categories: [...new Set(food.categories)],
   name: food.name,
   description: food.description,
-  image: 'https://',
+  image: primaryImage(food.images).url,
+
+  // should only have content when created as a receipe
+  isRecipe: false,
+  ingredients: [],
 
   // TODO calculate
-  highIn: [], // list of nutrients that this food can act as a suppliment for
-
-  // TODO Gather from food-review
-  ingredients: [],
-  isRecipe: false
+  highIn: [] // list of nutrients that this food can act as a suppliment for
 })
 
 /**

@@ -1,5 +1,7 @@
 import { Injectable, NgZone } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
+import { throwError } from 'rxjs'
+import { catchError, tap } from 'rxjs/operators'
 import { onStable } from '../../functions/onStable/onStable'
 
 /**
@@ -17,18 +19,22 @@ export class RefocusService {
     private readonly router: Router,
     private readonly ngZone: NgZone
   ) {
-    this.router.events.subscribe(event => {
-      if (this.refocus && event instanceof NavigationEnd) {
-        this.refocus = false
-
-        onStable(this.ngZone, () => {
-          if (this.id) {
-            const element = document.getElementById(this.id)
-            if (element) element.focus()
+    this.router.events
+      .pipe(
+        tap(event => {
+          if (this.refocus && event instanceof NavigationEnd) {
+            this.refocus = false
+            onStable(this.ngZone, () => {
+              if (this.id) {
+                const element = document.getElementById(this.id)
+                if (element) element.focus()
+              }
+            })
           }
-        })
-      }
-    })
+        }),
+        catchError(e => throwError(e))
+      )
+      .subscribe()
   }
 
   reCastFocusId(id: string): void {

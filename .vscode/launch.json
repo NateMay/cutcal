@@ -46,7 +46,8 @@
         "cutcal-support",
         "common",
         "core",
-        "timpicker"
+        "timpicker",
+        "functions"
       ],
       "default": "cutcal"
     }

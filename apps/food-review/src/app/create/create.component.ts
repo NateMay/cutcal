@@ -1,10 +1,13 @@
 import { Component } from '@angular/core'
 import { AngularFireFunctions } from '@angular/fire/functions'
+import { AddFoodReponse, AddFoodRequest } from '@cutcal/api-interfaces'
 import { FirestoreService } from '@cutcal/common-ui'
+import { forEach } from 'lodash'
 import { Observable } from 'rxjs'
 import { first, switchMap, tap } from 'rxjs/operators'
 import { GoogleService, WikiDetails } from '../google/google.service'
 import { WikipediaService } from '../wikipedia/wikipedia.service'
+import { FDC_IDS } from './seed-fdc-foods'
 
 @Component({
   templateUrl: './create.component.html',
@@ -17,6 +20,8 @@ export class CreateComponent {
 
   results$: Observable<WikiDetails[]>
 
+  response: AddFoodReponse
+
   constructor(
     private readonly google: GoogleService,
     private readonly wiki: WikipediaService,
@@ -25,10 +30,28 @@ export class CreateComponent {
   ) {}
 
   addFoodById(fdcId: string): void {
-    const callable = this.fns.httpsCallable('addFood')
+    const callable = this.fns.httpsCallable<AddFoodRequest, AddFoodReponse>(
+      'addFood'
+    )
+
     callable({ fdcId })
-      .pipe(first())
-      .subscribe(console.log)
+      .pipe(
+        first(),
+        tap(response => (this.response = response))
+      )
+      .subscribe()
+  }
+
+  seed() {
+    const callable = this.fns.httpsCallable<AddFoodRequest, AddFoodReponse>(
+      'addFood'
+    )
+    forEach(FDC_IDS, (fdcId: string) => {
+      console.log(fdcId)
+      callable({ fdcId })
+        .pipe(first())
+        .subscribe()
+    })
   }
 
   addFoodByQuery(queryString: string): void {

@@ -15,7 +15,7 @@ export const setRxjsLoggingLevel = (level: RxjsLoggingLevel) =>
 
 export const debug = (level: RxjsLoggingLevel, message: string) => (
   source: Observable<any>
-) => {
+) =>
   source.pipe(
     tap(value => {
       if (level > rxjsLoggingLevel) {
@@ -23,4 +23,3 @@ export const debug = (level: RxjsLoggingLevel, message: string) => (
       }
     })
   )
-}

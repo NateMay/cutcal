@@ -22,6 +22,7 @@
 
 .ais-Hits-item img {
   margin-right: 1em;
+  width: 200px;
 }
 
 .hit-name {
@@ -88,4 +89,10 @@
 .pagination {
   margin: 2rem auto;
   text-align: center;
+}
+
+.description {
+  max-height: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

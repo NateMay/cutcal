@@ -11,7 +11,7 @@ import { createPortion, Portion } from '@cutcal/diet'
 import { NUTRIENTS, Nutrition } from '@cutcal/nutrition'
 import { firestore } from 'firebase-admin'
 import { keyBy } from 'lodash'
-import { ScrapedData } from '../scrape/scrapeData'
+import { ScrapedData } from './scrapeData'
 
 export const dumpToFood = (dump: FdcDump, scraped: ScrapedData): NewFood => ({
   fdcId: dump.fdcId,
@@ -35,9 +35,17 @@ export const dumpToFood = (dump: FdcDump, scraped: ScrapedData): NewFood => ({
 
   // scrapable
   reviewState: newFoodReviewState(),
-  images: [],
-  name: dump.description,
-  description: dump.description,
+  images: [
+    {
+      url: scraped.image,
+      path: null,
+      votes: 0,
+      uploaderId: 'CutCal'
+    }
+  ],
+  name: scraped.name,
+  description: scraped.description,
+  // TODO: scape this data too
   categories: dump.categories,
   dataQualityScore: 0
 })

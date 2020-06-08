@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs'
   providedIn: 'root'
 })
 export class SearchService {
-  _focusFirst: Subject<void> = new Subject()
+  private _focusFirst: Subject<void> = new Subject()
 
   get listenFocusFirst(): Observable<void> {
     return this._focusFirst.asObservable()

@@ -166,6 +166,19 @@ export interface Fats<T>
 // ************* //
 // ** Protein ** //
 // ************* //
+
+// Quality Protein has all 9
+export interface ProteinQuality<T> {
+  tryptophan?: T
+  threonine?: T
+  isoleucine?: T
+  leucine?: T
+  lysine?: T
+  methionineCystine?: T
+  phenylalanineTyrosine?: T
+  valine?: T
+  histidine?: T
+}
 export interface AminoAcids<T> {
   tryptophan?: T
   threonine?: T

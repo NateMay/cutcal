@@ -1,35 +1,39 @@
 <div class="ais-InstantSearch">
-    <h1>Angular InstantSearch e-commerce demo</h1>
+    <h1>CutCal Foods Search</h1>
     <ais-instantsearch [config]="config" fxLayout="row">
         <div fxFlex="250px">
-            <ais-current-refinements></ais-current-refinements>
-            <h2>Brands</h2>
-            <ais-refinement-list attribute="brand"></ais-refinement-list>
-            <ais-configure
+            <!-- <ais-current-refinements></ais-current-refinements> -->
+            <!-- <h2>Brands</h2> -->
+            <!-- <ais-refinement-list attribute="brand"></ais-refinement-list> -->
+            <!-- <ais-configure
                 [searchParameters]="{ hitsPerPage: 8 }"
-            ></ais-configure>
+            ></ais-configure> -->
 
-            <hr />
-            <ais-menu attribute="categories" [limit]="6" [showMoreLimit]="10">
-            </ais-menu>
+            <!-- <hr /> -->
+            <!-- <ais-menu
+                attribute="categories"
+                [limit]="6"
+                [showMoreLimit]="10"
+            ></ais-menu> -->
 
-            <ais-sort-by [items]="sortItems"></ais-sort-by>
+            <!-- <ais-sort-by [items]="sortItems"></ais-sort-by> -->
         </div>
         <div fxFlex>
             <ais-search-box></ais-search-box>
-            <ais-stats>
+            <!-- <ais-stats>
                 <ng-template let-state="state">
                     {{state.nbHits}} results found in
                     {{state.processingTimeMS}}ms.
                 </ng-template>
-            </ais-stats>
+            </ais-stats> -->
             <ais-hits>
                 <ng-template let-hits="hits">
                     <ol class="ais-Hits-list">
                         <li *ngFor="let hit of hits" class="ais-Hits-item">
                             <img
-                                src="{{hit.image}}"
-                                alt="{{hit.name}}"
+                                class="food-image"
+                                [attr.src]="hit.image"
+                                [attr.alt]="hit.fdcName"
                                 align="left"
                             />
                             <div class="hit-name">
@@ -44,7 +48,6 @@
                                     [hit]="hit"
                                 ></ais-highlight>
                             </div>
-                            <div class="hit-price">${{hit.price}}</div>
                         </li>
                     </ol>
                 </ng-template>

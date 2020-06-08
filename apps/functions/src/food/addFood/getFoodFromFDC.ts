@@ -18,7 +18,6 @@ export const getFoodFromFDC = async (fdcId: string): Promise<FdcDump> => {
     foodClass,
     id,
     description,
-    lastUpdated,
     foodNutrients,
     foodMeasures,
     foodComponents,
@@ -27,8 +26,6 @@ export const getFoodFromFDC = async (fdcId: string): Promise<FdcDump> => {
     foodType,
     foodCode,
     fnddsFoodCategory,
-    startDate,
-    endDate,
     totalRefuse,
     scientificName,
     foodGroup,
@@ -59,9 +56,6 @@ export const getFoodFromFDC = async (fdcId: string): Promise<FdcDump> => {
     scientificName,
     gtinUpc,
     categories: getCategories(foodAttributes, fnddsFoodCategory, foodGroup),
-    lastUpdated: firestore.Timestamp.fromDate(new Date(lastUpdated)),
-    startDate: firestore.Timestamp.fromDate(new Date(startDate)),
-    endDate: firestore.Timestamp.fromDate(new Date(endDate)),
     updatedAt: firestore.Timestamp.now()
   })
 }

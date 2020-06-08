@@ -2,11 +2,13 @@ import { KVP } from '@cutcal/core'
 import { Image, Portion } from '@cutcal/diet'
 import { Nutrition } from '@cutcal/nutrition'
 import { firestore } from 'firebase/app'
+import { maxBy } from 'lodash'
 
 export interface FoodBase {
   name: string
   description: string
   fdcId: number
+  fdcName: string
 }
 
 export interface AlgoliaFood extends FoodBase {
@@ -28,7 +30,6 @@ export interface NewFood extends FoodBase {
   defaultPortion: Portion
   portions: KVP<Portion>
   ingredients: NewFoodIngredient[]
-  fdcName: string
   uses: number
   likes: number
   images: Image[]
@@ -92,3 +93,6 @@ interface NewFoodCreator {
   name: string
   timestamp: firestore.Timestamp
 }
+
+export const primaryImage = (images: Image[]) =>
+  maxBy(images, (image: Image) => image.votes)

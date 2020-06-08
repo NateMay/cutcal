@@ -7,10 +7,10 @@ import { InstantSearchConfig } from 'angular-instantsearch/instantsearch/instant
 })
 export class AlgoliaComponent implements OnInit {
   config: InstantSearchConfig = {
-    apiKey: '6be0576ff61c053d5f9a3225e2a90f76',
-    appId: 'latency',
-    indexName: 'instant_search',
-    routing: true
+    apiKey: 'a1cc78476d92b73185b46aa3121db228',
+    appId: 'OB2L36C5AS',
+    indexName: 'dev_CUTCAL',
+    routing: false
   }
 
   sortItems = [

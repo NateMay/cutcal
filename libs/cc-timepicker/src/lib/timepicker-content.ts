@@ -11,7 +11,7 @@ import {
 } from '@angular/core'
 import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core'
 import { dateFromTime } from '@cutcal/common-ui'
-import { Subject } from 'rxjs'
+import { Observable, Subject } from 'rxjs'
 import { CcTimepicker } from './timepicker'
 import { ccTimepickerAnimations } from './timepicker-animations'
 import {
@@ -207,7 +207,11 @@ export class CcTimepickerContent extends _CcTimepickerContentMixinBase
   _animationState: 'enter' | 'void' = 'enter'
 
   /** Emits when an animation has finished. */
-  _animationDone = new Subject<void>()
+  private _animationDone = new Subject<void>()
+
+  get animationDone(): Observable<void> {
+    return this._animationDone.asObservable()
+  }
 
   constructor(
     elementRef: ElementRef,

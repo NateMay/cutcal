@@ -13,8 +13,17 @@
         </mat-form-field>
 
         <button mat-button (click)="addFoodById(input2.value)">Add</button>
+        <button mat-button (click)="seed()">Seed</button>
     </div>
 
+    <section *ngIf="response">
+        <div *ngIf="response.food as food">
+            <h1>Name: {{ food.name }}</h1>
+            <h2>FDC: {{ food.fdcName }}</h2>
+            <p>{{ food.description }}</p>
+            <img class="food-image" [attr.src]="food.images[0].url" />
+        </div>
+    </section>
     <section>
         <hr />
         <ng-container *ngIf="results$ | async as results">

@@ -9,7 +9,7 @@ import {
   ViewEncapsulation
 } from '@angular/core'
 import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core'
-import { Subject } from 'rxjs'
+import { Observable, Subject } from 'rxjs'
 import { CcDatepicker } from './datepicker'
 import { ccDatepickerAnimations } from './datepicker-animations'
 
@@ -43,7 +43,6 @@ const _CcDatepickerContentMixinBase: CanColorCtor &
     <p>datepicker-content works!</p>
     <cc-dateicker-face></cc-dateicker-face>
   `,
-  styleUrls: ['./datepicker-content.scss'],
   host: {
     class: 'cc-datepicker-content',
     '[@transformPanel]': '_animationState',
@@ -74,8 +73,11 @@ export class CcDatepickerContent extends _CcDatepickerContentMixinBase
   _animationState: 'enter' | 'void' = 'enter'
 
   /** Emits when an animation has finished. */
-  _animationDone = new Subject<void>()
+  private _animationDone = new Subject<void>()
 
+  get animationDone(): Observable<void> {
+    return this._animationDone.asObservable()
+  }
   constructor(
     elementRef: ElementRef,
     /**

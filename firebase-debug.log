@@ -1,0 +1,52 @@
+[debug] [2020-06-06T15:29:18.069Z] ----------------------------------------------------------------------
+[debug] [2020-06-06T15:29:18.071Z] Command:       /usr/local/bin/node /usr/local/bin/firebase functions:shell
+[debug] [2020-06-06T15:29:18.071Z] CLI Version:   8.4.1
+[debug] [2020-06-06T15:29:18.071Z] Platform:      darwin
+[debug] [2020-06-06T15:29:18.072Z] Node Version:  v12.13.1
+[debug] [2020-06-06T15:29:18.076Z] Time:          Sat Jun 06 2020 10:29:18 GMT-0500 (Central Daylight Time)
+[debug] [2020-06-06T15:29:18.076Z] ----------------------------------------------------------------------
+[debug] [2020-06-06T15:29:18.076Z] 
+[debug] [2020-06-06T15:29:18.089Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-06T15:29:18.090Z] > authorizing via signed-in user
+[debug] [2020-06-06T15:29:18.090Z] [iam] checking project cutcal for permissions ["firebase.projects.get"]
+[debug] [2020-06-06T15:29:18.092Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-06-06T15:29:18.092Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-06-06T15:29:18.245Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 06 Jun 2020 15:29:18 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-06T15:29:18.263Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/cutcal:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-06-06T15:29:18.480Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 06 Jun 2020 15:29:18 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=101","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "12" {"metadata":{"emulator":{"name":"functions"},"message":"Your requested \"node\" version \"8\" doesn't match your global version \"12\""}}
+[debug] [2020-06-06T15:29:18.502Z] [functions] Watching "/Users/nathanielmay/Code/cutcal/dist/apps/functions" for Cloud Functions...
+[debug] [2020-06-06T15:29:18.509Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-06-06T15:29:18.510Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-06-06T15:29:18.510Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-06-06T15:29:18.510Z] DEBUG: [worker-~diagnostic~-33d2cc88-8bf2-4795-8724-2c87153eb76c]: Assigning socketPath: /var/folders/mc/8vnjhzs5381_hx3jb82vn4g40000gn/T/fire_emu_6051.sock
+[debug] [2020-06-06T15:29:18.511Z] DEBUG: [worker-~diagnostic~-33d2cc88-8bf2-4795-8724-2c87153eb76c]: BUSY
+[debug] [2020-06-06T15:29:18.779Z] DEBUG: [runtime-status] [6051] Functions runtime initialized. {"cwd":"/Users/nathanielmay/Code/cutcal/dist/apps/functions","node_version":"12.13.1"}
+[debug] [2020-06-06T15:29:18.780Z] DEBUG: [runtime-status] [6051] Disabled runtime features: undefined
+[debug] [2020-06-06T15:29:18.786Z] DEBUG: [runtime-status] [6051] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"/Users/nathanielmay/Code/cutcal/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-06-06T15:29:18.788Z] DEBUG: [runtime-status] [6051] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"/Users/nathanielmay/Code/cutcal/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-06-06T15:29:18.790Z] DEBUG: [runtime-status] [6051] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}]
+[debug] [2020-06-06T15:29:18.791Z] DEBUG: [runtime-status] [6051] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"/Users/nathanielmay/Code/cutcal/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-06-06T15:29:18.839Z] DEBUG: [runtime-status] [6051] Checked functions.config() {"config":{}}
+[debug] [2020-06-06T15:29:18.840Z] DEBUG: [runtime-status] [6051] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.6.1","resolution":"/Users/nathanielmay/Code/cutcal/node_modules/firebase-functions/lib/index.js"}}
+[debug] [2020-06-06T15:29:18.840Z] DEBUG: [runtime-status] [6051] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"/Users/nathanielmay/Code/cutcal/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-06-06T15:29:18.841Z] DEBUG: [runtime-status] [6051] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"/Users/nathanielmay/Code/cutcal/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-06-06T15:29:18.841Z] DEBUG: [runtime-status] [6051] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.6.1","resolution":"/Users/nathanielmay/Code/cutcal/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-06-06T15:29:18.841Z] DEBUG: [runtime-status] [6051] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.12.1","resolution":"/Users/nathanielmay/Code/cutcal/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  It looks like you're trying to access functions.config().algolia but there is no value there. You can learn more about setting up config here: https://firebase.google.com/docs/functions/local-emulator {"metadata":{"emulator":{"name":"functions"},"message":"It looks like you're trying to access functions.config().algolia but there is no value there. You can learn more about setting up config here: https://firebase.google.com/docs/functions/local-emulator"}}
+[warn] ⚠  TypeError: Cannot destructure property `appid` of 'undefined' or 'null'.
+    at Module../apps/functions/src/algolia/addFoodToAlgolia.ts (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:122:7)
+    at __webpack_require__ (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:20:30)
+    at Module../apps/functions/src/food/addFood/addFoodHandler.ts (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:189:83)
+    at __webpack_require__ (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:20:30)
+    at Module../apps/functions/src/main.ts (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:714:86)
+    at __webpack_require__ (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:20:30)
+    at Object.0 (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:7453:18)
+    at __webpack_require__ (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:20:30)
+    at /Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:84:18
+    at Object.<anonymous> (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:87:10) {"metadata":{"emulator":{"name":"functions"},"message":"TypeError: Cannot destructure property `appid` of 'undefined' or 'null'.\n    at Module../apps/functions/src/algolia/addFoodToAlgolia.ts (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:122:7)\n    at __webpack_require__ (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:20:30)\n    at Module../apps/functions/src/food/addFood/addFoodHandler.ts (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:189:83)\n    at __webpack_require__ (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:20:30)\n    at Module../apps/functions/src/main.ts (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:714:86)\n    at __webpack_require__ (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:20:30)\n    at Object.0 (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:7453:18)\n    at __webpack_require__ (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:20:30)\n    at /Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:84:18\n    at Object.<anonymous> (/Users/nathanielmay/Code/cutcal/dist/apps/functions/main.js:87:10)"}}
+[warn] ⚠  We were unable to load your functions code. (see above) {"metadata":{"emulator":{"name":"functions"}}}
+[debug] [2020-06-06T15:29:18.895Z] DEBUG: [worker-~diagnostic~-33d2cc88-8bf2-4795-8724-2c87153eb76c]: exited
+[debug] [2020-06-06T15:29:18.895Z] DEBUG: [worker-~diagnostic~-33d2cc88-8bf2-4795-8724-2c87153eb76c]: FINISHED

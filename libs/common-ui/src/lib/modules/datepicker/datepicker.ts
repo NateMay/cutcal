@@ -27,8 +27,8 @@ import {
 } from '@angular/core'
 import { CanColor, ThemePalette } from '@angular/material/core'
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'
-import { merge, Subject, Subscription } from 'rxjs'
-import { filter, first } from 'rxjs/operators'
+import { merge, Observable, Subject, Subscription, throwError } from 'rxjs'
+import { catchError, filter, first, tap } from 'rxjs/operators'
 import { CcDatepickerContent } from './datepicker-content'
 import { CcDatepickerInput } from './datepicker-input'
 
@@ -73,7 +73,11 @@ export class CcDatepicker implements OnDestroy, CanColor {
   private _focusedElementBeforeOpen: HTMLElement | null = null
 
   /** Emits new selected date when selected date changes. */
-  readonly _selectedChanged = new Subject<string>()
+  private readonly _selectedChanged = new Subject<string>()
+
+  get selectedChanged(): Observable<string> {
+    return this._selectedChanged.asObservable()
+  }
 
   /** Whether the datepicker pop-up should be disabled. */
   @Input()
@@ -93,7 +97,7 @@ export class CcDatepicker implements OnDestroy, CanColor {
   private _disabled: boolean
 
   /** Emits when the datepicker is disabled. */
-  readonly _disabledChange = new Subject<boolean>()
+  private readonly _disabledChange = new Subject<boolean>()
 
   /** The input element this datepicker is associated with. */
   _datepickerInput: CcDatepickerInput
@@ -123,7 +127,7 @@ export class CcDatepicker implements OnDestroy, CanColor {
   @Output('closed') closedStream: EventEmitter<void> = new EventEmitter<void>()
 
   /** Emits when an animation has finished. */
-  _animationDone = new Subject<void>()
+  private _animationDone = new Subject<void>()
 
   /** Whether the calendar is open. */
   @Input()
@@ -190,9 +194,12 @@ export class CcDatepicker implements OnDestroy, CanColor {
       throw Error('A CcDatepicker can only be associated with a single input.')
     }
     this._datepickerInput = input
-    this._inputSubscription = this._datepickerInput._valueChange.subscribe(
-      (value: string | null) => (this._selected = value)
-    )
+    this._inputSubscription = this._datepickerInput._valueChange
+      .pipe(
+        tap((value: string | null) => (this._selected = value)),
+        catchError(e => throwError(e))
+      )
+      .subscribe()
   }
 
   select(date: string): void {
@@ -227,9 +234,13 @@ export class CcDatepicker implements OnDestroy, CanColor {
     if (this._popupComponentRef && this._popupRef) {
       const instance = this._popupComponentRef.instance
       instance._startExitAnimation()
-      instance._animationDone
-        .pipe(first())
-        .subscribe(() => this._destroyPopup())
+      instance.animationDone
+        .pipe(
+          first(),
+          tap(() => this._destroyPopup()),
+          catchError(e => throwError(e))
+        )
+        .subscribe()
     }
     if (this._dialogRef) {
       this._dialogRef.close()
@@ -295,7 +306,13 @@ export class CcDatepicker implements OnDestroy, CanColor {
       }
     )
 
-    this._dialogRef.afterClosed().subscribe(() => this.close())
+    this._dialogRef
+      .afterClosed()
+      .pipe(
+        tap(() => this.close()),
+        catchError(e => throwError(e))
+      )
+      .subscribe()
     this._dialogRef.componentInstance.datepicker = this
     this._dialogRef.componentInstance.color = this.color
   }
@@ -316,10 +333,12 @@ export class CcDatepicker implements OnDestroy, CanColor {
     // Update the position once the calendar has rendered.
     this._ngZone.onStable
       .asObservable()
-      .pipe(first())
-      .subscribe(() => {
-        this._popupRef.updatePosition()
-      })
+      .pipe(
+        first(),
+        tap(() => this._popupRef.updatePosition()),
+        catchError(e => throwError(e))
+      )
+      .subscribe()
   }
 
   /** Create the popup. */
@@ -349,13 +368,15 @@ export class CcDatepicker implements OnDestroy, CanColor {
               event.keyCode === UP_ARROW)
         )
       )
-    ).subscribe(event => {
-      if (event) {
-        event.preventDefault()
-      }
-
-      this.close()
-    })
+    )
+      .pipe(
+        tap(event => {
+          if (event) event.preventDefault()
+          this.close()
+        }),
+        catchError(e => throwError(e))
+      )
+      .subscribe()
   }
 
   /** Destroys the current popup overlay. */

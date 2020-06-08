@@ -111,7 +111,7 @@ export class CcDatepickerInput implements OnInit {
     this._datepicker._registerInput(this)
     this._datepickerSubscription.unsubscribe()
 
-    this._datepickerSubscription = this._datepicker._selectedChanged.subscribe(
+    this._datepickerSubscription = this._datepicker.selectedChanged.subscribe(
       (selected: string) => {
         this.value = selected
         this._cvaOnChange(selected)

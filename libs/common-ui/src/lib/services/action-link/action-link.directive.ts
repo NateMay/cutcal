@@ -5,7 +5,8 @@ import {
   OnDestroy,
   Output
 } from '@angular/core'
-import { Subscription } from 'rxjs'
+import { Subscription, throwError } from 'rxjs'
+import { catchError, tap } from 'rxjs/operators'
 import { ActionLinkObserver } from './action-link.service'
 
 @Directive({
@@ -27,7 +28,11 @@ export class ActionLinkDirective implements OnDestroy {
     // Registers to the specified link to emit on activation
     this.sub = this.observer
       .register(link)
-      .subscribe(params => this.activate.emit(params))
+      .pipe(
+        tap(params => this.activate.emit(params)),
+        catchError(e => throwError(e))
+      )
+      .subscribe()
   }
 
   ngOnDestroy(): void {
