@@ -7,7 +7,6 @@ import {
   tick
 } from '@angular/core/testing';
 import { StyleSanitizerPipe } from '@cutcal/common-ui';
-import { tap } from 'rxjs/operators';
 import { CcMinutesFormatterPipe } from './minutes-formatter';
 import { CcTimepickerFace } from './timepicker-face';
 import { ClockFaceTime, TimeUnit } from './timepicker-utils';
@@ -131,9 +130,9 @@ describe('TimepickerFaceComponent', () => {
       }
     };
     let updatedTime: ClockFaceTime = { time: 1, angle: 20 };
-    component.timeChange
-      .pipe(tap((time: ClockFaceTime) => (updatedTime = time)))
-      .subscribe();
+    component.timeChange.subscribe(
+      (time: ClockFaceTime) => (updatedTime = time)
+    );
     component.ngOnChanges(changes);
     tick();
     expect(updatedTime).toEqual({ time: 12, angle: 30, disabled: false });
@@ -154,9 +153,9 @@ describe('TimepickerFaceComponent', () => {
       }
     };
     let updatedTime: ClockFaceTime = { time: 1, angle: 20 };
-    component.timeChange
-      .pipe(tap((time: ClockFaceTime) => (updatedTime = time)))
-      .subscribe();
+    component.timeChange.subscribe(
+      (time: ClockFaceTime) => (updatedTime = time)
+    );
     component.ngOnChanges(changes);
     tick();
     expect(updatedTime).toEqual({ time: 1, angle: 20 });
@@ -214,7 +213,7 @@ describe('TimepickerFaceComponent', () => {
     it('should do nothing onMouseUp', fakeAsync(() => {
       let counter = 0;
 
-      component.timeChange.pipe(tap(() => counter++)).subscribe();
+      component.timeChange.subscribe(() => counter++);
       component.onMouseup(mouseClickEvent);
       component.selectTime(mouseMoveEvent);
       tick();
@@ -226,9 +225,9 @@ describe('TimepickerFaceComponent', () => {
       const mouseCords: MouseEventInit = { clientX: 706, clientY: 20 };
 
       component.faceTime = hourFaceTime;
-      component.timeChange
-        .pipe(tap((time: ClockFaceTime) => (selectedTime = time)))
-        .subscribe();
+      component.timeChange.subscribe(
+        (time: ClockFaceTime) => (selectedTime = time)
+      );
       component.selectTime(new MouseEvent('mousemove', mouseCords));
       tick();
       expect(selectedTime.angle > 0 && selectedTime.angle <= 90).toBeTruthy();
@@ -239,9 +238,9 @@ describe('TimepickerFaceComponent', () => {
       const mouseCords: MouseEventInit = { clientX: 703, clientY: 581 };
 
       component.faceTime = hourFaceTime;
-      component.timeChange
-        .pipe(tap((time: ClockFaceTime) => (selectedTime = time)))
-        .subscribe();
+      component.timeChange.subscribe(
+        (time: ClockFaceTime) => (selectedTime = time)
+      );
       component.selectTime(new MouseEvent('mousemove', mouseCords));
       tick();
       expect(selectedTime.angle > 90 && selectedTime.angle <= 180).toBeTruthy();
@@ -285,9 +284,9 @@ describe('TimepickerFaceComponent', () => {
 
       component.faceTime = hourFaceTime;
       component.format = 24;
-      component.timeChange
-        .pipe(tap((time: ClockFaceTime) => (selectedTime = time)))
-        .subscribe();
+      component.timeChange.subscribe(
+        (time: ClockFaceTime) => (selectedTime = time)
+      );
 
       component.selectTime(new MouseEvent('mousemove', mouseCords));
       tick(1);
@@ -300,9 +299,9 @@ describe('TimepickerFaceComponent', () => {
 
       component.faceTime = minutesFaceTime;
       component.unit = TimeUnit.MINUTE;
-      component.timeChange
-        .pipe(tap((time: ClockFaceTime) => (selectedTime = time)))
-        .subscribe();
+      component.timeChange.subscribe(
+        (time: ClockFaceTime) => (selectedTime = time)
+      );
 
       component.selectTime(new MouseEvent('mousemove', mouseCords));
       tick();
@@ -315,9 +314,9 @@ describe('TimepickerFaceComponent', () => {
 
       hourFaceTime.forEach(h => (h.disabled = true));
       component.faceTime = hourFaceTime;
-      component.timeChange
-        .pipe(tap((time: ClockFaceTime) => (selectedTime = time)))
-        .subscribe();
+      component.timeChange.subscribe(
+        (time: ClockFaceTime) => (selectedTime = time)
+      );
 
       component.selectTime(new MouseEvent('mousemove', mouseCords));
       tick();
@@ -330,15 +329,11 @@ describe('TimepickerFaceComponent', () => {
       component.faceTime = minutesFaceTime;
       component.unit = TimeUnit.MINUTE;
 
-      component.timeSelected
-        .pipe(
-          tap((time: number) => {
-            // depends on the screen resolution
-            expect(time).toBeGreaterThanOrEqual(56);
-            expect(time).toBeLessThanOrEqual(57);
-          })
-        )
-        .subscribe();
+      component.timeSelected.subscribe((time: ClockFaceTime) => {
+        // depends on the screen resolution
+        expect(time).toBeGreaterThanOrEqual(56);
+        expect(time).toBeLessThanOrEqual(57);
+      });
       component.onMouseup(mouseClickEvent);
       component.selectTime(new MouseEvent('click', mouseCords));
     }));

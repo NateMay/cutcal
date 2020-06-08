@@ -25,7 +25,6 @@ import { ThemePalette } from '@angular/material/core'
 import { MatFormField } from '@angular/material/form-field'
 import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input'
 import { Subscription } from 'rxjs'
-import { tap } from 'rxjs/operators'
 import { CcTimepicker } from './timepicker'
 
 export const CC_TIMEPICKER_VALUE_ACCESSOR: any = {
@@ -122,21 +121,19 @@ export class CcTimepickerInput
     this._timepicker._registerInput(this)
     this._timepickerSubscription.unsubscribe()
 
-    this._timepickerSubscription = this._timepicker.selectedChanged
-      .pipe(
-        tap((selected: string) => {
-          this.value = selected
-          this._cvaOnChange(selected)
-          this._onTouched()
-          this.timeInput.emit(
-            new CcTimepickerInputEvent(this, this._elementRef.nativeElement)
-          )
-          this.timeChange.emit(
-            new CcTimepickerInputEvent(this, this._elementRef.nativeElement)
-          )
-        })
-      )
-      .subscribe()
+    this._timepickerSubscription = this._timepicker.selectedChanged.subscribe(
+      (selected: string) => {
+        this.value = selected
+        this._cvaOnChange(selected)
+        this._onTouched()
+        this.timeInput.emit(
+          new CcTimepickerInputEvent(this, this._elementRef.nativeElement)
+        )
+        this.timeChange.emit(
+          new CcTimepickerInputEvent(this, this._elementRef.nativeElement)
+        )
+      }
+    )
   }
   _timepicker: CcTimepicker
 
