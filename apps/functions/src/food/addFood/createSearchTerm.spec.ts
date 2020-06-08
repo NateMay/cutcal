@@ -55,7 +55,7 @@ describe('scrapeImage()', () => {
           'Beans, string, green, with spaetzel, cooked, NS as to fat added in cooking',
         foodNutrients: []
       })
-    ).toEqual('Beans, string, green, with spaetzel, cooked');
+    ).toEqual('Beans, string, green, with spaetzel');
 
     expect(
       createSearchTerm({

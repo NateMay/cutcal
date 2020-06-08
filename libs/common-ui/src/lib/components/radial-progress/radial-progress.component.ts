@@ -104,15 +104,7 @@ export class RadialProgressComponent {
   @Input()
   set percent(pcnt: number) {
     // Limit the percent between 0 and 100
-    if (pcnt > 100) {
-      console.warn('percent should not be above 100... setting to 100')
-      this._percent = 100
-    } else if (pcnt < 0) {
-      console.warn('percent should not be less than 0... setting to 0')
-      this._percent = 0
-    } else {
-      this._percent = pcnt
-    }
+    this._percent = Math.max(0, Math.min(100, pcnt))
   }
   get percent() {
     return this._percent
