@@ -116,19 +116,15 @@ describe('RadialProgressComponent', () => {
       });
 
       it('should warn when percent is less than 0 and force percent to be 0', () => {
-        const warnSpy = jest.spyOn(window.console, 'warn');
         parent.percent = -5;
         fixture.detectChanges();
         expect(component.percent).toBe(0);
-        expect(warnSpy).toHaveBeenCalled();
       });
 
       it('should warn when percent is greater than 100 and force percent to be 100', () => {
-        const warnSpy = jest.spyOn(window.console, 'warn');
         parent.percent = 300;
         fixture.detectChanges();
         expect(component.percent).toBe(100);
-        expect(warnSpy).toHaveBeenCalled();
       });
     });
 
