@@ -12,9 +12,13 @@ pipelines:
           - node
         script: # Modify the commands below to build your repository.
           - yarn install
-          - npm run format:write
-          - npm run eslint
-          - npm run test
+          - yarn format:write
+          - yarn eslint
+          - yarn affected:lint
+          - yarn lint:styles
+          - yarn affected:test
+          - yarn affected:e2e
+          - yarn affected:build --prod
           # - pipe: atlassian/firebase-deploy:0.3.8
             # variables:
               # FIREBASE_TOKEN: '<string>'
