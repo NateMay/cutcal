@@ -4,7 +4,7 @@ import { first } from 'rxjs/operators'
 /**
  * @description Executes the provided function after the microtask queue is empty
  * @param {NgZone} ngZone component's instance of NgZone
- * @param {Function} function to execute
+ * @param function to execute
  * @returns {void}
  * @example
  *   onStable(ngZone, () => button.focus());
