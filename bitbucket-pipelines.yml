@@ -14,7 +14,7 @@ pipelines:
           - yarn install
           - npm run format:write
           - npm run eslint
-          - npm run test
+          # - npm run test
           # - pipe: atlassian/firebase-deploy:0.3.8
             # variables:
               # FIREBASE_TOKEN: '<string>'
