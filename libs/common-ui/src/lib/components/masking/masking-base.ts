@@ -22,6 +22,7 @@ export class CcMaskedInput {
  * @description base class with <input> helpers
  * Masking wrapper compoent should extend this base class
  */
+@Directive()
 export class MaskingBase {
   /**
    * @description reference to the <input> (via the CcMaskedInput) I

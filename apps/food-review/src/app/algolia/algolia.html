@@ -31,6 +31,7 @@
                     <ol class="ais-Hits-list">
                         <li *ngFor="let hit of hits" class="ais-Hits-item">
                             <img
+                                loading="lazy"
                                 class="food-image"
                                 [attr.src]="hit.image"
                                 [attr.alt]="hit.fdcName"

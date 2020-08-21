@@ -1,0 +1,60 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@cutcal/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@cutcal/nutrition": ["libs/nutrition/src/index.ts"],
+      "@cutcal/drag-n-drop": ["libs/drag-n-drop/src/index.ts"],
+      "@cutcal/cc-ng-core": ["libs/cc-ng-core/src/index.ts"],
+      "@cutcal/ng-testing": ["libs/ng-testing/src/index.ts"],
+      "@cutcal/features/food-recipe": ["libs/cutcal/food-recipe/src/index.ts"],
+      "@cutcal/features/analyze": ["libs/cutcal/analyze/src/index.ts"],
+      "@cutcal/features/calendar": ["libs/cutcal/calendar/src/index.ts"],
+      "@cutcal/features/fallback": ["libs/cutcal/fallback/src/index.ts"],
+      "@cutcal/features/footer": ["libs/cutcal/footer/src/index.ts"],
+      "@cutcal/features/profile": ["libs/cutcal/profile/src/index.ts"],
+      "@cutcal/features/recipe-builder": [
+        "libs/cutcal/recipe-builder/src/index.ts"
+      ],
+      "@cutcal/features/meal-ingredient": [
+        "libs/cutcal/meal-ingredient/src/index.ts"
+      ],
+      "@cutcal/features/nutrient": ["libs/cutcal/nutrient/src/index.ts"],
+      "@cutcal/features/legal": ["libs/cutcal/legal/src/index.ts"],
+      "@cutcal/features/business": ["libs/cutcal/business/src/index.ts"],
+      "@cutcal/features/auth": ["libs/cutcal/auth/src/index.ts"],
+      "@cutcal/features/grocery-pantry": [
+        "libs/cutcal/grocery-pantry/src/index.ts"
+      ],
+      "@cutcal/features/support": ["libs/cutcal/support/src/index.ts"],
+      "@cutcal/features/landing": ["libs/cutcal/landing/src/index.ts"],
+      "@cutcal/common-ui": ["libs/common-ui/src/index.ts"],
+      "@cutcal/playgrounds": ["libs/playgrounds/src/index.ts"],
+      "@cutcal/core": ["libs/core/src/index.ts"],
+      "@cutcal/diet": ["libs/diet/src/index.ts"],
+      "@cutcal/user": ["libs/user/src/index.ts"],
+      "@cutcal/auth": ["libs/auth/src/index.ts"],
+      "@cutcal/charts": ["libs/charts/src/index.ts"],
+      "@cutcal/fire": ["libs/fire/src/index.ts"],
+      "@cutcal/fdc": ["libs/fdc/src/index.ts"],
+      "@cutcal/convert-units": ["libs/convert-units/src/index.ts"],
+      "@cutcal/cc-timepicker": ["libs/cc-timepicker/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

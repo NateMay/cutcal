@@ -8,6 +8,8 @@ import {
   PLATFORM_ID
 } from '@angular/core'
 
+// TODO: alternative - https://medium.com/angular-in-depth/make-the-most-of-angular-di-private-providers-concept-93fcb8ec4ab3
+
 export const WINDOW = new InjectionToken('WindowToken')
 
 export abstract class WindowRef {

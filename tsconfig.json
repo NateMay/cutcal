@@ -1,60 +1,128 @@
+/*
+  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
+  It is not intended to be used to perform a compilation.
+
+  To learn more about this file see: https://angular.io/config/solution-tsconfig.
+*/
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "noImplicitAny": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@cutcal/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@cutcal/nutrition": ["libs/nutrition/src/index.ts"],
-      "@cutcal/drag-n-drop": ["libs/drag-n-drop/src/index.ts"],
-      "@cutcal/cc-ng-core": ["libs/cc-ng-core/src/index.ts"],
-      "@cutcal/ng-testing": ["libs/ng-testing/src/index.ts"],
-      "@cutcal/features/food-recipe": ["libs/cutcal/food-recipe/src/index.ts"],
-      "@cutcal/features/analyze": ["libs/cutcal/analyze/src/index.ts"],
-      "@cutcal/features/calendar": ["libs/cutcal/calendar/src/index.ts"],
-      "@cutcal/features/fallback": ["libs/cutcal/fallback/src/index.ts"],
-      "@cutcal/features/footer": ["libs/cutcal/footer/src/index.ts"],
-      "@cutcal/features/profile": ["libs/cutcal/profile/src/index.ts"],
-      "@cutcal/features/recipe-builder": [
-        "libs/cutcal/recipe-builder/src/index.ts"
-      ],
-      "@cutcal/features/meal-ingredient": [
-        "libs/cutcal/meal-ingredient/src/index.ts"
-      ],
-      "@cutcal/features/nutrient": ["libs/cutcal/nutrient/src/index.ts"],
-      "@cutcal/features/legal": ["libs/cutcal/legal/src/index.ts"],
-      "@cutcal/features/business": ["libs/cutcal/business/src/index.ts"],
-      "@cutcal/features/auth": ["libs/cutcal/auth/src/index.ts"],
-      "@cutcal/features/grocery-pantry": [
-        "libs/cutcal/grocery-pantry/src/index.ts"
-      ],
-      "@cutcal/features/support": ["libs/cutcal/support/src/index.ts"],
-      "@cutcal/features/landing": ["libs/cutcal/landing/src/index.ts"],
-      "@cutcal/common-ui": ["libs/common-ui/src/index.ts"],
-      "@cutcal/playgrounds": ["libs/playgrounds/src/index.ts"],
-      "@cutcal/core": ["libs/core/src/index.ts"],
-      "@cutcal/diet": ["libs/diet/src/index.ts"],
-      "@cutcal/user": ["libs/user/src/index.ts"],
-      "@cutcal/auth": ["libs/auth/src/index.ts"],
-      "@cutcal/charts": ["libs/charts/src/index.ts"],
-      "@cutcal/fire": ["libs/fire/src/index.ts"],
-      "@cutcal/fdc": ["libs/fdc/src/index.ts"],
-      "@cutcal/convert-units": ["libs/convert-units/src/index.ts"],
-      "@cutcal/cc-timepicker": ["libs/cc-timepicker/src/index.ts"]
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/cutcal/tsconfig.app.json"
+    },
+    {
+      "path": "./apps/cutcal/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/cutcal-e2e/tsconfig.e2e.json"
+    },
+    {
+      "path": "./libs/api-interfaces/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/common-ui-docs/tsconfig.app.json"
+    },
+    {
+      "path": "./apps/common-ui-docs/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/common-ui-e2e/tsconfig.e2e.json"
+    },
+    {
+      "path": "./apps/food-review/tsconfig.app.json"
+    },
+    {
+      "path": "./apps/food-review/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/food-review-e2e/tsconfig.e2e.json"
+    },
+    {
+      "path": "./libs/nutrition/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/ng-testing/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/food-recipe/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/analyze/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/calendar/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/fallback/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/footer/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/profile/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/recipe-builder/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/meal-ingredient/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/nutrient/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/legal/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/business/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/grocery-pantry/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/support/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cutcal/landing/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/common-ui/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/playgrounds/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/core/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/diet/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/user/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/auth/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/charts/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/fire/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/convert-units/tsconfig.spec.json"
+    },
+    {
+      "path": "./libs/cc-timepicker/tsconfig.lib.json"
+    },
+    {
+      "path": "./libs/cc-timepicker/tsconfig.spec.json"
+    },
+    {
+      "path": "./apps/functions/tsconfig.json"
+    },
+    {
+      "path": "./apps/functions/tsconfig.spec.json"
     }
-  },
-  "exclude": ["node_modules", "tmp"]
+  ]
 }

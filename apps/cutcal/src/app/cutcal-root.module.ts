@@ -2,9 +2,9 @@ import { Injectable, NgModule } from '@angular/core'
 import { AngularFireModule } from '@angular/fire'
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFirestoreModule } from '@angular/fire/firestore'
-import { GestureConfig } from '@angular/material/core'
 import {
   BrowserModule,
+  HammerGestureConfig,
   HammerModule,
   HAMMER_GESTURE_CONFIG
 } from '@angular/platform-browser'
@@ -38,7 +38,7 @@ const DEV_TOOLS_OPTIONS: StoreDevtoolsOptions = {
 }
 
 @Injectable()
-export class MyHammerConfig extends GestureConfig {
+export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
     pinch: { enable: false },
     rotate: { enable: false }

@@ -7,12 +7,14 @@ import {
 } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs'
 import { catchError, retry } from 'rxjs/operators'
+import { Injectable } from '@angular/core'
 
 /**
  * @description Not currently used, but could be a furture optimization
  * @see {@link https://github.com/angular/angular/blob/master/aio/content/examples/http/src/app/ Github}
  */
 
+@Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
   intercept(
     request: HttpRequest<any>,
