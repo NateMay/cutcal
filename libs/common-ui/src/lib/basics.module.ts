@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
 import { RouterModule } from '@angular/router'
+import { LazyImgModule } from './directives/lazy-img/lazy-img.module'
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor'
 import { DndModule } from './modules/dnd/dnd.module'
 import { PipesModule } from './pipes/pipes.module'
@@ -18,7 +19,7 @@ import { PasswordValidatorDir } from './validators/password/password'
 
 const DECLARATIONS = [ConfrmPasswordDir, PasswordValidatorDir]
 
-const MODULES = [DndModule, PipesModule]
+const MODULES = [DndModule, PipesModule, LazyImgModule]
 
 const NG_MODULES = [
   FormsModule,
