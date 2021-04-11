@@ -4,6 +4,7 @@ import { Image } from './images'
 import { Ingredient } from './ingredient'
 import { Portion } from './portion'
 
+// TODO: copy the card from here: https://www.youtube.com/watch?v=5YGge0RaCx8
 /**
  * Much like a food, but not from the USDA so it rolls up the nutrition from its children
  */
@@ -51,5 +52,5 @@ export const createRecipe = (
   instructions,
   foodGroup,
   primaryImage,
-  secondaryImages,
+  secondaryImages
 })

@@ -26,7 +26,26 @@
             "stylePreprocessorOptions": {
               "includePaths": ["libs/common-ui/styles"]
             },
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "angular-instantsearch",
+              "firebase",
+              "@angular/common/locales/fr",
+              "lodash/dropRight",
+              "@firebase/app",
+              "firebase/app",
+              "@firebase/database",
+              "@firebase/component",
+              "@firebase/firestore",
+              "@firebase/functions",
+              "@firebase/performance",
+              "@firebase/remote-config",
+              "algoliasearch",
+              "algoliasearch-helper",
+              "nouislider",
+              "hogan.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -312,7 +331,26 @@
             "stylePreprocessorOptions": {
               "includePaths": ["libs/common-ui/styles"]
             },
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "angular-instantsearch",
+              "firebase",
+              "@angular/common/locales/fr",
+              "lodash/dropRight",
+              "@firebase/app",
+              "firebase/app",
+              "@firebase/database",
+              "@firebase/component",
+              "@firebase/firestore",
+              "@firebase/functions",
+              "@firebase/performance",
+              "@firebase/remote-config",
+              "algoliasearch",
+              "algoliasearch-helper",
+              "nouislider",
+              "hogan.js"
+            ]
           },
           "configurations": {
             "production": {

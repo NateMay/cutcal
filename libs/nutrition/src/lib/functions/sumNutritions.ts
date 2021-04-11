@@ -2,7 +2,7 @@ import { isNumber, mergeWith } from 'lodash'
 import { Nutrition } from '../nutrition'
 
 /**
- * @description Aggregates array of nutrition objects
+ * @description Aggregates an array of nutrition objects
  * @param {Nutrition<number>[]} source
  */
 export const sumNutritions = (

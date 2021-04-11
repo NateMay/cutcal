@@ -3,12 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
+  "browserslist": [
+    "last 2 versions",
+    "not ie <= 10",
+    "not ie_mob <= 10"
+  ],
   "scripts": {
     "affected": "nx affected",
     "affected:all": "nx affected:lint && nx affected:test && nx affected:e2e",
     "affected:apps": "nx affected:apps",
     "affected:build": "nx affected:build",
     "affected:dep-graph": "nx affected:dep-graph",
+    "prettier": "prettier",
     "affected:e2e": "nx affected:e2e",
     "affected:libs": "nx affected:libs",
     "affected:lint": "nx affected:lint",
@@ -63,7 +69,7 @@
     "@ngrx/store": "^9.2.0",
     "@ngrx/store-devtools": "^9.2.0",
     "@nrwl/angular": "^9.5.1",
-    "@nrwl/nx-cloud": "^10.0.0",
+    "@nrwl/nx-cloud": "^9.0.0",
     "algoliasearch": "^4.2.0",
     "algoliasearch-helper": "^3.1.1",
     "angular-instantsearch": "^2.3.0",

@@ -22,6 +22,11 @@ import { DescriptionPipe } from './algolia/description.pipe'
 import { CreateComponent } from './create/create.component'
 import { AppComponent } from './food-review.component'
 import { FoodReviewRouting } from './food-review.routing'
+import { MatIconModule } from '@angular/material/icon'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatTooltipModule } from '@angular/material/tooltip'
+import { DragDropModule } from '@angular/cdk/drag-drop'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +35,9 @@ import { FoodReviewRouting } from './food-review.routing'
     DescriptionPipe
   ],
   imports: [
+    DragDropModule,
+    MatTooltipModule,
+    MatMenuModule,
     BrowserModule,
     HttpClientModule,
     MatFormFieldModule,
@@ -37,6 +45,7 @@ import { FoodReviewRouting } from './food-review.routing'
     BrowserAnimationsModule,
     MatButtonModule,
     MatListModule,
+    MatIconModule,
     MatSidenavModule,
     FlexLayoutModule,
     MatToolbarModule,

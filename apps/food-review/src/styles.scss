@@ -27,6 +27,15 @@ $cutcal-theme: mat-light-theme($cutcal-primary, $cutcal-accent, $cutcal-warn);
 
 /* You can add global styles to this file, and also import other style files */
 
+html,
+body {
+  font-family: 'Muli';
+}
+
 body {
   margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }

@@ -36,7 +36,7 @@ const createData = (
     <ng-container *ngFor="let parent of templateData; first as isFirst">
       <ng-container
         #parentData
-        [ngTemplateOutlet]="parentPanel"
+        *ngTemplateOutlet="parentPanel"
         [ngTemplateOutletContext]="{
           label: parent.label,
           key: parent.key,
