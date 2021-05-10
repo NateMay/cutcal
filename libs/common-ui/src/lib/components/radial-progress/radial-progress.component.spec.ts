@@ -1,6 +1,6 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Component, DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RadialProgressComponent } from './radial-progress.component';
 
@@ -40,12 +40,12 @@ describe('RadialProgressComponent', () => {
   let liveAnnouncer: LiveAnnouncer;
   let getDE: (css: string) => DebugElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
       declarations: [TestRadialProgress, RadialProgressComponent],
       providers: [{ provide: LiveAnnouncer, useValue: liveAnnouncerStub }]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestRadialProgress);
@@ -53,8 +53,8 @@ describe('RadialProgressComponent', () => {
     componentDebug = fixture.debugElement.query(
       By.directive(RadialProgressComponent)
     );
-    component = componentDebug.componentInstance;
-    liveAnnouncer = TestBed.get(LiveAnnouncer);
+    component = componentDebug.componentInstance as RadialProgressComponent;
+    liveAnnouncer = TestBed.inject(LiveAnnouncer);
     getDE = (css: string) => fixture.debugElement.query(By.css(css));
   });
 

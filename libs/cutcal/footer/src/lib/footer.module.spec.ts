@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { FooterModule } from './footer.module';
 
 describe('FooterModule', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
       imports: [FooterModule]
     }).compileComponents();
-  }));
+  });
 
   it('should create', () => {
     expect(FooterModule).toBeDefined();

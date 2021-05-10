@@ -25,14 +25,16 @@ import { FoodReviewRouting } from './dietstats.routing'
 import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatTooltipModule } from '@angular/material/tooltip'
-import { DragDropModule } from '@angular/cdk/drag-drop'
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { SearchComponent } from './search/search.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     AlgoliaComponent,
     CreateComponent,
-    DescriptionPipe
+    DescriptionPipe,
+    SearchComponent
   ],
   imports: [
     DragDropModule,
@@ -64,6 +66,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
     AngularFireAuthModule
   ],
   providers: [FirestoreService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    SearchComponent
+  ]
 })
 export class AppModule {}

@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { DndPayload } from '@cutcal/common-ui'
 
 @Component({
-  selector: 'cutcal-doc4-dnd',
+  selector: 'ds-doc4-dnd',
   template: `
     <h2>Drag & Drop</h2>
     <hr />

@@ -6,7 +6,7 @@
 
 import { Component, DebugElement } from '@angular/core';
 import {
-  async,
+ 
   ComponentFixture,
   fakeAsync,
   TestBed,

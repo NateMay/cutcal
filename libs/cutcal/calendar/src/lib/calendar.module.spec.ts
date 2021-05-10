@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { CalendarModule } from './calendar.module';
 
 describe('CalendarModule', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
       imports: [CalendarModule]
     }).compileComponents();
-  }));
+  });
 
   it('should create', () => {
     expect(CalendarModule).toBeDefined();

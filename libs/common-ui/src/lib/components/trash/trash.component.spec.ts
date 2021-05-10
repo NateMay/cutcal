@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MealService } from '@cutcal/common-ui';
 import { DndModule } from '../../modules/dnd/dnd.module';
 import { TrashComponent } from './trash.component';
@@ -14,13 +14,13 @@ describe('TrashComponent', () => {
     deleteUsage: (): void => {}
   };
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
       declarations: [TrashComponent],
       imports: [DndModule],
       providers: [{ provide: MealService, useValue: mealSvcStub }]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TrashComponent);

@@ -1,3 +1,4 @@
+import { firestore } from 'firebase/app'
 import {
   FdcFoodMeasure,
   FdcFoodNutrient,
@@ -19,5 +20,5 @@ export interface FdcDump {
   ingredients?: string
   scientificName?: string
   gtinUpc?: string // GTIN or UPC code identifying the food. Only applies to Branded Foods.
-  updatedAt?: firebase.firestore.Timestamp
+  updatedAt?:firestore.Timestamp
 }

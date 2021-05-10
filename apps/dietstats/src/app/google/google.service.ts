@@ -77,6 +77,6 @@ export class GoogleService {
       get(pagemap, 'cse_image[0].src'),
       get(pagemap, 'cse_thumbnail[0].src'),
       get(pagemap, `metatags[0]['og:image']`)
-    ]
+    ] as string[]
   }
 }

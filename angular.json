@@ -24,7 +24,7 @@
       },
       "root": "apps/cutcal",
       "sourceRoot": "apps/cutcal/src",
-      "prefix": "cutcal",
+      "prefix": "ds",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -322,7 +322,7 @@
       },
       "root": "apps/dietstats",
       "sourceRoot": "apps/dietstats/src",
-      "prefix": "cutcal",
+      "prefix": "ds",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -492,7 +492,7 @@
       "projectType": "library",
       "root": "libs/ng-testing",
       "sourceRoot": "libs/ng-testing/src",
-      "prefix": "cutcal",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -957,7 +957,7 @@
       "projectType": "library",
       "root": "libs/common-ui",
       "sourceRoot": "libs/common-ui/src",
-      "prefix": "cutcal",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -988,7 +988,7 @@
       "projectType": "library",
       "root": "libs/playgrounds",
       "sourceRoot": "libs/playgrounds/src",
-      "prefix": "cutcal",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -1112,7 +1112,7 @@
       "projectType": "library",
       "root": "libs/auth",
       "sourceRoot": "libs/auth/src",
-      "prefix": "cutcal",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -1143,7 +1143,7 @@
       "projectType": "library",
       "root": "libs/charts",
       "sourceRoot": "libs/charts/src",
-      "prefix": "cutcal",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -1174,7 +1174,7 @@
       "projectType": "library",
       "root": "libs/fire",
       "sourceRoot": "libs/fire/src",
-      "prefix": "cutcal",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -1205,7 +1205,7 @@
       "projectType": "library",
       "root": "libs/convert-units",
       "sourceRoot": "libs/convert-units/src",
-      "prefix": "cutcal",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",

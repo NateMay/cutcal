@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommonUiLandingComponent } from './common-ui-landing.component';
 
@@ -6,11 +6,11 @@ describe('CommonUiLandingComponent', () => {
   let component: CommonUiLandingComponent;
   let fixture: ComponentFixture<CommonUiLandingComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
       declarations: [CommonUiLandingComponent]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CommonUiLandingComponent);

@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 import { BreadCrumb } from '@cutcal/common-ui'
 
 @Component({
-  selector: 'cutcal-doc4-breadcrumb',
+  selector: 'ds-doc4-breadcrumb',
   template: `
     <h2>Breadcrumbs</h2>
     <hr />

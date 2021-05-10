@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {
-  async,
+ 
   ComponentFixture,
   inject,
   TestBed
@@ -18,8 +18,8 @@ describe('AnalyzeRangePickerComponent', () => {
 
   const URL_DATE_STR = '01-01-2019';
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
       declarations: [AnalyzeRangePickerComponent],
       imports: [ReactiveFormsModule],
       providers: [
@@ -28,7 +28,7 @@ describe('AnalyzeRangePickerComponent', () => {
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AnalyzeRangePickerComponent);

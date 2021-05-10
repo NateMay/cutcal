@@ -16,9 +16,9 @@ import { FDC_IDS } from './seed-fdc-foods'
 export class CreateComponent {
   selected: WikiDetails
 
-  description: string = 'Loading...'
-
   results$: Observable<WikiDetails[]>
+
+  description = 'Loading...'
 
   response: AddFoodReponse
 
@@ -42,7 +42,7 @@ export class CreateComponent {
       .subscribe()
   }
 
-  seed() {
+  seed(): void {
     const callable = this.fns.httpsCallable<AddFoodRequest, AddFoodReponse>(
       'addFood'
     )

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DsDatepickerContent } from './datepicker-content';
 /**
  * To run this test, remove this directory from "testPathIgnorePatterns"
@@ -9,11 +9,11 @@ describe('Datepicker Content Component', () => {
   let component: DsDatepickerContent;
   let fixture: ComponentFixture<DsDatepickerContent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
       declarations: [DsDatepickerContent]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DsDatepickerContent);

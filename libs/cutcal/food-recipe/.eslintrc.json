@@ -12,6 +12,7 @@
         "project": ["libs/cutcal/food-recipe/tsconfig.*?.json"]
       },
       "rules": {
+        "@angular-eslint/component-class-suffix": "off",
         "@angular-eslint/directive-selector": [
           "error",
           { "type": "attribute", "prefix": "ds", "style": "camelCase" }

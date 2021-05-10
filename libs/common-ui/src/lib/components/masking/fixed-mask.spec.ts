@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DsMaskingModule } from './masking.module';
 
 @Component({
@@ -21,12 +21,12 @@ describe('DsFixedMask', () => {
   let fixture: ComponentFixture<TestMaskingComponent>;
   let consumer: TestMaskingComponent;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
       declarations: [TestMaskingComponent],
       imports: [DsMaskingModule]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestMaskingComponent);

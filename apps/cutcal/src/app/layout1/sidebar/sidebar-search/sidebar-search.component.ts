@@ -2,7 +2,6 @@ import {
   Component,
   ElementRef,
   HostListener,
-  OnInit,
   ViewChild
 } from '@angular/core'
 
@@ -24,7 +23,7 @@ import {
   templateUrl: './sidebar-search.component.html',
   styleUrls: ['./sidebar-search.component.scss']
 })
-export class SidebarSearchComponent implements OnInit {
+export class SidebarSearchComponent {
   foods = [
     {
       name: 'bacon',
@@ -62,8 +61,6 @@ export class SidebarSearchComponent implements OnInit {
 
   @ViewChild('inputEl') inputEl!: ElementRef<HTMLInputElement>
 
-  constructor() {}
-
   // @HostListener('document:keydown.escape')
   deactivateSearch(): void {
     this.searchAcivated = false
@@ -78,6 +75,4 @@ export class SidebarSearchComponent implements OnInit {
     this.inputEl.nativeElement.focus()
     this.searchAcivated = true
   }
-
-  ngOnInit(): void {}
 }

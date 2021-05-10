@@ -1,6 +1,6 @@
 import { NO_ERRORS_SCHEMA, SimpleChanges } from '@angular/core';
 import {
-  async,
+ 
   ComponentFixture,
   fakeAsync,
   TestBed,

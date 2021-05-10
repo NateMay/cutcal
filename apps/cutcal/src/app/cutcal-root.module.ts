@@ -9,7 +9,6 @@ import {
   HAMMER_GESTURE_CONFIG
 } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { AppState, reducers } from '@cutcal/common-ui'
 import { STRICT_RUNTIME_CHECKS } from '@cutcal/core'
 import { EffectsModule } from '@ngrx/effects'
 import {
@@ -26,6 +25,7 @@ import { CutCalRoutingModule } from './cutcal.routing'
 import { Layout1Module } from './layout1/layout1.module'
 import { actionSanitizer } from './utils/action.sanitizer'
 import { CustomSerializer } from './utils/serializer'
+import { AppState, reducers } from '../+state/app.state';
 
 export const metaReducers: MetaReducer<AppState>[] = environment.production
   ? []
@@ -39,7 +39,7 @@ const DEV_TOOLS_OPTIONS: StoreDevtoolsOptions = {
 
 @Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
-  overrides = <any>{
+  overrides = {
     pinch: { enable: false },
     rotate: { enable: false }
   }

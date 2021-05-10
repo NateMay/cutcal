@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'cutcal-doc4-timepicker',
+  selector: 'ds-doc4-timepicker',
   template: `
     <h2>Time picker</h2>
     <hr />

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'cutcal-doc4-datepicker',
+  selector: 'ds-doc4-datepicker',
   template: `
     <h2>Date picker</h2>
     <hr />

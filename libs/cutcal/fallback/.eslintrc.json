@@ -10,6 +10,7 @@
       ],
       "parserOptions": { "project": ["libs/cutcal/fallback/tsconfig.*?.json"] },
       "rules": {
+        "@angular-eslint/component-class-suffix": "off",
         "@angular-eslint/directive-selector": [
           "error",
           { "type": "attribute", "prefix": "ds", "style": "camelCase" }

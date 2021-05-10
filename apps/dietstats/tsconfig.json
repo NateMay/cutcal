@@ -3,9 +3,9 @@
   "compilerOptions": {
     "types": ["node", "jest"]
   },
-  // "angularCompilerOptions": {
-  //   "fullTemplateTypeCheck": true,
-  //   "strictTemplates": true
-  // },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictTemplates": true
+  },
   "include": ["**/*.ts"]
 }

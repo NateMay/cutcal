@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { InstantSearchConfig } from 'angular-instantsearch/instantsearch/instantsearch'
 
 @Component({
   templateUrl: './algolia.html',
   styleUrls: ['./algolia.scss']
 })
-export class AlgoliaComponent implements OnInit {
+export class AlgoliaComponent  {
   config: InstantSearchConfig = {
     apiKey: 'a1cc78476d92b73185b46aa3121db228',
     appId: 'OB2L36C5AS',
@@ -44,6 +44,4 @@ export class AlgoliaComponent implements OnInit {
     .concat([...Array(30).keys()].map((i) => i + 1))
     .concat([1, 2])
   constructor() {}
-
-  ngOnInit(): void {}
 }

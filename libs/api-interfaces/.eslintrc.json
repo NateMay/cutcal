@@ -10,6 +10,7 @@
       ],
       "parserOptions": { "project": ["libs/api-interfaces/tsconfig.*?.json"] },
       "rules": {
+        "@angular-eslint/component-class-suffix": "off",
         "@angular-eslint/directive-selector": [
           "error",
           { "type": "attribute", "prefix": "app", "style": "camelCase" }

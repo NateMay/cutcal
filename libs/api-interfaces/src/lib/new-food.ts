@@ -49,7 +49,7 @@ interface NewFoodReviewState {
   categories: boolean
 }
 
-export const newFoodReviewState = () => ({
+export const newFoodReviewState = (): NewFoodReviewState => ({
   image: false,
   description: false,
   name: false,
@@ -69,7 +69,7 @@ interface NewFoodIngredient extends Portion {
 
 interface NewFoodReview {
   stars: 1 | 2 | 3 | 4 | 5
-  date: firebase.firestore.Timestamp
+  date: firestore.Timestamp
   username: string
   text: string
 }
@@ -94,5 +94,5 @@ interface NewFoodCreator {
   timestamp: firestore.Timestamp
 }
 
-export const primaryImage = (images: Image[]) =>
+export const primaryImage = (images: Image[]): Image =>
   maxBy(images, (image: Image) => image.votes)

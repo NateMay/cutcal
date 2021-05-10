@@ -1,20 +1,18 @@
 import { Overlay } from '@angular/cdk/overlay'
-import { Component, OnInit, ViewContainerRef } from '@angular/core'
+import { Component, ViewContainerRef } from '@angular/core'
 
 @Component({
   selector: 'ds-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   // @ViewChild(CdkOverlayOrigin) _overlayOrigin!: CdkOverlayOrigin
 
   constructor(
     public overlay: Overlay,
     public viewContainerRef: ViewContainerRef
   ) {}
-
-  ngOnInit(): void {}
 
   // openSpaghettiPanel() {
   //   const position1: ConnectedPosition = {

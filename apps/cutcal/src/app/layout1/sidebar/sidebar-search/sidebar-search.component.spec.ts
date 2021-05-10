@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -13,8 +13,8 @@ describe('SidebarSearchComponent', () => {
   let component: SidebarSearchComponent;
   let fixture: ComponentFixture<SidebarSearchComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
       declarations: [SidebarSearchComponent],
       imports: [
         MatFormFieldModule,
@@ -27,7 +27,7 @@ describe('SidebarSearchComponent', () => {
         MatMenuModule
       ]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SidebarSearchComponent);

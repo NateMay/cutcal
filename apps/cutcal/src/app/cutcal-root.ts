@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { Meta } from '@angular/platform-browser'
 
 @Component({
   selector: 'ds-root',
   template: ` <router-outlet></router-outlet> `
 })
-export class CutCalComponent implements OnInit {
+export class CutCalComponent {
   // private sw: ServiceWorkerService,
   constructor(private readonly meta: Meta) {
     this.meta.addTags([
@@ -20,8 +20,8 @@ export class CutCalComponent implements OnInit {
     ])
   }
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
     // Check service worker update
     // this.sw.checkSWUpdate();
-  }
+  // }
 }

@@ -16,7 +16,7 @@ export class CutCalEffects {
           localStorage.removeItem('user')
         }),
         tap(() => {
-          this.router.navigate(['/'])
+          void this.router.navigate(['/'])
         })
       ),
     { dispatch: false }

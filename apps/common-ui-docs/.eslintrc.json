@@ -10,6 +10,7 @@
       ],
       "parserOptions": { "project": ["apps/common-ui-docs/tsconfig.*?.json"] },
       "rules": {
+        
         "@angular-eslint/directive-selector": [
           "error",
           { "type": "attribute", "prefix": "ds", "style": "camelCase" }

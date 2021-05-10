@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -12,8 +12,8 @@ describe('Layout1Component', () => {
   let component: Layout1Component;
   let fixture: ComponentFixture<Layout1Component>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async() => {
+    await  TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
         SidebarModule,
@@ -25,7 +25,7 @@ describe('Layout1Component', () => {
       ],
       declarations: [Layout1Component]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(Layout1Component);

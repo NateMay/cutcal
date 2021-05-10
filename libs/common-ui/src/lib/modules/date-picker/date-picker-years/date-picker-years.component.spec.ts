@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatButtonModule } from '@angular/material/button';
 import { DatePickerYearsComponent } from './date-picker-years.component';
 
@@ -8,12 +8,12 @@ describe('DatePickerYearsComponent', () => {
   let component: DatePickerYearsComponent;
   let fixture: ComponentFixture<DatePickerYearsComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async() => {
+    await TestBed.configureTestingModule({
       imports: [MatButtonModule],
       declarations: [DatePickerYearsComponent]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DatePickerYearsComponent);

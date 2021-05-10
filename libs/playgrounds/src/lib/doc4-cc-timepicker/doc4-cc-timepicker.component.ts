@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
-  selector: 'cutcal-doc4-cc-timepicker',
+  selector: 'ds-doc4-cc-timepicker',
   template: `
     <h2>CC Timepicker</h2>
 

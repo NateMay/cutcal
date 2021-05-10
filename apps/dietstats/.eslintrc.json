@@ -10,13 +10,15 @@
       ],
       "parserOptions": { "project": ["apps/dietstats/tsconfig.*?.json"] },
       "rules": {
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@angular-eslint/component-class-suffix": "off",
         "@angular-eslint/directive-selector": [
           "error",
-          { "type": "attribute", "prefix": "cutcal", "style": "camelCase" }
+          { "type": "attribute", "prefix": "ds", "style": "camelCase" }
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "cutcal", "style": "kebab-case" }
+          { "type": "element", "prefix": "ds", "style": "kebab-case" }
         ]
       }
     },
