@@ -189,7 +189,6 @@ export class DsTimepickerInput
       ? null
       : { ccTimepickerParse: { text: this._elementRef.nativeElement.value } }
 
-
   // eslint-disable-next-line @typescript-eslint/member-ordering
   private _validator: ValidatorFn | null = Validators.compose([
     this._parseValidator
