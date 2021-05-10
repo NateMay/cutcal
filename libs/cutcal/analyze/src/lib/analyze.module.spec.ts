@@ -4,7 +4,7 @@ import { AnalyzeModule } from './analyze.module';
 describe('AnalyzeModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AnalyzeModule],
+      imports: [AnalyzeModule]
     }).compileComponents();
   }));
 

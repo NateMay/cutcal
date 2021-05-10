@@ -12,7 +12,7 @@ export interface AnalyzeState {
 }
 
 export const ANALYZE_INITIAL: AnalyzeState = {
-  selectedNutrients: nutrtionSelections(),
+  selectedNutrients: nutrtionSelections()
 }
 
 // ****** SELECTORS ******* //
@@ -22,9 +22,9 @@ export const ANALYZE_INITIAL: AnalyzeState = {
 const reducer = createReducer<AnalyzeState>(
   ANALYZE_INITIAL,
 
-  on(resetToDefualt, state => ({
+  on(resetToDefualt, (state) => ({
     ...state,
-    selectedNutrients: nutrtionSelections(),
+    selectedNutrients: nutrtionSelections()
   }))
 )
 

@@ -39,7 +39,7 @@ export interface CalFaceDay {
 const ANIMATION_SPEED = 50
 
 @Component({
-  selector: 'cc-calendar-face',
+  selector: 'ds-calendar-face',
   styleUrls: ['./calendar-face.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
@@ -237,7 +237,7 @@ export class CalendarFaceComponent implements OnInit {
   createCalendar(): void {
     if (this.shouldCreate)
       this.calendar = chunk(
-        getFullCalendar(this.focusDate).map(date => ({
+        getFullCalendar(this.focusDate).map((date) => ({
           date,
           startDate: date.isSameDay(this.startDate),
           endDate: date.isSameDay(this.endDate),

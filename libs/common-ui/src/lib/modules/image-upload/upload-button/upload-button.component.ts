@@ -25,7 +25,7 @@ import {
 let nextUniqueId = 0
 
 @Component({
-  selector: 'cc-upload-button',
+  selector: 'ds-upload-button',
   styleUrls: ['./upload-button.component.scss'],
   template: `
     <label
@@ -140,12 +140,12 @@ export class UploadButtonComponent implements OnInit {
           event,
           closeDialog: () => this.closeCropper(),
           startCropImage: () => this.startCropImage.emit(),
-          imageCropped: e => this.imageCropped.emit(e),
-          imageCroppedBase64: e => {
+          imageCropped: (e) => this.imageCropped.emit(e),
+          imageCroppedBase64: (e) => {
             this.croppedSrc = e
             this.imageCroppedBase64.emit(e)
           },
-          imageCroppedFile: e => this.imageCroppedFile.emit(e),
+          imageCroppedFile: (e) => this.imageCroppedFile.emit(e),
           imageLoaded: () => this.imageLoaded.emit(),
           cropperReady: () => this.cropperReady.emit(),
           loadImageFailed: () => this.startCropImage.emit()

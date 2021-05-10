@@ -4,7 +4,7 @@ import { BusinessModule } from './business.module';
 describe('BusinessModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [BusinessModule],
+      imports: [BusinessModule]
     }).compileComponents();
   }));
 

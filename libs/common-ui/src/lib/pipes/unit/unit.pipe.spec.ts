@@ -4,9 +4,7 @@ import { getEl } from '../../../../../ng-testing/src/lib/getEl';
 import { UnitPipeModule } from './unit-pipe.module';
 
 @Component({
-  template: `
-    <div>{{ unit | unit }}</div>
-  `
+  template: ` <div>{{ unit | unit }}</div> `
 })
 class TestUnitPipeComponent {
   unit = 'g';

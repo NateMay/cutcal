@@ -5,7 +5,7 @@ interface DatePickerYear {
   color: 'primary' | ''
 }
 @Component({
-  selector: 'cc-date-picker-years',
+  selector: 'ds-date-picker-years',
   template: `
     <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
       <button

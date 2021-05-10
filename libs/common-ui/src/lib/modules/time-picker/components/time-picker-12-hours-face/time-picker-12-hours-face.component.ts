@@ -10,15 +10,15 @@ import { TimePeriod } from '../../models/time-period.enum'
 import { getHours } from '../../utils/timepicker-time.utils'
 
 @Component({
-  selector: 'cc-timepicker-12-hours-face',
+  selector: 'ds-timepicker-12-hours-face',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <cc-timepicker-face
+    <ds-timepicker-face
       [selectedTime]="selectedHour"
       [faceTime]="hoursList"
       (timeChange)="hourChange.next($event)"
       (timeSelected)="onTimeSelected($event)"
-    ></cc-timepicker-face>
+    ></ds-timepicker-face>
   `
 })
 export class Timepicker12HoursFaceComponent {

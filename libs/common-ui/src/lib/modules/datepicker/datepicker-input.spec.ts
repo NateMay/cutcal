@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CcDatepickerInput } from './datepicker-input';
+import { DsDatepickerInput } from './datepicker-input';
 /**
  * To run this test, remove this directory from "testPathIgnorePatterns"
  * in "libs/common/jest.config.js"
  */
 describe('Datepicker Input Component', () => {
-  let component: CcDatepickerInput;
-  let fixture: ComponentFixture<CcDatepickerInput>;
+  let component: DsDatepickerInput;
+  let fixture: ComponentFixture<DsDatepickerInput>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CcDatepickerInput]
+      declarations: [DsDatepickerInput]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CcDatepickerInput);
+    fixture = TestBed.createComponent(DsDatepickerInput);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

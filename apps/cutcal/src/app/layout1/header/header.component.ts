@@ -2,9 +2,9 @@ import { Overlay } from '@angular/cdk/overlay'
 import { Component, OnInit, ViewContainerRef } from '@angular/core'
 
 @Component({
-  selector: 'cc-header',
+  selector: 'ds-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   // @ViewChild(CdkOverlayOrigin) _overlayOrigin!: CdkOverlayOrigin

@@ -4,9 +4,7 @@ import { By } from '@angular/platform-browser';
 import { StripHtmlPipe } from './strip-html.pipe';
 
 @Component({
-  template: `
-    <div>{{ variable | stripHtml }}</div>
-  `
+  template: ` <div>{{ variable | stripHtml }}</div> `
 })
 class TestStripHtml {
   variable = 'No <b>bold</b> tag.';

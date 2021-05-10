@@ -47,7 +47,7 @@ export interface MoveStart {
 export type OutputType = 'base64' | 'file' | 'both'
 
 @Component({
-  selector: 'cc-image-cropper',
+  selector: 'ds-image-cropper',
   styleUrls: ['./image-cropper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -798,7 +798,7 @@ export class ImageCropperComponent implements OnChanges {
   }
 
   private getCanvasBlob(cropCanvas: HTMLCanvasElement): Promise<Blob | null> {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       cropCanvas.toBlob(
         (result: Blob | null) => this.zone.run(() => resolve(result)),
         'image/' + this.format,

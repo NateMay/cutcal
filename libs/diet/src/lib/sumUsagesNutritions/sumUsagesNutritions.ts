@@ -15,5 +15,5 @@ export const sumUsagesNutritions = (
   foods: KVP<Food>
 ): Nutrition<number> =>
   sumNutritions(
-    map(usages, usage => scaleNutrition(usage, foods[usage.foodId]))
+    map(usages, (usage) => scaleNutrition(usage, foods[usage.foodId]))
   )

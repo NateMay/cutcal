@@ -1,4 +1,4 @@
-import { RouterStateSnapshot } from '@angular/router';
+import { RouterStateSnapshot, Params } from '@angular/router';
 import { CustomSerializer } from './serializer';
 
 it('Serializer functions', () => {
@@ -7,19 +7,19 @@ it('Serializer functions', () => {
   const result = serializer.serialize(<RouterStateSnapshot>{
     url: 'a/url',
     root: {
-      queryParams: <any>{ params: 'a query param' },
+      queryParams: <Params>{ params: 'a query param' },
       firstChild: {
         firstChild: {
-          queryParams: <any>{ params: 'a query param' },
-          params: <any>{ params: 'a param' },
-        },
-      },
-    },
+          queryParams: <Params>{ params: 'a query param' },
+          params: <Params>{ params: 'a param' }
+        }
+      }
+    }
   });
 
   expect(result).toEqual({
     url: 'a/url',
     params: { params: 'a param' },
-    queryParams: { params: 'a query param' },
+    queryParams: { params: 'a query param' }
   });
 });

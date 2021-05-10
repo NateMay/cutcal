@@ -10,12 +10,12 @@ import { TimePickerInputComponent } from './time-picker-input.component';
 
 @Component({
   template: `
-    <cc-time-picker-input
+    <ds-time-picker-input
       [label]="label"
       [placeholder]="placeholder"
       [(time)]="time"
       (timeChange)="timeChange($event)"
-    ></cc-time-picker-input>
+    ></ds-time-picker-input>
   `
 })
 class TestTimePickerComponent {

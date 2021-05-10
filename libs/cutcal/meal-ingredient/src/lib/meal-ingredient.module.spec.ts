@@ -4,7 +4,7 @@ import { MealIngredientModule } from './meal-ingredient.module';
 describe('MealIngredientModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MealIngredientModule],
+      imports: [MealIngredientModule]
     }).compileComponents();
   }));
 

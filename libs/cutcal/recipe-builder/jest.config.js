@@ -4,6 +4,6 @@ module.exports = {
   coverageDirectory: '../../../coverage/libs/cutcal/recipe-builder',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
-    'jest-preset-angular/build/HTMLCommentSerializer.js',
-  ],
+    'jest-preset-angular/build/HTMLCommentSerializer.js'
+  ]
 }

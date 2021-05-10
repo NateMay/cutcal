@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core'
 
 @Pipe({
-  name: 'minutesFormatter',
+  name: 'minutesFormatter'
 })
-export class CcMinutesFormatterPipe implements PipeTransform {
+export class DsMinutesFormatterPipe implements PipeTransform {
   transform(
     minute?: number | null,
     gap = 5

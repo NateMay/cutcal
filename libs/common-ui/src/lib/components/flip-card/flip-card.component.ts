@@ -1,7 +1,7 @@
 import { Component, EventEmitter, HostBinding, Output } from '@angular/core'
 
 @Component({
-  selector: 'cc-flip-card',
+  selector: 'ds-flip-card',
   host: { tabIndex: '0' },
   template: `
     <div class="flip-card-inner">

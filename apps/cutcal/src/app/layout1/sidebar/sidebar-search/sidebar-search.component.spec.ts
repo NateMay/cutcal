@@ -24,8 +24,8 @@ describe('SidebarSearchComponent', () => {
         MatButtonModule,
         MatCheckboxModule,
         MatExpansionModule,
-        MatMenuModule,
-      ],
+        MatMenuModule
+      ]
     }).compileComponents();
   }));
 

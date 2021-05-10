@@ -23,7 +23,7 @@ describe('UnitConverter', () => {
     expect(removeDups(possibilities)).toHaveLength(possibilities.length);
 
     // same as keys from MeasureBase
-    possibilities.forEach(possible => {
+    possibilities.forEach((possible) => {
       expect(allUnits).toContain(possible);
     });
   });
@@ -38,7 +38,7 @@ describe('UnitConverter', () => {
     expect(removeDups(possibilities)).toHaveLength(possibilities.length);
 
     // same as keys from MeasureBase
-    possibilities.forEach(possible => {
+    possibilities.forEach((possible) => {
       expect(massUnits).toContain(possible);
     });
   });

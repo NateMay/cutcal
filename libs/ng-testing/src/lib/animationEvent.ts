@@ -4,5 +4,5 @@ export const mockAnimationEvent = (
 ): any => ({
   preventDefault: (): void => {},
   fromState,
-  toState,
+  toState
 })

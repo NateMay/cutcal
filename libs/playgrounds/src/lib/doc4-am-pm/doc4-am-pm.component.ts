@@ -5,14 +5,14 @@ import { Component, OnInit } from '@angular/core'
     <h2>AM / PM Toggle</h2>
     <hr />
 
-    <cc-am-pm-toggle [(isPM)]="isPM"></cc-am-pm-toggle>
+    <ds-am-pm-toggle [(isPM)]="isPM"></ds-am-pm-toggle>
 
     <br />
     <br />
 
     <pre>is PM: {{ isPM }}</pre>
   `,
-  styleUrls: ['./doc4-am-pm.component.css'],
+  styleUrls: ['./doc4-am-pm.component.css']
 })
 export class Doc4AmPmComponent implements OnInit {
   isPM = true

@@ -5,7 +5,8 @@ import {
   forwardRef,
   Input,
   OnDestroy,
-  Output
+  Output,
+  Provider
 } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { Subject } from 'rxjs'
@@ -20,21 +21,21 @@ import { TimePickerInputComponent } from '../time-picker/components/time-picker-
 // TODO (binder) change the API
 /**
  * ```html
- *   <cc-datetime-binder
+ *   <ds-datetime-binder
  *     (datetime)="outgoingDatetime($event)"
  *     [date]="incomingDate"
  *     [time]="incomingDate"
- *   ></cc-datetime-binder>
+ *   ></ds-datetime-binder>
  * ```
  */
 
-export const DATETIME_BINDER_CONTROL_VALUE_ACCESSOR: any = {
+export const DATETIME_BINDER_CONTROL_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
   multi: true,
   useExisting: forwardRef(() => DatetimeBinderComponent)
 }
 @Component({
-  selector: 'cc-datetime-binder',
+  selector: 'ds-datetime-binder',
   host: { class: 'cc-datetime-binder' },
   styleUrls: ['./datetime-binder.component.scss'],
   providers: [DATETIME_BINDER_CONTROL_VALUE_ACCESSOR],
@@ -89,7 +90,7 @@ export class DatetimeBinderComponent
     this._datePicker.dateChange
       .pipe(
         delay(0),
-        tap(date => this.updateDate(date)),
+        tap((date) => this.updateDate(date)),
         takeUntil(this.unsub$)
       )
       .subscribe()
@@ -116,7 +117,7 @@ export class DatetimeBinderComponent
       .pipe(
         map(dateFromTime),
         delay(0),
-        tap(date => this.updateTime(date)),
+        tap((date) => this.updateTime(date)),
         takeUntil(this.unsub$)
       )
       .subscribe()

@@ -2,21 +2,21 @@
 <div class="sidebar">
     <br />
 
-    <cc-analyze-range-picker
+    <ds-analyze-range-picker
         [endDate]="endDate"
         [startDate]="startDate"
-    ></cc-analyze-range-picker>
+    ></ds-analyze-range-picker>
 
     <br />
 
-    <h4 style="text-align: center;">Nutrients</h4>
+    <h4 style="text-align: center">Nutrients</h4>
 
-    <cc-checkable-nutrients
+    <ds-checkable-nutrients
         [(nutrCheckables)]="nutrCheckables"
         (change)="toggleSeries($event)"
-    ></cc-checkable-nutrients>
+    ></ds-checkable-nutrients>
 
-    <h4 style="text-align: center;">Views</h4>
+    <h4 style="text-align: center">Views</h4>
 
     <mat-form-field appearance="outline">
         <mat-label>Views</mat-label>
@@ -36,12 +36,12 @@
     <ng-container *ngIf="baseSerieseData; else loading">
         <ng-container *ngFor="let chart of charts | keyvalue">
             <ng-container *ngIf="chart.options.series.length">
-                <cc-analysis-chart
+                <ds-analysis-chart
                     [chart]="chart"
                     [update]="chart.update"
                     (closeChart)="closeChart(chart)"
                     (controlsChange)="controlsChange($event)"
-                ></cc-analysis-chart>
+                ></ds-analysis-chart>
             </ng-container>
         </ng-container>
     </ng-container>

@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core'
     <br /><br />
 
     <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-      <cc-date-picker
+      <ds-date-picker
         #datePicker
         [(date)]="date"
         [label]="label.value"
@@ -18,7 +18,7 @@ import { Component, OnInit } from '@angular/core'
         [idStr]="idStr.value"
         [disabled]="disabled.checked"
         [dateFormat]="dateFormat.value"
-      ></cc-date-picker>
+      ></ds-date-picker>
     </div>
 
     <br /><br />
@@ -71,7 +71,7 @@ import { Component, OnInit } from '@angular/core'
       </div>
     </div>
   `,
-  styleUrls: ['./doc4-datepicker.component.css'],
+  styleUrls: ['./doc4-datepicker.component.css']
 })
 export class Doc4DatepickerComponent implements OnInit {
   date: Date = new Date()

@@ -9,4 +9,3 @@ export * from './lib/getDirectives'
 export * from './lib/getEl'
 export * from './lib/nodeModules'
 export * from './test-setup'
-

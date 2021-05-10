@@ -9,7 +9,7 @@ export function Confirmable(message: string): MethodDecorator {
   ): PropertyDescriptor => {
     const original = descriptor.value
 
-    descriptor.value = function(...args: any[]): any {
+    descriptor.value = function (...args: any[]): any {
       return confirm(message) ? original.apply(this, args) : null
     }
 

@@ -23,7 +23,7 @@ it('docJoin() adds the child to the parent  - shared/functions', () => {
       docJoin(<any>afsStub, { assignmentProp: 'collectionName' }),
 
       // assert
-      tap(result =>
+      tap((result) =>
         expect(result).toEqual({
           assignmentProp: { docToJoin: 'anything' },
           parentProp: 'should not change'

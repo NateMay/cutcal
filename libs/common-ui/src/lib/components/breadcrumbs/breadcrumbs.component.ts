@@ -4,7 +4,7 @@ import { BreadCrumb } from './breadcrumb'
 
 // FEATURE (breadcrumbs) home button should navigate to a dashboard page
 @Component({
-  selector: 'cc-breadcrumbs',
+  selector: 'ds-breadcrumbs',
   styleUrls: ['./breadcrumbs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'cc-breadcrumbs' },

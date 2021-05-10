@@ -14,5 +14,5 @@ export const MOCK_NUTRITION: Nutrition<number> = {
   sodium: 90,
   calcium: 400,
   iron: 4,
-  cholesterol: 10,
+  cholesterol: 10
 }

@@ -74,7 +74,7 @@ function sendRequest(
   const noHeaderReq = req.clone({ headers: new HttpHeaders() })
 
   return next.handle(noHeaderReq).pipe(
-    tap(event => {
+    tap((event) => {
       // There may be other events besides the response.
       if (event instanceof HttpResponse) {
         cache.put(req, event) // Update the cache.

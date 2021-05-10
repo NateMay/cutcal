@@ -19,4 +19,4 @@ export const purifyObject = <T>(obj: any): T => {
 }
 
 export const purifyArray = (array: any[]): any[] =>
-  array.filter(el => el != null)
+  array.filter((el) => el != null)

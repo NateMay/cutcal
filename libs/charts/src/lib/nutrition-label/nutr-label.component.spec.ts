@@ -13,10 +13,10 @@ import { NutrLabelComponent } from './nutr-label.component';
 
 @Component({
   template: `
-    <cc-nutrition-label
+    <ds-nutrition-label
       [nutrition]="nutrition"
       [portion]="portion"
-    ></cc-nutrition-label>
+    ></ds-nutrition-label>
   `
 })
 class TestNutrLabelComponent {

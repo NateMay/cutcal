@@ -6,8 +6,8 @@ describe('sumUsagesNutritions() - shared/functions', () => {
       '1': {
         unit: 'lb',
         quantity: 1,
-        foodId: '1',
-      },
+        foodId: '1'
+      }
     };
 
     const foods = {
@@ -15,17 +15,17 @@ describe('sumUsagesNutritions() - shared/functions', () => {
         portions: {
           g: {
             unit: 'g',
-            quantity: 500,
-          },
+            quantity: 500
+          }
         },
         nutrition: {
-          calories: 12,
-        },
-      },
+          calories: 12
+        }
+      }
     };
 
     expect(sumUsagesNutritions(<any>usages, <any>foods)).toEqual({
-      calories: 13.227746521102665,
+      calories: 13.227746521102665
     });
   });
 });

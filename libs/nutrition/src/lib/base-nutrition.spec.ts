@@ -2,7 +2,7 @@ import { forEach } from 'lodash';
 import { BASE_NUTRITION } from './base-nutrition';
 
 it('Zero Nutrition is all zeros', () => {
-  forEach(BASE_NUTRITION(0), value => {
+  forEach(BASE_NUTRITION(0), (value) => {
     expect(value).toBe(0);
   });
 });

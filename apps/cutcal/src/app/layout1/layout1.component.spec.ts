@@ -21,9 +21,9 @@ describe('Layout1Component', () => {
         MatSidenavModule,
         MatIconModule,
         MatToolbarModule,
-        NoopAnimationsModule,
+        NoopAnimationsModule
       ],
-      declarations: [Layout1Component],
+      declarations: [Layout1Component]
     }).compileComponents();
   }));
 

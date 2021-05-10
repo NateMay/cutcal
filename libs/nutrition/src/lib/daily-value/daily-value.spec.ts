@@ -9,7 +9,7 @@ describe('NutritionRange class', () => {
       EAR: 4,
       AI: 30,
       UL: 60,
-      RDA: 10,
+      RDA: 10
     });
   });
 
@@ -21,7 +21,7 @@ describe('NutritionRange class', () => {
       EAR: 10,
       AI: 30,
       UL: 26,
-      RDA: 14,
+      RDA: 14
     });
   });
 });

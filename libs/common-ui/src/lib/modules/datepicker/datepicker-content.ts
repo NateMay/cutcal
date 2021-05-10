@@ -10,25 +10,25 @@ import {
 } from '@angular/core'
 import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core'
 import { Observable, Subject } from 'rxjs'
-import { CcDatepicker } from './datepicker'
+import { DsDatepicker } from './datepicker'
 import { ccDatepickerAnimations } from './datepicker-animations'
 
 @Component({
-  selector: 'cc-dateicker-face',
+  selector: 'ds-dateicker-face',
   template: 'face'
 })
-export class CcDatePickerFace {
+export class DsDatePickerFace {
   focusActiveCell() {}
 }
 
 /** Used to generate a unique ID for each datepicker instance. */
 // const datepickerUid = 0
 
-// Boilerplate for applying mixins to CcDatepickerContent.
+// Boilerplate for applying mixins to DsDatepickerContent.
 class MatDatepickerContentBase {
   constructor(public readonly _elementRef: ElementRef) {}
 }
-const _CcDatepickerContentMixinBase: CanColorCtor &
+const _DsDatepickerContentMixinBase: CanColorCtor &
   typeof MatDatepickerContentBase = mixinColor(MatDatepickerContentBase)
 
 /**
@@ -38,10 +38,10 @@ const _CcDatepickerContentMixinBase: CanColorCtor &
  * future. (e.g. confirmation buttons).
  */
 @Component({
-  selector: 'cc-datepicker-content',
+  selector: 'ds-datepicker-content',
   template: `
     <p>datepicker-content works!</p>
-    <cc-dateicker-face></cc-dateicker-face>
+    <ds-dateicker-face></ds-dateicker-face>
   `,
   host: {
     class: 'cc-datepicker-content',
@@ -58,13 +58,14 @@ const _CcDatepickerContentMixinBase: CanColorCtor &
   changeDetection: ChangeDetectionStrategy.OnPush,
   inputs: ['color']
 })
-export class CcDatepickerContent extends _CcDatepickerContentMixinBase
+export class DsDatepickerContent
+  extends _DsDatepickerContentMixinBase
   implements AfterViewInit, OnDestroy, CanColor {
   /** Reference to the internal calendar component. */
-  @ViewChild(CcDatePickerFace) _calendar: CcDatePickerFace
+  @ViewChild(DsDatePickerFace) _calendar: DsDatePickerFace
 
   /** Reference to the datepicker that created the overlay. */
-  datepicker: CcDatepicker
+  datepicker: DsDatepicker
 
   /** Whether the datepicker is above or below the input. */
   _isAbove: boolean

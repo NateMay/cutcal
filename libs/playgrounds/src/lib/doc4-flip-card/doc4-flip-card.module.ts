@@ -12,9 +12,9 @@ import { Doc4FlipCardComponent } from './doc4-flip-card.component'
     RouterModule.forChild([
       {
         path: '',
-        component: Doc4FlipCardComponent,
-      },
-    ]),
-  ],
+        component: Doc4FlipCardComponent
+      }
+    ])
+  ]
 })
 export class Doc4FlipCardModule {}

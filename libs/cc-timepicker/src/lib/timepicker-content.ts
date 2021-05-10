@@ -12,7 +12,7 @@ import {
 import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core'
 import { dateFromTime } from '@cutcal/common-ui'
 import { Observable, Subject } from 'rxjs'
-import { CcTimepicker } from './timepicker'
+import { DsTimepicker } from './timepicker'
 import { ccTimepickerAnimations } from './timepicker-animations'
 import {
   ClockFaceTime,
@@ -23,32 +23,32 @@ import {
 } from './timepicker-utils'
 
 @Component({
-  selector: 'cc-timepicker-dialog',
+  selector: 'ds-timepicker-dialog',
   host: { class: 'cc-timepicker-dialog' },
   template: `
-    <cc-timepicker-controls></cc-timepicker-controls>
+    <ds-timepicker-controls></ds-timepicker-controls>
 
     <ng-container [ngSwitch]="activeTimeUnit">
       <div *ngSwitchCase="timeUnit.HOUR">
-        <cc-timepicker-24-hours-face
+        <ds-timepicker-24-hours-face
           *ngIf="format === 24; else ampmHours"
           (hourChange)="onHourChange($event)"
           [selectedHour]="selectedHour"
           [format]="format"
           (hourSelected)="onHourSelected($event)"
-        ></cc-timepicker-24-hours-face>
+        ></ds-timepicker-24-hours-face>
 
         <ng-template #ampmHours>
-          <cc-timepicker-12-hours-face
+          <ds-timepicker-12-hours-face
             (hourChange)="onHourChange($event)"
             [selectedHour]="selectedHour"
             [period]="selectedPeriod"
             (hourSelected)="onHourSelected($event)"
-          ></cc-timepicker-12-hours-face>
+          ></ds-timepicker-12-hours-face>
         </ng-template>
       </div>
 
-      <cc-timepicker-minutes-face
+      <ds-timepicker-minutes-face
         *ngSwitchCase="timeUnit.MINUTE"
         [selectedMinute]="selectedMinute"
         [selectedHour]="selectedHour?.time"
@@ -56,11 +56,11 @@ import {
         [period]="selectedPeriod"
         [minutesGap]="minutesGap"
         (minuteChange)="onMinuteChange($event)"
-      ></cc-timepicker-minutes-face>
+      ></ds-timepicker-minutes-face>
     </ng-container>
   `
 })
-export class CcTimePickerDialog {
+export class DsTimePickerDialog {
   selectedHour: ClockFaceTime
   selectedMinute: ClockFaceTime
   selectedPeriod: TimePeriod
@@ -156,22 +156,22 @@ function formatHourByPeriod(hour: number, period: TimePeriod): number {
 /** Used to generate a unique ID for each timepicker instance. */
 // const timepickerUid = 0
 
-// Boilerplate for applying mixins to CcTimepickerContent.
-class CcTimepickerContentBase {
+// Boilerplate for applying mixins to DsTimepickerContent.
+class DsTimepickerContentBase {
   constructor(public readonly _elementRef: ElementRef<any>) {}
 }
-const _CcTimepickerContentMixinBase: CanColorCtor &
-  typeof CcTimepickerContentBase = mixinColor(CcTimepickerContentBase)
+const _DsTimepickerContentMixinBase: CanColorCtor &
+  typeof DsTimepickerContentBase = mixinColor(DsTimepickerContentBase)
 
 /**
  * Component used as the content for the timepicker dialog and popup. We use this instead of using
- * CcTimePickerFace directly as the content so we can control the initial focus. This also gives us a
+ * DsTimePickerFace directly as the content so we can control the initial focus. This also gives us a
  * place to put additional features of the popup that are not part of the calendar itself in the
  * future. (e.g. confirmation buttons).
  */
 @Component({
   template: `
-    <cc-timepicker-dialog cdkTrapFocus></cc-timepicker-dialog>
+    <ds-timepicker-dialog cdkTrapFocus></ds-timepicker-dialog>
     <div class="cc-timepicker-actions">
       <button mat-button>CANCEL</button>
       <button mat-button color="primary">OK</button>
@@ -192,13 +192,14 @@ const _CcTimepickerContentMixinBase: CanColorCtor &
   changeDetection: ChangeDetectionStrategy.OnPush,
   inputs: ['color']
 })
-export class CcTimepickerContent extends _CcTimepickerContentMixinBase
+export class DsTimepickerContent
+  extends _DsTimepickerContentMixinBase
   implements AfterViewInit, OnDestroy, CanColor {
   /** Reference to the internal calendar component. */
-  @ViewChild(CcTimePickerDialog) _calendar: CcTimePickerDialog
+  @ViewChild(DsTimePickerDialog) _calendar: DsTimePickerDialog
 
   /** Reference to the timepicker that created the overlay. */
-  timepicker: CcTimepicker
+  timepicker: DsTimepicker
 
   /** Whether the timepicker is above or below the input. */
   _isAbove: boolean

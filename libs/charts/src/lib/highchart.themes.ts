@@ -10,7 +10,7 @@ export const setLightGridTheme = (): void => {
     {
       href: 'https://fonts.googleapis.com/css?family=Dosis:400,600',
       rel: 'stylesheet',
-      type: 'text/css',
+      type: 'text/css'
     },
     {},
     document.getElementsByTagName('head')[0]
@@ -28,53 +28,53 @@ export const setLightGridTheme = (): void => {
       '#55BF3B',
       '#DF5353',
       '#7798BF',
-      '#aaeeee',
+      '#aaeeee'
     ],
     chart: <any>{
       backgroundColor: null,
       style: {
-        fontFamily: 'Dosis, sans-serif',
-      },
+        fontFamily: 'Dosis, sans-serif'
+      }
     },
     title: {
       style: {
         fontSize: '16px',
         fontWeight: 'bold',
-        textTransform: 'uppercase',
-      },
+        textTransform: 'uppercase'
+      }
     },
     tooltip: {
       borderWidth: 0,
       backgroundColor: 'rgba(219,219,216,0.8)',
-      shadow: false,
+      shadow: false
     },
     legend: {
       // backgroundColor: '#F0F0EA',
       itemStyle: {
         fontWeight: 'bold',
-        fontSize: '13px',
-      },
+        fontSize: '13px'
+      }
     },
     xAxis: {
       gridLineWidth: 1,
       labels: {
         style: {
-          fontSize: '12px',
-        },
-      },
+          fontSize: '12px'
+        }
+      }
     },
     yAxis: {
       minorTickInterval: 'auto',
       title: {
         style: {
-          textTransform: 'uppercase',
-        },
+          textTransform: 'uppercase'
+        }
       },
       labels: {
         style: {
-          fontSize: '12px',
-        },
-      },
-    },
+          fontSize: '12px'
+        }
+      }
+    }
   })
 }

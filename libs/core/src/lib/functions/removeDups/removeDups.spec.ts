@@ -5,7 +5,7 @@ it('should remove duplicates', () => {
   expect(removeDups(['one', 'two', 'one', 'three'])).toEqual([
     'one',
     'two',
-    'three',
+    'three'
   ]);
   expect(
     removeDups([
@@ -23,7 +23,7 @@ it('should remove duplicates', () => {
       'happy',
       undefined,
       'sad',
-      5,
+      5
     ])
   ).toEqual([true, {}, false, 3, null, 'happy', undefined, {}, 'sad', 5]);
 });

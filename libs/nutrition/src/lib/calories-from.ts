@@ -47,7 +47,7 @@ export function caloriesFromAll(nutr: Nutrition<number>): CaloriesFrom {
       caloriesFromSingle(macros.carbohydrates, total, nutr.calories) ?? 0,
     protein: caloriesFromSingle(macros.protein, total, nutr.calories) ?? 0,
     fat: caloriesFromSingle(macros.fat, total, nutr.calories) ?? 0,
-    alcohol: caloriesFromSingle(macros.alcohol, total, nutr.calories) ?? 0,
+    alcohol: caloriesFromSingle(macros.alcohol, total, nutr.calories) ?? 0
   }
 }
 
@@ -61,7 +61,7 @@ export const adjustPerGram = (nutrition: Nutrition<number>): CaloriesFrom => ({
   carbohydrates: (nutrition.carbohydrates ?? 0) * 4,
   protein: (nutrition.protein ?? 0) * 4,
   fat: (nutrition.fat ?? 0) * 9,
-  alcohol: (nutrition.alcohol ?? 0) * 7,
+  alcohol: (nutrition.alcohol ?? 0) * 7
 })
 
 export function caloriesFromSingle(

@@ -50,10 +50,7 @@ const analyzeEndDate = (
 ): string | never => {
   switch (timeframe) {
     case 'week':
-      return fromDate
-        .firstDayOfWeek()
-        .addDays(6)
-        .toUrlString()
+      return fromDate.firstDayOfWeek().addDays(6).toUrlString()
     case 'month':
       return fromDate.lastDayOfMonth().toUrlString()
     case 'year':

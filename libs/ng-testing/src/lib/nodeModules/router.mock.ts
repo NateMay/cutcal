@@ -24,7 +24,7 @@ export class MockRouterSvc {
 }
 
 @Directive({
-  selector: 'routerLink',
+  selector: 'routerLink'
 })
 export class MockRouterLink {
   @Input() routerLink: string
@@ -33,6 +33,6 @@ export class MockRouterLink {
 @NgModule({
   declarations: [MockRouterLink],
   exports: [MockRouterLink],
-  providers: [MockRouterSvc],
+  providers: [MockRouterSvc]
 })
 export class MockRouterModule {}

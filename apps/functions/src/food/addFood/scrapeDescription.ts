@@ -32,7 +32,7 @@ export const scrapeDescription = async (cleanTerm: string): Promise<string> => {
   const response: EngineResponse = JSON.parse(jsresponse)
   if (ADD_FOOD_DEBUG) console.log('scrapeDescription', response)
 
-  const link = response.items.map(item => item.link)
+  const link = response.items.map((item) => item.link)
   if (ADD_FOOD_DEBUG) console.log('link', link)
 
   return pluckEarlyParagraphs(await rp(link[0]))

@@ -6,12 +6,12 @@ import { NgModule } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
 import { MatDialogModule } from '@angular/material/dialog'
 import {
-  CcDatepicker,
+  DsDatepicker,
   CC_DATEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER
 } from './datepicker'
-import { CcDatepickerContent, CcDatePickerFace } from './datepicker-content'
-import { CcDatepickerInput } from './datepicker-input'
-import { CcDatepickerToggle } from './datepicker-toggle'
+import { DsDatepickerContent, DsDatePickerFace } from './datepicker-content'
+import { DsDatepickerInput } from './datepicker-input'
+import { DsDatepickerToggle } from './datepicker-toggle'
 
 @NgModule({
   imports: [
@@ -23,19 +23,19 @@ import { CcDatepickerToggle } from './datepicker-toggle'
     PortalModule
   ],
   declarations: [
-    CcDatepicker,
-    CcDatepickerToggle,
-    CcDatepickerInput,
-    CcDatepickerContent,
-    CcDatePickerFace
+    DsDatepicker,
+    DsDatepickerToggle,
+    DsDatepickerInput,
+    DsDatepickerContent,
+    DsDatePickerFace
   ],
   exports: [
-    CcDatepicker,
-    CcDatepickerToggle,
-    CcDatepickerInput,
-    CcDatepickerContent,
-    CcDatePickerFace
+    DsDatepicker,
+    DsDatepickerToggle,
+    DsDatepickerInput,
+    DsDatepickerContent,
+    DsDatePickerFace
   ],
   providers: [CC_DATEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER]
 })
-export class CcDatepickerModule {}
+export class DsDatepickerModule {}

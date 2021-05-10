@@ -3,7 +3,7 @@ import {
   CaloriesFrom,
   caloriesFromAll,
   NUTRIENTS,
-  Nutrition,
+  Nutrition
 } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import {
@@ -11,7 +11,7 @@ import {
   Options,
   PlotOptions,
   TitleOptions,
-  TooltipOptions,
+  TooltipOptions
 } from 'highcharts'
 import { reduce } from 'lodash'
 import { CaloriesSource } from '../../../../nutrition/src/lib/calories-from'
@@ -24,7 +24,7 @@ interface PieSlice {
 }
 
 @Component({
-  selector: 'cc-calories-chart',
+  selector: 'ds-calories-chart',
   styleUrls: ['./calories.component.scss'],
   template: `
     <highcharts-chart
@@ -34,7 +34,7 @@ interface PieSlice {
       style="height: 300px; display: block;"
     ></highcharts-chart>
   `,
-  host: { class: 'calories-chart' },
+  host: { class: 'calories-chart' }
 })
 export class CaloriesChartComponent {
   chartOptions: Options
@@ -55,8 +55,8 @@ export class CaloriesChartComponent {
     this.chartOptions.series = [
       {
         data: this.buildChartData(caloriesFrom),
-        type: 'pie',
-      },
+        type: 'pie'
+      }
     ]
 
     this.updateChart = true
@@ -66,28 +66,28 @@ export class CaloriesChartComponent {
     return {
       chart: <ChartOptions>{
         backgroundColor: 'transparent',
-        type: 'pie',
+        type: 'pie'
       },
       title: <TitleOptions>{ text: '' },
       tooltip: <TooltipOptions>{
         pointFormat: `
         <span style="color:{point.color}">{point.name}</span>: {point.y:.0f} {point.unit}<br>
-        <b>{point.percent:.1f}%</b> of total<br/>`,
+        <b>{point.percent:.1f}%</b> of total<br/>`
       },
       plotOptions: <PlotOptions>{
         pie: {
           cursor: 'pointer',
           dataLabels: { enabled: false },
-          showInLegend: true,
-        },
+          showInLegend: true
+        }
       },
       series: [
         {
           name: 'Calories From',
           data: [],
-          type: 'pie',
-        },
-      ],
+          type: 'pie'
+        }
+      ]
     }
   }
 
@@ -102,7 +102,7 @@ export class CaloriesChartComponent {
           name: NUTRIENTS.shortNames[source],
           y: calories,
           percent: (calories * 100) / totalCalories,
-          unit: NUTRIENTS.units[source],
+          unit: NUTRIENTS.units[source]
         })
       }
     }

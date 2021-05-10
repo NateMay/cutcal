@@ -9,10 +9,10 @@ import { LandingComponent } from './landing.component'
     RouterModule.forChild([
       {
         path: '',
-        component: LandingComponent,
-      },
-    ]),
+        component: LandingComponent
+      }
+    ])
   ],
-  declarations: [LandingComponent],
+  declarations: [LandingComponent]
 })
 export class LandingModule {}

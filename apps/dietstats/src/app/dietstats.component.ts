@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'cc-root',
+  selector: 'ds-root',
   templateUrl: './dietstats.component.html',
   styleUrls: ['./dietstats.component.scss']
 })

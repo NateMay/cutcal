@@ -9,7 +9,6 @@
 // ***********************************************
 // eslint-disable-next-line @typescript-eslint/no-namespace
 /* eslint-disable @typescript-eslint/no-namespace */
-// tslint:disable-next-line: no-namespace
 declare namespace Cypress {
   interface Chainable<Subject> {
     login(email: string, password: string): void

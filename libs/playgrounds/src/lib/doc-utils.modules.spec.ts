@@ -4,7 +4,7 @@ import { DocUtilModule } from './doc-utils.module';
 describe('DocUtilModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [DocUtilModule],
+      imports: [DocUtilModule]
     }).compileComponents();
   }));
 

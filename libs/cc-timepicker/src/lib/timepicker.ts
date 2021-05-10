@@ -29,8 +29,8 @@ import { CanColor, ThemePalette } from '@angular/material/core'
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'
 import { merge, Observable, Subject, Subscription, throwError } from 'rxjs'
 import { catchError, filter, first, tap } from 'rxjs/operators'
-import { CcTimepickerContent } from './timepicker-content'
-import { CcTimepickerInput } from './timepicker-input'
+import { DsTimepickerContent } from './timepicker-content'
+import { DsTimepickerInput } from './timepicker-input'
 
 /** Injection token that determines the scroll handling while the calendar is open. */
 export const CC_TIMEPICKER_SCROLL_STRATEGY = new InjectionToken<
@@ -48,13 +48,13 @@ export const CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER = {
 }
 
 @Component({
-  selector: 'cc-timepicker',
+  selector: 'ds-timepicker',
   template: '',
   exportAs: 'ccTimepicker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
-export class CcTimepicker implements OnDestroy, CanColor {
+export class DsTimepicker implements OnDestroy, CanColor {
   private _scrollStrategy: () => ScrollStrategy
 
   /** Subscription to value changes in the associated input element. */
@@ -64,10 +64,10 @@ export class CcTimepicker implements OnDestroy, CanColor {
   private _popupRef: OverlayRef | null
 
   /** A reference to the dialog when the calendar is opened as a dialog. */
-  private _dialogRef: MatDialogRef<CcTimepickerContent> | null
+  private _dialogRef: MatDialogRef<DsTimepickerContent> | null
 
   /** Reference to the component instantiated in popup mode. */
-  private _popupComponentRef: ComponentRef<CcTimepickerContent> | null
+  private _popupComponentRef: ComponentRef<DsTimepickerContent> | null
 
   /** The element that was focused before the timeepicker was opened. */
   private _focusedElementBeforeOpen: HTMLElement | null = null
@@ -100,10 +100,10 @@ export class CcTimepicker implements OnDestroy, CanColor {
   private readonly _disabledChange = new Subject<boolean>()
 
   /** The input element this timepicker is associated with. */
-  _timepickerInput: CcTimepickerInput
+  _timepickerInput: DsTimepickerInput
 
   /** Reference to the datepicker that created the overlay. */
-  datepicker: CcTimepicker
+  datepicker: DsTimepicker
 
   /**
    * Whether the calendar UI is in touch mode. In touch mode the calendar opens in a dialog rather
@@ -119,12 +119,12 @@ export class CcTimepicker implements OnDestroy, CanColor {
   private _touchUi = false
 
   /** Emits when the timepicker has been opened. */
-  // tslint:disable-next-line: no-output-rename
-  @Output('opened') openedStream: EventEmitter<void> = new EventEmitter<void>()
+  // eslint-disable-next-line @angular-eslint/no-output-rename
+  @Output('opened') openedStream = new EventEmitter<void>()
 
   /** Emits when the timepicker has been closed. */
-  // tslint:disable-next-line: no-output-rename
-  @Output('closed') closedStream: EventEmitter<void> = new EventEmitter<void>()
+  // eslint-disable-next-line @angular-eslint/no-output-rename
+  @Output('closed') closedStream = new EventEmitter<void>()
 
   /** Emits when an animation has finished. */
   private _animationDone = new Subject<void>()
@@ -189,15 +189,15 @@ export class CcTimepicker implements OnDestroy, CanColor {
    * @description Register an input with this timepicker.
    * @param input The timepicker input to register with this timepicker.
    */
-  _registerInput(input: CcTimepickerInput): void {
+  _registerInput(input: DsTimepickerInput): void {
     if (this._timepickerInput) {
-      throw Error('A CcTimepicker can only be associated with a single input.')
+      throw Error('A DsTimepicker can only be associated with a single input.')
     }
     this._timepickerInput = input
     this._inputSubscription = this._timepickerInput._valueChange
       .pipe(
         tap((value: string | null) => (this._selected = value)),
-        catchError(e => throwError(e))
+        catchError((e) => throwError(e))
       )
       .subscribe()
   }
@@ -215,7 +215,7 @@ export class CcTimepicker implements OnDestroy, CanColor {
       return
     }
     if (!this._timepickerInput) {
-      throw Error('Attempted to open an CcTimepicker with no associated input.')
+      throw Error('Attempted to open an DsTimepicker with no associated input.')
     }
     if (this._document) {
       this._focusedElementBeforeOpen = this._document.activeElement
@@ -238,7 +238,7 @@ export class CcTimepicker implements OnDestroy, CanColor {
         .pipe(
           first(),
           tap(() => this._destroyPopup()),
-          catchError(e => throwError(e))
+          catchError((e) => throwError(e))
         )
         .subscribe()
     }
@@ -283,8 +283,8 @@ export class CcTimepicker implements OnDestroy, CanColor {
       this._dialogRef.close()
     }
 
-    this._dialogRef = this._dialog.open<CcTimepickerContent>(
-      CcTimepickerContent,
+    this._dialogRef = this._dialog.open<DsTimepickerContent>(
+      DsTimepickerContent,
       {
         direction: this._dir ? this._dir.value : 'ltr',
         viewContainerRef: this._viewContainerRef,
@@ -310,7 +310,7 @@ export class CcTimepicker implements OnDestroy, CanColor {
       .afterClosed()
       .pipe(
         tap(() => this.close()),
-        catchError(e => throwError(e))
+        catchError((e) => throwError(e))
       )
       .subscribe()
     this._dialogRef.componentInstance.timepicker = this
@@ -319,8 +319,8 @@ export class CcTimepicker implements OnDestroy, CanColor {
 
   /** Open the calendar as a popup. */
   private _openAsPopup(): void {
-    const portal = new ComponentPortal<CcTimepickerContent>(
-      CcTimepickerContent,
+    const portal = new ComponentPortal<DsTimepickerContent>(
+      DsTimepickerContent,
       this._viewContainerRef
     )
 
@@ -336,7 +336,7 @@ export class CcTimepicker implements OnDestroy, CanColor {
       .pipe(
         first(),
         tap(() => this._popupRef.updatePosition()),
-        catchError(e => throwError(e))
+        catchError((e) => throwError(e))
       )
       .subscribe()
   }
@@ -361,7 +361,7 @@ export class CcTimepicker implements OnDestroy, CanColor {
       this._popupRef.keydownEvents().pipe(
         // Closing on alt + up is only valid when there's an input associated with the timeepicker.
         filter(
-          event =>
+          (event) =>
             event.keyCode === ESCAPE ||
             (this._timepickerInput &&
               event.altKey &&
@@ -370,11 +370,11 @@ export class CcTimepicker implements OnDestroy, CanColor {
       )
     )
       .pipe(
-        tap(event => {
+        tap((event) => {
           if (event) event.preventDefault()
           this.close()
         }),
-        catchError(e => throwError(e))
+        catchError((e) => throwError(e))
       )
       .subscribe()
   }

@@ -20,7 +20,7 @@ import {
 // );
 
 @Component({
-  selector: 'cc-sidebar-search',
+  selector: 'ds-sidebar-search',
   templateUrl: './sidebar-search.component.html',
   styleUrls: ['./sidebar-search.component.scss']
 })

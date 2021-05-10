@@ -5,29 +5,29 @@ import {
   Input,
   OnChanges,
   Output,
-  SimpleChanges,
+  SimpleChanges
 } from '@angular/core'
 import {
   ClockFaceTime,
   getMinutes,
   TimePeriod,
-  TimeUnit,
+  TimeUnit
 } from './timepicker-utils'
 
 @Component({
-  selector: 'cc-timepicker-minutes-face',
+  selector: 'ds-timepicker-minutes-face',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <cc-timepicker-face
+    <ds-timepicker-face
       [faceTime]="minutesList"
       [selectedTime]="selectedMinute"
       [minutesGap]="minutesGap"
       (timeChange)="minuteChange.next($event)"
       [unit]="timeUnit.MINUTE"
-    ></cc-timepicker-face>
-  `,
+    ></ds-timepicker-face>
+  `
 })
-export class CcTimepickerMinutesFace implements OnChanges {
+export class DsTimepickerMinutesFace implements OnChanges {
   minutesList: ClockFaceTime[] = []
   timeUnit = TimeUnit
 

@@ -21,6 +21,7 @@ import {
   NgZone,
   OnInit,
   Output,
+  Provider,
   ViewChild,
   ViewContainerRef
 } from '@angular/core'
@@ -34,15 +35,14 @@ import { TimepickerDialogComponent } from '../time-picker-dialog/time-picker-dia
 
 let nextUniqueId = 0
 
-export const TIME_PICKER_CONTROL_VALUE_ACCESSOR: any = {
+export const TIME_PICKER_CONTROL_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
   multi: true,
   useExisting: forwardRef(() => TimePickerInputComponent)
 }
-// DEPENDS ON (time-picker) then TEST (time-picker) with reactive forms
 
 @Component({
-  selector: 'cc-time-picker-input',
+  selector: 'ds-time-picker-input',
   host: { class: 'cc-time-picker-input' },
   styleUrls: ['./time-picker-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -167,7 +167,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
    * ```html
    *   <mat-form-field>
    *    <input ccTimePickerInput="picker1">
-   *    <cc-time-picker #picker1></cc-time-picker>
+   *    <ds-time-picker #picker1></ds-time-picker>
    *   </mat-form-field>
    * ```
    */

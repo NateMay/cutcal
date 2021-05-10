@@ -23,5 +23,5 @@ export const FOOD_GROUPS: string[] = [
   'Fast Foods',
   'Meals, Entrees, and Side Dishes',
   'American Indian/Alaska Native Foods',
-  'Restaurant Foods',
+  'Restaurant Foods'
 ]

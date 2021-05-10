@@ -46,7 +46,7 @@ export const createMeal = (
   instructions: instructions || [],
   image: image || { url: '' },
   userId: userId || '',
-  _id: '',
+  _id: ''
 })
 
 export const createMealWithId = (
@@ -68,7 +68,7 @@ export const createMealWithId = (
     instructions,
     image,
     userId
-  ),
+  )
 })
 
 /**

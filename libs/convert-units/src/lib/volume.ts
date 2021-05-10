@@ -23,183 +23,183 @@ const metric: UnitMap = {
   mm3: {
     name: {
       singular: 'Cubic Millimeter',
-      plural: 'Cubic Millimeters',
+      plural: 'Cubic Millimeters'
     },
-    toAnchor: 1 / 1000000,
+    toAnchor: 1 / 1000000
   },
   cm3: {
     name: {
       singular: 'Cubic Centimeter',
-      plural: 'Cubic Centimeters',
+      plural: 'Cubic Centimeters'
     },
-    toAnchor: 1 / 1000,
+    toAnchor: 1 / 1000
   },
   ml: {
     name: {
       singular: 'Millilitre',
-      plural: 'Millilitres',
+      plural: 'Millilitres'
     },
-    toAnchor: 1 / 1000,
+    toAnchor: 1 / 1000
   },
   cl: {
     name: {
       singular: 'Centilitre',
-      plural: 'Centilitres',
+      plural: 'Centilitres'
     },
-    toAnchor: 1 / 100,
+    toAnchor: 1 / 100
   },
   dl: {
     name: {
       singular: 'Decilitre',
-      plural: 'Decilitres',
+      plural: 'Decilitres'
     },
-    toAnchor: 1 / 10,
+    toAnchor: 1 / 10
   },
   l: {
     name: {
       singular: 'Litre',
-      plural: 'Litres',
+      plural: 'Litres'
     },
-    toAnchor: 1,
+    toAnchor: 1
   },
   kl: {
     name: {
       singular: 'Kilolitre',
-      plural: 'Kilolitres',
+      plural: 'Kilolitres'
     },
-    toAnchor: 1000,
+    toAnchor: 1000
   },
   m3: {
     name: {
       singular: 'Cubic meter',
-      plural: 'Cubic meters',
+      plural: 'Cubic meters'
     },
-    toAnchor: 1000,
+    toAnchor: 1000
   },
   km3: {
     name: {
       singular: 'Cubic kilometer',
-      plural: 'Cubic kilometers',
+      plural: 'Cubic kilometers'
     },
-    toAnchor: 1000000000000,
+    toAnchor: 1000000000000
   },
 
   // Swedish units
   krm: {
     name: {
       singular: 'Matsked',
-      plural: 'Matskedar',
+      plural: 'Matskedar'
     },
-    toAnchor: 1 / 1000,
+    toAnchor: 1 / 1000
   },
   tsk: {
     name: {
       singular: 'Tesked',
-      plural: 'Teskedar',
+      plural: 'Teskedar'
     },
-    toAnchor: 5 / 1000,
+    toAnchor: 5 / 1000
   },
   msk: {
     name: {
       singular: 'Matsked',
-      plural: 'Matskedar',
+      plural: 'Matskedar'
     },
-    toAnchor: 15 / 1000,
+    toAnchor: 15 / 1000
   },
   kkp: {
     name: {
       singular: 'Kaffekopp',
-      plural: 'Kaffekoppar',
+      plural: 'Kaffekoppar'
     },
-    toAnchor: 150 / 1000,
+    toAnchor: 150 / 1000
   },
   glas: {
     name: {
       singular: 'Glas',
-      plural: 'Glas',
+      plural: 'Glas'
     },
-    toAnchor: 200 / 1000,
+    toAnchor: 200 / 1000
   },
   kanna: {
     name: {
       singular: 'Kanna',
-      plural: 'Kannor',
+      plural: 'Kannor'
     },
-    toAnchor: 2.617,
-  },
+    toAnchor: 2.617
+  }
 }
 
 const imperial: UnitMap = {
   tsp: {
     name: {
       singular: 'Teaspoon',
-      plural: 'Teaspoons',
+      plural: 'Teaspoons'
     },
-    toAnchor: 1 / 6,
+    toAnchor: 1 / 6
   },
   Tbs: {
     name: {
       singular: 'Tablespoon',
-      plural: 'Tablespoons',
+      plural: 'Tablespoons'
     },
-    toAnchor: 1 / 2,
+    toAnchor: 1 / 2
   },
   in3: {
     name: {
       singular: 'Cubic inch',
-      plural: 'Cubic inches',
+      plural: 'Cubic inches'
     },
-    toAnchor: 0.55411,
+    toAnchor: 0.55411
   },
   'fl-oz': {
     name: {
       singular: 'Fluid Ounce',
-      plural: 'Fluid Ounces',
+      plural: 'Fluid Ounces'
     },
-    toAnchor: 1,
+    toAnchor: 1
   },
   cup: {
     name: {
       singular: 'Cup',
-      plural: 'Cups',
+      plural: 'Cups'
     },
-    toAnchor: 8,
+    toAnchor: 8
   },
   pnt: {
     name: {
       singular: 'Pint',
-      plural: 'Pints',
+      plural: 'Pints'
     },
-    toAnchor: 16,
+    toAnchor: 16
   },
   qt: {
     name: {
       singular: 'Quart',
-      plural: 'Quarts',
+      plural: 'Quarts'
     },
-    toAnchor: 32,
+    toAnchor: 32
   },
   gal: {
     name: {
       singular: 'Gallon',
-      plural: 'Gallons',
+      plural: 'Gallons'
     },
-    toAnchor: 128,
+    toAnchor: 128
   },
   ft3: {
     name: {
       singular: 'Cubic foot',
-      plural: 'Cubic feet',
+      plural: 'Cubic feet'
     },
-    toAnchor: 957.506,
+    toAnchor: 957.506
   },
   yd3: {
     name: {
       singular: 'Cubic yard',
-      plural: 'Cubic yards',
+      plural: 'Cubic yards'
     },
-    toAnchor: 25852.7,
-  },
+    toAnchor: 25852.7
+  }
 }
 
 export const VOLUME: MeasureBase = {
@@ -208,11 +208,11 @@ export const VOLUME: MeasureBase = {
   _anchors: {
     metric: {
       unit: 'l',
-      ratio: 33.8140226,
+      ratio: 33.8140226
     },
     imperial: {
       unit: 'fl-oz',
-      ratio: 1 / 33.8140226,
-    },
-  },
+      ratio: 1 / 33.8140226
+    }
+  }
 }

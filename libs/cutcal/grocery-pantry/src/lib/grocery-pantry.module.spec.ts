@@ -4,7 +4,7 @@ import { GroceryPantryModule } from './grocery-pantry.module';
 describe('GroceryPantryModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [GroceryPantryModule],
+      imports: [GroceryPantryModule]
     }).compileComponents();
   }));
 

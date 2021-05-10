@@ -49,7 +49,7 @@ describe('HoldableDirective', () => {
     tick(1000);
     fixture.detectChanges();
 
-    [0, 200, 400, 600, 800].forEach(num =>
+    [0, 200, 400, 600, 800].forEach((num) =>
       expect(holdTimeSpy).toHaveBeenCalledWith(num)
     );
 

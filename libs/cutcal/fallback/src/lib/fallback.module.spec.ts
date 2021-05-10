@@ -4,7 +4,7 @@ import { FallbackModule } from './fallback.module';
 describe('FallbackModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FallbackModule],
+      imports: [FallbackModule]
     }).compileComponents();
   }));
 

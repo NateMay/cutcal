@@ -1,17 +1,17 @@
 import { async, TestBed } from '@angular/core/testing';
-import { CcDatepickerModule } from './datepicker.module';
+import { DsDatepickerModule } from './datepicker.module';
 /**
  * To run this test, remove this directory from "testPathIgnorePatterns"
  * in "libs/common/jest.config.js"
  */
-describe('CcDatepickerModule', () => {
+describe('DsDatepickerModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [CcDatepickerModule]
+      imports: [DsDatepickerModule]
     }).compileComponents();
   }));
 
   it('should create', () => {
-    expect(CcDatepickerModule).toBeDefined();
+    expect(DsDatepickerModule).toBeDefined();
   });
 });

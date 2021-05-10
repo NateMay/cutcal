@@ -37,12 +37,12 @@ export const docJoinOn = <T>(
 
     return source.pipe(
       // Store the parent
-      tap(doc => (parentDoc = doc)),
+      tap((doc) => (parentDoc = doc)),
 
       // Make a call to get the reference document
       switchMap(() =>
         combineLatest(
-          joins.map(join =>
+          joins.map((join) =>
             afs
               .doc(`${join.collection}/${parentDoc[join.idProperty]}`)
               .valueChanges()
@@ -51,7 +51,7 @@ export const docJoinOn = <T>(
       ),
 
       // Join the response onto the parent document
-      map(arr => ({
+      map((arr) => ({
         ...parentDoc,
         ...joins.reduce(
           (acc, cur, idx) => ({ ...acc, [cur.targetProp]: arr[idx] }),

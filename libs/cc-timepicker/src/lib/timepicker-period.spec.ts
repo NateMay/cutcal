@@ -1,20 +1,20 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { CcTimepickerPeriodComponent } from './timepicker-period';
+import { DsTimepickerPeriodComponent } from './timepicker-period';
 import { getHours, getMinutes, TimePeriod, TimeUnit } from './timepicker-utils';
 
 describe('TimepickerPeriodComponent', () => {
-  let fixture: ComponentFixture<CcTimepickerPeriodComponent>;
-  let component: CcTimepickerPeriodComponent;
+  let fixture: ComponentFixture<DsTimepickerPeriodComponent>;
+  let component: DsTimepickerPeriodComponent;
   const minutes = getMinutes();
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      declarations: [CcTimepickerPeriodComponent],
+      declarations: [DsTimepickerPeriodComponent],
       imports: [NoopAnimationsModule],
-      schemas: [NO_ERRORS_SCHEMA],
-    }).createComponent(CcTimepickerPeriodComponent);
+      schemas: [NO_ERRORS_SCHEMA]
+    }).createComponent(DsTimepickerPeriodComponent);
 
     component = fixture.componentInstance;
   });

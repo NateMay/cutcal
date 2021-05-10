@@ -9,13 +9,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CutCalComponent } from './cutcal-root';
 
 @Component({
-  selector: 'cc-sidebar-search,sidebar-search',
+  selector: 'ds-sidebar-search,sidebar-search',
   template: ''
 })
 class MockSideSearch {}
 
 @Component({
-  selector: 'cc-header,header',
+  selector: 'ds-header,header',
   template: ''
 })
 class MockHeader {}

@@ -153,7 +153,7 @@ export class Doc4AnimateComponent implements OnInit {
   }
 
   replayAll(): void {
-    this.enters.forEach(animation => (animation.replay = true))
+    this.enters.forEach((animation) => (animation.replay = true))
     this.replayExists()
   }
 
@@ -163,7 +163,7 @@ export class Doc4AnimateComponent implements OnInit {
   }
 
   replayExit(animation: Animations): void {
-    this.exitAnimations = this.exitAnimations.filter(an => an !== animation)
+    this.exitAnimations = this.exitAnimations.filter((an) => an !== animation)
     setTimeout(() => (this.exitAnimations = this._exitAnimations), this.timeout)
   }
 }

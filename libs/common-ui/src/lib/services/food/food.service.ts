@@ -45,12 +45,12 @@ export class FoodService {
 
     const usages$ = this.db
       .colWithIds$<Usage>(`${this.foodCol}/${foodId}/usages`)
-      .pipe(map(usages => keyBy(usages, '_id')))
+      .pipe(map((usages) => keyBy(usages, '_id')))
 
     const foods$ = this.getFoodsFromUsages(usages$)
 
     return combineLatest(food$, usages$, foods$).pipe(
-      filter(tripple => this.invalidMappings(tripple))
+      filter((tripple) => this.invalidMappings(tripple))
     )
   }
 
@@ -61,16 +61,16 @@ export class FoodService {
    */
   getFoodsFromUsages(usages$: Observable<KVP<Usage>>): Observable<KVP<Food>> {
     return usages$.pipe(
-      flatMap(usages =>
+      flatMap((usages) =>
         isEmpty(usages)
           ? of({})
           : combineLatest(
-              _map(usages, usage =>
+              _map(usages, (usage) =>
                 this.db.docWithId$<Food>(`${this.foodCol}/${usage.foodId}`)
               )
             )
       ),
-      map(foods => keyBy(foods, '_id'))
+      map((foods) => keyBy(foods, '_id'))
     )
   }
 
@@ -110,7 +110,7 @@ export class FoodService {
    * @param {Tripple} : MealTripple or MealsTripple
    */
   invalidMappings([, usages, foods]: Tripple): boolean {
-    return !_map(usages, usage => foods[usage.foodId]).some(food => !food)
+    return !_map(usages, (usage) => foods[usage.foodId]).some((food) => !food)
   }
 
   newFoodImage(event: any, food: Food, uploaderId: string): void {

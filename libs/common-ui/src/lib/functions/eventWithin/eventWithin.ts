@@ -6,4 +6,4 @@
  */
 
 export const eventWithin = (event: Event, elements: Element[]): boolean =>
-  elements.some(el => el.contains(<Node>event.target))
+  elements.some((el) => el.contains(<Node>event.target))

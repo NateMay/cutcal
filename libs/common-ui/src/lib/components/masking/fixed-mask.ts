@@ -14,6 +14,7 @@ import {
   OnDestroy,
   OnInit,
   Output,
+  Provider,
   Renderer2,
   ViewEncapsulation
 } from '@angular/core'
@@ -41,15 +42,15 @@ import {
   replaceAt
 } from './masking.utils'
 
-const FIXED_MASK_VALUE_ACCESSOR: any = {
+const FIXED_MASK_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => CcFixedMask),
+  useExisting: forwardRef(() => DsFixedMask),
   multi: true
 }
 
-export type CcPredefinedMask = keyof CcPredefinedMasks
+export type DsPredefinedMask = keyof DsPredefinedMasks
 
-export interface CcPredefinedMasks {
+export interface DsPredefinedMasks {
   phone: string
   zipcode: string
   ssn: string
@@ -59,17 +60,16 @@ export interface CcPredefinedMasks {
 }
 
 @Component({
-  selector: 'cc-fixed-mask',
-  template: `
-    <ng-content></ng-content>
-  `,
+  selector: 'ds-fixed-mask',
+  template: ` <ng-content></ng-content> `,
   providers: [FIXED_MASK_VALUE_ACCESSOR],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CcFixedMask extends MaskingBase
+export class DsFixedMask
+  extends MaskingBase
   implements ControlValueAccessor, OnDestroy, AfterContentInit, OnInit {
-  static readonly Masks: CcPredefinedMasks = Object.freeze({
+  static readonly Masks: DsPredefinedMasks = Object.freeze({
     phone: '(999) 999-9999',
     zipcode: '99999',
     ssn: '999-99-9999',
@@ -105,7 +105,7 @@ export class CcFixedMask extends MaskingBase
     return this.digits
       .slice(this.start, this.end)
       .filter(isWritable)
-      .map(digit => digit.value)
+      .map((digit) => digit.value)
       .join('')
   }
 
@@ -178,7 +178,7 @@ export class CcFixedMask extends MaskingBase
    * - space: " "
    */
   @Input() set mask(mask: string) {
-    const newMask = get(CcFixedMask.Masks, mask) || mask
+    const newMask = get(DsFixedMask.Masks, mask) || mask
     // eslint-disable-next-line no-useless-escape
     if (/^[aA#^&*0-9\/()+\- ]+$/.test(newMask)) this._mask = mask
     else {
@@ -197,7 +197,7 @@ export class CcFixedMask extends MaskingBase
    * @description facilitates the named masks
    * @example
    * ```html
-   *  <cc-fixed-mask mask="partialSsnMasking">
+   *  <ds-fixed-mask mask="partialSsnMasking">
    * ```
    */
   private get maskArray(): string[] {
@@ -211,7 +211,7 @@ export class CcFixedMask extends MaskingBase
   }
 
   private get maskLiteral(): string {
-    return get(CcFixedMask.Masks, this._mask) || this._mask
+    return get(DsFixedMask.Masks, this._mask) || this._mask
   }
 
   /**
@@ -226,7 +226,7 @@ export class CcFixedMask extends MaskingBase
 
   private get firstAvailable(): number {
     return this.digits.findIndex(
-      digit => digit.writable && digit.value === this.blank
+      (digit) => digit.writable && digit.value === this.blank
     )
   }
 
@@ -415,7 +415,7 @@ export class CcFixedMask extends MaskingBase
   /**
    * @example
    * ```html
-   * <cc-fixed-mask mask="*9*9*9-*9*9-*9*9*9*9">
+   * <ds-fixed-mask mask="*9*9*9-*9*9-*9*9*9*9">
    * '723-34-1236' => '•••-••-••••'
    * ```
    */
@@ -462,13 +462,13 @@ export class CcFixedMask extends MaskingBase
     // index: number = 0,
     focus: boolean = false
   ) {
-    this.digits.forEach(digit => {
+    this.digits.forEach((digit) => {
       if (digit.writable) {
         digit.value = value.charAt(0) || this.blank
         value = value.substring(1)
       }
     })
-    this.inputText = this.digits.map(digit => digit.value).join('')
+    this.inputText = this.digits.map((digit) => digit.value).join('')
     // true for paste
     if (focus) onStable(this.ngZone, () => this.place(this.firstAvailable))
   }

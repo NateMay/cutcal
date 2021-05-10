@@ -9,7 +9,7 @@ import { Component } from '@angular/core'
     <br /><br />
 
     <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-      <cc-time-picker-input
+      <ds-time-picker-input
         #timePicker
         label="Select a time"
         [(time)]="time"
@@ -20,7 +20,7 @@ import { Component } from '@angular/core'
         [idStr]="idStr.value"
         [format]="format.checked ? 24 : 12"
         [disabled]="disabled.checked"
-      ></cc-time-picker-input>
+      ></ds-time-picker-input>
     </div>
 
     <br /><br />
@@ -82,7 +82,7 @@ import { Component } from '@angular/core'
       </div>
     </div>
   `,
-  styleUrls: ['./doc4-timepicker.component.css'],
+  styleUrls: ['./doc4-timepicker.component.css']
 })
 export class Doc4TimepickerComponent {
   time = '03:15 pm'

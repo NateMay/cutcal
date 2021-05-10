@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  OnInit,
+  OnInit
 } from '@angular/core'
 import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
 
@@ -26,7 +26,7 @@ import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
         <td class="daily-value">X%</td>
       </tr>
     </tbody>
-  `,
+  `
 })
 export class InsufficientTableComponent implements OnInit {
   private _nutrition: Nutrition<number>

@@ -8,24 +8,25 @@ import {
   Input,
   OnInit,
   Optional,
-  Output
+  Output,
+  Provider
 } from '@angular/core'
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { ThemePalette } from '@angular/material/core'
 import { MatFormField } from '@angular/material/form-field'
 import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input'
 import { Subscription } from 'rxjs'
-import { CcDatepicker } from './datepicker'
+import { DsDatepicker } from './datepicker'
 
-export const CC_DATEPICKER_VALUE_ACCESSOR: any = {
+export const CC_DATEPICKER_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => CcDatepickerInput),
+  useExisting: forwardRef(() => DsDatepickerInput),
   multi: true
 }
 
-export const MAT_DATEPICKER_VALIDATORS: any = {
+export const MAT_DATEPICKER_VALIDATORS: Provider = {
   provide: NG_VALIDATORS,
-  useExisting: forwardRef(() => CcDatepickerInput),
+  useExisting: forwardRef(() => DsDatepickerInput),
   multi: true
 }
 
@@ -34,13 +35,13 @@ export const MAT_DATEPICKER_VALIDATORS: any = {
  * input or change event because the event may have been triggered by the user clicking on the
  * calendar popup. For consistency, we always use MatDatepickerInputEvent instead.
  */
-export class CcDatepickerInputEvent {
+export class DsDatepickerInputEvent {
   /** The new value for the target datepicker input. */
   value: string | null
 
   constructor(
     /** Reference to the dateepicker input component that emitted the event. */
-    public target: CcDatepickerInput,
+    public target: DsDatepickerInput,
     /** Reference to the native input element associated with the datepicker input. */
     public targetElement: HTMLElement
   ) {
@@ -53,7 +54,7 @@ export class CcDatepickerInputEvent {
   providers: [
     CC_DATEPICKER_VALUE_ACCESSOR,
     MAT_DATEPICKER_VALIDATORS,
-    { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: CcDatepickerInput }
+    { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: DsDatepickerInput }
   ],
   host: {
     '[attr.aria-haspopup]': '_datepicker ? "dialog" : null',
@@ -66,7 +67,7 @@ export class CcDatepickerInputEvent {
   },
   exportAs: 'ccDatepickerInput'
 })
-export class CcDatepickerInput implements OnInit {
+export class DsDatepickerInput implements OnInit {
   /** Emits when the value changes (either due to user input or programmatic change). */
   _valueChange = new EventEmitter<string | null>()
 
@@ -92,17 +93,15 @@ export class CcDatepickerInput implements OnInit {
   private _value: string | null
 
   /** Emits when a `change` event is fired on this `<input>`. */
-  @Output() readonly dateChange: EventEmitter<
-    CcDatepickerInputEvent
-  > = new EventEmitter<CcDatepickerInputEvent>()
+  @Output()
+  readonly dateChange: EventEmitter<DsDatepickerInputEvent> = new EventEmitter<DsDatepickerInputEvent>()
 
   /** Emits when an `input` event is fired on this `<input>`. */
-  @Output() readonly dateInput: EventEmitter<
-    CcDatepickerInputEvent
-  > = new EventEmitter<CcDatepickerInputEvent>()
+  @Output()
+  readonly dateInput: EventEmitter<DsDatepickerInputEvent> = new EventEmitter<DsDatepickerInputEvent>()
 
   @Input()
-  set ccDatepicker(value: CcDatepicker) {
+  set ccDatepicker(value: DsDatepicker) {
     if (!value) {
       return
     }
@@ -117,15 +116,15 @@ export class CcDatepickerInput implements OnInit {
         this._cvaOnChange(selected)
         this._onTouched()
         this.dateInput.emit(
-          new CcDatepickerInputEvent(this, this._elementRef.nativeElement)
+          new DsDatepickerInputEvent(this, this._elementRef.nativeElement)
         )
         this.dateChange.emit(
-          new CcDatepickerInputEvent(this, this._elementRef.nativeElement)
+          new DsDatepickerInputEvent(this, this._elementRef.nativeElement)
         )
       }
     )
   }
-  _datepicker: CcDatepicker
+  _datepicker: DsDatepicker
 
   /** Whether the datepicker-input is disabled. */
   @Input()

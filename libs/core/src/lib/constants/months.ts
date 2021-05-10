@@ -20,5 +20,5 @@ export const MONTHS: MonthMetaData[] = [
   { index: 8, short: 'Sept', long: 'September' },
   { index: 9, short: 'Oct', long: 'October' },
   { index: 10, short: 'Nov', long: 'November' },
-  { index: 11, short: 'Dec', long: 'December' },
+  { index: 11, short: 'Dec', long: 'December' }
 ]

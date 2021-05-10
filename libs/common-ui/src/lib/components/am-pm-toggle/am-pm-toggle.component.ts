@@ -10,7 +10,7 @@ import { Boolish } from '../../decorators/boolish/boolish'
 let nextUniqueId = 0
 
 @Component({
-  selector: 'cc-am-pm-toggle',
+  selector: 'ds-am-pm-toggle',
   host: { class: 'cc-am-pm-toggle' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./am-pm-toggle.component.scss'],

@@ -12,7 +12,7 @@ export default (
       project: schema.project,
       name: schema.name,
       routing: true,
-      module: 'app.module.ts',
+      module: 'app.module.ts'
     }),
     externalSchematic('@schematics/angular', 'service', {
       project: schema.project,
@@ -24,7 +24,7 @@ export default (
         'app',
         schema.name,
         'services'
-      ),
+      )
     }),
     externalSchematic('@schematics/angular', 'guard', {
       project: schema.project,
@@ -36,6 +36,6 @@ export default (
         'app',
         schema.name,
         'services'
-      ),
-    }),
+      )
+    })
   ])

@@ -5,7 +5,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser'
 // FEATURE (storage)
 
 @Component({
-  selector: 'cc-storage',
+  selector: 'ds-storage',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./storage.component.scss'],
   host: { class: 'cc-storage' },

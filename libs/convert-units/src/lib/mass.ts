@@ -6,62 +6,62 @@ const metric: UnitMap = {
   mcg: {
     name: {
       singular: 'Microgram',
-      plural: 'Micrograms',
+      plural: 'Micrograms'
     },
-    toAnchor: 1 / 1000000,
+    toAnchor: 1 / 1000000
   },
   mg: {
     name: {
       singular: 'Milligram',
-      plural: 'Milligrams',
+      plural: 'Milligrams'
     },
-    toAnchor: 1 / 1000,
+    toAnchor: 1 / 1000
   },
   g: {
     name: {
       singular: 'Gram',
-      plural: 'Grams',
+      plural: 'Grams'
     },
-    toAnchor: 1,
+    toAnchor: 1
   },
   kg: {
     name: {
       singular: 'Kilogram',
-      plural: 'Kilograms',
+      plural: 'Kilograms'
     },
-    toAnchor: 1000,
+    toAnchor: 1000
   },
   mt: {
     name: {
       singular: 'Metric Tonne',
-      plural: 'Metric Tonnes',
+      plural: 'Metric Tonnes'
     },
-    toAnchor: 1000000,
-  },
+    toAnchor: 1000000
+  }
 }
 
 const imperial: UnitMap = {
   oz: {
     name: {
       singular: 'Ounce',
-      plural: 'Ounces',
+      plural: 'Ounces'
     },
-    toAnchor: 1 / 16,
+    toAnchor: 1 / 16
   },
   lb: {
     name: {
       singular: 'Pound',
-      plural: 'Pounds',
+      plural: 'Pounds'
     },
-    toAnchor: 1,
+    toAnchor: 1
   },
   t: {
     name: {
       singular: 'Ton',
-      plural: 'Tons',
+      plural: 'Tons'
     },
-    toAnchor: 2000,
-  },
+    toAnchor: 2000
+  }
 }
 
 export const MASS: MeasureBase = {
@@ -70,11 +70,11 @@ export const MASS: MeasureBase = {
   _anchors: {
     metric: {
       unit: 'g',
-      ratio: 1 / 453.592,
+      ratio: 1 / 453.592
     },
     imperial: {
       unit: 'lb',
-      ratio: 453.592,
-    },
-  },
+      ratio: 453.592
+    }
+  }
 }

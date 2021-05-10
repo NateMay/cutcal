@@ -14,6 +14,7 @@ import {
   OnDestroy,
   OnInit,
   Output,
+  Provider,
   Renderer2,
   ViewEncapsulation
 } from '@angular/core'
@@ -30,24 +31,23 @@ import { onStable } from '../../functions/onStable/onStable'
 import { MaskingBase } from './masking-base'
 import { insertAt, numericChecker } from './masking.utils'
 
-export type CcCurrenyDelimiter = '.' | ','
+export type DsCurrenyDelimiter = '.' | ','
 
-const CURRENCY_MASK_VALUE_ACCESSOR: any = {
+const CURRENCY_MASK_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => CcCurrencyMask),
+  useExisting: forwardRef(() => DsCurrencyMask),
   multi: true
 }
 
 @Component({
-  selector: 'cc-currency-mask',
-  template: `
-    <ng-content></ng-content>
-  `,
+  selector: 'ds-currency-mask',
+  template: ` <ng-content></ng-content> `,
   providers: [CURRENCY_MASK_VALUE_ACCESSOR],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CcCurrencyMask extends MaskingBase
+export class DsCurrencyMask
+  extends MaskingBase
   implements ControlValueAccessor, OnDestroy, AfterContentInit, OnInit {
   private unsub$ = new Subject<void>()
 
@@ -103,11 +103,11 @@ export class CcCurrencyMask extends MaskingBase
     return this.inputText.includes(this.decimalChar)
   }
 
-  private get decimalChar(): CcCurrenyDelimiter {
+  private get decimalChar(): DsCurrenyDelimiter {
     return this.format === 'american' ? '.' : ','
   }
 
-  private get thousandsSeparator(): CcCurrenyDelimiter {
+  private get thousandsSeparator(): DsCurrenyDelimiter {
     return this.format === 'american' ? ',' : '.'
   }
 
@@ -341,11 +341,11 @@ export class CcCurrencyMask extends MaskingBase
    * which is needed to work with the ReactiveForms Module
    */
 
-  onChange = (value: number | null) => {}
+  onChange = (value: unknown) => {}
   onTouched = () => {}
 
   // Update control value
-  writeValue(strValue: number | null): void {
+  writeValue(strValue: unknown): void {
     // covert type to number if it was pass in that wat
     this.valueChange.emit(this._value)
     // trigger control change events

@@ -10,4 +10,4 @@ if (environment.production) {
 
 platformBrowserDynamic()
   .bootstrapModule(CutCalModule)
-  .catch(err => console.error(err))
+  .catch((err) => console.error(err))

@@ -7,7 +7,7 @@ export const tapOnce = <T>(fn: (value: any) => void) => (
   defer(() => {
     let first = true
     return source.pipe(
-      tap<T>(payload => {
+      tap<T>((payload) => {
         if (first) {
           fn(payload)
         }

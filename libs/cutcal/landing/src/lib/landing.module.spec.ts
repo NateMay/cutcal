@@ -4,7 +4,7 @@ import { LandingModule } from './landing.module';
 describe('LandingModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [LandingModule],
+      imports: [LandingModule]
     }).compileComponents();
   }));
 

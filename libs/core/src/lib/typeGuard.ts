@@ -8,7 +8,7 @@
 export const guard = <T, R extends T>(
   r: (value: T) => value is R,
   message?: string
-): ((value: T) => R) => value => {
+): ((value: T) => R) => (value) => {
   if (r(value)) {
     return value
   }

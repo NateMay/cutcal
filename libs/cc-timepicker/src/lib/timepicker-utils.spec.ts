@@ -3,7 +3,7 @@ import {
   getMinutes,
   isBetween,
   isSameOrAfter,
-  isSameOrBefore,
+  isSameOrBefore
 } from './timepicker-utils';
 
 describe('TimepickerUtils', () => {
@@ -113,7 +113,7 @@ describe('TimepickerTime', () => {
 
         expect(hours[i]).toEqual({
           time: time === 24 ? 0 : time,
-          angle: time * angleStep,
+          angle: time * angleStep
         });
       }
     });
@@ -132,7 +132,7 @@ describe('TimepickerTime', () => {
 
         expect(minutes[i]).toEqual({
           time: i,
-          angle: angle !== 0 ? angle : 360,
+          angle: angle !== 0 ? angle : 360
         });
       }
     });
@@ -149,7 +149,7 @@ describe('TimepickerTime', () => {
 
         expect(minutesWithGap[i]).toEqual({
           time: i * gap,
-          angle: angle !== 0 ? angle : 360,
+          angle: angle !== 0 ? angle : 360
         });
       }
     });

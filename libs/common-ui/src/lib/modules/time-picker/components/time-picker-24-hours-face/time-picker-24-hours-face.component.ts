@@ -9,16 +9,16 @@ import { ClockFaceTime } from '../../models/clock-face-time.interface'
 import { getHours } from '../../utils/timepicker-time.utils'
 
 @Component({
-  selector: 'cc-timepicker-24-hours-face',
+  selector: 'ds-timepicker-24-hours-face',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <cc-timepicker-face
+    <ds-timepicker-face
       [selectedTime]="selectedHour"
       [faceTime]="hoursList"
       [format]="format"
       (timeChange)="hourChange.next($event)"
       (timeSelected)="onTimeSelected($event)"
-    ></cc-timepicker-face>
+    ></ds-timepicker-face>
   `
 })
 export class Timepicker24HoursFaceComponent {

@@ -4,9 +4,7 @@ import { getEl } from '../../../../../ng-testing/src/lib/getEl';
 import { PluralPipeModule } from './plural-pipe.module';
 
 @Component({
-  template: `
-    <div>{{ unit | plural: quantity }}</div>
-  `
+  template: ` <div>{{ unit | plural: quantity }}</div> `
 })
 class TestPluralPipeComponent {
   unit = 'gram';

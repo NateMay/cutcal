@@ -6,20 +6,20 @@ export interface ClockFaceTime {
 
 export const DEFAULT_HOUR: ClockFaceTime = {
   time: 12,
-  angle: 360,
+  angle: 360
 }
 export const DEFAULT_MINUTE: ClockFaceTime = {
   time: 0,
-  angle: 360,
+  angle: 360
 }
 
 export enum TimePeriod {
   AM = 'AM',
-  PM = 'PM',
+  PM = 'PM'
 }
 export enum TimeUnit {
   HOUR,
-  MINUTE,
+  MINUTE
 }
 
 export const getHours = (format: number): ClockFaceTime[] =>

@@ -215,10 +215,7 @@ export class FirestoreService {
    *  this.db.upsert('notes/xyz', { content: 'hello dude' })
    */
   upsert<T>(ref: DocPredicate<T>, data: any): Promise<void> {
-    const doc = this.doc(ref)
-      .snapshotChanges()
-      .pipe(first())
-      .toPromise()
+    const doc = this.doc(ref).snapshotChanges().pipe(first()).toPromise()
     return doc.then(
       (
         snap: Action<DocumentSnapshotDoesNotExist | DocumentSnapshotExists<T>>

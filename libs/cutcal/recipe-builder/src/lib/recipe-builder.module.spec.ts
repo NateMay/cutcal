@@ -4,7 +4,7 @@ import { RecipeBuilderModule } from './recipe-builder.module';
 describe('RecipeBuilderModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RecipeBuilderModule],
+      imports: [RecipeBuilderModule]
     }).compileComponents();
   }));
 

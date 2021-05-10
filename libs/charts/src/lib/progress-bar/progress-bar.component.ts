@@ -6,7 +6,7 @@ export interface ProgressBarColors {
   color: string
 }
 @Component({
-  selector: 'cc-progress-bar',
+  selector: 'ds-progress-bar',
   styleUrls: ['./progress-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -22,18 +22,18 @@ export interface ProgressBarColors {
         {{ progress || '0' }}%
       </div>
     </div>
-  `,
+  `
 })
 export class ProgressBarComponent {
   @Input() progress!: string
 
   @Input() colors: ProgressBarColors = {
     background: '#488aff',
-    color: '#eee',
+    color: '#eee'
   }
   @Input() staleColors: ProgressBarColors = {
     background: '#eee',
-    color: '#333',
+    color: '#333'
   }
 
   get background(): string {

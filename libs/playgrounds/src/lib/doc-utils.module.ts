@@ -15,11 +15,11 @@ const MODULES = [
   MatSlideToggleModule,
   MatSelectModule,
   FormsModule,
-  ReactiveFormsModule,
+  ReactiveFormsModule
 ]
 
 @NgModule({
   imports: [...MODULES],
-  exports: [...MODULES],
+  exports: [...MODULES]
 })
 export class DocUtilModule {}

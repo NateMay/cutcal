@@ -7,7 +7,7 @@ import {
   Rule,
   SchematicContext,
   Tree,
-  url,
+  url
 } from '@angular-devkit/schematics'
 import { getProjectConfig } from '@nrwl/workspace'
 // import { getWorkspace } from '@schematics/angular/utility/config';
@@ -17,7 +17,7 @@ import { CommonComponenetSchematicOptions } from './schema'
 
 const generateLibrary = (schema: CommonComponenetSchematicOptions): Rule =>
   externalSchematic('@nrwl/workspace', 'lib', {
-    name: schema.name,
+    name: schema.name
   })
 
 // export function setupOptions(tree: Tree, schema: any): any {
@@ -40,7 +40,7 @@ function generateFiles(schema: CommonComponenetSchematicOptions): Rule {
     // context.logger.info('adding NOTES.md to lib');
 
     const templateSource = apply(url('./files'), [
-      move(getProjectConfig(tree, schema.name).root),
+      move(getProjectConfig(tree, schema.name).root)
     ])
 
     return chain([mergeWith(templateSource)])(tree, context)

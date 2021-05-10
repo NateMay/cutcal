@@ -7,7 +7,7 @@ import {
 } from '../utils/image-cropper.data'
 
 @Component({
-  selector: 'cc-upload-dialog',
+  selector: 'ds-upload-dialog',
   styleUrls: ['./upload-dialog.component.scss'],
   template: `
     <mat-card class="example-card">
@@ -18,7 +18,7 @@ import {
       </mat-card-header>
       <mat-card-content>
         <div>
-          <cc-image-cropper
+          <ds-image-cropper
             [imageChangedEvent]="imageChangedEvent"
             [maintainAspectRatio]="true"
             [aspectRatio]="1 / 1"
@@ -35,7 +35,7 @@ import {
             (loadImageFailed)="data.loadImageFailed()"
             (imageCroppedFile)="data.imageCroppedFile($event)"
             (imageCroppedBase64)="data.imageCroppedBase64($event)"
-          ></cc-image-cropper>
+          ></ds-image-cropper>
         </div>
 
         <div fxLayout="row">

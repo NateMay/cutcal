@@ -37,15 +37,15 @@ export class ActionLinkObserver implements CanActivate {
   ): Observable<{ [key: string]: string } | undefined> {
     return this.observers$.pipe(
       // Filters the request based on the action code
-      filter(request =>
-        actions.some(action => {
+      filter((request) =>
+        actions.some((action) => {
           const config = request.routeConfig
           if (!config) return false
           return config.path === action
         })
       ),
       // Emits the route's quesy parameters' map as an object
-      map(route => this.extract(route.queryParamMap))
+      map((route) => this.extract(route.queryParamMap))
     )
   }
 }

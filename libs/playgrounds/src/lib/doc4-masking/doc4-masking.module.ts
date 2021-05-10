@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { RouterModule } from '@angular/router'
-import { CcMaskingModule } from '@cutcal/common-ui'
+import { DsMaskingModule } from '@cutcal/common-ui'
 import { DocUtilModule } from '../doc-utils.module'
 import { Doc4MaskingComponent } from './doc4-masking.component'
 
@@ -12,7 +12,7 @@ import { Doc4MaskingComponent } from './doc4-masking.component'
   declarations: [Doc4MaskingComponent],
   imports: [
     CommonModule,
-    CcMaskingModule,
+    DsMaskingModule,
     DocUtilModule,
     MatFormFieldModule,
     MatInputModule,

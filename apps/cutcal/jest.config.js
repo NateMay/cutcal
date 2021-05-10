@@ -4,6 +4,6 @@ module.exports = {
   coverageDirectory: '../../coverage/apps/cutcal',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
-    'jest-preset-angular/build/HTMLCommentSerializer.js',
-  ],
+    'jest-preset-angular/build/HTMLCommentSerializer.js'
+  ]
 }

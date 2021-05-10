@@ -3,7 +3,7 @@ import {
   async,
   ComponentFixture,
   inject,
-  TestBed,
+  TestBed
 } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -24,9 +24,9 @@ describe('AnalyzeRangePickerComponent', () => {
       imports: [ReactiveFormsModule],
       providers: [
         { provide: Router, useClass: MockRouterSvc },
-        MOCK_HAMMER_LOADER,
+        MOCK_HAMMER_LOADER
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
 

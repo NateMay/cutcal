@@ -7,7 +7,7 @@ import { CalendarControlsComponent } from './calendar-controls.component';
 
 @Component({
   template: `
-    <cc-calendar-controls
+    <ds-calendar-controls
       [monthBtnDate]="monthBtnDate"
       [monthBtnDisabled]="monthBtnDisabled"
       [prevBtnLabel]="prevBtnLabel"
@@ -16,7 +16,7 @@ import { CalendarControlsComponent } from './calendar-controls.component';
       (prevBtn)="prevBtn()"
       (nextBtn)="nextBtn()"
       (monthBtn)="monthBtn()"
-    ></cc-calendar-controls>
+    ></ds-calendar-controls>
   `
 })
 class TestCalControlsComponent {

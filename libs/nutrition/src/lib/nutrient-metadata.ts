@@ -70,7 +70,7 @@ class NutrientMetadataStore {
   ): Nutrition<T> {
     const result: Nutrition<string | number> = {}
 
-    NUTRIENT_KEYS.forEach(nutrient => {
+    NUTRIENT_KEYS.forEach((nutrient) => {
       if (!USDA_NUTRIENT_DETAILS[nutrient])
         console.warn(
           `details needed for "${nutrient}". https://ndb.nal.usda.gov/ndb/nutrients/index`

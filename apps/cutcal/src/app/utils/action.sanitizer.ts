@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Action } from '@ngrx/store'
 
 /**
@@ -29,7 +30,7 @@ function serializer(replacer: any, cycleReplacer: any): any {
     }
   }
 
-  return function(this: any, key: string, value: any): any {
+  return function (this: any, key: string, value: any): any {
     if (stack.length > 0) {
       const thisPos = stack.indexOf(this)
       ~thisPos ? stack.splice(thisPos + 1) : stack.push(this)

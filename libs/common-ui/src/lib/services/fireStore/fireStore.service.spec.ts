@@ -51,7 +51,7 @@ describe('AngularFirestore', () => {
     )();
   });
 
-  afterEach(done => {
+  afterEach((done) => {
     // can't await here https://github.com/firebase/firebase-js-sdk/issues/605
     app.delete();
     done();

@@ -59,7 +59,7 @@ describe('CalendarFaceComponent', () => {
     it('should emit set the "selectedDateChange" when a new date is passed to it', () => {
       component.selectedDateChange
         .pipe(first())
-        .subscribe(date => expect(date).toEqual(new Date(1901, 0, 1)));
+        .subscribe((date) => expect(date).toEqual(new Date(1901, 0, 1)));
 
       component.selectedDate = new Date(1901, 0, 1);
     });
@@ -130,7 +130,7 @@ describe('CalendarFaceComponent', () => {
     it('should emit set the "focusDateChange" when a new date is passed to it', () => {
       component.focusDateChange
         .pipe(first())
-        .subscribe(date => expect(date).toEqual(new Date(1901, 0, 1)));
+        .subscribe((date) => expect(date).toEqual(new Date(1901, 0, 1)));
 
       component.focusDate = new Date(1901, 0, 1);
     });
@@ -272,7 +272,7 @@ describe('CalendarFaceComponent', () => {
     component.dayClicked(new Date(2001, 2, 2));
     component.dayClick
       .pipe(first())
-      .subscribe(date => expect(date).toEqual(new Date(2001, 2, 1)));
+      .subscribe((date) => expect(date).toEqual(new Date(2001, 2, 1)));
   });
 
   it('startManaging() sets value on focusin event', () => {

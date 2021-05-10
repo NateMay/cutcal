@@ -8,7 +8,7 @@ describe('multiplyNutrition() - shared/functions', () => {
           carbohydrates: 1,
           protein: 3,
           fat: 5,
-          alcohol: 17,
+          alcohol: 17
         },
         4
       )
@@ -17,7 +17,7 @@ describe('multiplyNutrition() - shared/functions', () => {
       carbohydrates: 4,
       protein: 12,
       fat: 20,
-      alcohol: 68,
+      alcohol: 68
     });
   });
 });

@@ -53,11 +53,11 @@ const IMAGE_BLACKLIST_CONTAINS = [
 
 export const removeBlacklist = (pieces: string[]): string[] =>
   pieces.filter(
-    piece => !IMAGE_BLACKLIST_CONTAINS.some(bl => piece.includes(bl))
+    (piece) => !IMAGE_BLACKLIST_CONTAINS.some((bl) => piece.includes(bl))
   )
 
 export const applyReplacements = (pieces: string[]): string[] =>
-  pieces.map(piece =>
+  pieces.map((piece) =>
     piece
       .replace('Babyfood', 'baby food')
       .replace('cooked or canned', 'canned')
@@ -67,7 +67,8 @@ export const applyReplacements = (pieces: string[]): string[] =>
 
 export const removeAfter = (pieces: string[]): string[] =>
   pieces.map(
-    piece => piece.split(new RegExp(/ or | excludes | excluding | no |^no /))[0]
+    (piece) =>
+      piece.split(new RegExp(/ or | excludes | excluding | no |^no /))[0]
   )
 
 export const splitFdcName = (incoming: string): string[] => {
@@ -76,7 +77,7 @@ export const splitFdcName = (incoming: string): string[] => {
   const noParentheses = incoming.replace(/\([^)]*\)|\[[^\]]*\]/g, '')
   const commaSegments = noParentheses.split(',')
   const parenthesesRemoved = (parentheses || [])
-    .map(match => match.replace('(', ''))
-    .map(match => match.replace(')', ''))
-  return [...commaSegments, ...parenthesesRemoved].map(str => str.trim())
+    .map((match) => match.replace('(', ''))
+    .map((match) => match.replace(')', ''))
+  return [...commaSegments, ...parenthesesRemoved].map((str) => str.trim())
 }

@@ -5,41 +5,41 @@ import { DatePickerDialogData, DATE_PICKER_DATA } from '../date-picker-data'
 let nextUniqueId: number = 0
 
 @Component({
-  selector: 'cc-date-picker-dialog',
+  selector: 'ds-date-picker-dialog',
   styleUrls: ['./date-picker-dialog.component.scss'],
   host: { class: 'cc-date-picker mat-elevation-z2' },
   template: `
     <span cdkTrapFocus>
-      <cc-calendar-controls
+      <ds-calendar-controls
         [monthBtnDisabled]="monthBtnDisabled"
         [monthBtnDate]="focusDate"
         (prevBtn)="direction(-1)"
         (nextBtn)="direction(1)"
         (monthBtn)="monthBtnChange()"
-      ></cc-calendar-controls>
+      ></ds-calendar-controls>
 
       <ng-container [ngSwitch]="view">
-        <cc-calendar-face
+        <ds-calendar-face
           *ngSwitchCase="'days'"
           [focusId]="focusId"
           [(selectedDate)]="selectedDate"
           [(focusDate)]="focusDate"
           (dayClick)="data.select($event)"
-        ></cc-calendar-face>
+        ></ds-calendar-face>
 
-        <cc-date-picker-months
+        <ds-date-picker-months
           *ngSwitchCase="'months'"
           [selectedDate]="selectedDate"
           [focusDate]="focusDate"
           (monthSelect)="monthSelect($event)"
-        ></cc-date-picker-months>
+        ></ds-date-picker-months>
 
-        <cc-date-picker-years
+        <ds-date-picker-years
           *ngSwitchCase="'years'"
           [selectedDate]="selectedDate"
           [focusDate]="focusDate"
           (yearSelect)="yearSelect($event)"
-        ></cc-date-picker-years>
+        ></ds-date-picker-years>
       </ng-container>
 
       <button mat-button (click)="data.close()">Close</button>

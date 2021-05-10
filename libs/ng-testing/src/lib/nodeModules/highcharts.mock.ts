@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, NgModule, Output } from '@angular/core'
 
 @Component({
   selector: 'highcharts-chart',
-  template: '',
+  template: ''
 })
 export class MockHighChartsComponent {
   @Input() update!: any
@@ -16,6 +16,6 @@ export class MockHighChartsComponent {
 @NgModule({
   imports: [CommonModule],
   declarations: [MockHighChartsComponent],
-  exports: [MockHighChartsComponent],
+  exports: [MockHighChartsComponent]
 })
 export class MockHighChartsModule {}

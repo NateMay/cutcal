@@ -7,11 +7,11 @@ import { DatePickerMonthsComponent } from './date-picker-months.component';
 
 @Component({
   template: `
-    <cc-date-picker-months
+    <ds-date-picker-months
       [selectedDate]="selectedDate"
       [focusDate]="focusDate"
       (monthSelect)="monthSelect($event)"
-    ></cc-date-picker-months>
+    ></ds-date-picker-months>
   `
 })
 class TestDatePickerMonthsComponent {

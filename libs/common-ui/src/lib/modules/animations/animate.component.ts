@@ -187,7 +187,7 @@ export class AnimateComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // Triggers the animation based on the input flags
     this.animateTrigger(this.host)
-      .pipe(tap(trigger => (this.trigger = trigger ? this.play : this.idle)))
+      .pipe(tap((trigger) => (this.trigger = trigger ? this.play : this.idle)))
       .subscribe()
   }
 
@@ -203,7 +203,7 @@ export class AnimateComponent implements OnInit, OnDestroy {
   // Triggers the animation
   private animateTrigger(elm: ElementRef<HTMLElement>): Observable<boolean> {
     return this.animateReplay().pipe(
-      flatMap(trigger => (this.aos ? this.animateOnScroll(elm) : of(trigger)))
+      flatMap((trigger) => (this.aos ? this.animateOnScroll(elm) : of(trigger)))
     )
   }
 
@@ -233,11 +233,11 @@ export class AnimateComponent implements OnInit, OnDestroy {
       // Distincts the resulting triggers
       distinctUntilChanged(),
       // Stop taking the first on trigger when aosOnce is set
-      takeWhile(trigger => !trigger || !this.once, true),
+      takeWhile((trigger) => !trigger || !this.once, true),
       // Run NEXT within the angular zone to trigger change detection back on
       flatMap(
-        trigger =>
-          new Observable<boolean>(observer =>
+        (trigger) =>
+          new Observable<boolean>((observer) =>
             this.zone.run(() => observer.next(trigger))
           )
       )

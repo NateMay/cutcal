@@ -3,9 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MemoizePipe } from './memoize.pipe';
 
 @Component({
-  template: `
-    <div [innerHTML]="contextobj | memoize: method"></div>
-  `
+  template: ` <div [innerHTML]="contextobj | memoize: method"></div> `
 })
 class TestMemoizeComp {
   contextobj = { value: 'hi 1' };

@@ -12,5 +12,5 @@ export interface Image {
 export const createImage = (url: string, uploaderId?: string): Image => ({
   url,
   votes: 0,
-  uploaderId,
+  uploaderId
 })

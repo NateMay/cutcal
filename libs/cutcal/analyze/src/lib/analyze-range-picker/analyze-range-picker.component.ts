@@ -5,7 +5,7 @@ import { analyzeParams, CCValidators } from '@cutcal/common-ui'
 import { isDate } from 'lodash'
 
 @Component({
-  selector: 'cc-analyze-range-picker',
+  selector: 'ds-analyze-range-picker',
   template: `
     <form fxLayout="row" fxLayout="space-between center" [formGroup]="form">
       <mat-form-field fxFlex="49%">
@@ -45,15 +45,15 @@ import { isDate } from 'lodash'
 
     <div class="error" *ngIf="form.invalid">Invalid Date Range</div>
 
-    <cc-calendar-controls
+    <ds-calendar-controls
       [monthBtnDate]="focusDate"
       (prevBtn)="changeMonth(-1)"
       (nextBtn)="changeMonth(1)"
       (monthBtn)="monthBtnChange()"
-    ></cc-calendar-controls>
+    ></ds-calendar-controls>
 
     <ng-container [ngSwitch]="calView">
-      <cc-calendar-face
+      <ds-calendar-face
         *ngSwitchCase="'days'"
         [range]="true"
         [(focusDate)]="focusDate"
@@ -62,19 +62,19 @@ import { isDate } from 'lodash'
         (endDateChange)="updateUrl()"
         (startDateChange)="updateUrl()"
         [focusId]="'calFocusID'"
-      ></cc-calendar-face>
+      ></ds-calendar-face>
 
-      <cc-date-picker-months
+      <ds-date-picker-months
         *ngSwitchCase="'months'"
         [focusDate]="focusDate"
         (monthSelect)="monthSelect($event)"
-      ></cc-date-picker-months>
+      ></ds-date-picker-months>
 
-      <cc-date-picker-years
+      <ds-date-picker-years
         *ngSwitchCase="'years'"
         [focusDate]="focusDate"
         (yearSelect)="yearSelect($event)"
-      ></cc-date-picker-years>
+      ></ds-date-picker-years>
     </ng-container>
   `,
   styleUrls: ['./analyze-range-picker.component.scss']

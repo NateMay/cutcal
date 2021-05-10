@@ -128,16 +128,15 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
           const { start, end } = this.setDateRange(params)
           return this.mealSvc.getMealRange(start, end)
         }),
-        map(meals =>
-          groupBy(meals, meal =>
-            meal.timestamp
-              .toDate()
-              .stripTime()
-              .toString()
+        map((meals) =>
+          groupBy(meals, (meal) =>
+            meal.timestamp.toDate().stripTime().toString()
           )
         ),
-        map(dailyMeals => _map(dailyMeals, meals => new DailyNutrition(meals))),
-        tap(dailyNutrs => (this.dailyData = keyBy(dailyNutrs, 'dateString'))),
+        map((dailyMeals) =>
+          _map(dailyMeals, (meals) => new DailyNutrition(meals))
+        ),
+        tap((dailyNutrs) => (this.dailyData = keyBy(dailyNutrs, 'dateString'))),
         tap(() => this.initializeCharts()),
         takeUntil(this.unsub$)
       )
@@ -206,8 +205,8 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
     controls: ChartControls
   ): SeriesOptionsType[] {
     return checkables
-      .filter(checkable => checkable.isChecked)
-      .map(checked => this.getSeries(checked, controls))
+      .filter((checkable) => checkable.isChecked)
+      .map((checked) => this.getSeries(checked, controls))
   }
 
   getSeries(checked: NutrCheckable, control: ChartControls): SeriesOptionsType {
@@ -228,7 +227,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
     base: HighChartsDataPoint[],
     propName: string
   ): HighChartsDataPoint[] {
-    return base.map(point => {
+    return base.map((point) => {
       const day = this.dailyData[point.name]
       const date = point.name.urlToDate()
       const value = get(day, `nutrition.${propName}`) || 0
@@ -253,7 +252,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
     return dateArray(
       this.startDate.daysBetween(this.endDate),
       this.startDate
-    ).map(date => ({ name: date.toUrlString(), y: 0 }))
+    ).map((date) => ({ name: date.toUrlString(), y: 0 }))
   }
 
   // ***************   CHART OPTIONS AND CONTROLS BINDINGS   ****************** //
@@ -266,7 +265,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
 
     this.setChartOptions(controls, this.charts[controls.unit].options)
 
-    forEach(options.series, point => {
+    forEach(options.series, (point) => {
       point.type = controls.type
     })
 
@@ -302,7 +301,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   closeChart(chart: AnalysisChartVM): void {
-    forEach(this.nutrCheckables, checkable => {
+    forEach(this.nutrCheckables, (checkable) => {
       if (checkable?.unit == chart.unit) checkable.isChecked = false
     })
 
@@ -335,7 +334,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   xAxisLabels(base: HighChartsDataPoint[]): string[] {
-    return base.map(dp =>
+    return base.map((dp) =>
       dp.name.urlToDate().toLocaleString(this.locale, MONTH_DAY_FORMAT)
     )
   }

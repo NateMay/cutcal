@@ -6,7 +6,7 @@ import { RadialProgressComponent } from './radial-progress.component';
 
 @Component({
   template: `
-    <cc-radial-progress
+    <ds-radial-progress
       [percent]="percent"
       [stepText]="stepText"
       [announceText]="announceText"
@@ -15,7 +15,7 @@ import { RadialProgressComponent } from './radial-progress.component';
       [baseStrokeWidth]="baseStrokeWidth"
     >
       {{ content }}
-    </cc-radial-progress>
+    </ds-radial-progress>
   `
 })
 class TestRadialProgress {

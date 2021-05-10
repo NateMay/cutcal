@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { Meta } from '@angular/platform-browser'
 
 @Component({
-  selector: 'cc-root',
-  template: `
-    <router-outlet></router-outlet>
-  `
+  selector: 'ds-root',
+  template: ` <router-outlet></router-outlet> `
 })
 export class CutCalComponent implements OnInit {
   // private sw: ServiceWorkerService,

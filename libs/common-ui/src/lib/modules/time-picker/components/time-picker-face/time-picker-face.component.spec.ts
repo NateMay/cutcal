@@ -250,7 +250,7 @@ describe('TimepickerFaceComponent', () => {
       let selectedTime: ClockFaceTime = { time: 1, angle: 5 };
       const mouseCords: MouseEventInit = { clientX: 150, clientY: 200 };
 
-      hourFaceTime.forEach(h => (h.disabled = true));
+      hourFaceTime.forEach((h) => (h.disabled = true));
       component.faceTime = hourFaceTime;
       component.timeChange.subscribe(
         (time: ClockFaceTime) => (selectedTime = time)

@@ -273,7 +273,7 @@ export const BASE_NUTRITION = <T>(value: T): Nutrition<T> => ({
   _22$5c: value,
   _22$6c: value,
   _20$2c: value,
-  vitEAte: value,
+  vitEAte: value
 
   // gravity: value,
 })

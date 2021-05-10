@@ -4,7 +4,7 @@ import { NutrientModule } from './nutrient.module';
 describe('NutrientModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NutrientModule],
+      imports: [NutrientModule]
     }).compileComponents();
   }));
 

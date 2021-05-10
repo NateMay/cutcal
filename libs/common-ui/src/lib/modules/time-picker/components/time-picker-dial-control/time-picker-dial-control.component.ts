@@ -12,7 +12,7 @@ import { TimeUnit } from '../../models/time-unit.enum'
 import { DEFAULT_HOUR } from '../../utils/default-clock-face'
 
 @Component({
-  selector: 'cc-timepicker-dial-control',
+  selector: 'ds-timepicker-dial-control',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <input
@@ -44,7 +44,7 @@ export class TimepickerDialControlComponent implements OnChanges {
 
   private get selectedTime(): ClockFaceTime | undefined {
     return this._time
-      ? this.timeList.find(t => t.time === +this._time)
+      ? this.timeList.find((t) => t.time === +this._time)
       : DEFAULT_HOUR
   }
 
@@ -110,7 +110,7 @@ export class TimepickerDialControlComponent implements OnChanges {
 function isInputAllowed(e: KeyboardEvent): boolean {
   // Allow: backspace, delete, tab, escape, enter
   if (
-    [46, 8, 9, 27, 13].some(n => n === e.keyCode) ||
+    [46, 8, 9, 27, 13].some((n) => n === e.keyCode) ||
     // Allow: Ctrl/cmd+A
     (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
     // Allow: Ctrl/cmd+C
@@ -138,7 +138,7 @@ const isTimeDisabledToChange = (
     : false
 
 function isTimeUnavailable(time: string, timeList: ClockFaceTime[]): boolean {
-  const selectedTime = timeList.find(value => value.time === +time)
+  const selectedTime = timeList.find((value) => value.time === +time)
   if (!selectedTime) return false
   return selectedTime && !!selectedTime.disabled
 }

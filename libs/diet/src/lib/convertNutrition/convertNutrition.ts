@@ -74,7 +74,7 @@ function getCompatibleFoodPortion(usage: Usage, food: Food): Portion | never {
   if (!fportion) {
     // console.warn(`${usage.unit} is not among the portion listed in ${food.name}`);
 
-    forEach(possibilities(usage.unit), possibleUnit => {
+    forEach(possibilities(usage.unit), (possibleUnit) => {
       const alternative = food.portions[possibleUnit]
 
       if (alternative) {
@@ -84,7 +84,7 @@ function getCompatibleFoodPortion(usage: Usage, food: Food): Portion | never {
           unit: usage.unit,
           quantity: convert(alternative.quantity)
             .from(safeUnit(alternative.unit) as any)
-            .to(safeUnit(usage.unit) as any),
+            .to(safeUnit(usage.unit) as any)
         }
       }
     })
@@ -114,14 +114,14 @@ export const addPortion = (portionA: Portion): PortionAdder => ({
     portionB.quantity +
     convert(portionA.quantity)
       .from(safeUnit(portionA.unit) as any)
-      .to(safeUnit(portionB.unit) as any),
+      .to(safeUnit(portionB.unit) as any)
 })
 
 const SAFE_UNIT_MAP: KVP<string> = {
   µg: 'mcg',
   tbsp: 'Tbs',
   tablespoon: 'Tbs',
-  pound: 'lb',
+  pound: 'lb'
 }
 
 /**

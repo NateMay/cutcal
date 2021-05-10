@@ -14,7 +14,7 @@ import {
 @Directive({
   selector: 'input[ccMaskedInput]'
 })
-export class CcMaskedInput {
+export class DsMaskedInput {
   constructor(public readonly input: ElementRef<HTMLInputElement>) {}
 }
 
@@ -25,16 +25,16 @@ export class CcMaskedInput {
 @Directive()
 export class MaskingBase {
   /**
-   * @description reference to the <input> (via the CcMaskedInput) I
+   * @description reference to the <input> (via the DsMaskedInput) I
    * couldn't succefully query for the <input>, so this was my only
    * option. Perhaps this can be revistited to allow masking without
-   * the a directive like CcMaskedInput to get the <input>
+   * the a directive like DsMaskedInput to get the <input>
    */
-  @ContentChild(CcMaskedInput) protected inputDir: CcMaskedInput
+  @ContentChild(DsMaskedInput) protected inputDir: DsMaskedInput
 
   protected get inputEl(): HTMLInputElement {
     if (!this.inputDir)
-      throw new Error('masking requires a CcMaskedInput as a child')
+      throw new Error('masking requires a DsMaskedInput as a child')
     return this.inputDir.input.nativeElement
   }
 

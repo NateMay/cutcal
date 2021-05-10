@@ -5,7 +5,7 @@ import { DndSvc } from '../../modules/dnd/dnd.service'
 import { MealService } from '../../services/meal/meal.service'
 
 @Component({
-  selector: 'cc-trash',
+  selector: 'ds-trash',
   template: `
     <div class="trash" [drop]="null" (onDrop)="deleteItemm($event)">
       <span></span>
@@ -22,7 +22,7 @@ export class TrashComponent {
     private readonly mealSvc: MealService,
     private readonly dndSvc: DndSvc
   ) {
-    this.dndSvc.showTrash$.subscribe(showTrash => {
+    this.dndSvc.showTrash$.subscribe((showTrash) => {
       this.left = showTrash ? 20 : -220
     })
   }

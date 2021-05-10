@@ -11,7 +11,7 @@ export interface Primaries<T> {
 
 // DISTANT (analytics) https://nutritiondata.self.com/help/analysis-help
 @Component({
-  selector: 'cc-detail-panels',
+  selector: 'ds-detail-panels',
   host: { class: 'cc-detail-panels' },
   template: `
     <div *ngIf="nutrition" dynamicWidth (width)="width = $event">
@@ -70,7 +70,7 @@ export interface Primaries<T> {
         </mat-expansion-panel-header>
         <br />
         <div class="wind-rose-wrapper">
-          <cc-nutrient-wind-rose *ngIf="showChart"></cc-nutrient-wind-rose>
+          <ds-nutrient-wind-rose *ngIf="showChart"></ds-nutrient-wind-rose>
         </div>
       </mat-expansion-panel>
     </ng-template>
@@ -88,10 +88,10 @@ export interface Primaries<T> {
         </mat-expansion-panel-header>
         <br />
         <div class="calories-chart-wrapper" *ngIf="nutrition?.calories">
-          <cc-calories-chart
+          <ds-calories-chart
             *ngIf="showChart"
             [nutrition]="nutrition"
-          ></cc-calories-chart>
+          ></ds-calories-chart>
         </div>
         <table cc-calories [nutrition]="nutrition"></table>
         <br />
@@ -230,10 +230,10 @@ export interface Primaries<T> {
           <mat-panel-title>Nutrition label</mat-panel-title>
         </mat-expansion-panel-header>
         <br />
-        <cc-nutrition-label
+        <ds-nutrition-label
           [portion]="portion"
           [nutrition]="nutrition"
-        ></cc-nutrition-label>
+        ></ds-nutrition-label>
       </mat-expansion-panel>
     </ng-template>
   `,

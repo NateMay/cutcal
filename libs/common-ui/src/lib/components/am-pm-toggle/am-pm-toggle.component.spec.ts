@@ -5,11 +5,11 @@ import { AmPmToggleComponent } from './am-pm-toggle.component';
 
 @Component({
   template: `
-    <cc-am-pm-toggle
+    <ds-am-pm-toggle
       [idStr]="idStr"
       [(isPM)]="isPM"
       [disabled]="disabled"
-    ></cc-am-pm-toggle>
+    ></ds-am-pm-toggle>
   `
 })
 class TestApPmComponent {

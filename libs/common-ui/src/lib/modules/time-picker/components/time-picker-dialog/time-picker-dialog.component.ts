@@ -19,13 +19,13 @@ import { TimePickerData, TIME_PICKER_DATA } from '../../utils/time-picker-data'
 import { TimePickerInputComponent } from '../time-picker-input/time-picker-input.component'
 
 @Component({
-  selector: 'cc-timepicker-dialog',
+  selector: 'ds-timepicker-dialog',
   styleUrls: ['./time-picker-dialog.component.scss'],
   host: { class: 'cc-time-picker-dialog mat-elevation-z2' },
   template: `
     <span cdkTrapFocus>
       <header>
-        <cc-timepicker-dial
+        <ds-timepicker-dial
           [format]="format"
           [hour]="selectedHour?.time"
           [minute]="selectedMinute?.time"
@@ -39,13 +39,13 @@ import { TimePickerInputComponent } from '../time-picker-input/time-picker-input
           (timeUnitChanged)="changeTimeUnit($event)"
           (hourChanged)="onHourChange($event)"
           (minuteChanged)="onMinuteChange($event)"
-        ></cc-timepicker-dial>
+        ></ds-timepicker-dial>
       </header>
 
       <div class="timepicker__main-content">
         <div class="timepicker__body" [ngSwitch]="activeTimeUnit">
           <div *ngSwitchCase="timeUnit.HOUR">
-            <cc-timepicker-24-hours-face
+            <ds-timepicker-24-hours-face
               *ngIf="format === 24; else ampmHours"
               (hourChange)="onHourChange($event)"
               [selectedHour]="selectedHour"
@@ -53,21 +53,21 @@ import { TimePickerInputComponent } from '../time-picker-input/time-picker-input
               [maxTime]="maxTime"
               [format]="format"
               (hourSelected)="onHourSelected($event)"
-            ></cc-timepicker-24-hours-face>
+            ></ds-timepicker-24-hours-face>
 
             <ng-template #ampmHours>
-              <cc-timepicker-12-hours-face
+              <ds-timepicker-12-hours-face
                 (hourChange)="onHourChange($event)"
                 [selectedHour]="selectedHour"
                 [period]="selectedPeriod"
                 [minTime]="minTime"
                 [maxTime]="maxTime"
                 (hourSelected)="onHourSelected($event)"
-              ></cc-timepicker-12-hours-face>
+              ></ds-timepicker-12-hours-face>
             </ng-template>
           </div>
 
-          <cc-timepicker-minutes-face
+          <ds-timepicker-minutes-face
             *ngSwitchCase="timeUnit.MINUTE"
             [selectedMinute]="selectedMinute"
             [selectedHour]="selectedHour?.time"
@@ -77,7 +77,7 @@ import { TimePickerInputComponent } from '../time-picker-input/time-picker-input
             [period]="selectedPeriod"
             [minutesGap]="minutesGap"
             (minuteChange)="onMinuteChange($event)"
-          ></cc-timepicker-minutes-face>
+          ></ds-timepicker-minutes-face>
         </div>
         <div class="actions" fxLayout="row">
           <button mat-button (click)="data.close()">Close</button>

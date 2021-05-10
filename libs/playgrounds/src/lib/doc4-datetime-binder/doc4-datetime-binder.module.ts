@@ -12,9 +12,9 @@ import { Doc4DatetimeBinderComponent } from './doc4-datetime-binder.component'
     RouterModule.forChild([
       {
         path: '',
-        component: Doc4DatetimeBinderComponent,
-      },
-    ]),
-  ],
+        component: Doc4DatetimeBinderComponent
+      }
+    ])
+  ]
 })
 export class Doc4DatetimeBinderModule {}

@@ -4,15 +4,13 @@ import { getByDir } from '@cutcal/ng-testing';
 import { Boolish } from './boolish';
 
 @Component({
-  template: `
-    <cc-a-test [aBoolean]="notABoolean"></cc-a-test>
-  `
+  template: ` <ds-a-test [aBoolean]="notABoolean"></ds-a-test> `
 })
 class TestBoolishComponent {
   notABoolean: any = 'false';
 }
 @Component({
-  selector: 'cc-a-test',
+  selector: 'ds-a-test',
   template: ``
 })
 class TestBoolishChildComponent {

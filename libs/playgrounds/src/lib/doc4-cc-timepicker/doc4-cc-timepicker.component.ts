@@ -18,16 +18,16 @@ import { FormBuilder, FormGroup } from '@angular/forms'
           autocomplete="off"
           placeholder="hh:mm pm"
         />
-        <cc-timepicker-toggle matSuffix [for]="picker"></cc-timepicker-toggle>
-        <cc-timepicker #picker></cc-timepicker>
-        <!-- <cc-timepicker #picker touchUi></cc-timepicker> -->
+        <ds-timepicker-toggle matSuffix [for]="picker"></ds-timepicker-toggle>
+        <ds-timepicker #picker></ds-timepicker>
+        <!-- <ds-timepicker #picker touchUi></ds-timepicker> -->
       </mat-form-field>
     </form>
     <pre>form.get('time').value = {{ form.value | json }}</pre>
   `,
   styleUrls: ['./doc4-cc-timepicker.component.css']
 })
-export class Doc4CcTimepickerComponent implements OnInit {
+export class Doc4DsTimepickerComponent implements OnInit {
   format = 12
   form: FormGroup
 

@@ -6,20 +6,20 @@ import { NgModule } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
 import { MatDialogModule } from '@angular/material/dialog'
 import { AmPmToggleModule, StyleSanitizerModule } from '@cutcal/common-ui'
-import { CcTimepicker12HoursFaceComponent } from './12-hours-face'
-import { CcTimepicker24HoursFaceComponent } from './24-hours-face'
-import { CcTimepickerMinutesFace } from './minutes-face'
-import { CcMinutesFormatterPipe } from './minutes-formatter'
+import { DsTimepicker12HoursFaceComponent } from './12-hours-face'
+import { DsTimepicker24HoursFaceComponent } from './24-hours-face'
+import { DsTimepickerMinutesFace } from './minutes-face'
+import { DsMinutesFormatterPipe } from './minutes-formatter'
 import {
-  CcTimepicker,
+  DsTimepicker,
   CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER
 } from './timepicker'
-import { CcTimepickerContent, CcTimePickerDialog } from './timepicker-content'
-import { CcTimePickerControls } from './timepicker-controls'
-import { CcTimepickerFace } from './timepicker-face'
-import { CcTimepickerInput } from './timepicker-input'
-import { CcTimepickerPeriodComponent } from './timepicker-period'
-import { CcTimepickerToggle } from './timepicker-toggle'
+import { DsTimepickerContent, DsTimePickerDialog } from './timepicker-content'
+import { DsTimePickerControls } from './timepicker-controls'
+import { DsTimepickerFace } from './timepicker-face'
+import { DsTimepickerInput } from './timepicker-input'
+import { DsTimepickerPeriodComponent } from './timepicker-period'
+import { DsTimepickerToggle } from './timepicker-toggle'
 
 @NgModule({
   imports: [
@@ -33,27 +33,27 @@ import { CcTimepickerToggle } from './timepicker-toggle'
     StyleSanitizerModule
   ],
   declarations: [
-    CcTimepicker,
-    CcTimepickerToggle,
-    CcTimepickerInput,
-    CcTimepickerContent,
-    CcTimePickerDialog,
-    CcTimepickerMinutesFace,
-    CcTimepickerPeriodComponent,
-    CcTimepicker12HoursFaceComponent,
-    CcTimepicker24HoursFaceComponent,
-    CcTimepickerFace,
-    CcMinutesFormatterPipe,
-    CcTimePickerControls
+    DsTimepicker,
+    DsTimepickerToggle,
+    DsTimepickerInput,
+    DsTimepickerContent,
+    DsTimePickerDialog,
+    DsTimepickerMinutesFace,
+    DsTimepickerPeriodComponent,
+    DsTimepicker12HoursFaceComponent,
+    DsTimepicker24HoursFaceComponent,
+    DsTimepickerFace,
+    DsMinutesFormatterPipe,
+    DsTimePickerControls
   ],
   exports: [
-    CcTimepicker,
-    CcTimepickerToggle,
-    CcTimepickerInput,
-    CcTimepickerContent,
-    CcTimePickerDialog,
-    CcTimePickerControls
+    DsTimepicker,
+    DsTimepickerToggle,
+    DsTimepickerInput,
+    DsTimepickerContent,
+    DsTimePickerDialog,
+    DsTimePickerControls
   ],
   providers: [CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER]
 })
-export class CcTimepickerModule {}
+export class DsTimepickerModule {}

@@ -12,9 +12,9 @@ import { Doc4DynWidthComponent } from './doc4-dyn-width.component'
     RouterModule.forChild([
       {
         path: '',
-        component: Doc4DynWidthComponent,
-      },
-    ]),
-  ],
+        component: Doc4DynWidthComponent
+      }
+    ])
+  ]
 })
 export class Doc4DynWidthModule {}

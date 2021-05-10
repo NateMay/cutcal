@@ -13,5 +13,5 @@ export interface Ingredient {
 
 export const createIngredient = (usage: Usage, food: Food): Ingredient => ({
   usage,
-  food,
+  food
 })

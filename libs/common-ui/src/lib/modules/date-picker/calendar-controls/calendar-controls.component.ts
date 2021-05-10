@@ -10,7 +10,7 @@ import { RefocusService } from '../../../services/refocus/refocus.service'
 let nextUniqueId: number = 0
 
 @Component({
-  selector: 'cc-calendar-controls',
+  selector: 'ds-calendar-controls',
   styleUrls: ['./calendar-controls.component.scss'],
   host: { class: 'cc-calendar-controls' },
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -22,7 +22,7 @@ const ROUTER_OPTIONS: ExtraOptions = {
           path: '',
           loadChildren: () =>
             import('@cutcal/features/landing').then(
-              module => module.LandingModule
+              (module) => module.LandingModule
             )
         },
         {
@@ -33,91 +33,91 @@ const ROUTER_OPTIONS: ExtraOptions = {
               path: 'food-recipe',
               loadChildren: () =>
                 import('@cutcal/features/food-recipe').then(
-                  module => module.FoodRecipeModule
+                  (module) => module.FoodRecipeModule
                 )
             },
             {
               path: 'analyze',
               loadChildren: () =>
                 import('@cutcal/features/analyze').then(
-                  module => module.AnalyzeModule
+                  (module) => module.AnalyzeModule
                 )
             },
             {
               path: 'calendar',
               loadChildren: () =>
                 import('@cutcal/features/calendar').then(
-                  module => module.CalendarModule
+                  (module) => module.CalendarModule
                 )
             },
             {
               path: 'fallback',
               loadChildren: () =>
                 import('@cutcal/features/fallback').then(
-                  module => module.FallbackModule
+                  (module) => module.FallbackModule
                 )
             },
             {
               path: 'footer',
               loadChildren: () =>
                 import('@cutcal/features/footer').then(
-                  module => module.FooterModule
+                  (module) => module.FooterModule
                 )
             },
             {
               path: 'profile',
               loadChildren: () =>
                 import('@cutcal/features/profile').then(
-                  module => module.ProfileModule
+                  (module) => module.ProfileModule
                 )
             },
             {
               path: 'recipe-builder',
               loadChildren: () =>
                 import('@cutcal/features/recipe-builder').then(
-                  module => module.RecipeBuilderModule
+                  (module) => module.RecipeBuilderModule
                 )
             },
             {
               path: 'meal-ingredient',
               loadChildren: () =>
                 import('@cutcal/features/meal-ingredient').then(
-                  module => module.MealIngredientModule
+                  (module) => module.MealIngredientModule
                 )
             },
             {
               path: 'nutrient',
               loadChildren: () =>
                 import('@cutcal/features/nutrient').then(
-                  module => module.NutrientModule
+                  (module) => module.NutrientModule
                 )
             },
             {
               path: 'legal',
               loadChildren: () =>
                 import('@cutcal/features/legal').then(
-                  module => module.LegalModule
+                  (module) => module.LegalModule
                 )
             },
             {
               path: 'business',
               loadChildren: () =>
                 import('@cutcal/features/business').then(
-                  module => module.BusinessModule
+                  (module) => module.BusinessModule
                 )
             },
             {
               path: 'grocery-pantry',
               loadChildren: () =>
                 import('@cutcal/features/grocery-pantry').then(
-                  module => module.GroceryPantryModule
+                  (module) => module.GroceryPantryModule
                 )
             },
             {
               path: 'support',
               loadChildren: () =>
                 import('@cutcal/features/support').then(
-                  module => module.SupportModule
+                  (module) => module.SupportModule
                 )
             }
           ]

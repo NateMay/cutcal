@@ -8,7 +8,7 @@ import {
   UnitDescription,
   UnitDetails,
   UnitMap,
-  UnitSystem,
+  UnitSystem
 } from './unit-interfaces'
 import { uVolume } from './volume'
 
@@ -24,7 +24,7 @@ interface ConvertOptions {
 }
 const BASE_OPTIONS: ConvertOptions = {
   exclude: [],
-  cutOffNumber: 1,
+  cutOffNumber: 1
 }
 
 interface ConversionDetails {
@@ -54,7 +54,7 @@ const descriptor = (resp: ConversionDetails): Description => ({
   measure: resp.measure,
   system: resp.system,
   singular: resp.unit.name.singular,
-  plural: resp.unit.name.plural,
+  plural: resp.unit.name.plural
 })
 
 /**
@@ -159,7 +159,7 @@ export class UnitConverter {
      * i.e. Where the value has the fewest numbers before the decimal point,
      * but is still higher than 1.
      */
-    each(this.possibilities(), possibility => {
+    each(this.possibilities(), (possibility) => {
       assertIsDefined(options.exclude)
       assertIsDefined(this.originalUnit)
 
@@ -175,7 +175,7 @@ export class UnitConverter {
             val: result,
             unit: possibility,
             singular: unit.singular,
-            plural: unit.plural,
+            plural: unit.plural
           }
         }
       }
@@ -198,7 +198,7 @@ export class UnitConverter {
               abbr,
               measure,
               system,
-              unit: units[testAbbr],
+              unit: units[testAbbr]
             }
           }
         }

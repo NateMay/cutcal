@@ -15,7 +15,7 @@ export function ConsoleReturn(message: string = ''): MethodDecorator {
   ): PropertyDescriptor => {
     const original = descriptor.value
 
-    descriptor.value = function(...args: any[]): any {
+    descriptor.value = function (...args: any[]): any {
       const result = original.apply(this, args)
       console.log(key, message, result)
       return result

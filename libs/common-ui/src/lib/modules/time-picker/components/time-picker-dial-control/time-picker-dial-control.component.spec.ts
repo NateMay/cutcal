@@ -156,21 +156,21 @@ describe('TimepickerDialControlComponent', () => {
       const keyCodes = numbers.concat(numpadNumbers);
       component._time = '';
 
-      keyCodes.forEach(code => {
+      keyCodes.forEach((code) => {
         component.onKeyDown({ ...event, keyCode: code });
         expect(counter).toBe(0);
       });
     });
 
     it('should allow backspace, delete, tab, escape, enter', () => {
-      specialKeys.forEach(code => {
+      specialKeys.forEach((code) => {
         component.onKeyDown({ ...event, keyCode: code });
         expect(counter).toBe(0);
       });
     });
 
     it('should allow home, end, left, right, up, down', () => {
-      arrows.forEach(code => {
+      arrows.forEach((code) => {
         component.onKeyDown({ ...event, keyCode: code });
         expect(counter).toBe(0);
       });
@@ -179,12 +179,12 @@ describe('TimepickerDialControlComponent', () => {
     it('should allow ctrl/cmd+a, ctrl/cmd+c, ctrl/cmd+x', () => {
       const chars = [65, 67, 88];
 
-      chars.forEach(code => {
+      chars.forEach((code) => {
         component.onKeyDown({ ...event, keyCode: code, ctrlKey: true });
         expect(counter).toBe(0);
       });
 
-      chars.forEach(code => {
+      chars.forEach((code) => {
         component.onKeyDown({ ...event, keyCode: code, metaKey: true });
         expect(counter).toBe(0);
       });
@@ -201,7 +201,7 @@ describe('TimepickerDialControlComponent', () => {
         ...arrows
       ];
       const restrictedCodes = allKeyCodes.filter(
-        code => !allowedCodes.includes(code)
+        (code) => !allowedCodes.includes(code)
       );
 
       restrictedCodes.forEach((code, index) => {

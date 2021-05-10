@@ -29,8 +29,8 @@ export class ActionLinkDirective implements OnDestroy {
     this.sub = this.observer
       .register(link)
       .pipe(
-        tap(params => this.activate.emit(params)),
-        catchError(e => throwError(e))
+        tap((params) => this.activate.emit(params)),
+        catchError((e) => throwError(e))
       )
       .subscribe()
   }

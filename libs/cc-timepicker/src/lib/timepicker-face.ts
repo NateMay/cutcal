@@ -1,4 +1,17 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild } from '@angular/core'
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnChanges,
+  OnDestroy,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core'
 import { ClockFaceTime, TimeUnit } from './timepicker-utils'
 
 const CLOCK_HAND_STYLES = {
@@ -13,7 +26,7 @@ const CLOCK_HAND_STYLES = {
 }
 
 @Component({
-  selector: 'cc-timepicker-face',
+  selector: 'ds-timepicker-face',
   styleUrls: ['./timepicker-face.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -52,7 +65,7 @@ const CLOCK_HAND_STYLES = {
             [style.height.px]="innerClockFaceSize"
             *ngFor="let time of faceTime.slice(12, 24); trackBy: trackByTime"
           >
-          <!-- [style.transform]="time.rotation" -->
+            <!-- [style.transform]="time.rotation" -->
             <span
               [ngClass]="{
                 active: isHourSelected(time.time),
@@ -100,7 +113,7 @@ const CLOCK_HAND_STYLES = {
     </ng-template>
   `
 })
-export class CcTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
+export class DsTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
   timeUnit = TimeUnit
 
   isClockFaceDisabled: boolean
@@ -134,7 +147,7 @@ export class CcTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
     if (faceTimeChanges?.currentValue && selectedTimeChanges?.currentValue) {
       /* Set time according to passed an input value */
       const newTime = this.faceTime.find(
-        time => time.time === this.selectedTime.time
+        (time) => time.time === this.selectedTime.time
       )
       if (!newTime)
         throw Error('[CutCal] timepicker failed to set the time properly')
@@ -199,7 +212,7 @@ export class CcTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
       : roundAngle(circleAngle, angleStep)
     const angle = roundedAngle === 0 ? 360 : roundedAngle
 
-    const selectedTime = this.faceTime.find(val => val.angle === angle)
+    const selectedTime = this.faceTime.find((val) => val.angle === angle)
 
     if (selectedTime && !selectedTime.disabled) {
       this.timeChange.next(selectedTime)
@@ -269,14 +282,14 @@ export class CcTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
 
   private selectAvailableTime(): void {
     const currentTime = this.faceTime.find(
-      time => this.selectedTime.time === time.time
+      (time) => this.selectedTime.time === time.time
     )
     this.isClockFaceDisabled = this.faceTime.every(
-      time => time.disabled || false
+      (time) => time.disabled || false
     )
 
     if (currentTime && currentTime.disabled && !this.isClockFaceDisabled) {
-      const availableTime = this.faceTime.find(time => !time.disabled)
+      const availableTime = this.faceTime.find((time) => !time.disabled)
 
       this.timeChange.next(availableTime)
     }

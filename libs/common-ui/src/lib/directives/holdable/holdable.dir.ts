@@ -30,7 +30,7 @@ export class HoldableDirective implements OnDestroy {
 
   constructor() {
     this.cancel = this.state.pipe(
-      filter(state => state === 'cancel'),
+      filter((state) => state === 'cancel'),
       tap(() => this.holdTime.emit(0))
     )
   }
@@ -48,8 +48,8 @@ export class HoldableDirective implements OnDestroy {
     interval(this.interval)
       .pipe(
         takeUntil(this.cancel),
-        tap(n => this.holdTime.emit(n * this.interval)),
-        tap(n => {
+        tap((n) => this.holdTime.emit(n * this.interval)),
+        tap((n) => {
           if (n * 100 > this.duration) {
             this.complete.emit()
             this.state.next('cancel')

@@ -1,5 +1,3 @@
-/* eslint-disable jsdoc/check-param-names */
-
 /**
  * *****************
  * String prototypes
@@ -10,6 +8,7 @@ String.prototype.extension = extension
 String.prototype.urlToDate = urlToDate
 String.prototype.insertText = insertText
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface String {
   urlToDate: typeof urlToDate
   insertText: typeof insertText

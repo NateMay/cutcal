@@ -45,8 +45,8 @@ export const MOCK_USER: CutCalUser = {
     _id: 'ch9lQSQVF3E1en2LqziV',
     role: {
       ADMIN: true,
-      USER: true,
-    },
+      USER: true
+    }
   },
   ownerInfo: {
     username: 'mortarman86',
@@ -54,9 +54,9 @@ export const MOCK_USER: CutCalUser = {
     lname: 'May',
     email: 'nathaniel.may22@gmail.com',
     subscription:
-      '{"endpoint":"https://fcm.googleapis.com/fcm/send/c75DawM_xZw:APA91bFLDCOAmqh81YKvJvGZVIU5Bs82QANEKQ9R7MVrLvspKF-rREvRgBXzPbzCT059M69cvKxzqgRUgt1fspRAS6azqQGl4R_dnMltSVr7ClYP8H9d_USowAx22yXakNbvl_HmjtDP","expirationTime":null,"keys":{"p256dh":"BMM_zzRvT1IYm5Si-OVC_-fhAePAH22n4FwuY9xu7x9Iwk_5AgMhI6SsfBPajXgWWQk8G23Y51niNVNAi-jLcDk","auth":"1Cqvs5K7NCBOp40XD2OwHQ"}}',
+      '{"endpoint":"https://fcm.googleapis.com/fcm/send/c75DawM_xZw:APA91bFLDCOAmqh81YKvJvGZVIU5Bs82QANEKQ9R7MVrLvspKF-rREvRgBXzPbzCT059M69cvKxzqgRUgt1fspRAS6azqQGl4R_dnMltSVr7ClYP8H9d_USowAx22yXakNbvl_HmjtDP","expirationTime":null,"keys":{"p256dh":"BMM_zzRvT1IYm5Si-OVC_-fhAePAH22n4FwuY9xu7x9Iwk_5AgMhI6SsfBPajXgWWQk8G23Y51niNVNAi-jLcDk","auth":"1Cqvs5K7NCBOp40XD2OwHQ"}}'
   },
   bioData: {},
   groceryList: [],
-  inventory: [],
+  inventory: []
 }

@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { NAVIGATOR_PROVIDER } from '../../services/navigator.service'
-import { CcCurrencyMask } from './currency-mask'
-import { CcFixedMask } from './fixed-mask'
-import { CcMaskedInput } from './masking-base'
+import { DsCurrencyMask } from './currency-mask'
+import { DsFixedMask } from './fixed-mask'
+import { DsMaskedInput } from './masking-base'
 
-const COMPONENTS = [CcMaskedInput, CcFixedMask, CcCurrencyMask]
+const COMPONENTS = [DsMaskedInput, DsFixedMask, DsCurrencyMask]
 
 const MODULES = [
   CommonModule,
@@ -23,4 +23,4 @@ const MODULES = [
   exports: [...COMPONENTS],
   providers: [NAVIGATOR_PROVIDER]
 })
-export class CcMaskingModule {}
+export class DsMaskingModule {}

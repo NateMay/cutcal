@@ -66,7 +66,7 @@ export class MealService {
     const foods$ = this.getFoodsFromUsages(usages$)
 
     return combineLatest(meal$, usages$, foods$).pipe(
-      filter(tripple => this.invalidMappings(tripple))
+      filter((tripple) => this.invalidMappings(tripple))
     )
   }
 
@@ -100,7 +100,7 @@ export class MealService {
     const foods$ = this.getFoodsFromUsages(usages$)
 
     return combineLatest(meals$, usages$, foods$).pipe(
-      filter(tripple => this.invalidMappings(tripple))
+      filter((tripple) => this.invalidMappings(tripple))
     )
   }
 
@@ -112,7 +112,7 @@ export class MealService {
    */
   getMealRange(startDate: Date, endDate: Date): Observable<KVP<Meal>> {
     return this.db
-      .colWithIds$<Meal>(this.mealCol, ref =>
+      .colWithIds$<Meal>(this.mealCol, (ref) =>
         ref
           .where('userId', '==', this.auth.activeUid)
           .where('timestamp', '>=', startDate.stripTime())
@@ -131,15 +131,15 @@ export class MealService {
    */
   getUsagesFromMeals(meals$: Observable<KVP<Meal>>): Observable<KVP<Usage>> {
     return meals$.pipe(
-      switchMap(meals =>
+      switchMap((meals) =>
         combineLatest(
-          _map(meals, meal =>
+          _map(meals, (meal) =>
             this.db.colWithIds$<Usage>(`${this.mealCol}/${meal._id}/usages`)
           )
         )
       ),
-      map(us => flatten(us)),
-      map(usages => keyBy(usages, '_id'))
+      map((us) => flatten(us)),
+      map((usages) => keyBy(usages, '_id'))
     )
   }
 
@@ -150,16 +150,16 @@ export class MealService {
    */
   getFoodsFromUsages(usages$: Observable<KVP<Usage>>): Observable<KVP<Food>> {
     return usages$.pipe(
-      switchMap(usages =>
+      switchMap((usages) =>
         isEmpty(usages)
           ? of({})
           : combineLatest(
-              _map(usages, usage =>
+              _map(usages, (usage) =>
                 this.db.docWithId$<Food>(`${this.foodCol}/${usage.foodId}`)
               )
             )
       ),
-      map(foods => keyBy(foods, '_id'))
+      map((foods) => keyBy(foods, '_id'))
     )
   }
 
@@ -200,9 +200,7 @@ export class MealService {
         '[CutCal] Meal Service deleteMeal() DeleteMealPayload requires a meal._id'
       )
     const payload = { mealId: meal._id }
-    return this.fns
-      .httpsCallable('deleteMeal')(payload)
-      .toPromise()
+    return this.fns.httpsCallable('deleteMeal')(payload).toPromise()
   }
 
   /**
@@ -322,7 +320,7 @@ export class MealService {
     // If the food exists, just increment it
     const existing: Usage | undefined = find(
       usages,
-      usage => usage.foodId == food._id
+      (usage) => usage.foodId == food._id
     )
     if (existing)
       return this.changePortion(
@@ -404,9 +402,7 @@ export class MealService {
   }
 
   deleteUsage(payload: DeleteUsagePayload): Promise<any> {
-    return this.fns
-      .httpsCallable('deleteUsage')(payload)
-      .toPromise()
+    return this.fns.httpsCallable('deleteUsage')(payload).toPromise()
   }
 
   /**
@@ -414,7 +410,7 @@ export class MealService {
    * @param {Tripple} : MealTripple or MealsTripple
    */
   invalidMappings([, usages, foods]: Tripple): boolean {
-    return !_map(usages, usage => foods[usage.foodId]).some(food => !food)
+    return !_map(usages, (usage) => foods[usage.foodId]).some((food) => !food)
   }
 
   // move this into a calendar service

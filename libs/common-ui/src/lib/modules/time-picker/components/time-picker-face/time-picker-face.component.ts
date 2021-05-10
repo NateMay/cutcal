@@ -27,7 +27,7 @@ const CLOCK_HAND_STYLES = {
 }
 
 @Component({
-  selector: 'cc-timepicker-face',
+  selector: 'ds-timepicker-face',
   styleUrls: ['./time-picker-face.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -149,7 +149,7 @@ export class TimepickerFaceComponent
     if (faceTimeChanges?.currentValue && selectedTimeChanges?.currentValue) {
       /* Set time according to passed an input value */
       const newTime = this.faceTime.find(
-        time => time.time === this.selectedTime.time
+        (time) => time.time === this.selectedTime.time
       )
       if (!newTime)
         throw Error('[CutCal] timepicker failed to set the time properly')
@@ -214,7 +214,7 @@ export class TimepickerFaceComponent
       : roundAngle(circleAngle, angleStep)
     const angle = roundedAngle === 0 ? 360 : roundedAngle
 
-    const selectedTime = this.faceTime.find(val => val.angle === angle)
+    const selectedTime = this.faceTime.find((val) => val.angle === angle)
 
     if (selectedTime && !selectedTime.disabled) {
       this.timeChange.next(selectedTime)
@@ -284,14 +284,14 @@ export class TimepickerFaceComponent
 
   private selectAvailableTime(): void {
     const currentTime = this.faceTime.find(
-      time => this.selectedTime.time === time.time
+      (time) => this.selectedTime.time === time.time
     )
     this.isClockFaceDisabled = this.faceTime.every(
-      time => time.disabled || false
+      (time) => time.disabled || false
     )
 
     if (currentTime && currentTime.disabled && !this.isClockFaceDisabled) {
-      const availableTime = this.faceTime.find(time => !time.disabled)
+      const availableTime = this.faceTime.find((time) => !time.disabled)
 
       this.timeChange.next(availableTime)
     }

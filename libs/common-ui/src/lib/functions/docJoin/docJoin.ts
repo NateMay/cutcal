@@ -30,17 +30,17 @@ export const docJoin = <T>(
 
     return source.pipe(
       // Save the parent data state
-      tap(doc => (parentDoc = doc)),
+      tap((doc) => (parentDoc = doc)),
 
       // make a call to get the reference document
       switchMap(() =>
         combineLatest(
-          keys.map(k => afs.doc(`${paths[k]}/${parentDoc[k]}`).valueChanges())
+          keys.map((k) => afs.doc(`${paths[k]}/${parentDoc[k]}`).valueChanges())
         )
       ),
 
       // join the response onto the parent document
-      map(arr => ({
+      map((arr) => ({
         ...parentDoc,
         ...keys.reduce((acc, cur, idx) => ({ ...acc, [cur]: arr[idx] }), {})
       }))

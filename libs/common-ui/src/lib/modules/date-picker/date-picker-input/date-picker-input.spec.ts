@@ -11,12 +11,12 @@ import { DatePickerInputComponent } from './date-picker-input.component';
 
 @Component({
   template: `
-    <cc-date-picker
+    <ds-date-picker
       [label]="label"
       [(date)]="date"
       [dateFormat]="dateFormat"
       [placeholder]="placeholder"
-    ></cc-date-picker>
+    ></ds-date-picker>
   `
 })
 class TestDatePickerComponent {

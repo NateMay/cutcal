@@ -92,7 +92,7 @@ export const createFood = (
   foodGroup,
   uses: 0,
   primaryImage,
-  secondaryImages,
+  secondaryImages
 })
 
 export interface FoodSource {

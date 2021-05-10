@@ -1,16 +1,16 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CcTimepicker24HoursFaceComponent } from './24-hours-face';
+import { DsTimepicker24HoursFaceComponent } from './24-hours-face';
 
 describe('Timepicker24HoursFaceComponent', () => {
-  let fixture: ComponentFixture<CcTimepicker24HoursFaceComponent>;
-  let component: CcTimepicker24HoursFaceComponent;
+  let fixture: ComponentFixture<DsTimepicker24HoursFaceComponent>;
+  let component: DsTimepicker24HoursFaceComponent;
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      declarations: [CcTimepicker24HoursFaceComponent],
+      declarations: [DsTimepicker24HoursFaceComponent],
       schemas: [NO_ERRORS_SCHEMA]
-    }).createComponent(CcTimepicker24HoursFaceComponent);
+    }).createComponent(DsTimepicker24HoursFaceComponent);
 
     component = fixture.componentInstance;
   });

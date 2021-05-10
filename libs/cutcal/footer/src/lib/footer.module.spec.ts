@@ -4,7 +4,7 @@ import { FooterModule } from './footer.module';
 describe('FooterModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FooterModule],
+      imports: [FooterModule]
     }).compileComponents();
   }));
 

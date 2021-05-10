@@ -12,9 +12,9 @@ import { Doc4HoldableComponent } from './doc4-holdable.component'
     RouterModule.forChild([
       {
         path: '',
-        component: Doc4HoldableComponent,
-      },
-    ]),
-  ],
+        component: Doc4HoldableComponent
+      }
+    ])
+  ]
 })
 export class Doc4HoldableModule {}

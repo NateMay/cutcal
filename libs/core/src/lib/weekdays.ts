@@ -11,5 +11,5 @@ export const WEEKDAYS: Weekday[] = [
   { short: 'W', medium: 'Wed', long: 'Wednesday' },
   { short: 'T', medium: 'Thu', long: 'Thursday' },
   { short: 'F', medium: 'Fri', long: 'Friday' },
-  { short: 'S', medium: 'Sat', long: 'Saturday' },
+  { short: 'S', medium: 'Sat', long: 'Saturday' }
 ]

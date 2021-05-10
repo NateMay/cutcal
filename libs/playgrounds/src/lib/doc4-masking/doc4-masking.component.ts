@@ -6,37 +6,37 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
     <h2>Masking</h2>
     <hr />
 
-    <cc-fixed-mask mask="(999) 999-9999" [(value)]="value1">
+    <ds-fixed-mask mask="(999) 999-9999" [(value)]="value1">
       <input ccMaskedInput type="search" />
-    </cc-fixed-mask>
+    </ds-fixed-mask>
     {{ value1 }}'
     <hr />
 
     <form [formGroup]="formGroup">
-      <cc-fixed-mask mask="9999 9999 9999 9999" formControlName="card">
+      <ds-fixed-mask mask="9999 9999 9999 9999" formControlName="card">
         <input ccMaskedInput />
-      </cc-fixed-mask>
+      </ds-fixed-mask>
 
       <mat-form-field>
         <mat-label>Social Security Number</mat-label>
-        <cc-fixed-mask mask="999-999-9999" formControlName="ssn">
+        <ds-fixed-mask mask="999-999-9999" formControlName="ssn">
           <input matInput ccMaskedInput type="tel" />
-        </cc-fixed-mask>
+        </ds-fixed-mask>
         <mat-error>SSN is Required</mat-error>
       </mat-form-field>
 
       <hr />
 
-      <cc-currency-mask>
+      <ds-currency-mask>
         <input ccMaskedInput />
-      </cc-currency-mask>
+      </ds-currency-mask>
 
       <mat-form-field>
         <mat-label>Salary</mat-label>
 
-        <cc-currency-mask>
+        <ds-currency-mask>
           <input matInput ccMaskedInput type="number" />
-        </cc-currency-mask>
+        </ds-currency-mask>
 
         <mat-error>SSN is Required</mat-error>
       </mat-form-field>

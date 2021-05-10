@@ -16,25 +16,25 @@ export const peanutButter: Food = {
   foodGroup: 'Legumes and Legume Products',
   primaryImage: {
     url:
-      'https://firebasestorage.googleapis.com/v0/b/test-app-8dc99.appspot.com/o/foods%2Fpeanut_butter2.png?alt=media&token=2a6cdf5c-40a0-462e-b69b-7f135b76e1d4',
+      'https://firebasestorage.googleapis.com/v0/b/test-app-8dc99.appspot.com/o/foods%2Fpeanut_butter2.png?alt=media&token=2a6cdf5c-40a0-462e-b69b-7f135b76e1d4'
   },
   portions: {
     g: {
       unit: 'g',
-      quantity: 258,
+      quantity: 258
     },
     cup: {
       unit: 'cup',
-      quantity: 1,
+      quantity: 1
     },
     tbsp: {
       quantity: 16.125,
-      unit: 'tbsp',
-    },
+      unit: 'tbsp'
+    }
   },
   defaultPortion: {
     quantity: 2,
-    unit: 'tbsp',
+    unit: 'tbsp'
   },
   nutrition: {
     kj: 6453,
@@ -125,9 +125,9 @@ export const peanutButter: Food = {
     vitE: 23.48,
     vitK: 0.8,
     water: 3.17,
-    zinc: 6.48,
+    zinc: 6.48
   },
-  uses: 0,
+  uses: 0
 }
 FOODS[peanutButterID] = peanutButter
 
@@ -140,12 +140,12 @@ export const jam: Food = {
   portions: {
     g: {
       quantity: 19,
-      unit: 'g',
+      unit: 'g'
     },
     tablespoon: {
       quantity: 1,
-      unit: 'tablespoon',
-    },
+      unit: 'tablespoon'
+    }
   },
   foodGroup: 'Sweets',
   name: 'Jam',
@@ -181,17 +181,17 @@ export const jam: Food = {
     vitE: 0.02,
     vitK: 0.2,
     water: 8.9,
-    zinc: 0.04,
+    zinc: 0.04
   },
   defaultPortion: {
     quantity: 2,
-    unit: 'g',
+    unit: 'g'
   },
   primaryImage: {
     url:
-      'https://firebasestorage.googleapis.com/v0/b/test-app-8dc99.appspot.com/o/foods%2Fjam.png?alt=media&token=15c9a34f-fe94-4568-99c2-3246f0185b35',
+      'https://firebasestorage.googleapis.com/v0/b/test-app-8dc99.appspot.com/o/foods%2Fjam.png?alt=media&token=15c9a34f-fe94-4568-99c2-3246f0185b35'
   },
-  uses: 0,
+  uses: 0
 }
 FOODS[jamID] = jam
 
@@ -204,12 +204,12 @@ export const bread: Food = {
   portions: {
     g: {
       quantity: 29,
-      unit: 'g',
+      unit: 'g'
     },
     slice: {
       quantity: 1,
-      unit: 'slice',
-    },
+      unit: 'slice'
+    }
   },
   foodGroup: 'Baked Products',
   name: 'Bread, wheat',
@@ -284,17 +284,17 @@ export const bread: Food = {
     vitE: 0.06,
     vitK: 1.4,
     water: 10.22,
-    zinc: 0.3,
+    zinc: 0.3
   },
   defaultPortion: {
     quantity: 29,
-    unit: 'g',
+    unit: 'g'
   },
   primaryImage: {
     url:
-      'https://firebasestorage.googleapis.com/v0/b/test-app-8dc99.appspot.com/o/foods%2Fbread.png?alt=media&token=142097b0-6d03-4480-b810-b1849e5d5d7a',
+      'https://firebasestorage.googleapis.com/v0/b/test-app-8dc99.appspot.com/o/foods%2Fbread.png?alt=media&token=142097b0-6d03-4480-b810-b1849e5d5d7a'
   },
-  uses: 0,
+  uses: 0
 }
 FOODS[breadID] = bread
 
@@ -305,17 +305,17 @@ export const pbj: Food = {
   name: 'Peanut Butter and Jelly Sandwich',
   defaultPortion: {
     quantity: 1,
-    unit: 'sandwich',
+    unit: 'sandwich'
   },
   portions: {
     sandwich: {
       quantity: 1,
-      unit: 'sandwich',
-    },
+      unit: 'sandwich'
+    }
   },
   nutrition: {},
   primaryImage: {},
-  uses: 0,
+  uses: 0
 }
 FOODS[pbjID] = pbj
 
@@ -330,7 +330,7 @@ export const pbjPB: Usage = {
   quantity: 2,
   foodId: peanutButterID,
   parentId: pbjID,
-  rootId: pbjID,
+  rootId: pbjID
 }
 FOOD_USAGES[pbjPBID] = pbjPB
 
@@ -342,7 +342,7 @@ export const pbjJam: Usage = {
   quantity: 2,
   foodId: jamID,
   parentId: pbjID,
-  rootId: pbjID,
+  rootId: pbjID
 }
 FOOD_USAGES[pbjJamID] = pbjJam
 
@@ -354,7 +354,7 @@ export const pbjBread: Usage = {
   quantity: 2,
   foodId: breadID,
   parentId: pbjID,
-  rootId: pbjID,
+  rootId: pbjID
 }
 FOOD_USAGES[pbjBreadID] = pbjBread
 
@@ -366,14 +366,14 @@ FOOD_USAGES[pbjBreadID] = pbjBread
  * @returns {Usage[]}
  */
 export const findUsagesForFood = (parentFoodId: string): Usage[] =>
-  Object.values(FOOD_USAGES).filter(usage => usage.parentId == parentFoodId)
+  Object.values(FOOD_USAGES).filter((usage) => usage.parentId == parentFoodId)
 
 /**
  * @description Gets all of the usages for a food
  * @param {Food} food
  */
 export function assignFoodRefAndParentId(food: Food, dbID: string): void {
-  forEach(FOOD_USAGES, usage => {
+  forEach(FOOD_USAGES, (usage) => {
     if (usage.parentId == food._id) {
       usage.parentId = dbID
       usage.foodId = dbID

@@ -193,7 +193,7 @@
       },
       "root": "apps/common-ui-docs",
       "sourceRoot": "apps/common-ui-docs/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -519,7 +519,7 @@
       "projectType": "library",
       "root": "libs/cutcal/food-recipe",
       "sourceRoot": "libs/cutcal/food-recipe/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -550,7 +550,7 @@
       "projectType": "library",
       "root": "libs/cutcal/analyze",
       "sourceRoot": "libs/cutcal/analyze/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -581,7 +581,7 @@
       "projectType": "library",
       "root": "libs/cutcal/calendar",
       "sourceRoot": "libs/cutcal/calendar/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -612,7 +612,7 @@
       "projectType": "library",
       "root": "libs/cutcal/fallback",
       "sourceRoot": "libs/cutcal/fallback/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -643,7 +643,7 @@
       "projectType": "library",
       "root": "libs/cutcal/footer",
       "sourceRoot": "libs/cutcal/footer/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -674,7 +674,7 @@
       "projectType": "library",
       "root": "libs/cutcal/profile",
       "sourceRoot": "libs/cutcal/profile/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -705,7 +705,7 @@
       "projectType": "library",
       "root": "libs/cutcal/recipe-builder",
       "sourceRoot": "libs/cutcal/recipe-builder/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -736,7 +736,7 @@
       "projectType": "library",
       "root": "libs/cutcal/meal-ingredient",
       "sourceRoot": "libs/cutcal/meal-ingredient/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -767,7 +767,7 @@
       "projectType": "library",
       "root": "libs/cutcal/nutrient",
       "sourceRoot": "libs/cutcal/nutrient/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -798,7 +798,7 @@
       "projectType": "library",
       "root": "libs/cutcal/legal",
       "sourceRoot": "libs/cutcal/legal/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -829,7 +829,7 @@
       "projectType": "library",
       "root": "libs/cutcal/business",
       "sourceRoot": "libs/cutcal/business/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -860,7 +860,7 @@
       "projectType": "library",
       "root": "libs/cutcal/grocery-pantry",
       "sourceRoot": "libs/cutcal/grocery-pantry/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -891,7 +891,7 @@
       "projectType": "library",
       "root": "libs/cutcal/support",
       "sourceRoot": "libs/cutcal/support/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -922,7 +922,7 @@
       "projectType": "library",
       "root": "libs/cutcal/landing",
       "sourceRoot": "libs/cutcal/landing/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -1015,7 +1015,7 @@
       "projectType": "library",
       "root": "libs/core",
       "sourceRoot": "libs/core/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -1046,7 +1046,7 @@
       "projectType": "library",
       "root": "libs/diet",
       "sourceRoot": "libs/diet/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -1077,7 +1077,7 @@
       "projectType": "library",
       "root": "libs/user",
       "sourceRoot": "libs/user/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
@@ -1232,7 +1232,7 @@
       "projectType": "library",
       "root": "libs/cc-timepicker",
       "sourceRoot": "libs/cc-timepicker/src",
-      "prefix": "cc",
+      "prefix": "ds",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",

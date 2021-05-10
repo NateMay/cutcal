@@ -9,8 +9,8 @@ export function removePropsDeeply(objIn: KVP<any>, props: string[]): {} {
   const objOut: KVP<any> = {}
 
   Object.keys(objIn)
-    .filter(key => !props.includes(key))
-    .map(key => (objOut[key] = objIn[key]))
+    .filter((key) => !props.includes(key))
+    .map((key) => (objOut[key] = objIn[key]))
 
   for (const property in objOut) {
     if (typeof objOut[property] == 'object')

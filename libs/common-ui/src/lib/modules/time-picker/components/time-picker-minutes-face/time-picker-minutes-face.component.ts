@@ -13,16 +13,16 @@ import { TimeUnit } from '../../models/time-unit.enum'
 import { getMinutes } from '../../utils/timepicker-time.utils'
 
 @Component({
-  selector: 'cc-timepicker-minutes-face',
+  selector: 'ds-timepicker-minutes-face',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <cc-timepicker-face
+    <ds-timepicker-face
       [faceTime]="minutesList"
       [selectedTime]="selectedMinute"
       [minutesGap]="minutesGap"
       (timeChange)="minuteChange.next($event)"
       [unit]="timeUnit.MINUTE"
-    ></cc-timepicker-face>
+    ></ds-timepicker-face>
   `
 })
 export class TimepickerMinutesFaceComponent implements OnChanges {

@@ -14,7 +14,7 @@ export const NUTRIENT_UNIT_LOOKUP: NutrientUnitLookup = {
   mg: 'Milligrams',
   µg: 'Micrograms',
   iu: 'International Units',
-  kj: 'Kilojoules',
+  kj: 'Kilojoules'
 }
 
 export type NutrientUnit = keyof NutrientUnitLookup

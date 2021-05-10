@@ -17,7 +17,7 @@ export const scrapeImage = async (cleanTerm: string): Promise<string> => {
 
     const response: GoogleImageResponse = JSON.parse(jsresponse)
 
-    IMAGE_CACHE[cleanTerm] = response.items.map(item => item.link)[0]
+    IMAGE_CACHE[cleanTerm] = response.items.map((item) => item.link)[0]
   }
 
   return IMAGE_CACHE[cleanTerm]

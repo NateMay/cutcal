@@ -38,13 +38,13 @@ export const searchOpen = createSelector(
 const reducer = createReducer<SearchState>(
   SEARCH_INITIAL,
 
-  on(openSearch, state => ({
+  on(openSearch, (state) => ({
     ...state,
     isOpen: true
   })),
 
   // headerCloseSearch
-  on(closeSearch, state => ({
+  on(closeSearch, (state) => ({
     ...state,
     isOpen: false
   }))

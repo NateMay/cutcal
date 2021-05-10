@@ -23,7 +23,7 @@ import { SidebarSearchComponent } from './sidebar-search/sidebar-search.componen
     MatIconModule,
     MatCheckboxModule,
     MatExpansionModule,
-    MatMenuModule,
-  ],
+    MatMenuModule
+  ]
 })
 export class SidebarModule {}

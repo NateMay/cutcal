@@ -35,7 +35,7 @@ export const getFoodFromFDC = async (fdcId: string): Promise<FdcDump> => {
 
   const categories = []
   if (foodAttributes)
-    foodAttributes.forEach(att =>
+    foodAttributes.forEach((att) =>
       categories.push(att.foodAttributeType.description)
     )
   if (fnddsFoodCategory) categories.push(fnddsFoodCategory.description)
@@ -67,7 +67,7 @@ function getCategories(
 ): string[] {
   const categories = []
   if (foodAttributes)
-    foodAttributes.forEach(att =>
+    foodAttributes.forEach((att) =>
       categories.push(att.foodAttributeType.description)
     )
   if (fnddsFoodCategory) categories.push(fnddsFoodCategory.description)

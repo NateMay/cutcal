@@ -12,16 +12,16 @@ import {
 } from '@angular/core'
 import { MatButton } from '@angular/material/button'
 import { Subscription } from 'rxjs'
-import { CcDatepicker } from './datepicker'
+import { DsDatepicker } from './datepicker'
 
 /** Can be used to override the icon of a `ccDatepickerToggle`. */
 @Directive({
   selector: '[ccDatepickerToggleIcon]'
 })
-export class CcDatepickerToggleIcon {}
+export class DsDatepickerToggleIcon {}
 
 @Component({
-  selector: 'cc-datepicker-toggle',
+  selector: 'ds-datepicker-toggle',
   template: `
     <button
       #button
@@ -62,13 +62,13 @@ export class CcDatepickerToggleIcon {}
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CcDatepickerToggle implements OnDestroy {
+export class DsDatepickerToggle implements OnDestroy {
   static ngAcceptInputType_disabled: BooleanInput
 
   private _stateChanges = Subscription.EMPTY
 
   /** Datepicker instance that the button will toggle. */
-  @Input('for') datepicker: CcDatepicker
+  @Input('for') datepicker: DsDatepicker
 
   /** Tabindex for the toggle. */
   @Input() tabIndex: number | null
@@ -91,7 +91,7 @@ export class CcDatepickerToggle implements OnDestroy {
   @Input() disableRipple: boolean
 
   /** Custom icon set by the consumer. */
-  @ContentChild(CcDatepickerToggleIcon) _customIcon: CcDatepickerToggleIcon
+  @ContentChild(DsDatepickerToggleIcon) _customIcon: DsDatepickerToggleIcon
 
   /** Underlying button element. */
   @ViewChild('button') _button: MatButton

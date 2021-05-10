@@ -23,9 +23,9 @@ describe('Analysis Chart Component', () => {
         MatIconModule,
         MatSlideToggleModule,
         NoopAnimationsModule,
-        MockHighChartsModule,
+        MockHighChartsModule
       ],
-      declarations: [AnalysisChartComponent],
+      declarations: [AnalysisChartComponent]
     });
     fixture = TestBed.createComponent(AnalysisChartComponent);
     component = fixture.componentInstance;

@@ -3,23 +3,23 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output,
+  Output
 } from '@angular/core'
 import { ClockFaceTime, getHours, TimePeriod } from './timepicker-utils'
 
 @Component({
-  selector: 'cc-timepicker-12-hours-face',
+  selector: 'ds-timepicker-12-hours-face',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <cc-timepicker-face
+    <ds-timepicker-face
       [selectedTime]="selectedHour"
       [faceTime]="hoursList"
       (timeChange)="hourChange.next($event)"
       (timeSelected)="onTimeSelected($event)"
-    ></cc-timepicker-face>
-  `,
+    ></ds-timepicker-face>
+  `
 })
-export class CcTimepicker12HoursFaceComponent {
+export class DsTimepicker12HoursFaceComponent {
   @Input() period: TimePeriod = TimePeriod.AM
 
   @Input() selectedHour!: ClockFaceTime

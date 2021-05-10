@@ -36,7 +36,7 @@ export const createUsage = (
   parentId,
   rootId,
   userId: userId || '',
-  _id: _id || '',
+  _id: _id || ''
 })
 
 /**

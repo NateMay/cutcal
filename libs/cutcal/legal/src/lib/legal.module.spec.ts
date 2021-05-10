@@ -4,7 +4,7 @@ import { LegalModule } from './legal.module';
 describe('LegalModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [LegalModule],
+      imports: [LegalModule]
     }).compileComponents();
   }));
 

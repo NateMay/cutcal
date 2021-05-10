@@ -4,7 +4,7 @@ import { ChartsModule } from './charts.module';
 describe('ChartsModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ChartsModule],
+      imports: [ChartsModule]
     }).compileComponents();
   }));
 

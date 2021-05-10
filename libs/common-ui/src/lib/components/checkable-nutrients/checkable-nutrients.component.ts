@@ -29,7 +29,7 @@ const createData = (
  * List of checkboxes to toggle selected nutrients
  */
 @Component({
-  selector: 'cc-checkable-nutrients',
+  selector: 'ds-checkable-nutrients',
   styleUrls: ['./checkable-nutrients.component.scss'],
   template: `
     <!-- Root Iterator -->

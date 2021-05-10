@@ -5,7 +5,7 @@ import { caloriesFrom, Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
 import { NutritionLabel } from './nutr-label'
 
 @Component({
-  selector: 'cc-nutrition-label',
+  selector: 'ds-nutrition-label',
   styleUrls: ['./nutr-label.component.scss'],
   host: { class: 'cc-nutrition-label' },
   template: `
@@ -228,9 +228,7 @@ import { NutritionLabel } from './nutr-label'
       </tbody>
     </table>
 
-    <p class="small-info">
-      Calories per gram:
-    </p>
+    <p class="small-info">Calories per gram:</p>
 
     <p class="small-info text-center">
       Fat 9 &bull; Carbohydrate 4 &bull; Protein 4

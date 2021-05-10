@@ -9,7 +9,7 @@ import {
 } from '@angular/core'
 
 @Component({
-  selector: 'cc-landing',
+  selector: 'ds-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })

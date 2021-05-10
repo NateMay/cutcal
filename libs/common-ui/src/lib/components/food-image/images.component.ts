@@ -8,7 +8,7 @@ import { Image } from '@cutcal/diet'
  * Presents primary and secondary images
  */
 @Component({
-  selector: 'cc-images',
+  selector: 'ds-images',
   styleUrls: ['./images.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'cc-images' },

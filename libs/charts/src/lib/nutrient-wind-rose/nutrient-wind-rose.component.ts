@@ -12,7 +12,7 @@ Windbarb(Highcharts)
 More(Highcharts)
 
 @Component({
-  selector: 'cc-nutrient-wind-rose',
+  selector: 'ds-nutrient-wind-rose',
   template: `
     <highcharts-chart
       *ngIf="renderChart"
@@ -38,7 +38,7 @@ More(Highcharts)
       </tr>
     </table>
   `,
-  styleUrls: ['./nutrient-wind-rose.component.scss'],
+  styleUrls: ['./nutrient-wind-rose.component.scss']
 })
 export class NutrientWindRoseComponent implements OnInit {
   renderChart = false
@@ -68,7 +68,7 @@ export class NutrientWindRoseComponent implements OnInit {
     Ca: { label: 'Ca', data: [1.01, 1.56, 2.12] },
     Na: { label: 'Na', data: [2.04, 3.42, 1.97] },
     Ch: { label: 'Ch', data: [1.86, 2.45, 1.62] },
-    SF: { label: 'SF', data: [0.81, 1.03, 2.12] },
+    SF: { label: 'SF', data: [0.81, 1.03, 2.12] }
   }
 
   chartOptions: Highcharts.Options
@@ -104,22 +104,22 @@ export class NutrientWindRoseComponent implements OnInit {
         table: 'freq',
         startRow: 1,
         endRow: 26,
-        endColumn: 4,
+        endColumn: 4
       },
 
       chart: <Highcharts.ChartOptions>{
         polar: true,
-        type: 'column',
+        type: 'column'
       },
 
       pane: <Highcharts.PaneOptions>{
-        size: '85%',
+        size: '85%'
       },
 
       title: <Highcharts.TitleOptions>{ text: '' },
 
       xAxis: <Highcharts.XAxisOptions>{
-        tickmarkPlacement: 'on',
+        tickmarkPlacement: 'on'
       },
 
       yAxis: <Highcharts.YAxisOptions>{
@@ -129,23 +129,23 @@ export class NutrientWindRoseComponent implements OnInit {
         labels: {
           formatter(): string {
             return this.value + '%'
-          },
-        },
+          }
+        }
         // reversedStacks: false
       },
 
       tooltip: <Highcharts.TooltipOptions>{
-        valueSuffix: '%',
+        valueSuffix: '%'
       },
 
       plotOptions: <Highcharts.PlotOptions>{
         series: {
-          stacking: 'normal',
+          stacking: 'normal'
           // shadow: true,
           // groupPadding: 0,
           // pointPlacement: 'on'
-        },
-      },
+        }
+      }
     }
   }
 

@@ -7,7 +7,7 @@ import { BreadCrumb } from '@cutcal/common-ui'
     <h2>Breadcrumbs</h2>
     <hr />
 
-    <cc-breadcrumbs [crumbs]="crumbs"></cc-breadcrumbs>
+    <ds-breadcrumbs [crumbs]="crumbs"></ds-breadcrumbs>
   `,
   styleUrls: ['./doc4-breadcrumb.component.css']
 })

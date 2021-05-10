@@ -2,7 +2,7 @@ import {
   adjustPerGram,
   caloriesFrom,
   caloriesFromAll,
-  caloriesFromSingle,
+  caloriesFromSingle
 } from './calories-from';
 
 it('caloriesFrom() - shared/functions calculates (from a nutrion object) the calories for the specified single macro nutrient', () => {
@@ -12,7 +12,7 @@ it('caloriesFrom() - shared/functions calculates (from a nutrion object) the cal
       carbohydrates: 10,
       protein: 10,
       fat: 10,
-      alcohol: 10,
+      alcohol: 10
     })
   ).toEqual(20);
 
@@ -22,7 +22,7 @@ it('caloriesFrom() - shared/functions calculates (from a nutrion object) the cal
       carbohydrates: 10,
       protein: 10,
       fat: 10,
-      alcohol: 10,
+      alcohol: 10
     })
   ).toEqual(35);
 });
@@ -34,13 +34,13 @@ it('caloriesFromAll() - shared/functions - should get all of the macro nutrient 
       carbohydrates: 10,
       protein: 10,
       fat: 10,
-      alcohol: 10,
+      alcohol: 10
     })
   ).toEqual({
     carbohydrates: 20,
     protein: 20,
     fat: 45,
-    alcohol: 35,
+    alcohol: 35
   });
 });
 
@@ -50,13 +50,13 @@ it('adjustPerGram() - shared/functions - calculates (from a nutrition object) th
       carbohydrates: 10,
       protein: 10,
       fat: 10,
-      alcohol: 10,
+      alcohol: 10
     })
   ).toEqual({
     carbohydrates: 40,
     protein: 40,
     fat: 90,
-    alcohol: 70,
+    alcohol: 70
   });
 });
 

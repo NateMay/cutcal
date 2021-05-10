@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router'
     CommonModule,
     RouterModule.forChild([
       /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
-    ]),
-  ],
+    ])
+  ]
 })
 export class GroceryPantryModule {}

@@ -12,9 +12,9 @@ import { Doc4NutrLabelComponent } from './doc4-nutr-label.component'
     RouterModule.forChild([
       {
         path: '',
-        component: Doc4NutrLabelComponent,
-      },
-    ]),
-  ],
+        component: Doc4NutrLabelComponent
+      }
+    ])
+  ]
 })
 export class Doc4NutrLabelModule {}

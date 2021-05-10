@@ -8,7 +8,7 @@ export class MockWindowRef {
   set window(win: any) {
     this._window = {
       ...this._window,
-      ...win,
+      ...win
     }
   }
 }

@@ -33,14 +33,14 @@ export function nutrtionSelections(
   selected?: string[]
 ): Nutrition<NutrCheckable> {
   const result: Nutrition<NutrCheckable> = {}
-  for (const nutrient of Object.keys(ZERO_NUTRITION) as (keyof Nutrition<
-    any
-  >)[]) {
+  for (const nutrient of Object.keys(
+    ZERO_NUTRITION
+  ) as (keyof Nutrition<any>)[]) {
     result[nutrient] = {
       label: NUTRIENTS.shortNames[nutrient] || nutrient,
       propName: nutrient,
       unit: NUTRIENTS.units[nutrient],
-      isChecked: selected ? selected.includes(nutrient) : false,
+      isChecked: selected ? selected.includes(nutrient) : false
     }
   }
   return result

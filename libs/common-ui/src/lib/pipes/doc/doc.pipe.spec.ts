@@ -5,9 +5,7 @@ import { Observable, of } from 'rxjs';
 import { DocPipe } from './doc.pipe';
 
 @Component({
-  template: `
-    {{ (docRef | doc | async).prop }}
-  `
+  template: ` {{ (docRef | doc | async).prop }} `
 })
 class TestDocPipeComp {
   docRef = {};

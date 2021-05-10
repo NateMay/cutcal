@@ -9,7 +9,8 @@ import {
   Input,
   OnDestroy,
   Optional,
-  Output
+  Output,
+  Provider
 } from '@angular/core'
 import {
   AbstractControl,
@@ -25,32 +26,32 @@ import { ThemePalette } from '@angular/material/core'
 import { MatFormField } from '@angular/material/form-field'
 import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input'
 import { Subscription } from 'rxjs'
-import { CcTimepicker } from './timepicker'
+import { DsTimepicker } from './timepicker'
 
-export const CC_TIMEPICKER_VALUE_ACCESSOR: any = {
+export const CC_TIMEPICKER_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => CcTimepickerInput),
+  useExisting: forwardRef(() => DsTimepickerInput),
   multi: true
 }
 
-export const MAT_TIMEPICKER_VALIDATORS: any = {
+export const MAT_TIMEPICKER_VALIDATORS: Provider = {
   provide: NG_VALIDATORS,
-  useExisting: forwardRef(() => CcTimepickerInput),
+  useExisting: forwardRef(() => DsTimepickerInput),
   multi: true
 }
 
 /**
  * An event used for timepicker input and change events. We don't always have access to a native
  * input or change event because the event may have been triggered by the user clicking on the
- * calendar popup. For consistency, we always use CcTimepickerInputEvent instead.
+ * calendar popup. For consistency, we always use DsTimepickerInputEvent instead.
  */
-export class CcTimepickerInputEvent {
+export class DsTimepickerInputEvent {
   /** The new value for the target timepicker input. */
   value: string | null
 
   constructor(
     /** Reference to the timeepicker input component that emitted the event. */
-    public target: CcTimepickerInput,
+    public target: DsTimepickerInput,
     /** Reference to the native input element associated with the timepicker input. */
     public targetElement: HTMLElement
   ) {
@@ -63,7 +64,7 @@ export class CcTimepickerInputEvent {
   providers: [
     CC_TIMEPICKER_VALUE_ACCESSOR,
     MAT_TIMEPICKER_VALIDATORS,
-    { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: CcTimepickerInput }
+    { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: DsTimepickerInput }
   ],
   host: {
     '[attr.aria-haspopup]': '_timepicker ? "dialog" : null',
@@ -76,7 +77,7 @@ export class CcTimepickerInputEvent {
   },
   exportAs: 'ccTimepickerInput'
 })
-export class CcTimepickerInput
+export class DsTimepickerInput
   implements ControlValueAccessor, OnDestroy, Validator {
   /** Emits when the value changes (either due to user input or programmatic change). */
   _valueChange = new EventEmitter<string | null>()
@@ -103,16 +104,16 @@ export class CcTimepickerInput
   private _value: string | null
 
   /** Emits when a `change` event is fired on this `<input>`. */
-  @Output() readonly timeChange = new EventEmitter<CcTimepickerInputEvent>()
+  @Output() readonly timeChange = new EventEmitter<DsTimepickerInputEvent>()
 
   /** Emits when an `input` event is fired on this `<input>`. */
-  @Output() readonly timeInput = new EventEmitter<CcTimepickerInputEvent>()
+  @Output() readonly timeInput = new EventEmitter<DsTimepickerInputEvent>()
 
   /** Emits when an `input` event is fired on this `<input>`. */
-  @Output() readonly dateInput = new EventEmitter<CcTimepickerInputEvent>()
+  @Output() readonly dateInput = new EventEmitter<DsTimepickerInputEvent>()
 
   @Input()
-  set ccTimepicker(value: CcTimepicker) {
+  set ccTimepicker(value: DsTimepicker) {
     if (!value) {
       return
     }
@@ -127,15 +128,15 @@ export class CcTimepickerInput
         this._cvaOnChange(selected)
         this._onTouched()
         this.timeInput.emit(
-          new CcTimepickerInputEvent(this, this._elementRef.nativeElement)
+          new DsTimepickerInputEvent(this, this._elementRef.nativeElement)
         )
         this.timeChange.emit(
-          new CcTimepickerInputEvent(this, this._elementRef.nativeElement)
+          new DsTimepickerInputEvent(this, this._elementRef.nativeElement)
         )
       }
     )
   }
-  _timepicker: CcTimepicker
+  _timepicker: DsTimepicker
 
   /** Whether the timepicker-input is disabled. */
   @Input()
@@ -188,7 +189,7 @@ export class CcTimepickerInput
       ? null
       : { ccTimepickerParse: { text: this._elementRef.nativeElement.value } }
 
-  // tslint:disable-next-line: member-ordering
+
   // eslint-disable-next-line @typescript-eslint/member-ordering
   private _validator: ValidatorFn | null = Validators.compose([
     this._parseValidator
@@ -254,7 +255,7 @@ export class CcTimepickerInput
 
     if (this._value != value) {
       this.dateInput.emit(
-        new CcTimepickerInputEvent(this, this._elementRef.nativeElement)
+        new DsTimepickerInputEvent(this, this._elementRef.nativeElement)
       )
     } else if (lastValueWasValid !== this._lastValueValid) {
       this._validatorOnChange()
@@ -263,7 +264,7 @@ export class CcTimepickerInput
 
   _onChange() {
     this.timeChange.emit(
-      new CcTimepickerInputEvent(this, this._elementRef.nativeElement)
+      new DsTimepickerInputEvent(this, this._elementRef.nativeElement)
     )
   }
 

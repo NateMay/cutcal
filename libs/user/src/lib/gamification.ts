@@ -69,11 +69,11 @@ export const MOCK_REPUTATIONS: Reputations = {
     badges: [
       {
         badgeType: 'First Recipe',
-        date: new Date(),
-      },
+        date: new Date()
+      }
     ],
     likedRecipes: 10,
-    createdRecipes: 5,
+    createdRecipes: 5
   },
   nutritionist: {
     name: 'Nutritionist',
@@ -81,10 +81,10 @@ export const MOCK_REPUTATIONS: Reputations = {
     badges: [
       {
         badgeType: 'First Client',
-        date: new Date(),
-      },
+        date: new Date()
+      }
     ],
-    clientWeeks: 20,
+    clientWeeks: 20
   },
   expert: {
     name: 'Expert',
@@ -92,14 +92,14 @@ export const MOCK_REPUTATIONS: Reputations = {
     badges: [
       {
         badgeType: 'Voter',
-        date: new Date(),
+        date: new Date()
       },
       {
         badgeType: 'Editor',
-        date: new Date(),
-      },
+        date: new Date()
+      }
     ],
     votes: 300,
-    proposals: 4,
-  },
+    proposals: 4
+  }
 }

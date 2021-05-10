@@ -8,20 +8,20 @@ import {
   Input,
   OnDestroy,
   ViewChild,
-  ViewEncapsulation,
+  ViewEncapsulation
 } from '@angular/core'
 import { MatButton } from '@angular/material/button'
 import { Subscription } from 'rxjs'
-import { CcTimepicker } from './timepicker'
+import { DsTimepicker } from './timepicker'
 
 /** Can be used to override the icon of a `ccTimepickerToggle`. */
 @Directive({
-  selector: '[ccTimepickerToggleIcon]',
+  selector: '[ccTimepickerToggleIcon]'
 })
-export class CcTimepickerToggleIcon {}
+export class DsTimepickerToggleIcon {}
 
 @Component({
-  selector: 'cc-timepicker-toggle',
+  selector: 'ds-timepicker-toggle',
   template: `
     <button
       #button
@@ -57,19 +57,19 @@ export class CcTimepickerToggleIcon {}
     // Always set the tabindex to -1 so that it doesn't overlap with any custom tabindex the
     // consumer may have provided, while still being able to receive focus.
     '[attr.tabindex]': 'disabled ? null : -1',
-    '(focus)': '_button.focus()',
+    '(focus)': '_button.focus()'
   },
   exportAs: 'ccTimepickerToggle',
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CcTimepickerToggle implements OnDestroy {
+export class DsTimepickerToggle implements OnDestroy {
   static ngAcceptInputType_disabled: BooleanInput
 
   private _stateChanges = Subscription.EMPTY
 
   /** Timepicker instance that the button will toggle. */
-  @Input('for') timepicker: CcTimepicker
+  @Input('for') timepicker: DsTimepicker
 
   /** Tabindex for the toggle. */
   @Input() tabIndex: number | null
@@ -92,7 +92,7 @@ export class CcTimepickerToggle implements OnDestroy {
   @Input() disableRipple: boolean
 
   /** Custom icon set by the consumer. */
-  @ContentChild(CcTimepickerToggleIcon) _customIcon: CcTimepickerToggleIcon
+  @ContentChild(DsTimepickerToggleIcon) _customIcon: DsTimepickerToggleIcon
 
   /** Underlying button element. */
   @ViewChild('button') _button: MatButton

@@ -8,15 +8,15 @@ it('modifyNutrition() - shared/functions', () => {
         carbohydrates: 1,
         protein: 3,
         fat: 5,
-        alcohol: 17,
+        alcohol: 17
       },
-      val => val + 4
+      (val) => val + 4
     )
   ).toEqual({
     calories: 124,
     carbohydrates: 5,
     protein: 7,
     fat: 9,
-    alcohol: 21,
+    alcohol: 21
   });
 });

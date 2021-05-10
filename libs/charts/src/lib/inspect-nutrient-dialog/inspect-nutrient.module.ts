@@ -8,13 +8,13 @@ import { InspectNutrientDialogComponent } from './inspect-nutrient-dialog.compon
 @NgModule({
   declarations: [InspectNutrientDialogComponent],
   exports: [InspectNutrientDialogComponent],
-  imports: [CommonModule, MatCardModule, HighchartsChartModule],
+  imports: [CommonModule, MatCardModule, HighchartsChartModule]
 })
 export class InspectNutrientModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: InspectNutrientModule,
-      providers: [],
+      providers: []
     }
   }
 }

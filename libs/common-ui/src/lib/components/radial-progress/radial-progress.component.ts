@@ -2,7 +2,7 @@ import { LiveAnnouncer } from '@angular/cdk/a11y'
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 
 @Component({
-  selector: 'cc-radial-progress',
+  selector: 'ds-radial-progress',
   // #region ========== template ========== //
   template: `
     <svg

@@ -14,25 +14,25 @@ import { TimeUnit } from '../../models/time-unit.enum'
 import { getHours, getMinutes } from '../../utils/timepicker-time.utils'
 
 @Component({
-  selector: 'cc-timepicker-dial',
+  selector: 'ds-timepicker-dial',
   styleUrls: ['time-picker-dial.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="timepicker-dial">
       <div class="timepicker-dial__container">
         <div class="timepicker-dial__time">
-          <cc-timepicker-dial-control
+          <ds-timepicker-dial-control
             [timeList]="hours"
             [time]="hour"
             [timeUnit]="timeUnit.HOUR"
             [isActive]="activeTimeUnit === timeUnit.HOUR"
             (timeUnitChanged)="changeTimeUnit($event)"
             (timeChanged)="changeHour($event)"
-          ></cc-timepicker-dial-control>
+          ></ds-timepicker-dial-control>
 
           <span>:</span>
 
-          <cc-timepicker-dial-control
+          <ds-timepicker-dial-control
             [timeList]="minutes"
             [time]="minute"
             [timeUnit]="timeUnit.MINUTE"
@@ -40,10 +40,10 @@ import { getHours, getMinutes } from '../../utils/timepicker-time.utils'
             [minutesGap]="minutesGap"
             (timeUnitChanged)="changeTimeUnit($event)"
             (timeChanged)="changeMinute($event)"
-          ></cc-timepicker-dial-control>
+          ></ds-timepicker-dial-control>
         </div>
 
-        <cc-timepicker-period
+        <ds-timepicker-period
           *ngIf="format != 24"
           [selectedPeriod]="period"
           [activeTimeUnit]="activeTimeUnit"
@@ -54,7 +54,7 @@ import { getHours, getMinutes } from '../../utils/timepicker-time.utils'
           [minutes]="minutes"
           [selectedHour]="hour"
           (periodChanged)="changePeriod($event)"
-        ></cc-timepicker-period>
+        ></ds-timepicker-period>
       </div>
       <!--
       <small class="timepicker-dial__hint"> * use arrows (<span>&#8645;</span>) to change the time</small>

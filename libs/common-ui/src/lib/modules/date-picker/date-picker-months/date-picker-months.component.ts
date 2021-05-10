@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { MonthMetaData, MONTHS } from '@cutcal/core'
 
 @Component({
-  selector: 'cc-date-picker-months',
+  selector: 'ds-date-picker-months',
   template: `
     <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
       <button

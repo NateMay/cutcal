@@ -11,7 +11,7 @@ import {
   ResponsiveRulesOptions,
   SeriesOptionsType,
   TitleOptions,
-  TooltipOptions,
+  TooltipOptions
 } from 'highcharts'
 import { cloneDeep } from 'lodash'
 
@@ -23,32 +23,32 @@ export const BASE_ANALYZE_CHART_OPTIONS = (): Options => cloneDeep(BASE_OPTIONS)
 
 export const BASE_OPTIONS: Highcharts.Options = {
   legend: <LegendOptions>{
-    align: 'left',
+    align: 'left'
   },
 
   chart: <ChartOptions>{
-    type: 'column',
+    type: 'column'
   },
 
   title: <TitleOptions>{
     text: 'Daily Intake',
-    style: { fontSize: '24px' },
+    style: { fontSize: '24px' }
   },
 
   tooltip: <TooltipOptions>{
-    pointFormat: '{series.name}: <b>{point.y:.1f}</b>',
+    pointFormat: '{series.name}: <b>{point.y:.1f}</b>'
   },
 
   plotOptions: <PlotOptions>{
     line: <PlotLineOptions>{
       enableMouseTracking: true,
       findNearestPointBy: 'x',
-      tooltip: {},
+      tooltip: {}
     },
     column: <PlotColumnOptions>{},
     bar: <PlotBarOptions>{},
     area: <PlotAreaOptions>{},
-    pie: <PlotAreaOptions>{},
+    pie: <PlotAreaOptions>{}
   },
 
   responsive: <ResponsiveOptions>{
@@ -58,11 +58,11 @@ export const BASE_OPTIONS: Highcharts.Options = {
         chartOptions: {
           legend: {
             align: 'center',
-            verticalAlign: 'bottom',
-          },
-        },
-      },
-    ],
+            verticalAlign: 'bottom'
+          }
+        }
+      }
+    ]
   },
-  series: <SeriesOptionsType[]>[],
+  series: <SeriesOptionsType[]>[]
 }

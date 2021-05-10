@@ -1,8 +1,7 @@
 import { Directive, ElementRef } from '@angular/core'
 
 // TEST
-
-// tslint:disable-next-line: directive-selector
+// eslint-disable-next-line @angular-eslint/directive-selector
 @Directive({ selector: 'img' })
 export class LazyImgDirective {
   constructor({ nativeElement }: ElementRef<HTMLImageElement>) {

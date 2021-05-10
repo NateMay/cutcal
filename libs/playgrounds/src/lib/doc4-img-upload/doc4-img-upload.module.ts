@@ -12,9 +12,9 @@ import { Doc4ImgUploadComponent } from './doc4-img-upload.component'
     RouterModule.forChild([
       {
         path: '',
-        component: Doc4ImgUploadComponent,
-      },
-    ]),
-  ],
+        component: Doc4ImgUploadComponent
+      }
+    ])
+  ]
 })
 export class Doc4ImgUploadModule {}

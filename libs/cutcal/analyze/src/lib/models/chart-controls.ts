@@ -26,7 +26,7 @@ export const updateControls = (
           unit,
           type: get(previous, `${unit}.type`) || 'column',
           valueStacked: get(previous, `${unit}.valueStacked`) || false,
-          percentStacked: get(previous, `${unit}.percentStacked`) || false,
+          percentStacked: get(previous, `${unit}.percentStacked`) || false
         } as ChartControls)
     ),
     'unit'

@@ -20,6 +20,7 @@ import {
   NgZone,
   OnInit,
   Output,
+  Provider,
   ViewChild,
   ViewContainerRef
 } from '@angular/core'
@@ -32,7 +33,7 @@ import { DatePickerDialogComponent } from '../date-picker-dialog/date-picker-dia
 
 let nextUniqueId = 0
 
-export const DATE_PICKER_CONTROL_VALUE_ACCESSOR: any = {
+export const DATE_PICKER_CONTROL_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
   multi: true,
   useExisting: forwardRef(() => DatePickerInputComponent)
@@ -41,7 +42,7 @@ export const DATE_PICKER_CONTROL_VALUE_ACCESSOR: any = {
 // TEST (date-picker) with reactive forms
 
 @Component({
-  selector: 'cc-date-picker',
+  selector: 'ds-date-picker',
   host: { class: 'cc-date-picker' },
   styleUrls: ['./date-picker-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -116,7 +117,7 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
    * ```html
    *   <mat-form-field>
    *    <input ccDatePickerInput="picker1">
-   *    <cc-date-picker #picker1></cc-date-picker>
+   *    <ds-date-picker #picker1></ds-date-picker>
    *   </mat-form-field>
    * ```
    */

@@ -21,7 +21,7 @@ export class RefocusService {
   ) {
     this.router.events
       .pipe(
-        tap(event => {
+        tap((event) => {
           if (this.refocus && event instanceof NavigationEnd) {
             this.refocus = false
             onStable(this.ngZone, () => {
@@ -32,7 +32,7 @@ export class RefocusService {
             })
           }
         }),
-        catchError(e => throwError(e))
+        catchError((e) => throwError(e))
       )
       .subscribe()
   }

@@ -10,7 +10,7 @@ class TesterLink {
 }
 
 @Component({
-  selector: 'cc-common-ui-sidenav',
+  selector: 'ds-common-ui-sidenav',
   template: `
     <h4 style="text-align: center;">Components</h4>
     <hr />

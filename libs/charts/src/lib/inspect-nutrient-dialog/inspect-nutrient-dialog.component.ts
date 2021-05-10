@@ -18,7 +18,7 @@ interface SeriesPieDataOptions extends PointOptionsObject {
 Drilldown(Highcharts)
 
 @Component({
-  selector: 'cc-inspect-nutrient-dialog',
+  selector: 'ds-inspect-nutrient-dialog',
   styleUrls: ['./inspect-nutrient-dialog.component.scss'],
   template: `
     <mat-card style="width: 400px;">
@@ -122,7 +122,7 @@ export class InspectNutrientDialogComponent implements OnInit {
 
   getNutrientTotal([meals, usages, foods]: MealsTripple): void {
     this.nutrientTotal = sum(
-      _map(meals, meal => meal.nutrition[this.nutrient] || 0)
+      _map(meals, (meal) => meal.nutrition[this.nutrient] || 0)
     )
   }
 
@@ -153,7 +153,7 @@ export class InspectNutrientDialogComponent implements OnInit {
    * @see {@link https://stackoverflow.com/questions/23153403/drilldown-multiple-levels-highchart StackOverflow}
    */
   getSeriesData(meals: KVP<Meal>): any[] {
-    return _map(meals, meal => {
+    return _map(meals, (meal) => {
       this.drilldownSeries[
         meal._id
       ] = this.createFirstLevelDrilldownSeriesOptions(meal)
@@ -178,10 +178,10 @@ export class InspectNutrientDialogComponent implements OnInit {
   }
 
   addChildrenToDrilldown(parentId: string): void {
-    const children = filter(this.usages, usage => usage.parentId == parentId)
+    const children = filter(this.usages, (usage) => usage.parentId == parentId)
 
     if (children.length)
-      forEach(children, childUsage =>
+      forEach(children, (childUsage) =>
         this.handleIngredient(childUsage, parentId)
       )
   }

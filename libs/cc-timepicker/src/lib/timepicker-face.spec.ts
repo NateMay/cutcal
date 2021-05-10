@@ -6,23 +6,23 @@ import {
   tick
 } from '@angular/core/testing';
 import { StyleSanitizerPipe } from '@cutcal/common-ui';
-import { CcMinutesFormatterPipe } from './minutes-formatter';
-import { CcTimepickerFace } from './timepicker-face';
+import { DsMinutesFormatterPipe } from './minutes-formatter';
+import { DsTimepickerFace } from './timepicker-face';
 import { ClockFaceTime, TimeUnit } from './timepicker-utils';
 
 describe('TimepickerFaceComponent', () => {
-  let fixture: ComponentFixture<CcTimepickerFace>;
-  let component: CcTimepickerFace;
+  let fixture: ComponentFixture<DsTimepickerFace>;
+  let component: DsTimepickerFace;
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [
-        CcTimepickerFace,
+        DsTimepickerFace,
         StyleSanitizerPipe,
-        CcMinutesFormatterPipe
+        DsMinutesFormatterPipe
       ],
       schemas: [NO_ERRORS_SCHEMA]
-    }).createComponent(CcTimepickerFace);
+    }).createComponent(DsTimepickerFace);
 
     component = fixture.componentInstance;
   });
@@ -311,7 +311,7 @@ describe('TimepickerFaceComponent', () => {
       let selectedTime: ClockFaceTime = { time: 1, angle: 5 };
       const mouseCords: MouseEventInit = { clientX: 150, clientY: 200 };
 
-      hourFaceTime.forEach(h => (h.disabled = true));
+      hourFaceTime.forEach((h) => (h.disabled = true));
       component.faceTime = hourFaceTime;
       component.timeChange.subscribe(
         (time: ClockFaceTime) => (selectedTime = time)

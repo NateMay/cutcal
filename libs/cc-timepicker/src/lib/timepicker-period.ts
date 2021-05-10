@@ -3,19 +3,19 @@ import {
   sequence,
   style,
   transition,
-  trigger,
+  trigger
 } from '@angular/animations'
 import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
-  Output,
+  Output
 } from '@angular/core'
 import { ClockFaceTime, TimePeriod, TimeUnit } from './timepicker-utils'
 
 @Component({
-  selector: 'cc-timepicker-period',
+  selector: 'ds-timepicker-period',
   styleUrls: ['timepicker-period.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
@@ -25,16 +25,16 @@ import { ClockFaceTime, TimePeriod, TimeUnit } from './timepicker-utils'
         animate('.2s', style({ transform: 'scale(1)' })),
         sequence([
           animate('3s', style({ opacity: 1 })),
-          animate('.3s', style({ opacity: 0 })),
-        ]),
-      ]),
-    ]),
+          animate('.3s', style({ opacity: 0 }))
+        ])
+      ])
+    ])
   ],
   template: `
-    <cc-am-pm-toggle
+    <ds-am-pm-toggle
       [isPM]="selectedPeriod === timePeriod.PM"
       (isPMChange)="changePeriod()"
-    ></cc-am-pm-toggle>
+    ></ds-am-pm-toggle>
 
     <div
       class="timepicker-period__warning"
@@ -44,9 +44,9 @@ import { ClockFaceTime, TimePeriod, TimeUnit } from './timepicker-utils'
     >
       <p>Current time would be invalid in this period.</p>
     </div>
-  `,
+  `
 })
-export class CcTimepickerPeriodComponent {
+export class DsTimepickerPeriodComponent {
   timePeriod = TimePeriod
   isPeriodAvailable = true
 
@@ -76,7 +76,7 @@ export class CcTimepickerPeriodComponent {
 
   private isSwitchPeriodAvailable(period: TimePeriod): boolean {
     const time = this.getDisabledTimeByPeriod(period)
-    return !time.every(t => t.disabled || false)
+    return !time.every((t) => t.disabled || false)
   }
 
   private getDisabledTimeByPeriod(period: TimePeriod): ClockFaceTime[] {

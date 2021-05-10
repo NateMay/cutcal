@@ -4,17 +4,17 @@ import { NutrCheckable, Nutrition, nutrtionSelections } from '@cutcal/nutrition'
 
 // FEATURE (nutrient-page) (content)
 @Component({
-  selector: 'cc-nutrient',
+  selector: 'ds-nutrient',
   host: { class: 'page-layout flush' },
   styleUrls: ['./nutrient.component.scss'],
   template: `
     <div fxLayout="row">
       <div class="nutrient-sidebar" fxFlex="300px">
         <h1>Nutrients</h1>
-        <cc-checkable-nutrients
+        <ds-checkable-nutrients
           [(nutrCheckables)]="nutrCheckables"
           (change)="checkableChange($event)"
-        ></cc-checkable-nutrients>
+        ></ds-checkable-nutrients>
       </div>
 
       <div fxFlex class="content">

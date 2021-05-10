@@ -22,7 +22,7 @@ import { SidebarModule } from './sidebar/sidebar.module'
     HeaderModule,
     SidebarModule,
     MatRippleModule,
-    RouterModule,
-  ],
+    RouterModule
+  ]
 })
 export class Layout1Module {}

@@ -8,7 +8,7 @@ describe('updateNutritions - shared/functions', () => {
     expect(updateNutritions('add', nutr1, nutr2)).toEqual({
       calories: 14,
       water: 3,
-      fat: 4,
+      fat: 4
     });
   });
 
@@ -19,7 +19,7 @@ describe('updateNutritions - shared/functions', () => {
     expect(updateNutritions('subtract', nutr1, nutr2)).toEqual({
       calories: 10,
       water: 3,
-      fat: 0,
+      fat: 0
     });
   });
 });

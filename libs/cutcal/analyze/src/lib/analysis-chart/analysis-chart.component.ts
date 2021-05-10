@@ -3,7 +3,7 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output,
+  Output
 } from '@angular/core'
 import { MatSelectChange } from '@angular/material/select'
 import { MatSlideToggleChange } from '@angular/material/slide-toggle'
@@ -16,7 +16,7 @@ import { ChartControls } from '../models/chart-controls'
  * @see {@link https://github.com/highcharts/highcharts-angular/tree/master/src/app Highcharts Angular}
  */
 @Component({
-  selector: 'cc-analysis-chart',
+  selector: 'ds-analysis-chart',
   styleUrls: ['./analysis-chart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'cc-analysis-chart' },
@@ -70,7 +70,7 @@ import { ChartControls } from '../models/chart-controls'
         >
       </div>
     </div>
-  `,
+  `
 })
 export class AnalysisChartComponent {
   Highcharts: typeof Highcharts = Highcharts
@@ -95,7 +95,7 @@ export class AnalysisChartComponent {
     this.controlsChange.emit(
       merge(this.controls, {
         valueStacked: change.checked,
-        percentStacked: change.checked ? false : this.controls.percentStacked,
+        percentStacked: change.checked ? false : this.controls.percentStacked
       })
     )
   }
@@ -104,7 +104,7 @@ export class AnalysisChartComponent {
     this.controlsChange.emit(
       merge(this.controls, {
         percentStacked: change.checked,
-        valueStacked: change.checked ? false : this.controls.valueStacked,
+        valueStacked: change.checked ? false : this.controls.valueStacked
       })
     )
   }
