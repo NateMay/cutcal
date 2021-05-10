@@ -52,13 +52,15 @@
               "@firebase/database",
               "@firebase/component",
               "@firebase/firestore",
+              "@firebase/auth",
               "@firebase/functions",
               "@firebase/performance",
               "@firebase/remote-config",
               "algoliasearch",
               "algoliasearch-helper",
               "nouislider",
-              "hogan.js"
+              "hogan.js",
+              "highcharts"
             ]
           },
           "configurations": {
@@ -358,10 +360,12 @@
               "@firebase/functions",
               "@firebase/performance",
               "@firebase/remote-config",
+              "@firebase/auth",
               "algoliasearch",
               "algoliasearch-helper",
               "nouislider",
-              "hogan.js"
+              "hogan.js",
+              "highcharts"
             ]
           },
           "configurations": {
