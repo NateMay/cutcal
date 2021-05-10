@@ -36,8 +36,8 @@
       ]
     },
     {
-      "target": "food-review",
-      "public": "dist/apps/food-review",
+      "target": "dietstats",
+      "public": "dist/apps/dietstats",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {

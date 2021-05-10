@@ -29,13 +29,13 @@
       "path": "./apps/common-ui-e2e/tsconfig.e2e.json"
     },
     {
-      "path": "./apps/food-review/tsconfig.app.json"
+      "path": "./apps/dietstats/tsconfig.app.json"
     },
     {
-      "path": "./apps/food-review/tsconfig.spec.json"
+      "path": "./apps/dietstats/tsconfig.spec.json"
     },
     {
-      "path": "./apps/food-review-e2e/tsconfig.e2e.json"
+      "path": "./apps/dietstats-e2e/tsconfig.e2e.json"
     },
     {
       "path": "./libs/nutrition/tsconfig.spec.json"

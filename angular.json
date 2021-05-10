@@ -1,5 +1,19 @@
 {
   "version": 1,
+  "cli": {
+    "defaultCollection": "@ngrx/schematics",
+    "analytics": "d4fe9aa5-65f6-4b41-ac35-28c6fd860e02"
+  },
+  "defaultProject": "cutcal",
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
   "projects": {
     "cutcal": {
       "projectType": "application",
@@ -96,13 +110,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/cutcal/tsconfig.app.json",
-              "apps/cutcal/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/cutcal/**"]
+            "lintFilePatterns": [
+              "apps/cutcal/src/**/*.ts",
+              "apps/cutcal/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -139,10 +152,9 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["apps/cutcal-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/cutcal-e2e/**"]
+            "lintFilePatterns": ["apps/cutcal-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -154,13 +166,12 @@
       "schematics": {},
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/api-interfaces/tsconfig.lib.json",
-              "libs/api-interfaces/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
+            "lintFilePatterns": [
+              "libs/api-interfaces/src/**/*.ts",
+              "libs/api-interfaces/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -252,13 +263,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/common-ui-docs/tsconfig.app.json",
-              "apps/common-ui-docs/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/common-ui-docs/**"]
+            "lintFilePatterns": [
+              "apps/common-ui-docs/src/**/*.ts",
+              "apps/common-ui-docs/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -291,42 +301,44 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["apps/common-ui-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/common-ui-e2e/**"]
+            "lintFilePatterns": [
+              "apps/common-ui-e2e/src/**/*.ts",
+              "apps/common-ui-e2e/src/**/*.html"
+            ]
           }
         }
       }
     },
-    "food-review": {
+    "dietstats": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/food-review",
-      "sourceRoot": "apps/food-review/src",
+      "root": "apps/dietstats",
+      "sourceRoot": "apps/dietstats/src",
       "prefix": "cutcal",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/food-review",
-            "index": "apps/food-review/src/index.html",
-            "main": "apps/food-review/src/main.ts",
-            "polyfills": "apps/food-review/src/polyfills.ts",
-            "tsConfig": "apps/food-review/tsconfig.app.json",
+            "outputPath": "dist/apps/dietstats",
+            "index": "apps/dietstats/src/index.html",
+            "main": "apps/dietstats/src/main.ts",
+            "polyfills": "apps/dietstats/src/polyfills.ts",
+            "tsConfig": "apps/dietstats/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/food-review/src/favicon.ico",
-              "apps/food-review/src/assets"
+              "apps/dietstats/src/favicon.ico",
+              "apps/dietstats/src/assets"
             ],
             "styles": [
               "node_modules/angular-instantsearch/bundles/instantsearch.min.css",
               "node_modules/angular-instantsearch/bundles/instantsearch-theme-algolia.min.css",
-              "apps/food-review/src/styles.scss"
+              "apps/dietstats/src/styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["libs/common-ui/styles"]
@@ -356,8 +368,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/food-review/src/environments/environment.ts",
-                  "with": "apps/food-review/src/environments/environment.prod.ts"
+                  "replace": "apps/dietstats/src/environments/environment.ts",
+                  "with": "apps/dietstats/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -386,65 +398,63 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "food-review:build",
-            "proxyConfig": "apps/food-review/proxy.conf.json"
+            "browserTarget": "dietstats:build",
+            "proxyConfig": "apps/dietstats/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "food-review:build:production"
+              "browserTarget": "dietstats:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "food-review:build"
+            "browserTarget": "dietstats:build"
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/food-review/tsconfig.app.json",
-              "apps/food-review/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/food-review/**"]
+            "lintFilePatterns": [
+              "apps/dietstats/src/**/*.ts",
+              "apps/dietstats/src/**/*.html"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/food-review/jest.config.js",
-            "tsConfig": "apps/food-review/tsconfig.spec.json",
-            "setupFile": "apps/food-review/src/test-setup.ts",
+            "jestConfig": "apps/dietstats/jest.config.js",
+            "tsConfig": "apps/dietstats/tsconfig.spec.json",
+            "setupFile": "apps/dietstats/src/test-setup.ts",
             "passWithNoTests": true
           }
         }
       }
     },
-    "food-review-e2e": {
-      "root": "apps/food-review-e2e",
-      "sourceRoot": "apps/food-review-e2e/src",
+    "dietstats-e2e": {
+      "root": "apps/dietstats-e2e",
+      "sourceRoot": "apps/dietstats-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/food-review-e2e/cypress.json",
-            "tsConfig": "apps/food-review-e2e/tsconfig.e2e.json",
-            "devServerTarget": "food-review:serve"
+            "cypressConfig": "apps/dietstats-e2e/cypress.json",
+            "tsConfig": "apps/dietstats-e2e/tsconfig.e2e.json",
+            "devServerTarget": "dietstats:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "food-review:serve:production"
+              "devServerTarget": "dietstats:serve:production"
             }
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["apps/food-review-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/food-review-e2e/**"]
+            "lintFilePatterns": ["apps/dietstats-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -456,13 +466,12 @@
       "schematics": {},
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/nutrition/tsconfig.lib.json",
-              "libs/nutrition/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/nutrition/**"]
+            "lintFilePatterns": [
+              "libs/nutrition/src/**/*.ts",
+              "libs/nutrition/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -482,13 +491,12 @@
       "prefix": "cutcal",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/ng-testing/tsconfig.lib.json",
-              "libs/ng-testing/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ng-testing/**"]
+            "lintFilePatterns": [
+              "libs/ng-testing/src/**/*.ts",
+              "libs/ng-testing/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -514,13 +522,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/food-recipe/tsconfig.lib.json",
-              "libs/cutcal/food-recipe/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/food-recipe/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/food-recipe/src/**/*.ts",
+              "libs/cutcal/food-recipe/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -546,13 +553,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/analyze/tsconfig.lib.json",
-              "libs/cutcal/analyze/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/analyze/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/analyze/src/**/*.ts",
+              "libs/cutcal/analyze/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -578,13 +584,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/calendar/tsconfig.lib.json",
-              "libs/cutcal/calendar/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/calendar/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/calendar/src/**/*.ts",
+              "libs/cutcal/calendar/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -610,13 +615,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/fallback/tsconfig.lib.json",
-              "libs/cutcal/fallback/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/fallback/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/fallback/src/**/*.ts",
+              "libs/cutcal/fallback/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -642,13 +646,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/footer/tsconfig.lib.json",
-              "libs/cutcal/footer/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/footer/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/footer/src/**/*.ts",
+              "libs/cutcal/footer/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -674,13 +677,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/profile/tsconfig.lib.json",
-              "libs/cutcal/profile/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/profile/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/profile/src/**/*.ts",
+              "libs/cutcal/profile/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -706,13 +708,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/recipe-builder/tsconfig.lib.json",
-              "libs/cutcal/recipe-builder/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/recipe-builder/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/recipe-builder/src/**/*.ts",
+              "libs/cutcal/recipe-builder/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -738,13 +739,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/meal-ingredient/tsconfig.lib.json",
-              "libs/cutcal/meal-ingredient/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/meal-ingredient/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/meal-ingredient/src/**/*.ts",
+              "libs/cutcal/meal-ingredient/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -770,13 +770,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/nutrient/tsconfig.lib.json",
-              "libs/cutcal/nutrient/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/nutrient/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/nutrient/src/**/*.ts",
+              "libs/cutcal/nutrient/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -802,13 +801,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/legal/tsconfig.lib.json",
-              "libs/cutcal/legal/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/legal/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/legal/src/**/*.ts",
+              "libs/cutcal/legal/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -834,13 +832,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/business/tsconfig.lib.json",
-              "libs/cutcal/business/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/business/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/business/src/**/*.ts",
+              "libs/cutcal/business/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -866,13 +863,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/grocery-pantry/tsconfig.lib.json",
-              "libs/cutcal/grocery-pantry/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/grocery-pantry/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/grocery-pantry/src/**/*.ts",
+              "libs/cutcal/grocery-pantry/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -898,13 +894,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/support/tsconfig.lib.json",
-              "libs/cutcal/support/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/support/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/support/src/**/*.ts",
+              "libs/cutcal/support/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -930,13 +925,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cutcal/landing/tsconfig.lib.json",
-              "libs/cutcal/landing/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cutcal/landing/**"]
+            "lintFilePatterns": [
+              "libs/cutcal/landing/src/**/*.ts",
+              "libs/cutcal/landing/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -962,13 +956,12 @@
       "prefix": "cutcal",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/common-ui/tsconfig.lib.json",
-              "libs/common-ui/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/common-ui/**"]
+            "lintFilePatterns": [
+              "libs/common-ui/src/**/*.ts",
+              "libs/common-ui/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -994,13 +987,12 @@
       "prefix": "cutcal",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/playgrounds/tsconfig.lib.json",
-              "libs/playgrounds/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/playgrounds/**"]
+            "lintFilePatterns": [
+              "libs/playgrounds/src/**/*.ts",
+              "libs/playgrounds/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -1026,13 +1018,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/core/tsconfig.lib.json",
-              "libs/core/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/core/**"]
+            "lintFilePatterns": [
+              "libs/core/src/**/*.ts",
+              "libs/core/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -1058,13 +1049,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/diet/tsconfig.lib.json",
-              "libs/diet/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/diet/**"]
+            "lintFilePatterns": [
+              "libs/diet/src/**/*.ts",
+              "libs/diet/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -1090,13 +1080,12 @@
       "prefix": "cc",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/user/tsconfig.lib.json",
-              "libs/user/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/user/**"]
+            "lintFilePatterns": [
+              "libs/user/src/**/*.ts",
+              "libs/user/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -1122,13 +1111,12 @@
       "prefix": "cutcal",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/auth/tsconfig.lib.json",
-              "libs/auth/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/auth/**"]
+            "lintFilePatterns": [
+              "libs/auth/src/**/*.ts",
+              "libs/auth/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -1154,13 +1142,12 @@
       "prefix": "cutcal",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/charts/tsconfig.lib.json",
-              "libs/charts/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/charts/**"]
+            "lintFilePatterns": [
+              "libs/charts/src/**/*.ts",
+              "libs/charts/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -1186,13 +1173,12 @@
       "prefix": "cutcal",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/fire/tsconfig.lib.json",
-              "libs/fire/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/fire/**"]
+            "lintFilePatterns": [
+              "libs/fire/src/**/*.ts",
+              "libs/fire/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -1218,13 +1204,12 @@
       "prefix": "cutcal",
       "architect": {
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/convert-units/tsconfig.lib.json",
-              "libs/convert-units/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/convert-units/**"]
+            "lintFilePatterns": [
+              "libs/convert-units/src/**/*.ts",
+              "libs/convert-units/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -1262,13 +1247,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "libs/cc-timepicker/tsconfig.lib.json",
-              "libs/cc-timepicker/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/cc-timepicker/**"]
+            "lintFilePatterns": [
+              "libs/cc-timepicker/src/**/*.ts",
+              "libs/cc-timepicker/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -1311,13 +1295,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/functions/tsconfig.app.json",
-              "apps/functions/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/functions/**"]
+            "lintFilePatterns": [
+              "apps/functions/src/**/*.ts",
+              "apps/functions/src/**/*.html"
+            ]
           }
         },
         "test": {
@@ -1330,19 +1313,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "defaultCollection": "@ngrx/schematics",
-    "analytics": "d4fe9aa5-65f6-4b41-ac35-28c6fd860e02"
-  },
-  "schematics": {
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
-    }
-  },
-  "defaultProject": "cutcal"
+  }
 }

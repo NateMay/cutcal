@@ -19,7 +19,6 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
-    '@typescript-eslint/tslint',
     'jest',
     'cypress',
     'jsdoc',
@@ -210,25 +209,6 @@ module.exports = {
     'space-in-parens': ['off', 'never'],
     'spaced-comment': 'error',
     'use-isnan': 'error',
-    'valid-typeof': 'off',
-    '@typescript-eslint/tslint/config': [
-      'error',
-      {
-        rules: {
-          'import-spacing': true,
-          'jsdoc-format': true,
-          'no-reference-import': true,
-          'one-line': [true, 'check-catch', 'check-whitespace'],
-          whitespace: [
-            true,
-            'check-branch',
-            'check-decl',
-            'check-operator',
-            'check-separator',
-            'check-type'
-          ]
-        }
-      }
-    ]
+    'valid-typeof': 'off'
   }
 }
