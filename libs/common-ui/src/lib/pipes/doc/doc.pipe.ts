@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core'
 import { Observable } from 'rxjs'
-import { FirestoreService } from '../../services/fireStore/fireStore.service'
+import { FirestoreService, DocPredicate } from '../../services/fireStore/fireStore.service';
 
 /**
  * @description Unwrapps a firestore document reference in the template
@@ -12,13 +12,16 @@ import { FirestoreService } from '../../services/fireStore/fireStore.service'
  * ```
  */
 
+export interface DocPipeShape<T> {
+  path: DocPredicate<T>
+}
 @Pipe({
   name: 'doc'
 })
 export class DocPipe implements PipeTransform {
   constructor(private readonly db: FirestoreService) {}
 
-  transform(value: any): Observable<any> {
+  transform<T>(value: DocPipeShape<T>): Observable<T> {
     return this.db.doc$(value.path)
   }
 }

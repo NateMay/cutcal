@@ -1,4 +1,4 @@
-import { Nutrition } from '@cutcal/nutrition'
+import { Nutrition } from '@cutcal/core'
 import { sum, values } from 'lodash'
 
 /**

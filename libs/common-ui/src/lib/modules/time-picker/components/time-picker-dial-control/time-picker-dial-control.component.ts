@@ -51,7 +51,7 @@ export class TimepickerDialControlComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['time'] && changes['time'].currentValue !== undefined) {
       if (!changes['time'].firstChange) return
-      this.time = changes['time'].currentValue
+      this.time = changes['time'].currentValue as string
     }
   }
 

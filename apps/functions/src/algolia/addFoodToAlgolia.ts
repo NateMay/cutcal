@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { AlgoliaFood, NewFood, primaryImage } from '@cutcal/api-interfaces'
+import { AlgoliaFood, NewFood, primaryImage } from '@cutcal/core'
 import * as algoliasearch from 'algoliasearch'
 import * as functions from 'firebase-functions'
+import { SaveObjectResponse, DeleteResponse } from '@algolia/client-search';
 
 /**
  * Set consifg data like this:
@@ -13,6 +14,7 @@ import * as functions from 'firebase-functions'
  * https://www.algolia.com/apps/OB2L36C5AS/api-keys/all
  */
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const { appid, apikey } = functions.config().algolia
 
 const client = algoliasearch.default(appid, apikey)
@@ -22,7 +24,7 @@ const index = client.initIndex('dev_CUTCAL')
  * @description write a new object or overwrite an Algolia index
  */
 
-export const addFoodToAlgolia = async ({ food }: { food: NewFood }) => {
+export const addFoodToAlgolia = async ({ food }: { food: NewFood }): Promise<SaveObjectResponse> => {
   const algolia = foodToAlgolia(food)
   return await index.saveObject({ ...algolia, objectID: algolia.fdcId })
 }
@@ -60,5 +62,5 @@ const getLikeTier = (likes: number): number => getUsageTier(likes)
  * @description write a new object or overwrite an Algolia index
  */
 
-export const deleteFoodToAlgolia = async (fdcId: number) =>
+export const deleteFoodToAlgolia = async (fdcId: number): Promise<DeleteResponse> =>
   await index.deleteObject(fdcId.toString())

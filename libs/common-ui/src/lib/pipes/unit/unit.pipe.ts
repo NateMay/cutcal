@@ -12,7 +12,7 @@ const UNIT_MAP: KVP<string> = {
   name: 'unit'
 })
 export class UnitPipe implements PipeTransform {
-  transform(unit: any): any {
+  transform(unit: string): any {
     return UNIT_MAP[unit] || unit
   }
 }

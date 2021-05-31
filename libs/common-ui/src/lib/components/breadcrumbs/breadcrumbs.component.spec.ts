@@ -38,9 +38,9 @@ describe('BreadcrumbsComponent', () => {
 
     const links = getAllDe(fixture, 'a');
     expect(links).toHaveLength(3);
-    expect(links[0].nativeElement.textContent).toContain('home');
-    expect(links[1].nativeElement.textContent).toContain('first');
-    expect(links[2].nativeElement.textContent).toContain('last');
+    expect((links[0].nativeElement as HTMLLinkElement).textContent).toContain('home');
+    expect((links[1].nativeElement as HTMLLinkElement).textContent).toContain('first');
+    expect((links[2].nativeElement as HTMLLinkElement).textContent).toContain('last');
   });
 
   it('routes call properly', () => {
@@ -50,7 +50,7 @@ describe('BreadcrumbsComponent', () => {
 
     const links = getAllDe(fixture, 'a');
     expect(links).toHaveLength(3);
-    links[2].nativeElement.click();
+    (links[2].nativeElement as HTMLLinkElement).click();
 
     expect(spy).toHaveBeenCalledWith(['abc', '123', 'xyz']);
   });

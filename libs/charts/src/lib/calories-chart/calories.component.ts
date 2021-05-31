@@ -3,7 +3,7 @@ import {
   CaloriesFrom,
   caloriesFromAll,
   NUTRIENTS,
-  Nutrition
+  CaloriesSource
 } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
 import {
@@ -14,7 +14,7 @@ import {
   TooltipOptions
 } from 'highcharts'
 import { reduce } from 'lodash'
-import { CaloriesSource } from '../../../../nutrition/src/lib/calories-from'
+import { Nutrition } from '@cutcal/core';
 
 interface PieSlice {
   name?: string
@@ -91,7 +91,7 @@ export class CaloriesChartComponent {
     }
   }
 
-  buildChartData(caloriesFrom: CaloriesFrom): any[] {
+  buildChartData(caloriesFrom: CaloriesFrom): unknown[] {
     const totalCalories = reduce(caloriesFrom, (sum, curr) => sum + curr) || 0
 
     const result: PieSlice[] = []

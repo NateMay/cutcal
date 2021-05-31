@@ -13,7 +13,7 @@ import {
 
 @Directive({
   selector:
-    '[ccConfirmPassword][formControlName],[ccConfirmPassword][formControl],[ccConfirmPassword][ngModel]',
+    '[dsConfirmPassword][formControlName],[dsConfirmPassword][formControl],[dsConfirmPassword][ngModel]',
   providers: [
     {
       provide: NG_VALIDATORS,
@@ -23,7 +23,7 @@ import {
   ]
 })
 export class ConfrmPasswordDir implements Validator {
-  constructor(@Attribute('ccConfirmPassword') public confirmPassword: string) {}
+  constructor(@Attribute('dsConfirmPassword') public confirmPassword: string) {}
 
   validate(confirm: AbstractControl): ValidationErrors | null {
     const password = confirm.root.get(this.confirmPassword)

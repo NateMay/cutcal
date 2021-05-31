@@ -1,4 +1,4 @@
-import { FdcUnit } from '@cutcal/api-interfaces'
+import { FdcUnit } from './fdc-response';
 export interface Portion {
   unit: string
   quantity: number

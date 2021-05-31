@@ -7,20 +7,18 @@
  *     return ...
  *   }
  */
-export function ConsoleReturn(message: string = ''): MethodDecorator {
-  return (
-    target: object,
+export const ConsoleReturn = (message: string = ''): MethodDecorator => (
+    target: unknown,
     key: string | symbol,
     descriptor: PropertyDescriptor
   ): PropertyDescriptor => {
-    const original = descriptor.value
+    const original = descriptor.value as () => any
 
     descriptor.value = function (...args: any[]): any {
-      const result = original.apply(this, args)
+      const result = original.apply(this, args) as unknown
       console.log(key, message, result)
       return result
     }
 
     return descriptor
-  }
-}
+  };

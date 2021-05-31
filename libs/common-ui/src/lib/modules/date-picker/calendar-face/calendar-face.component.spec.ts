@@ -10,12 +10,12 @@ describe('CalendarFaceComponent', () => {
   let fixture: ComponentFixture<CalendarFaceComponent>;
   let dayButton: HTMLButtonElement;
 
-  const dispatchKeyEvent = (el: any, key: string): void => {
+  const dispatchKeyEvent = (el: HTMLElement, key: string): void => {
     el.dispatchEvent(new KeyboardEvent('keydown', { key }));
   };
 
   const focusIn = (): void => {
-    fixture.debugElement.nativeElement.dispatchEvent(new FocusEvent('focusin'));
+    (fixture.debugElement.nativeElement as HTMLElement).dispatchEvent(new FocusEvent('focusin'));
   };
   // const focusOut = (): void => {
   //   fixture.debugElement.nativeElement.dispatchEvent(
@@ -191,7 +191,7 @@ describe('CalendarFaceComponent', () => {
       expect(component.shouldCreate).toBe(true);
     });
 
-    it('should call castFocus() in all cases when createCalendar() is called ', () => {
+    it('should call castFocus() in all cases when createCalendar() is called', () => {
       jest.spyOn(component, 'castFocus');
       component['_selectedDate'] = null;
       component.createCalendar();
@@ -285,7 +285,7 @@ describe('CalendarFaceComponent', () => {
   it('stopManaging() sets value on focus out event', () => {
     component['managingFocus'] = true;
     fixture.detectChanges();
-    fixture.debugElement.nativeElement.dispatchEvent(
+    (fixture.debugElement.nativeElement as HTMLElement).dispatchEvent(
       new FocusEvent('focusout')
     );
     expect(component['managingFocus']).toBe(false);

@@ -7,7 +7,7 @@ import { Boolish } from './boolish';
   template: ` <ds-a-test [aBoolean]="notABoolean"></ds-a-test> `
 })
 class TestBoolishComponent {
-  notABoolean: any = 'false';
+  notABoolean: string = 'false';
 }
 @Component({
   selector: 'ds-a-test',
@@ -30,7 +30,7 @@ describe('Boolish Decorator', () => {
     });
     fixture = TestBed.createComponent(TestBoolishComponent);
     component = fixture.componentInstance;
-    child = getByDir(fixture, TestBoolishChildComponent).componentInstance;
+    child = getByDir(fixture, TestBoolishChildComponent).componentInstance as TestBoolishChildComponent;
   });
 
   it('should load instance', () => {

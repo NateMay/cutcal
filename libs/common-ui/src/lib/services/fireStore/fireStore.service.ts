@@ -14,9 +14,8 @@ import { Observable } from 'rxjs'
 import { first, map, tap } from 'rxjs/operators'
 import { convertChangeAction } from '../../functions/convertChangeAction/convertChangeAction'
 
-type CollectionPredicate<T> = string | AngularFirestoreCollection<T>
-type DocPredicate<T> = string | AngularFirestoreDocument<T>
-
+export type CollectionPredicate<T> = string | AngularFirestoreCollection<T>
+export type DocPredicate<T> = string | AngularFirestoreDocument<T>
 /**
  * @description Service full of FireStore querying helper methods
  * @see {@link https://angularfirebase.com/lessons/firestore-advanced-usage-angularfire/ Angular Firebase}
@@ -90,7 +89,7 @@ export class FirestoreService {
    * @returns {Observable<T>} Observable of the data object
    * @example this.db.doc$('notes/ID')
    */
-  docWithId$<T>(ref: DocPredicate<T>): Observable<any> {
+  docWithId$<T>(ref: DocPredicate<T>): Observable<T> {
     return this.doc(ref)
       .snapshotChanges()
       .pipe(
@@ -153,7 +152,7 @@ export class FirestoreService {
    * @returns {Promise<DocumentReference>} Returns a Success Promise
    * @example db.set('items/_id', data)
    */
-  set<T>(ref: DocPredicate<T>, data: any): Promise<void> {
+  set<T>(ref: DocPredicate<T>, data: T): Promise<void> {
     const stamp = this.serverTimestamp
     return this.doc(ref).set({
       ...data,
@@ -169,7 +168,7 @@ export class FirestoreService {
    * @returns {Promise<DocumentReference>} Returns a Success Promise
    * @example db.update('items/_id', data)
    */
-  update<T>(ref: DocPredicate<T>, data: any): Promise<void> {
+  update<T>(ref: DocPredicate<T>, data: T): Promise<void> {
     return this.doc(ref).update({
       ...data,
       updatedAt: this.serverTimestamp
@@ -196,7 +195,7 @@ export class FirestoreService {
    */
   add<T>(
     ref: CollectionPredicate<T>,
-    data: any
+    data: T
   ): Promise<firebase.firestore.DocumentReference> {
     const stamp = this.serverTimestamp
     return this.col(ref).add({
@@ -214,7 +213,7 @@ export class FirestoreService {
    * @example
    *  this.db.upsert('notes/xyz', { content: 'hello dude' })
    */
-  upsert<T>(ref: DocPredicate<T>, data: any): Promise<void> {
+  upsert<T>(ref: DocPredicate<T>, data: T): Promise<void> {
     const doc = this.doc(ref).snapshotChanges().pipe(first()).toPromise()
     return doc.then(
       (

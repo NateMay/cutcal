@@ -39,5 +39,5 @@ export class DatePickerMonthsComponent {
     )
   }
 
-  test(month: any) {}
+  test(month: unknown): void {}
 }

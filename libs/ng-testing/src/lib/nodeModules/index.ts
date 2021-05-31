@@ -1,4 +1,4 @@
-export * from './angular-firestore.mock'
+// export * from './angular-firestore.mock'
 export * from './hammer-provider.mock'
 export * from './highcharts.mock'
 export * from './router.mock'

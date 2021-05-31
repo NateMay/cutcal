@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
@@ -27,13 +27,11 @@ import { FormBuilder, FormGroup } from '@angular/forms'
   `,
   styleUrls: ['./doc4-cc-timepicker.component.css']
 })
-export class Doc4DsTimepickerComponent implements OnInit {
+export class Doc4DsTimepickerComponent {
   format = 12
   form: FormGroup
 
   constructor(private readonly fb: FormBuilder) {
     this.form = this.fb.group({ time: null })
   }
-
-  ngOnInit() {}
 }

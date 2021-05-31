@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /*
- * Testing a simple Angular 2 component
+ * Testing a simple Angular 2 component
  * More info: {@link https://angular.io/docs/ts/latest/guide/testing.html#!#simple-component-test}
  */
 
@@ -10,7 +10,8 @@ import {
   ComponentFixture,
   fakeAsync,
   TestBed,
-  tick
+  tick,
+  async
 } from '@angular/core/testing';
 import { WINDOW_PROVIDER } from '@cutcal/common-ui';
 import { getDe, getDirective } from '@cutcal/ng-testing';
@@ -49,9 +50,9 @@ describe('Drag and Drop directives', () => {
   let dropEl: DebugElement;
   let dndSvc: DndSvc;
 
-  const mouseEvent = (el: any, type: string): void =>
+  const mouseEvent = (el: Document | HTMLElement, type: string): unknown =>
     el.dispatchEvent(
-      new MouseEvent(type, <any>{
+      new MouseEvent(type, <MouseEventInit>{
         preventDefault: () => {},
         clientX: 432,
         clientY: 532
@@ -102,7 +103,7 @@ describe('Drag and Drop directives', () => {
       fixture.detectChanges();
 
       // This element is programatically appended and not accessible through the fixture
-      fixture.whenStable().then(() => {
+      void fixture.whenStable().then(() => {
         fixture.detectChanges();
         const image = document.getElementById('drag-obj');
         expect(image?.style?.left).toBe('400px');

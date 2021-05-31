@@ -1,4 +1,4 @@
-import { Nutrition } from '@cutcal/nutrition'
+import { Nutrition } from '@cutcal/core'
 
 export const MOCK_NUTRITION: Nutrition<number> = {
   calories: 300,

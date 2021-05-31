@@ -1,19 +1,18 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { DailyValueSvc } from '@cutcal/common-ui'
+import { Sugars, Nutrition, Carbohydrates } from '@cutcal/core'
 import {
-  Carbohydrates,
   getCarbohydrates,
   getSugars,
   NutrientMetaData,
   NUTRIENTS,
-  Nutrition,
   NutritionRange,
-  Sugars,
   ZERO_NUTRITION
 } from '@cutcal/nutrition'
-import { get } from 'lodash'
+import { get } from 'lodash';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'table[cc-carbs],cc-carbs',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'cc-carbs' },
@@ -136,10 +135,10 @@ import { get } from 'lodash'
       </tr>
 
       <ng-container *ngIf="sugars_open">
-        <tr class="child" *ngFor="let sugar of sugars | keyvalue">
+        <tr class="child" *ngFor="let sugar of sugarList">
           <td>{{ sugar?.shortName }}</td>
           <td class="quant">
-            {{ nutrition[sugar.propName] | number: numInfo }}
+            <!-- {{ nutrition[sugar.propName] | number: numInfo }} -->
           </td>
           <td>
             <span class="unit"> ({{ sugar?.unit }}) </span>
@@ -159,11 +158,15 @@ export class CarbsTableComponent {
 
   carbs: Carbohydrates<NutrientMetaData>
 
+  get sugarList(): NutrientMetaData[] {
+    return Object.values(this.sugars) as NutrientMetaData[]
+  }
+
   private _nutrition: Nutrition<number>
   @Input() set nutrition(nutrition: Nutrition<number>) {
     this._nutrition = Object.assign({}, ZERO_NUTRITION, nutrition)
-    this.sugars = getSugars<NutrientMetaData>(NUTRIENTS.allDetails)
-    this.carbs = getCarbohydrates<NutrientMetaData>(NUTRIENTS.allDetails)
+    this.sugars = getSugars<NutrientMetaData>(NUTRIENTS.allDetails) as Sugars<NutrientMetaData>
+    this.carbs = getCarbohydrates<NutrientMetaData>(NUTRIENTS.allDetails) as Carbohydrates<NutrientMetaData>
   }
   get nutrition(): Nutrition<number> {
     return this._nutrition
@@ -175,7 +178,7 @@ export class CarbsTableComponent {
 
   // Recommended Daily Allowance
   rda(path: string): number {
-    const range: NutritionRange = get(this.dv.snapshot.nutrition, path)
+    const range: NutritionRange = get(this.dv.snapshot.nutrition, path) as NutritionRange
     return range?.RDA ? range.RDA : 1
   }
 }

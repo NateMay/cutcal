@@ -1,4 +1,4 @@
-import { FdcDump } from '@cutcal/api-interfaces'
+import { FdcDump } from '@cutcal/core'
 
 /**
  * "Segment" Definition = between commas

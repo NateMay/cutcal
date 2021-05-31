@@ -1,5 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Timepicker12HoursFaceComponent } from './time-picker-12-hours-face.component';
 
 describe('Timepicker12HoursFaceComponent', () => {

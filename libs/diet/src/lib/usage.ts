@@ -1,4 +1,5 @@
-import { Portion } from './portion'
+import { Portion } from '@cutcal/core'
+import { Meal } from './meal';
 
 /**
  * @description Object representing a specific time that a user eats a food
@@ -19,7 +20,7 @@ export interface Usage extends Portion {
   userId?: string
 }
 
-export const isUsage = (item: any): boolean => !!item.foodId && !!item.rootId
+export const isUsage = (item: Meal | Usage): boolean => 'foodId' in item && 'rootId' in item
 
 export const createUsage = (
   unit: string,

@@ -1,4 +1,4 @@
-import { Directive, Input, OnInit } from '@angular/core'
+import { Directive, Input } from '@angular/core'
 // import { FormGroupDirective } from '@angular/forms';
 // import { Store } from '@ngrx/store';
 
@@ -10,9 +10,9 @@ import { Directive, Input, OnInit } from '@angular/core'
  */
 
 @Directive({
-  selector: '[connectForm],[ccConnectForm]'
+  selector: '[dsConnectForm],[connectForm]'
 })
-export class ConnectFormDirective implements OnInit {
+export class ConnectFormDirective {
   @Input('connectForm') path!: string
 
   // constructor(
@@ -20,10 +20,10 @@ export class ConnectFormDirective implements OnInit {
   //   private store: Store<any>
   // ) { }
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
     // Update the form value based on the state
     // this.store.select(state => state.forms[this.path]).take(1).subscribe(formValue => {
     //   this.formGroupDirective.form.patchValue(formValue);
     // });
-  }
+  // }
 }

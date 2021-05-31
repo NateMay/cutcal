@@ -68,7 +68,7 @@ describe('Date Picker & Dialog', () => {
     });
     fixture = TestBed.createComponent(TestDatePickerComponent);
     parent = fixture.componentInstance;
-    component = getByDir(fixture, DatePickerInputComponent).componentInstance;
+    component = getByDir(fixture, DatePickerInputComponent).componentInstance as DatePickerInputComponent;
     input = getEl<HTMLInputElement>(fixture, 'input');
   });
 

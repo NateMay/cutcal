@@ -13,11 +13,11 @@ import {
   isFood,
   isMeal,
   Meal,
-  Portion,
   Usage
 } from '@cutcal/diet'
 import { devWarn } from '../../functions/devWarn'
 import { getQuantityStep } from '../../functions/increment/increment'
+import { Portion } from '@cutcal/core';
 
 export interface IngredientPortionChange {
   usage: Usage
@@ -34,8 +34,8 @@ export interface DeleteIngredientPayload {
 }
 
 @Component({
-  selector: 'li[cc-ingredient-listitem],cc-ingredient-listitem',
-  host: { class: 'cc-ingredients-listitem' },
+  selector: 'li[ds-ingredient-listitem],ds-ingredient-listitem',
+  host: { class: 'ds-ingredients-listitem' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./ingredients-listitem.component.scss'],
   template: `
@@ -99,7 +99,7 @@ export interface DeleteIngredientPayload {
           [max]="max"
           [min]="min"
           [step]="step"
-          [thumbLabel]="quantity"
+          [thumbLabel]="!!quantity"
           [value]="quantity"
           (change)="onSliderChange($event)"
         >
@@ -169,9 +169,9 @@ export class IngredientsListitemComponent {
   constructor(private readonly router: Router) {}
 
   goToItem(): void {
-    if (isFood(this.root)) this.router.navigate(['food', this.food._id])
+    if (isFood(this.root)) void this.router.navigate(['food', this.food._id])
     else if (isMeal(this.root))
-      this.router.navigate([
+      void this.router.navigate([
         'meal',
         this.usage.rootId,
         'ingredient',

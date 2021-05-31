@@ -13,12 +13,12 @@ import { filter, takeUntil, tap } from 'rxjs/operators'
 // const START_MSG = ['%c started hold', 'color: #5fba7d; font-weight: bold;']
 
 @Directive({
-  selector: '[holdable],[ccHoldable]'
+  selector: '[dsHoldable],[holdable]'
 })
 export class HoldableDirective implements OnDestroy {
   @Output() holdTime = new EventEmitter<number>()
 
-  @Output() complete = new EventEmitter<void>()
+  @Output() intervalComplete = new EventEmitter<void>()
 
   @Input() duration: number = 1000
 
@@ -51,7 +51,7 @@ export class HoldableDirective implements OnDestroy {
         tap((n) => this.holdTime.emit(n * this.interval)),
         tap((n) => {
           if (n * 100 > this.duration) {
-            this.complete.emit()
+            this.intervalComplete.emit()
             this.state.next('cancel')
           }
         })

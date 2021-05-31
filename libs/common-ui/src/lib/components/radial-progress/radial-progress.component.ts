@@ -66,22 +66,22 @@ export class RadialProgressComponent {
       : this.baseStrokeWidth
   }
 
-  get radius() {
+  get radius(): number {
     const _radius = (this.diameter - this._largestStrokeWidth) / 2
     return _radius
   }
 
-  get circumference() {
+  get circumference(): number {
     const _circumference = 2 * Math.PI * this.radius
     return _circumference
   }
 
-  get arcLength() {
+  get arcLength(): number {
     const _arcLength = this.circumference * this.percent * 0.01
     return _arcLength
   }
 
-  get checkPath() {
+  get checkPath(): string {
     const d = this.diameter
     const x1 = d * 0.27777
     const y1 = d * 0.54795
@@ -92,7 +92,7 @@ export class RadialProgressComponent {
     return `M${x1} ${y1} L${x2} ${y2} L${x3} ${y3}`
   }
 
-  get checkWidth() {
+  get checkWidth(): number {
     return this.diameter * 0.1
   }
 
@@ -106,7 +106,7 @@ export class RadialProgressComponent {
     // Limit the percent between 0 and 100
     this._percent = Math.max(0, Math.min(100, pcnt))
   }
-  get percent() {
+  get percent(): number {
     return this._percent
   }
 
@@ -124,7 +124,7 @@ export class RadialProgressComponent {
     this._announceText = announceTxt
     this.announce(announceTxt)
   }
-  get announceText() {
+  get announceText(): string {
     return this._announceText
   }
 
@@ -138,8 +138,8 @@ export class RadialProgressComponent {
 
   // #region ========== Methods ========== //
 
-  announce(txt: string) {
-    this.announcer.announce(txt)
+  announce(txt: string): void {
+    void this.announcer.announce(txt)
   }
 
   // #endregion

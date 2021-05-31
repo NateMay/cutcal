@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+
 /**
  * @description Decorator which converts boolean string to boolean for @Input()
  */
@@ -13,7 +15,7 @@ export const Boolish: PropertyDecorator = (
       else if (typeof value == 'string' && value !== '')
         val = value == 'false' ? false : true
       else if (typeof value == 'number') val = !!value
-      else val = target[propertyKey]
+      else val = target[propertyKey] as boolean
     },
     get: (): boolean => val,
     enumerable: true,

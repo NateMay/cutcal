@@ -21,7 +21,7 @@ import {
           <div
             *ngFor="let animation of enterAnimations"
             #enters
-            [ccAnimate]="animation"
+            [dsAnimate]="animation"
             [speed]="speed"
           >
             <button
@@ -43,7 +43,7 @@ import {
           <div
             *ngFor="let animation of exitAnimations"
             #exits
-            [ccAnimate]="animation"
+            [dsAnimate]="animation"
             [speed]="speed"
           >
             <button

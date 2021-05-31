@@ -2,7 +2,7 @@ import { groupBy } from 'lodash'
 import { ZERO_NUTRITION } from './base-nutrition'
 import { NUTRIENTS } from './nutrient-metadata'
 import { NutrientUnit } from './nutrient-units'
-import { Nutrition } from './nutrition'
+import { Nutrition } from '@cutcal/core'
 
 /**
  * @description Object to manage the data about which nutrients are selected

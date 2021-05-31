@@ -1,4 +1,4 @@
-import { Nutrient, Nutrition } from '../nutrition'
+import { Nutrient, Nutrition } from '@cutcal/core'
 
 /**
  * @description Multiplies every member of a Nutrition object

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { WikiDescription } from '@cutcal/api-interfaces'
 import { Observable } from 'rxjs'
+import { WikiDescription } from '@cutcal/core';
 
 @Injectable({
   providedIn: 'root'

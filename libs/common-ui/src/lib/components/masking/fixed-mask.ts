@@ -92,7 +92,7 @@ export class DsFixedMask
     )
   }
   get value(): string | number | null {
-    return this.control ? this.control.value : this._value
+    return this.control ? this.control.value as string : this._value
   }
   @Output() valueChange = new EventEmitter<string | number | null>()
   private _value: string | number | null
@@ -178,7 +178,7 @@ export class DsFixedMask
    * - space: " "
    */
   @Input() set mask(mask: string) {
-    const newMask = get(DsFixedMask.Masks, mask) || mask
+    const newMask = get(DsFixedMask.Masks, mask) as string || mask
     // eslint-disable-next-line no-useless-escape
     if (/^[aA#^&*0-9\/()+\- ]+$/.test(newMask)) this._mask = mask
     else {
@@ -211,7 +211,7 @@ export class DsFixedMask
   }
 
   private get maskLiteral(): string {
-    return get(DsFixedMask.Masks, this._mask) || this._mask
+    return get(DsFixedMask.Masks, this._mask) as string || this._mask
   }
 
   /**
@@ -259,7 +259,7 @@ export class DsFixedMask
     super(_document, renderer)
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // TODO handle android case
     this.storeDitiData()
 
@@ -274,7 +274,7 @@ export class DsFixedMask
     })
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     this.ensureValidType()
 
     this.listenInput('keydown')
@@ -294,7 +294,7 @@ export class DsFixedMask
       .subscribe()
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.unsub$.next()
     this.unsub$.complete()
   }
@@ -329,8 +329,8 @@ export class DsFixedMask
     }
   }
 
-  private initalizeValueFromControl() {
-    let value = this.control.value
+  private initalizeValueFromControl(): void {
+    let value = this.control.value as string
     this.isNumeric = typeof value === 'number'
     value = this.isNumeric ? value.toString() : value
     this.fillNextAvailable(value || '')
@@ -502,8 +502,8 @@ export class DsFixedMask
    * which is needed to work with the ReactiveForms Module
    */
 
-  onChange = (value: string | number | null) => {}
-  onTouched = () => {}
+  onChange = (value: string | number | null): void  => {}
+  onTouched = (): void => {}
 
   // Update control value
   writeValue(strValue: string): void {

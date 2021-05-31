@@ -10,7 +10,7 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle'
 import * as Highcharts from 'highcharts'
 import { merge } from 'lodash'
 import { AnalysisChartVM } from '../models/analysis-chart'
-import { ChartControls } from '../models/chart-controls'
+import { ChartControls, ChartType } from '../models/chart-controls';
 
 /**
  * @see {@link https://github.com/highcharts/highcharts-angular/tree/master/src/app Highcharts Angular}
@@ -110,6 +110,7 @@ export class AnalysisChartComponent {
   }
 
   typeChange(change: MatSelectChange): void {
-    this.controlsChange.emit(merge(this.controls, { type: change.value }))
+    const update: Partial<ChartControls> = { type: change.value as ChartType}
+    this.controlsChange.emit(merge(this.controls, update))
   }
 }

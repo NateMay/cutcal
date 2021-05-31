@@ -9,20 +9,20 @@ import { DndPayload } from '../dnd.payload'
 import { DndSvc } from '../dnd.service'
 
 @Directive({
-  selector: '[drop],[ccDrop]'
+  selector: '[dsDrop],[drop]'
 })
 export class DropTarget {
-  @Input() drop: any
+  @Input() payload: unknown
 
-  @Output() onDrop = new EventEmitter<DndPayload<any, any>>()
+  @Output() dsDrop = new EventEmitter<DndPayload<any, any>>()
 
   constructor(public readonly svc: DndSvc) {}
 
   @HostListener('mouseup')
   dropEmit(): void {
     if (this.svc.isDragging)
-      this.onDrop.emit({
-        drop: this.drop,
+      this.dsDrop.emit({
+        drop: this.payload,
         drag: this.svc.dragData
       })
   }

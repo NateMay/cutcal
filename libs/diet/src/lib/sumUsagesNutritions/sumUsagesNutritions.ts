@@ -1,6 +1,6 @@
-import { KVP } from '@cutcal/core'
+import { KVP, Nutrition } from '@cutcal/core'
 import { Food, Usage } from '@cutcal/diet'
-import { Nutrition, sumNutritions } from '@cutcal/nutrition'
+import { sumNutritions } from '@cutcal/nutrition'
 import { map } from 'lodash'
 import { scaleNutrition } from '../convertNutrition/convertNutrition'
 

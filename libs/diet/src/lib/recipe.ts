@@ -1,8 +1,6 @@
-import { KVP } from '@cutcal/core'
-import { Nutrition } from '@cutcal/nutrition'
-import { Image } from './images'
+import { KVP, Nutrition, Image, Portion } from '@cutcal/core'
 import { Ingredient } from './ingredient'
-import { Portion } from './portion'
+
 
 // TODO: copy the card from here: https://www.youtube.com/watch?v=5YGge0RaCx8
 /**

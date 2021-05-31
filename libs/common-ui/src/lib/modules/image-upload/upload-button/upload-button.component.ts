@@ -129,7 +129,7 @@ export class UploadButtonComponent implements OnInit {
     )
   }
 
-  openCropper(event: any): void {
+  openCropper(event: Event): void {
     if (this.cropperOverlayRef.hasAttached()) return
 
     this.cropperRef = this.cropperOverlayRef.attach(
@@ -202,7 +202,7 @@ export class UploadButtonComponent implements OnInit {
     )
   }
 
-  fileChangeEvent(event: any): void {
+  fileChangeEvent(event: Event): void {
     this.openCropper(event)
   }
 }

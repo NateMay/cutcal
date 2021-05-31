@@ -2,11 +2,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  OnInit
 } from '@angular/core'
 import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'table[cc-excess], cc-excess',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'cc-excess' },
@@ -28,7 +28,7 @@ import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
     </tbody>
   `
 })
-export class ExcessTableComponent implements OnInit {
+export class ExcessTableComponent {
   private _nutrition: Nutrition<number>
   @Input() set nutrition(nutrition: Nutrition<number>) {
     this._nutrition = Object.assign({}, ZERO_NUTRITION, nutrition)
@@ -37,7 +37,4 @@ export class ExcessTableComponent implements OnInit {
     return this._nutrition
   }
 
-  constructor() {}
-
-  ngOnInit(): void {}
 }

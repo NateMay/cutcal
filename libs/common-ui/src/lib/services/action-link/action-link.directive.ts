@@ -10,7 +10,7 @@ import { catchError, tap } from 'rxjs/operators'
 import { ActionLinkObserver } from './action-link.service'
 
 @Directive({
-  selector: '[ccActionLink]'
+  selector: '[dsActionLink]'
 })
 export class ActionLinkDirective implements OnDestroy {
   private sub!: Subscription | null

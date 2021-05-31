@@ -17,7 +17,7 @@ describe('Doc (firebase) Pipe', () => {
 
   beforeEach(() => {
     const dbStub = {
-      doc$: (): Observable<any> => of({ prop: 'Hello World' })
+      doc$: (): Observable<unknown> => of({ prop: 'Hello World' })
     };
     TestBed.configureTestingModule({
       declarations: [DocPipe, TestDocPipeComp],
@@ -33,7 +33,8 @@ describe('Doc (firebase) Pipe', () => {
 
   it('unwraps a document in the template', () => {
     fixture.detectChanges();
-    expect(fixture.debugElement.nativeElement.textContent).toContain(
+    const element = fixture.debugElement.nativeElement as HTMLElement
+    expect(element.textContent).toContain(
       'Hello World'
     );
   });

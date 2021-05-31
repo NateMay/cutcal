@@ -62,7 +62,7 @@ const descriptor = (resp: ConversionDetails): Description => ({
  * converted to.
  */
 
-export const convert = (quantity: number = 1) => new UnitConverter(quantity)
+export const convert = (quantity: number = 1): UnitConverter => new UnitConverter(quantity)
 
 export class UnitConverter {
   private originalQuantity: number

@@ -1,7 +1,8 @@
 import { timestamp as newTimestamp } from '@cutcal/fire'
-import { Nutrition } from '@cutcal/nutrition'
+import { Nutrition, Image } from '@cutcal/core'
 import { firestore } from 'firebase/app'
-import { Image } from './images'
+import { Usage } from './usage';
+import { Food } from '@cutcal/diet';
 // FEATURE (meal) category / color
 
 /**
@@ -27,8 +28,8 @@ export interface Meal {
   // color?: string;
 }
 
-export const isMeal = (obj: any): boolean =>
-  !!obj.timestamp && !!obj.name && !!obj.nutrition
+export const isMeal = (obj: Meal | Usage | Food): boolean =>
+  'timestamp' in obj && 'name' in obj && 'nutrition' in obj
 
 export const createMeal = (
   name?: string,

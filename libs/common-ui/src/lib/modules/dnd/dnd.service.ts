@@ -29,14 +29,14 @@ export class DndSvc implements OnDestroy {
     return this._isDragging.getValue()
   }
 
-  private _dragData: any
-  get dragData(): any {
+  private _dragData: unknown
+  get dragData(): unknown {
     return this._dragData
   }
 
   private _ghost: HTMLImageElement
   get ghost(): HTMLImageElement {
-    this._ghost = this.renderer.createElement('img')
+    this._ghost = this.renderer.createElement('img') as HTMLImageElement
     this.renderer.setAttribute(this._ghost, 'id', 'drag-obj')
     this.renderer.setAttribute(this._ghost, 'alt', 'drag and drop image')
     this.renderer.setAttribute(
@@ -70,7 +70,7 @@ export class DndSvc implements OnDestroy {
     if (root) this.renderer.removeChild(root, this._ghost)
   }
 
-  startDrag(payload: any, showTrash: boolean): void {
+  startDrag(payload: unknown, showTrash: boolean): void {
     if (showTrash) this._showTrash.next(true)
     this._dragData = payload
     this._isDragging.next(true)

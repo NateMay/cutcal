@@ -12,7 +12,7 @@ import {
  * we wouldn't need this, but we do need a reference to the nativeElement
  */
 @Directive({
-  selector: 'input[ccMaskedInput]'
+  selector: 'input[dsMaskedInput]'
 })
 export class DsMaskedInput {
   constructor(public readonly input: ElementRef<HTMLInputElement>) {}

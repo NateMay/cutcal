@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatButtonModule } from '@angular/material/button';
 import { By } from '@angular/platform-browser';
-import { getAllDe } from '../../../../../../ng-testing/src/lib/getAllDe';
+import { getAllDe } from '@cutcal/ng-testing';
 import { DatePickerMonthsComponent } from './date-picker-months.component';
 
 @Component({
@@ -36,7 +36,7 @@ describe('DatePickerMonthsComponent', () => {
     parent = fixture.componentInstance;
     component = fixture.debugElement.query(
       By.directive(DatePickerMonthsComponent)
-    ).componentInstance;
+    ).componentInstance as DatePickerMonthsComponent;
     fixture.detectChanges();
   });
 
@@ -54,7 +54,7 @@ describe('DatePickerMonthsComponent', () => {
     const spy = jest.spyOn(component.monthSelect, 'emit');
     const buttons = getAllDe(fixture, 'button');
     fixture.detectChanges();
-    buttons[4].nativeElement.click();
+    (buttons[4].nativeElement as HTMLButtonElement).click();
     fixture.detectChanges();
     expect(spy).toHaveBeenCalledWith(4);
   });

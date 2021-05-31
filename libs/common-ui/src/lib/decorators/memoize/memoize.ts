@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /**
  * @description Decorator which memoizes the output of a function
  */
 export const Memoize = (
   hashFunction?: (...args: any[]) => any
 ): MethodDecorator => (
-  target: {},
+  target: unknown,
   propertyKey: string | symbol,
   descriptor: PropertyDescriptor
 ): PropertyDescriptor | void | never => {
@@ -66,6 +68,6 @@ function getNewFunction(
       }
     }
 
-    return returnedValue
+    return returnedValue as unknown
   }
 }

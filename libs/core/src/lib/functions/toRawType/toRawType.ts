@@ -12,8 +12,8 @@ export type RawType =
   | 'Object'
   | 'Undefined'
 
-export function toRawType(value: any): RawType {
+export function toRawType(value: unknown): RawType {
   const _toString = Object.prototype.toString
-  const stringified = _toString.call(value)
-  return stringified.slice ? stringified.slice(8, -1) : 'Undefined'
+  const stringified = _toString.call(value) as string
+  return stringified.slice ? stringified.slice(8, -1) as RawType : 'Undefined'
 }

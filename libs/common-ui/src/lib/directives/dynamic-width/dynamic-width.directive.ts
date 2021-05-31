@@ -11,7 +11,7 @@ import { interval, Subject } from 'rxjs'
 import { takeUntil, tap } from 'rxjs/operators'
 
 @Directive({
-  selector: '[dynamicWidth],[ccDynamicWidth]'
+  selector: '[dsDynamicWidth],[dynamicWidth]'
 })
 export class DynamicWidthDirective implements OnInit, OnDestroy {
   private unsub$: Subject<void> = new Subject()

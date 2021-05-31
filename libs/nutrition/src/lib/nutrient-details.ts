@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/camelcase */
-import { Nutrition } from './nutrition'
+import { Nutrition } from '@cutcal/core';
 
 /**
  * @description Static Nutrient Metadata
@@ -16,7 +15,7 @@ export interface NutrientMetaData {
   nutrient: string
   unit: 'kcal' | 'kj' | 'g' | 'mg' | 'iu' | 'µg' | 'sp_gr'
   shortName: string
-  propName?: string
+  propName?: keyof Nutrition<unknown>;
 }
 
 export const USDA_NUTRIENT_DETAILS: Nutrition<NutrientMetaData> = {
@@ -745,7 +744,7 @@ export const USDA_NUTRIENT_DETAILS: Nutrition<NutrientMetaData> = {
   },
 
   /**
-   * @summary {@link https://en.wikipedia.org/wiki/List_of_saturated_fatty_acids Wikipedia}
+   * @refernce https://en.wikipedia.org/wiki/List_of_saturated_fatty_acids Wikipedia
    */
   polyUnsaturated: {
     id: 1293,

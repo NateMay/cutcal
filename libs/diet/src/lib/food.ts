@@ -1,7 +1,5 @@
-import { KVP } from '@cutcal/core'
-import { Nutrition } from '@cutcal/nutrition'
-import { Image } from './images'
-import { Portion } from './portion'
+import { KVP, Nutrition, Image, Portion } from '@cutcal/core'
+import { Meal } from './meal';
 
 /**
  * @description An Object storing information about an abstract notion of a Food, Recipe,
@@ -14,7 +12,7 @@ import { Portion } from './portion'
  * Built mainly from USDA data, this object stores basic information for a food
  */
 export interface Food {
-  _id?: any
+  _id?: string
 
   /* USDA + crowd source */
 
@@ -109,5 +107,5 @@ export interface FoodSource {
 }
 
 // TEST (food)
-export const isFood = (obj: any): boolean =>
-  !!obj.NDBNO || !!obj.foodGroup || !!obj.USDAName || !!obj.portions
+export const isFood = (obj: Meal | Food): boolean =>
+  'NDBNO' in obj || 'foodGroup' in obj || 'USDAName' in obj || 'portions' in obj

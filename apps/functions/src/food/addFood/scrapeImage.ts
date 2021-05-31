@@ -1,4 +1,4 @@
-import { GoogleImageResponse } from '@cutcal/api-interfaces'
+import { GoogleImageResponse } from '@cutcal/core'
 import * as rp from 'request-promise'
 
 const apiKey = 'AIzaSyAspWF0dPGZo9XRlZpTn4j3ZzoAtrJJIpA'
@@ -10,12 +10,11 @@ const IMAGE_CACHE: { [key: string]: string } = {}
 
 export const scrapeImage = async (cleanTerm: string): Promise<string> => {
   if (!IMAGE_CACHE[cleanTerm]) {
-    const jsresponse: string = await rp({
+
+    const response = JSON.parse(await rp({
       method: 'GET',
       uri: `${endPoint}?key=${apiKey}&cx=${engine}&q=${cleanTerm}&${STATIC_QUERIES}`
-    }).catch(console.error)
-
-    const response: GoogleImageResponse = JSON.parse(jsresponse)
+    }).catch(console.error)) as GoogleImageResponse
 
     IMAGE_CACHE[cleanTerm] = response.items.map((item) => item.link)[0]
   }

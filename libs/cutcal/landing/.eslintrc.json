@@ -11,6 +11,7 @@
       "parserOptions": { "project": ["libs/cutcal/landing/tsconfig.*?.json"] },
       "rules": {
         "@angular-eslint/component-class-suffix": "off",
+        "@typescript-eslint/no-inferrable-types": "off",
         "@angular-eslint/directive-selector": [
           "error",
           { "type": "attribute", "prefix": "ds", "style": "camelCase" }

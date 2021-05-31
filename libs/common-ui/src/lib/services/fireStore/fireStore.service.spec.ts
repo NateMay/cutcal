@@ -45,16 +45,15 @@ describe('AngularFirestore', () => {
       [FirebaseApp, AngularFirestore, FirestoreService],
       (_app: FirebaseApp, _afs: AngularFirestore, _fsSvc: FirestoreService) => {
         app = _app;
-        afs = _afs;
+        // afs = _afs;
         service = _fsSvc;
       }
     )();
   });
 
-  afterEach((done) => {
+  afterEach(() => {
     // can't await here https://github.com/firebase/firebase-js-sdk/issues/605
-    app.delete();
-    done();
+    void app.delete()
   });
 
   it('col() returns a AngularFirestoreCollection when a predicate is passed', () => {

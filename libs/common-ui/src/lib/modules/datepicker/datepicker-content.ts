@@ -18,7 +18,7 @@ import { ccDatepickerAnimations } from './datepicker-animations'
   template: 'face'
 })
 export class DsDatePickerFace {
-  focusActiveCell() {}
+  focusActiveCell(): void {}
 }
 
 /** Used to generate a unique ID for each datepicker instance. */
@@ -56,7 +56,7 @@ const _DsDatepickerContentMixinBase: CanColorCtor &
   exportAs: 'ccDatepickerContent',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  inputs: ['color']
+  // inputs: ['color']
 })
 export class DsDatepickerContent
   extends _DsDatepickerContentMixinBase
@@ -89,15 +89,15 @@ export class DsDatepickerContent
     super(elementRef)
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this._calendar.focusActiveCell()
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this._animationDone.complete()
   }
 
-  _startExitAnimation() {
+  _startExitAnimation(): void {
     this._animationState = 'void'
 
     // @breaking-change 11.0.0 Remove null check for `_changeDetectorRef`.

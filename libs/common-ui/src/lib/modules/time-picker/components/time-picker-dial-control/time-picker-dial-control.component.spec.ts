@@ -1,6 +1,6 @@
 import { NO_ERRORS_SCHEMA, SimpleChanges } from '@angular/core';
 import {
- 
+  async,
   ComponentFixture,
   fakeAsync,
   TestBed,
@@ -138,13 +138,13 @@ describe('TimepickerDialControlComponent', () => {
     } as KeyboardEvent;
     const numbers = Array(10)
       .fill(48)
-      .map((v, i) => v + i);
+      .map((v: number, i) => v + i);
     const numpadNumbers = Array(10)
       .fill(96)
-      .map((v, i) => v + i);
+      .map((v: number, i) => v + i);
     const arrows = Array(6)
       .fill(35)
-      .map((v, i) => v + i); // home, end, left, right, up, down
+      .map((v: number, i) => v + i); // home, end, left, right, up, down
     const specialKeys = [46, 8, 9, 27, 13]; // backspace, delete, tab, escape, enter
 
     beforeEach(() => {
@@ -193,7 +193,7 @@ describe('TimepickerDialControlComponent', () => {
     it('should not allow chars but numbers, backspace, delete, tab, escape, enter, home, end, left, right, up, down', () => {
       const allKeyCodes = Array(114)
         .fill(8)
-        .map((v, i) => v + i);
+        .map((v: number, i) => v + i);
       const allowedCodes = [
         ...numbers,
         ...numpadNumbers,

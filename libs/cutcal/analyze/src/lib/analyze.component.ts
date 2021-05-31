@@ -17,13 +17,12 @@ import {
   setLightGridTheme
 } from '@cutcal/charts'
 import { analyzeParams, dateArray, MealService } from '@cutcal/common-ui'
-import { KVP } from '@cutcal/core'
+import { KVP, Nutrition } from '@cutcal/core'
 import {
   createNutrCheckableMap,
   NutrCheckable,
   NutrCheckableMap,
   NutrientUnit,
-  Nutrition,
   nutrtionSelections
 } from '@cutcal/nutrition'
 import * as Highcharts from 'highcharts'
@@ -36,6 +35,11 @@ import { AnalysisChartVM } from './models/analysis-chart'
 import { ChartControls, updateControls } from './models/chart-controls'
 import { DailyNutrition } from './models/daily-nutrition'
 import { ViewMap } from './models/view-map'
+
+interface DateRange {
+  start: Date;
+  end: Date;
+}
 
 // Sets Highchart Theme
 setLightGridTheme()
@@ -151,7 +155,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   /**
    * @description Takes the dates from the route and sets them safely to be bound to the date-pickers
    */
-  setDateRange(params: Params): any {
+  setDateRange(params: Params): DateRange {
     this.startDate = params.start.urlToDate()
     this.endDate = params.end.urlToDate()
 

@@ -133,7 +133,7 @@ export class AnalyzeRangePickerComponent {
 
   updateUrl(): void {
     if (this.validRange())
-      this.router.navigate(
+      void this.router.navigate(
         ['analyze'],
         analyzeParams(this.startDate, this.endDate)
       )

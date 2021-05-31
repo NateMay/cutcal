@@ -18,7 +18,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cutcal/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@cutcal/nutrition": ["libs/nutrition/src/index.ts"],
       "@cutcal/drag-n-drop": ["libs/drag-n-drop/src/index.ts"],
       "@cutcal/cc-ng-core": ["libs/cc-ng-core/src/index.ts"],
@@ -56,6 +55,9 @@
       "@cutcal/convert-units": ["libs/convert-units/src/index.ts"],
       "@cutcal/cc-timepicker": ["libs/cc-timepicker/src/index.ts"]
     }
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true
   },
   "exclude": ["node_modules", "tmp"]
 }

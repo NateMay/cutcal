@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { AngularFireFunctions } from '@angular/fire/functions'
-import { AddFoodReponse, AddFoodRequest } from '@cutcal/api-interfaces'
 import { FirestoreService } from '@cutcal/common-ui'
+import { AddFoodRequest, AddFoodReponse } from '@cutcal/core'
 import { forEach } from 'lodash'
 import { Observable } from 'rxjs'
 import { first, switchMap, tap } from 'rxjs/operators'

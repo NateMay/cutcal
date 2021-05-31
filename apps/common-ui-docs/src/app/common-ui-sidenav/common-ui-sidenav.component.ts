@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 
 class TesterLink {
   label: string
@@ -27,7 +27,7 @@ class TesterLink {
   `,
   styleUrls: ['./common-ui-sidenav.component.scss']
 })
-export class CommonUiSidenavComponent implements OnInit {
+export class CommonUiSidenavComponent {
   links: TesterLink[] = [
     // new TesterLink('Classes', 'classes'),
     new TesterLink('Date Picker', 'date-picker'),
@@ -46,8 +46,4 @@ export class CommonUiSidenavComponent implements OnInit {
     new TesterLink('CC Timepicker', 'cc-timepicker'),
     new TesterLink('Masking', 'masking')
   ]
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

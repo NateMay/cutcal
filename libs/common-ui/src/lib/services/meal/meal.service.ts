@@ -65,9 +65,9 @@ export class MealService {
 
     const foods$ = this.getFoodsFromUsages(usages$)
 
-    return combineLatest(meal$, usages$, foods$).pipe(
+    return combineLatest([meal$, usages$, foods$]).pipe(
       filter((tripple) => this.invalidMappings(tripple))
-    )
+    ) as Observable<MealTripple>
   }
 
   // this.db.colWithIds$(`parentCollection`).pipe(
@@ -407,7 +407,7 @@ export class MealService {
 
   /**
    * @description Protects from race condition where a food is not yet referenced properly
-   * @param {Tripple} : MealTripple or MealsTripple
+   * @param {Tripple} MealTripple or MealsTripple
    */
   invalidMappings([, usages, foods]: Tripple): boolean {
     return !_map(usages, (usage) => foods[usage.foodId]).some((food) => !food)

@@ -7,4 +7,4 @@ import { NUTRIENTS } from './../nutrient-metadata'
  */
 
 export const getNutrientID = (nutrientName: string): number =>
-  get(NUTRIENTS.ids, nutrientName)
+  get(NUTRIENTS.ids, nutrientName) as number

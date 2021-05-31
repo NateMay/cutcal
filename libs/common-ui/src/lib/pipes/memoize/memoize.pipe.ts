@@ -19,10 +19,10 @@ import { Pipe, PipeTransform } from '@angular/core'
 })
 export class MemoizePipe implements PipeTransform {
   public transform(
-    value: any,
+    value: unknown,
     handler: (value: any) => any,
-    context?: any
-  ): any {
+    context?: unknown
+  ): unknown {
     return context ? handler.call(context, value) : handler(value)
   }
 }

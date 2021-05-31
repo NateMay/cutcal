@@ -163,14 +163,14 @@ describe('TimepickerFaceComponent', () => {
 
     const minutesFaceTime = Array(60)
       .fill(0)
-      .map((v, i) => {
+      .map((v: number, i) => {
         const index = v + i;
         const angle = (360 / 60) * index;
         return {
           time: index === 0 ? '00' : index,
           angle: angle !== 0 ? angle : 360
         };
-      });
+      }) as ClockFaceTime[];
 
     beforeEach(() => {
       component.onMousedown(mouseClickEvent);
@@ -307,6 +307,6 @@ describe('TimepickerFaceComponent', () => {
   });
 });
 
-const getStyle = (element: ElementRef): ((prop: string) => string) => (
+const getStyle = (element: ElementRef): ((prop: string) => CSSStyleDeclaration) => (
   prop: string
-): string => element.nativeElement.style[prop];
+): CSSStyleDeclaration => (element.nativeElement as HTMLElement).style[prop] as CSSStyleDeclaration;

@@ -44,6 +44,10 @@ export interface MoveStart {
   clientY: number
 }
 
+export interface HTMLInputEvent extends Event {
+  target: HTMLInputElement & EventTarget;
+}
+
 export type OutputType = 'base64' | 'file' | 'both'
 
 @Component({
@@ -130,7 +134,7 @@ export type OutputType = 'base64' | 'file' | 'both'
   `
 })
 export class ImageCropperComponent implements OnChanges {
-  private originalImage!: any
+  private originalImage!: HTMLImageElement
   private originalBase64!: string
   private moveStart!: MoveStart
   private maxSize!: Dimensions
@@ -152,7 +156,7 @@ export class ImageCropperComponent implements OnChanges {
   }
 
   @Input()
-  set imageChangedEvent(event: any) {
+  set imageChangedEvent(event: HTMLInputEvent) {
     this.initCropper()
     if (event?.target?.files?.length > 0) {
       this.loadImageFile(event.target.files[0])
@@ -251,9 +255,9 @@ export class ImageCropperComponent implements OnChanges {
   private loadImageFile(file: File): void {
     const fileReader = new FileReader()
 
-    fileReader.onload = (event: any): void => {
+    fileReader.onload = (event: Event): void => {
       this.isValidImageType(file.type)
-        ? this.checkExifAndLoadBase64Image(event.target.result)
+        ? this.checkExifAndLoadBase64Image(fileReader.result as string)
         : this.loadImageFailed.emit()
     }
     fileReader.readAsDataURL(file)
@@ -333,7 +337,7 @@ export class ImageCropperComponent implements OnChanges {
 
   private transformBase64(exifOrientation: number): void {
     if (this.originalBase64) {
-      transformBase64BasedOnExifRotation(
+      void transformBase64BasedOnExifRotation(
         this.originalBase64,
         exifOrientation
       ).then((rotatedBase64: string) => this.loadBase64Image(rotatedBase64))
@@ -387,7 +391,7 @@ export class ImageCropperComponent implements OnChanges {
   }
 
   startMove(
-    event: any,
+    event: MouseEvent | TouchEvent,
     moveType: string,
     position: string | null = null
   ): void {
@@ -404,7 +408,7 @@ export class ImageCropperComponent implements OnChanges {
 
   @HostListener('document:mousemove', ['$event'])
   @HostListener('document:touchmove', ['$event'])
-  moveImg(event: any): void {
+  moveImg(event: TouchEvent | MouseEvent): void {
     if (this.moveStart.active) {
       event.stopPropagation()
       event.preventDefault()
@@ -424,7 +428,7 @@ export class ImageCropperComponent implements OnChanges {
     this.maxSize.width = sourceImageElement.offsetWidth
     this.maxSize.height = sourceImageElement.offsetHeight
     this.marginLeft = this.sanitizer.bypassSecurityTrustStyle(
-      'calc(50% - ' + this.maxSize.width / 2 + 'px)'
+      `calc(50% - ${this.maxSize.width / 2}px`
     )
   }
 
@@ -689,7 +693,7 @@ export class ImageCropperComponent implements OnChanges {
   }
 
   private doAutoCrop(): void {
-    if (this.autoCrop) this.crop()
+    if (this.autoCrop) void this.crop()
   }
 
   crop(
@@ -818,11 +822,11 @@ export class ImageCropperComponent implements OnChanges {
       : 1
   }
 
-  private getClientX(event: any): number {
-    return event?.clientX || event?.touches[0]?.clientX
+  private getClientX(event: MouseEvent | TouchEvent): number {
+    return (event as MouseEvent)?.clientX || (event as TouchEvent)?.touches[0]?.clientX
   }
 
   private getClientY(event: any): number {
-    return event.clientY || event?.touches[0]?.clientY
+    return (event as MouseEvent).clientY || (event as TouchEvent)?.touches[0]?.clientY
   }
 }

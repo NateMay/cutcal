@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 describe('addDay() - Date.prototype', () => {
   it(`should add a single day to a date`, () => {
     const jul6: Date = new Date(2018, 6, 6);
@@ -292,7 +291,7 @@ describe('isBetween() - Date.prototype', () => {
   });
 });
 
-it(`isLeapYear() - Date.prototype - returns true is the subject date is in a leap year `, () => {
+it(`isLeapYear() - Date.prototype - returns true is the subject date is in a leap year`, () => {
   const j16: Date = new Date(2016, 1, 29);
   expect(j16.isLeapYear()).toBe(true);
 

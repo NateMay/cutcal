@@ -14,7 +14,7 @@ describe('toRawType', () => {
   });
 
   it('should identify "Function"', () => {
-    expect(toRawType(() => {})).toBe('Function');
+    expect(toRawType(() => '')).toBe('Function');
   });
 
   it('should identify "Date"s', () => {

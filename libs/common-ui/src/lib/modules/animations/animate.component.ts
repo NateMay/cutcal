@@ -51,6 +51,11 @@ export type Animations =
 
 export type AnimateSpeed = 'slower' | 'slow' | 'normal' | 'fast' | 'faster'
 
+export interface AnimationState {
+  value?: string | boolean
+  params?: unknown
+}
+
 export class AnimateRect {
   get width(): number {
     return this.right - this.left
@@ -68,7 +73,7 @@ export class AnimateRect {
 }
 
 @Component({
-  selector: '[ccAnimate],cc-animate',
+  selector: '[dsAnimate],ds-animate',
   template: '<ng-content></ng-content>',
   animations: ANIMATIONS
 })
@@ -89,49 +94,49 @@ export class AnimateComponent implements OnInit, OnDestroy {
   animated = false
 
   /** Selects the animation to be played */
-  @Input('ccAnimate') animate: Animations
+  @Input() dsAnimate: Animations
 
   // @Input() delay: number|string;
 
   /** Speeds up or slows down the animation */
   @Input() speed: AnimateSpeed = 'normal'
 
-  @HostBinding('@animate') private trigger: string | object = 'idle'
+  @HostBinding('@animate') private trigger: string | AnimationState = 'idle'
   @HostBinding('@.disabled') public disabled = false
 
-  /** Emits at the end of the animation */
-  @Output() start = new EventEmitter<void>()
+  /** Emits at the beginning of the animation */
+  @Output() begin = new EventEmitter<void>()
 
   /** Emits at the end of the animation */
   @Output() done = new EventEmitter<void>()
   public paused: boolean = false
-  public aos: boolean = false
-  public once: boolean = false
+  public _aos: boolean = false
+  public _once: boolean = false
 
   /** Specifies the amout of visibility triggering AOS */
   @Input() threshold: number = 0.2
 
-  @Input('disabled') set disableAnimation(value: boolean) {
+  @Input() set disable(value: boolean) {
     this.disabled = coerceBooleanProperty(value)
   }
 
   /** @description When true, keeps the animation idle until the next replay triggers */
-  @Input('paused') set pauseAnimation(value: boolean) {
+  @Input() set pause(value: boolean) {
     this.paused = coerceBooleanProperty(value)
   }
 
   /** @description When true, triggers the animation on element scrolling in the viewport */
-  @Input('aos') set enableAOS(value: boolean) {
-    this.aos = coerceBooleanProperty(value)
+  @Input() set aos(value: boolean) {
+    this._aos = coerceBooleanProperty(value)
   }
 
   /** @description When true, triggers the animation on element scrolling in the viewport */
-  @Input('once') set aosOnce(value: boolean) {
-    this.once = coerceBooleanProperty(value)
+  @Input() set once(value: boolean) {
+    this._once = coerceBooleanProperty(value)
   }
 
   /** @description Replays the animation */
-  @Input() set replay(replay: any) {
+  @Input() set replay(replay: unknown) {
     // Skips whenever the animation never triggered
     if (this.trigger === 'idle') return
 
@@ -150,13 +155,13 @@ export class AnimateComponent implements OnInit, OnDestroy {
     )
   }
 
-  private get idle(): object {
+  private get idle(): AnimationState {
     return { value: 'idle' }
   }
 
-  private get play(): object {
+  private get play(): AnimationState {
     return {
-      value: this.animate,
+      value: this.animated,
       // delay: this.delay,
       params: {
         timing: this.timings[this.speed] || '1s'
@@ -203,7 +208,7 @@ export class AnimateComponent implements OnInit, OnDestroy {
   // Triggers the animation
   private animateTrigger(elm: ElementRef<HTMLElement>): Observable<boolean> {
     return this.animateReplay().pipe(
-      flatMap((trigger) => (this.aos ? this.animateOnScroll(elm) : of(trigger)))
+      flatMap((trigger) => (this._aos ? this.animateOnScroll(elm) : of(trigger)))
     )
   }
 
@@ -233,7 +238,7 @@ export class AnimateComponent implements OnInit, OnDestroy {
       // Distincts the resulting triggers
       distinctUntilChanged(),
       // Stop taking the first on trigger when aosOnce is set
-      takeWhile((trigger) => !trigger || !this.once, true),
+      takeWhile((trigger) => !trigger || !this._once, true),
       // Run NEXT within the angular zone to trigger change detection back on
       flatMap(
         (trigger) =>

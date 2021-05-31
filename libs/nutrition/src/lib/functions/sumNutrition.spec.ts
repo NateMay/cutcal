@@ -1,4 +1,4 @@
-import { Nutrition } from '../nutrition';
+import { Nutrition } from '@cutcal/core';
 import { sumNutritions } from './sumNutritions';
 
 const NUTRS: Nutrition<number>[] = [

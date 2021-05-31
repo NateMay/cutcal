@@ -52,7 +52,7 @@ export const TIME_PICKER_CONTROL_VALUE_ACCESSOR: Provider = {
       <mat-label *ngIf="label">{{ label }}</mat-label>
       <input
         type="text"
-        #inputEl
+        #inputRef
         matInput
         autocomplete="off"
         [attr.id]="idStr"
@@ -120,7 +120,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
   get time(): string {
     return this._time$.getValue()
   }
-  @Output() timeChange: EventEmitter<string> = new EventEmitter()
+  @Output() timeChange = new EventEmitter()
 
   @Input()
   get idStr(): string {
@@ -151,14 +151,18 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
     return this._max
   }
 
-  get inputVal(): string {
-    return this.inputEl.nativeElement.value
-  }
-  set inputVal(val: string) {
-    this.inputEl.nativeElement.value = val
+  get inputEl(): HTMLInputElement {
+    return this.inputRef.nativeElement as HTMLInputElement
   }
 
-  @ViewChild('inputEl', { static: true }) inputEl!: ElementRef
+  get inputVal(): string {
+    return this.inputEl.value
+  }
+  set inputVal(val: string) {
+    this.inputEl.value = val
+  }
+
+  @ViewChild('inputRef', { static: true }) inputRef!: ElementRef
   @ViewChild('pickerOrigin', { static: true }) pickerOrigin!: CdkOverlayOrigin
 
   // TODO (time-picker) get rid of this and redesign the api pof the component
@@ -187,8 +191,9 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
 
   @HostListener('document:mousedown', ['$event'])
   onmousedown(event: MouseEvent): void {
+    const picker = this.pickerOrigin.elementRef.nativeElement as HTMLInputElement
     if (
-      !this.pickerOrigin.elementRef.nativeElement.contains(event.target) &&
+      !picker.contains(event.target as Node) &&
       !this.pickerOverlayRef.hostElement.contains(<Node>event.target)
     )
       this.closePicker()
@@ -220,7 +225,7 @@ export class TimePickerInputComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this._time = this.inputEl.nativeElement.value
+    this._time = this.inputEl.value
   }
 
   // used by the datetime-binder to make updates

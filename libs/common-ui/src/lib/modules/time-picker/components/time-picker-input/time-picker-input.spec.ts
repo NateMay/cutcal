@@ -56,7 +56,7 @@ describe('Time Picker Module', () => {
 
     fixture = TestBed.createComponent(TestTimePickerComponent);
     parent = fixture.componentInstance;
-    component = getByDir(fixture, TimePickerInputComponent).componentInstance;
+    component = getByDir(fixture, TimePickerInputComponent).componentInstance as TimePickerInputComponent;
     input = getEl<HTMLInputElement>(fixture, 'input');
   });
 

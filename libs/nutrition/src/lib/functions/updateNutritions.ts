@@ -1,5 +1,5 @@
 import { NUTRIENT_KEYS } from '../base-nutrition'
-import { Nutrition } from '../nutrition'
+import { Nutrition } from '@cutcal/core'
 
 export function updateNutritions(
   operation: 'add' | 'subtract',

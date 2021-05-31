@@ -1,13 +1,16 @@
-import { WikiDescription } from '@cutcal/api-interfaces'
+import { WikiDescription } from '@cutcal/core'
 import { HttpService, Injectable } from '@nestjs/common'
 import * as cheerio from 'cheerio'
 import * as rp from 'request-promise'
 
+export interface DumbResponse {
+  data: string
+}
 @Injectable()
 export class WikiService {
   constructor(private readonly http: HttpService) {}
 
-  getData(): any {
+  getData(): DumbResponse {
     return { data: 'Welcome to api!' }
   }
 

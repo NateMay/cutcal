@@ -1,6 +1,4 @@
-import { KVP } from '@cutcal/core'
-import { Image, Portion } from '@cutcal/diet'
-import { Nutrition } from '@cutcal/nutrition'
+import { Nutrition, Portion, Image, KVP } from '@cutcal/core'
 import { firestore } from 'firebase/app'
 import { maxBy } from 'lodash'
 

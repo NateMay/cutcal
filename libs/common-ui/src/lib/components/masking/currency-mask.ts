@@ -60,7 +60,7 @@ export class DsCurrencyMask
     this._value = value
   }
   get value(): number | null {
-    return this.control ? this.control.value : this._value
+    return this.control ? this.control.value as number : this._value
   }
   @Output() valueChange = new EventEmitter<number | null>()
   private _value: number | null
@@ -134,7 +134,7 @@ export class DsCurrencyMask
     super(_document, renderer)
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // TODO handle android case
 
     // wait for the FormControl to instantiate
@@ -148,7 +148,7 @@ export class DsCurrencyMask
     })
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     this.ensureValidType()
 
     this.listenInput('keydown')
@@ -168,7 +168,7 @@ export class DsCurrencyMask
       .subscribe()
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.unsub$.next()
     this.unsub$.complete()
   }
@@ -341,8 +341,8 @@ export class DsCurrencyMask
    * which is needed to work with the ReactiveForms Module
    */
 
-  onChange = (value: unknown) => {}
-  onTouched = () => {}
+  onChange = (value: unknown): void => {}
+  onTouched = (): void => {}
 
   // Update control value
   writeValue(strValue: unknown): void {

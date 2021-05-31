@@ -3,10 +3,10 @@ import { MatCheckboxChange } from '@angular/material/checkbox'
 import {
   getNutritionParts,
   NutrCheckable,
-  Nutrition,
   NutritionParts
 } from '@cutcal/nutrition'
 import { isEqual } from 'lodash'
+import { Nutrition } from '@cutcal/core';
 
 export interface CheckableNutrientsChange {
   nutrCheckables: Nutrition<NutrCheckable>
@@ -140,7 +140,7 @@ export class CheckableNutrientsComponent {
     createData('Other', 'others')
   ]
 
-  @Output() change = new EventEmitter<NutrCheckable>()
+  @Output() update = new EventEmitter<NutrCheckable>()
 
   // Data Structures for Checkables
   nutrGroupCheckables: NutritionParts<NutrCheckable>
@@ -170,6 +170,6 @@ export class CheckableNutrientsComponent {
 
   selectionChange(change: MatCheckboxChange, item: NutrCheckable): void {
     item.isChecked = change.checked
-    this.change.emit(item)
+    this.update.emit(item)
   }
 }

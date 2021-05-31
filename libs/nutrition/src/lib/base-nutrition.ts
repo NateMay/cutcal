@@ -1,5 +1,5 @@
 import { keys } from 'lodash'
-import { Nutrient, Nutrition } from './nutrition'
+import { Nutrient, Nutrition } from '@cutcal/core'
 
 /**
  * Returns a new, comprehensive nutrition object with zero values

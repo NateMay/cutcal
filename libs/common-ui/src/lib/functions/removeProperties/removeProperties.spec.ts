@@ -1,6 +1,6 @@
 import { removePropsDeeply } from './removeProperties';
 describe('removePropsDeeply() - shared/functions', () => {
-  it('removePropsDeeply() - shared/functions - removes selected properties recursively ', () => {
+  it('removePropsDeeply() - shared/functions - removes selected properties recursively', () => {
     const object1 = {
       remove: 'no go',
       stay: 'hi',

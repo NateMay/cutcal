@@ -11,8 +11,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DndModule, PipesModule } from '@cutcal/common-ui';
+import { createImage } from '@cutcal/core';
 import {
-  createImage,
   createMealWithId,
   createUsage,
   Ingredient
@@ -30,7 +30,9 @@ describe('IngredientsListitemComponent', () => {
   let fixture: ComponentFixture<IngredientsListitemComponent>;
   let component: IngredientsListitemComponent;
   let goToButton: DebugElement;
+  let goToButtonEl: HTMLButtonElement;
   let editButton: DebugElement;
+  let editButtonEl: HTMLButtonElement;
   let quantityInput: () => HTMLInputElement;
   let unitInput: DebugElement;
 
@@ -73,6 +75,8 @@ describe('IngredientsListitemComponent', () => {
     );
 
     [goToButton, editButton] = getAllDe(fixture, 'button');
+    goToButtonEl = goToButton.nativeElement as HTMLButtonElement
+    editButtonEl = editButton.nativeElement as HTMLButtonElement
     quantityInput = (): HTMLInputElement => getEl(fixture, 'input');
     unitInput = getByDir(fixture, MatSelect);
   });
@@ -96,11 +100,11 @@ describe('IngredientsListitemComponent', () => {
 
   it('should disaplay the correct information', () => {
     fixture.detectChanges();
-    expect(goToButton.nativeElement.textContent).toContain(bread.name);
-    expect(goToButton.nativeElement.textContent).toContain(
+    expect(goToButtonEl.textContent).toContain(bread.name);
+    expect(goToButtonEl.textContent).toContain(
       ingredient.usage.unit
     );
-    expect(goToButton.nativeElement.textContent).toContain(
+    expect(goToButtonEl.textContent).toContain(
       ingredient.usage.quantity.toString()
     );
   });
@@ -108,7 +112,7 @@ describe('IngredientsListitemComponent', () => {
   it('should route away when clicked', () => {
     const spy = jest.spyOn(TestBed.inject(Router), 'navigate');
     fixture.detectChanges();
-    goToButton.nativeElement.click();
+    goToButtonEl.click();
     expect(spy).toHaveBeenCalledWith([
       'meal',
       'roodId',
@@ -122,7 +126,7 @@ describe('IngredientsListitemComponent', () => {
     expect(quantityInput()).toBeFalsy();
     expect(unitInput).toBeFalsy();
 
-    editButton.nativeElement.click();
+    editButtonEl.click();
     fixture.detectChanges();
     unitInput = getByDir(fixture, MatSelect);
 
@@ -132,14 +136,14 @@ describe('IngredientsListitemComponent', () => {
 
   it('should emit the details when save is clicked', () => {
     fixture.detectChanges();
-    editButton.nativeElement.click();
+    editButtonEl.click();
     fixture.detectChanges();
     const spy = jest.spyOn(component.portionChange, 'emit');
     const input = quantityInput();
     input.value = '25';
     input.dispatchEvent(new Event('input'));
-
-    getByDir(fixture, MatSelect).componentInstance.valueChange.emit('a unit');
+    const matSelect = getByDir(fixture, MatSelect).componentInstance as MatSelect
+    matSelect.valueChange.emit('a unit');
 
     getEl(fixture, '.save-button').click();
 

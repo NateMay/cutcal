@@ -155,7 +155,7 @@ export class DatePickerInputComponent implements OnInit, ControlValueAccessor {
         this.pickerOverlayRef.hostElement
       ])
     ) {
-      this.parseDate(this.input.nativeElement.value)
+      this.parseDate((this.input.nativeElement as HTMLInputElement).value)
       this.closePicker()
     }
   }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { getDe } from '../../../../../ng-testing/src/lib/getDe';
+import { getDe } from '@cutcal/ng-testing';
 import { StyleSanitizerPipe } from './style-sanitizer.pipe';
 
 @Component({

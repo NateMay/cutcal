@@ -1,5 +1,5 @@
 import { Component, Inject, ViewChild } from '@angular/core'
-import { ImageCropperComponent } from '../image-cropper/image-cropper.component'
+import { ImageCropperComponent, HTMLInputEvent } from '../image-cropper/image-cropper.component';
 import { ImageCroppedEvent } from '../interfaces/image-cropped-event'
 import {
   ImageCroperData,
@@ -83,7 +83,7 @@ import {
   `
 })
 export class UploadDialogComponent {
-  imageChangedEvent: any = ''
+  imageChangedEvent: HTMLInputEvent
   croppedImage: any = ''
 
   @ViewChild(ImageCropperComponent) imageCropper!: ImageCropperComponent

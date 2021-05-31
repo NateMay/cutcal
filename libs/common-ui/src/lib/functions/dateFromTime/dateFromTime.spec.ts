@@ -10,7 +10,9 @@ it('dateFromTime() - shared/functions', () => {
     expect(dateFromTime('17:30 pm')).toThrowError(
       '[CutCal] dateFromTime() must recieve valid time string'
     );
-  } catch {}
+  } catch {
+    console.log('fail')
+  }
 });
 
 it('timeFromDate() - shared/functions', () => {

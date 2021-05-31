@@ -1,8 +1,7 @@
-import { FdcUnit } from '@cutcal/api-interfaces'
-import { assertIsDefined } from '@cutcal/core'
+import { FdcUnit } from '@cutcal/core'
+import { assertIsDefined, Nutrition, Nutrient } from '@cutcal/core'
 import { NUTRIENT_KEYS } from './base-nutrition'
 import { NutrientMetaData, USDA_NUTRIENT_DETAILS } from './nutrient-details'
-import { Nutrient, Nutrition } from './nutrition'
 
 class NutrientMetadataStore {
   private _nutrients: Nutrition<string>
@@ -70,7 +69,7 @@ class NutrientMetadataStore {
   ): Nutrition<T> {
     const result: Nutrition<string | number> = {}
 
-    NUTRIENT_KEYS.forEach((nutrient) => {
+    NUTRIENT_KEYS.forEach((nutrient: keyof Nutrition<NutrientMetaData>) => {
       if (!USDA_NUTRIENT_DETAILS[nutrient])
         console.warn(
           `details needed for "${nutrient}". https://ndb.nal.usda.gov/ndb/nutrients/index`

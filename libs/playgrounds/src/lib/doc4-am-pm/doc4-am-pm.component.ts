@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 
 @Component({
   template: `
@@ -14,10 +14,7 @@ import { Component, OnInit } from '@angular/core'
   `,
   styleUrls: ['./doc4-am-pm.component.css']
 })
-export class Doc4AmPmComponent implements OnInit {
+export class Doc4AmPmComponent  {
   isPM = true
 
-  constructor() {}
-
-  ngOnInit(): void {}
 }

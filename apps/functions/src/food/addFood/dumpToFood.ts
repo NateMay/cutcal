@@ -4,11 +4,8 @@ import {
   FdcFoodNutrient,
   FdcUnit,
   NewFood,
-  newFoodReviewState
-} from '@cutcal/api-interfaces'
-import { KVP } from '@cutcal/core'
-import { createPortion, Portion } from '@cutcal/diet'
-import { NUTRIENTS, Nutrition } from '@cutcal/nutrition'
+  newFoodReviewState, KVP, Nutrition, Portion, createPortion } from '@cutcal/core'
+import { NUTRIENTS } from '@cutcal/nutrition'
 import { firestore } from 'firebase-admin'
 import { keyBy } from 'lodash'
 import { ScrapedData } from './scrapeData'

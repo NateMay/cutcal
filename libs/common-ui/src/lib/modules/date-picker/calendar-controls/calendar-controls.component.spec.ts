@@ -52,7 +52,7 @@ describe('Calendar Controls Component', () => {
 
     fixture = TestBed.createComponent(TestCalControlsComponent);
     parent = fixture.componentInstance;
-    component = getByDir(fixture, CalendarControlsComponent).componentInstance;
+    component = getByDir(fixture, CalendarControlsComponent).componentInstance as CalendarControlsComponent;
   });
 
   it('can load instance', () => {
@@ -67,15 +67,15 @@ describe('Calendar Controls Component', () => {
 
     fixture.detectChanges();
 
-    getDe(fixture, '[id^=next-month]').nativeElement.click();
+    getEl(fixture, '[id^=next-month]').click();
     expect(nextSpy).toHaveBeenCalledTimes(1);
     expect(refocus).toHaveBeenCalledWith(component.nextBtnID);
 
-    getDe(fixture, '[id^=prev-month]').nativeElement.click();
+    getEl(fixture, '[id^=prev-month]').click();
     expect(prevSpy).toHaveBeenCalledTimes(1);
     expect(refocus).toHaveBeenCalledWith(component.prevBtnID);
 
-    getDe(fixture, '[id^=controls-month-btn]').nativeElement.click();
+    getEl(fixture, '[id^=controls-month-btn]').click();
     expect(monthSpy).toHaveBeenCalledTimes(1);
     expect(refocus).toHaveBeenCalledWith(component.monthBtnID);
   });

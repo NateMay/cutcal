@@ -7,7 +7,7 @@ import { BreadCrumb } from './breadcrumb'
   selector: 'ds-breadcrumbs',
   styleUrls: ['./breadcrumbs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'cc-breadcrumbs' },
+  host: { class: 'ds-breadcrumbs' },
   template: `
     <a routerLink="/profile" class="breadcrumb dark">
       <i class="material-icons">home</i>
@@ -28,6 +28,6 @@ export class BreadcrumbsComponent {
   constructor(private readonly router: Router) {}
 
   goTo(crumb: BreadCrumb): void {
-    if (crumb.route) this.router.navigate(crumb.route)
+    if (crumb.route) void this.router.navigate(crumb.route)
   }
 }

@@ -3,13 +3,14 @@ import { DailyValueSvc } from '@cutcal/common-ui'
 import {
   CaloriesFrom,
   caloriesFromAll,
-  Nutrition,
   NutritionRange,
   ZERO_NUTRITION
 } from '@cutcal/nutrition'
 import { get } from 'lodash'
+import { Nutrition } from '@cutcal/core';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'table[cc-calories],cc-calories',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['../nutrient-table.scss', './calorie-table.component.scss'],
@@ -90,7 +91,7 @@ export class CalorieTableComponent {
 
   // Recommended Daily Allowance
   rda(propName: string): number {
-    const range: NutritionRange = get(this.dv.snapshot.nutrition, propName)
+    const range: NutritionRange = get(this.dv.snapshot.nutrition, propName) as NutritionRange
     return range?.RDA ? range.RDA : 1
   }
 }

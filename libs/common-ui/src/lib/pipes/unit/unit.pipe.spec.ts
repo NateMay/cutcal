@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { getEl } from '../../../../../ng-testing/src/lib/getEl';
+import { getEl } from '@cutcal/ng-testing';
 import { UnitPipeModule } from './unit-pipe.module';
 
 @Component({

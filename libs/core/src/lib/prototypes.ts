@@ -176,6 +176,7 @@ function addDay(this: Date): Date {
 
 /**
  * @description Returns a new Date() object incrmented by the specified dayCount
+ * @param {Date} this
  * @param {number} dayCount The number of days to increment (negatives are valid)
  * @returns {Date}
  * @example
@@ -199,6 +200,7 @@ function addMonth(this: Date): Date {
 
 /**
  * @description Returns a new Date() object incrmented by the specified monthCount
+ * @param {Date} this
  * @param {number} monthCount The number of days to increment (negatives are valid)
  * @returns {Date}
  * @example
@@ -255,6 +257,7 @@ function addYear(this: Date): Date {
 
 /**
  * @description Returns a new Date() object incrmented by the specified YearCount
+ * @param {Date} this
  * @param {number} yearCount The number of days to increment (negatives are valid)
  * @returns {Date}
  * @example
@@ -309,6 +312,7 @@ function firstDayOfWeek(this: Date): Date {
 
 /**
  * @description Whether the date is before the argument
+ * @param {Date} this
  * @param {Date} compare the date with which to compare
  * @returns {boolean}
  * @example
@@ -321,6 +325,7 @@ function isBefore(this: Date, compare: Date | null): boolean | never {
 
 /**
  * @description Whether the date is between those provided
+ * @param {Date} this
  * @param {Date} minDate lower bound of checked range
  * @param {Date} maxDate uppder bound of checked range
  * @returns {boolean}

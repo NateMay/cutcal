@@ -16,7 +16,7 @@ import { DsDatepicker } from './datepicker'
 
 /** Can be used to override the icon of a `ccDatepickerToggle`. */
 @Directive({
-  selector: '[ccDatepickerToggleIcon]'
+  selector: '[dsDatepickerToggleIcon]'
 })
 export class DsDatepickerToggleIcon {}
 
@@ -27,7 +27,7 @@ export class DsDatepickerToggleIcon {}
       #button
       mat-icon-button
       type="button"
-      [attr.aria-haspopup]="datepicker ? 'dialog' : null"
+      [attr.aria-haspopup]="forDatepicker ? 'dialog' : null"
       aria-label="open date picker"
       [attr.tabindex]="disabled ? -1 : tabIndex"
       [disabled]="disabled"
@@ -68,7 +68,7 @@ export class DsDatepickerToggle implements OnDestroy {
   private _stateChanges = Subscription.EMPTY
 
   /** Datepicker instance that the button will toggle. */
-  @Input('for') datepicker: DsDatepicker
+  @Input() forDatepicker: DsDatepicker
 
   /** Tabindex for the toggle. */
   @Input() tabIndex: number | null
@@ -76,8 +76,8 @@ export class DsDatepickerToggle implements OnDestroy {
   /** Whether the toggle button is disabled. */
   @Input()
   get disabled(): boolean {
-    if (this._disabled === undefined && this.datepicker) {
-      return this.datepicker.disabled
+    if (this._disabled === undefined && this.forDatepicker) {
+      return this.forDatepicker.disabled
     }
 
     return !!this._disabled
@@ -111,7 +111,7 @@ export class DsDatepickerToggle implements OnDestroy {
   //   }
   // }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this._stateChanges.unsubscribe()
   }
 
@@ -120,8 +120,8 @@ export class DsDatepickerToggle implements OnDestroy {
   // }
 
   _open(event: Event): void {
-    if (this.datepicker && !this.disabled) {
-      this.datepicker.open()
+    if (this.forDatepicker && !this.disabled) {
+      this.forDatepicker.open()
       event.stopPropagation()
     }
   }

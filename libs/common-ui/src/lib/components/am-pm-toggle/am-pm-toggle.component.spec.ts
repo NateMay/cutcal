@@ -31,7 +31,7 @@ describe('AmPmToggleComponent', () => {
 
     fixture = TestBed.createComponent(TestApPmComponent);
     parent = fixture.componentInstance;
-    component = getByDir(fixture, AmPmToggleComponent).componentInstance;
+    component = getByDir(fixture, AmPmToggleComponent).componentInstance as AmPmToggleComponent;
     toggle = getEl(fixture, 'input');
   });
 

@@ -132,7 +132,7 @@ export class TimepickerDialogComponent {
     @Optional() @Inject(TIME_PICKER_DATA) public data: TimePickerData
   ) {
     if (data) {
-      this.input = data.input
+      this.input = data.input as TimePickerInputComponent
       this.setDefaultTime(this.input.time)
     }
   }

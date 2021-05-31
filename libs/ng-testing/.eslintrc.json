@@ -10,15 +10,11 @@
       ],
       "parserOptions": { "project": ["libs/ng-testing/tsconfig.*?.json"] },
       "rules": {
+        "@angular-eslint/directive-class-suffix": "off",
         "@angular-eslint/component-class-suffix": "off",
-        "@angular-eslint/directive-selector": [
-          "error",
-          { "type": "attribute", "prefix": "ds", "style": "camelCase" }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          { "type": "element", "prefix": "ds", "style": "kebab-case" }
-        ]
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@angular-eslint/directive-selector": "off",
+        "@angular-eslint/component-selector": "off"
       }
     },
     {

@@ -1,3 +1,5 @@
+
+
 export function resetExifOrientation(srcBase64: string): Promise<string> {
   try {
     const exifRotation = getExifRotation(srcBase64)
@@ -89,7 +91,7 @@ function base64ToArrayBuffer(
 }
 
 function transformCanvas(
-  ctx: any,
+  ctx: CanvasRenderingContext2D,
   orientation: number,
   width: number,
   height: number

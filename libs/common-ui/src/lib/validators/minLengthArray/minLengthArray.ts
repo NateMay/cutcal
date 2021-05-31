@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { AbstractControl, ValidationErrors } from '@angular/forms'
 
 export const minLengthArray = (min: number) => (
@@ -9,6 +10,6 @@ export const minLengthArray = (min: number) => (
         minLengthArray: {
           valid: false,
           required: min,
-          actual: c.value.length
+          actual: c.value.length as number
         }
       }

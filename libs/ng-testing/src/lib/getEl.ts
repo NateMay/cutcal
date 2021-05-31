@@ -8,5 +8,5 @@ export function getEl<T extends HTMLElement>(
 ): T | null {
   const el = fixture.debugElement.query(By.css(css))
   // assertIsDefined(el.nativeElement)
-  return el?.nativeElement
+  return el?.nativeElement as T
 }

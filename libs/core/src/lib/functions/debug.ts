@@ -10,12 +10,12 @@ export enum RxjsLoggingLevel {
 
 let rxjsLoggingLevel = RxjsLoggingLevel.INFO
 
-export const setRxjsLoggingLevel = (level: RxjsLoggingLevel) =>
+export const setRxjsLoggingLevel = (level: RxjsLoggingLevel): RxjsLoggingLevel =>
   (rxjsLoggingLevel = level)
 
 export const debug = (level: RxjsLoggingLevel, message: string) => (
   source: Observable<any>
-) =>
+): Observable<any> =>
   source.pipe(
     tap((value) => {
       if (level > rxjsLoggingLevel) {

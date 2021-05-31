@@ -2,13 +2,17 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MemoizePipe } from './memoize.pipe';
 
+interface AnObject {
+  value: string
+}
+
 @Component({
   template: ` <div [innerHTML]="contextobj | memoize: method"></div> `
 })
 class TestMemoizeComp {
-  contextobj = { value: 'hi 1' };
+  contextobj: AnObject = { value: 'hi 1' };
 
-  method(obj: any): any {
+  method(obj: AnObject): string {
     return obj.value;
   }
 

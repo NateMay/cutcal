@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 @Component({
@@ -47,12 +47,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
   `,
   styleUrls: ['./doc4-masking.component.scss']
 })
-export class Doc4MaskingComponent implements OnInit {
-  value1 = '2342342'
+export class Doc4MaskingComponent {
+  value1: number | string = '2342342'
   value2 = 1873642364827346
   formGroup: FormGroup
 
-  defaultFormValues: any = {
+  defaultFormValues: {
+    [key: string]: any;
+} = {
     card: [null],
     ssn: [333, Validators.required]
   }
@@ -60,9 +62,7 @@ export class Doc4MaskingComponent implements OnInit {
     this.formGroup = this.fb.group(this.defaultFormValues)
   }
 
-  ngOnInit() {}
-
-  reset() {
+  reset(): void {
     this.value1 = '2342342'
     this.value2 = 1873642364827346
     this.formGroup.patchValue(this.defaultFormValues)

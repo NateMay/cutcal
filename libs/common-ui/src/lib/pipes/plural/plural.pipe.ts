@@ -5,7 +5,7 @@ import { safePlural } from '../../functions/safePlural'
   name: 'plural'
 })
 export class PluralPipe implements PipeTransform {
-  transform(string: any, quantity: number): any {
+  transform(string: string, quantity: number): any {
     return safePlural(string, quantity)
   }
 }

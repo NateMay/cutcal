@@ -2,11 +2,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  OnInit
 } from '@angular/core'
 import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'table[cc-insufficient], cc-insufficient',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'cc-insufficient' },
@@ -28,7 +28,7 @@ import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
     </tbody>
   `
 })
-export class InsufficientTableComponent implements OnInit {
+export class InsufficientTableComponent {
   private _nutrition: Nutrition<number>
   @Input() set nutrition(nutrition: Nutrition<number>) {
     this._nutrition = Object.assign({}, ZERO_NUTRITION, nutrition)
@@ -36,8 +36,4 @@ export class InsufficientTableComponent implements OnInit {
   get nutrition(): Nutrition<number> {
     return this._nutrition
   }
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

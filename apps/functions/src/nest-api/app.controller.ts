@@ -1,6 +1,6 @@
-import { WikiDescription } from '@cutcal/api-interfaces'
+import { WikiDescription } from '@cutcal/core'
 import { Body, Controller, Get, Post } from '@nestjs/common'
-import { WikiService } from './wikipedia.service'
+import { WikiService, DumbResponse } from './wikipedia.service'
 
 @Controller()
 export class AppController {
@@ -10,7 +10,7 @@ export class AppController {
    * @prod https://us-central1-cutcal.cloudfunctions.net/api/hello
    */
   @Get('hello')
-  getData(): any {
+  getData(): DumbResponse {
     return this.wikipedia.getData()
   }
 

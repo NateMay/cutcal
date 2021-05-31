@@ -189,7 +189,7 @@ describe('RadialProgressComponent', () => {
   describe('DOM', () => {
     it('should set svg viewBox, height and width from diameter', () => {
       fixture.detectChanges();
-      const svgEl = getDE('svg').nativeElement;
+      const svgEl = getDE('svg').nativeElement as SVGElement;
       expect(svgEl.getAttribute('viewBox')).toBe('0 0 50 50');
       expect(svgEl.style.width).toBe('50px');
       expect(svgEl.style.height).toBe('50px');
@@ -197,7 +197,7 @@ describe('RadialProgressComponent', () => {
 
     it('should set radius and stroke-width of back circle', () => {
       fixture.detectChanges();
-      const backCircle = getDE('.rpb-back').nativeElement;
+      const backCircle = getDE('.rpb-back').nativeElement as HTMLElement;
       expect(backCircle.getAttribute('r')).toBe('23');
       expect(backCircle.style.strokeWidth).toBe('2px');
     });
@@ -214,8 +214,8 @@ describe('RadialProgressComponent', () => {
     it('should remove text element, add path for check, and add classes to both back and arc circle when percent is 100', () => {
       parent.percent = 99;
       fixture.detectChanges();
-      const backCircle = getDE('.rpb-back').nativeElement;
-      const arcCircle = getDE('.rpb-arc').nativeElement;
+      const backCircle = getDE('.rpb-back').nativeElement as HTMLElement;
+      const arcCircle = getDE('.rpb-arc').nativeElement as HTMLElement;
       expect(backCircle.classList).not.toContain('rpb-back-done');
       expect(arcCircle.classList).not.toContain('rpb-arc-done');
       expect(getDE('.rpb-text')).toBeTruthy();
@@ -231,7 +231,7 @@ describe('RadialProgressComponent', () => {
 
     it('should set radius, stroke-width, stroke-dasharray and stroke-dashoffset of arc', () => {
       fixture.detectChanges();
-      const arcCircle = getDE('.rpb-arc').nativeElement;
+      const arcCircle = getDE('.rpb-arc').nativeElement as HTMLElement;
       expect(arcCircle.getAttribute('r')).toBe('23');
       expect(arcCircle.style.strokeWidth).toBe('4px');
       // Some browsers calculatons may not match exact decimal point, so we just want to check basic number
@@ -242,7 +242,7 @@ describe('RadialProgressComponent', () => {
     it('should set path and stroke-width on path of checkmark', () => {
       parent.percent = 100;
       fixture.detectChanges();
-      const check = getDE('.rpb-done-check').nativeElement;
+      const check = getDE('.rpb-done-check').nativeElement as HTMLElement;
       expect(check.getAttribute('d')).toMatch(
         /^M[\d.]* [\d.]* L[\d.]* [\d.]* L[\d.]* [\d.]*$/
       );
@@ -252,7 +252,7 @@ describe('RadialProgressComponent', () => {
     it('should insert content projected code in section below svg', () => {
       parent.content = 'my test content';
       fixture.detectChanges();
-      const contentProj = getDE('.rpb-content').nativeElement;
+      const contentProj = getDE('.rpb-content').nativeElement as HTMLElement;
       expect(contentProj.innerHTML).toContain('my test content');
     });
   });

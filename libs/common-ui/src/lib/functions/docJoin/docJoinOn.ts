@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { AngularFirestore } from '@angular/fire/firestore'
 import { combineLatest, defer, Observable } from 'rxjs'
 import { map, switchMap, tap } from 'rxjs/operators'

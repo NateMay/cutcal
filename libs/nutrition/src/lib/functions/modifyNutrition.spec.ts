@@ -10,7 +10,7 @@ it('modifyNutrition() - shared/functions', () => {
         fat: 5,
         alcohol: 17
       },
-      (val) => val + 4
+      (val: number) => val + 4
     )
   ).toEqual({
     calories: 124,

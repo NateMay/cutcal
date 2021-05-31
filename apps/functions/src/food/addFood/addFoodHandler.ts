@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { AddFoodReponse, FdcDump } from '@cutcal/api-interfaces'
+import { AddFoodReponse, FdcDump } from '@cutcal/core'
 import * as functions from 'firebase-functions'
 import { addFoodToAlgolia } from '../../algolia/addFoodToAlgolia'
 import { firestore } from '../../helpers/initializeApp'

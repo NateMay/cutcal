@@ -12,7 +12,7 @@ export const NAVIGATOR = new InjectionToken('NavigatorToken')
 
 /* Define abstract class for obtaining reference to the global Navigator object. */
 export abstract class NavigatorRef {
-  get nativeNavigator(): Navigator | object {
+  get nativeNavigator(): Navigator {
     throw new Error(
       '[CutCal] NavigatorRef is an abstract class but is being references'
     )
@@ -22,11 +22,11 @@ export abstract class NavigatorRef {
 /* Define class that implements the abstract class and returns the native Navigator object. */
 @Injectable({ providedIn: 'root' })
 export class BrowserNavigatorRef extends NavigatorRef {
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+  constructor(@Inject(PLATFORM_ID) private platformId: InjectionToken<any>) {
     super()
   }
 
-  get nativeNavigator(): Navigator | object {
+  get nativeNavigator(): Navigator  {
     if (isPlatformBrowser(this.platformId)) {
       return navigator
     } else
@@ -38,11 +38,11 @@ export class BrowserNavigatorRef extends NavigatorRef {
 /* Create an factory function that returns the native Navigator object. */
 export const navigatorFactory = (
   browserNavigatorRef: BrowserNavigatorRef,
-  platformId: object
-): Navigator | object =>
+  platformId: InjectionToken<unknown>
+): Navigator  =>
   isPlatformBrowser(platformId)
     ? browserNavigatorRef.nativeNavigator
-    : new Object()
+    : new Object() as Navigator
 
 const browserNavigatorProvider: ClassProvider = {
   provide: NavigatorRef,

@@ -1,18 +1,19 @@
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { docJoin } from './docJoin';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 it('docJoin() adds the child to the parent  - shared/functions', () => {
   // arrange
   const afsStub = {
-    doc: (path: string): any => ({
-      valueChanges: (): Observable<any> => of({ docToJoin: 'anything' })
+    doc: (path: string): unknown => ({
+      valueChanges: (): Observable<unknown> => of({ docToJoin: 'anything' })
     })
   };
 
   const spy = jest.spyOn(afsStub, 'doc');
 
-  const firebaseResponse$: Observable<any> = of({
+  const firebaseResponse$: Observable<unknown> = of({
     assignmentProp: '<DOCUMENT_ID>',
     parentProp: 'should not change'
   });
@@ -20,7 +21,7 @@ it('docJoin() adds the child to the parent  - shared/functions', () => {
   // act
   firebaseResponse$
     .pipe(
-      docJoin(<any>afsStub, { assignmentProp: 'collectionName' }),
+      docJoin(<AngularFirestore>afsStub, { assignmentProp: 'collectionName' }),
 
       // assert
       tap((result) =>

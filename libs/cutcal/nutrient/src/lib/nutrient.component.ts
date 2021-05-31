@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { Title } from '@angular/platform-browser'
-import { NutrCheckable, Nutrition, nutrtionSelections } from '@cutcal/nutrition'
+import { NutrCheckable, nutrtionSelections } from '@cutcal/nutrition'
+import { Nutrition } from '@cutcal/core';
+
 
 // FEATURE (nutrient-page) (content)
 @Component({

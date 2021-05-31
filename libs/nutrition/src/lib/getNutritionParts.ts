@@ -21,7 +21,7 @@ import {
   VitaminD,
   VitaminE,
   Vitamins
-} from './nutrition'
+} from '@cutcal/core'
 // TEST (NutritionParts)
 
 /**

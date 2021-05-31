@@ -5,7 +5,6 @@ import { AuthService } from '@cutcal/auth';
 import { STRICT_RUNTIME_CHECKS } from '@cutcal/core';
 import { StoreModule } from '@ngrx/store';
 import { of } from 'rxjs';
-import { reducers } from '../../app.state';
 import { FirestoreService } from '../fireStore/fireStore.service';
 import { MealService } from './meal.service';
 
@@ -23,7 +22,7 @@ describe('MealService', () => {
 
   const storageStub = {
     storage: {
-      refFromURL: (): any => ({ delete: (): void => {} })
+      refFromURL: () => ({ delete: (): void => {} })
     }
   };
 

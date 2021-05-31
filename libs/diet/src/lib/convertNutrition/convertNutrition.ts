@@ -1,7 +1,7 @@
 import { convert } from '@cutcal/convert-units'
-import { KVP } from '@cutcal/core'
-import { Food, Portion, Usage } from '@cutcal/diet'
-import { multiplyNutrition, Nutrient, Nutrition } from '@cutcal/nutrition'
+import { KVP, Portion, Nutrient, Nutrition } from '@cutcal/core'
+import { Food, Usage } from '@cutcal/diet'
+import { multiplyNutrition } from '@cutcal/nutrition'
 import { forEach } from 'lodash'
 
 /**
@@ -58,15 +58,15 @@ function getUnitConvertionFactor(usage: Usage, fPortion: Portion): number {
 const portionCache: KVP<Portion> = {}
 
 function getCompatibleFoodPortion(usage: Usage, food: Food): Portion | never {
-  if (!food) throw Error(`[CutCal] No food was provided for: ${usage}}`)
+  if (!food) throw Error(`[CutCal] No food was provided for: ${usage.unit}}`)
 
-  const cacheKey = `${food._id}-${usage.unit}`
+  const cacheKey = `${food._id as string}-${usage.unit}`
 
   if (portionCache[cacheKey]) return portionCache[cacheKey]
 
   if (!food.portions)
     throw Error(
-      `[CutCal] ${food.name} does not have portion information: ${food}}`
+      `[CutCal] ${food.name} does not have portion information: ${food.name}}`
     )
 
   let fportion = food.portions[usage.unit]

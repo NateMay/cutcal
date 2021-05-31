@@ -19,7 +19,7 @@ import { DndSvc } from '../dnd.service'
 export const DRAG_SKIP_COUNT = 6
 
 @Directive({
-  selector: '[drag],[ccDrag]'
+  selector: '[dsDrag],[drag]'
 })
 export class DragItem {
   static default: string = '../../../../assets/svgs/meal.svg'
@@ -27,7 +27,7 @@ export class DragItem {
   private img = <HTMLImageElement>document.getElementById('drag-obj')
   private app = <HTMLImageElement>document.getElementById('app-root')
 
-  @Input() drag: any
+  @Input() payload: any
   // @Input() dropID: string;
   @Input() immediate = false // for testing
   @Input() dragImage: string | null = DragItem.default
@@ -35,7 +35,7 @@ export class DragItem {
   @Boolish
   @Input()
   showTrash: boolean = true
-  @Output() dragStart = new EventEmitter<Event>()
+  @Output() dsDrag = new EventEmitter<Event>()
 
   constructor(
     public dndSvc: DndSvc,
@@ -73,16 +73,16 @@ export class DragItem {
     mousemove.preventDefault()
     mousemove.stopPropagation()
     // this.dndSvc.dropID = this.dropID || 'no dropID';
-    this.dndSvc.startDrag(this.drag, this.showTrash)
+    this.dndSvc.startDrag(this.payload, this.showTrash)
     this.renderer.setStyle(this.img, 'transform', 'scale(1, 1)')
     this.renderer.setStyle(this.app, 'user-select', 'none')
     this.clearSelection()
-    this.dragStart.emit(mousemove)
+    this.dsDrag.emit(mousemove)
   }
 
   update(mousemove: Event): void {
     mousemove.preventDefault()
-    if (!this.dndSvc.isDragging && !!this.drag) this.initialize(mousemove)
+    if (!this.dndSvc.isDragging && !!this.payload) this.initialize(mousemove)
     this.setPosition(<MouseEvent>mousemove)
   }
 

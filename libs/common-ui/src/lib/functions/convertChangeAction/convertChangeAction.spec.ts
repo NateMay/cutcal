@@ -1,4 +1,5 @@
 import { convertChangeAction } from './convertChangeAction';
+import { DocumentChangeAction } from '@angular/fire/firestore';
 
 it('convertSnaps() - shared/functions', () => {
   const snaps = [
@@ -6,13 +7,13 @@ it('convertSnaps() - shared/functions', () => {
       payload: {
         doc: {
           id: '12345',
-          data: (): any => ({ obj: 'obj' })
+          data: () => ({ obj: 'obj' })
         }
       }
     }
-  ];
+  ] as DocumentChangeAction<{ obj: string; }>[];
 
-  expect(convertChangeAction(<any>snaps)).toEqual([
+  expect(convertChangeAction(snaps)).toEqual([
     {
       _id: '12345',
       obj: 'obj'

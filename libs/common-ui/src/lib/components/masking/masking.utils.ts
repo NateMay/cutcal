@@ -1,18 +1,18 @@
 export type CharChecker = (char: string) => boolean
 
 const single = (char: string) => char.length == 1
-const lowerCaseChecker = (char: string) => single(char) && /[a-z]{1}/.test(char)
-const upperCaseChecker = (char: string) => single(char) && /[A-Z]{1}/.test(char)
-const anyChecker = (char: string) => true
-export const numericChecker = (char: string) => /[0-9]{1}/.test(char)
-export const alphaNumericChecker = (char: string) =>
+const lowerCaseChecker = (char: string): boolean => single(char) && /[a-z]{1}/.test(char)
+const upperCaseChecker = (char: string): boolean => single(char) && /[A-Z]{1}/.test(char)
+const anyChecker = (char: string): boolean => true
+export const numericChecker = (char: string): boolean => /[0-9]{1}/.test(char)
+export const alphaNumericChecker = (char: string): boolean =>
   single(char) && /^[a-z0-9]{1}/i.test(char)
-export const nonZeroNumericChecker = (char: string) =>
+export const nonZeroNumericChecker = (char: string): boolean =>
   single(char) && /[1-9]{1}/.test(char)
 
-export const lteChecker = (maxValue: number) => (char: string) =>
+export const lteChecker = (maxValue: number) => (char: string): boolean =>
   numericChecker(char) && parseInt(char, 10) <= maxValue
-export const neverChecker = (char: string) => false
+export const neverChecker = (char: string): boolean => false
 
 export interface CharCheckerMap {
   [key: string]: CharChecker

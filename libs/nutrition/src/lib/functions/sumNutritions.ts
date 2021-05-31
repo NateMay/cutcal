@@ -1,5 +1,5 @@
 import { isNumber, mergeWith } from 'lodash'
-import { Nutrition } from '../nutrition'
+import { Nutrition } from '@cutcal/core'
 
 /**
  * @description Aggregates an array of nutrition objects
@@ -7,7 +7,7 @@ import { Nutrition } from '../nutrition'
  */
 export const sumNutritions = (
   source: Nutrition<number>[]
-): Nutrition<number> => // eslint-disable-next-line prefer-spread
+): Nutrition<number> =>
   mergeWith.apply(
     null,
     [{}]
@@ -15,4 +15,4 @@ export const sumNutritions = (
       .concat((value: number, src: number) =>
         isNumber(value) ? value + src : src
       )
-  )
+  ) as Nutrition<number>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'ds-doc4-datepicker',
@@ -73,12 +73,8 @@ import { Component, OnInit } from '@angular/core'
   `,
   styleUrls: ['./doc4-datepicker.component.css']
 })
-export class Doc4DatepickerComponent implements OnInit {
+export class Doc4DatepickerComponent {
   date: Date = new Date()
-
-  constructor() {}
-
-  ngOnInit(): void {}
 
   addMonth(): void {
     this.date = this.date.addMonth()

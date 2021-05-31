@@ -10,7 +10,7 @@ import { first } from 'rxjs/operators'
  *   onStable(ngZone, () => button.focus());
  */
 
-export function onStable(ngZone: NgZone, func: () => any): void {
+export function onStable(ngZone: NgZone, func: () => void): void {
   ngZone.runOutsideAngular(() =>
     ngZone.onStable
       .asObservable()

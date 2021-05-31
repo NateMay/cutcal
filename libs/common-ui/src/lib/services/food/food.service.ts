@@ -13,6 +13,9 @@ import { FirestoreService } from '../fireStore/fireStore.service'
 
 export type FoodTripple = [Food, KVP<Usage>, KVP<Food>]
 
+interface HTMLInputEvent extends Event {
+  target: HTMLInputElement & EventTarget;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -107,13 +110,13 @@ export class FoodService {
 
   /**
    * @description Protects from race condition where a food is not yet referenced properly
-   * @param {Tripple} : MealTripple or MealsTripple
+   * @param {Tripple} MealTripple or MealsTripple
    */
   invalidMappings([, usages, foods]: Tripple): boolean {
     return !_map(usages, (usage) => foods[usage.foodId]).some((food) => !food)
   }
 
-  newFoodImage(event: any, food: Food, uploaderId: string): void {
+  newFoodImage(event: HTMLInputEvent, food: Food, uploaderId: string): void {
     this.newFoodImageFile(event.target.files[0], food, uploaderId)
   }
 
@@ -136,7 +139,7 @@ export class FoodService {
       .snapshotChanges()
       .pipe(
         finalize(() => {
-          this.downloadURL = this.storage.ref(filePath).getDownloadURL()
+          this.downloadURL = this.storage.ref(filePath).getDownloadURL() as Observable<string>
           // TODO (images) (food) update the food images list
         })
       )

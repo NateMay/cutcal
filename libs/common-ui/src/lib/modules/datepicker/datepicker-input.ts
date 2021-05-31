@@ -6,7 +6,6 @@ import {
   forwardRef,
   Inject,
   Input,
-  OnInit,
   Optional,
   Output,
   Provider
@@ -50,7 +49,7 @@ export class DsDatepickerInputEvent {
 }
 
 @Directive({
-  selector: 'input[ccDatepicker]',
+  selector: 'input[dsDatepicker]',
   providers: [
     CC_DATEPICKER_VALUE_ACCESSOR,
     MAT_DATEPICKER_VALIDATORS,
@@ -67,7 +66,7 @@ export class DsDatepickerInputEvent {
   },
   exportAs: 'ccDatepickerInput'
 })
-export class DsDatepickerInput implements OnInit {
+export class DsDatepickerInput {
   /** Emits when the value changes (either due to user input or programmatic change). */
   _valueChange = new EventEmitter<string | null>()
 
@@ -155,9 +154,7 @@ export class DsDatepickerInput implements OnInit {
     @Optional() @Inject(MatFormField) private _formField: MatFormField
   ) {}
 
-  ngOnInit() {}
-
-  _onTouched = () => {}
+  _onTouched = (): void => {}
 
   private _cvaOnChange: (value: any) => void = () => {}
 

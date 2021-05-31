@@ -28,8 +28,7 @@ describe('StripHtmlPipe', () => {
 
   it('create an instance', () => {
     fixture.detectChanges();
-    expect(
-      fixture.debugElement.query(By.css('div')).nativeElement.textContent
-    ).toContain('No bold tag.');
+    const div = fixture.debugElement.query(By.css('div')).nativeElement as HTMLDivElement
+    expect(div.textContent).toContain('No bold tag.');
   });
 });

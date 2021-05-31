@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 /**
- * @reference https://github.com/nrwl/nx/issues/836
- * @source https://github.com/spy4x/nx-with-firebase-functions/blob/master/tools/scripts/build-firebase-functions-package-json.js
+ * @see {@link https://github.com/nrwl/nx/issues/836 Github}
+ * @see {@link https://github.com/spy4x/nx-with-firebase-functions/blob/master/tools/scripts/build-firebase-functions-package-json.js Github}
  */
 
 const packageJson = require('../../package.json') // Take root package.json

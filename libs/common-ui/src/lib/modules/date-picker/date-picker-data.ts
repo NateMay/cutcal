@@ -1,6 +1,6 @@
 import { InjectionToken } from '@angular/core'
 
-export const DATE_PICKER_DATA = new InjectionToken<{}>('DatePickerData')
+export const DATE_PICKER_DATA = new InjectionToken<unknown>('DatePickerData')
 
 export interface DatePickerDialogData {
   selectedDate: Date

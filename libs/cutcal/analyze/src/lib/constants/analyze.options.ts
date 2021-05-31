@@ -14,6 +14,7 @@ import {
   TooltipOptions
 } from 'highcharts'
 import { cloneDeep } from 'lodash'
+import * as Highcharts from 'highcharts';
 
 /**
  * @see {@link https://api.highcharts.com/highcharts/ Highcharts Docs}

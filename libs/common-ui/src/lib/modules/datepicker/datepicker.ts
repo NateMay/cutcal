@@ -55,6 +55,9 @@ export const CC_DATEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER = {
   encapsulation: ViewEncapsulation.None
 })
 export class DsDatepicker implements OnDestroy, CanColor {
+
+  // TODO: defaultColor
+  defaultColor: ThemePalette
   private _scrollStrategy: () => ScrollStrategy
 
   /** Subscription to value changes in the associated input element. */
@@ -169,8 +172,8 @@ export class DsDatepicker implements OnDestroy, CanColor {
   constructor(
     private _dialog: MatDialog,
     private _ngZone: NgZone,
-    @Optional() @Inject(DOCUMENT) private _document: any,
-    @Inject(CC_DATEPICKER_SCROLL_STRATEGY) scrollStrategy: any,
+    @Optional() @Inject(DOCUMENT) private _document: Document,
+    @Inject(CC_DATEPICKER_SCROLL_STRATEGY) scrollStrategy: () => ScrollStrategy,
     private _viewContainerRef: ViewContainerRef,
     @Optional() private _dir: Directionality,
     private _overlay: Overlay
@@ -178,7 +181,7 @@ export class DsDatepicker implements OnDestroy, CanColor {
     this._scrollStrategy = scrollStrategy
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this._destroyPopup()
     this.close()
     this._inputSubscription.unsubscribe()
@@ -218,7 +221,7 @@ export class DsDatepicker implements OnDestroy, CanColor {
       throw Error('Attempted to open an DsDatepicker with no associated input.')
     }
     if (this._document) {
-      this._focusedElementBeforeOpen = this._document.activeElement
+      this._focusedElementBeforeOpen = this._document.activeElement as HTMLElement
     }
 
     this.touchUi ? this._openAsDialog() : this._openAsPopup()

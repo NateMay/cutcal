@@ -3,16 +3,13 @@ import {
   FdcFoodAttribute,
   FdcFoodDetailResponse,
   FdcFoodGroup,
-  FnddsFoodCategory
-} from '@cutcal/api-interfaces'
-import { purifyObject } from '@cutcal/core'
+  FnddsFoodCategory,
+  purifyObject
+} from '@cutcal/core'
 import { firestore } from 'firebase-admin'
 import * as rp from 'request-promise'
 
 export const getFoodFromFDC = async (fdcId: string): Promise<FdcDump> => {
-  const avocado = await rp(
-    `https://fdc.nal.usda.gov/portal-data/external/${fdcId}`
-  )
 
   const {
     foodClass,
@@ -31,7 +28,9 @@ export const getFoodFromFDC = async (fdcId: string): Promise<FdcDump> => {
     foodGroup,
     gtinUpc,
     ingredients
-  } = JSON.parse(avocado) as FdcFoodDetailResponse
+  } = JSON.parse(await rp(
+    `https://fdc.nal.usda.gov/portal-data/external/${fdcId}`
+  )) as FdcFoodDetailResponse
 
   const categories = []
   if (foodAttributes)
