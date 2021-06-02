@@ -227,7 +227,10 @@ export class FatsTableComponent {
 
   // Recommended Daily Allowance
   rda(path: string): number {
-    const range: NutritionRange = get(this.dv.snapshot.nutrition, path) as NutritionRange
+    const range: NutritionRange = get(
+      this.dv.snapshot.nutrition,
+      path
+    ) as NutritionRange
     return range?.RDA ? range.RDA : 1
   }
 }

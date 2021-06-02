@@ -37,9 +37,10 @@ export const CC_TIMEPICKER_SCROLL_STRATEGY = new InjectionToken<
   () => ScrollStrategy
 >('cc-timepicker-scroll-strategy')
 
-export const CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY = (
-  overlay: Overlay
-): (() => ScrollStrategy) => () => overlay.scrollStrategies.reposition()
+export const CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY =
+  (overlay: Overlay): (() => ScrollStrategy) =>
+  () =>
+    overlay.scrollStrategies.reposition()
 
 export const CC_TIMEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER = {
   provide: CC_TIMEPICKER_SCROLL_STRATEGY,
@@ -220,7 +221,8 @@ export class DsTimepicker implements OnDestroy, CanColor {
       throw Error('Attempted to open an DsTimepicker with no associated input.')
     }
     if (this._document) {
-      this._focusedElementBeforeOpen = this._document.activeElement as HTMLElement
+      this._focusedElementBeforeOpen = this._document
+        .activeElement as HTMLElement
     }
 
     this.touchUi ? this._openAsDialog() : this._openAsPopup()

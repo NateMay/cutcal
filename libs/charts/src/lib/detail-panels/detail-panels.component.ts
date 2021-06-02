@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { createPortion, Portion , Nutrition} from '@cutcal/core'
+import { createPortion, Portion, Nutrition } from '@cutcal/core'
 import { NUTRIENTS, ZERO_NUTRITION } from '@cutcal/nutrition'
 
 export interface Primaries<T> {

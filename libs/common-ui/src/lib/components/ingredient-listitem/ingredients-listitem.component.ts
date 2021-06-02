@@ -7,17 +7,10 @@ import {
 } from '@angular/core'
 import { MatSliderChange } from '@angular/material/slider'
 import { Router } from '@angular/router'
-import {
-  Food,
-  Ingredient,
-  isFood,
-  isMeal,
-  Meal,
-  Usage
-} from '@cutcal/diet'
+import { Food, Ingredient, isFood, isMeal, Meal, Usage } from '@cutcal/diet'
 import { devWarn } from '../../functions/devWarn'
 import { getQuantityStep } from '../../functions/increment/increment'
-import { Portion } from '@cutcal/core';
+import { Portion } from '@cutcal/core'
 
 export interface IngredientPortionChange {
   usage: Usage
@@ -39,7 +32,7 @@ export interface DeleteIngredientPayload {
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./ingredients-listitem.component.scss'],
   template: `
-  <span fxLayout="row" [dsDrag]="usage">
+    <span fxLayout="row" [dsDrag]="usage">
       <button (click)="goToItem()">
         <div fxLayout="row" fxLayoutGap="12px">
           <img

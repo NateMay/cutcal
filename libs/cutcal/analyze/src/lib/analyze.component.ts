@@ -37,8 +37,8 @@ import { DailyNutrition } from './models/daily-nutrition'
 import { ViewMap } from './models/view-map'
 
 interface DateRange {
-  start: Date;
-  end: Date;
+  start: Date
+  end: Date
 }
 
 // Sets Highchart Theme
@@ -234,7 +234,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
     return base.map((point) => {
       const day = this.dailyData[point.name]
       const date = point.name.urlToDate()
-      const value = get(day, `nutrition.${propName}`) as number || 0
+      const value = (get(day, `nutrition.${propName}`) as number) || 0
 
       return {
         date,

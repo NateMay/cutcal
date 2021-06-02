@@ -93,14 +93,13 @@ export class DsTimepickerToggle implements OnDestroy {
   /** Underlying button element. */
   @ViewChild('button') _button: MatButton
 
-  @HostBinding('class') classes = 'ds-timepicker-toggle';
+  @HostBinding('class') classes = 'ds-timepicker-toggle'
 
   // Always set the tabindex to -1 so that it doesn't overlap with any custom tabindex the
   // consumer may have provided, while still being able to receive focus.
   @HostBinding('attr.tabindex') get tabindex(): string {
-    return this.disabled ? null : '-1';
+    return this.disabled ? null : '-1'
   }
-
 
   constructor(
     // private _changeDetectorRef: ChangeDetectorRef,

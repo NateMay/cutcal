@@ -1,6 +1,6 @@
 import * as functions from 'firebase-functions'
 import { deleteFoodToAlgolia } from '../../algolia/addFoodToAlgolia'
-import { DeleteResponse } from '@algolia/client-search';
+import { DeleteResponse } from '@algolia/client-search'
 
 /**
  * @description called when a user likes a food

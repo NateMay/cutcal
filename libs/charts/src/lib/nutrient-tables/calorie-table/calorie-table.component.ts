@@ -7,7 +7,7 @@ import {
   ZERO_NUTRITION
 } from '@cutcal/nutrition'
 import { get } from 'lodash'
-import { Nutrition } from '@cutcal/core';
+import { Nutrition } from '@cutcal/core'
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -91,7 +91,10 @@ export class CalorieTableComponent {
 
   // Recommended Daily Allowance
   rda(propName: string): number {
-    const range: NutritionRange = get(this.dv.snapshot.nutrition, propName) as NutritionRange
+    const range: NutritionRange = get(
+      this.dv.snapshot.nutrition,
+      propName
+    ) as NutritionRange
     return range?.RDA ? range.RDA : 1
   }
 }

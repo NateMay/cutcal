@@ -18,7 +18,10 @@ import { FormBuilder, FormGroup } from '@angular/forms'
           autocomplete="off"
           placeholder="hh:mm pm"
         />
-        <ds-timepicker-toggle matSuffix [forAttr]="picker"></ds-timepicker-toggle>
+        <ds-timepicker-toggle
+          matSuffix
+          [forAttr]="picker"
+        ></ds-timepicker-toggle>
         <ds-timepicker #picker></ds-timepicker>
         <!-- <ds-timepicker #picker touchUi></ds-timepicker> -->
       </mat-form-field>

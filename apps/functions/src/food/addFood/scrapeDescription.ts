@@ -24,10 +24,10 @@ const engine = '005525034399704142974:oxjpozizj0m'
 const endPoint = 'https://www.googleapis.com/customsearch/v1'
 
 export const scrapeDescription = async (cleanTerm: string): Promise<string> => {
-  const jsresponse = await rp({
+  const jsresponse = (await rp({
     method: 'GET',
     uri: `${endPoint}?key=${apiKey}&cx=${engine}&q=${cleanTerm}`
-  }).catch(console.error) as string
+  }).catch(console.error)) as string
 
   const response: EngineResponse = JSON.parse(jsresponse) as EngineResponse
   if (ADD_FOOD_DEBUG) console.log('scrapeDescription', response)

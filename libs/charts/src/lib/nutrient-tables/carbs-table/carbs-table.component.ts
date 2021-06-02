@@ -9,7 +9,7 @@ import {
   NutritionRange,
   ZERO_NUTRITION
 } from '@cutcal/nutrition'
-import { get } from 'lodash';
+import { get } from 'lodash'
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -178,7 +178,10 @@ export class CarbsTableComponent {
 
   // Recommended Daily Allowance
   rda(path: string): number {
-    const range: NutritionRange = get(this.dv.snapshot.nutrition, path) as NutritionRange
+    const range: NutritionRange = get(
+      this.dv.snapshot.nutrition,
+      path
+    ) as NutritionRange
     return range?.RDA ? range.RDA : 1
   }
 }

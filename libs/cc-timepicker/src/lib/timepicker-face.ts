@@ -257,25 +257,13 @@ export class DsTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
     this.touchStartHandler = this.onMousedown.bind(this) as () => any
     this.touchEndHandler = this.onMouseup.bind(this) as () => any
 
-    this.clockFaceEl.addEventListener(
-      'touchstart',
-      this.touchStartHandler
-    )
-    this.clockFaceEl.addEventListener(
-      'touchend',
-      this.touchEndHandler
-    )
+    this.clockFaceEl.addEventListener('touchstart', this.touchStartHandler)
+    this.clockFaceEl.addEventListener('touchend', this.touchEndHandler)
   }
 
   private removeTouchEvents(): void {
-    this.clockFaceEl.removeEventListener(
-      'touchstart',
-      this.touchStartHandler
-    )
-    this.clockFaceEl.removeEventListener(
-      'touchend',
-      this.touchEndHandler
-    )
+    this.clockFaceEl.removeEventListener('touchstart', this.touchStartHandler)
+    this.clockFaceEl.removeEventListener('touchend', this.touchEndHandler)
   }
 
   private setClockHandPosition(): void {

@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { ZERO_NUTRITION } from '@cutcal/nutrition'
 import { Nutrition } from '@cutcal/core'
 
@@ -37,5 +33,4 @@ export class ExcessTableComponent {
   get nutrition(): Nutrition<number> {
     return this._nutrition
   }
-
 }

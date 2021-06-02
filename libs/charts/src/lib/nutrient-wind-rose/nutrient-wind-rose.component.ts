@@ -129,7 +129,7 @@ export class NutrientWindRoseComponent implements OnInit {
         showLastLabel: true,
         labels: {
           formatter(): string {
-            return this.value as string + '%'
+            return (this.value as string) + '%'
           }
         }
         // reversedStacks: false

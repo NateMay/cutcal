@@ -1,4 +1,4 @@
-import { DailyValue} from '@cutcal/nutrition'
+import { DailyValue } from '@cutcal/nutrition'
 import { Nutrient, Nutrition } from '@cutcal/core'
 
 export class NutritionLabel {

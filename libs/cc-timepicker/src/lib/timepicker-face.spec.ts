@@ -368,6 +368,7 @@ describe('TimepickerFaceComponent', () => {
   });
 });
 
-const getStyle = (element: ElementRef): ((prop: string) => string) => (
-  prop: string
-): string => (element.nativeElement as HTMLElement).style[prop] as string;
+const getStyle =
+  (element: ElementRef): ((prop: string) => string) =>
+  (prop: string): string =>
+    (element.nativeElement as HTMLElement).style[prop] as string;

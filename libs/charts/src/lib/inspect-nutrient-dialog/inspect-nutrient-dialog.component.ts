@@ -154,9 +154,8 @@ export class InspectNutrientDialogComponent implements OnInit {
    */
   getSeriesData(meals: KVP<Meal>): SeriesPieDataOptions[] {
     return _map(meals, (meal) => {
-      this.drilldownSeries[
-        meal._id
-      ] = this.createFirstLevelDrilldownSeriesOptions(meal)
+      this.drilldownSeries[meal._id] =
+        this.createFirstLevelDrilldownSeriesOptions(meal)
 
       this.addChildrenToDrilldown(meal._id)
 

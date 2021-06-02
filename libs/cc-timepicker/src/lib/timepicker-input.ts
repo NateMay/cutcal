@@ -71,7 +71,8 @@ export class DsTimepickerInputEvent {
   exportAs: 'ccTimepickerInput'
 })
 export class DsTimepickerInput
-  implements ControlValueAccessor, OnDestroy, Validator {
+  implements ControlValueAccessor, OnDestroy, Validator
+{
   /** Emits when the value changes (either due to user input or programmatic change). */
   _valueChange = new EventEmitter<string | null>()
 
@@ -166,7 +167,7 @@ export class DsTimepickerInput
   }
 
   @HostBinding('attr.aria-haspopup') get haspopup(): string {
-    return this._timepicker ? "dialog" : null
+    return this._timepicker ? 'dialog' : null
   }
 
   constructor(

@@ -57,15 +57,15 @@ describe('Nutrition Label Component', () => {
   });
 
   it('Total Calories label is present', () => {
-    expect(
-      getEl(fixture, '.label.calories').textContent
-    ).toContain('Calories 300');
+    expect(getEl(fixture, '.label.calories').textContent).toContain(
+      'Calories 300'
+    );
   });
 
   it('Calories From Fat label is present', () => {
-    expect(
-      getEl(fixture, '.label.cal_from_fat').textContent
-    ).toContain('From Fat 165');
+    expect(getEl(fixture, '.label.cal_from_fat').textContent).toContain(
+      'From Fat 165'
+    );
   });
 
   it('Total Fat label is present', () => {
