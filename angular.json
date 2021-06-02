@@ -34,17 +34,10 @@
             "main": "apps/cutcal/src/main.ts",
             "polyfills": "apps/cutcal/src/polyfills.ts",
             "tsConfig": "apps/cutcal/tsconfig.app.json",
-            "assets": [
-              "apps/cutcal/src/favicon.ico",
-              "apps/cutcal/src/assets"
-            ],
-            "styles": [
-              "apps/cutcal/src/styles.scss"
-            ],
+            "assets": ["apps/cutcal/src/favicon.ico", "apps/cutcal/src/assets"],
+            "styles": ["apps/cutcal/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "libs/common-ui/styles"
-              ]
+              "includePaths": ["libs/common-ui/styles"]
             },
             "scripts": [],
             "allowedCommonJsDependencies": [
@@ -167,9 +160,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/cutcal-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/cutcal-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -197,13 +188,9 @@
               "apps/common-ui-docs/src/favicon.ico",
               "apps/common-ui-docs/src/assets"
             ],
-            "styles": [
-              "apps/common-ui-docs/src/styles.scss"
-            ],
+            "styles": ["apps/common-ui-docs/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "libs/common-ui/styles"
-              ]
+              "includePaths": ["libs/common-ui/styles"]
             },
             "scripts": [],
             "vendorChunk": true,
@@ -338,9 +325,7 @@
               "apps/dietstats/src/styles.scss"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "libs/common-ui/styles"
-              ]
+              "includePaths": ["libs/common-ui/styles"]
             },
             "scripts": [],
             "allowedCommonJsDependencies": [
@@ -460,9 +445,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/dietstats-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/dietstats-e2e/**/*.{js,ts}"]
           }
         }
       }
