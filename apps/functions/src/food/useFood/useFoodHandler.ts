@@ -9,7 +9,7 @@ interface UseFoodCall {
 export const useFoodHandler = async (
   callData: UseFoodCall,
   context: functions.https.CallableContext
-) =>
+): Promise<unknown> =>
   firestore
     .collection('foods')
     .doc(callData.foodId)

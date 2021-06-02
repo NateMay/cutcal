@@ -192,7 +192,7 @@ describe('TimepickerFaceComponent', () => {
 
     const minutesFaceTime = Array(60)
       .fill(0)
-      .map((v, i) => {
+      .map((v: number, i: number) => {
         const index = v + i;
         const angle = (360 / 60) * index;
         return {
@@ -296,7 +296,7 @@ describe('TimepickerFaceComponent', () => {
       let selectedTime: ClockFaceTime = { time: 1, angle: 5 };
       const mouseCords: MouseEventInit = { clientX: 20, clientY: 20 };
 
-      component.faceTime = minutesFaceTime;
+      component.faceTime = minutesFaceTime as ClockFaceTime[];
       component.unit = TimeUnit.MINUTE;
       component.timeChange.subscribe(
         (time: ClockFaceTime) => (selectedTime = time)
@@ -370,4 +370,4 @@ describe('TimepickerFaceComponent', () => {
 
 const getStyle = (element: ElementRef): ((prop: string) => string) => (
   prop: string
-): string => element.nativeElement.style[prop];
+): string => (element.nativeElement as HTMLElement).style[prop] as string;

@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core'
 import { MealService, MealsTripple } from '@cutcal/common-ui'
 import { KVP } from '@cutcal/core'
 import { Food, Meal, scaleNutrient, Usage } from '@cutcal/diet'
-import { Nutrient } from '@cutcal/nutrition'
+import { Nutrient } from '@cutcal/core'
 import * as Highcharts from 'highcharts'
 import { Options, PointOptionsObject, SeriesOptionsType } from 'highcharts'
 import Drilldown from 'highcharts/modules/drilldown'
@@ -152,7 +152,7 @@ export class InspectNutrientDialogComponent implements OnInit {
    * @see {@link https://stackblitz.com/edit/highcharts-angular-drilldown Stackblitz}
    * @see {@link https://stackoverflow.com/questions/23153403/drilldown-multiple-levels-highchart StackOverflow}
    */
-  getSeriesData(meals: KVP<Meal>): any[] {
+  getSeriesData(meals: KVP<Meal>): SeriesPieDataOptions[] {
     return _map(meals, (meal) => {
       this.drilldownSeries[
         meal._id

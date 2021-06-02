@@ -19,10 +19,10 @@ describe('Timepicker12HoursFaceComponent', () => {
     expect(component.hoursList).toHaveLength(12);
   });
 
-  it('should emit selected hour (12hr format)', async(() => {
+  it('should emit selected hour (12hr format)', () => {
     const time = 10;
 
     component.hourSelected.subscribe((hour: number) => expect(hour).toBe(time));
     component.onTimeSelected(time);
-  }));
+  });
 });

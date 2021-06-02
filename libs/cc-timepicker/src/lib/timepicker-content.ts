@@ -4,16 +4,22 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  HostListener,
   Input,
   OnDestroy,
   ViewChild,
   ViewEncapsulation
 } from '@angular/core'
-import { CanColor, CanColorCtor, mixinColor } from '@angular/material/core'
-import { dateFromTime } from '@cutcal/common-ui'
+import {
+  CanColor,
+  CanColorCtor,
+  mixinColor,
+  ThemePalette
+} from '@angular/material/core'
 import { Observable, Subject } from 'rxjs'
 import { DsTimepicker } from './timepicker'
 import { ccTimepickerAnimations } from './timepicker-animations'
+import { HostBinding } from '@angular/core'
 import {
   ClockFaceTime,
   DEFAULT_HOUR,
@@ -21,10 +27,12 @@ import {
   TimePeriod,
   TimeUnit
 } from './timepicker-utils'
+import { dateFromTime } from '@cutcal/common-ui'
+
+type AnimationState = 'enter' | 'void'
 
 @Component({
   selector: 'ds-timepicker-dialog',
-  host: { class: 'cc-timepicker-dialog' },
   template: `
     <ds-timepicker-controls></ds-timepicker-controls>
 
@@ -70,6 +78,8 @@ export class DsTimePickerDialog {
 
   @ViewChild('hour') hourInput: ElementRef<HTMLInputElement>
 
+  @HostBinding('class') classes = 'ds-timepicker-dialog'
+
   format = 12
 
   private _minutesGap: number
@@ -112,7 +122,7 @@ export class DsTimePickerDialog {
     this.selectedPeriod = TimePeriod.AM
   }
 
-  focusActiveCell() {
+  focusActiveCell(): void {
     this.hourInput.nativeElement.focus()
   }
 
@@ -177,26 +187,24 @@ const _DsTimepickerContentMixinBase: CanColorCtor &
       <button mat-button color="primary">OK</button>
     </div>
   `,
-  host: {
-    class: 'cc-timepicker-content',
-    '[@transformPanel]': '_animationState',
-    '(@transformPanel.done)': '_animationDone.next()',
-    '[class.cc-timepicker-content-touch]': 'timepicker.touchUi'
-  },
   animations: [
     ccTimepickerAnimations.transformPanel,
     ccTimepickerAnimations.fadeInCalendar
   ],
   exportAs: 'ccTimepickerContent',
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  inputs: ['color']
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DsTimepickerContent
   extends _DsTimepickerContentMixinBase
-  implements AfterViewInit, OnDestroy, CanColor {
+  implements AfterViewInit, OnDestroy, CanColor
+{
   /** Reference to the internal calendar component. */
   @ViewChild(DsTimePickerDialog) _calendar: DsTimePickerDialog
+
+  @HostBinding('@transformPanel') get transPan(): AnimationState {
+    return this._animationState
+  }
 
   /** Reference to the timepicker that created the overlay. */
   timepicker: DsTimepicker
@@ -205,7 +213,7 @@ export class DsTimepickerContent
   _isAbove: boolean
 
   /** Current state of the animation. */
-  _animationState: 'enter' | 'void' = 'enter'
+  _animationState: AnimationState = 'enter'
 
   /** Emits when an animation has finished. */
   private _animationDone = new Subject<void>()
@@ -213,6 +221,14 @@ export class DsTimepickerContent
   get animationDone(): Observable<void> {
     return this._animationDone.asObservable()
   }
+
+  @HostBinding('class') classes = 'ds-timepicker-content'
+
+  @HostBinding('class.cc-timepicker-content-touch') get touchClass(): boolean {
+    return this.timepicker.touchUi
+  }
+
+  @Input() color: ThemePalette = 'primary'
 
   constructor(
     elementRef: ElementRef,
@@ -224,20 +240,25 @@ export class DsTimepickerContent
     super(elementRef)
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this._calendar.focusActiveCell()
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this._animationDone.complete()
   }
 
-  _startExitAnimation() {
+  _startExitAnimation(): void {
     this._animationState = 'void'
 
     // @breaking-change 11.0.0 Remove null check for `_changeDetectorRef`.
     if (this._changeDetectorRef) {
       this._changeDetectorRef.markForCheck()
     }
+  }
+
+  @HostListener('@transformPanel.done')
+  transPanDone(): void {
+    this._animationDone.next()
   }
 }

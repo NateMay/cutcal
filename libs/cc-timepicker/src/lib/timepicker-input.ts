@@ -5,6 +5,8 @@ import {
   ElementRef,
   EventEmitter,
   forwardRef,
+  HostBinding,
+  HostListener,
   Inject,
   Input,
   OnDestroy,
@@ -60,21 +62,12 @@ export class DsTimepickerInputEvent {
 }
 
 @Directive({
-  selector: 'input[ccTimepicker]',
+  selector: 'input[dsTimepicker]',
   providers: [
     CC_TIMEPICKER_VALUE_ACCESSOR,
     MAT_TIMEPICKER_VALIDATORS,
     { provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: DsTimepickerInput }
   ],
-  host: {
-    '[attr.aria-haspopup]': '_timepicker ? "dialog" : null',
-    '[attr.aria-owns]': '(_timepicker?.opened && _timepicker.id) || null',
-    '[disabled]': 'disabled',
-    '(input)': '_onInput($event.target.value)',
-    '(change)': '_onChange()',
-    '(blur)': '_onBlur()',
-    '(keydown)': '_onKeydown($event)'
-  },
   exportAs: 'ccTimepickerInput'
 })
 export class DsTimepickerInput
@@ -139,6 +132,7 @@ export class DsTimepickerInput
   _timepicker: DsTimepicker
 
   /** Whether the timepicker-input is disabled. */
+  @HostBinding('attr.disabled')
   @Input()
   get disabled(): boolean {
     return !!this._disabled
@@ -167,12 +161,20 @@ export class DsTimepickerInput
 
   /** The combined form control validator for this input. */
 
+  @HostBinding('attr.aria-owns') get owns(): boolean {
+    return (this._timepicker?.opened && !!this._timepicker.id) || null
+  }
+
+  @HostBinding('attr.aria-haspopup') get haspopup(): string {
+    return this._timepicker ? "dialog" : null
+  }
+
   constructor(
     private _elementRef: ElementRef<HTMLInputElement>,
     @Optional() @Inject(MatFormField) private _formField: MatFormField
   ) {}
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this._timepickerSubscription.unsubscribe()
     this._localeSubscription.unsubscribe()
     this._valueChange.complete()
@@ -205,7 +207,7 @@ export class DsTimepickerInput
     return this.getConnectedOverlayOrigin()
   }
 
-  _onTouched = () => {}
+  _onTouched = (): void => {}
 
   private _cvaOnChange: (value: any) => void = () => {}
 
@@ -236,7 +238,8 @@ export class DsTimepickerInput
       : this._elementRef
   }
 
-  _onKeydown(event: KeyboardEvent) {
+  @HostListener('keydown', ['$event'])
+  _onKeydown(event: KeyboardEvent): void {
     const isAltDownArrow = event.altKey && event.keyCode === DOWN_ARROW
 
     if (
@@ -249,7 +252,8 @@ export class DsTimepickerInput
     }
   }
 
-  _onInput(value: string) {
+  @HostListener('input', ['$event.target.value'])
+  _onInput(value: string): void {
     const lastValueWasValid = this._lastValueValid
 
     if (this._value != value) {
@@ -261,7 +265,8 @@ export class DsTimepickerInput
     }
   }
 
-  _onChange() {
+  @HostListener('change')
+  _onChange(): void {
     this.timeChange.emit(
       new DsTimepickerInputEvent(this, this._elementRef.nativeElement)
     )
@@ -273,7 +278,8 @@ export class DsTimepickerInput
   }
 
   /** Handles blur events on the input. */
-  _onBlur() {
+  @HostListener('blur')
+  _onBlur(): void {
     // Reformat the input only if we have a valid value.
     if (this.value) {
       this._formatValue(this.value)

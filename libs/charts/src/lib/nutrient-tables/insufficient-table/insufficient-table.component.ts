@@ -1,15 +1,12 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-} from '@angular/core'
-import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { ZERO_NUTRITION } from '@cutcal/nutrition'
+import { Nutrition } from '@cutcal/core'
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'table[cc-insufficient], cc-insufficient',
+  selector: 'table[ds-insufficient], ds-insufficient',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'cc-insufficient' },
+  host: { class: 'ds-insufficient' },
   styleUrls: ['../nutrient-table.scss', './insufficient-table.component.scss'],
   template: `
     <thead>

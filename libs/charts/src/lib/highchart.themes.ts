@@ -30,7 +30,7 @@ export const setLightGridTheme = (): void => {
       '#7798BF',
       '#aaeeee'
     ],
-    chart: <any>{
+    chart: {
       backgroundColor: null,
       style: {
         fontFamily: 'Dosis, sans-serif'

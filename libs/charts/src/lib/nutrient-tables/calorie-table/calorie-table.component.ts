@@ -11,10 +11,10 @@ import { Nutrition } from '@cutcal/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'table[cc-calories],cc-calories',
+  selector: 'table[ds-calories],ds-calories',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['../nutrient-table.scss', './calorie-table.component.scss'],
-  host: { class: 'cc-calorie' },
+  host: { class: 'ds-calorie' },
   template: `
     <thead>
       <tr>

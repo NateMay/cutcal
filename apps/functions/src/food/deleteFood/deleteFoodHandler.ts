@@ -1,5 +1,6 @@
 import * as functions from 'firebase-functions'
 import { deleteFoodToAlgolia } from '../../algolia/addFoodToAlgolia'
+import { DeleteResponse } from '@algolia/client-search';
 
 /**
  * @description called when a user likes a food
@@ -7,4 +8,4 @@ import { deleteFoodToAlgolia } from '../../algolia/addFoodToAlgolia'
 export const deleteFoodHandler = async (
   snapshot: functions.firestore.DocumentSnapshot,
   context: functions.EventContext
-) => await deleteFoodToAlgolia(snapshot.data().fdcId)
+): Promise<DeleteResponse> => await deleteFoodToAlgolia(snapshot.data().fdcId)

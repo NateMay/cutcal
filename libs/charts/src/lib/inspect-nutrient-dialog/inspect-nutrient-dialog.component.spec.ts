@@ -6,9 +6,9 @@ import { createFood, createMeal, createUsage } from '@cutcal/diet';
 import { timestamp } from '@cutcal/fire';
 import { MockHighChartsModule } from '@cutcal/ng-testing';
 import { Observable, of } from 'rxjs';
-import { createPortion } from '../../../../diet/src/lib/portion';
 import { InspectNutrientDialogComponent } from './inspect-nutrient-dialog.component';
 import { INSPECTION_DATA } from './inspection-data';
+import { createPortion } from '@cutcal/core';
 
 // TEST (analyze)
 
@@ -59,7 +59,7 @@ describe('Inspect Nutrient Dialog Component', () => {
         }
       }
     },
-    day: <any>{ meals: [] }
+    day: { meals: [] as unknown[] }
   };
 
   beforeEach(() => {

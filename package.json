@@ -31,6 +31,7 @@
     "help": "nx help",
     "kill:4200": "sudo kill $(sudo lsof -t -i:4200)",
     "lint": "nx workspace-lint && ng lint && npm run lint:styles",
+    "lint:all": "nx run-many --all --target=lint",
     "lint:styles": "stylelint \"apps/**/*.scss\" && stylelint \"libs/**/*.scss\"",
     "ng": "ng",
     "nx": "nx",

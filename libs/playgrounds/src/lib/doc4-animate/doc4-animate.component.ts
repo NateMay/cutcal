@@ -4,7 +4,6 @@ import {
   AnimateComponent,
   AnimateSpeed,
   Animations,
-  CCAnimationsModule,
   flip
 } from '@cutcal/common-ui'
 
@@ -116,7 +115,7 @@ export class Doc4AnimateComponent implements OnInit {
   @ViewChildren('enters') enters!: QueryList<AnimateComponent>
   @ViewChildren('exits') exits!: QueryList<AnimateComponent>
 
-  enterAnimations: CCAnimationsModule[] = [
+  enterAnimations: Animations[] = [
     'landing',
     'pulse',
     'beat',

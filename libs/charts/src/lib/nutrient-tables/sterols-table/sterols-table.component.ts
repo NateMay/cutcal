@@ -4,17 +4,16 @@ import {
   getSterols,
   NutrientMetaData,
   NUTRIENTS,
-  Nutrition,
   NutritionRange,
-  Sterols,
   ZERO_NUTRITION
 } from '@cutcal/nutrition'
+import { Nutrition, Sterols } from '@cutcal/core'
 import { get } from 'lodash'
 
 @Component({
-  selector: 'table[cc-sterols],cc-sterols',
+  selector: 'table[ds-sterols],ds-sterols',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'cc-sterols' },
+  host: { class: 'ds-sterols' },
   styleUrls: ['../nutrient-table.scss', './sterols-table.component.scss'],
   template: `
     <thead>
@@ -61,7 +60,7 @@ export class SterolsTableComponent {
 
   // Recommended Daily Allowance
   rda(path: string): number {
-    const range: NutritionRange = get(this.dv.snapshot.nutrition, path)
+    const range: NutritionRange = get(this.dv.snapshot.nutrition, path) as NutritionRange
     return range?.RDA ? range.RDA : 1
   }
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { createPortion, Portion } from '@cutcal/diet'
-import { NUTRIENTS, Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
+import { createPortion, Portion , Nutrition} from '@cutcal/core'
+import { NUTRIENTS, ZERO_NUTRITION } from '@cutcal/nutrition'
 
 export interface Primaries<T> {
   calories?: T
@@ -93,7 +93,7 @@ export interface Primaries<T> {
             [nutrition]="nutrition"
           ></ds-calories-chart>
         </div>
-        <table cc-calories [nutrition]="nutrition"></table>
+        <table ds-calories [nutrition]="nutrition"></table>
         <br />
       </mat-expansion-panel>
     </ng-template>
@@ -110,7 +110,7 @@ export interface Primaries<T> {
           >
         </mat-expansion-panel-header>
         <br />
-        <table cc-protein [nutrition]="nutrition"></table>
+        <table ds-protein [nutrition]="nutrition"></table>
       </mat-expansion-panel>
     </ng-template>
 
@@ -126,7 +126,7 @@ export interface Primaries<T> {
           >
         </mat-expansion-panel-header>
         <br />
-        <table cc-fats [nutrition]="nutrition"></table>
+        <table ds-fats [nutrition]="nutrition"></table>
       </mat-expansion-panel>
     </ng-template>
 
@@ -142,7 +142,7 @@ export interface Primaries<T> {
           >
         </mat-expansion-panel-header>
         <br />
-        <table cc-carbs [nutrition]="nutrition"></table>
+        <table ds-carbs [nutrition]="nutrition"></table>
       </mat-expansion-panel>
     </ng-template>
 
@@ -153,7 +153,7 @@ export interface Primaries<T> {
           <mat-panel-title>Vitamins</mat-panel-title>
         </mat-expansion-panel-header>
         <br />
-        <table cc-vitamin [nutrition]="nutrition"></table>
+        <table ds-vitamin [nutrition]="nutrition"></table>
       </mat-expansion-panel>
     </ng-template>
 
@@ -164,7 +164,7 @@ export interface Primaries<T> {
           <mat-panel-title>Minerals</mat-panel-title>
         </mat-expansion-panel-header>
         <br />
-        <table cc-mineral [nutrition]="nutrition"></table>
+        <table ds-mineral [nutrition]="nutrition"></table>
       </mat-expansion-panel>
     </ng-template>
 
@@ -175,7 +175,7 @@ export interface Primaries<T> {
           <mat-panel-title>Sterols</mat-panel-title>
         </mat-expansion-panel-header>
         <br />
-        <table cc-sterols [nutrition]="nutrition"></table>
+        <table ds-sterols [nutrition]="nutrition"></table>
       </mat-expansion-panel>
     </ng-template>
 
@@ -186,7 +186,7 @@ export interface Primaries<T> {
           <mat-panel-title>Others</mat-panel-title>
         </mat-expansion-panel-header>
         <br />
-        <table cc-other [nutrition]="nutrition"></table>
+        <table ds-other [nutrition]="nutrition"></table>
         <button routerLink="/nutrient/water">More Info</button>
       </mat-expansion-panel>
     </ng-template>
@@ -198,7 +198,7 @@ export interface Primaries<T> {
           <mat-panel-title>Insufficient</mat-panel-title>
         </mat-expansion-panel-header>
         <br />
-        <table cc-insufficient [nutrition]="nutrition"></table>
+        <table ds-insufficient [nutrition]="nutrition"></table>
       </mat-expansion-panel>
     </ng-template>
 
@@ -209,7 +209,7 @@ export interface Primaries<T> {
           <mat-panel-title>Excessive</mat-panel-title>
         </mat-expansion-panel-header>
         <br />
-        <table cc-excess [nutrition]="nutrition"></table>
+        <table ds-excess [nutrition]="nutrition"></table>
       </mat-expansion-panel>
     </ng-template>
 

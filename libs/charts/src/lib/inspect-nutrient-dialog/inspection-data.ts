@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core'
 import { HighChartsDataPoint } from '@cutcal/charts'
 
-export const INSPECTION_DATA = new InjectionToken<{}>('InspectionData')
+export const INSPECTION_DATA = new InjectionToken<unknown>('InspectionData')
 
 export interface InspectionData {
   event: HighChartPointClickEvent

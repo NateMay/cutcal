@@ -27,9 +27,9 @@ export const scrapeDescription = async (cleanTerm: string): Promise<string> => {
   const jsresponse = await rp({
     method: 'GET',
     uri: `${endPoint}?key=${apiKey}&cx=${engine}&q=${cleanTerm}`
-  }).catch(console.error)
+  }).catch(console.error) as string
 
-  const response: EngineResponse = JSON.parse(jsresponse)
+  const response: EngineResponse = JSON.parse(jsresponse) as EngineResponse
   if (ADD_FOOD_DEBUG) console.log('scrapeDescription', response)
 
   const link = response.items.map((item) => item.link)

@@ -17,9 +17,6 @@
       "path": "./apps/cutcal-e2e/tsconfig.e2e.json"
     },
     {
-      "path": "./libs/api-interfaces/tsconfig.spec.json"
-    },
-    {
       "path": "./apps/common-ui-docs/tsconfig.app.json"
     },
     {

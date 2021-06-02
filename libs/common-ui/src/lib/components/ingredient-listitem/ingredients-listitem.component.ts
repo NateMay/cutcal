@@ -39,7 +39,7 @@ export interface DeleteIngredientPayload {
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./ingredients-listitem.component.scss'],
   template: `
-    <span fxLayout="row" [drag]="usage">
+  <span fxLayout="row" [dsDrag]="usage">
       <button (click)="goToItem()">
         <div fxLayout="row" fxLayoutGap="12px">
           <img
@@ -87,7 +87,7 @@ export interface DeleteIngredientPayload {
               *ngFor="let amt of food.portions | keyvalue"
               [value]="amt.unit"
             >
-              {{ amt.unit }}
+              {{ amt?.unit }}
             </mat-option>
           </mat-select>
         </mat-form-field>

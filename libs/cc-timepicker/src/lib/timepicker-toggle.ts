@@ -5,6 +5,8 @@ import {
   Component,
   ContentChild,
   Directive,
+  HostBinding,
+  HostListener,
   Input,
   OnDestroy,
   ViewChild,
@@ -16,8 +18,9 @@ import { DsTimepicker } from './timepicker'
 
 /** Can be used to override the icon of a `ccTimepickerToggle`. */
 @Directive({
-  selector: '[ccTimepickerToggleIcon]'
+  selector: '[dsTimepickerToggleIcon]'
 })
+// eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class DsTimepickerToggleIcon {}
 
 @Component({
@@ -28,7 +31,7 @@ export class DsTimepickerToggleIcon {}
       mat-icon-button
       type="button"
       aria-label="open time picker"
-      [attr.aria-haspopup]="timepicker ? 'dialog' : null"
+      [attr.aria-haspopup]="forAttr ? 'dialog' : null"
       [attr.tabindex]="disabled ? -1 : tabIndex"
       [disabled]="disabled"
       [disableRipple]="disableRipple"
@@ -52,13 +55,6 @@ export class DsTimepickerToggleIcon {}
     </button>
   `,
   styleUrls: ['./timepicker-toggle.scss'],
-  host: {
-    class: 'cc-timepicker-toggle',
-    // Always set the tabindex to -1 so that it doesn't overlap with any custom tabindex the
-    // consumer may have provided, while still being able to receive focus.
-    '[attr.tabindex]': 'disabled ? null : -1',
-    '(focus)': '_button.focus()'
-  },
   exportAs: 'ccTimepickerToggle',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -69,7 +65,7 @@ export class DsTimepickerToggle implements OnDestroy {
   private _stateChanges = Subscription.EMPTY
 
   /** Timepicker instance that the button will toggle. */
-  @Input('for') timepicker: DsTimepicker
+  @Input() forAttr: DsTimepicker
 
   /** Tabindex for the toggle. */
   @Input() tabIndex: number | null
@@ -77,8 +73,8 @@ export class DsTimepickerToggle implements OnDestroy {
   /** Whether the toggle button is disabled. */
   @Input()
   get disabled(): boolean {
-    if (this._disabled === undefined && this.timepicker) {
-      return this.timepicker.disabled
+    if (this._disabled === undefined && this.forAttr) {
+      return this.forAttr.disabled
     }
 
     return !!this._disabled
@@ -97,6 +93,15 @@ export class DsTimepickerToggle implements OnDestroy {
   /** Underlying button element. */
   @ViewChild('button') _button: MatButton
 
+  @HostBinding('class') classes = 'ds-timepicker-toggle';
+
+  // Always set the tabindex to -1 so that it doesn't overlap with any custom tabindex the
+  // consumer may have provided, while still being able to receive focus.
+  @HostBinding('attr.tabindex') get tabindex(): string {
+    return this.disabled ? null : '-1';
+  }
+
+
   constructor(
     // private _changeDetectorRef: ChangeDetectorRef,
     @Attribute('tabindex') defaultTabIndex: string
@@ -112,7 +117,7 @@ export class DsTimepickerToggle implements OnDestroy {
   //   }
   // }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this._stateChanges.unsubscribe()
   }
 
@@ -120,9 +125,10 @@ export class DsTimepickerToggle implements OnDestroy {
   //   this._watchStateChanges();
   // }
 
+  @HostListener('focus')
   _open(event: Event): void {
-    if (this.timepicker && !this.disabled) {
-      this.timepicker.open()
+    if (this.forAttr && !this.disabled) {
+      this.forAttr.open()
       event.stopPropagation()
     }
   }

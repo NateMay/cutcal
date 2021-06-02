@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
+import { ZERO_NUTRITION } from '@cutcal/nutrition'
+import { Nutrition } from '@cutcal/core'
 import * as Highcharts from 'highcharts'
 import More from 'highcharts/highcharts-more'
 import Data from 'highcharts/modules/data'
@@ -128,7 +129,7 @@ export class NutrientWindRoseComponent implements OnInit {
         showLastLabel: true,
         labels: {
           formatter(): string {
-            return this.value + '%'
+            return this.value as string + '%'
           }
         }
         // reversedStacks: false

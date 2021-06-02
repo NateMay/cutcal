@@ -1,8 +1,7 @@
-import { Component } from '@angular/core'
+import { Component, HostBinding } from '@angular/core'
 
 @Component({
   selector: 'ds-timepicker-controls',
-  host: { class: 'cc-timepicker-controls' },
   template: `
     <input #hour value="12" />
     <span>:</span>
@@ -10,4 +9,6 @@ import { Component } from '@angular/core'
     <ds-timepicker-period></ds-timepicker-period>
   `
 })
-export class DsTimePickerControls {}
+export class DsTimePickerControls {
+  @HostBinding('class') classes = 'ds-timepicker-controls'
+}

@@ -129,7 +129,14 @@ export class DsTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
   @Output() timeSelected = new EventEmitter<number>()
 
   @ViewChild('clockFace', { static: true }) clockFace!: ElementRef
+
+  get clockFaceEl(): HTMLElement {
+    return this.clockFace.nativeElement as HTMLElement
+  }
   @ViewChild('clockHand', { static: true }) clockHand!: ElementRef
+  get clockHandEl(): HTMLElement {
+    return this.clockHand.nativeElement as HTMLElement
+  }
 
   private isStarted: boolean
   private touchStartHandler: () => any
@@ -162,7 +169,7 @@ export class DsTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
     }
   }
 
-  trackByTime(_: any, time: ClockFaceTime): string | number {
+  trackByTime(_: unknown, time: ClockFaceTime): string | number {
     return time.time
   }
 
@@ -180,11 +187,11 @@ export class DsTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
     if (!this.isStarted && e instanceof MouseEvent && e.type !== 'click') {
       return
     }
-    const clockFaceCords = this.clockFace.nativeElement.getBoundingClientRect()
+    const clockFaceCords = this.clockFaceEl.getBoundingClientRect()
 
     /* Get x0 and y0 of the circle */
-    const centerX = clockFaceCords.left + clockFaceCords.width / 2
-    const centerY = clockFaceCords.top + clockFaceCords.height / 2
+    const centerX = clockFaceCords?.left + clockFaceCords?.width / 2
+    const centerY = clockFaceCords?.top + clockFaceCords?.height / 2
     /* Counting the arctangent and convert it to from radian to deg */
     const arctangent =
       (Math.atan(
@@ -247,25 +254,25 @@ export class DsTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   private addTouchEvents(): void {
-    this.touchStartHandler = this.onMousedown.bind(this)
-    this.touchEndHandler = this.onMouseup.bind(this)
+    this.touchStartHandler = this.onMousedown.bind(this) as () => any
+    this.touchEndHandler = this.onMouseup.bind(this) as () => any
 
-    this.clockFace.nativeElement.addEventListener(
+    this.clockFaceEl.addEventListener(
       'touchstart',
       this.touchStartHandler
     )
-    this.clockFace.nativeElement.addEventListener(
+    this.clockFaceEl.addEventListener(
       'touchend',
       this.touchEndHandler
     )
   }
 
   private removeTouchEvents(): void {
-    this.clockFace.nativeElement.removeEventListener(
+    this.clockFaceEl.removeEventListener(
       'touchstart',
       this.touchStartHandler
     )
-    this.clockFace.nativeElement.removeEventListener(
+    this.clockFaceEl.removeEventListener(
       'touchend',
       this.touchEndHandler
     )
@@ -277,7 +284,7 @@ export class DsTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
         this.decreaseClockHand()
       else this.increaseClockHand()
     }
-    this.clockHand.nativeElement.style.transform = `rotate(${this.selectedTime.angle}deg)`
+    this.clockHandEl.style.transform = `rotate(${this.selectedTime.angle}deg)`
   }
 
   private selectAvailableTime(): void {
@@ -310,13 +317,13 @@ export class DsTimepickerFace implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   private decreaseClockHand(): void {
-    this.clockHand.nativeElement.style.height = CLOCK_HAND_STYLES.small.height
-    this.clockHand.nativeElement.style.top = CLOCK_HAND_STYLES.small.top
+    this.clockHandEl.style.height = CLOCK_HAND_STYLES.small.height
+    this.clockHandEl.style.top = CLOCK_HAND_STYLES.small.top
   }
 
   private increaseClockHand(): void {
-    this.clockHand.nativeElement.style.height = CLOCK_HAND_STYLES.large.height
-    this.clockHand.nativeElement.style.top = CLOCK_HAND_STYLES.large.top
+    this.clockHandEl.style.height = CLOCK_HAND_STYLES.large.height
+    this.clockHandEl.style.top = CLOCK_HAND_STYLES.large.top
   }
 }
 

@@ -1,24 +1,20 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { DailyValueSvc } from '@cutcal/common-ui'
 import {
-  Folate,
   getFolate,
   getVitaminA,
   getVitaminD,
   getVitaminE,
   NutrientMetaData,
   NUTRIENTS,
-  Nutrition,
   NutritionRange,
-  VitaminA,
-  VitaminD,
-  VitaminE,
   ZERO_NUTRITION
 } from '@cutcal/nutrition'
+import { VitaminA, VitaminD, VitaminE, Nutrition, Folate } from '@cutcal/core'
 import { get } from 'lodash'
 @Component({
-  selector: 'table[cc-vitamin],cc-vitamin',
-  host: { class: 'cc-vitamin' },
+  selector: 'table[ds-vitamin],ds-vitamin',
+  host: { class: 'ds-vitamin' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['../nutrient-table.scss', './vitamin-table.component.scss'],
   // <button (click)="toggleAll()" class="toggle-all">{{ toggleAllText }} All</button>

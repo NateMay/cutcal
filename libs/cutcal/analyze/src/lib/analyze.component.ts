@@ -234,7 +234,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
     return base.map((point) => {
       const day = this.dailyData[point.name]
       const date = point.name.urlToDate()
-      const value = get(day, `nutrition.${propName}`) || 0
+      const value = get(day, `nutrition.${propName}`) as number || 0
 
       return {
         date,
@@ -344,7 +344,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
   }
 
   updateUrl(): void {
-    this.router.navigate(
+    void this.router.navigate(
       ['analyze'],
       analyzeParams(this.startDate, this.endDate)
     )
@@ -352,7 +352,7 @@ export class AnalyzeComponent implements OnDestroy, OnInit {
 
   // ***************   INSPECTION MODAL   ****************** //
 
-  openModal = (event: any): void => {
+  openModal = (event: Event): void => {
     /**
      * @see {@link https://stackblitz.com/edit/overlay-demo?file=app%2Fapp.module.ts Overlay Stackblitz}
      */

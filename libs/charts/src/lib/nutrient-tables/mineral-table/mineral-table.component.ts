@@ -2,19 +2,18 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { DailyValueSvc } from '@cutcal/common-ui'
 import {
   getMinerals,
-  Minerals,
   NutrientMetaData,
   NUTRIENTS,
-  Nutrition,
   NutritionRange,
   ZERO_NUTRITION
 } from '@cutcal/nutrition'
+import { Minerals, Nutrition } from '@cutcal/core'
 import { get } from 'lodash'
 
 @Component({
-  selector: 'table[cc-mineral],cc-mineral',
+  selector: 'table[ds-mineral],ds-mineral',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'cc-mineral' },
+  host: { class: 'ds-mineral' },
   styleUrls: ['../nutrient-table.scss', './mineral-table.component.scss'],
   template: `
     <thead>
@@ -65,7 +64,7 @@ export class MineralTableComponent {
 
   // Recommended Daily Allowance
   rda(path: string): number {
-    const range: NutritionRange = get(this.dv.snapshot.nutrition, path)
+    const range: NutritionRange = get(this.dv.snapshot.nutrition, path) as NutritionRange
     return range?.RDA ? range.RDA : 1
   }
 }

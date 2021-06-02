@@ -1,20 +1,19 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { DailyValueSvc } from '@cutcal/common-ui'
 import {
-  AminoAcids,
   getAminoAcids,
   NutrientMetaData,
   NUTRIENTS,
-  Nutrition,
   NutritionRange,
   ZERO_NUTRITION
 } from '@cutcal/nutrition'
+import { AminoAcids, Nutrition } from '@cutcal/core'
 import { get } from 'lodash'
 
 @Component({
-  selector: 'table[cc-protein],cc-protein',
+  selector: 'table[ds-protein],ds-protein',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'cc-protein' },
+  host: { class: 'ds-protein' },
   styleUrls: ['../nutrient-table.scss', './protein-table.component.scss'],
   template: `
     <thead>
@@ -58,7 +57,7 @@ export class ProteinTableComponent {
   constructor(private readonly dv: DailyValueSvc) {}
 
   rda(path: string): number {
-    const range: NutritionRange = get(this.dv.snapshot.nutrition, path)
+    const range: NutritionRange = get(this.dv.snapshot.nutrition, path) as NutritionRange
     return range?.RDA ? range.RDA : 1
   }
 }

@@ -60,7 +60,7 @@ const portionCache: KVP<Portion> = {}
 function getCompatibleFoodPortion(usage: Usage, food: Food): Portion | never {
   if (!food) throw Error(`[CutCal] No food was provided for: ${usage.unit}}`)
 
-  const cacheKey = `${food._id as string}-${usage.unit}`
+  const cacheKey = `${food._id}-${usage.unit}`
 
   if (portionCache[cacheKey]) return portionCache[cacheKey]
 

@@ -7,22 +7,24 @@ import {
   getPolyUnsaturated,
   getSaturatedFat,
   getTransUnsaturated,
-  MonoUnsaturated,
   NutrientMetaData,
   NUTRIENTS,
-  Nutrition,
   NutritionRange,
-  PolyUnsaturated,
-  SaturatedFat,
-  TransUnsaturated,
   ZERO_NUTRITION
 } from '@cutcal/nutrition'
+import {
+  MonoUnsaturated,
+  Nutrition,
+  PolyUnsaturated,
+  SaturatedFat,
+  TransUnsaturated
+} from '@cutcal/core'
 import { get, sum, values } from 'lodash'
 
 @Component({
-  selector: 'table[cc-fats],cc-fats',
+  selector: 'table[ds-fats],ds-fats',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'cc-fats' },
+  host: { class: 'ds-fats' },
   styleUrls: ['../nutrient-table.scss', './fats-table.component.scss'],
   template: `
     <thead>
@@ -225,7 +227,7 @@ export class FatsTableComponent {
 
   // Recommended Daily Allowance
   rda(path: string): number {
-    const range: NutritionRange = get(this.dv.snapshot.nutrition, path)
+    const range: NutritionRange = get(this.dv.snapshot.nutrition, path) as NutritionRange
     return range?.RDA ? range.RDA : 1
   }
 }

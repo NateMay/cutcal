@@ -3,13 +3,14 @@ import {
   Component,
   Input,
 } from '@angular/core'
-import { Nutrition, ZERO_NUTRITION } from '@cutcal/nutrition'
+import { ZERO_NUTRITION } from '@cutcal/nutrition'
+import { Nutrition } from '@cutcal/core'
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'table[cc-excess], cc-excess',
+  selector: 'table[ds-excess], ds-excess',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'cc-excess' },
+  host: { class: 'ds-excess' },
   styleUrls: ['../nutrient-table.scss', './excess-table.component.scss'],
   template: `
     <thead>

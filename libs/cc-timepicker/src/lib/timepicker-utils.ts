@@ -25,7 +25,7 @@ export enum TimeUnit {
 export const getHours = (format: number): ClockFaceTime[] =>
   Array(format)
     .fill(1)
-    .map((v, i) => {
+    .map((v: number, i: number) => {
       const angleStep = 30
       const time = v + i
       const angle = angleStep * time

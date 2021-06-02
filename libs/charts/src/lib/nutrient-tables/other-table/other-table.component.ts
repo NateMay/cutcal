@@ -4,15 +4,14 @@ import {
   getOthers,
   NutrientMetaData,
   NUTRIENTS,
-  Nutrition,
   NutritionRange,
-  Others,
   ZERO_NUTRITION
 } from '@cutcal/nutrition'
+import { Nutrition, Others } from '@cutcal/core'
 import { get } from 'lodash'
 
 @Component({
-  selector: 'table[cc-other],cc-other',
+  selector: 'table[ds-other],ds-other',
   template: `
     <thead>
       <tr>
@@ -59,7 +58,7 @@ export class OtherTableComponent {
 
   // Recommended Daily Allowance
   rda(path: string): number {
-    const range: NutritionRange = get(this.dv.snapshot.nutrition, path)
+    const range: NutritionRange = get(this.dv.snapshot.nutrition, path) as NutritionRange
     return range?.RDA ? range.RDA : 1
   }
 }

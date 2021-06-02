@@ -24,7 +24,6 @@
     "cutcal": { "tags": [] },
     "cutcal-e2e": { "tags": [], "implicitDependencies": ["cutcal"] },
     "functions": { "tags": [] },
-    "api-interfaces": { "tags": [] },
     "common-ui-docs": { "tags": [] },
     "common-ui-e2e": { "tags": [], "implicitDependencies": ["common-ui-docs"] },
     "dietstats": { "tags": [] },

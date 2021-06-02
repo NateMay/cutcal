@@ -13,9 +13,9 @@ import { get } from 'lodash';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'table[cc-carbs],cc-carbs',
+  selector: 'table[ds-carbs],ds-carbs',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'cc-carbs' },
+  host: { class: 'ds-carbs' },
   styleUrls: ['../nutrient-table.scss', './carbs-table.component.scss'],
   template: `
     <thead>
@@ -165,8 +165,8 @@ export class CarbsTableComponent {
   private _nutrition: Nutrition<number>
   @Input() set nutrition(nutrition: Nutrition<number>) {
     this._nutrition = Object.assign({}, ZERO_NUTRITION, nutrition)
-    this.sugars = getSugars<NutrientMetaData>(NUTRIENTS.allDetails) as Sugars<NutrientMetaData>
-    this.carbs = getCarbohydrates<NutrientMetaData>(NUTRIENTS.allDetails) as Carbohydrates<NutrientMetaData>
+    this.sugars = getSugars<NutrientMetaData>(NUTRIENTS.allDetails)
+    this.carbs = getCarbohydrates<NutrientMetaData>(NUTRIENTS.allDetails)
   }
   get nutrition(): Nutrition<number> {
     return this._nutrition

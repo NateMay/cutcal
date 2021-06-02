@@ -79,6 +79,8 @@ export class DsTimepicker implements OnDestroy, CanColor {
     return this._selectedChanged.asObservable()
   }
 
+  @Input() defaultColor: ThemePalette = 'primary'
+
   /** Whether the timepicker pop-up should be disabled. */
   @Input()
   get disabled(): boolean {
@@ -169,8 +171,8 @@ export class DsTimepicker implements OnDestroy, CanColor {
   constructor(
     private _dialog: MatDialog,
     private _ngZone: NgZone,
-    @Optional() @Inject(DOCUMENT) private _document: any,
-    @Inject(CC_TIMEPICKER_SCROLL_STRATEGY) scrollStrategy: any,
+    @Optional() @Inject(DOCUMENT) private _document: Document,
+    @Inject(CC_TIMEPICKER_SCROLL_STRATEGY) scrollStrategy: () => ScrollStrategy,
     private _viewContainerRef: ViewContainerRef,
     @Optional() private _dir: Directionality,
     private _overlay: Overlay
@@ -178,7 +180,7 @@ export class DsTimepicker implements OnDestroy, CanColor {
     this._scrollStrategy = scrollStrategy
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this._destroyPopup()
     this.close()
     this._inputSubscription.unsubscribe()
@@ -218,7 +220,7 @@ export class DsTimepicker implements OnDestroy, CanColor {
       throw Error('Attempted to open an DsTimepicker with no associated input.')
     }
     if (this._document) {
-      this._focusedElementBeforeOpen = this._document.activeElement
+      this._focusedElementBeforeOpen = this._document.activeElement as HTMLElement
     }
 
     this.touchUi ? this._openAsDialog() : this._openAsPopup()
