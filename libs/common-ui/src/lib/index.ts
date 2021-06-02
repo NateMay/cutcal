@@ -1,5 +1,4 @@
 export * from './animations'
-export * from './app.state'
 export * from './basics.module'
 export * from './components'
 export * from './decorators'

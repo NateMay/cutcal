@@ -1,13 +1,18 @@
 {
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.json": "*",
     ".stylelintrc": "*",
     ".prettierrc": "*",
     "nx.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "cutcal",
   "tasksRunnerOptions": {
     "default": {
@@ -21,38 +26,107 @@
     }
   },
   "projects": {
-    "cutcal": { "tags": [] },
-    "cutcal-e2e": { "tags": [], "implicitDependencies": ["cutcal"] },
-    "functions": { "tags": [] },
-    "common-ui-docs": { "tags": [] },
-    "common-ui-e2e": { "tags": [], "implicitDependencies": ["common-ui-docs"] },
-    "dietstats": { "tags": [] },
-    "dietstats-e2e": { "tags": [], "implicitDependencies": ["dietstats"] },
-    "nutrition": { "tags": ["scope:shared"] },
-    "ng-testing": { "tags": ["scope:shared"] },
-    "cutcal-food-recipe": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-analyze": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-calendar": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-fallback": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-footer": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-profile": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-recipe-builder": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-meal-ingredient": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-nutrient": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-legal": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-business": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-grocery-pantry": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-support": { "tags": ["scope:cutcal", "type:feature"] },
-    "cutcal-landing": { "tags": ["scope:cutcal", "type:feature"] },
-    "common-ui": { "tags": ["scope:shared"] },
-    "playgrounds": { "tags": ["scope:common-ui-docs"] },
-    "core": { "tags": ["scope:util"] },
-    "diet": { "tags": ["scope:shared"] },
-    "user": { "tags": ["scope:shared"] },
-    "auth": { "tags": ["scope:util"] },
-    "charts": { "tags": ["scope:shared"] },
-    "fire": { "tags": ["scope:util"] },
-    "convert-units": { "tags": [] },
-    "cc-timepicker": { "tags": [] }
+    "cutcal": {
+      "tags": []
+    },
+    "cutcal-e2e": {
+      "tags": [],
+      "implicitDependencies": ["cutcal"]
+    },
+    "functions": {
+      "tags": []
+    },
+    "common-ui-docs": {
+      "tags": []
+    },
+    "common-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["common-ui-docs"]
+    },
+    "dietstats": {
+      "tags": []
+    },
+    "dietstats-e2e": {
+      "tags": [],
+      "implicitDependencies": ["dietstats"]
+    },
+    "nutrition": {
+      "tags": ["scope:shared"]
+    },
+    "ng-testing": {
+      "tags": ["scope:shared"]
+    },
+    "cutcal-food-recipe": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-analyze": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-calendar": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-fallback": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-footer": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-profile": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-recipe-builder": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-meal-ingredient": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-nutrient": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-legal": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-business": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-grocery-pantry": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-support": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "cutcal-landing": {
+      "tags": ["scope:cutcal", "type:feature"]
+    },
+    "common-ui": {
+      "tags": ["scope:shared"]
+    },
+    "playgrounds": {
+      "tags": ["scope:common-ui-docs"]
+    },
+    "core": {
+      "tags": ["scope:util"]
+    },
+    "diet": {
+      "tags": ["scope:shared"]
+    },
+    "user": {
+      "tags": ["scope:shared"]
+    },
+    "auth": {
+      "tags": ["scope:util"]
+    },
+    "charts": {
+      "tags": ["scope:shared"]
+    },
+    "fire": {
+      "tags": ["scope:util"]
+    },
+    "convert-units": {
+      "tags": []
+    },
+    "cc-timepicker": {
+      "tags": []
+    }
   }
 }

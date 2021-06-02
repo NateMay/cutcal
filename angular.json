@@ -34,11 +34,17 @@
             "main": "apps/cutcal/src/main.ts",
             "polyfills": "apps/cutcal/src/polyfills.ts",
             "tsConfig": "apps/cutcal/tsconfig.app.json",
-            "aot": true,
-            "assets": ["apps/cutcal/src/favicon.ico", "apps/cutcal/src/assets"],
-            "styles": ["apps/cutcal/src/styles.scss"],
+            "assets": [
+              "apps/cutcal/src/favicon.ico",
+              "apps/cutcal/src/assets"
+            ],
+            "styles": [
+              "apps/cutcal/src/styles.scss"
+            ],
             "stylePreprocessorOptions": {
-              "includePaths": ["libs/common-ui/styles"]
+              "includePaths": [
+                "libs/common-ui/styles"
+              ]
             },
             "scripts": [],
             "allowedCommonJsDependencies": [
@@ -61,7 +67,13 @@
               "nouislider",
               "hogan.js",
               "highcharts"
-            ]
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -124,7 +136,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/cutcal/jest.config.js",
-            "tsConfig": "apps/cutcal/tsconfig.spec.json",
             "setupFile": "apps/cutcal/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -156,12 +167,13 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/cutcal-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/cutcal-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
     },
-
     "common-ui-docs": {
       "projectType": "application",
       "schematics": {
@@ -181,16 +193,25 @@
             "main": "apps/common-ui-docs/src/main.ts",
             "polyfills": "apps/common-ui-docs/src/polyfills.ts",
             "tsConfig": "apps/common-ui-docs/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "apps/common-ui-docs/src/favicon.ico",
               "apps/common-ui-docs/src/assets"
             ],
-            "styles": ["apps/common-ui-docs/src/styles.scss"],
+            "styles": [
+              "apps/common-ui-docs/src/styles.scss"
+            ],
             "stylePreprocessorOptions": {
-              "includePaths": ["libs/common-ui/styles"]
+              "includePaths": [
+                "libs/common-ui/styles"
+              ]
             },
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -253,7 +274,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/common-ui-docs/jest.config.js",
-            "tsConfig": "apps/common-ui-docs/tsconfig.spec.json",
             "setupFile": "apps/common-ui-docs/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -308,7 +328,6 @@
             "main": "apps/dietstats/src/main.ts",
             "polyfills": "apps/dietstats/src/polyfills.ts",
             "tsConfig": "apps/dietstats/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "apps/dietstats/src/favicon.ico",
               "apps/dietstats/src/assets"
@@ -319,7 +338,9 @@
               "apps/dietstats/src/styles.scss"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["libs/common-ui/styles"]
+              "includePaths": [
+                "libs/common-ui/styles"
+              ]
             },
             "scripts": [],
             "allowedCommonJsDependencies": [
@@ -342,7 +363,13 @@
               "nouislider",
               "hogan.js",
               "highcharts"
-            ]
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -406,7 +433,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/dietstats/jest.config.js",
-            "tsConfig": "apps/dietstats/tsconfig.spec.json",
             "setupFile": "apps/dietstats/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -434,7 +460,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/dietstats-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/dietstats-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -458,7 +486,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/nutrition/jest.config.js",
-            "tsConfig": "libs/nutrition/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
@@ -483,7 +510,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ng-testing/jest.config.js",
-            "tsConfig": "libs/ng-testing/tsconfig.spec.json",
             "setupFile": "libs/ng-testing/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -514,7 +540,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/food-recipe/jest.config.js",
-            "tsConfig": "libs/cutcal/food-recipe/tsconfig.spec.json",
             "setupFile": "libs/cutcal/food-recipe/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -545,7 +570,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/analyze/jest.config.js",
-            "tsConfig": "libs/cutcal/analyze/tsconfig.spec.json",
             "setupFile": "libs/cutcal/analyze/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -576,7 +600,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/calendar/jest.config.js",
-            "tsConfig": "libs/cutcal/calendar/tsconfig.spec.json",
             "setupFile": "libs/cutcal/calendar/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -607,7 +630,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/fallback/jest.config.js",
-            "tsConfig": "libs/cutcal/fallback/tsconfig.spec.json",
             "setupFile": "libs/cutcal/fallback/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -638,7 +660,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/footer/jest.config.js",
-            "tsConfig": "libs/cutcal/footer/tsconfig.spec.json",
             "setupFile": "libs/cutcal/footer/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -669,7 +690,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/profile/jest.config.js",
-            "tsConfig": "libs/cutcal/profile/tsconfig.spec.json",
             "setupFile": "libs/cutcal/profile/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -700,7 +720,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/recipe-builder/jest.config.js",
-            "tsConfig": "libs/cutcal/recipe-builder/tsconfig.spec.json",
             "setupFile": "libs/cutcal/recipe-builder/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -731,7 +750,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/meal-ingredient/jest.config.js",
-            "tsConfig": "libs/cutcal/meal-ingredient/tsconfig.spec.json",
             "setupFile": "libs/cutcal/meal-ingredient/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -762,7 +780,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/nutrient/jest.config.js",
-            "tsConfig": "libs/cutcal/nutrient/tsconfig.spec.json",
             "setupFile": "libs/cutcal/nutrient/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -793,7 +810,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/legal/jest.config.js",
-            "tsConfig": "libs/cutcal/legal/tsconfig.spec.json",
             "setupFile": "libs/cutcal/legal/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -824,7 +840,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/business/jest.config.js",
-            "tsConfig": "libs/cutcal/business/tsconfig.spec.json",
             "setupFile": "libs/cutcal/business/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -855,7 +870,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/grocery-pantry/jest.config.js",
-            "tsConfig": "libs/cutcal/grocery-pantry/tsconfig.spec.json",
             "setupFile": "libs/cutcal/grocery-pantry/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -886,7 +900,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/support/jest.config.js",
-            "tsConfig": "libs/cutcal/support/tsconfig.spec.json",
             "setupFile": "libs/cutcal/support/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -917,7 +930,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cutcal/landing/jest.config.js",
-            "tsConfig": "libs/cutcal/landing/tsconfig.spec.json",
             "setupFile": "libs/cutcal/landing/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -948,7 +960,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/common-ui/jest.config.js",
-            "tsConfig": "libs/common-ui/tsconfig.spec.json",
             "setupFile": "libs/common-ui/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -979,7 +990,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/playgrounds/jest.config.js",
-            "tsConfig": "libs/playgrounds/tsconfig.spec.json",
             "setupFile": "libs/playgrounds/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -1010,7 +1020,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/core/jest.config.js",
-            "tsConfig": "libs/core/tsconfig.spec.json",
             "setupFile": "libs/core/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -1041,7 +1050,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/diet/jest.config.js",
-            "tsConfig": "libs/diet/tsconfig.spec.json",
             "setupFile": "libs/diet/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -1072,7 +1080,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/user/jest.config.js",
-            "tsConfig": "libs/user/tsconfig.spec.json",
             "setupFile": "libs/user/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -1103,7 +1110,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/auth/jest.config.js",
-            "tsConfig": "libs/auth/tsconfig.spec.json",
             "setupFile": "libs/auth/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -1134,7 +1140,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/charts/jest.config.js",
-            "tsConfig": "libs/charts/tsconfig.spec.json",
             "setupFile": "libs/charts/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -1165,7 +1170,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/fire/jest.config.js",
-            "tsConfig": "libs/fire/tsconfig.spec.json",
             "setupFile": "libs/fire/src/test-setup.ts",
             "passWithNoTests": true
           }
@@ -1196,7 +1200,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/convert-units/jest.config.js",
-            "tsConfig": "libs/convert-units/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/convert-units/src/test-setup.ts"
           }
@@ -1239,7 +1242,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/cc-timepicker/jest.config.js",
-            "tsConfig": "libs/cc-timepicker/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/cc-timepicker/src/test-setup.ts"
           }
@@ -1287,7 +1289,6 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/functions/jest.config.js",
-            "tsConfig": "apps/functions/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }

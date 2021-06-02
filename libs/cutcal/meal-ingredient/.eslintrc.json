@@ -16,11 +16,19 @@
         "@typescript-eslint/no-inferrable-types": "off",
         "@angular-eslint/directive-selector": [
           "error",
-          { "type": "attribute", "prefix": "ds", "style": "camelCase" }
+          {
+            "type": "attribute",
+            "prefix": "ds",
+            "style": "camelCase"
+          }
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "ds", "style": "kebab-case" }
+          {
+            "type": "element",
+            "prefix": "ds",
+            "style": "kebab-case"
+          }
         ]
       }
     },

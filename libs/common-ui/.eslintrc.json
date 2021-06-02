@@ -8,7 +8,9 @@
         "plugin:@nrwl/nx/angular",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
-      "parserOptions": { "project": ["libs/common-ui/tsconfig.*?.json"] },
+      "parserOptions": {
+        "project": ["libs/common-ui/tsconfig.*?.json"]
+      },
       "rules": {
         "@angular-eslint/component-class-suffix": "off",
         "@angular-eslint/directive-class-suffix": "off",
@@ -17,11 +19,19 @@
         "@typescript-eslint/no-inferrable-types": "off",
         "@angular-eslint/directive-selector": [
           "error",
-          { "type": "attribute", "prefix": "ds", "style": "camelCase" }
+          {
+            "type": "attribute",
+            "prefix": "ds",
+            "style": "camelCase"
+          }
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "ds", "style": "kebab-case" }
+          {
+            "type": "element",
+            "prefix": "ds",
+            "style": "kebab-case"
+          }
         ]
       }
     },
